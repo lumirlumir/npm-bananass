@@ -1,0 +1,12 @@
+{
+  "name": "bananass",
+  "version": "0.0.0",
+  "description": "Baekjoon Framework for JavaScript. 자바스크립트를 위한 백준 프레임워크.🍌🫏",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
