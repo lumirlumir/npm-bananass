@@ -1,0 +1,25 @@
+# dependencies
+node_modules
+
+# production
+build
+.next
+
+# env
+.env
+.env.development
+.env.production
+
+# tests
+.nyc_output
+coverage
+
+# package
+package-lock.json
+
+# markdown
+*.md
+
+# cpp
+*.c
+*.cpp
