@@ -37,6 +37,4 @@ jobs:
         run: npm run coverage
 
       - name: Upload results to codecov
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+        uses: codecov/codecov-action@v5
