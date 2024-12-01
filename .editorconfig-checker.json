@@ -1,1 +1,3 @@
-{}
+{
+  "Exclude": ["docs/archived.md"]
+}

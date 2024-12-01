@@ -58,17 +58,17 @@
 
 1. C/C++ Compile Run & TDM-GCC(Compiler)
 
-   > 'C/C++ Compile Run' Extension을 설치한 후, 해당 Extension의 Manual에 따라 TDM-GCC를 설치합니다.
-   >
-   > C Compiler의 기본 경로
-   >
-   > - /usr/bin/gcc (Linux)
-   > - C:\TDM-GCC-64\bin\gcc.exe (Windows)
-   >
-   > C++ Compiler의 기본 경로
-   >
-   > - /usr/bin/g++ (Linux)
-   > - C:\TDM-GCC-64\bin\gcc.exe (Windows)
+  > 'C/C++ Compile Run' Extension을 설치한 후, 해당 Extension의 Manual에 따라 TDM-GCC를 설치합니다.
+  >
+  > C Compiler의 기본 경로
+  >
+  > - /usr/bin/gcc (Linux)
+  > - C:\TDM-GCC-64\bin\gcc.exe (Windows)
+  >
+  > C++ Compiler의 기본 경로
+  >
+  > - /usr/bin/g++ (Linux)
+  > - C:\TDM-GCC-64\bin\gcc.exe (Windows)
 
 1. EditorConfig for VS Code
 
