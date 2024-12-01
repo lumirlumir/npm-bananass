@@ -1,0 +1,28 @@
+version: 2
+updates:
+  # Maintain dependencies for npm.
+  - package-ecosystem: 'npm'
+    # Specify all directories from the current layer and below recursively, using globstar, for locations of manifest files.
+    directories:
+      - '**/*'
+    ignore:
+      - dependency-name: 'eslint'
+        versions: ['9']
+    schedule:
+      interval: 'daily'
+      time: '10:00'
+      timezone: 'Asia/Seoul'
+    pull-request-branch-name:
+      separator: '-'
+
+  # Maintain dependencies for GitHub Actions.
+  - package-ecosystem: 'github-actions'
+    # Workflow files stored in the default location of `.github/workflows`. (You don't need to specify `/.github/workflows` for `directory`. You can use `directory: "/"`.)
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '10:00'
+      timezone: 'Asia/Seoul'
+    pull-request-branch-name:
+      separator: '-'

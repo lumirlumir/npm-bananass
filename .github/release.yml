@@ -1,0 +1,54 @@
+# https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes#configuration-options
+
+changelog:
+  exclude:
+    labels:
+      - release
+
+  categories:
+    - title: 🚀 Features
+      labels:
+        - feat
+
+    - title: 🐛 Bug Fixes
+      labels:
+        - fix
+
+    - title: ⚡ Performance
+      labels:
+        - perf
+
+    - title: ♻️ Refactoring
+      labels:
+        - rafactor
+        - rename
+        - remove
+
+    - title: 🧪 Tests
+      labels:
+        - test
+
+    - title: ⬆️ Dependency Updates
+      labels:
+        - dependencies
+
+    - title: 🔄 Continuous Integration
+      labels:
+        - build
+        - ci
+
+    - title: 🧰 Maintenance
+      labels:
+        - '*'
+      exclude:
+        labels:
+          - feat
+          - fix
+          - perf
+          - refactor
+          - rename
+          - remove
+          - test
+          - dependencies
+          - build
+          - ci
