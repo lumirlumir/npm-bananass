@@ -55,12 +55,12 @@ jobs:
       - name: Bump version(patch, minor, major)
         if: ${{ inputs.type == 'patch' || inputs.type == 'minor' || inputs.type == 'major' }}
         run: |
-          npx lerna version ${{ inputs.type }} -m "release(${{ inputs.type }}): %s" --no-push --no-private --yes
+          npx lerna version ${{ inputs.type }} -m "release(${{ inputs.type }}): %s" --no-push --yes
 
       - name: Bump version(prerelease, prepatch, preminor, premajor)
         if: ${{ inputs.type == 'prerelease' || inputs.type == 'prepatch' || inputs.type == 'preminor' || inputs.type == 'premajor' }}
         run: |
-          npx lerna version ${{ inputs.type }} -m "release(${{ inputs.type }}): %s" --preid canary --no-push --no-private --yes
+          npx lerna version ${{ inputs.type }} -m "release(${{ inputs.type }}): %s" --preid canary --no-push --yes
 
       - name: Set up environment variables
         run: echo "NEW_VERSION=$(node -p "require('./lerna.json').version")" >> $GITHUB_ENV
