@@ -373,7 +373,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-caller}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L74}
    */
   'no-caller': '',
 
@@ -382,7 +382,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-case-declarations}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L78}
    */
   'no-case-declarations': '',
 
@@ -391,7 +391,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-console}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/errors.js#L27}
    *
    * @todo Disable it on bananass.
    */
@@ -402,7 +402,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-continue}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L278}
    *
    * @todo Disable it on bananass.
    */
@@ -413,7 +413,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-delete-var}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/variables.js#L12}
    */
   'no-delete-var': '',
 
@@ -422,7 +422,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-div-regex}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L86}
    */
   'no-div-regex': '',
 
@@ -431,7 +431,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-else-return}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L90}
    */
   'no-else-return': '',
 
@@ -440,7 +440,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-empty}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/errors.js#L52}
    */
   'no-empty': '',
 
@@ -449,14 +449,14 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-empty-function}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L94-L100}
    */
   'no-empty-function': '',
 
   /**
    * Disallow empty `static` blocks.
    *
-   * @description
+   * @description This rule is not included in `airbnb-base`
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-empty-static-block}
    * @link airbnb-base: {@link }
    */
@@ -467,7 +467,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-eq-null}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L108}
    */
   'no-eq-null': '',
 
@@ -476,7 +476,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-eval}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L112}
    */
   'no-eval': '',
 
@@ -485,7 +485,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-extend-native}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L116}
    */
   'no-extend-native': '',
 
@@ -494,7 +494,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-extra-bind}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L120}
    */
   'no-extra-bind': '',
 
@@ -503,7 +503,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-extra-boolean-cast}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/errors.js#L62}
    */
   'no-extra-boolean-cast': '',
 
@@ -512,7 +512,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-extra-label}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L124}
    */
   'no-extra-label': '',
 
@@ -521,7 +521,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-global-assign}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L136}
    */
   'no-global-assign': '',
 
@@ -530,7 +530,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-implicit-coercion}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L144-L149}
    */
   'no-implicit-coercion': '',
 
@@ -539,7 +539,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-implicit-globals}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L153}
    */
   'no-implicit-globals': '',
 
@@ -548,7 +548,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-implied-eval}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L157}
    */
   'no-implied-eval': '',
 
@@ -557,7 +557,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-inline-comments}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L281}
    *
    * @todo Disable it on bananass.
    */
@@ -568,7 +568,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-invalid-this}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L161}
    */
   'no-invalid-this': '',
 
@@ -577,7 +577,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-iterator}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L165}
    */
   'no-iterator': '',
 
@@ -586,7 +586,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-label-var}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/variables.js#L16}
    */
   'no-label-var': '',
 
@@ -595,7 +595,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-labels}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L169}
    */
   'no-labels': '',
 
@@ -604,7 +604,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-lone-blocks}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L173}
    */
   'no-lone-blocks': '',
 
@@ -613,7 +613,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-lonely-if}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L285}
    */
   'no-lonely-if': '',
 
@@ -622,7 +622,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-loop-func}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L177}
    */
   'no-loop-func': '',
 
@@ -631,7 +631,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-magic-numbers}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L181-L186}
    */
   'no-magic-numbers': '',
 
@@ -640,7 +640,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-multi-assign}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L311}
    *
    * @todo Disable it on bananass.
    */
@@ -651,7 +651,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-multi-str}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L196}
    */
   'no-multi-str': '',
 
@@ -660,7 +660,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-negated-condition}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L319}
    */
   'no-negated-condition': '',
 
@@ -669,7 +669,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-nested-ternary}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L322}
    */
   'no-nested-ternary': '',
 
@@ -678,63 +678,63 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-new}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L200}
    */
-  'no-new': '',
+  'no-new': 'error',
 
   /**
    * Disallow `new` operators with the `Function` object.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-new-func}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L204}
    */
-  'no-new-func': '',
+  'no-new-func': 'error',
 
   /**
    * Disallow `new` operators with the `String`, `Number`, and `Boolean` objects.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-new-wrappers}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L208}
    */
-  'no-new-wrappers': '',
+  'no-new-wrappers': 'error',
 
   /**
    * Disallow `\8` and `\9` escape sequences in string literals.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-nonoctal-decimal-escape}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L212}
    */
-  'no-nonoctal-decimal-escape': '',
+  'no-nonoctal-decimal-escape': 'error',
 
   /**
    * Disallow calls to the `Object` constructor without an argument.
    *
-   * @description
+   * @description This rule is not included in `airbnb-base@19.0.4`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-object-constructor}
    * @link airbnb-base: {@link }
    */
-  'no-object-constructor': '',
+  'no-object-constructor': 'off',
 
   /**
    * Disallow octal literals.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-octal}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L216}
    *
    * @description Disable it on bananass.
    */
-  'no-octal': '',
+  'no-octal': 'error',
 
   /**
    * Disallow octal escape sequences in string literals.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-octal-escape}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L221}
    */
   'no-octal-escape': '',
 
@@ -743,7 +743,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-param-reassign}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L226-L241}
    */
   'no-param-reassign': '',
 
@@ -752,45 +752,45 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-plusplus}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L329}
    *
    * @description Disable it on bananass.
    */
-  'no-plusplus': '',
+  'no-plusplus': 'error',
 
   /**
    * Disallow the use of the `__proto__` property.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-proto}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L245}
    */
-  'no-proto': '',
+  'no-proto': 'error',
 
   /**
    * Disallow variable redeclaration.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-redeclare}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L249}
    */
-  'no-redeclare': '',
+  'no-redeclare': 'error',
 
   /**
    * Disallow multiple spaces in regular expressions.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-regex-spaces}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/errors.js#L112}
    */
-  'no-regex-spaces': '',
+  'no-regex-spaces': 'error',
 
   /**
    * Disallow specified names in exports.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-restricted-exports}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/es6.js#L65-L70}
    */
   'no-restricted-exports': '',
 
@@ -799,7 +799,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-restricted-globals}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/variables.js#L19-L31}
    */
   'no-restricted-globals': '',
 
@@ -808,7 +808,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-restricted-imports}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/es6.js#L74-L77}
    */
   'no-restricted-imports': '',
 
@@ -817,7 +817,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-restricted-properties}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L253-L291}
    */
   'no-restricted-properties': '',
 
@@ -826,7 +826,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-restricted-syntax}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L333-L351}
    */
   'no-restricted-syntax': '',
 
@@ -835,7 +835,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-return-assign}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L295}
    */
   'no-return-assign': '',
 
@@ -844,72 +844,72 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-script-url}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L303}
    */
-  'no-script-url': '',
+  'no-script-url': 'error',
 
   /**
    * Disallow comma operators.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-sequences}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L317}
    */
-  'no-sequences': '',
+  'no-sequences': 'error',
 
   /**
    * Disallow variable declarations from shadowing variables declared in the outer scope.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-shadow}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/variables.js#L34}
    */
-  'no-shadow': '',
+  'no-shadow': 'error',
 
   /**
    * Disallow identifiers from shadowing restricted names.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-shadow-restricted-names}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/variables.js#L37}
    */
-  'no-shadow-restricted-names': '',
+  'no-shadow-restricted-names': 'error',
 
   /**
    * Disallow ternary operators.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-ternary}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L360}
    *
    * @todo Disable it on bananass.
    */
-  'no-ternary': '',
+  'no-ternary': 'off',
 
   /**
    * Disallow throwing literals as exceptions.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-throw-literal}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L321}
    */
-  'no-throw-literal': '',
+  'no-throw-literal': 'error',
 
   /**
    * Disallow initializing variables to `undefined`.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-undef-init}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/variables.js#L43}
    */
-  'no-undef-init': '',
+  'no-undef-init': 'error',
 
   /**
    * Disallow the use of `undefined` as an identifier.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-undefined}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/variables.js#L48}
    */
   'no-undefined': '',
 
@@ -918,7 +918,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-underscore-dangle}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L370-L375}
    *
    * @todo Disable it on bananass.
    */
@@ -929,7 +929,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-unneeded-ternary}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L380}
    */
   'no-unneeded-ternary': '',
 
@@ -938,7 +938,7 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-unused-expressions}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L329-L333}
    */
   'no-unused-expressions': '',
 
@@ -947,16 +947,16 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-unused-labels}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L337}
    */
-  'no-unused-labels': '',
+  'no-unused-labels': 'error',
 
   /**
    * Disallow unnecessary calls to `.call()` and `.apply()`.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-useless-call}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L341}
    */
   'no-useless-call': '',
 
@@ -965,45 +965,45 @@ module.exports = {
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-useless-catch}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L345}
    */
-  'no-useless-catch': '',
+  'no-useless-catch': 'error',
 
   /**
    * Disallow unnecessary computed property keys in objects and classes.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-useless-computed-key}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/es6.js#L85}
    */
-  'no-useless-computed-key': '',
+  'no-useless-computed-key': 'error',
 
   /**
    * Disallow unnecessary concatenation of literals or template literals.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-useless-concat}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L349}
    */
-  'no-useless-concat': '',
+  'no-useless-concat': 'error',
 
   /**
    * Disallow unnecessary constructors.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-useless-constructor}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/es6.js#L89}
    */
-  'no-useless-constructor': '',
+  'no-useless-constructor': 'error',
 
   /**
    * Disallow unnecessary escape characters.
    *
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-useless-escape}
-   * @link airbnb-base: {@link }
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L353}
    */
-  'no-useless-escape': '',
+  'no-useless-escape': 'error',
 
   /**
    * Disallow renaming import, export, and destructured assignments to the same name.
