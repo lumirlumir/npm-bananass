@@ -95,6 +95,8 @@ module.exports = {
    * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/curly}
    * @link airbnb-base: {@link }
+   *
+   * @todo disable it on bananass.
    */
   curly: '',
 
