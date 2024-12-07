@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-bananass",
+  "name": "eslint-config-airbnb-base-flat",
   "version": "0.0.0",
   "description": "ESLint config for Bananass framework.",
   "exports": "./build/index.js",
