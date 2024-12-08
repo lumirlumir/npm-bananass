@@ -1,0 +1,44 @@
+{
+  "name": "eslint-config-airbnb-base-flat",
+  "version": "0.0.0",
+  "description": "ESLint config for airbnb base to support ESLint v9 flat config.",
+  "exports": "./build/index.js",
+  "files": [
+    "build",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "eslint-config",
+    "config",
+    "flat",
+    "flat-config",
+    "airbnb",
+    "styleguide",
+    "javascript",
+    "bananass",
+    "framework"
+  ],
+  "author": "루밀LuMir <rpfos@naver.com> (https://github.com/lumirlumir)",
+  "license": "MIT",
+  "homepage": "https://github.com/lumirlumir/npm-bananass",
+  "repository": {
+    "type": "github",
+    "url": "git+https://github.com/lumirlumir/npm-bananass.git",
+    "directory": "packages/eslint-config-airbnb-base-flat"
+  },
+  "bugs": {
+    "url": "https://github.com/lumirlumir/npm-bananass/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "peerDependencies": {
+    "eslint": ">=9.16.0"
+  }
+}
