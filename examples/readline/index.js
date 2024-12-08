@@ -13,6 +13,8 @@ const { stdin: input, stdout: output } = require('node:process');
 
 const rl = createInterface({ input, output });
 
+console.log("Type 'close' to quit");
+
 rl.on('line', line => {
   console.log(`Received: ${line}`);
 

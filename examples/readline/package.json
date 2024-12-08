@@ -3,6 +3,6 @@
   "name": "examples-readline",
   "version": "0.0.0",
   "scripts": {
-    "start": "node --watch ."
+    "start": "node ."
   }
 }
