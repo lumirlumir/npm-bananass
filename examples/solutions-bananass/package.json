@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "name": "examples-solutions-bananass",
+  "version": "0.0.0",
+  "dependencies": {
+    "bananass": "^0.0.0"
+  }
+}
