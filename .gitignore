@@ -17,3 +17,6 @@ coverage
 # packages
 packages/**/LICENSE.md
 packages/**/README.md
+
+# allow
+!packages/bananass/src/commands/build
