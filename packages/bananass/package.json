@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^5.97.1"
+  }
 }
