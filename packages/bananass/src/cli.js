@@ -33,7 +33,7 @@ program.name(name).description(description).version(version, '-v, --version');
 program
   .command('build')
   .description(
-    `create bundled files using Webpack from the ${ENTRY_DIRECTORY_NAME_ARRAY.map(dirName => `\`${dirName}\``).join(' or ')} directory and outputs them to the \`${OUTPUT_DIRECTORY_NAME}\` directory`,
+    `build and create bundled files using Webpack from the ${ENTRY_DIRECTORY_NAME_ARRAY.map(dirName => `\`${dirName}\``).join(' or ')} directory and outputs them to the \`${OUTPUT_DIRECTORY_NAME}\` directory`,
   )
   .argument('[problems...]', 'baekjoon problem number list', null)
   .action(problems => {
