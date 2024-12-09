@@ -2,7 +2,7 @@
   "name": "bananass",
   "version": "0.0.0",
   "description": "Baekjoon Framework for JavaScript.🍌",
-  "main": "src/index.js",
+  "exports": "./src/index.js",
   "bin": {
     "bananass": "src/cli.js"
   },
