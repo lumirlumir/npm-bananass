@@ -2,6 +2,9 @@
   "private": true,
   "name": "examples-solutions-bananass",
   "version": "0.0.0",
+  "scripts": {
+    "build": "npx bananass build"
+  },
   "dependencies": {
     "bananass": "^0.0.0"
   }
