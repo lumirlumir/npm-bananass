@@ -1,5 +1,5 @@
 /**
- * @fileoverview Entry file for the `fs` util.
+ * @fileoverview Entry file for the `fs` directory.
  */
 
 // --------------------------------------------------------------------------------
