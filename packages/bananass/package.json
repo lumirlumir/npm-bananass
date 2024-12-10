@@ -1,12 +1,20 @@
 {
   "name": "bananass",
   "version": "0.0.0",
-  "description": "Baekjoon Framework for JavaScript. 자바스크립트를 위한 백준 프레임워크.🍌",
-  "main": "index.js",
+  "description": "Baekjoon Framework for JavaScript.🍌",
+  "exports": "./src/index.js",
+  "bin": {
+    "bananass": "src/cli.js"
+  },
   "scripts": {
     "test": "true"
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ansi-colors": "^4.1.3",
+    "commander": "^12.1.0",
+    "webpack": "^5.97.1"
+  }
 }
