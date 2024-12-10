@@ -10,13 +10,13 @@ const { resolve } = require('node:path');
 const { log } = require('node:console');
 
 const webpack = require('webpack');
-const c = require('ansi-colors');
 
 const {
   OUTPUT_DIRECTORY_NAME,
   BAEKJOON_PROBLEM_NUMBER_MIN,
   BAEKJOON_PROBLEM_NUMBER_MAX,
 } = require('../../constants');
+const { complete, error } = require('../../utils/console-styles');
 const { getRootDir } = require('../../utils/fs');
 
 // --------------------------------------------------------------------------------
@@ -38,17 +38,15 @@ module.exports = function build(problems) {
    */
   problems.forEach(problem => {
     if (typeof problem !== 'string')
-      throw new TypeError(
-        c.red('❌ The `problems` parameter must be of type `string[]`.'),
-      );
+      throw new TypeError(error('The `problems` parameter must be of type `string[]`.'));
 
     if (
       Number(problem) < BAEKJOON_PROBLEM_NUMBER_MIN ||
       Number(problem) > BAEKJOON_PROBLEM_NUMBER_MAX
     )
       throw new TypeError(
-        c.red(
-          `❌ The Baekjoon problem number must be between ${BAEKJOON_PROBLEM_NUMBER_MIN} and ${BAEKJOON_PROBLEM_NUMBER_MAX}.`,
+        error(
+          `The Baekjoon problem number must be between ${BAEKJOON_PROBLEM_NUMBER_MIN} and ${BAEKJOON_PROBLEM_NUMBER_MAX}.`,
         ),
       );
   });
@@ -57,6 +55,7 @@ module.exports = function build(problems) {
   // Declaration
   // ------------------------------------------------------------------------------
 
+  const entryFileName = 'template.js';
   const rootDir = getRootDir();
 
   // ------------------------------------------------------------------------------
@@ -77,7 +76,7 @@ module.exports = function build(problems) {
     /**
      * See {@link https://webpack.js.org/concepts/#entry}.
      */
-    entry: resolve(__dirname, 'template.js'),
+    entry: resolve(__dirname, entryFileName),
 
     /**
      * See {@link https://webpack.js.org/concepts/#output}.
@@ -85,7 +84,7 @@ module.exports = function build(problems) {
     output: {
       path: resolve(rootDir, OUTPUT_DIRECTORY_NAME),
       filename: `${problem}.js`,
-      // clean: true, // Clean the output directory before emit.
+      // clean: true, // TODO: Clean the output directory before emit.
     },
 
     /**
@@ -109,8 +108,10 @@ module.exports = function build(problems) {
       throw new Error(err || stats.toString());
     }
 
+    // TODO: add -d, --debug option.
     log(`- Output Directory: ${resolve(rootDir, OUTPUT_DIRECTORY_NAME)}`); // TODO: reduce redundency using `outputDir` variable.
     log(`- Created: ${problems.map(problem => `${problem}.js`).join(', ')}`);
-    log(c.green('✅ Bananass build completed successfully.'));
+
+    log(complete('Bananass build completed successfully.'));
   });
 };
