@@ -6,7 +6,11 @@ const { execSync } = require('node:child_process');
 const { join, resolve } = require('node:path');
 const { existsSync } = require('node:fs');
 
-const { error } = require('../console-styles');
+const {
+  colorfy: { error },
+  // TODO: Bug Report
+  // eslint-disable-next-line import/no-unresolved
+} = require('bananass-utils-console');
 
 // --------------------------------------------------------------------------------
 // Exports
