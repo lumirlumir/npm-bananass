@@ -7,7 +7,7 @@
 // --------------------------------------------------------------------------------
 
 const createSpinner = require('./spinner');
-const console = require('./console');
+const colorfy = require('./colorfy');
 
 // --------------------------------------------------------------------------------
 // Exports
@@ -15,5 +15,5 @@ const console = require('./console');
 
 module.exports = {
   createSpinner,
-  console,
+  colorfy,
 };
