@@ -36,8 +36,8 @@ program
     `build and create bundled files using Webpack from the ${ENTRY_DIRECTORY_NAME_ARRAY.map(dirName => `\`${dirName}\``).join(' or ')} directory and outputs them to the \`${OUTPUT_DIRECTORY_NAME}\` directory`,
   )
   .argument('[problems...]', 'baekjoon problem number list', null)
-  .action(problems => {
-    build(problems);
+  .action(async problems => {
+    await build(problems);
   });
 
 /**
