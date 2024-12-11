@@ -22,7 +22,7 @@ Navigate to the `examples/readline` directory and then run the following command
 
 ```sh
 cd examples/readline
-npm start
+npm run start
 ```
 
 Once the example is running, you can enter the desired string in the terminal and press the <kbd>Enter</kbd> key to see the input being processed.
