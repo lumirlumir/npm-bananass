@@ -1,6 +1,6 @@
 # `examples-readline`
 
-> <kbd>[한국어](README.md)</kbd> | <kbd>English</kbd>
+<kbd>[한국어](README.md)</kbd> | <kbd>English</kbd>
 
 This example demonstrates how to read and process input from the terminal using Node.js's `readline` module.
 

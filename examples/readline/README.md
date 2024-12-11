@@ -1,6 +1,6 @@
 # `examples-readline`
 
-> <kbd>한국어</kbd> | <kbd>[English](README.en.md)</kbd>
+<kbd>한국어</kbd> | <kbd>[English](README.en.md)</kbd>
 
 이 예제는 Node.js의 `readline` 모듈을 사용하여 터미널에서 입력을 읽고 처리하는 방법을 보여줍니다.
 
