@@ -93,19 +93,19 @@ class Spinner {
   }
 
   success(text) {
-    return this.#symbolStop(successSymbol, c.green(text));
+    return this.#symbolStop(successSymbol, text);
   }
 
   error(text) {
-    return this.#symbolStop(errorSymbol, c.red(text));
+    return this.#symbolStop(errorSymbol, text);
   }
 
   warning(text) {
-    return this.#symbolStop(warningSymbol, c.yellow(text));
+    return this.#symbolStop(warningSymbol, text);
   }
 
   info(text) {
-    return this.#symbolStop(infoSymbol, c.blue(text));
+    return this.#symbolStop(infoSymbol, text);
   }
 
   get isSpinning() {
