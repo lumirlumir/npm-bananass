@@ -1,19 +1,19 @@
 /**
- * @fileoverview Entry file for the `console-styles` directory.
+ * @fileoverview Entry file for the `bananass-utils-console` package.
  */
 
 // --------------------------------------------------------------------------------
 // Require
 // --------------------------------------------------------------------------------
 
-const complete = require('./complete');
-const error = require('./error');
+const createSpinner = require('./spinner');
+const colorfy = require('./colorfy');
 
 // --------------------------------------------------------------------------------
 // Exports
 // --------------------------------------------------------------------------------
 
 module.exports = {
-  complete,
-  error,
+  createSpinner,
+  colorfy,
 };

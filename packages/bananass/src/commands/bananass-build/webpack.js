@@ -1,5 +1,5 @@
 /**
- * @fileoverview Build and create bundled files using Webpack.
+ * @fileoverview Asynchronously build and create bundled files using Webpack.
  */
 
 // --------------------------------------------------------------------------------
@@ -9,6 +9,12 @@
 const { resolve } = require('node:path');
 const { log } = require('node:console');
 
+const {
+  createSpinner,
+  colorfy: { bananass, success, error },
+  // TODO: Bug Report
+  // eslint-disable-next-line import/no-unresolved
+} = require('bananass-utils-console');
 const webpack = require('webpack');
 
 const {
@@ -16,7 +22,6 @@ const {
   BAEKJOON_PROBLEM_NUMBER_MIN,
   BAEKJOON_PROBLEM_NUMBER_MAX,
 } = require('../../constants');
-const { complete, error } = require('../../utils/console-styles');
 const { getRootDir } = require('../../utils/fs');
 
 // --------------------------------------------------------------------------------
@@ -24,11 +29,22 @@ const { getRootDir } = require('../../utils/fs');
 // --------------------------------------------------------------------------------
 
 /**
- * Build and create bundled files using Webpack.
+ * Asynchronously build and create bundled files using Webpack.
  *
  * @param {string[]} problems Baekjoon problem number list.
+ * @async
  */
-module.exports = function build(problems) {
+module.exports = async function build(problems) {
+  // ------------------------------------------------------------------------------
+  // Declaration
+  // ------------------------------------------------------------------------------
+
+  const WEBPACK_ENTRY_FILE_NAME = 'template.js';
+  const rootDir = getRootDir();
+  const spinner = createSpinner({
+    color: 'yellow',
+  }).start(bananass('Bananass build is running...')); // CLI Animation.
+
   // ------------------------------------------------------------------------------
   // Runtime Input Validation
   // ------------------------------------------------------------------------------
@@ -37,26 +53,25 @@ module.exports = function build(problems) {
    * `problems` parameter validation.
    */
   problems.forEach(problem => {
-    if (typeof problem !== 'string')
+    if (typeof problem !== 'string') {
+      spinner.error();
+
       throw new TypeError(error('The `problems` parameter must be of type `string[]`.'));
+    }
 
     if (
       Number(problem) < BAEKJOON_PROBLEM_NUMBER_MIN ||
       Number(problem) > BAEKJOON_PROBLEM_NUMBER_MAX
-    )
+    ) {
+      spinner.error();
+
       throw new TypeError(
         error(
           `The Baekjoon problem number must be between ${BAEKJOON_PROBLEM_NUMBER_MIN} and ${BAEKJOON_PROBLEM_NUMBER_MAX}.`,
         ),
       );
+    }
   });
-
-  // ------------------------------------------------------------------------------
-  // Declaration
-  // ------------------------------------------------------------------------------
-
-  const entryFileName = 'template.js';
-  const rootDir = getRootDir();
 
   // ------------------------------------------------------------------------------
   // Webpack Configs
@@ -76,7 +91,7 @@ module.exports = function build(problems) {
     /**
      * See {@link https://webpack.js.org/concepts/#entry}.
      */
-    entry: resolve(__dirname, entryFileName),
+    entry: resolve(__dirname, WEBPACK_ENTRY_FILE_NAME),
 
     /**
      * See {@link https://webpack.js.org/concepts/#output}.
@@ -103,15 +118,30 @@ module.exports = function build(problems) {
   // Run Webpack
   // ------------------------------------------------------------------------------
 
-  webpack(webpackConfigs, (err, stats) => {
-    if (err || stats.hasErrors()) {
-      throw new Error(err || stats.toString());
-    }
+  function webpackAsync(configs) {
+    return new Promise((res, rej) => {
+      webpack(configs, (err, stats) => {
+        if (err || stats.hasErrors()) {
+          rej(new Error(err || stats.toString()));
+        } else {
+          res(stats);
+        }
+      });
+    });
+  }
+
+  try {
+    await webpackAsync(webpackConfigs);
+
+    spinner.success(success('Bananass build completed successfully.', false));
 
     // TODO: add -d, --debug option.
+    log(); // new line.
     log(`- Output Directory: ${resolve(rootDir, OUTPUT_DIRECTORY_NAME)}`); // TODO: reduce redundency using `outputDir` variable.
     log(`- Created: ${problems.map(problem => `${problem}.js`).join(', ')}`);
+  } catch {
+    spinner.error();
 
-    log(complete('Bananass build completed successfully.'));
-  });
+    throw new Error(error('`webpackAysnc` function run failed.'));
+  }
 };
