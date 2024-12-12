@@ -7,7 +7,7 @@
 // --------------------------------------------------------------------------------
 
 const createSpinner = require('./spinner');
-const colorfy = require('./colorfy');
+const colorfy = require('./theme');
 
 // --------------------------------------------------------------------------------
 // Exports
