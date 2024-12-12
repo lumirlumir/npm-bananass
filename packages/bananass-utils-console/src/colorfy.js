@@ -3,7 +3,7 @@
 // --------------------------------------------------------------------------------
 
 const { red, yellow, green } = require('ansi-colors');
-const { successSymbol, errorSymbol, bananassSymbol } = require('./icons');
+const { successIcon, errorIcon, bananassIcon } = require('./icons');
 
 // --------------------------------------------------------------------------------
 // Exports
@@ -20,7 +20,7 @@ const { successSymbol, errorSymbol, bananassSymbol } = require('./icons');
  * // Output: ✅ Operation successful. (displayed in green text in the terminal.)
  */
 module.exports.success = (str, icon = true) =>
-  green(`${icon ? `${successSymbol} ` : ''}${str}`);
+  green(`${icon ? `${successIcon} ` : ''}${str}`);
 
 /**
  * Returns a red-colored error message prefixed with ❌.
@@ -32,8 +32,7 @@ module.exports.success = (str, icon = true) =>
  * console.log(error('Something went wrong.'));
  * // Output: ❌ Something went wrong. (displayed in red text in the terminal.)
  */
-module.exports.error = (str, icon = true) =>
-  red(`${icon ? `${errorSymbol} ` : ''}${str}`);
+module.exports.error = (str, icon = true) => red(`${icon ? `${errorIcon} ` : ''}${str}`);
 
 /**
  * Returns a yellow-colored error message prefixed with 🍌.
@@ -46,4 +45,4 @@ module.exports.error = (str, icon = true) =>
  * // Output: 🍌 Hello, Bananass. (displayed in yellow text in the terminal.)
  */
 module.exports.bananass = (str, icon = true) =>
-  yellow(`${icon ? `${bananassSymbol} ` : ''}${str}`);
+  yellow(`${icon ? `${bananassIcon} ` : ''}${str}`);

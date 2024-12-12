@@ -13,10 +13,10 @@ const process = require('node:process');
 const c = require('ansi-colors');
 
 const {
-  successSymbol,
-  errorSymbol,
-  warningSymbol,
-  infoSymbol,
+  successIcon,
+  errorIcon,
+  warningIcon,
+  infoIcon,
   defaultSpinner,
 } = require('./icons'); // TODO: Change from Symbols to Icons
 const { isInteractive } = require('./utils');
@@ -186,19 +186,19 @@ class Spinner {
   }
 
   success(text) {
-    return this.#symbolStop(successSymbol, text);
+    return this.#symbolStop(successIcon, text);
   }
 
   error(text) {
-    return this.#symbolStop(errorSymbol, text);
+    return this.#symbolStop(errorIcon, text);
   }
 
   warning(text) {
-    return this.#symbolStop(warningSymbol, text);
+    return this.#symbolStop(warningIcon, text);
   }
 
   info(text) {
-    return this.#symbolStop(infoSymbol, text);
+    return this.#symbolStop(infoIcon, text);
   }
 
   clear() {
