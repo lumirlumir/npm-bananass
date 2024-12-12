@@ -65,19 +65,6 @@ module.exports.success = (str, showIcon = true) =>
 module.exports.error = (str, showIcon = true) => format(str, showIcon, red, errorIcon);
 
 /**
- * Returns a blue-colored info message prefixed with an icon.
- *
- * @param {string} str The info message to format.
- * @param {boolean} showIcon Whether to show the icon.
- * @returns {string} Returns a blue-colored info message prefixed with an icon.
- *
- * @example
- * console.log(info('Informational message.'));
- * // Output: (icon?) Informational message. (displayed in blue text in the terminal.)
- */
-module.exports.info = (str, showIcon = true) => format(str, showIcon, blue, infoIcon);
-
-/**
  * Returns a yellow-colored warning message prefixed with an icon.
  *
  * @param {string} str The warning message to format.
@@ -90,6 +77,19 @@ module.exports.info = (str, showIcon = true) => format(str, showIcon, blue, info
  */
 module.exports.warning = (str, showIcon = true) =>
   format(str, showIcon, yellow, warningIcon);
+
+/**
+ * Returns a blue-colored info message prefixed with an icon.
+ *
+ * @param {string} str The info message to format.
+ * @param {boolean} showIcon Whether to show the icon.
+ * @returns {string} Returns a blue-colored info message prefixed with an icon.
+ *
+ * @example
+ * console.log(info('Informational message.'));
+ * // Output: (icon?) Informational message. (displayed in blue text in the terminal.)
+ */
+module.exports.info = (str, showIcon = true) => format(str, showIcon, blue, infoIcon);
 
 /**
  * Returns a yellow-colored error message prefixed with an icon.
