@@ -1,5 +1,6 @@
 /**
  * @fileoverview Entry file for the `bananass-utils-console` package.
+ * @module bananass-utils-console
  */
 
 // --------------------------------------------------------------------------------
@@ -7,7 +8,7 @@
 // --------------------------------------------------------------------------------
 
 const createSpinner = require('./spinner');
-const colorfy = require('./theme');
+const theme = require('./theme');
 
 // --------------------------------------------------------------------------------
 // Exports
@@ -15,5 +16,5 @@ const colorfy = require('./theme');
 
 module.exports = {
   createSpinner,
-  colorfy,
+  theme,
 };
