@@ -11,7 +11,7 @@ const { log } = require('node:console');
 
 const {
   createSpinner,
-  colorfy: { bananass, success, error },
+  theme: { bananass, success, error },
   // TODO: Bug Report
   // eslint-disable-next-line import/no-unresolved
 } = require('bananass-utils-console');

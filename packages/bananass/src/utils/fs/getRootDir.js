@@ -7,7 +7,7 @@ const { join, resolve } = require('node:path');
 const { existsSync } = require('node:fs');
 
 const {
-  colorfy: { error },
+  theme: { error },
   // TODO: Bug Report
   // eslint-disable-next-line import/no-unresolved
 } = require('bananass-utils-console');

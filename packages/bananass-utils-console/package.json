@@ -2,7 +2,11 @@
   "name": "bananass-utils-console",
   "version": "0.0.0",
   "description": "",
-  "exports": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./spinner": "./src/spinner.js",
+    "./theme": "./src/theme.js"
+  },
   "scripts": {
     "test": "true"
   },

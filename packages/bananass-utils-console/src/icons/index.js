@@ -1,12 +1,23 @@
-const c = require('ansi-colors');
+/**
+ * @fileoverview Icons used in the console.
+ */
 
+// --------------------------------------------------------------------------------
+// Require
+// --------------------------------------------------------------------------------
+
+const c = require('ansi-colors');
 const { isUnicodeSupported } = require('../utils');
 
-module.exports.successSymbol = c.green.bold(isUnicodeSupported ? '✓' : '√');
-module.exports.errorSymbol = c.red.bold(isUnicodeSupported ? '✕' : '×');
-module.exports.warningSymbol = c.yellow.bold(isUnicodeSupported ? '‼' : '‼');
-module.exports.infoSymbol = c.blue.bold(isUnicodeSupported ? '✦' : 'i');
-module.exports.bananassSymbol = c.yellow(isUnicodeSupported ? '🍌' : '');
+// --------------------------------------------------------------------------------
+// Exports
+// --------------------------------------------------------------------------------
+
+module.exports.successIcon = c.green.bold(isUnicodeSupported ? '✓' : '√');
+module.exports.errorIcon = c.red.bold(isUnicodeSupported ? '✕' : '×');
+module.exports.warningIcon = c.yellow.bold(isUnicodeSupported ? '‼' : '‼');
+module.exports.infoIcon = c.blue.bold(isUnicodeSupported ? '✦' : 'i');
+module.exports.bananassIcon = c.yellow(isUnicodeSupported ? '🍌' : '');
 
 module.exports.defaultSpinner = {
   frames: isUnicodeSupported
