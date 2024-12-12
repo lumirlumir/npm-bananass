@@ -1,3 +1,7 @@
+/**
+ * @fileoverview Find and get the root directory path based on the existence of `package.json`.
+ */
+
 // --------------------------------------------------------------------------------
 // Require
 // --------------------------------------------------------------------------------
@@ -6,11 +10,9 @@ const { execSync } = require('node:child_process');
 const { join, resolve } = require('node:path');
 const { existsSync } = require('node:fs');
 
-const {
-  theme: { error },
-  // TODO: Bug Report
-  // eslint-disable-next-line import/no-unresolved
-} = require('bananass-utils-console');
+// TODO: Bug Report
+// eslint-disable-next-line import/no-unresolved
+const { error } = require('bananass-utils-console/theme');
 
 // --------------------------------------------------------------------------------
 // Exports

@@ -115,12 +115,12 @@ module.exports = async function build(problems) {
   }));
 
   // ------------------------------------------------------------------------------
-  // Run Webpack
+  // Webpack Excution
   // ------------------------------------------------------------------------------
 
-  function webpackAsync(configs) {
-    return new Promise((res, rej) => {
-      webpack(configs, (err, stats) => {
+  try {
+    await new Promise((res, rej) => {
+      webpack(webpackConfigs, (err, stats) => {
         if (err || stats.hasErrors()) {
           rej(new Error(err || stats.toString()));
         } else {
@@ -128,20 +128,16 @@ module.exports = async function build(problems) {
         }
       });
     });
-  }
-
-  try {
-    await webpackAsync(webpackConfigs);
 
     spinner.success(success('Bananass build completed successfully.', false));
 
     // TODO: add -d, --debug option.
     log(); // new line.
-    log(`- Output Directory: ${resolve(rootDir, OUTPUT_DIRECTORY_NAME)}`); // TODO: reduce redundency using `outputDir` variable.
-    log(`- Created: ${problems.map(problem => `${problem}.js`).join(', ')}`);
+    log(`> Output Directory: ${resolve(rootDir, OUTPUT_DIRECTORY_NAME)}`); // TODO: reduce redundency using of `outputDir` variable.
+    log(`> Created: ${problems.map(problem => `${problem}.js`).join(', ')}`);
   } catch {
     spinner.error();
 
-    throw new Error(error('`webpackAysnc` function run failed.'));
+    throw new Error(error('Webpack run failed.'));
   }
 };
