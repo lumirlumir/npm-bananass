@@ -1,6 +1,5 @@
 /**
  * @fileoverview Tiny terminal spinner.
- *
  * @see https://github.com/sindresorhus/yocto-spinner `yocto-spinner` package.
  */
 
@@ -19,7 +18,7 @@ const {
   warningSymbol,
   infoSymbol,
   defaultSpinner,
-} = require('./icons');
+} = require('./icons'); // TODO: Change from Symbols to Icons
 const { isInteractive } = require('./utils');
 
 // --------------------------------------------------------------------------------
@@ -27,6 +26,10 @@ const { isInteractive } = require('./utils');
 // --------------------------------------------------------------------------------
 
 class Spinner {
+  // ------------------------------------------------------------------------------
+  // Private Property
+  // ------------------------------------------------------------------------------
+
   #frames;
   #interval;
   #currentFrame = -1;
@@ -35,8 +38,8 @@ class Spinner {
   #stream;
   #color;
   #lines = 0;
-  #exitHandlerBound;
   #isInteractive;
+  #exitHandlerBound;
   #lastSpinnerFrameTime = 0;
 
   constructor(options = {}) {
@@ -50,109 +53,16 @@ class Spinner {
     this.#exitHandlerBound = this.#exitHandler.bind(this);
   }
 
-  start(text) {
-    if (text) {
-      this.#text = text;
-    }
-
-    if (this.isSpinning) {
-      return this;
-    }
-
-    this.#hideCursor();
-    this.#render();
-    this.#subscribeToProcessEvents();
-
-    this.#timer = setInterval(() => {
-      this.#render();
-    }, this.#interval);
-
-    return this;
-  }
-
-  stop(finalText) {
-    if (!this.isSpinning) {
-      return this;
-    }
-
-    clearInterval(this.#timer);
-    this.#timer = undefined;
-    this.#showCursor();
-    this.clear();
-    this.#unsubscribeFromProcessEvents();
-
-    if (finalText) {
-      this.#stream.write(`${finalText}\n`);
-    }
-
-    return this;
-  }
+  // ------------------------------------------------------------------------------
+  // Private Method
+  // ------------------------------------------------------------------------------
 
   #symbolStop(symbol, text) {
     return this.stop(`${symbol} ${text ?? this.#text}`);
   }
 
-  success(text) {
-    return this.#symbolStop(successSymbol, text);
-  }
-
-  error(text) {
-    return this.#symbolStop(errorSymbol, text);
-  }
-
-  warning(text) {
-    return this.#symbolStop(warningSymbol, text);
-  }
-
-  info(text) {
-    return this.#symbolStop(infoSymbol, text);
-  }
-
-  get isSpinning() {
-    return this.#timer !== undefined;
-  }
-
-  get text() {
-    return this.#text;
-  }
-
-  set text(value = '') {
-    this.#text = value;
-    this.#render();
-  }
-
-  get color() {
-    return this.#color;
-  }
-
-  set color(value) {
-    this.#color = value;
-    this.#render();
-  }
-
-  clear() {
-    if (!this.#isInteractive) {
-      return this;
-    }
-
-    this.#stream.cursorTo(0);
-
-    // eslint-disable-next-line no-plusplus
-    for (let index = 0; index < this.#lines; index++) {
-      if (index > 0) {
-        this.#stream.moveCursor(0, -1);
-      }
-
-      this.#stream.clearLine(1);
-    }
-
-    this.#lines = 0;
-
-    return this;
-  }
-
   #render() {
-    const currentTime = Date.now();
+    const currentTime = Date.now(); // TODO: Follow the same pattern as the `yocto-spinner` package.
 
     // Ensure we only update the spinner frame at the wanted interval,
     // even if the render method is called more often.
@@ -189,6 +99,8 @@ class Spinner {
     const lines = text.split('\n');
 
     let lineCount = 0;
+
+    // TODO: remove below eslint-disable line
     // eslint-disable-next-line no-restricted-syntax
     for (const line of lines) {
       lineCount += Math.max(1, Math.ceil(line.length / width));
@@ -230,7 +142,112 @@ class Spinner {
     const exitCode = signal === 'SIGINT' ? 130 : signal === 'SIGTERM' ? 143 : 1;
     process.exit(exitCode);
   }
+
+  // ------------------------------------------------------------------------------
+  // Public Method
+  // ------------------------------------------------------------------------------
+
+  start(text) {
+    if (text) {
+      this.#text = text;
+    }
+
+    if (this.isSpinning) {
+      return this;
+    }
+
+    this.#hideCursor();
+    this.#render();
+    this.#subscribeToProcessEvents();
+
+    this.#timer = setInterval(() => {
+      this.#render();
+    }, this.#interval);
+
+    return this;
+  }
+
+  stop(finalText) {
+    if (!this.isSpinning) {
+      return this;
+    }
+
+    clearInterval(this.#timer);
+    this.#timer = undefined;
+    this.#showCursor();
+    this.clear();
+    this.#unsubscribeFromProcessEvents();
+
+    if (finalText) {
+      this.#stream.write(`${finalText}\n`);
+    }
+
+    return this;
+  }
+
+  success(text) {
+    return this.#symbolStop(successSymbol, text);
+  }
+
+  error(text) {
+    return this.#symbolStop(errorSymbol, text);
+  }
+
+  warning(text) {
+    return this.#symbolStop(warningSymbol, text);
+  }
+
+  info(text) {
+    return this.#symbolStop(infoSymbol, text);
+  }
+
+  clear() {
+    if (!this.#isInteractive) {
+      return this;
+    }
+
+    this.#stream.cursorTo(0);
+
+    // eslint-disable-next-line no-plusplus
+    for (let index = 0; index < this.#lines; index++) {
+      if (index > 0) {
+        this.#stream.moveCursor(0, -1);
+      }
+
+      this.#stream.clearLine(1);
+    }
+
+    this.#lines = 0;
+
+    return this;
+  }
+
+  get text() {
+    return this.#text;
+  }
+
+  set text(value = '') {
+    this.#text = value;
+    this.#render();
+  }
+
+  get color() {
+    return this.#color;
+  }
+
+  set color(value) {
+    this.#color = value;
+    this.#render();
+  }
+
+  get isSpinning() {
+    return this.#timer !== undefined;
+  }
 }
+
+// --------------------------------------------------------------------------------
+// Exports
+// --------------------------------------------------------------------------------
 
 module.exports = function createSpinner(options) {
   return new Spinner(options);
