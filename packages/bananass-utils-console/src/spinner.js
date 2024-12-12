@@ -19,7 +19,7 @@ const {
   warningIcon,
   infoIcon,
   defaultSpinner,
-} = require('./icons'); // TODO: Change from Symbols to Icons
+} = require('./icons');
 const { isInteractive } = require('./utils');
 
 // --------------------------------------------------------------------------------

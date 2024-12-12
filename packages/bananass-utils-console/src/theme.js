@@ -21,7 +21,7 @@ const {
 // --------------------------------------------------------------------------------
 
 /**
- * Formats a string with an optional icon and color.
+ * Formats a string with an optional color and icon.
  *
  * @param {string} str The string to format.
  * @param {boolean} showIcon Whether to show the icon.
