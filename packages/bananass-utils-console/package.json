@@ -8,7 +8,7 @@
     "./theme": "./src/theme.js"
   },
   "scripts": {
-    "test": "true"
+    "test": "node --test"
   },
   "keywords": [],
   "author": "",
