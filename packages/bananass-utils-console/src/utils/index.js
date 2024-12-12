@@ -1,5 +1,5 @@
 /**
- * @fileoverview Declare utility functions and variables.
+ * @fileoverview Utility functions and variables.
  */
 
 // --------------------------------------------------------------------------------
