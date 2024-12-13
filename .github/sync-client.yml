@@ -61,6 +61,8 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.prettierignore
   - source: ./.prettierrc.js
     dest: ./configs/.prettierrc.js
+  - source: ./.textlintrc.js
+    dest: ./configs/.textlintrc.js
   - source: ./babel.config.js
     dest: ./configs/babel.config.js
   - source: ./CODE_OF_CONDUCT.md
