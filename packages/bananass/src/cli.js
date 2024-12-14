@@ -8,6 +8,7 @@
 // Require
 // --------------------------------------------------------------------------------
 
+const logger = require('bananass-utils-console/logger'); // eslint-disable-line import/no-unresolved
 const { program } = require('commander');
 
 const { build } = require('./commands');
@@ -36,8 +37,16 @@ program
     `build and create bundled files using Webpack from the ${ENTRY_DIRECTORY_NAME_ARRAY.map(dirName => `\`${dirName}\``).join(' or ')} directory and outputs them to the \`${OUTPUT_DIRECTORY_NAME}\` directory`,
   )
   .argument('[problems...]', 'baekjoon problem number list', null)
-  .action(async problems => {
-    await build(problems);
+  .option('-D, --debug', 'enable debug mode', false)
+  .option('-q, --quiet', 'enable quiet mode', false)
+  .action(async (problems, options, command) => {
+    logger(options)
+      .debug('command:', command.name())
+      .debug('problems:', problems)
+      .debug('options:', options)
+      .eol();
+
+    await build(problems, options);
   });
 
 /**
