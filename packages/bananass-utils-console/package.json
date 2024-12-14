@@ -4,6 +4,7 @@
   "description": "",
   "exports": {
     ".": "./src/index.js",
+    "./logger": "./src/logger.js",
     "./spinner": "./src/spinner.js",
     "./theme": "./src/theme.js"
   },

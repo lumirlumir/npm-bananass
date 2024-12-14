@@ -7,6 +7,7 @@
 // Require
 // --------------------------------------------------------------------------------
 
+const createLogger = require('./logger');
 const createSpinner = require('./spinner');
 const theme = require('./theme');
 
@@ -15,6 +16,7 @@ const theme = require('./theme');
 // --------------------------------------------------------------------------------
 
 module.exports = {
+  createLogger,
   createSpinner,
   theme,
 };

@@ -7,9 +7,9 @@
 // --------------------------------------------------------------------------------
 
 const { resolve } = require('node:path');
-const { log } = require('node:console');
 
 const {
+  createLogger,
   createSpinner,
   theme: { bananass, success, error },
   // TODO: Bug Report
@@ -34,16 +34,21 @@ const { getRootDir } = require('../../utils/fs');
  * @param {string[]} problems Baekjoon problem number list.
  * @async
  */
-module.exports = async function build(problems) {
+module.exports = async function build(problems, options) {
   // ------------------------------------------------------------------------------
   // Declaration
   // ------------------------------------------------------------------------------
 
   const WEBPACK_ENTRY_FILE_NAME = 'template.js';
   const rootDir = getRootDir();
+  const logger = createLogger(options);
   const spinner = createSpinner({
     color: 'yellow',
-  }).start(bananass('Bananass build is running...')); // CLI Animation.
+  });
+
+  // Ensure correct `this` binding for `spinner.start` using arrow function. (Or use `apply`, `call` or `bind` method.)
+  // CLI Animation.
+  logger.log(() => spinner.start(bananass('Bananass build is running...')));
 
   // ------------------------------------------------------------------------------
   // Runtime Input Validation
@@ -54,7 +59,7 @@ module.exports = async function build(problems) {
    */
   problems.forEach(problem => {
     if (typeof problem !== 'string') {
-      spinner.error();
+      logger.log(() => spinner.error());
 
       throw new TypeError(error('The `problems` parameter must be of type `string[]`.'));
     }
@@ -63,7 +68,7 @@ module.exports = async function build(problems) {
       Number(problem) < BAEKJOON_PROBLEM_NUMBER_MIN ||
       Number(problem) > BAEKJOON_PROBLEM_NUMBER_MAX
     ) {
-      spinner.error();
+      logger.log(() => spinner.error());
 
       throw new TypeError(
         error(
@@ -129,14 +134,15 @@ module.exports = async function build(problems) {
       });
     });
 
-    spinner.success(success('Bananass build completed successfully.', false));
-
-    // TODO: add -d, --debug option.
-    log(); // new line.
-    log(`> Output Directory: ${resolve(rootDir, OUTPUT_DIRECTORY_NAME)}`); // TODO: reduce redundency using of `outputDir` variable.
-    log(`> Created: ${problems.map(problem => `${problem}.js`).join(', ')}`);
+    logger
+      .log(() =>
+        spinner.success(success('Bananass build completed successfully.', false)),
+      )
+      .eol()
+      .log(`Output Directory: ${resolve(rootDir, OUTPUT_DIRECTORY_NAME)}`) // TODO: reduce redundency using of `outputDir` variable.
+      .log(`Created: ${problems.map(problem => `${problem}.js`).join(', ')}`);
   } catch {
-    spinner.error();
+    logger.log(() => spinner.error());
 
     throw new Error(error('Webpack run failed.'));
   }
