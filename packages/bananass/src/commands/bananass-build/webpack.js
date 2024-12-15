@@ -7,6 +7,7 @@
 // --------------------------------------------------------------------------------
 
 const { resolve } = require('node:path');
+const { rmSync } = require('node:fs');
 
 const {
   createLogger,
@@ -106,7 +107,7 @@ module.exports = async function build(problems, options) {
     output: {
       path: outputDir,
       filename: `${problem}.js`,
-      clean: options.clean, // Clean the output directory before emit.
+      // clean: options.clean, // DO NOT USE THIS OPTION.
     },
 
     /**
@@ -126,6 +127,16 @@ module.exports = async function build(problems, options) {
   // ------------------------------------------------------------------------------
 
   try {
+    // Clean the output directory before emitting files.
+    // Note that we must not use the `webpackConfigs.output.clean` option.
+    // Firstly, using the `webpackConfigs.output.clean` option would clean the output directory before each emit,
+    // resulting in only one file in the output directory.
+    // Secondly, even if we use `webpackConfigs.output.clean` only once with the `map()` method's `index` parameter,
+    // it cannot guarantee the build order and may lead to race conditions where files get deleted unpredictably.
+    if (options.clean) {
+      rmSync(outputDir, { recursive: true, force: true });
+    }
+
     await new Promise((res, rej) => {
       webpack(webpackConfigs, (err, stats) => {
         if (err || stats.hasErrors()) {
