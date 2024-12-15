@@ -49,6 +49,8 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.eslintignore
   - source: ./.eslintrc.js
     dest: ./configs/.eslintrc.js
+  - source: ./.gitattributes
+    dest: ./configs/.gitattributes
   - source: ./.gitignore
     dest: ./configs/.gitignore
   - source: ./.markdownlint.json
