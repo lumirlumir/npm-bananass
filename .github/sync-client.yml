@@ -69,5 +69,7 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/CODE_OF_CONDUCT.md
   - source: ./LICENSE.md
     dest: ./configs/LICENSE.md
+  - source: ./lint-staged.config.js
+    dest: ./configs/lint-staged.config.js
   - source: ./VScode.code-workspace
     dest: ./configs/VScode.code-workspace
