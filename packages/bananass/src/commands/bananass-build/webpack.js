@@ -42,6 +42,7 @@ module.exports = async function build(problems, options) {
 
   const WEBPACK_ENTRY_FILE_NAME = 'template.js';
   const rootDir = getRootDir();
+  const outputDir = resolve(rootDir, OUTPUT_DIRECTORY_NAME);
   const logger = createLogger(options);
   const spinner = createSpinner({
     color: 'yellow',
@@ -103,7 +104,7 @@ module.exports = async function build(problems, options) {
      * See {@link https://webpack.js.org/concepts/#output}.
      */
     output: {
-      path: resolve(rootDir, OUTPUT_DIRECTORY_NAME),
+      path: outputDir,
       filename: `${problem}.js`,
       clean: options.clean, // Clean the output directory before emit.
     },
@@ -140,11 +141,11 @@ module.exports = async function build(problems, options) {
         spinner.success(success('Bananass build completed successfully.', false)),
       )
       .eol()
-      .log(`Output Directory: ${resolve(rootDir, OUTPUT_DIRECTORY_NAME)}`) // TODO: reduce redundency using of `outputDir` variable.
-      .log(`Created: ${problems.map(problem => `${problem}.js`).join(', ')}`);
-  } catch {
+      .log('Output Directory:', outputDir)
+      .log('Created:', problems.map(problem => `${problem}.js`).join(', '));
+  } catch ({ message }) {
     logger.log(() => spinner.error());
 
-    throw new Error(error('Webpack run failed.'));
+    throw new Error(error(`Webpack run failed - ${message}`));
   }
 };
