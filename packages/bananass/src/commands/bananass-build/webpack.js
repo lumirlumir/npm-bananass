@@ -32,6 +32,7 @@ const { getRootDir } = require('../../utils/fs');
  * Asynchronously build and create bundled files using Webpack.
  *
  * @param {string[]} problems Baekjoon problem number list.
+ * @param // TODO
  * @async
  */
 module.exports = async function build(problems, options) {
@@ -104,7 +105,7 @@ module.exports = async function build(problems, options) {
     output: {
       path: resolve(rootDir, OUTPUT_DIRECTORY_NAME),
       filename: `${problem}.js`,
-      // clean: true, // TODO: Clean the output directory before emit.
+      clean: options.clean, // Clean the output directory before emit.
     },
 
     /**

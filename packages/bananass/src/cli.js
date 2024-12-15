@@ -37,6 +37,7 @@ program
     `build and create bundled files using Webpack from the ${ENTRY_DIRECTORY_NAME_ARRAY.map(dirName => `\`${dirName}\``).join(' or ')} directory and outputs them to the \`${OUTPUT_DIRECTORY_NAME}\` directory`,
   )
   .argument('[problems...]', 'baekjoon problem number list', null)
+  .option('-c, --clean', 'clean the output directory before emit', false)
   .option('-D, --debug', 'enable debug mode', false)
   .option('-q, --quiet', 'enable quiet mode', false)
   .action(async (problems, options, command) => {
