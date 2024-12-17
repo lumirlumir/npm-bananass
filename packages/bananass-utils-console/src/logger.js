@@ -3,14 +3,14 @@
  * @module bananass-utils-console/logger
  */
 
-/* eslint-disable lines-between-class-members */
+/* eslint-disable lines-between-class-members */ // TODO: Remove this line after developing `eslint-config-bananass` package.
 
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const { log } = require('node:console');
-const { gray } = require('ansi-colors');
+import { log } from 'node:console';
+import { gray } from 'ansi-colors';
 
 // --------------------------------------------------------------------------------
 // Class
@@ -122,6 +122,6 @@ class Logger {
 // Exports
 // --------------------------------------------------------------------------------
 
-module.exports = function createLogger(options) {
+export default function createLogger(options) {
   return new Logger(options);
-};
+}
