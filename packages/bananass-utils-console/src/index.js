@@ -3,20 +3,18 @@
  * @module bananass-utils-console
  */
 
+/* eslint-disable import/extensions */ // TODO: Remove this line after developing `eslint-config-bananass` package.
+
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const createLogger = require('./logger');
-const createSpinner = require('./spinner');
-const theme = require('./theme');
+import createLogger from './logger.js';
+import createSpinner from './spinner.js';
+import theme from './theme.js';
 
 // --------------------------------------------------------------------------------
 // Exports
 // --------------------------------------------------------------------------------
 
-module.exports = {
-  createLogger,
-  createSpinner,
-  theme,
-};
+export { createLogger, createSpinner, theme };
