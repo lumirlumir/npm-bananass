@@ -10,7 +10,7 @@
 // --------------------------------------------------------------------------------
 
 import { log } from 'node:console';
-import { gray } from 'ansi-colors';
+import c from 'ansi-colors';
 
 // --------------------------------------------------------------------------------
 // Class
@@ -78,7 +78,7 @@ class Logger {
 
       log(
         ...[this.#textPrefix, text, ...args].map(arg =>
-          typeof arg === 'string' ? gray(arg) : arg,
+          typeof arg === 'string' ? c.gray(arg) : arg,
         ),
       );
     }
