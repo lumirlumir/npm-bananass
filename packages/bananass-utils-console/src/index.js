@@ -14,7 +14,7 @@ import createSpinner from './spinner.js';
 import theme from './theme.js';
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
 export { createLogger, createSpinner, theme };
