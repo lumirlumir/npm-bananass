@@ -3,18 +3,20 @@
  * @module bananass-utils-console/theme
  */
 
+/* eslint-disable import/extensions */ // TODO: Remove this line after developing `eslint-config-bananass` package.
+
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const { green, red, yellow, blue } = require('ansi-colors');
-const {
+import c from 'ansi-colors';
+import {
   successIcon,
   errorIcon,
   warningIcon,
   infoIcon,
   bananassIcon,
-} = require('./icons');
+} from './icons/index.js';
 
 // --------------------------------------------------------------------------------
 // Declaration
@@ -34,7 +36,7 @@ const format = (str, showIcon, color, icon) =>
   color(`${showIcon ? `${icon} ` : ''}${str}`);
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
 /**
@@ -48,8 +50,9 @@ const format = (str, showIcon, color, icon) =>
  * console.log(complete('Operation successful.'));
  * // Output: (icon?) Operation successful. (displayed in green text in the terminal.)
  */
-module.exports.success = (str, showIcon = true) =>
-  format(str, showIcon, green, successIcon);
+export function success(str, showIcon = true) {
+  return format(str, showIcon, c.green, successIcon);
+}
 
 /**
  * Returns a red-colored error message prefixed with an icon.
@@ -62,7 +65,9 @@ module.exports.success = (str, showIcon = true) =>
  * console.log(error('Something went wrong.'));
  * // Output: (icon?) Something went wrong. (displayed in red text in the terminal.)
  */
-module.exports.error = (str, showIcon = true) => format(str, showIcon, red, errorIcon);
+export function error(str, showIcon = true) {
+  return format(str, showIcon, c.red, errorIcon);
+}
 
 /**
  * Returns a yellow-colored warning message prefixed with an icon.
@@ -75,8 +80,9 @@ module.exports.error = (str, showIcon = true) => format(str, showIcon, red, erro
  * console.log(warning('This is a warning.'));
  * // Output: (icon?) This is a warning. (displayed in yellow text in the terminal.)
  */
-module.exports.warning = (str, showIcon = true) =>
-  format(str, showIcon, yellow, warningIcon);
+export function warning(str, showIcon = true) {
+  return format(str, showIcon, c.yellow, warningIcon);
+}
 
 /**
  * Returns a blue-colored info message prefixed with an icon.
@@ -89,7 +95,9 @@ module.exports.warning = (str, showIcon = true) =>
  * console.log(info('Informational message.'));
  * // Output: (icon?) Informational message. (displayed in blue text in the terminal.)
  */
-module.exports.info = (str, showIcon = true) => format(str, showIcon, blue, infoIcon);
+export function info(str, showIcon = true) {
+  return format(str, showIcon, c.blue, infoIcon);
+}
 
 /**
  * Returns a yellow-colored error message prefixed with an icon.
@@ -102,5 +110,6 @@ module.exports.info = (str, showIcon = true) => format(str, showIcon, blue, info
  * console.log(bananass('Hello, Bananass.'));
  * // Output: (icon?) Hello, Bananass. (displayed in yellow text in the terminal.)
  */
-module.exports.bananass = (str, showIcon = true) =>
-  format(str, showIcon, yellow, bananassIcon);
+export function bananass(str, showIcon = true) {
+  return format(str, showIcon, c.yellow, bananassIcon);
+}

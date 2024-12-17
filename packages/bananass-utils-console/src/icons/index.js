@@ -2,24 +2,26 @@
  * @fileoverview Icons used in the console.
  */
 
-// --------------------------------------------------------------------------------
-// Require
-// --------------------------------------------------------------------------------
-
-const c = require('ansi-colors');
-const { isUnicodeSupported } = require('../utils');
+/* eslint-disable import/extensions */ // TODO: Remove this line after developing `eslint-config-bananass` package.
 
 // --------------------------------------------------------------------------------
-// Exports
+// Import
 // --------------------------------------------------------------------------------
 
-module.exports.successIcon = c.green.bold(isUnicodeSupported ? '✓' : '√');
-module.exports.errorIcon = c.red.bold(isUnicodeSupported ? '✕' : '×');
-module.exports.warningIcon = c.yellow.bold(isUnicodeSupported ? '‼' : '‼');
-module.exports.infoIcon = c.blue.bold(isUnicodeSupported ? '✦' : 'i');
-module.exports.bananassIcon = c.yellow(isUnicodeSupported ? '🍌' : '');
+import c from 'ansi-colors';
+import { isUnicodeSupported } from '../utils/index.js';
 
-module.exports.defaultSpinner = {
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+export const successIcon = c.green.bold(isUnicodeSupported ? '✓' : 'V');
+export const errorIcon = c.red.bold(isUnicodeSupported ? '✕' : 'X');
+export const warningIcon = c.yellow.bold(isUnicodeSupported ? '⚠' : '!');
+export const infoIcon = c.blue.bold(isUnicodeSupported ? '✦' : 'i');
+export const bananassIcon = c.yellow(isUnicodeSupported ? '🍌' : '');
+
+export const defaultSpinner = {
   frames: isUnicodeSupported
     ? ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
     : ['-', '\\', '|', '/'],
