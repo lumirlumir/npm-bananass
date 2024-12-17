@@ -2,23 +2,25 @@
  * @fileoverview Test for `theme.js`.
  */
 
+/* eslint-disable import/extensions */ // TODO: Remove this line after developing `eslint-config-bananass` package.
+
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const { strictEqual } = require('node:assert');
-const { describe, it } = require('node:test');
+import { strictEqual } from 'node:assert';
+import { describe, it } from 'node:test';
 
-const { green, red, yellow, blue } = require('ansi-colors');
+import c from 'ansi-colors';
 
-const {
+import {
   successIcon,
   errorIcon,
   warningIcon,
   infoIcon,
   bananassIcon,
-} = require('./icons');
-const { success, error, warning, info, bananass } = require('./theme');
+} from './icons/index.js';
+import { success, error, warning, info, bananass } from './theme.js';
 
 // --------------------------------------------------------------------------------
 // Test
@@ -29,10 +31,10 @@ describe('theme.js', () => {
     const message = 'Operation successful.';
 
     it('with a icon', () => {
-      strictEqual(success(message), green(`${successIcon} ${message}`));
+      strictEqual(success(message), c.green(`${successIcon} ${message}`));
     });
     it('without a icon', () => {
-      strictEqual(success(message, false), green(message));
+      strictEqual(success(message, false), c.green(message));
     });
   });
 
@@ -40,10 +42,10 @@ describe('theme.js', () => {
     const message = 'Something went wrong.';
 
     it('with a icon', () => {
-      strictEqual(error(message), red(`${errorIcon} ${message}`));
+      strictEqual(error(message), c.red(`${errorIcon} ${message}`));
     });
     it('without a icon', () => {
-      strictEqual(error(message, false), red(message));
+      strictEqual(error(message, false), c.red(message));
     });
   });
 
@@ -51,10 +53,10 @@ describe('theme.js', () => {
     const message = 'This is a warning.';
 
     it('with a icon', () => {
-      strictEqual(warning(message), yellow(`${warningIcon} ${message}`));
+      strictEqual(warning(message), c.yellow(`${warningIcon} ${message}`));
     });
     it('without a icon', () => {
-      strictEqual(warning(message, false), yellow(message));
+      strictEqual(warning(message, false), c.yellow(message));
     });
   });
 
@@ -62,10 +64,10 @@ describe('theme.js', () => {
     const message = 'Informational message.';
 
     it('with a icon', () => {
-      strictEqual(info(message), blue(`${infoIcon} ${message}`));
+      strictEqual(info(message), c.blue(`${infoIcon} ${message}`));
     });
     it('without a icon', () => {
-      strictEqual(info(message, false), blue(message));
+      strictEqual(info(message, false), c.blue(message));
     });
   });
 
@@ -73,10 +75,10 @@ describe('theme.js', () => {
     const message = 'Hello, Bananass.';
 
     it('with a icon', () => {
-      strictEqual(bananass(message), yellow(`${bananassIcon} ${message}`));
+      strictEqual(bananass(message), c.yellow(`${bananassIcon} ${message}`));
     });
     it('without a icon', () => {
-      strictEqual(bananass(message, false), yellow(message));
+      strictEqual(bananass(message, false), c.yellow(message));
     });
   });
 });
