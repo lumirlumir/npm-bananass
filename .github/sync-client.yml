@@ -65,8 +65,6 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.prettierrc.js
   - source: ./.textlintrc.js
     dest: ./configs/.textlintrc.js
-  - source: ./babel.config.js
-    dest: ./configs/babel.config.js
   - source: ./CODE_OF_CONDUCT.md
     dest: ./configs/CODE_OF_CONDUCT.md
   - source: ./LICENSE.md

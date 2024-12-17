@@ -4,10 +4,22 @@
   "type": "module",
   "description": "Console Utilities for Bananass Framework.🍌",
   "exports": {
-    ".": "./build/index.js",
-    "./logger": "./build/logger.js",
-    "./spinner": "./build/spinner.js",
-    "./theme": "./build/theme.js",
+    ".": {
+      "types": "./build/index.d.ts",
+      "default": "./build/index.js"
+    },
+    "./logger": {
+      "types": "./build/logger.d.ts",
+      "default": "./build/logger.js"
+    },
+    "./spinner": {
+      "types": "./build/spinner.d.ts",
+      "default": "./build/spinner.js"
+    },
+    "./theme": {
+      "types": "./build/theme.d.ts",
+      "default": "./build/theme.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [
@@ -41,6 +53,8 @@
     "node": ">=20.18.0"
   },
   "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "npx babel src -d build && npx tsc && cp ../../LICENSE.md ../../README.md .",
     "test": "node --test"
   },
   "dependencies": {
