@@ -3,15 +3,15 @@
  */
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
 /**
  * Determines if the current terminal supports Unicode based on the OS and terminal environment variables.
  *
- * @see https://github.com/sindresorhus/is-unicode-supported `is-unicode-supported` package.
+ * @see https://github.com/sindresorhus/is-unicode-supported
  */
-module.exports.isUnicodeSupported =
+export const isUnicodeSupported =
   process.platform !== 'win32'
     ? process.env.TERM !== 'linux' // Linux console (kernel)
     : Boolean(process.env.WT_SESSION) || // Windows Terminal
@@ -30,6 +30,7 @@ module.exports.isUnicodeSupported =
  *
  * @param {object} stream The stream to check (e.g., `process.stdout` or `process.stderr`).
  * @returns {boolean} `true` if the terminal is interactive, otherwise `false`.
+ * @see https://github.com/sindresorhus/is-interactive
  */
-module.exports.isInteractive = stream =>
+export const isInteractive = stream =>
   Boolean(stream.isTTY && process.env.TERM !== 'dumb' && !('CI' in process.env));
