@@ -3,13 +3,12 @@
  * @module bananass-utils-console/logger
  */
 
-/* eslint-disable lines-between-class-members */ // TODO: Remove this line after developing `eslint-config-bananass` package.
+/* eslint-disable lines-between-class-members, no-console */ // TODO: Remove this line after developing `eslint-config-bananass` package.
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-import { log } from 'node:console';
 import c from 'ansi-colors';
 
 // --------------------------------------------------------------------------------
@@ -52,7 +51,7 @@ class Logger {
     } else {
       const text = textOrCallback ?? '';
 
-      log(...[this.#textPrefix, text, ...args]);
+      console.log(...[this.#textPrefix, text, ...args]);
     }
 
     return this;
@@ -76,7 +75,7 @@ class Logger {
     } else {
       const text = textOrCallback ?? '';
 
-      log(
+      console.log(
         ...[this.#textPrefix, text, ...args].map(arg =>
           typeof arg === 'string' ? c.gray(arg) : arg,
         ),
