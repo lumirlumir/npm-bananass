@@ -4,23 +4,23 @@
  * @see https://github.com/sindresorhus/yocto-spinner `yocto-spinner` package.
  */
 
-/* eslint-disable lines-between-class-members */
+/* eslint-disable lines-between-class-members, import/extensions  */ // TODO: Remove this line after developing `eslint-config-bananass` package.
 
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const process = require('node:process');
-const c = require('ansi-colors');
+import process from 'node:process';
+import c from 'ansi-colors';
 
-const {
+import {
   successIcon,
   errorIcon,
   warningIcon,
   infoIcon,
   defaultSpinner,
-} = require('./icons');
-const { isInteractive } = require('./utils');
+} from './icons/index.js';
+import { isInteractive } from './utils/index.js';
 
 // --------------------------------------------------------------------------------
 // Class
@@ -247,9 +247,9 @@ class Spinner {
 }
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
-module.exports = function createSpinner(options) {
+export default function createSpinner(options) {
   return new Spinner(options);
-};
+}
