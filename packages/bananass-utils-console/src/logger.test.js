@@ -46,7 +46,55 @@ afterEach(() => {
 });
 
 describe('logger.js', () => {
-  describe('`log` method`', () => {
+  describe('`log` method', () => {
+    // lastMethodCalled
+    it("when `log` method is called, `#lastMethodCalled` should be set to `'log'`", () => {
+      strictEqual('log', createLogger().log().lastMethodCalled);
+    });
+
+    describe('when first argument is a function', () => {
+      // basic
+      it('when a callback function is passed to log method without any arguments', () => {
+        const mockFn = mock.fn();
+
+        createLogger().log(mockFn);
+
+        strictEqual(mockFn.mock.callCount(), 1);
+      });
+      it('when a callback function is passed to log method with one argument', () => {
+        const mockFn = mock.fn(a => console.log(a));
+
+        createLogger().log(mockFn, 'a');
+
+        strictEqual(mockFn.mock.callCount(), 1);
+        strictEqual(consoleLogMock.output, 'a\n');
+      });
+      it('when a callback function is passed to log method with multiple arguments', () => {
+        const mockFn = mock.fn((a, b, c) => console.log(a, b, c));
+
+        createLogger().log(mockFn, 'a', 'b', 'c');
+
+        strictEqual(mockFn.mock.callCount(), 1);
+        strictEqual(consoleLogMock.output, 'a b c\n');
+      });
+
+      // method chaining
+      it('when method chaining is used a single time', () => {
+        const mockFn = mock.fn();
+
+        createLogger().log(mockFn).log(mockFn);
+
+        strictEqual(mockFn.mock.callCount(), 2);
+      });
+      it('when method chaining is used multiple times', () => {
+        const mockFn = mock.fn();
+
+        createLogger().log(mockFn).log(mockFn).log(mockFn).log(mockFn);
+
+        strictEqual(mockFn.mock.callCount(), 4);
+      });
+    });
+
     describe('when first argument is not a function', () => {
       // basic
       it('when no argument is passed to log method', () => {
@@ -70,13 +118,13 @@ describe('logger.js', () => {
         strictEqual(consoleLogMock.output, '> a b c\n');
       });
 
-      // method chaning
-      it('when method chaning is used', () => {
+      // method chaining
+      it('when method chaining is used a single time', () => {
         createLogger().log('a').log('b');
 
         strictEqual(consoleLogMock.output, '> a\n> b\n');
       });
-      it('when method chaning is used multiple times', () => {
+      it('when method chaining is used multiple times', () => {
         createLogger().log('a').log('b').log('c').log('d');
 
         strictEqual(consoleLogMock.output, '> a\n> b\n> c\n> d\n');
@@ -106,7 +154,43 @@ describe('logger.js', () => {
     });
 
     describe('options', () => {
+      // quiet
+      it('when `quiet` option is `true` and callback is passed', () => {
+        const mockFn = mock.fn();
+
+        createLogger({ quiet: true }).log(mockFn).log(mockFn);
+
+        strictEqual(mockFn.mock.callCount(), 0);
+      });
+      it('when `quiet` option is `true` and text is passed', () => {
+        createLogger({ quiet: true }).log('a');
+
+        strictEqual(consoleLogMock.output, '');
+      });
+      it('when `quiet` option is `false` and callback is passed', () => {
+        const mockFn = mock.fn();
+
+        createLogger({ quiet: false }).log(mockFn).log(mockFn);
+
+        strictEqual(mockFn.mock.callCount(), 2);
+      });
+      it('when `quiet` option is `false` and text is passed', () => {
+        createLogger({ quiet: false }).log('a');
+
+        strictEqual(consoleLogMock.output, '> a\n');
+      });
+
       // textPrefix
+      it('when `textPrefix` option is `true` and no argument is passed to log method', () => {
+        createLogger({ textPrefix: true }).log();
+
+        strictEqual(consoleLogMock.output, '>\n');
+      });
+      it('when `textPrefix` option is `true` and only one argment is passed to log method', () => {
+        createLogger({ textPrefix: true }).log('a');
+
+        strictEqual(consoleLogMock.output, '> a\n');
+      });
       it('when `textPrefix` option is `false` and no argument is passed to log method', () => {
         createLogger({ textPrefix: false }).log(); // Same with `console.log()`.
 
