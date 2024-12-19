@@ -110,7 +110,7 @@ class Logger {
 
   eol() {
     const prevTextPrefix = this.#textPrefix;
-    this.#textPrefix = '';
+    this.#textPrefix = this.#undeclaredValue;
 
     if (this.#lastMethodCalled === 'log') {
       this.log();

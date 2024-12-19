@@ -407,4 +407,21 @@ describe('logger.js', () => {
       });
     });
   });
+  describe('`eol` method', () => {
+    it('when `eol` method is called', () => {
+      createLogger().eol();
+
+      strictEqual(consoleLogMock.output, '\n');
+    });
+    it('when `eol` method is called after `log` method', () => {
+      createLogger().log('a').eol();
+
+      strictEqual(consoleLogMock.output, '> a\n\n');
+    });
+    it('when `eol` method is called after `debug` method', () => {
+      createLogger({ debug: true }).debug('a').eol();
+
+      strictEqual(stripAnsi(consoleLogMock.output), '> a\n\n');
+    });
+  });
 });
