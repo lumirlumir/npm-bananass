@@ -225,6 +225,7 @@ describe('logger.js', () => {
       });
     });
   });
+
   describe('`debug` method', () => {
     // lastMethodCalled
     it("when `debug` method is called, `#lastMethodCalled` should be set to `'debug'`", () => {
@@ -407,6 +408,7 @@ describe('logger.js', () => {
       });
     });
   });
+
   describe('`eol` method', () => {
     it('when `eol` method is called', () => {
       createLogger().eol();
