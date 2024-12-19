@@ -3,14 +3,13 @@
  * @module bananass-utils-console/logger
  */
 
-/* eslint-disable lines-between-class-members */ // TODO: Remove this line after developing `eslint-config-bananass` package.
+/* eslint-disable lines-between-class-members, no-console, no-nested-ternary */ // TODO: Remove this line after developing `eslint-config-bananass` package.
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-import { log } from 'node:console';
-import { gray } from 'ansi-colors';
+import c from 'ansi-colors';
 
 // --------------------------------------------------------------------------------
 // Class
@@ -24,12 +23,19 @@ class Logger {
   #debug;
   #quiet;
   #textPrefix;
+  #textPrefixDefault = '>';
   #lastMethodCalled = 'log';
+  #undeclaredValue = Symbol('undeclared-value');
 
   constructor(options = {}) {
     this.#debug = options.debug ?? false;
     this.#quiet = options.quiet ?? false;
-    this.#textPrefix = options.textPrefix ?? '>';
+    this.#textPrefix =
+      typeof options.textPrefix === 'boolean'
+        ? options.textPrefix
+          ? this.#textPrefixDefault
+          : this.#undeclaredValue
+        : (options.textPrefix ?? this.#textPrefixDefault);
   }
 
   // ------------------------------------------------------------------------------
@@ -42,7 +48,15 @@ class Logger {
    * - `quiet === true`: output X
    * - `quiet === false`: output O
    */
-  log(textOrCallback, ...args) {
+  log(...params) {
+    const textOrCallback =
+      typeof params[0] !== 'undefined' // Same with default parameter implemetation using `arguments`
+        ? params[0]
+        : params.length > 0
+          ? undefined
+          : this.#undeclaredValue;
+    const args = params.slice(1);
+
     this.#lastMethodCalled = 'log';
 
     if (this.#quiet) return this;
@@ -50,9 +64,11 @@ class Logger {
     if (typeof textOrCallback === 'function') {
       textOrCallback(...args);
     } else {
-      const text = textOrCallback ?? '';
-
-      log(...[this.#textPrefix, text, ...args]);
+      console.log(
+        ...[this.#textPrefix, textOrCallback, ...args].filter(
+          arg => arg !== this.#undeclaredValue,
+        ),
+      );
     }
 
     return this;
@@ -65,7 +81,15 @@ class Logger {
    * - `quiet === false && debug === true`: output O
    * - `quiet === false && debug === false`: output X
    */
-  debug(textOrCallback, ...args) {
+  debug(...params) {
+    const textOrCallback =
+      typeof params[0] !== 'undefined'
+        ? params[0]
+        : params.length > 0
+          ? undefined
+          : this.#undeclaredValue;
+    const args = params.slice(1);
+
     this.#lastMethodCalled = 'debug';
 
     if (this.#quiet) return this;
@@ -74,12 +98,10 @@ class Logger {
     if (typeof textOrCallback === 'function') {
       textOrCallback(...args);
     } else {
-      const text = textOrCallback ?? '';
-
-      log(
-        ...[this.#textPrefix, text, ...args].map(arg =>
-          typeof arg === 'string' ? gray(arg) : arg,
-        ),
+      console.log(
+        ...[this.#textPrefix, textOrCallback, ...args]
+          .filter(arg => arg !== this.#undeclaredValue)
+          .map(arg => (typeof arg === 'string' ? c.gray(arg) : arg)),
       );
     }
 
@@ -88,7 +110,7 @@ class Logger {
 
   eol() {
     const prevTextPrefix = this.#textPrefix;
-    this.#textPrefix = '';
+    this.#textPrefix = this.#undeclaredValue;
 
     if (this.#lastMethodCalled === 'log') {
       this.log();
@@ -101,20 +123,8 @@ class Logger {
     return this;
   }
 
-  get textPrefix() {
-    return this.#textPrefix;
-  }
-
-  set textPrefix(text = '>') {
-    this.#textPrefix = text;
-  }
-
   get lastMethodCalled() {
     return this.#lastMethodCalled;
-  }
-
-  set lastMethodCalled(method = 'log') {
-    this.#lastMethodCalled = method;
   }
 }
 
@@ -122,6 +132,12 @@ class Logger {
 // Export
 // --------------------------------------------------------------------------------
 
+/**
+ *
+ * @param {{textPrefix: string | boolean}} options
+ * @param {string | boolean} options.textPrefix
+ * @returns
+ */
 export default function createLogger(options) {
   return new Logger(options);
 }
