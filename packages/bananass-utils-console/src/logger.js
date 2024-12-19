@@ -123,20 +123,8 @@ class Logger {
     return this;
   }
 
-  get textPrefix() {
-    return this.#textPrefix;
-  }
-
-  set textPrefix(text = '>') {
-    this.#textPrefix = text;
-  }
-
   get lastMethodCalled() {
     return this.#lastMethodCalled;
-  }
-
-  set lastMethodCalled(method = 'log') {
-    this.#lastMethodCalled = method;
   }
 }
 
