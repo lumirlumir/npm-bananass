@@ -11,7 +11,9 @@
 // --------------------------------------------------------------------------------
 
 import process from 'node:process';
+
 import c from 'ansi-colors';
+import isInteractive from 'is-interactive';
 
 import {
   successIcon,
@@ -20,7 +22,6 @@ import {
   infoIcon,
   defaultSpinner,
 } from './icons/index.js';
-import { isInteractive } from './utils/index.js';
 
 // --------------------------------------------------------------------------------
 // Class
@@ -50,7 +51,7 @@ class Spinner {
     this.#text = options.text ?? '';
     this.#stream = options.stream ?? process.stderr;
     this.#color = options.color ?? 'cyan';
-    this.#isInteractive = isInteractive(this.#stream);
+    this.#isInteractive = isInteractive({ stream: this.#stream });
     this.#exitHandlerBound = this.#exitHandler.bind(this);
   }
 
