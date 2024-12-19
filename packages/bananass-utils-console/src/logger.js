@@ -81,7 +81,15 @@ class Logger {
    * - `quiet === false && debug === true`: output O
    * - `quiet === false && debug === false`: output X
    */
-  debug(textOrCallback, ...args) {
+  debug(...params) {
+    const textOrCallback =
+      typeof params[0] !== 'undefined'
+        ? params[0]
+        : params.length > 0
+          ? undefined
+          : this.#undeclaredValue;
+    const args = params.slice(1);
+
     this.#lastMethodCalled = 'debug';
 
     if (this.#quiet) return this;
@@ -90,12 +98,10 @@ class Logger {
     if (typeof textOrCallback === 'function') {
       textOrCallback(...args);
     } else {
-      const text = textOrCallback ?? '';
-
       console.log(
-        ...[this.#textPrefix, text, ...args].map(arg =>
-          typeof arg === 'string' ? c.gray(arg) : arg,
-        ),
+        ...[this.#textPrefix, textOrCallback, ...args]
+          .filter(arg => arg !== this.#undeclaredValue)
+          .map(arg => (typeof arg === 'string' ? c.gray(arg) : arg)),
       );
     }
 

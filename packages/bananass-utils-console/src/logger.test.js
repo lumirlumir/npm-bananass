@@ -11,6 +11,8 @@
 import { strictEqual } from 'node:assert';
 import { describe, it, mock, afterEach } from 'node:test';
 
+import stripAnsi from 'strip-ansi';
+
 import createLogger from './logger.js';
 
 // --------------------------------------------------------------------------------
@@ -220,6 +222,188 @@ describe('logger.js', () => {
         createLogger({ textPrefix: '' }).log('a'); // Same with `console.log('', 'a')`.
 
         strictEqual(consoleLogMock.output, ' a\n');
+      });
+    });
+  });
+  describe('`debug` method', () => {
+    // lastMethodCalled
+    it("when `debug` method is called, `#lastMethodCalled` should be set to `'debug'`", () => {
+      strictEqual('debug', createLogger().debug().lastMethodCalled);
+    });
+
+    describe('when first argument is a function', () => {
+      // basic
+      it('when a callback function is passed to debug method without any arguments', () => {
+        const mockFn = mock.fn();
+
+        createLogger({ debug: true }).debug(mockFn);
+
+        strictEqual(mockFn.mock.callCount(), 1);
+      });
+      it('when a callback function is passed to debug method with one argument', () => {
+        const mockFn = mock.fn(a => console.log(a));
+
+        createLogger({ debug: true }).debug(mockFn, 'a');
+
+        strictEqual(mockFn.mock.callCount(), 1);
+        strictEqual(consoleLogMock.output, 'a\n');
+      });
+      it('when a callback function is passed to debug method with multiple arguments', () => {
+        const mockFn = mock.fn((a, b, c) => console.log(a, b, c));
+
+        createLogger({ debug: true }).debug(mockFn, 'a', 'b', 'c');
+
+        strictEqual(mockFn.mock.callCount(), 1);
+        strictEqual(consoleLogMock.output, 'a b c\n');
+      });
+
+      // method chaining
+      it('when method chaining is used a single time', () => {
+        const mockFn = mock.fn();
+
+        createLogger({ debug: true }).debug(mockFn).debug(mockFn);
+
+        strictEqual(mockFn.mock.callCount(), 2);
+      });
+      it('when method chaining is used multiple times', () => {
+        const mockFn = mock.fn();
+
+        createLogger({ debug: true })
+          .debug(mockFn)
+          .debug(mockFn)
+          .debug(mockFn)
+          .debug(mockFn);
+
+        strictEqual(mockFn.mock.callCount(), 4);
+      });
+    });
+
+    describe('when first argument is not a function', () => {
+      // basic
+      it('when no argument is passed to debug method', () => {
+        createLogger({ debug: true }).debug();
+
+        strictEqual(stripAnsi(consoleLogMock.output), '>\n');
+      });
+      it('when only one argment is passed to debug method', () => {
+        createLogger({ debug: true }).debug('a');
+
+        strictEqual(stripAnsi(consoleLogMock.output), '> a\n');
+      });
+      it('when two argments are passed to debug method', () => {
+        createLogger({ debug: true }).debug('a', 'b');
+
+        strictEqual(stripAnsi(consoleLogMock.output), '> a b\n');
+      });
+      it('when three argments are passed to debug method', () => {
+        createLogger({ debug: true }).debug('a', 'b', 'c');
+
+        strictEqual(stripAnsi(consoleLogMock.output), '> a b c\n');
+      });
+
+      // method chaining
+      it('when method chaining is used a single time', () => {
+        createLogger({ debug: true }).debug('a').debug('b');
+
+        strictEqual(stripAnsi(consoleLogMock.output), '> a\n> b\n');
+      });
+      it('when method chaining is used multiple times', () => {
+        createLogger({ debug: true }).debug('a').debug('b').debug('c').debug('d');
+
+        strictEqual(stripAnsi(consoleLogMock.output), '> a\n> b\n> c\n> d\n');
+      });
+
+      // edge cases
+      it('when first argument is `null`', () => {
+        createLogger({ debug: true }).debug(null);
+
+        strictEqual(stripAnsi(consoleLogMock.output), '> null\n');
+      });
+      it('when first and second arguments are `null`', () => {
+        createLogger({ debug: true }).debug(null, null);
+
+        strictEqual(stripAnsi(consoleLogMock.output), '> null null\n');
+      });
+      it('when first argument is `undefined`', () => {
+        createLogger({ debug: true }).debug(undefined);
+
+        strictEqual(stripAnsi(consoleLogMock.output), '> undefined\n');
+      });
+      it('when first and second arguments are `undefined`', () => {
+        createLogger({ debug: true }).debug(undefined, undefined);
+        strictEqual(stripAnsi(consoleLogMock.output), '> undefined undefined\n');
+      });
+    });
+
+    describe('options', () => {
+      // debug
+      it('when `debug` option is `false` and callback is passed', () => {
+        const mockFn = mock.fn();
+
+        createLogger({ debug: false }).debug(mockFn).debug(mockFn);
+
+        strictEqual(mockFn.mock.callCount(), 0);
+      });
+      it('when `debug` option is `false` and text is passed', () => {
+        createLogger({ debug: false }).debug('a');
+
+        strictEqual(consoleLogMock.output, '');
+      });
+
+      // quiet
+      it('when `quiet` option is `true` and callback is passed', () => {
+        const mockFn = mock.fn();
+
+        createLogger({ debug: true, quiet: true }).debug(mockFn).debug(mockFn);
+
+        strictEqual(mockFn.mock.callCount(), 0);
+      });
+      it('when `quiet` option is `true` and text is passed', () => {
+        createLogger({ debug: true, quiet: true }).debug('a');
+
+        strictEqual(consoleLogMock.output, '');
+      });
+
+      // textPrefix
+      it('when `textPrefix` option is `true` and no argument is passed to debug method', () => {
+        createLogger({ debug: true, textPrefix: true }).debug();
+
+        strictEqual(stripAnsi(consoleLogMock.output), '>\n');
+      });
+      it('when `textPrefix` option is `true` and only one argment is passed to debug method', () => {
+        createLogger({ debug: true, textPrefix: true }).debug('a');
+
+        strictEqual(stripAnsi(consoleLogMock.output), '> a\n');
+      });
+      it('when `textPrefix` option is `false` and no argument is passed to debug method', () => {
+        createLogger({ debug: true, textPrefix: false }).debug(); // Same with `console.log()`.
+
+        strictEqual(stripAnsi(consoleLogMock.output), '\n');
+      });
+      it('when `textPrefix` option is `false` and only one argment is passed to debug method', () => {
+        createLogger({ debug: true, textPrefix: false }).debug('a'); // Same with `console.log('a')`.
+
+        strictEqual(stripAnsi(consoleLogMock.output), 'a\n');
+      });
+      it("when `textPrefix` option is `'logger>'` and no argument is passed to debug method", () => {
+        createLogger({ debug: true, textPrefix: 'logger>' }).debug(); // Same with `console.log('logger>')`.
+
+        strictEqual(stripAnsi(consoleLogMock.output), 'logger>\n');
+      });
+      it("when `textPrefix` option is `'logger>'` and only one argment is passed to debug method", () => {
+        createLogger({ debug: true, textPrefix: 'logger>' }).debug('a'); // Same with `console.log('logger>', 'a')`.
+
+        strictEqual(stripAnsi(consoleLogMock.output), 'logger> a\n');
+      });
+      it('when `textPrefix` option is an empty string and no argument is passed to debug method', () => {
+        createLogger({ debug: true, textPrefix: '' }).debug(); // Same with `console.log('')`.
+
+        strictEqual(stripAnsi(consoleLogMock.output), '\n');
+      });
+      it('when `textPrefix` option is an empty string and only one argment is passed to debug method', () => {
+        createLogger({ debug: true, textPrefix: '' }).debug('a'); // Same with `console.log('', 'a')`.
+
+        strictEqual(stripAnsi(consoleLogMock.output), ' a\n');
       });
     });
   });
