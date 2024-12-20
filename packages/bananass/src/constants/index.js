@@ -3,17 +3,23 @@
  */
 
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const { join } = require('node:path');
-const { name } = require('../../package.json');
+import { createRequire } from 'node:module';
+import { join } from 'node:path';
 
 // --------------------------------------------------------------------------------
-// Constants
+// Declaration
 // --------------------------------------------------------------------------------
 
-module.exports.ENTRY_DIRECTORY_NAME_ARRAY = Object.freeze([name, join('src', name)]);
-module.exports.OUTPUT_DIRECTORY_NAME = `.${name}`;
-module.exports.BAEKJOON_PROBLEM_NUMBER_MIN = 1_000;
-module.exports.BAEKJOON_PROBLEM_NUMBER_MAX = 100_000; // This value can be updated later.
+const { name } = createRequire(import.meta.url)('../../package.json');
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+export const ENTRY_DIRECTORY_NAME_ARRAY = Object.freeze([name, join('src', name)]);
+export const OUTPUT_DIRECTORY_NAME = `.${name}`;
+export const BAEKJOON_PROBLEM_NUMBER_MIN = 1_000;
+export const BAEKJOON_PROBLEM_NUMBER_MAX = 100_000; // This value can be updated later.
