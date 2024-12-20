@@ -8,6 +8,10 @@
       "types": "./build/index.d.ts",
       "default": "./build/index.js"
     },
+    "./fs": {
+      "types": "./build/fs/index.d.ts",
+      "default": "./build/fs/index.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [
