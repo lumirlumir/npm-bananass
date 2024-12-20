@@ -3,19 +3,19 @@
  */
 
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const { execSync } = require('node:child_process');
-const { join, resolve } = require('node:path');
-const { existsSync } = require('node:fs');
+import { execSync } from 'node:child_process';
+import { join, resolve } from 'node:path';
+import { existsSync } from 'node:fs';
 
 // TODO: Bug Report
 // eslint-disable-next-line import/no-unresolved
-const { error } = require('bananass-utils-console/theme');
+import { error } from 'bananass-utils-console/theme';
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
 /**
@@ -30,7 +30,7 @@ const { error } = require('bananass-utils-console/theme');
  * @throws {Error} If `package.json` cannot be found in either the current
  * working directory or the Git root directory, or if Git is not installed or accessible.
  */
-module.exports = function getRootDir() {
+export default function getRootDir() {
   const PACKAGE_JSON = 'package.json';
 
   const path = process.cwd();
@@ -53,4 +53,4 @@ module.exports = function getRootDir() {
       `Cannot find root directory. Ensure ${PACKAGE_JSON} exists in the project root.\n> path: ${path}\n> pathFallback: ${pathFallback}`,
     ),
   );
-};
+}
