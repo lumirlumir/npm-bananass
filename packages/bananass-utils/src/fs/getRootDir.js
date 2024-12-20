@@ -39,10 +39,10 @@ module.exports = function getRootDir() {
   let pathFallback;
   try {
     pathFallback = resolve(execSync('git rev-parse --show-toplevel').toString().trim());
-  } catch {
+  } catch ({ message }) {
     throw new Error(
       error(
-        'Git command failed. Ensure Git is installed and you are inside a Git repository.',
+        `Git command failed. Ensure Git is installed and you are inside a Git repository - ${message}`,
       ),
     );
   }
@@ -50,7 +50,7 @@ module.exports = function getRootDir() {
 
   throw new Error(
     error(
-      `Cannot find root directory. Ensure ${PACKAGE_JSON} exists in the project root.\n- path: ${path}\n- pathFallback: ${pathFallback}`,
+      `Cannot find root directory. Ensure ${PACKAGE_JSON} exists in the project root.\n> path: ${path}\n> pathFallback: ${pathFallback}`,
     ),
   );
 };
