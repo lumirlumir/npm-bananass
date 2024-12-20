@@ -2,32 +2,30 @@
  * @fileoverview Asynchronously build and create bundled files using Webpack.
  */
 
+/* eslint-disable import/extensions, import/no-unresolved */ // TODO: Remove this line after developing `eslint-config-bananass` package.
+
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const { resolve } = require('node:path');
-const { rmSync } = require('node:fs');
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
+import { rmSync } from 'node:fs';
 
-// eslint-disable-next-line import/no-unresolved
-const { getRootDir } = require('bananass-utils/fs');
-const {
-  createLogger,
-  createSpinner,
-  theme: { bananass, success, error },
-  // TODO: Bug Report
-  // eslint-disable-next-line import/no-unresolved
-} = require('bananass-utils-console');
-const webpack = require('webpack');
+import { getRootDir } from 'bananass-utils/fs';
+import createLogger from 'bananass-utils-console/logger';
+import createSpinner from 'bananass-utils-console/spinner';
+import { bananass, success, error } from 'bananass-utils-console/theme';
+import webpack from 'webpack';
 
-const {
+import {
   OUTPUT_DIRECTORY_NAME,
   BAEKJOON_PROBLEM_NUMBER_MIN,
   BAEKJOON_PROBLEM_NUMBER_MAX,
-} = require('../../constants');
+} from '../../constants/index.js';
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
 /**
@@ -37,12 +35,12 @@ const {
  * @param // TODO
  * @async
  */
-module.exports = async function build(problems, options) {
+export default async function build(problems, options) {
   // ------------------------------------------------------------------------------
   // Declaration
   // ------------------------------------------------------------------------------
 
-  const WEBPACK_ENTRY_FILE_NAME = 'template.js';
+  const WEBPACK_ENTRY_FILE_NAME = 'template.cjs';
   const rootDir = getRootDir();
   const outputDir = resolve(rootDir, OUTPUT_DIRECTORY_NAME);
   const logger = createLogger(options);
@@ -100,7 +98,7 @@ module.exports = async function build(problems, options) {
     /**
      * See {@link https://webpack.js.org/concepts/#entry}.
      */
-    entry: resolve(__dirname, WEBPACK_ENTRY_FILE_NAME),
+    entry: resolve(dirname(fileURLToPath(import.meta.url)), WEBPACK_ENTRY_FILE_NAME),
 
     /**
      * See {@link https://webpack.js.org/concepts/#output}.
@@ -160,4 +158,4 @@ module.exports = async function build(problems, options) {
 
     throw new Error(error(`Webpack run failed - ${message}`));
   }
-};
+}

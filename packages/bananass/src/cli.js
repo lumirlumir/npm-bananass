@@ -4,16 +4,25 @@
  * @fileoverview Entry file for the `npx bananass` CLI command. See the `bin.bananass` property in `../package.json`.
  */
 
+/* eslint-disable import/extensions, import/no-unresolved */ // TODO: Remove this line after developing `eslint-config-bananass` package.
+
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const logger = require('bananass-utils-console/logger'); // eslint-disable-line import/no-unresolved
-const { program } = require('commander');
+import { createRequire } from 'node:module';
 
-const { build } = require('./commands');
-const { ENTRY_DIRECTORY_NAME_ARRAY, OUTPUT_DIRECTORY_NAME } = require('./constants');
-const { description, name, version } = require('../package.json');
+import logger from 'bananass-utils-console/logger';
+import { program } from 'commander';
+
+import { build } from './commands/index.js';
+import { ENTRY_DIRECTORY_NAME_ARRAY, OUTPUT_DIRECTORY_NAME } from './constants/index.js';
+
+// --------------------------------------------------------------------------------
+// Declaration
+// --------------------------------------------------------------------------------
+
+const { description, name, version } = createRequire(import.meta.url)('../package.json');
 
 // --------------------------------------------------------------------------------
 // Commands and Options

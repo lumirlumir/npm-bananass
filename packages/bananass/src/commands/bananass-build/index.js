@@ -2,14 +2,16 @@
  * @fileoverview Entry file for the `bananass-build` directory.
  */
 
-// --------------------------------------------------------------------------------
-// Require
-// --------------------------------------------------------------------------------
-
-const build = require('./webpack');
+/* eslint-disable import/extensions */ // TODO: Remove this line after developing `eslint-config-bananass` package.
 
 // --------------------------------------------------------------------------------
-// Exports
+// Import
 // --------------------------------------------------------------------------------
 
-module.exports = build;
+import build from './webpack.js';
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+export default build;
