@@ -1,8 +1,10 @@
 {
   "private": true,
   "workspaces": [
+    "examples/*",
     "packages/*",
-    "tests/*"
+    "tests/*",
+    "website"
   ],
   "scripts": {
     "prepare": "husky",
@@ -10,15 +12,15 @@
     "build": "npx lerna run build",
     "test": "npx lerna run test",
     "coverage": "npx nyc --reporter=lcov npm run test",
-    "lint": "concurrently \"npm:lint-*\"",
-    "lint-eslint": "npx eslint . --ext .js",
-    "lint-prettier": "npx prettier . --check",
-    "lint-editorconfig": "npx editorconfig-checker -config .editorconfig-checker.json",
-    "lint-markdownlint": "npx markdownlint **/*.md",
-    "lint-textlint": "npx textlint -f pretty-error **/*.md",
-    "fix": "concurrently \"npm:fix-*\"",
-    "fix-eslint": "npx eslint . --fix --ext .js",
-    "fix-prettier": "npx prettier . --write"
+    "lint": "concurrently \"npm:lint:*\"",
+    "lint:eslint": "npx eslint . --ext .js",
+    "lint:prettier": "npx prettier . --check",
+    "lint:editorconfig": "npx editorconfig-checker -config .editorconfig-checker.json",
+    "lint:markdownlint": "npx markdownlint **/*.md",
+    "lint:textlint": "npx textlint -f pretty-error **/*.md",
+    "fix": "concurrently \"npm:fix:*\"",
+    "fix:eslint": "npx eslint . --fix --ext .js",
+    "fix:prettier": "npx prettier . --write"
   },
   "devDependencies": {
     "@babel/cli": "^7.25.9",
@@ -37,6 +39,7 @@
     "nyc": "^17.1.0",
     "prettier": "^3.4.1",
     "textlint": "^14.3.0",
-    "textlint-rule-allowed-uris": "^1.0.6"
+    "textlint-rule-allowed-uris": "^1.0.6",
+    "typescript": "^5.7.2"
   }
 }
