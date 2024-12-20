@@ -9,6 +9,8 @@
 const { resolve } = require('node:path');
 const { rmSync } = require('node:fs');
 
+// eslint-disable-next-line import/no-unresolved
+const { getRootDir } = require('bananass-utils/fs');
 const {
   createLogger,
   createSpinner,
@@ -23,7 +25,6 @@ const {
   BAEKJOON_PROBLEM_NUMBER_MIN,
   BAEKJOON_PROBLEM_NUMBER_MAX,
 } = require('../../constants');
-const { getRootDir } = require('../../utils/fs');
 
 // --------------------------------------------------------------------------------
 // Exports

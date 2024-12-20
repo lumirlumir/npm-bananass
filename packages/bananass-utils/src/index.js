@@ -1,17 +1,18 @@
 /**
- * @fileoverview Entry file for the `fs` directory.
+ * @fileoverview Entry file for the `bananass-utils` package.
+ * @module bananass-utils
  */
 
-// --------------------------------------------------------------------------------
-// Require
-// --------------------------------------------------------------------------------
-
-const getRootDir = require('./getRootDir');
+/* eslint-disable import/extensions, import/prefer-default-export */ // TODO: Remove this line after developing `eslint-config-bananass` package.
 
 // --------------------------------------------------------------------------------
-// Exports
+// Import
 // --------------------------------------------------------------------------------
 
-module.exports = {
-  getRootDir,
-};
+import fs from './fs/index.js';
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+export { fs };
