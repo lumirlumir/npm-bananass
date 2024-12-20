@@ -2,7 +2,7 @@
   "name": "bananass-utils",
   "version": "0.0.0",
   "type": "module",
-  "description": "Utilities for Bananass Framework.🍌",
+  "description": "Utilities except console for Bananass Framework.🍌",
   "exports": {
     ".": {
       "types": "./build/index.d.ts",
