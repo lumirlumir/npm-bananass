@@ -6,9 +6,9 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { execSync } from 'node:child_process';
 import { join, resolve } from 'node:path';
-import { existsSync } from 'node:fs';
+import cp from 'node:child_process';
+import fs from 'node:fs';
 
 // TODO: Bug Report
 // eslint-disable-next-line import/no-unresolved
@@ -34,11 +34,13 @@ export default function getRootDir() {
   const PACKAGE_JSON = 'package.json';
 
   const path = process.cwd();
-  if (existsSync(join(path, PACKAGE_JSON))) return path;
+  if (fs.existsSync(join(path, PACKAGE_JSON))) return path;
 
   let pathFallback;
   try {
-    pathFallback = resolve(execSync('git rev-parse --show-toplevel').toString().trim());
+    pathFallback = resolve(
+      cp.execSync('git rev-parse --show-toplevel').toString().trim(),
+    );
   } catch ({ message }) {
     throw new Error(
       error(
@@ -46,7 +48,7 @@ export default function getRootDir() {
       ),
     );
   }
-  if (existsSync(join(pathFallback, PACKAGE_JSON))) return pathFallback;
+  if (fs.existsSync(join(pathFallback, PACKAGE_JSON))) return pathFallback;
 
   throw new Error(
     error(
