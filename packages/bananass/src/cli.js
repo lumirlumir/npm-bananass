@@ -36,6 +36,14 @@ const { description, name, version } = createRequire(import.meta.url)('../packag
 program.name(name).description(description).version(version, '-v, --version');
 
 /**
+ * Add.
+ *
+ * `npx bananass add` command.
+ * @todo
+ */
+program.command('add');
+
+/**
  * Build.
  *
  * `npx bananass build` command.
@@ -60,12 +68,68 @@ program
   });
 
 /**
+ * Case.
+ *
+ * `npx bananass case` command.
+ * @todo
+ */
+program.command('case');
+
+/**
+ * Clean.
+ *
+ * `npx bananass clean` command.
+ * @todo
+ */
+program.command('clean');
+
+/**
  * Info.
  *
  * `npx bananass info` command.
  * @todo
  */
 program.command('info');
+
+/**
+ * Init.
+ *
+ * `npx bananass init` command.
+ * @todo
+ */
+program.command('init');
+
+/**
+ * Lint.
+ *
+ * `npx bananass lint` command.
+ * @todo
+ */
+program.command('lint');
+
+/**
+ * Login.
+ *
+ * `npx bananass login` command.
+ * @todo
+ */
+program.command('login');
+
+/**
+ * Open.
+ *
+ * `npx bananass open` command.
+ * @todo
+ */
+program.command('open');
+
+/**
+ * Random.
+ *
+ * `npx bananass random` command.
+ * @todo
+ */
+program.command('random');
 
 /**
  * Run.
