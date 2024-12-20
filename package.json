@@ -3,7 +3,8 @@
   "workspaces": [
     "examples/*",
     "packages/*",
-    "tests/*"
+    "tests/*",
+    "website"
   ],
   "scripts": {
     "prepare": "husky",
