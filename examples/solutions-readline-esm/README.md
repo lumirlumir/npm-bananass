@@ -24,7 +24,7 @@ npm run start:1000 -w examples/solutions-readline-esm # 1000번 문제
 
 ### 디렉토리로 이동하여 실행
 
-`examples/solutions-readline` 디렉토리로 이동한 후, 다음 명령어를 실행하여 예제를 시작할 수 있습니다.
+`examples/solutions-readline-esm` 디렉토리로 이동한 후, 다음 명령어를 실행하여 예제를 시작할 수 있습니다.
 
 ```sh
 cd examples/solutions-readline-esm

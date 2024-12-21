@@ -1,4 +1,4 @@
-# `examples-solutions-readline`
+# `examples-solutions-readline-cjs`
 
 <kbd>한국어</kbd> | <kbd>[English](README.en.md)</kbd>
 
@@ -17,19 +17,19 @@
 루트 디렉토리에서 다음 명령어를 실행하여 예제를 시작할 수 있습니다.
 
 ```sh
-npm run start:1000 -w examples/solutions-readline # 1000번 문제
+npm run start:1000 -w examples/solutions-readline-cjs # 1000번 문제
 # or
-npm run start:1001 -w examples/solutions-readline # 1001번 문제
+npm run start:1001 -w examples/solutions-readline-cjs # 1001번 문제
 # or
-npm run start:29751 -w examples/solutions-readline # 29751번 문제
+npm run start:29751 -w examples/solutions-readline-cjs # 29751번 문제
 ```
 
 ### 디렉토리로 이동하여 실행
 
-`examples/solutions-readline` 디렉토리로 이동한 후, 다음 명령어를 실행하여 예제를 시작할 수 있습니다.
+`examples/solutions-readline-cjs` 디렉토리로 이동한 후, 다음 명령어를 실행하여 예제를 시작할 수 있습니다.
 
 ```sh
-cd examples/solutions-readline
+cd examples/solutions-readline-cjs
 
 npm run start:1000 # 1000번 문제
 # or

@@ -24,7 +24,7 @@ npm run start:1000 -w examples/solutions-readline-esm # Problem 1000
 
 ### Navigate to the Directory and Run
 
-Navigate to the `examples/solutions-readline` directory and then run the following commands to start the example:
+Navigate to the `examples/solutions-readline-esm` directory and then run the following commands to start the example:
 
 ```sh
 cd examples/solutions-readline-esm
