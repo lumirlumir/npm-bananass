@@ -2,16 +2,16 @@
  * @fileoverview Entry file for the `commands` directory.
  */
 
-// --------------------------------------------------------------------------------
-// Require
-// --------------------------------------------------------------------------------
-
-const build = require('./bananass-build');
+/* eslint-disable import/extensions, import/prefer-default-export */ // TODO: Remove this line after developing `eslint-config-bananass` package.
 
 // --------------------------------------------------------------------------------
-// Exports
+// Import
 // --------------------------------------------------------------------------------
 
-module.exports = {
-  build,
-};
+import build from './bananass-build/index.js';
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+export { build };

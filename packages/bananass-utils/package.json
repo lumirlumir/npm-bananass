@@ -1,16 +1,18 @@
 {
-  "name": "bananass",
+  "name": "bananass-utils",
   "version": "0.0.0",
   "type": "module",
-  "description": "Baekjoon Framework for JavaScript.🍌",
+  "description": "Utilities except console for Bananass Framework.🍌",
   "exports": {
     ".": {
       "types": "./build/index.d.ts",
       "default": "./build/index.js"
-    }
-  },
-  "bin": {
-    "bananass": "build/cli.js"
+    },
+    "./fs": {
+      "types": "./build/fs/index.d.ts",
+      "default": "./build/fs/index.js"
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "build",
@@ -19,11 +21,10 @@
   ],
   "keywords": [
     "bananass",
-    "bananas",
-    "banana",
     "baekjoon",
     "framework",
-    "javascript"
+    "javascript",
+    "utils"
   ],
   "author": "루밀LuMir <rpfos@naver.com> (https://github.com/lumirlumir)",
   "license": "MIT",
@@ -31,7 +32,7 @@
   "repository": {
     "type": "github",
     "url": "git+https://github.com/lumirlumir/npm-bananass.git",
-    "directory": "packages/bananass"
+    "directory": "packages/bananass-utils"
   },
   "bugs": {
     "url": "https://github.com/lumirlumir/npm-bananass/issues"
@@ -42,11 +43,6 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "npx babel src -d build && npx tsc && cp ../../LICENSE.md ../../README.md .",
-    "test": "true"
-  },
-  "dependencies": {
-    "bananass-utils-console": "^0.0.0",
-    "commander": "^12.1.0",
-    "webpack": "^5.97.1"
+    "test": "node --test"
   }
 }

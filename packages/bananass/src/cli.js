@@ -4,16 +4,25 @@
  * @fileoverview Entry file for the `npx bananass` CLI command. See the `bin.bananass` property in `../package.json`.
  */
 
+/* eslint-disable import/extensions, import/no-unresolved */ // TODO: Remove this line after developing `eslint-config-bananass` package.
+
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const logger = require('bananass-utils-console/logger'); // eslint-disable-line import/no-unresolved
-const { program } = require('commander');
+import { createRequire } from 'node:module';
 
-const { build } = require('./commands');
-const { ENTRY_DIRECTORY_NAME_ARRAY, OUTPUT_DIRECTORY_NAME } = require('./constants');
-const { description, name, version } = require('../package.json');
+import logger from 'bananass-utils-console/logger';
+import { program } from 'commander';
+
+import { build } from './commands/index.js';
+import { ENTRY_DIRECTORY_NAME_ARRAY, OUTPUT_DIRECTORY_NAME } from './constants/index.js';
+
+// --------------------------------------------------------------------------------
+// Declaration
+// --------------------------------------------------------------------------------
+
+const { description, name, version } = createRequire(import.meta.url)('../package.json');
 
 // --------------------------------------------------------------------------------
 // Commands and Options
@@ -25,6 +34,14 @@ const { description, name, version } = require('../package.json');
  * `npx bananass` command.
  */
 program.name(name).description(description).version(version, '-v, --version');
+
+/**
+ * Add.
+ *
+ * `npx bananass add` command.
+ * @todo
+ */
+program.command('add');
 
 /**
  * Build.
@@ -51,12 +68,68 @@ program
   });
 
 /**
+ * Case.
+ *
+ * `npx bananass case` command.
+ * @todo
+ */
+program.command('case');
+
+/**
+ * Clean.
+ *
+ * `npx bananass clean` command.
+ * @todo
+ */
+program.command('clean');
+
+/**
  * Info.
  *
  * `npx bananass info` command.
  * @todo
  */
 program.command('info');
+
+/**
+ * Init.
+ *
+ * `npx bananass init` command.
+ * @todo
+ */
+program.command('init');
+
+/**
+ * Lint.
+ *
+ * `npx bananass lint` command.
+ * @todo
+ */
+program.command('lint');
+
+/**
+ * Login.
+ *
+ * `npx bananass login` command.
+ * @todo
+ */
+program.command('login');
+
+/**
+ * Open.
+ *
+ * `npx bananass open` command.
+ * @todo
+ */
+program.command('open');
+
+/**
+ * Random.
+ *
+ * `npx bananass random` command.
+ * @todo
+ */
+program.command('random');
 
 /**
  * Run.

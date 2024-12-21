@@ -1,8 +1,9 @@
 # dependencies
-/node_modules
+node_modules
 
 # production
-/build
+build
+.next
 
 # files
 LICENSE.md
