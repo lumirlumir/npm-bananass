@@ -20,7 +20,8 @@
     "lint:textlint": "npx textlint -f pretty-error **/*.md",
     "fix": "concurrently \"npm:fix:*\"",
     "fix:eslint": "npx eslint . --fix --ext .js",
-    "fix:prettier": "npx prettier . --write"
+    "fix:prettier": "npx prettier . --write",
+    "examples:solutions-bananass:build": "npm run bananass:build -w examples/solutions-bananass -- 1000"
   },
   "devDependencies": {
     "@babel/cli": "^7.25.9",

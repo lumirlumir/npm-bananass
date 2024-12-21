@@ -1,10 +1,12 @@
 const { log } = require('node:console');
 
-module.exports = inputFile => {
-  const [a, b] = inputFile
+function solution(input) {
+  const [a, b] = input
     .trim()
     .split(' ')
     .map(val => Number(val));
 
   log(a - b);
-};
+}
+
+module.exports = solution;
