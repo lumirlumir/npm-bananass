@@ -5,7 +5,7 @@
   "scripts": {
     "bananass:build": "npx bananass build"
   },
-  "dependencies": {
+  "devDependencies": {
     "bananass": "^0.0.0"
   }
 }
