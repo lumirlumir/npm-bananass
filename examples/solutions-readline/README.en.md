@@ -1,4 +1,4 @@
-# `solutions-readline`
+# `examples-solutions-readline`
 
 <kbd>[한국어](README.md)</kbd> | <kbd>English</kbd>
 
