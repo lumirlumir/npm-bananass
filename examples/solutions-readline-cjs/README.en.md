@@ -1,4 +1,4 @@
-# `solutions-readline`
+# `examples-solutions-readline-cjs`
 
 <kbd>[한국어](README.md)</kbd> | <kbd>English</kbd>
 
@@ -17,19 +17,19 @@ You can run the example by choosing one of the following two methods.
 You can start the example by running the following commands from the root directory:
 
 ```sh
-npm run start:1000 -w examples/solutions-readline # Problem 1000
+npm run start:1000 -w examples/solutions-readline-cjs # Problem 1000
 # or
-npm run start:1001 -w examples/solutions-readline # Problem 1001
+npm run start:1001 -w examples/solutions-readline-cjs # Problem 1001
 # or
-npm run start:29751 -w examples/solutions-readline # Problem 29751
+npm run start:29751 -w examples/solutions-readline-cjs # Problem 29751
 ```
 
 ### Navigate to the Directory and Run
 
-Navigate to the `examples/solutions-readline` directory and then run the following commands to start the example:
+Navigate to the `examples/solutions-readline-cjs` directory and then run the following commands to start the example:
 
 ```sh
-cd examples/solutions-readline
+cd examples/solutions-readline-cjs
 
 npm run start:1000 # Problem 1000
 # or

@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "examples-solutions-readline",
+  "name": "examples-solutions-readline-cjs",
   "version": "0.0.0",
   "scripts": {
     "start:1000": "node src/1000",
