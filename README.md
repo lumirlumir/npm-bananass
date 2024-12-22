@@ -25,7 +25,7 @@
 
 바나나 프레임워크는 [루밀<sup>LuMir</sup>](https://github.com/lumirlumir)이 제작한 **자바스크립트<sup>JavaScript</sup>를 위한 백준 프레임워크**로, 백준 Node.js 환경에서의 보다 편리한 문제풀이를 위해 설계되었습니다.
 
-이제 더 이상 `readline` 혹은 `fs` 모듈을 이용한 템플릿<sup>Template</sup> 코드를 작성한 후, 일일이 복사 붙여넣기할 필요가 없습니다! 바나나 프레임워크를 통해 **프로그래머스**에서 하나의 솔루션 함수<sup>`function solution() {}`</sup>를 작성하듯 더욱 간편한 문제 풀이를 경험해보세요.
+이제 더 이상 `readline` 혹은 `fs` 모듈을 이용한 템플릿<sup>Template</sup> 코드를 작성한 후, 일일이 복사 붙여넣기할 필요가 없습니다! 바나나 프레임워크를 통해 [**프로그래머스**](https://programmers.co.kr/)에서 하나의 솔루션 함수<sup>`function solution() {}`</sup>를 작성하듯 더욱 간편한 문제 풀이를 경험해보세요.
 
 ## 왜 바나나일까요?
 
