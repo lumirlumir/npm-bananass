@@ -65,8 +65,10 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.prettierrc.js
   - source: ./.textlintrc.js
     dest: ./configs/.textlintrc.js
+  - source: ./CODE_OF_CONDUCT.en.md
+    dest: ./configs/CODE_OF_CONDUCT.en.md
   - source: ./CODE_OF_CONDUCT.md
-    dest: ./configs/CODE_OF_CONDUCT.md
+    dest: ./configs/CODE_OF_CONDUCT.ko.md
   - source: ./LICENSE.md
     dest: ./configs/LICENSE.md
   - source: ./lint-staged.config.js
