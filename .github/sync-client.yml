@@ -39,7 +39,7 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.husky/pre-commit
   # ./.vscode
   - source: ./.vscode/extensions.json
-    dest: ./configs/.vscode/npm-extensions.json
+    dest: ./configs/.vscode/web-extensions.json
   - source: ./.vscode/settings.json
     dest: ./configs/.vscode/settings.json
   # ./
@@ -49,6 +49,8 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.eslintignore
   - source: ./.eslintrc.js
     dest: ./configs/.eslintrc.js
+  - source: ./.gitattributes
+    dest: ./configs/.gitattributes
   - source: ./.gitignore
     dest: ./configs/.gitignore
   - source: ./.markdownlint.json
@@ -61,11 +63,15 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.prettierignore
   - source: ./.prettierrc.js
     dest: ./configs/.prettierrc.js
-  - source: ./babel.config.js
-    dest: ./configs/babel.config.js
+  - source: ./.textlintrc.js
+    dest: ./configs/.textlintrc.js
+  - source: ./CODE_OF_CONDUCT.en.md
+    dest: ./configs/CODE_OF_CONDUCT.en.md
   - source: ./CODE_OF_CONDUCT.md
-    dest: ./configs/CODE_OF_CONDUCT.md
+    dest: ./configs/CODE_OF_CONDUCT.ko.md
   - source: ./LICENSE.md
     dest: ./configs/LICENSE.md
+  - source: ./lint-staged.config.js
+    dest: ./configs/lint-staged.config.js
   - source: ./VScode.code-workspace
     dest: ./configs/VScode.code-workspace
