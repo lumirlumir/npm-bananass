@@ -27,9 +27,11 @@ The Bananass Framework is a **Baekjoon framework for JavaScript** created by [Lu
 
 You no longer need to write template code using the `readline` or `fs` modules and copy-paste it every time! With the Bananass Framework, you can experience more convenient problem-solving, just like writing a single solution function<sup>`function solution() {}`</sup> on [**Programmers**](https://programmers.co.kr/).
 
+But do we really need to learn a framework just to solve Baekjoon problems? Let's find out why below!
+
 ## Why Bananass?
 
-Shall we take a look at an example of solving the [Baekjoon Problem 1000: A+B](https://www.acmicpc.net/problem/1000) using JavaScript together?
+Why hasn't there been a framework specialized for problem-solving among the numerous frameworks in the JavaScript ecosystem? Shall we take a look at an example of solving the [Baekjoon Problem 1000: A+B](https://www.acmicpc.net/problem/1000) using JavaScript together?
 
 - Before: Solving the problem using the traditional method.
 
@@ -72,7 +74,7 @@ Shall we take a look at an example of solving the [Baekjoon Problem 1000: A+B](h
       const [a, b] = input
         .trim()
         .split(' ')
-        .map(val => Number(val));
+        .map(Number);
 
       console.log(a + b);
     }
@@ -82,11 +84,23 @@ Shall we take a look at an example of solving the [Baekjoon Problem 1000: A+B](h
 
 Wow!😲 Isn't it amazing? Now you can focus solely on the algorithm logic with simplified code.
 
+But is that all? Of course not!
+
+- Use of the latest syntax like ES2025, not limited to the Baekjoon Node.js environment
+- Use of custom modules and external libraries like `lodash`
+- Built-in support for ESLint and Prettier
+- Extensive documentation and community support
+- ...
+
+How about it? Wouldn't you like to experience more convenient problem-solving with the Bananass Framework?🤔
+
 ## Getting Started with Bananass
 
 Like `create-react-app` for React and `create-next-app` for Next.js,
 
 **Experience a new paradigm in problem-solving right now with `create-bananass-app` provided by the Bananass Framework!**
+
+You can instantly install and use the Bananass Framework with `create-bananass-app`! (Although it's not really an app<sup>App</sup>, but that's not important...🤔)
 
 ```bash
 npx create-bananass-app my-bananass-app --no-install

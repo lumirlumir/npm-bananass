@@ -27,9 +27,11 @@
 
 이제 더 이상 `readline` 혹은 `fs` 모듈을 이용한 템플릿<sup>Template</sup> 코드를 작성한 후, 일일이 복사 붙여넣기할 필요가 없습니다! 바나나 프레임워크를 통해 [**프로그래머스**](https://programmers.co.kr/)에서 하나의 솔루션 함수<sup>`function solution() {}`</sup>를 작성하듯 더욱 간편한 문제 풀이를 경험해보세요.
 
+그런데, 백준 문제 풀이를 하는데 굳이 프레임워크까지 알아야 할까요? 아래에서 그 이유를 찾아보죠!
+
 ## 왜 바나나일까요?
 
-함께 자바스크립트를 이용한 [백준 1000번: A+B](https://www.acmicpc.net/problem/1000) 문제 풀이 예제를 살펴볼까요?
+왜 자바스크립트<sup>JavaScript</sup> 생태계의 수 많은 프레임워크 중 문제 풀이에 특화된 프레임워크는 없었을까요? 함께 자바스크립트를 이용한 [백준 1000번: A+B](https://www.acmicpc.net/problem/1000) 문제 풀이 예제를 살펴보죠!
 
 - 전<sup>Before</sup>: 기존 방법을 통한 문제 풀이.
 
@@ -72,7 +74,7 @@
       const [a, b] = input
         .trim()
         .split(' ')
-        .map(val => Number(val));
+        .map(Number);
 
       console.log(a + b);
     }
@@ -82,11 +84,23 @@
 
 와우!😲 놀랍지 않나요? 이제 여러분들은 단순해진 코드와 더불어 알고리즘 로직에만 집중할 수 있습니다.
 
+근데, 이게 전부냐고요? 물론 아닙니다!
+
+- 백준 Node.js 환경에 구애받지 않는 ES2025 등 최신 문법의 사용
+- 사용자 정의 모듈 및 `lodash` 등 외부 라이브러리의 사용
+- ESLint 및 Prettier 자체 지원
+- 풍부한 문서 및 커뮤니티 지원
+- ...
+
+어떤가요? 바나나 프레임워크를 통해 더욱 편리한 문제 풀이를 경험해보고 싶지 않으신가요?🤔
+
 ## 바나나로 시작하기
 
 React의 `create-react-app`, Next.js의 `create-next-app` 처럼,
 
 **바나나 프레임워크에서 제공하는 `create-bananass-app`으로 지금 바로 새로운 문제 풀이 패러다임을 경험해보세요!**
+
+바나나 프레임워크는 `create-bananass-app`을 통해 즉시 설치하고 사용할 수 있습니다! (사실 앱<sup>App</sup>은 아니지만, 그건 중요한게 아닙니다...🤔)
 
 ```bash
 npx create-bananass-app my-bananass-app --no-install
