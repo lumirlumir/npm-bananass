@@ -1,5 +1,5 @@
 /**
- * This file follows:
+ * @fileoverview This file follows:
  *
  * - The order of the rules listed in the 'Suggestions' section on eslint.org.
  *   - See, {@link https://eslint.org/docs/latest/rules#suggestions}.
@@ -7,6 +7,11 @@
  * - The best practices outlined in `eslint-config-airbnb-base@19.0.4`.
  *   - See, {@link https://github.com/airbnb/javascript/tree/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules}.
  */
+
+// --------------------------------------------------------------------------------
+// Exports
+// --------------------------------------------------------------------------------
+
 module.exports = {
   /**
    * Enforce getter and setter pairs in objects and classes.

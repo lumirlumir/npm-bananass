@@ -4,7 +4,7 @@ Every file under `eslint-config-bananass/src/rules` directory should follow the 
 
 ```js
 /**
- * This file follows:
+ * @fileoverview This file follows:
  *
  * - The order of the rules listed in the 'XXX' section on XXX.
  *   - See, {@link link-to-the-website}.
@@ -12,6 +12,11 @@ Every file under `eslint-config-bananass/src/rules` directory should follow the 
  * - The best practices outlined in `XXX`.
  *   - See, {@link link-to-the-website}.
  */
+
+// --------------------------------------------------------------------------------
+// Exports
+// --------------------------------------------------------------------------------
+
 module.exports = {
   /**
    * Descriptions from the official documentation.
