@@ -2,7 +2,7 @@
 
 Every file under `eslint-config-bananass/src/rules` directory should follow the format below.
 
-```javascript
+```js
 /**
  * This file follows:
  *
