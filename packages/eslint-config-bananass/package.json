@@ -1,25 +1,24 @@
 {
   "name": "eslint-config-bananass",
   "version": "0.0.0",
-  "description": "ESLint config for airbnb base to support ESLint v9 flat config.",
-  "exports": "./build/index.js",
+  "description": "ESLint Config for Bananass Framework.🍌",
+  "exports": "./src/index.js",
   "files": [
-    "build",
+    "src",
     "LICENSE.md",
     "README.md"
   ],
   "keywords": [
+    "bananass",
+    "baekjoon",
+    "framework",
+    "javascript",
     "eslint",
     "eslintconfig",
     "eslint-config",
     "config",
     "flat",
-    "flat-config",
-    "airbnb",
-    "styleguide",
-    "javascript",
-    "bananass",
-    "framework"
+    "flat-config"
   ],
   "author": "루밀LuMir <rpfos@naver.com> (https://github.com/lumirlumir)",
   "license": "MIT",
