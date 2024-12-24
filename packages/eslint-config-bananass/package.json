@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-airbnb-base-flat",
+  "name": "eslint-config-bananass",
   "version": "0.0.0",
   "description": "ESLint config for airbnb base to support ESLint v9 flat config.",
   "exports": "./build/index.js",
@@ -27,7 +27,7 @@
   "repository": {
     "type": "github",
     "url": "git+https://github.com/lumirlumir/npm-bananass.git",
-    "directory": "packages/eslint-config-airbnb-base-flat"
+    "directory": "packages/eslint-config-bananass"
   },
   "bugs": {
     "url": "https://github.com/lumirlumir/npm-bananass/issues"

@@ -1,6 +1,6 @@
 # JSDoc Template
 
-Every file under `eslint-config-airbnb-base-flat/src/rules` directory should follow the format below.
+Every file under `eslint-config-bananass/src/rules` directory should follow the format below.
 
 ```javascript
 /**
