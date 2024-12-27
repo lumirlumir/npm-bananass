@@ -16,7 +16,6 @@ module.exports = {
   /**
    * Enforce getter and setter pairs in objects and classes.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/accessor-pairs}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L5}
    */
@@ -25,7 +24,6 @@ module.exports = {
   /**
    * Require braces around arrow function bodies.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/arrow-body-style}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/es6.js#L18-L20}
    */
@@ -40,7 +38,6 @@ module.exports = {
   /**
    * Enforce the use of variables within the scope they are defined.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/block-scoped-var}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L13}
    */
@@ -49,14 +46,13 @@ module.exports = {
   /**
    * Enforce camelcase naming convention.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/camelcase}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L24}
    */
   camelcase: [
     'error',
     {
-      properties: 'never',
+      properties: 'never', // Does not check property names.
       ignoreDestructuring: false,
     },
   ],
@@ -64,54 +60,33 @@ module.exports = {
   /**
    * Enforce or disallow capitalization of the first letter of a comment.
    *
-   * @description
+   * @description I've deleted unnecessary options from airbnb-base since the rule is set to `'off'`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/capitalized-comments}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L28-L39}
    */
-  'capitalized-comments': [
-    'off',
-    'never',
-    {
-      line: {
-        ignorePattern: '.*',
-        ignoreInlineComments: true,
-        ignoreConsecutiveComments: true,
-      },
-      block: {
-        ignorePattern: '.*',
-        ignoreInlineComments: true,
-        ignoreConsecutiveComments: true,
-      },
-    },
-  ],
+  'capitalized-comments': 'off',
 
   /**
    * Enforce that class methods utilize `this`.
    *
-   * @description
+   * @description I've deleted unnecessary options from airbnb-base.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/class-methods-use-this}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L21-L23}
    */
-  'class-methods-use-this': [
-    'error',
-    {
-      exceptMethods: [],
-    },
-  ],
+  'class-methods-use-this': 'error',
 
   /**
    * Enforce a maximum cyclomatic complexity allowed in a program.
    *
-   * @description
+   * @description I've deleted unnecessary options from airbnb-base.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/complexity}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L17}
    */
-  complexity: ['off', 20],
+  complexity: 'off',
 
   /**
    * Require `return` statements to either always or never specify values.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/consistent-return}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L27}
    */
