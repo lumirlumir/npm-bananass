@@ -442,11 +442,14 @@ module.exports = {
   /**
    * Disallow the use of variables before they are defined.
    *
-   * @description I used the default value for this option, so its format is not same with `airbnb-base`.
+   * @description ⚠️Different from `airbnb-base` which has `functions: true`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-use-before-define}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/variables.js#L54}
    */
-  'no-use-before-define': 'error',
+  'no-use-before-define': [
+    'error',
+    { functions: false, classes: true, variables: true, allowNamedExports: false },
+  ],
 
   /**
    * Disallow variable assignments when the value is not used.
