@@ -95,7 +95,6 @@ module.exports = {
   /**
    * Enforce consistent naming when capturing the current execution context.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/consistent-this}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L74}
    */
@@ -104,22 +103,21 @@ module.exports = {
   /**
    * Enforce consistent brace style for all control statements.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/curly}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L31}
-   *
-   * @todo disable it on bananass.
    */
   curly: ['error', 'multi-line'],
 
   /**
    * Require `default` cases in `switch` statements.
    *
-   * @description
+   * @description I've deleted unnecessary options from airbnb-base.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/default-case}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L35}
    */
-  'default-case': '',
+  'default-case': 'error',
+
+  // --------------------------------------------------------------------------------
 
   /**
    * Enforce `default` clauses in switch statements to be last.
