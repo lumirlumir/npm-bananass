@@ -96,7 +96,7 @@ module.exports = {
   /**
    * Disallow expressions where the operation doesn't affect the value.
    *
-   * @description This option is not included in `airbnb-base`.
+   * @description This rule is not included in `airbnb-base`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-constant-binary-expression}
    * @link airbnb-base: {@link }
    */
@@ -274,7 +274,7 @@ module.exports = {
   /**
    * Disallow `new` operators with global non-constructor functions.
    *
-   * @description This option is not included in `airbnb-base`.
+   * @description This rule is not included in `airbnb-base`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-new-native-nonconstructor}
    * @link airbnb-base: {@link }
    */
@@ -454,7 +454,7 @@ module.exports = {
   /**
    * Disallow variable assignments when the value is not used.
    *
-   * @description This option is not included in `airbnb-base`.
+   * @description This rule is not included in `airbnb-base`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-useless-assignment}
    * @link airbnb-base: {@link }
    */
