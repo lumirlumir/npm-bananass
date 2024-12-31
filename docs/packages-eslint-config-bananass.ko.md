@@ -4,7 +4,7 @@
 
 ## `eslint@8`에서 `eslint@9`로 넘어가며 이동한 규칙들
 
-### to[`@stylistic/eslint-plugin-js`](https://github.com/eslint-stylistic/eslint-stylistic)
+### to [`@stylistic/eslint-plugin-js`](https://github.com/eslint-stylistic/eslint-stylistic)
 
 1. [`dot-location`](https://eslint.org/docs/latest/rules/dot-location)
     - airbnb-base: `['error', 'property']`
