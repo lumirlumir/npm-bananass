@@ -98,7 +98,6 @@ module.exports = {
    *
    * @description This rule is not included in `airbnb-base`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-constant-binary-expression}
-   * @link airbnb-base: {@link }
    */
   'no-constant-binary-expression': 'error',
 
@@ -276,7 +275,6 @@ module.exports = {
    *
    * @description This rule is not included in `airbnb-base`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-new-native-nonconstructor}
-   * @link airbnb-base: {@link }
    */
   'no-new-native-nonconstructor': 'error',
 
@@ -442,7 +440,7 @@ module.exports = {
   /**
    * Disallow the use of variables before they are defined.
    *
-   * @description ⚠️Different from `airbnb-base` which has `functions: true`.
+   * @description Different from `airbnb-base` which has `functions: true`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-use-before-define}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/variables.js#L54}
    */
@@ -456,7 +454,6 @@ module.exports = {
    *
    * @description This rule is not included in `airbnb-base`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-useless-assignment}
-   * @link airbnb-base: {@link }
    */
   'no-useless-assignment': 'error',
 

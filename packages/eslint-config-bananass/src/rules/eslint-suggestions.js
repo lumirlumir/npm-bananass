@@ -117,12 +117,9 @@ module.exports = {
    */
   'default-case': 'error',
 
-  // --------------------------------------------------------------------------------
-
   /**
-   * Enforce `default` clauses in switch statements to be last.
+   * Enforce `default` clauses in `switch` statements to be last.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/default-case-last}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L39}
    */
@@ -131,7 +128,6 @@ module.exports = {
   /**
    * Enforce default parameters to be last.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/default-param-last}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L42}
    */
@@ -140,16 +136,15 @@ module.exports = {
   /**
    * Enforce dot notation whenever possible.
    *
-   * @description
+   * @description I've deleted unnecessary additional options from airbnb-base.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/dot-notation}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L46}
    */
-  'dot-notation': ['error', { allowKeywords: true }],
+  'dot-notation': 'error',
 
   /**
    * Require the use of `===` and `!==`.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/eqeqeq}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L54}
    */
@@ -158,41 +153,33 @@ module.exports = {
   /**
    * Require function names to match the name of the variable or property to which they are assigned.
    *
-   * @description
+   * @description I've deleted unnecessary options from airbnb-base since the rule is set to `'off'`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/func-name-matching}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L89-L92}
    */
-  'func-name-matching': [
-    'off',
-    'always',
-    {
-      includeCommonJSModuleExports: false,
-      considerPropertyDescriptor: true,
-    },
-  ],
+  'func-name-matching': 'off',
 
   /**
    * Require or disallow named `function` expressions.
    *
-   * @description
+   * @description I added `'as-needed'` option.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/func-names}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L96}
    */
-  'func-names': 'warn',
+  'func-names': ['warn', 'as-needed'],
 
   /**
    * Enforce the consistent use of either `function` declarations or expressions assigned to variables.
    *
-   * @description
+   * @description I've deleted unnecessary options from airbnb-base since the rule is set to `'off'`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/func-style}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L101}
    */
-  'func-style': ['off', 'expression'],
+  'func-style': 'off',
 
   /**
    * Require grouped accessor pairs in object literals and classes.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/grouped-accessor-pairs}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L58}
    */
@@ -201,7 +188,6 @@ module.exports = {
   /**
    * Require `for`-`in` loops to include an `if` statement.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/guard-for-in}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L62}
    */
@@ -210,7 +196,6 @@ module.exports = {
   /**
    * Disallow specified identifiers.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/id-denylist}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L109}
    */
@@ -219,7 +204,6 @@ module.exports = {
   /**
    * Enforce minimum and maximum identifier lengths.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/id-length}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L113}
    */
@@ -228,7 +212,6 @@ module.exports = {
   /**
    * Require identifiers to match a specified regular expression.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/id-match}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L116}
    */
@@ -237,7 +220,6 @@ module.exports = {
   /**
    * Require or disallow initialization in variable declarations.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/init-declarations}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/variables.js#L6}
    */
@@ -246,16 +228,14 @@ module.exports = {
   /**
    * Require or disallow logical assignment operator shorthand.
    *
-   * @description This rule is not included in `airbnb-base`.
+   * @description This rule is not included in `airbnb-base@19.0.4`. Stylistic option, So I set it to `'off'`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/logical-assignment-operators}
-   * @link airbnb-base: {@link }
    */
-  'logical-assignment-operators': '',
+  'logical-assignment-operators': 'off',
 
   /**
    * Enforce a maximum number of classes per file.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/max-classes-per-file}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L66}
    */
@@ -264,49 +244,32 @@ module.exports = {
   /**
    * Enforce a maximum depth that blocks can be nested.
    *
-   * @description
+   * @description I've deleted unnecessary options from airbnb-base since the rule is set to `'off'`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/max-depth}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L195}
    */
-  'max-depth': ['off', 4],
+  'max-depth': 'off',
 
   /**
    * Enforce a maximum number of lines per file.
    *
-   * @description
+   * @description I've deleted unnecessary options from airbnb-base since the rule is set to `'off'`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/max-lines}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L209-L213}
    */
-  'max-lines': [
-    'off',
-    {
-      max: 300,
-      skipBlankLines: true,
-      skipComments: true,
-    },
-  ],
+  'max-lines': 'off',
 
   /**
    * Enforce a maximum number of lines of code in a function.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/max-lines-per-function}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L217-L222}
    */
-  'max-lines-per-function': [
-    'off',
-    {
-      max: 50,
-      skipBlankLines: true,
-      skipComments: true,
-      IIFEs: true,
-    },
-  ],
+  'max-lines-per-function': 'off',
 
   /**
    * Enforce a maximum depth that callbacks can be nested.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/max-nested-callbacks}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L225}
    */
@@ -315,25 +278,24 @@ module.exports = {
   /**
    * Enforce a maximum number of parameters in function definitions.
    *
-   * @description
+   * @description I've deleted unnecessary options from airbnb-base since the rule is set to `'off'`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/max-params}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L228}
    */
-  'max-params': ['off', 3],
+  'max-params': 'off',
 
   /**
    * Enforce a maximum number of statements allowed in function blocks.
    *
-   * @description
+   * @description I've deleted unnecessary options from airbnb-base since the rule is set to `'off'`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/max-statements}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L231}
    */
-  'max-statements': ['off', 10],
+  'max-statements': 'off',
 
   /**
    * Require constructor names to begin with a capital letter.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/new-cap}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L247-L252}
    */
@@ -350,7 +312,6 @@ module.exports = {
   /**
    * Disallow the use of `alert`, `confirm`, and `prompt`.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-alert}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L70}
    */
@@ -359,7 +320,6 @@ module.exports = {
   /**
    * Disallow `Array` constructors.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-array-constructor}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L270}
    */
@@ -368,18 +328,15 @@ module.exports = {
   /**
    * Disallow bitwise operators.
    *
-   * @description
+   * @description I've changed the rule to `'warn'` from `'error'`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-bitwise}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L274}
-   *
-   * @todo Disable it on bananass.
    */
-  'no-bitwise': 'error',
+  'no-bitwise': 'warn',
 
   /**
    * Disallow the use of `arguments.caller` or `arguments.callee`.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-caller}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L74}
    */
@@ -388,7 +345,6 @@ module.exports = {
   /**
    * Disallow lexical declarations in `case` clauses.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-case-declarations}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L78}
    */
@@ -397,29 +353,24 @@ module.exports = {
   /**
    * Disallow the use of `console`.
    *
-   * @description
+   * @description I've changed the rule to `'off'` from `'error'`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-console}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/errors.js#L27}
-   *
-   * @todo Disable it on bananass.
    */
-  'no-console': 'warn',
+  'no-console': 'off',
 
   /**
    * Disallow `continue` statements.
    *
-   * @description
+   * @description I've changed the rule to `'off'` from `'error'`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-continue}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L278}
-   *
-   * @todo Disable it on bananass.
    */
-  'no-continue': 'error',
+  'no-continue': 'off',
 
   /**
    * Disallow deleting variables.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-delete-var}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/variables.js#L12}
    */
@@ -428,7 +379,6 @@ module.exports = {
   /**
    * Disallow equal signs explicitly at the beginning of regular expressions.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-div-regex}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L86}
    */
@@ -437,16 +387,15 @@ module.exports = {
   /**
    * Disallow `else` blocks after `return` statements in `if` statements.
    *
-   * @description
+   * @description I've changed the rule to `'off'` from `'error'`. I think this rule is more about stylistic choices. So, I don't want to enforce it.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-else-return}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L90}
    */
-  'no-else-return': ['error', { allowElseIf: false }],
+  'no-else-return': 'off',
 
   /**
    * Disallow empty block statements.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-empty}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/errors.js#L52}
    */
@@ -455,7 +404,6 @@ module.exports = {
   /**
    * Disallow empty functions.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-empty-function}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L94-L100}
    */
@@ -469,16 +417,15 @@ module.exports = {
   /**
    * Disallow empty `static` blocks.
    *
-   * @description This rule is not included in `airbnb-base`
+   * @description This rule is not included in `airbnb-base@19.0.4`
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-empty-static-block}
-   * @link airbnb-base: {@link }
    */
-  'no-empty-static-block': '',
+  'no-empty-static-block': 'error',
 
   /**
    * Disallow `null` comparisons without type-checking operators.
    *
-   * @description
+   * @description This rule is subset of `eqeqeq` rule. `eqeqeq` already includes this rule.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-eq-null}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L108}
    */
@@ -487,7 +434,6 @@ module.exports = {
   /**
    * Disallow the use of `eval()`.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-eval}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L112}
    */
@@ -496,7 +442,6 @@ module.exports = {
   /**
    * Disallow extending native types.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-extend-native}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L116}
    */
@@ -505,7 +450,6 @@ module.exports = {
   /**
    * Disallow unnecessary calls to `.bind()`.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-extra-bind}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L120}
    */
@@ -514,7 +458,6 @@ module.exports = {
   /**
    * Disallow unnecessary boolean casts.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-extra-boolean-cast}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/errors.js#L62}
    */
@@ -523,11 +466,12 @@ module.exports = {
   /**
    * Disallow unnecessary labels.
    *
-   * @description
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-extra-label}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L124}
    */
   'no-extra-label': 'error',
+
+  // --------------------------------------------------------------------------------
 
   /**
    * Disallow assignments to native objects or read-only global variables.
@@ -541,19 +485,11 @@ module.exports = {
   /**
    * Disallow shorthand type conversions.
    *
-   * @description
+   * @description I've deleted unnecessary options from airbnb-base since the rule is set to `'off'`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-implicit-coercion}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L144-L149}
    */
-  'no-implicit-coercion': [
-    'off',
-    {
-      boolean: false,
-      number: true,
-      string: true,
-      allow: [],
-    },
-  ],
+  'no-implicit-coercion': 'off',
 
   /**
    * Disallow declarations in the global scope.
@@ -650,19 +586,11 @@ module.exports = {
   /**
    * Disallow magic numbers.
    *
-   * @description
+   * @description I've deleted unnecessary options from airbnb-base since the rule is set to `'off'`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-magic-numbers}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L181-L186}
    */
-  'no-magic-numbers': [
-    'off',
-    {
-      ignore: [],
-      ignoreArrayIndexes: true,
-      enforceConst: true,
-      detectObjects: false,
-    },
-  ],
+  'no-magic-numbers': 'off',
 
   /**
    * Disallow use of chained assignment expressions.
@@ -743,7 +671,6 @@ module.exports = {
    *
    * @description This rule is not included in `airbnb-base@19.0.4`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-object-constructor}
-   * @link airbnb-base: {@link }
    */
   'no-object-constructor': 'off',
 
@@ -877,13 +804,7 @@ module.exports = {
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-restricted-imports}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/es6.js#L74-L77}
    */
-  'no-restricted-imports': [
-    'off',
-    {
-      paths: [],
-      patterns: [],
-    },
-  ],
+  'no-restricted-imports': 'off',
 
   /**
    * Disallow certain properties on certain objects.
@@ -1211,11 +1132,11 @@ module.exports = {
   /**
    * Disallow specified warning terms in comments.
    *
-   * @description
+   * @description I've deleted unnecessary options from airbnb-base since the rule is set to `'off'`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-warning-comments}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L365}
    */
-  'no-warning-comments': ['off', { terms: ['todo', 'fixme', 'xxx'], location: 'start' }],
+  'no-warning-comments': 'off',
 
   /**
    * Disallow `with` statements.
@@ -1450,28 +1371,20 @@ module.exports = {
   /**
    * Enforce sorted `import` declarations within modules.
    *
-   * @description
+   * @description I've deleted unnecessary options from airbnb-base since the rule is set to `'off'`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/sort-imports}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/es6.js#L166-L171}
    */
-  'sort-imports': [
-    'off',
-    {
-      ignoreCase: false,
-      ignoreDeclarationSort: false,
-      ignoreMemberSort: false,
-      memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-    },
-  ],
+  'sort-imports': 'off',
 
   /**
    * Require object keys to be sorted.
    *
-   * @description
+   * @description I've deleted unnecessary options from airbnb-base since the rule is set to `'off'`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/sort-keys}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L466}
    */
-  'sort-keys': ['off', 'asc', { caseSensitive: false, natural: true }],
+  'sort-keys': 'off',
 
   /**
    * Require variables within the same declaration block to be sorted.
