@@ -1,14 +1,24 @@
-const eslintLayoutFormatting = require('./rules/eslint-layout-formatting');
-const eslintPossibleProblems = require('./rules/eslint-possible-problems');
-const eslintSuggestions = require('./rules/eslint-suggestions');
+/**
+ * @fileoverview Main package entrypoint.
+ */
 
-module.exports = [
-  {
-    // languageOptions: {},
-    rules: {
-      ...eslintLayoutFormatting,
-      ...eslintPossibleProblems,
-      ...eslintSuggestions,
-    },
+// --------------------------------------------------------------------------------
+// Require
+// --------------------------------------------------------------------------------
+
+const recommended = require('./configs/recommended');
+const { name, version } = require('../package.json');
+
+// --------------------------------------------------------------------------------
+// Exports
+// --------------------------------------------------------------------------------
+
+module.exports = {
+  meta: {
+    name,
+    version,
   },
-];
+  configs: {
+    recommended,
+  },
+};
