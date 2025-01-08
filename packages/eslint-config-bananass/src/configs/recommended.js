@@ -13,11 +13,12 @@ const { browser, builtin, es2025, node, jest, vitest, mocha } = require('globals
 
 const nodePlugin = require('eslint-plugin-n');
 const importPlugin = require('eslint-plugin-import');
-const stylisticPlugin = require('@stylistic/eslint-plugin-js');
+const stylisticJsPlugin = require('@stylistic/eslint-plugin-js');
 
 const eslintLayoutFormatting = require('../rules/eslint-layout-formatting');
 const eslintPossibleProblems = require('../rules/eslint-possible-problems');
 const eslintSuggestions = require('../rules/eslint-suggestions');
+const stylisticJs = require('../rules/stylistic-js');
 
 // --------------------------------------------------------------------------------
 // Exports
@@ -39,11 +40,12 @@ module.exports = {
   plugins: {
     n: nodePlugin,
     import: importPlugin,
-    stylistic: stylisticPlugin,
+    '@stylistic/js': stylisticJsPlugin,
   },
   rules: {
     ...eslintLayoutFormatting,
     ...eslintPossibleProblems,
     ...eslintSuggestions,
+    ...stylisticJs,
   },
 };
