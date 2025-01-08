@@ -1,5 +1,7 @@
 {
   "private": true,
+  "name": "npm-bananass",
+  "version": "0.0.0",
   "packageManager": "npm@10.9.2",
   "workspaces": [
     "examples/*",
@@ -40,6 +42,7 @@
     "lint-staged": "^15.2.10",
     "markdownlint-cli": "^0.43.0",
     "prettier": "^3.4.1",
+    "prettier-config-bananass": "^0.0.0",
     "textlint": "^14.3.0",
     "textlint-rule-allowed-uris": "^1.0.6",
     "typescript": "^5.7.2"
