@@ -1,5 +1,6 @@
 /**
- * @fileoverview Main package entrypoint.
+ * @fileoverview Entry file for the `eslint-config-bananass` package.
+ * @module eslint-config-bananass
  */
 
 // --------------------------------------------------------------------------------
