@@ -6,6 +6,9 @@
  *
  * - The best practices outlined in `eslint-config-airbnb-base@19.0.4`.
  *   - See, {@link https://github.com/airbnb/javascript/tree/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules}.
+ *
+ * - The rules disabled by `eslint-config-prettier@9.1.0`.
+ *   - See, {@link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js}.
  */
 
 // --------------------------------------------------------------------------------
@@ -105,8 +108,9 @@ module.exports = {
    *
    * @link eslint: {@link https://eslint.org/docs/latest/rules/curly}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L31}
+   * @link prettier: {@link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L13}
    */
-  curly: ['error', 'multi-line'],
+  curly: 'off',
 
   /**
    * Require `default` cases in `switch` statements.

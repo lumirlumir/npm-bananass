@@ -6,6 +6,9 @@
  *
  * - The best practices outlined in `eslint-config-airbnb-base@19.0.4`.
  *   - See, {@link https://github.com/airbnb/javascript/tree/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules}.
+ *
+ * - The rules disabled by `eslint-config-prettier@9.1.0`.
+ *   - See, {@link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js}.
  */
 
 // --------------------------------------------------------------------------------
@@ -364,8 +367,9 @@ module.exports = {
    *
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-unexpected-multiline}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/errors.js#L127}
+   * @link prettier: {@link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L14}
    */
-  'no-unexpected-multiline': 'error',
+  'no-unexpected-multiline': 'off',
 
   /**
    * Disallow unmodified loop conditions.
