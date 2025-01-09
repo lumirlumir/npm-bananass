@@ -2,13 +2,14 @@
  * @fileoverview Entry file for the `prettier-config-bananass` package.
  * @module prettier-config-bananass
  *
- * All default values are based on `prettier@3`.
+ * All default values are based on `prettier@3`. {@link https://prettier.io/docs/en/options}
  */
 
 // --------------------------------------------------------------------------------
 // Exports
 // --------------------------------------------------------------------------------
 
+/** @type {import("prettier").Config} */
 module.exports = {
   printWidth: 90,
   tabWidth: 2, // Default.
