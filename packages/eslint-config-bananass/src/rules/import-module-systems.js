@@ -1,7 +1,7 @@
 /**
  * @fileoverview This file follows:
  *
- * - The order of the rules listed in the 'Module Systems' section on eslint-plugin-import.
+ * - The order of the rules listed in the 'Module Systems' section on `eslint-plugin-import`.
  *   - See, {@link https://github.com/import-js/eslint-plugin-import?tab=readme-ov-file#module-systems}.
  *
  * - The best practices outlined in `eslint-config-airbnb-base@19.0.4`.
