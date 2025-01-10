@@ -11,9 +11,6 @@ jobs:
   lint:
     runs-on: ubuntu-latest
 
-    env:
-      EC_VERSION: v3.0.3 # Used for `editorconfig-checker`. Pinned to specific version for better security and stability.
-
     steps:
       - name: Set up checkout
         uses: actions/checkout@v4
