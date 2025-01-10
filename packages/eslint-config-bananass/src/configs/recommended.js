@@ -18,6 +18,7 @@ const stylisticJsPlugin = require('@stylistic/eslint-plugin-js');
 const eslintLayoutFormatting = require('../rules/eslint-layout-formatting');
 const eslintPossibleProblems = require('../rules/eslint-possible-problems');
 const eslintSuggestions = require('../rules/eslint-suggestions');
+const nodeRules = require('../rules/node');
 const importHelpfulWarnings = require('../rules/import-helpful-warnings');
 const importModuleSystems = require('../rules/import-module-systems');
 const importStaticAnalysis = require('../rules/import-static-analysis');
@@ -50,6 +51,7 @@ module.exports = {
     ...eslintLayoutFormatting,
     ...eslintPossibleProblems,
     ...eslintSuggestions,
+    ...nodeRules,
     ...importHelpfulWarnings,
     ...importModuleSystems,
     ...importStaticAnalysis,

@@ -396,61 +396,63 @@
 
 ### to [`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n)
 
-1. [`callback-return`](https://eslint.org/docs/latest/rules/callback-return)
+1. [`callback-return`](https://eslint.org/docs/latest/rules/callback-return) ❌
     - airbnb-base: `'off'`
     - airbnb-base file: `node.js`
 
-1. [`global-require`](https://eslint.org/docs/latest/rules/global-require)
+1. [`global-require`](https://eslint.org/docs/latest/rules/global-require) ✅
     - airbnb-base: `'error'`
     - airbnb-base file: `node.js`
 
-1. [`handle-callback-err`](https://eslint.org/docs/latest/rules/handle-callback-err)
+1. [`handle-callback-err`](https://eslint.org/docs/latest/rules/handle-callback-err) ❌
     - airbnb-base: `'off'`
     - airbnb-base file: `node.js`
 
-1. [`no-buffer-constructor`](https://eslint.org/docs/latest/rules/no-buffer-constructor)
+1. [`no-buffer-constructor`](https://eslint.org/docs/latest/rules/no-buffer-constructor) ❌
     - airbnb-base: `'error'`
     - airbnb-base file: `node.js`
+    - eslint-plugin-n 상에 해당 규칙이 존재하지 않음.
 
-1. [`no-mixed-requires`](https://eslint.org/docs/latest/rules/no-mixed-requires)
+1. [`no-mixed-requires`](https://eslint.org/docs/latest/rules/no-mixed-requires) ❌
     - airbnb-base: `['off', false]`
     - airbnb-base file: `node.js`
 
-1. [`no-new-require`](https://eslint.org/docs/latest/rules/no-new-require)
+1. [`no-new-require`](https://eslint.org/docs/latest/rules/no-new-require) ✅
     - airbnb-base: `'error'`
     - airbnb-base file: `node.js`
 
-1. [`no-path-concat`](https://eslint.org/docs/latest/rules/no-path-concat)
+1. [`no-path-concat`](https://eslint.org/docs/latest/rules/no-path-concat) ✅
     - airbnb-base: `'error'`
     - airbnb-base file: `node.js`
 
-1. [`no-process-env`](https://eslint.org/docs/latest/rules/no-process-env)
+1. [`no-process-env`](https://eslint.org/docs/latest/rules/no-process-env) ❌
     - airbnb-base: `'off'`
     - airbnb-base file: `node.js`
 
-1. [`no-process-exit`](https://eslint.org/docs/latest/rules/no-process-exit)
+1. [`no-process-exit`](https://eslint.org/docs/latest/rules/no-process-exit) ❌
     - airbnb-base: `'off'`
     - airbnb-base file: `node.js`
 
-1. [`no-restricted-modules`](https://eslint.org/docs/latest/rules/no-restricted-modules)
+1. [`no-restricted-modules`](https://eslint.org/docs/latest/rules/no-restricted-modules) ❌
     - airbnb-base: `'off'`
     - airbnb-base file: `node.js`
 
-1. [`no-sync`](https://eslint.org/docs/latest/rules/no-sync)
+1. [`no-sync`](https://eslint.org/docs/latest/rules/no-sync) ❌
     - airbnb-base: `'off'`
     - airbnb-base file: `node.js`
 
-1. [`newline-before-return`(`padding-line-between-statements`)](https://eslint.org/docs/latest/rules/newline-before-return)
+1. [`newline-before-return`(`padding-line-between-statements`)](https://eslint.org/docs/latest/rules/newline-before-return) ❌
     - airbnb-base: `'off'`
     - airbnb-base file: `style.js`
 
-1. [`newline-after-var`(`padding-line-between-statements`)](https://eslint.org/docs/latest/rules/newline-after-var)
+1. [`newline-after-var`(`padding-line-between-statements`)](https://eslint.org/docs/latest/rules/newline-after-var) ❌
     - airbnb-base: `'off'`
     - airbnb-base file: `style.js`
 
-1. [`lines-around-directive`(`padding-line-between-statements`)](https://eslint.org/docs/latest/rules/lines-around-directive)
+1. [`lines-around-directive`(`padding-line-between-statements`)](https://eslint.org/docs/latest/rules/lines-around-directive) ❌
     - airbnb-base: `['error', { before: 'always', after: 'always' }]`
     - airbnb-base file: `style.js`
+    - stylistic/js에서 off 되어있음.
 
 ### Deprecated and replaced by another ESLint rule ✅
 
