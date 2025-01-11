@@ -30,7 +30,7 @@ jobs:
       - name: Set up node_modules
         run: npm ci
 
-      - name: Build test
+      - name: Build
         run: npm run build --if-present
 
       - name: Test and test coverage
