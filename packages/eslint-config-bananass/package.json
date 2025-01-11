@@ -1,0 +1,47 @@
+{
+  "name": "eslint-config-bananass",
+  "version": "0.0.0",
+  "description": "ESLint Config for Bananass Framework.🍌",
+  "exports": "./src/index.js",
+  "files": [
+    "src",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "keywords": [
+    "bananass",
+    "baekjoon",
+    "framework",
+    "javascript",
+    "eslint",
+    "eslintconfig",
+    "eslint-config",
+    "config",
+    "flat",
+    "flat-config"
+  ],
+  "author": "루밀LuMir <rpfos@naver.com> (https://github.com/lumirlumir)",
+  "license": "MIT",
+  "homepage": "https://github.com/lumirlumir/npm-bananass",
+  "repository": {
+    "type": "github",
+    "url": "git+https://github.com/lumirlumir/npm-bananass.git",
+    "directory": "packages/eslint-config-bananass"
+  },
+  "bugs": {
+    "url": "https://github.com/lumirlumir/npm-bananass/issues"
+  },
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "cp ../../LICENSE.md ../../README.md ."
+  },
+  "peerDependencies": {
+    "eslint": ">=9.0.0"
+  },
+  "dependencies": {
+    "@stylistic/eslint-plugin-js": "^2.12.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-n": "^17.15.1",
+    "globals": "^15.14.0"
+  }
+}

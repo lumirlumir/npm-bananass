@@ -44,5 +44,8 @@
     "prepublishOnly": "npm run build",
     "build": "npx babel src -d build && npx tsc && cp ../../LICENSE.md ../../README.md .",
     "test": "node --test"
+  },
+  "dependencies": {
+    "bananass-utils-console": "^0.0.0"
   }
 }

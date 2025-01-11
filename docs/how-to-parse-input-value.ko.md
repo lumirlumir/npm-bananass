@@ -81,9 +81,7 @@ const inputParsed = input;
 >
 > `+input` 혹은 `parseInt(input)`을 사용하여 문자열 형태의 입력값을 숫자로 변환해 주어도 됩니다.
 >
-> 단, ESLint의 [`no-implicit-coercion`](https://eslint.org/docs/latest/rules/no-implicit-coercion) 규칙에서 권장하듯, 위에서 언급한 암묵적 타입 변환 방법 대신 `Number()` 함수를 사용하는 것이 좋습니다.
->
-> 또한 `create-bananass-app`에 포함된 ESLint 규칙을 사용하고 있다면 `Number()` 함수를 사용하는 것을 권장하니 참고해 주세요!
+> 단, ESLint의 [`no-implicit-coercion`](https://eslint.org/docs/latest/rules/no-implicit-coercion) 규칙에서 권장하듯, 위에서 언급한 암묵적 타입 변환 방법 대신 가능하면 `Number()` 함수를 사용하는 것이 좋습니다.
 
 ### 파싱 방법
 

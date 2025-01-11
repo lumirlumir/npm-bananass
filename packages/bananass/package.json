@@ -45,6 +45,7 @@
     "test": "true"
   },
   "dependencies": {
+    "bananass-utils": "^0.0.0",
     "bananass-utils-console": "^0.0.0",
     "commander": "^13.0.0",
     "webpack": "^5.97.1"
