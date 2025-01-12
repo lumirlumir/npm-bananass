@@ -33,7 +33,8 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "cp ../../LICENSE.md ../../README.md ."
+    "build": "cp ../../LICENSE.md ../../README.md .",
+    "test": "node --test"
   },
   "peerDependencies": {
     "eslint": ">=9.0.0"
