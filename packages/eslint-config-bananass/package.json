@@ -37,7 +37,7 @@
     "test": "node --test"
   },
   "peerDependencies": {
-    "eslint": ">=9.0.0"
+    "eslint": "^9.0.0"
   },
   "dependencies": {
     "@stylistic/eslint-plugin-js": "^2.12.1",
