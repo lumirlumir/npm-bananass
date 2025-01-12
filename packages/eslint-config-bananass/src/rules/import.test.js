@@ -24,7 +24,7 @@ const prefix = 'import/';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('All key values must start with `import/`.', () => {
+describe(`All key values must start with \`${prefix}\`.`, () => {
   it('import-helpful-warnings.js', () => {
     Object.keys(importHelpfulWarnings).forEach(key => {
       strictEqual(key.startsWith(prefix), true);
