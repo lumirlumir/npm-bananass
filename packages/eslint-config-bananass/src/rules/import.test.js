@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `import-helpful-warnings.js`, `import-module-systems.js`, `import-static-analysis.js`, and `import-style-guide.js`.
+ * @fileoverview Test for `import-helpful-warnings.js`, `import-module-systems.js`, `import-static-analysis.js`, `import-style-guide.js`.
  */
 
 // --------------------------------------------------------------------------------

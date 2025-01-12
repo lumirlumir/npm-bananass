@@ -953,7 +953,7 @@ module.exports = {
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-unused-expressions}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L329-L333}
    */
-  'no-unused-expressions': 'error',
+  'no-unused-expressions': ['error', { enforceForJSX: true }],
 
   /**
    * Disallow unused labels.
