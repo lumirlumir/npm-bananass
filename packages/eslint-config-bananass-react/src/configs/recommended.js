@@ -12,8 +12,10 @@
 const bananass = require('eslint-config-bananass');
 
 const reactCompilerPlugin = require('eslint-plugin-react-compiler');
+const reactHooksPlugin = require('eslint-plugin-react-hooks');
 
 const reactCompiler = require('../rules/react-compiler');
+const reactHooks = require('../rules/react-hooks');
 
 // --------------------------------------------------------------------------------
 // Exports
@@ -35,10 +37,12 @@ module.exports = {
     ...bananass.configs.recommended.plugins,
 
     'react-compiler': reactCompilerPlugin,
+    'react-hooks': reactHooksPlugin,
   },
   rules: {
     ...bananass.configs.recommended.rules,
 
     ...reactCompiler,
+    ...reactHooks,
   },
 };

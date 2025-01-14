@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "eslint-config-bananass": "^0.0.0",
-    "eslint-plugin-react-compiler": "^19.0.0-beta-e552027-20250112"
+    "eslint-plugin-react-compiler": "^19.0.0-beta-e552027-20250112",
+    "eslint-plugin-react-hooks": "^5.1.0"
   }
 }

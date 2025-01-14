@@ -10,5 +10,8 @@
 // --------------------------------------------------------------------------------
 
 module.exports = {
+  /**
+   * Surfaces diagnostics from React Forget.
+   */
   'react-compiler/react-compiler': 'error',
 };
