@@ -1,4 +1,4 @@
-const bananass = require('eslint-config-bananass');
+const bananass = require('eslint-config-bananass-react');
 
 module.exports = [
   {
