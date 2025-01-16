@@ -1,8 +1,8 @@
-const bananass = require('eslint-config-bananass-react');
+const bananass = require('eslint-config-bananass');
 
 module.exports = [
   {
-    ignores: ['**/build/', '**/.next/'],
+    ignores: ['**/build/', '**/coverage/'],
   },
   bananass.configs.recommended,
 ];
