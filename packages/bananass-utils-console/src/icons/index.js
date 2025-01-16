@@ -2,8 +2,6 @@
  * @fileoverview Icons used in the console.
  */
 
-/* eslint-disable import/extensions */ // TODO: Remove this line after developing `eslint-config-bananass` package.
-
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------

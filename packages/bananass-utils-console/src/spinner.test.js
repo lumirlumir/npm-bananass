@@ -2,7 +2,7 @@
  * @fileoverview Test for `spinner.js`.
  */
 
-/* eslint-disable import/extensions, no-param-reassign */ // TODO: Remove this line after developing `eslint-config-bananass` package.
+/* eslint-disable no-param-reassign */
 
 // --------------------------------------------------------------------------------
 // Import

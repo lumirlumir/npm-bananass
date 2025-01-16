@@ -2,8 +2,6 @@
  * @fileoverview Asynchronously build and create bundled files using Webpack.
  */
 
-/* eslint-disable import/extensions, import/no-unresolved */ // TODO: Remove this line after developing `eslint-config-bananass` package.
-
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
