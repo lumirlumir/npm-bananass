@@ -9,8 +9,7 @@
   "workspaces": [
     "examples/*",
     "packages/*",
-    "tests/*",
-    "website"
+    "tests/*"
   ],
   "scripts": {
     "prepare": "husky",
