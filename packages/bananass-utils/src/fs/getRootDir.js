@@ -10,8 +10,6 @@ import { join, resolve } from 'node:path';
 import cp from 'node:child_process';
 import fs from 'node:fs';
 
-// TODO: Bug Report
-// eslint-disable-next-line import/no-unresolved
 import { error } from 'bananass-utils-console/theme';
 
 // --------------------------------------------------------------------------------

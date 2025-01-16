@@ -2,8 +2,6 @@
  * @fileoverview Test for `logger.js`.
  */
 
-/* eslint-disable import/extensions, no-console */ // TODO: Remove this line after developing `eslint-config-bananass` package.
-
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------

@@ -3,8 +3,6 @@
  * @module bananass-utils-console/logger
  */
 
-/* eslint-disable lines-between-class-members, no-console, no-nested-ternary */ // TODO: Remove this line after developing `eslint-config-bananass` package.
-
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------

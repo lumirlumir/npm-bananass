@@ -31,7 +31,6 @@ let inputFile = '';
 rl.on('line', line => {
   inputFile += `${line}${EOL}`;
 }).on('close', () => {
-  // eslint-disable-next-line no-use-before-define
   solution(inputFile);
 });
 

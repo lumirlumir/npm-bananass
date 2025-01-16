@@ -4,8 +4,6 @@
  * @fileoverview Entry file for the `npx bananass` CLI command. See the `bin.bananass` property in `../package.json`.
  */
 
-/* eslint-disable import/extensions, import/no-unresolved */ // TODO: Remove this line after developing `eslint-config-bananass` package.
-
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------

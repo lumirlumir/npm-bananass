@@ -4,8 +4,6 @@
  * @see https://github.com/sindresorhus/yocto-spinner `yocto-spinner` package.
  */
 
-/* eslint-disable lines-between-class-members, import/extensions  */ // TODO: Remove this line after developing `eslint-config-bananass` package.
-
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
@@ -140,7 +138,6 @@ class Spinner {
 
     // SIGINT: 128 + 2
     // SIGTERM: 128 + 15
-    // eslint-disable-next-line no-nested-ternary
     const exitCode = signal === 'SIGINT' ? 130 : signal === 'SIGTERM' ? 143 : 1;
     process.exit(exitCode);
   }
@@ -210,7 +207,6 @@ class Spinner {
 
     this.#stream.cursorTo(0);
 
-    // eslint-disable-next-line no-plusplus
     for (let index = 0; index < this.#lines; index++) {
       if (index > 0) {
         this.#stream.moveCursor(0, -1);

@@ -3,8 +3,6 @@
  * @module bananass-utils-console
  */
 
-/* eslint-disable import/extensions */ // TODO: Remove this line after developing `eslint-config-bananass` package.
-
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
