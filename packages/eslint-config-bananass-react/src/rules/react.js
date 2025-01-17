@@ -3,6 +3,12 @@
  *
  * - The order of the rules listed on `eslint-plugin-react`.
  *   - See, {@link https://github.com/jsx-eslint/eslint-plugin-react?tab=readme-ov-file#list-of-supported-rules}.
+ *
+ * - The best practices outlined in `eslint-config-next@15.1.4`.
+ *   - See, {@link https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L57}.
+ *
+ * - The best practices outlined in `eslint-config-airbnb@19.0.4`.
+ *   - See, {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js}.
  */
 
 // --------------------------------------------------------------------------------
@@ -11,85 +17,105 @@
 
 module.exports = {
   /**
-   * Enforces consistent naming for boolean props
+   * Enforces consistent naming for boolean props.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/boolean-prop-naming.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L420-L424
    */
   'react/boolean-prop-naming': 'off',
 
   /**
-   * Disallow usage of button elements without an explicit type attribute
+   * Disallow usage of `button` elements without an explicit `type` attribute.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/button-has-type.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L448-L452
    */
-  'react/button-has-type': 'off',
+  'react/button-has-type': [
+    'error',
+    {
+      button: true,
+      submit: true,
+      reset: false,
+    },
+  ],
 
   /**
-   * Enforce using onChange or readonly attribute when checked is used
+   * Enforce using `onChange` or `readonly` attribute when checked is used.
    *
+   * @description This rule does not exist in `eslint-config-airbnb@19.0.4`.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/checked-requires-onchange-or-readonly.md
    */
-  'react/checked-requires-onchange-or-readonly': 'off',
+  'react/checked-requires-onchange-or-readonly': 'error',
 
   /**
-   * Enforce all defaultProps have a corresponding non-required PropType
+   * Enforce all defaultProps have a corresponding non-required PropType.
    *
+   * @description `prop-types` is now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/default-props-match-prop-types.md
    */
   'react/default-props-match-prop-types': 'off',
 
   /**
-   * Enforce consistent usage of destructuring assignment of props, state, and context
+   * Enforce consistent usage of destructuring assignment of props, state, and context.
    *
+   * @description There are some cases that destructuring assignment is not necessary.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L440
    */
   'react/destructuring-assignment': 'off',
 
   /**
-   * Disallow missing displayName in a React component definition
+   * Disallow missing displayName in a React component definition.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/display-name.md
+   * @link https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L57
    */
-  'react/display-name': 'off',
+  'react/display-name': 'error',
 
   /**
-   * Disallow certain props on components
+   * Disallow certain props on components.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-component-props.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L342
    */
   'react/forbid-component-props': 'off',
 
   /**
-   * Disallow certain props on DOM Nodes
+   * Disallow certain props on DOM Nodes.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-dom-props.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L63
    */
   'react/forbid-dom-props': 'off',
 
   /**
-   * Disallow certain elements
+   * Disallow certain elements.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-elements.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L346
    */
   'react/forbid-elements': 'off',
 
   /**
-   * Disallow using another component's propTypes
+   * Disallow using another component's propTypes.
    *
+   * @description `prop-types` is now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
    */
   'react/forbid-foreign-prop-types': 'off',
 
   /**
-   * Disallow certain propTypes
+   * Disallow certain propTypes.
    *
+   * @description `prop-types` is now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md
    */
   'react/forbid-prop-types': 'off',
 
   /**
-   * Require all forwardRef components include a ref parameter
+   * Require all `forwardRef` components include a `ref` parameter.
    *
+   * @description `forwardRef` is now deprecated since `react@19`.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forward-ref-uses-ref.md
    */
   'react/forward-ref-uses-ref': 'off',
