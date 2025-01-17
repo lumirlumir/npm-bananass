@@ -514,84 +514,95 @@ module.exports = {
    */
   'react/jsx-wrap-multilines': 'off',
 
-  // --------------------------------------------------------------------------------
-
   /**
-   * Disallow when this.state is accessed within setState
+   * Disallow when `this.state` is accessed within `setState`.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-access-state-in-setstate.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L444
    */
-  'react/no-access-state-in-setstate': 'off',
+  'react/no-access-state-in-setstate': 'error',
 
   /**
    * Disallow adjacent inline elements not separated by whitespace.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-adjacent-inline-elements.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L523
    */
   'react/no-adjacent-inline-elements': 'off',
 
   /**
-   * Disallow usage of Array index in keys
+   * Disallow usage of Array index in keys.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L388
    */
-  'react/no-array-index-key': 'off',
+  'react/no-array-index-key': 'error',
 
   /**
-   * Lifecycle methods should be methods on the prototype, not class fields
+   * Lifecycle methods should be methods on the prototype, not class fields.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-arrow-function-lifecycle.md
    */
   'react/no-arrow-function-lifecycle': 'off',
 
   /**
-   * Disallow passing of children as props
+   * Disallow passing of children as props.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-children-prop.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L370
    */
-  'react/no-children-prop': 'off',
+  'react/no-children-prop': 'error',
 
   /**
-   * Disallow usage of dangerous JSX properties
+   * Disallow usage of dangerous JSX properties.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-danger.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L169
    */
-  'react/no-danger': 'off',
+  'react/no-danger': 'warn',
 
   /**
-   * Disallow when a DOM element is using both children and dangerouslySetInnerHTML
+   * Disallow when a DOM element is using both `children` and `dangerouslySetInnerHTML`.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-danger-with-children.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L350
    */
-  'react/no-danger-with-children': 'off',
+  'react/no-danger-with-children': 'error',
 
   /**
-   * Disallow usage of deprecated methods
+   * Disallow usage of deprecated methods.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-deprecated.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L173
    */
-  'react/no-deprecated': 'off',
+  'react/no-deprecated': 'error',
 
   /**
-   * Disallow usage of setState in componentDidMount
+   * Disallow usage of `setState` in `componentDidMount`.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
    */
   'react/no-did-mount-set-state': 'off',
 
   /**
-   * Disallow usage of setState in componentDidUpdate
+   * Disallow usage of `setState` in `componentDidUpdate`.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-did-update-set-state.md
    */
   'react/no-did-update-set-state': 'off',
 
   /**
-   * Disallow direct mutation of this.state
+   * Disallow direct mutation of `this.state`.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-direct-mutation-state.md
    */
   'react/no-direct-mutation-state': 'off',
+
+  // --------------------------------------------------------------------------------
 
   /**
    * Disallow usage of findDOMNode
