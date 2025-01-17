@@ -9,6 +9,9 @@
  *
  * - The best practices outlined in `eslint-config-airbnb@19.0.4`.
  *   - See, {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js}.
+ *
+ * - The rules disabled by `eslint-config-prettier@9.1.0`.
+ *   - See, {@link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L55-L69}.
  */
 
 // --------------------------------------------------------------------------------
@@ -121,142 +124,189 @@ module.exports = {
   'react/forward-ref-uses-ref': 'off',
 
   /**
-   * Enforce a specific function type for function components
+   * Enforce a specific function type for function components.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L527-L530
    */
-  'react/function-component-definition': 'off',
+  'react/function-component-definition': [
+    'error',
+    {
+      namedComponents: ['function-declaration', 'function-expression'],
+      unnamedComponents: 'function-expression',
+    },
+  ],
 
   /**
-   * Ensure destructuring and symmetric naming of useState hook value and setter variables
+   * Ensure destructuring and symmetric naming of `useState` hook value and setter variables.
    *
+   * @description This rule does not exist in `eslint-config-airbnb@19.0.4`.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/hook-use-state.md
    */
-  'react/hook-use-state': 'off',
+  'react/hook-use-state': ['error', { allowDestructuredState: true }],
 
   /**
-   * Enforce sandbox attribute on iframe elements
+   * Enforce sandbox attribute on iframe elements.
    *
+   * @description This rule does not exist in `eslint-config-airbnb@19.0.4`.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/iframe-missing-sandbox.md
    */
-  'react/iframe-missing-sandbox': 'off',
+  'react/iframe-missing-sandbox': 'warn',
 
   /**
-   * Enforce boolean attributes notation in JSX
+   * Enforce boolean attributes notation in JSX.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L67
    */
-  'react/jsx-boolean-value': 'off',
+  'react/jsx-boolean-value': ['error', 'never', { always: [] }],
 
   /**
-   * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
+   * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-child-element-spacing.md
+   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L55
    */
   'react/jsx-child-element-spacing': 'off',
 
   /**
-   * Enforce closing bracket location in JSX
+   * Enforce closing bracket location in JSX.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md
+   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L56
    */
   'react/jsx-closing-bracket-location': 'off',
 
   /**
-   * Enforce closing tag location for multiline JSX
+   * Enforce closing tag location for multiline JSX.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
+   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L57
    */
   'react/jsx-closing-tag-location': 'off',
 
   /**
-   * Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes
+   * Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L432
    */
-  'react/jsx-curly-brace-presence': 'off',
+  'react/jsx-curly-brace-presence': [
+    'error',
+    {
+      props: 'never',
+      children: 'never',
+      propElementValues: 'never',
+    },
+  ],
 
   /**
-   * Enforce consistent linebreaks in curly braces in JSX attributes and expressions
+   * Enforce consistent linebreaks in curly braces in JSX attributes and expressions.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-newline.md
+   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L58
    */
   'react/jsx-curly-newline': 'off',
 
   /**
-   * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
+   * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md
+   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L59
    */
   'react/jsx-curly-spacing': 'off',
 
   /**
-   * Enforce or disallow spaces around equal signs in JSX attributes
+   * Enforce or disallow spaces around equal signs in JSX attributes.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-equals-spacing.md
+   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L60
    */
   'react/jsx-equals-spacing': 'off',
 
   /**
-   * Disallow file extensions that may contain JSX
+   * Disallow file extensions that may contain JSX.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L322
    */
-  'react/jsx-filename-extension': 'off',
+  'react/jsx-filename-extension': [
+    'error',
+    {
+      allow: 'as-needed',
+      extensions: ['.jsx'],
+      ignoreFilesWithoutCode: true,
+    },
+  ],
 
   /**
-   * Enforce proper position of the first property in JSX
+   * Enforce proper position of the first property in JSX.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-first-prop-new-line.md
+   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L61
    */
   'react/jsx-first-prop-new-line': 'off',
 
   /**
-   * Enforce shorthand or standard form for React fragments
+   * Enforce shorthand or standard form for React fragments.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-fragments.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L475
    */
-  'react/jsx-fragments': 'off',
+  'react/jsx-fragments': ['error', 'syntax'],
 
   /**
-   * Enforce event handler naming conventions in JSX
+   * Enforce event handler naming conventions in JSX.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-handler-names.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L83-L86
    */
   'react/jsx-handler-names': 'off',
 
   /**
-   * Enforce JSX indentation
+   * Enforce JSX indentation.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
+   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L61
    */
   'react/jsx-indent': 'off',
 
   /**
-   * Enforce props indentation in JSX
+   * Enforce props indentation in JSX.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-indent-props.md
+   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L63
    */
   'react/jsx-indent-props': 'off',
 
   /**
-   * Disallow missing key props in iterators/collection literals
+   * Disallow missing `key` props in iterators/collection literals.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-key.md
+   * @link https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L57
    */
-  'react/jsx-key': 'off',
+  'react/jsx-key': [
+    'error',
+    {
+      checkFragmentShorthand: true,
+      checkKeyMustBeforeSpread: true,
+      warnOnDuplicates: false,
+    },
+  ],
 
   /**
-   * Enforce JSX maximum depth
+   * Enforce JSX maximum depth.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-max-depth.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L463
    */
   'react/jsx-max-depth': 'off',
 
   /**
-   * Enforce maximum of props on a single line in JSX
+   * Enforce maximum of props on a single line in JSX.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
+   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L63
    */
   'react/jsx-max-props-per-line': 'off',
 
@@ -264,148 +314,207 @@ module.exports = {
    * Require or prevent a new line after jsx elements and expressions.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-newline.md
+   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L65
    */
   'react/jsx-newline': 'off',
 
   /**
-   * Disallow .bind() or arrow functions in JSX props
+   * Disallow `.bind()` or arrow functions in JSX props.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L103-L109
    */
-  'react/jsx-no-bind': 'off',
+  'react/jsx-no-bind': [
+    'error',
+    {
+      ignoreDOMComponents: true,
+      ignoreRefs: true,
+      allowArrowFunctions: true,
+      allowFunctions: false,
+      allowBind: false,
+    },
+  ],
 
   /**
-   * Disallow comments from being inserted as text nodes
+   * Disallow comments from being inserted as text nodes.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L326
    */
-  'react/jsx-no-comment-textnodes': 'off',
+  'react/jsx-no-comment-textnodes': 'error',
 
   /**
-   * Disallows JSX context provider values from taking values that will cause needless rerenders
+   * Disallows JSX context provider values from taking values that will cause needless rerenders.
    *
+   * @description Importance of this rule became less significant after the introduction of React Compiler.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-constructed-context-values.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L538
    */
-  'react/jsx-no-constructed-context-values': 'off',
+  'react/jsx-no-constructed-context-values': 'warn',
 
   /**
-   * Disallow duplicate properties in JSX
+   * Disallow duplicate properties in JSX.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-duplicate-props.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L113
    */
-  'react/jsx-no-duplicate-props': 'off',
+  'react/jsx-no-duplicate-props': ['error', { ignoreCase: true }],
 
   /**
-   * Disallow problematic leaked values from being rendered
+   * Disallow problematic leaked values from being rendered.
    *
+   * @description This rule does not exist in `eslint-config-airbnb@19.0.4`.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-leaked-render.md
    */
-  'react/jsx-no-leaked-render': 'off',
+  'react/jsx-no-leaked-render': 'error',
 
   /**
-   * Disallow usage of string literals in JSX
+   * Disallow usage of string literals in JSX.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-literals.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L117
    */
   'react/jsx-no-literals': 'off',
 
   /**
-   * Disallow usage of javascript: URLs
+   * Disallow usage of `javascript:` URLs.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-script-url.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L509-L514
    */
-  'react/jsx-no-script-url': 'off',
+  'react/jsx-no-script-url': [
+    'error',
+    [
+      {
+        name: 'Link',
+        props: ['to'],
+      },
+    ],
+  ],
 
   /**
-   * Disallow target="_blank" attribute without rel="noreferrer"
+   * Disallow `target="_blank"` attribute without `rel="noreferrer"`.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L318
    */
-  'react/jsx-no-target-blank': 'off',
+  'react/jsx-no-target-blank': [
+    'error',
+    {
+      allowReferrer: false,
+      enforceDynamicLinks: 'always',
+      warnOnSpreadAttributes: true,
+      links: true,
+      forms: true,
+    },
+  ],
 
   /**
-   * Disallow undeclared variables in JSX
+   * Disallow undeclared variables in JSX.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-undef.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L121
    */
-  'react/jsx-no-undef': 'off',
+  'react/jsx-no-undef': 'error',
 
   /**
-   * Disallow unnecessary fragments
+   * Disallow unnecessary fragments.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L518
    */
-  'react/jsx-no-useless-fragment': 'off',
+  'react/jsx-no-useless-fragment': 'error',
 
   /**
-   * Require one JSX element per line
+   * Require one JSX element per line.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-one-expression-per-line.md
+   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L66
    */
   'react/jsx-one-expression-per-line': 'off',
 
   /**
-   * Enforce PascalCase for user-defined JSX components
+   * Enforce PascalCase for user-defined JSX components.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L125-L128
    */
-  'react/jsx-pascal-case': 'off',
+  'react/jsx-pascal-case': [
+    'error',
+    {
+      allowAllCaps: true,
+      allowLeadingUnderscore: false,
+      allowNamespace: false,
+      ignore: [],
+    },
+  ],
 
   /**
-   * Disallow multiple spaces between inline JSX props
+   * Disallow multiple spaces between inline JSX props.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-multi-spaces.md
+   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L67
    */
   'react/jsx-props-no-multi-spaces': 'off',
 
   /**
-   * Disallow JSX prop spreading the same identifier multiple times
+   * Disallow JSX prop spreading the same identifier multiple times.
    *
+   * @description This rule does not exist in `eslint-config-airbnb@19.0.4`.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spread-multi.md
    */
-  'react/jsx-props-no-spread-multi': 'off',
+  'react/jsx-props-no-spread-multi': 'error',
 
   /**
-   * Disallow JSX prop spreading
+   * Disallow JSX prop spreading.
    *
+   * @description I've disabled this rule.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L496-L501
    */
   'react/jsx-props-no-spreading': 'off',
 
   /**
-   * Enforce props alphabetical sorting
+   * Enforce props alphabetical sorting.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L144-L151
    */
   'react/jsx-sort-props': 'off',
 
   /**
-   * Enforce whitespace in and around the JSX opening and closing brackets
+   * Enforce whitespace in and around the JSX opening and closing brackets.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-tag-spacing.md
+   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L68
    */
   'react/jsx-tag-spacing': 'off',
 
   /**
-   * Disallow React to be incorrectly marked as unused
+   * Disallow React to be incorrectly marked as unused.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L161
    */
-  'react/jsx-uses-react': 'off',
+  'react/jsx-uses-react': 'error',
 
   /**
-   * Disallow variables used in JSX to be incorrectly marked as unused
+   * Disallow variables used in JSX to be incorrectly marked as unused.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L165
    */
-  'react/jsx-uses-vars': 'off',
+  'react/jsx-uses-vars': 'error',
 
   /**
-   * Disallow missing parentheses around multiline JSX
+   * Disallow missing parentheses around multiline JSX.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md
+   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L69
    */
   'react/jsx-wrap-multilines': 'off',
+
+  // --------------------------------------------------------------------------------
 
   /**
    * Disallow when this.state is accessed within setState
