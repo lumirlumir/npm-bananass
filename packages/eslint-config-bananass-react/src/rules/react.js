@@ -884,26 +884,27 @@ module.exports = {
    */
   'react/state-in-constructor': 'off',
 
-  // --------------------------------------------------------------------
-
   /**
    * Enforces where React component static properties should be positioned.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/static-property-placement.md
    */
   'react/static-property-placement': 'off',
 
   /**
-   * Enforce style prop value is an object
+   * Enforce style prop value is an object.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/style-prop-object.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L362
    */
-  'react/style-prop-object': 'off',
+  'react/style-prop-object': 'error',
 
   /**
-   * Disallow void DOM elements (e.g. <img />, <br />) from receiving children
+   * Disallow void DOM elements (e.g. <img />, <br />) from receiving children.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L404
    */
-  'react/void-dom-elements-no-children': 'off',
+  'react/void-dom-elements-no-children': 'error',
 };
