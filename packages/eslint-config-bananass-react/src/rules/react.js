@@ -602,154 +602,177 @@ module.exports = {
    */
   'react/no-direct-mutation-state': 'off',
 
-  // --------------------------------------------------------------------------------
-
   /**
-   * Disallow usage of findDOMNode
+   * Disallow usage of `findDOMNode`.
    *
+   * @description `findDOMNode` is now fully removed(deprecated) since `react@19`.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md
    */
   'react/no-find-dom-node': 'off',
 
   /**
-   * Disallow usage of invalid attributes
+   * Disallow usage of invalid attributes.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-invalid-html-attribute.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L558
    */
-  'react/no-invalid-html-attribute': 'off',
+  'react/no-invalid-html-attribute': 'error',
 
   /**
-   * Disallow usage of isMounted
+   * Disallow usage of `isMounted`.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md
    */
   'react/no-is-mounted': 'off',
 
   /**
-   * Disallow multiple component definition per file
+   * Disallow multiple component definition per file.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L198
    */
   'react/no-multi-comp': 'off',
 
   /**
-   * Enforce that namespaces are not used in React elements
+   * Enforce that namespaces are not used in React elements.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-namespace.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L546
    */
-  'react/no-namespace': 'off',
+  'react/no-namespace': 'error',
 
   /**
-   * Disallow usage of referential-type variables as default param in functional component
+   * Disallow usage of referential-type variables as default param in functional component.
    *
+   * @description This rule does not exist in `eslint-config-airbnb@19.0.4`.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-object-type-as-default-prop.md
    */
   'react/no-object-type-as-default-prop': 'off',
 
   /**
-   * Disallow usage of shouldComponentUpdate when extending React.PureComponent
+   * Disallow usage of `shouldComponentUpdate` when extending `React.PureComponent`.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-redundant-should-component-update.md
    */
   'react/no-redundant-should-component-update': 'off',
 
   /**
-   * Disallow usage of the return value of ReactDOM.render
+   * Disallow usage of the return value of `ReactDOM.render`.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-render-return-value.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L330
    */
-  'react/no-render-return-value': 'off',
+  'react/no-render-return-value': 'error',
 
   /**
-   * Disallow usage of setState
+   * Disallow usage of `setState`.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-set-state.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L202
    */
   'react/no-set-state': 'off',
 
   /**
-   * Disallow using string references
+   * Disallow using string references.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L206
    */
-  'react/no-string-refs': 'off',
+  'react/no-string-refs': 'error',
 
   /**
-   * Disallow this from being used in stateless functional components
+   * Disallow `this` from being used in stateless functional components.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-this-in-sfc.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L459
    */
-  'react/no-this-in-sfc': 'off',
+  'react/no-this-in-sfc': 'error',
 
   /**
-   * Disallow common typos
+   * Disallow common typos.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-typos.md
    */
   'react/no-typos': 'off',
 
   /**
-   * Disallow unescaped HTML entities from appearing in markup
+   * Disallow unescaped HTML entities from appearing in markup.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unescaped-entities.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L366
    */
-  'react/no-unescaped-entities': 'off',
+  'react/no-unescaped-entities': 'error',
 
   /**
-   * Disallow usage of unknown DOM property
+   * Disallow usage of unknown DOM property.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L210
    */
-  'react/no-unknown-property': 'off',
+  'react/no-unknown-property': 'error',
 
   /**
-   * Disallow usage of unsafe lifecycle methods
+   * Disallow usage of unsafe lifecycle methods.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unsafe.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L471
    */
   'react/no-unsafe': 'off',
 
   /**
-   * Disallow creating unstable components inside components
+   * Disallow creating unstable components inside components.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unstable-nested-components.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L542
    */
-  'react/no-unstable-nested-components': 'off',
+  'react/no-unstable-nested-components': 'error',
 
   /**
-   * Disallow declaring unused methods of component class
+   * Disallow declaring unused methods of component class.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unused-class-component-methods.md
    */
   'react/no-unused-class-component-methods': 'off',
 
   /**
-   * Disallow definitions of unused propTypes
+   * Disallow definitions of unused `propTypes`.
    *
+   * @description `prop-types` is now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unused-prop-types.md
    */
   'react/no-unused-prop-types': 'off',
 
   /**
-   * Disallow definitions of unused state
+   * Disallow definitions of unused state.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unused-state.md
    */
   'react/no-unused-state': 'off',
 
   /**
-   * Disallow usage of setState in componentWillUpdate
+   * Disallow usage of `setState` in `componentWillUpdate`.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-will-update-set-state.md
    */
   'react/no-will-update-set-state': 'off',
 
   /**
-   * Enforce ES5 or ES6 class for React Components
+   * Enforce ES5 or ES6 class for React Components.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md
    */
   'react/prefer-es6-class': 'off',
+
+  // --------------------------------------------------------------------
 
   /**
    * Prefer exact proptype definitions
