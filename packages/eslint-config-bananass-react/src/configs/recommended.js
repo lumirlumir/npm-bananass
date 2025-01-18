@@ -49,4 +49,9 @@ module.exports = {
     ...reactHooks,
     ...react,
   },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
 };
