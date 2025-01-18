@@ -772,98 +772,119 @@ module.exports = {
    */
   'react/prefer-es6-class': 'off',
 
-  // --------------------------------------------------------------------
-
   /**
-   * Prefer exact proptype definitions
+   * Prefer exact proptype definitions.
    *
+   * @description `prop-types` is now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-exact-props.md
    */
   'react/prefer-exact-props': 'off',
 
   /**
-   * Enforce that props are read-only
+   * Enforce that props are read-only.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-read-only-props.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L505
    */
   'react/prefer-read-only-props': 'off',
 
   /**
-   * Enforce stateless components to be written as a pure function
+   * Enforce stateless components to be written as a pure function.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L218
    */
-  'react/prefer-stateless-function': 'off',
+  'react/prefer-stateless-function': 'error',
 
   /**
-   * Disallow missing props validation in a React component definition
+   * Disallow missing props validation in a React component definition.
    *
+   * @description `prop-types` is now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prop-types.md
+   * @link https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L66
    */
   'react/prop-types': 'off',
 
   /**
-   * Disallow missing React when using JSX
+   * Disallow missing React when using JSX.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L230
    */
-  'react/react-in-jsx-scope': 'off',
+  'react/react-in-jsx-scope': 'error',
 
   /**
-   * Enforce a defaultProps definition for every prop that is not a required prop
+   * Enforce a `defaultProps` definition for every prop that is not a required prop.
    *
+   * @description `prop-types` is now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-default-props.md
    */
   'react/require-default-props': 'off',
 
   /**
-   * Enforce React components to have a shouldComponentUpdate method
+   * Enforce React components to have a `shouldComponentUpdate` method.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-optimization.md
    */
   'react/require-optimization': 'off',
 
   /**
-   * Enforce ES5 or ES6 class for returning value in render function
+   * Enforce ES5 or ES6 class for returning value in `render` function.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-render-return.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L234
    */
-  'react/require-render-return': 'off',
+  'react/require-render-return': 'error',
 
   /**
-   * Disallow extra closing tags for components without children
+   * Disallow extra closing tags for components without children.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
+   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L238
    */
-  'react/self-closing-comp': 'off',
+  'react/self-closing-comp': [
+    'error',
+    {
+      component: true,
+      html: true,
+    },
+  ],
 
   /**
-   * Enforce component methods order
+   * Enforce component methods order.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
    */
   'react/sort-comp': 'off',
 
   /**
-   * Enforce defaultProps declarations alphabetical sorting
+   * Enforce `defaultProps` declarations alphabetical sorting.
    *
+   * @description `prop-types` is now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/sort-default-props.md
    */
   'react/sort-default-props': 'off',
 
   /**
-   * Enforce propTypes declarations alphabetical sorting
+   * Enforce propTypes declarations alphabetical sorting.
    *
+   * @description `prop-types` is now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/sort-prop-types.md
    */
   'react/sort-prop-types': 'off',
 
   /**
-   * Enforce class component state initialization style
+   * Enforce class component state initialization style.
    *
+   * @description Class compoenents are now deprecated.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md
    */
   'react/state-in-constructor': 'off',
+
+  // --------------------------------------------------------------------
 
   /**
    * Enforces where React component static properties should be positioned.
