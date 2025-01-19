@@ -9,12 +9,14 @@
   "workspaces": [
     "examples/*",
     "packages/*",
-    "tests/*"
+    "tests/*",
+    "website"
   ],
   "scripts": {
     "prepare": "husky",
     "publish-package": "npx lerna publish from-package --pre-dist-tag canary --yes",
     "build": "npx lerna run build",
+    "dev": "npm run start -w website",
     "test": "npx lerna run test",
     "coverage": "npx c8 --reporter=lcov npm run test",
     "lint": "concurrently \"npm:lint:*\"",
@@ -36,7 +38,7 @@
     "concurrently": "^9.1.0",
     "editorconfig-checker": "^6.0.1",
     "eslint": "^9.18.0",
-    "eslint-config-bananass": "^0.0.0",
+    "eslint-config-bananass-react": "^0.0.0",
     "husky": "^9.1.7",
     "lerna": "^8.1.9",
     "lint-staged": "^15.4.1",
