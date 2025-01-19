@@ -16,6 +16,7 @@
     "prepare": "husky",
     "publish-package": "npx lerna publish from-package --pre-dist-tag canary --yes",
     "build": "npx lerna run build",
+    "dev": "npm run start -w website",
     "test": "npx lerna run test",
     "coverage": "npx c8 --reporter=lcov npm run test",
     "lint": "concurrently \"npm:lint:*\"",
