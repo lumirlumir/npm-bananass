@@ -1,13 +1,13 @@
 {
   "private": true,
-  "name": "website-eslint-config-bananass",
+  "name": "websites-eslint-config-bananass-react",
   "version": "0.0.0",
   "scripts": {
     "build": "npx @eslint/config-inspector build --config ./config.js --outDir ./build",
     "dev": "npx @eslint/config-inspector --config ./config.js"
   },
   "devDependencies": {
-    "eslint-config-bananass": "^0.0.0",
+    "eslint-config-bananass-react": "^0.0.0",
     "@eslint/config-inspector": "^1.0.0"
   }
 }

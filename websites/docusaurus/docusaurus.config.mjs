@@ -18,7 +18,7 @@ const title = 'Bananass';
 const organizationName = 'lumirlumir';
 const projectName = 'npm-bananass';
 const githubUrl = `https://github.com/${organizationName}/${projectName}`;
-const editUrl = `${githubUrl}/tree/main/website/`; // "edit this page" links.
+const editUrl = `${githubUrl}/tree/main/websites/docusaurus`; // "edit this page" links.
 
 // --------------------------------------------------------------------------------
 // Export
