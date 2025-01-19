@@ -10,7 +10,7 @@
     "examples/*",
     "packages/*",
     "tests/*",
-    "website/*"
+    "websites/*"
   ],
   "scripts": {
     "prepare": "husky",
@@ -18,10 +18,10 @@
     "test": "npx lerna run test",
     "coverage": "npx c8 --reporter=lcov npm run test",
     "build": "npx lerna run build",
-    "build:website:docusaurus": "npm run build -w website/docusaurus",
-    "build:website:eslint-config-bananass": "npm run build -w website/eslint-config-bananass",
-    "dev:website:docusaurus": "npm run start -w website/docusaurus",
-    "dev:website:eslint-config-bananass": "npm run dev -w website/eslint-config-bananass",
+    "build:websites:docusaurus": "npm run build -w websites/docusaurus",
+    "build:websites:eslint-config-bananass": "npm run build -w websites/eslint-config-bananass",
+    "dev:websites:docusaurus": "npm run start -w websites/docusaurus",
+    "dev:websites:eslint-config-bananass": "npm run dev -w websites/eslint-config-bananass",
     "lint": "concurrently \"npm:lint:*\"",
     "lint:eslint": "npx eslint",
     "lint:prettier": "npx prettier . --check",
