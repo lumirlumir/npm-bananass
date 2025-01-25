@@ -4,7 +4,7 @@ node_modules
 # production
 build
 .next
-.docusaurus
+**/.vitepress/cache/
 
 # files
 LICENSE.md
