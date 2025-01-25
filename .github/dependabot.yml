@@ -24,9 +24,6 @@ updates:
         patterns:
           - 'next'
           - '@next/*'
-      docusaurus:
-        patterns:
-          - '@docusaurus/*'
     reviewers:
       - 'lumirlumir'
     schedule:
