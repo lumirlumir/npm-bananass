@@ -2,7 +2,7 @@ name: labeler
 
 on:
   pull_request_target:
-    types: [opened]
+    types: [opened, edited]
 
 jobs:
   labeler:
@@ -10,6 +10,7 @@ jobs:
 
     steps:
       - name: Labeler
+        if: github.event.action == 'opened' || github.event.changes.title
         uses: jimschubert/labeler-action@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

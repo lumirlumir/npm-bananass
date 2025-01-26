@@ -24,14 +24,14 @@ lumirlumir/lumirlumir-configs:
   # ./.github
   - source: ./.github/CODEOWNERS
     dest: ./configs/.github/CODEOWNERS
-  - source: ./.github/dependabot.yml
-    dest: ./configs/.github/dependabot.yml
   - source: ./.github/FUNDING.yml
     dest: ./configs/.github/FUNDING.yml
-  - source: ./.github/labeler.yml
-    dest: ./configs/.github/labeler.yml
   - source: ./.github/PULL_REQUEST_TEMPLATE.md
     dest: ./configs/.github/PULL_REQUEST_TEMPLATE.md
+  - source: ./.github/dependabot.yml
+    dest: ./configs/.github/dependabot.yml
+  - source: ./.github/labeler.yml
+    dest: ./configs/.github/labeler.yml
   - source: ./.github/release.yml
     dest: ./configs/.github/release.yml
   # ./.husky
@@ -39,7 +39,7 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.husky/pre-commit
   # ./.vscode
   - source: ./.vscode/extensions.json
-    dest: ./configs/.vscode/web-extensions.json
+    dest: ./configs/.vscode/npm-extensions.json
   - source: ./.vscode/settings.json
     dest: ./configs/.vscode/settings.json
   # ./
