@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "websites-vitepress",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npx vitepress --open --host",
+    "build": "npx vitepress build --outDir build",
+    "start": "npx vitepress preview"
+  },
+  "devDependencies": {
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-mathjax3": "^4.3.2",
+    "vitepress": "^1.6.1",
+    "vitepress-plugin-group-icons": "^1.3.5"
+  }
+}
