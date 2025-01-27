@@ -22,6 +22,7 @@
     "build:ws:vp": "npm run build -w websites/vitepress",
     "build:ws:ecb": "npm run build -w websites/eslint-config-bananass",
     "build:ws:ecbr": "npm run build -w websites/eslint-config-bananass-react",
+    "dev": "npm run dev:ws:vp",
     "dev:ws:vp": "npm run dev -w websites/vitepress",
     "dev:ws:ecb": "npm run dev -w websites/eslint-config-bananass",
     "dev:ws:ecbr": "npm run dev -w websites/eslint-config-bananass-react",
