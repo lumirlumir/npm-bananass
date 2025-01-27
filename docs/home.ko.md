@@ -2,7 +2,7 @@
 
 ## 백준 Node.js 환경에 구애받지 않는 ES2025 등 최신 문법의 사용
 
-2024년 12월 기준, [백준의 Node.js 버전](https://help.acmicpc.net/language/info)은 `v16.13.1` 입니다. Node.js `v16`은 2023년 08월 08일 부로 그 끝<sup>EOL, End of Life</sup>을 맞이했습니다. 매년 새로운 스펙을 발표하는 자바스크립트는 현재도 계속해서 ES14</sup>, ECMAScript2024<sup>ES2024, ES15</sup> ES15</sup>, ECMAScript2025<sup>ES2025, ES16</sup> 등의 새로운 표준을 매년 출시하고 있습니다.
+2024년 12월 기준, [백준의 Node.js 버전](https://help.acmicpc.net/language/info)은 `v16.13.1` 입니다. Node.js `v16.13.1`은 2021년 12월 1일에 발표되었고, 가장 최신의 Node.js `v16` 역시 2023년 08월 08일 부로 그 끝<sup>EOL, End of Life</sup>을 맞이했습니다. 매년 새로운 스펙을 발표하는 자바스크립트는 현재도 계속해서 ES14</sup>, ECMAScript2024<sup>ES2024, ES15</sup> ES15</sup>, ECMAScript2025<sup>ES2025, ES16</sup> 등의 새로운 표준을 매년 출시하고 있습니다.
 
 새로운 등장한 문법들을 사용하고 싶지만, 현실적 제약때문에 이를 망설였던 여러분들에게 바나나 프레임워크는 새로운 가능성을 제시합니다!
 
