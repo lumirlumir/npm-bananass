@@ -3,7 +3,9 @@
     "allowJs": true,
     "declaration": true,
     "emitDeclarationOnly": true,
-    "outDir": "build"
+    "outDir": "build",
+    "target": "ESNext",
+    "moduleResolution": "Node"
   },
   "include": ["src/**/*.js"],
   "exclude": ["src/**/*.test.js", "src/**/*.spec.js"]
