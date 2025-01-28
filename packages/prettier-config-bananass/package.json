@@ -2,7 +2,12 @@
   "name": "prettier-config-bananass",
   "version": "0.0.0",
   "description": "Prettier Config for Bananass Framework.🍌",
-  "exports": "./src/index.js",
+  "exports": {
+    ".": {
+      "default": "./src/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
     "src/index.js",
     "LICENSE.md",
