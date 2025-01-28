@@ -2,7 +2,12 @@
   "name": "eslint-config-bananass",
   "version": "0.0.0",
   "description": "ESLint Config for Bananass Framework.🍌",
-  "exports": "./src/index.js",
+  "exports": {
+    ".": {
+      "default": "./src/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
     "src",
     "LICENSE.md",
