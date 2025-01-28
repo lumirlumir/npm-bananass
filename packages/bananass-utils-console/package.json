@@ -22,6 +22,22 @@
     },
     "./package.json": "./package.json"
   },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./build/*"
+      ],
+      "logger": [
+        "./build/logger.d.ts"
+      ],
+      "spinner": [
+        "./build/spinner.d.ts"
+      ],
+      "theme": [
+        "./build/theme.d.ts"
+      ]
+    }
+  },
   "files": [
     "build",
     "LICENSE.md",
