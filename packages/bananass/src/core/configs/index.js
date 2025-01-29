@@ -1,5 +1,5 @@
-import findBananassConfigFile from './find-bananass-config-file';
-import findPackageJsonFile from './find-package-json-file';
-import loadPackageJsonFile from './load-package-json-file';
+import findBananassConfigFile from './find-bananass-config-file.js';
+import findPackageJsonFile from './find-package-json-file.js';
+import loadPackageJsonFile from './load-package-json-file.js';
 
 export { findBananassConfigFile, findPackageJsonFile, loadPackageJsonFile };

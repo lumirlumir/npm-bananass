@@ -1,3 +1,3 @@
-import findExistingPath from './find-existing-path';
+import findExistingPath from './find-existing-path.js';
 
 export { findExistingPath };
