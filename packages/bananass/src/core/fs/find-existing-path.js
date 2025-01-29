@@ -15,9 +15,9 @@ import path from 'node:path';
 // Helpers
 // --------------------------------------------------------------------------------
 
-function validateArgBasePath(basePath) {
-  if (typeof basePath !== 'string') {
-    throw new TypeError(`${basePath} is not a string`);
+function validateArgBaseDir(baseDir) {
+  if (typeof baseDir !== 'string') {
+    throw new TypeError(`${baseDir} is not a string`);
   }
 }
 
@@ -40,16 +40,16 @@ function validateArgCandidates(candidates) {
 /**
  * Find first existing path (file or directory) from candidates.
  *
- * @param {string} basePath Base directory path.
+ * @param {string} baseDir Base directory path.
  * @param {string[]} candidates Path names to search.
  * @returns {string|null} Full path of found file/directory or `null`.
  */
-export default function findExistingPath(basePath, candidates) {
-  validateArgBasePath(basePath);
+export default function findExistingPath(baseDir, candidates) {
+  validateArgBaseDir(baseDir);
   validateArgCandidates(candidates);
 
   for (const candidate of candidates) {
-    const fullPath = path.join(basePath, candidate);
+    const fullPath = path.join(baseDir, candidate);
 
     if (fs.existsSync(fullPath)) {
       return fullPath;
