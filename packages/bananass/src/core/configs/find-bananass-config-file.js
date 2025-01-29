@@ -24,7 +24,7 @@ export default function findBananassConfigFile(baseDir) {
   const bananassConfigFile = findExistingPath(baseDir, BANANASS_CONFIG_FILE_BASE_ARRAY);
 
   if (bananassConfigFile === null) {
-    throw new Error(`Cannot find a bananass config file in ${baseDir}`);
+    throw new Error(`Cannot find a Bananass config file in ${baseDir}`);
   }
 
   return bananassConfigFile;
