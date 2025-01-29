@@ -29,6 +29,7 @@ export const PACKAGE_NAME = packageName;
 // Array constants with `NAME` in their name must not include the extension.
 // Array constants with `BASE` in their name must include the extension.
 export const JS_EXT_ARRAY = Object.freeze(['.js', '.cjs', '.mjs']);
+export const PACKAGE_JSON_FILE_BASE_ARRAY = Object.freeze(['package.json']);
 export const ENTRY_DIR_NAME_ARRAY = Object.freeze([
   packageName,
   join('src', packageName),
