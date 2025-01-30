@@ -1,0 +1,52 @@
+{
+  "name": "bananass-utils-vitepress",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "VitePress Utilities for Bananass Framework.🍌",
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "default": "./build/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./build/*"
+      ]
+    }
+  },
+  "files": [
+    "build",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "keywords": [
+    "bananass",
+    "baekjoon",
+    "framework",
+    "javascript",
+    "utils",
+    "vitepress"
+  ],
+  "author": "루밀LuMir <rpfos@naver.com> (https://github.com/lumirlumir)",
+  "license": "MIT",
+  "homepage": "https://bananass.lumir.page",
+  "repository": {
+    "type": "github",
+    "url": "git+https://github.com/lumirlumir/npm-bananass.git",
+    "directory": "packages/bananass-utils-vitepress"
+  },
+  "bugs": {
+    "url": "https://github.com/lumirlumir/npm-bananass/issues"
+  },
+  "engines": {
+    "node": ">=20.18.0"
+  },
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "npx babel src -d build && npx tsc && cp ../../LICENSE.md ../../README.md .",
+    "test": "true"
+  }
+}
