@@ -42,6 +42,9 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.vscode/npm-extensions.json
   - source: ./.vscode/settings.json
     dest: ./configs/.vscode/settings.json
+  # ./scripts
+  - source: ./scripts/vercel-ignore-command.sh
+    dest: ./configs/scripts/vercel-ignore-command.sh
   # ./
   - source: ./.editorconfig
     dest: ./configs/.editorconfig
