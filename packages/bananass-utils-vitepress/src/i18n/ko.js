@@ -9,13 +9,18 @@
 /**
  * Generates the configuration object for Korean language support in VitePress.
  *
- * @param {string} [searchOptionsLocaleKey='root'] The locale key for search options. (default: `'root'`)
+ * @param {object} options Configuration options.
+ * @param {string} [options.searchOptionsLocalesKey='root'] The locale key for search options. (default: `'root'`)
+ * @param {string} [options.themeConfigEditLinkPattern=''] The pattern for edit links. (default: `''`)
  * @returns {object} The configuration object for Korean language support.
  *
  * @example
  * import koreanConfig from 'bananass-utils-vitepress/i18n/ko';
  *
- * console.log(koreanConfig());
+ * console.log(koreanConfig({
+ *   searchOptionsLocalesKey: 'root',
+ *   themeConfigEditLinkPattern: 'https://github.com/org/repo/edit/main/docs/:path'
+ * }));
  *
  * // {
  * //   label: '한국어',
@@ -36,7 +41,13 @@
  * //     },
  * //
  * //     editLink: {
+ * //       pattern: '',
  * //       text: '깃허브에서 페이지 편집 제안하기',
+ * //     },
+ * //
+ * //     footer: {
+ * //       message: 'MIT 라이선스에 따라 배포됩니다.',
+ * //       copyright: `저작권 © 2024-${new Date().getFullYear()} <a href="https://github.com/lumirlumir">루밀LuMir(lumirlumir)</a>`,
  * //     },
  * //
  * //     lastUpdated: {
@@ -44,6 +55,7 @@
  * //     },
  * //
  * //     outline: {
+ * //       level: 'deep',
  * //       label: '현재 페이지 목차',
  * //     },
  * //
@@ -56,7 +68,7 @@
  * //                 buttonText: '검색',
  * //                 buttonAriaLabel: '검색',
  * //               },
- * //              modal: {
+ * //               modal: {
  * //                 displayDetails: '자세히 보기',
  * //                 resetButtonTitle: '검색 초기화',
  * //                 backButtonTitle: '뒤로 가기',
@@ -79,7 +91,10 @@
  * //   },
  * // }
  */
-export default function koreanConfig(searchOptionsLocaleKey = 'root') {
+export default function koreanConfig({
+  searchOptionsLocalesKey = 'root',
+  themeConfigEditLinkPattern = '',
+}) {
   return {
     label: '한국어',
     lang: 'ko-KR',
@@ -99,7 +114,13 @@ export default function koreanConfig(searchOptionsLocaleKey = 'root') {
       },
 
       editLink: {
+        pattern: themeConfigEditLinkPattern,
         text: '깃허브에서 페이지 편집 제안하기',
+      },
+
+      footer: {
+        message: 'MIT 라이선스에 따라 배포됩니다.',
+        copyright: `저작권 © 2024-${new Date().getFullYear()} <a href="https://github.com/lumirlumir">루밀LuMir(lumirlumir)</a>`,
       },
 
       lastUpdated: {
@@ -107,13 +128,14 @@ export default function koreanConfig(searchOptionsLocaleKey = 'root') {
       },
 
       outline: {
+        level: 'deep',
         label: '현재 페이지 목차',
       },
 
       search: {
         options: {
           locales: {
-            [searchOptionsLocaleKey]: {
+            [searchOptionsLocalesKey]: {
               translations: {
                 button: {
                   buttonText: '검색',
