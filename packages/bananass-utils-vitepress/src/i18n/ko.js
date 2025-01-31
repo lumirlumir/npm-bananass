@@ -41,7 +41,7 @@
  * //     },
  * //
  * //     editLink: {
- * //       pattern: '',
+ * //       pattern: 'https://github.com/org/repo/edit/main/docs/:path',
  * //       text: '깃허브에서 페이지 편집 제안하기',
  * //     },
  * //
