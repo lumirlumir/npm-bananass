@@ -10,27 +10,32 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import koreanConfig from 'bananass-utils-vitepress/i18n/ko';
 import { defineConfig } from 'vitepress';
 
 // --------------------------------------------------------------------------------
-// Constants
+// Declarations
 // --------------------------------------------------------------------------------
 
-const AUTHOR = '루밀LuMir';
 const TITLE = '바나나';
 const DESCRIPTION = '백준 자바스크립트 프레임워크.🍌';
 const SITE_URL = 'https://bananass.lumir.page';
 const GITHUB_URL = 'https://github.com/lumirlumir/npm-bananass';
 const NPM_URL = 'https://www.npmjs.com';
 
+const { themeConfig, ...restConfig } = koreanConfig({
+  themeConfigEditLinkPattern: `${GITHUB_URL}/edit/main/websites/vitepress/:path`,
+});
+
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
 export default defineConfig({
+  ...restConfig,
+
   title: TITLE,
   description: DESCRIPTION,
-  lang: 'ko-KR',
 
   head: [
     // Basic
@@ -59,6 +64,8 @@ export default defineConfig({
   ],
 
   themeConfig: {
+    ...themeConfig,
+
     nav: [],
 
     sidebar: {},
@@ -75,36 +82,5 @@ export default defineConfig({
         ariaLabel: '바나나 프레임워크 레포지토리 깃허브 링크',
       },
     ],
-
-    docFooter: {
-      prev: '이전',
-      next: '다음',
-    },
-
-    outline: {
-      label: '이 페이지 목차',
-    },
-
-    lastUpdated: {
-      text: '업데이트 날짜',
-    },
-
-    langMenuLabel: '언어 변경',
-    returnToTopLabel: '맨 위로 돌아가기',
-    sidebarMenuLabel: '사이드바 메뉴',
-    darkModeSwitchLabel: '다크 모드',
-    lightModeSwitchTitle: '라이트 모드로 변경',
-    darkModeSwitchTitle: '다크 모드로 변경',
-    skipToContentLabel: '본문으로 건너뛰기',
-
-    editLink: {
-      pattern: `${GITHUB_URL}/edit/main/website/:path`,
-      text: '이 페이지 편집 제안하기',
-    },
-
-    footer: {
-      message: 'Released under the MIT License.',
-      copyright: `Copyright © 2024-present <a href="https://github.com/lumirlumir">${AUTHOR}(lumirlumir)</a>`,
-    },
   },
 });
