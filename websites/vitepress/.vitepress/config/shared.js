@@ -87,10 +87,6 @@ export default defineConfig({
       height: 24,
     },
 
-    outline: {
-      level: 'deep',
-    },
-
     search: {
       provider: 'local',
     },

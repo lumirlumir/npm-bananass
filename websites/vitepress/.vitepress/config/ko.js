@@ -66,7 +66,58 @@ export default defineConfig({
   themeConfig: {
     ...themeConfig,
 
-    nav: [],
+    nav: [
+      {
+        text: 'ESLint',
+        items: [
+          {
+            text: 'eslint-config-bananass',
+            link: 'https://eslint-config-bananass.lumir.page',
+          },
+          {
+            text: 'eslint-config-bananass-react',
+            link: 'https://eslint-config-bananass-react.lumir.page',
+          },
+        ],
+      },
+      {
+        text: '패키지',
+        items: [
+          {
+            text: 'bananass',
+            link: `${NPM_URL}/package/bananass`,
+          },
+          {
+            text: 'bananass-dataset',
+            link: `${NPM_URL}/package/bananass-dataset`,
+          },
+          {
+            text: 'bananass-utils-console',
+            link: `${NPM_URL}/package/bananass-utils-console`,
+          },
+          {
+            text: 'bananass-utils-vitepress',
+            link: `${NPM_URL}/package/bananass-utils-vitepress`,
+          },
+          {
+            text: 'create-bananass',
+            link: `${NPM_URL}/package/create-bananass`,
+          },
+          {
+            text: 'eslint-config-bananass',
+            link: `${NPM_URL}/package/eslint-config-bananass`,
+          },
+          {
+            text: 'eslint-config-bananass-react',
+            link: `${NPM_URL}/package/eslint-config-bananass-react`,
+          },
+          {
+            text: 'prettier-config-bananass',
+            link: `${NPM_URL}/package/prettier-config-bananass`,
+          },
+        ],
+      },
+    ],
 
     sidebar: {},
 
@@ -79,7 +130,7 @@ export default defineConfig({
       {
         icon: 'github',
         link: GITHUB_URL,
-        ariaLabel: '바나나 프레임워크 레포지토리 깃허브 링크',
+        ariaLabel: '바나나 프레임워크 깃허브 레포지토리 링크',
       },
     ],
   },
