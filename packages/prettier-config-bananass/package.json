@@ -9,7 +9,9 @@
     "./package.json": "./package.json"
   },
   "files": [
-    "src/index.js",
+    "src",
+    "!src/**/*.test.js",
+    "!src/**/*.spec.js",
     "LICENSE.md",
     "README.md"
   ],
