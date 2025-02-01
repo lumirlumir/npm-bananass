@@ -24,7 +24,7 @@ import ko from './ko';
 export default defineConfig({
   ...shared,
   locales: {
-    root: { label: '한국어', ...ko },
-    en: { label: 'English', ...en },
+    root: ko,
+    en,
   },
 });
