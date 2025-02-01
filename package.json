@@ -64,7 +64,7 @@
     "husky": "^9.1.7",
     "lerna": "^8.1.9",
     "lint-staged": "^15.4.3",
-    "markdownlint-cli": "^0.43.0",
+    "markdownlint-cli": "^0.44.0",
     "prettier": "^3.4.1",
     "prettier-config-bananass": "^0.0.0",
     "textlint": "^14.3.0",
