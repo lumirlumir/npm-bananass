@@ -9,7 +9,13 @@
 // --------------------------------------------------------------------------------
 
 import { program } from 'commander';
-import { global, bananassAdd, bananassCase, bananassClean } from './cli/index.js';
+import {
+  global,
+  bananassAdd,
+  bananassCase,
+  bananassClean,
+  bananassInfo,
+} from './cli/index.js';
 
 // --------------------------------------------------------------------------------
 // Commands
@@ -20,7 +26,7 @@ bananassAdd(program);
 // bananassBuild(program);
 bananassCase(program);
 bananassClean(program);
-// bananassInfo(program);
+bananassInfo(program);
 // bananassInit(program);
 // bananassLint(program);
 // bananassLogin(program);
