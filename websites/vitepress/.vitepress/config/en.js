@@ -4,8 +4,6 @@
  * @see https://vitepress.dev/reference/site-config#site-config
  */
 
-/* eslint-disable import/no-extraneous-dependencies -- TODO: Delete it after this rule is updated in `eslint-config-bananass` */
-
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
