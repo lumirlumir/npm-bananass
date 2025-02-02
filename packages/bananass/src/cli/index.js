@@ -4,5 +4,14 @@ import bananassCase from './bananass-case.js';
 import bananassClean from './bananass-clean.js';
 import bananassInfo from './bananass-info.js';
 import bananassInit from './bananass-init.js';
+import bananassLint from './bananass-lint.js';
 
-export { global, bananassAdd, bananassCase, bananassClean, bananassInfo, bananassInit };
+export {
+  global,
+  bananassAdd,
+  bananassCase,
+  bananassClean,
+  bananassInfo,
+  bananassInit,
+  bananassLint,
+};

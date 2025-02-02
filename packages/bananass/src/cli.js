@@ -16,6 +16,7 @@ import {
   bananassClean,
   bananassInfo,
   bananassInit,
+  bananassLint,
 } from './cli/index.js';
 
 // --------------------------------------------------------------------------------
@@ -29,7 +30,7 @@ bananassCase(program);
 bananassClean(program);
 bananassInfo(program);
 bananassInit(program);
-// bananassLint(program);
+bananassLint(program);
 // bananassLogin(program);
 // bananassOpen(program);
 // bananassRandom(program);
