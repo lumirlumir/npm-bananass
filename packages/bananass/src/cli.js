@@ -14,7 +14,7 @@ import logger from 'bananass-utils-console/logger';
 import { program } from 'commander';
 
 import { build } from './commands/index.js';
-import { ENTRY_DIRECTORY_NAME_ARRAY, OUTPUT_DIRECTORY_NAME } from './constants/index.js';
+import { ENTRY_DIR_NAME_ARRAY, OUTPUT_DIR_NAME_ARRAY } from './core/constants.js';
 
 // --------------------------------------------------------------------------------
 // Declaration
@@ -49,7 +49,7 @@ program.command('add');
 program
   .command('build')
   .description(
-    `build and create bundled files using Webpack from the ${ENTRY_DIRECTORY_NAME_ARRAY.map(dirName => `\`${dirName}\``).join(' or ')} directory and outputs them to the \`${OUTPUT_DIRECTORY_NAME}\` directory`,
+    `build and create bundled files using Webpack from the ${ENTRY_DIR_NAME_ARRAY.join(', ')} directory and outputs them to the ${OUTPUT_DIR_NAME_ARRAY.join(', ')} directory`,
   )
   .argument('[problems...]', 'baekjoon problem number list', null)
   .option('-c, --clean', 'clean the output directory before emit', false)
