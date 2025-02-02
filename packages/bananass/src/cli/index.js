@@ -1,4 +1,5 @@
 import global from './global.js';
-import add from './add.js';
+import bananassAdd from './bananass-add.js';
+import bananassCase from './bananass-case.js';
 
-export { global, add };
+export { global, bananassAdd, bananassCase };
