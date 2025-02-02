@@ -5,6 +5,7 @@ import bananassClean from './bananass-clean.js';
 import bananassInfo from './bananass-info.js';
 import bananassInit from './bananass-init.js';
 import bananassLint from './bananass-lint.js';
+import bananassLogin from './bananass-login.js';
 
 export {
   global,
@@ -14,4 +15,5 @@ export {
   bananassInfo,
   bananassInit,
   bananassLint,
+  bananassLogin,
 };
