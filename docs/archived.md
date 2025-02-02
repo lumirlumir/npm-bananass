@@ -84,21 +84,21 @@ git clone https://github.com/lumirlumir/PS_Framework.git
 
 ```bash
 📦PS_Framework
- ┣ 📂.github
- ┃ ┗ 📂workflows
- ┃   ┗ 📜SyntaxCheck.yaml # Git: Github Workflows 설정 파일.
- ┣ 📂.vscode
- ┃ ┗ 📜settings.json # VScode: Editor 설정 파일.
- ┣ 📂Src
- ┃ ┗ 📂* (Baekjoon, Programmers or Etc.)
- ┃   ┣ 📂Blogged # 블로그에 게시된 문제 저장.
- ┃   ┣ 📂Solved # 다 푼 문제 저장.
- ┃   ┗ 📂Unsolved # 아직 풀고있는 문제 저장.
- ┣ 📜.clang-format # C/C++: Convention 설정 파일.
- ┣ 📜.editorconfig # EditorConfig: Covention 설정 파일.
- ┣ 📜.gitignore # Git: Gitignore 설정 파일.
- ┣ 📜README.md # Git: README 파일.
- ┗ 📜VScode.code-workspace # VScode: Workspace 설정 파일.
+┣ 📂.github
+┃ ┗ 📂workflows
+┃   ┗ 📜SyntaxCheck.yaml # Git: Github Workflows 설정 파일.
+┣ 📂.vscode
+┃ ┗ 📜settings.json # VScode: Editor 설정 파일.
+┣ 📂Src
+┃ ┗ 📂* (Baekjoon, Programmers or Etc.)
+┃   ┣ 📂Blogged # 블로그에 게시된 문제 저장.
+┃   ┣ 📂Solved # 다 푼 문제 저장.
+┃   ┗ 📂Unsolved # 아직 풀고있는 문제 저장.
+┣ 📜.clang-format # C/C++: Convention 설정 파일.
+┣ 📜.editorconfig # EditorConfig: Covention 설정 파일.
+┣ 📜.gitignore # Git: Gitignore 설정 파일.
+┣ 📜README.md # Git: README 파일.
+┗ 📜VScode.code-workspace # VScode: Workspace 설정 파일.
 ```
 
 ## 4. Others

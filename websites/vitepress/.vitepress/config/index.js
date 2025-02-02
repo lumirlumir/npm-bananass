@@ -6,8 +6,6 @@
  * @see https://github.com/vuejs/vitepress/tree/main/docs/.vitepress/config
  */
 
-/* eslint-disable import/no-extraneous-dependencies -- TODO: Delete it after this rule is updated in `eslint-config-bananass` */
-
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
@@ -24,7 +22,7 @@ import ko from './ko';
 export default defineConfig({
   ...shared,
   locales: {
-    root: { label: '한국어', ...ko },
-    en: { label: 'English', ...en },
+    root: ko,
+    en,
   },
 });

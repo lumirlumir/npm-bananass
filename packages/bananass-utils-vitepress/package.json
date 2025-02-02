@@ -1,0 +1,80 @@
+{
+  "name": "bananass-utils-vitepress",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "VitePress Utilities for Bananass Framework.🍌",
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "default": "./build/index.js"
+    },
+    "./head": {
+      "types": "./build/head/index.d.ts",
+      "default": "./build/head/index.js"
+    },
+    "./i18n": {
+      "types": "./build/i18n/index.d.ts",
+      "default": "./build/i18n/index.js"
+    },
+    "./i18n/en": {
+      "types": "./build/i18n/en.d.ts",
+      "default": "./build/i18n/en.js"
+    },
+    "./i18n/ko": {
+      "types": "./build/i18n/ko.d.ts",
+      "default": "./build/i18n/ko.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./build/*"
+      ],
+      "head": [
+        "./build/head/index.d.ts"
+      ],
+      "i18n": [
+        "./build/i18n/index.d.ts"
+      ],
+      "i18n/en": [
+        "./build/i18n/en.d.ts"
+      ],
+      "i18n/ko": [
+        "./build/i18n/ko.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "build",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "keywords": [
+    "bananass",
+    "baekjoon",
+    "framework",
+    "javascript",
+    "utils",
+    "vitepress"
+  ],
+  "author": "루밀LuMir <rpfos@naver.com> (https://github.com/lumirlumir)",
+  "license": "MIT",
+  "homepage": "https://bananass.lumir.page",
+  "repository": {
+    "type": "github",
+    "url": "git+https://github.com/lumirlumir/npm-bananass.git",
+    "directory": "packages/bananass-utils-vitepress"
+  },
+  "bugs": {
+    "url": "https://github.com/lumirlumir/npm-bananass/issues"
+  },
+  "engines": {
+    "node": ">=20.18.0"
+  },
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "npx babel src -d build && npx tsc && cp ../../LICENSE.md ../../README.md .",
+    "test": "node --test"
+  }
+}

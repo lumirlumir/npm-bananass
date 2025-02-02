@@ -4,12 +4,11 @@
  * @see https://vitepress.dev/reference/site-config#site-config
  */
 
-/* eslint-disable import/no-extraneous-dependencies -- TODO: Delete it after this rule is updated in `eslint-config-bananass` */
-
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
+import { generateGoogleAnalyticsScript } from 'bananass-utils-vitepress/head';
 import footnote from 'markdown-it-footnote';
 import { defineConfig } from 'vitepress';
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
@@ -57,18 +56,7 @@ export default defineConfig({
     ],
 
     // Google Analytics
-    [
-      'script',
-      { async: '', src: `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_GA_ID}` },
-    ],
-    [
-      'script',
-      {},
-      `window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '${GOOGLE_GA_ID}');`,
-    ],
+    ...generateGoogleAnalyticsScript(GOOGLE_GA_ID),
   ],
 
   /* Routing */
@@ -95,10 +83,6 @@ export default defineConfig({
       src: '/logo.svg',
       width: 24,
       height: 24,
-    },
-
-    outline: {
-      level: 'deep',
     },
 
     search: {
