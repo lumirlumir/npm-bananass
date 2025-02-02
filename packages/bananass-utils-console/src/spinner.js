@@ -1,7 +1,7 @@
 /**
  * @fileoverview Tiny terminal spinner.
  * @module bananass-utils-console/spinner
- * @see https://github.com/sindresorhus/yocto-spinner `yocto-spinner` package.
+ * @see https://github.com/sindresorhus/yocto-spinner/tree/v0.1.2 `yocto-spinner` package `v0.1.2`.
  */
 
 // --------------------------------------------------------------------------------
@@ -27,7 +27,7 @@ import {
 
 class Spinner {
   // ------------------------------------------------------------------------------
-  // Private Property
+  // Private Properties
   // ------------------------------------------------------------------------------
 
   #frames;
@@ -54,7 +54,7 @@ class Spinner {
   }
 
   // ------------------------------------------------------------------------------
-  // Private Method
+  // Private Methods
   // ------------------------------------------------------------------------------
 
   #symbolStop(symbol, text) {
@@ -62,7 +62,7 @@ class Spinner {
   }
 
   #render() {
-    const currentTime = Date.now(); // TODO: Follow the same pattern as the `yocto-spinner` package.
+    const currentTime = Date.now();
 
     // Ensure we only update the spinner frame at the wanted interval,
     // even if the render method is called more often.
@@ -100,8 +100,6 @@ class Spinner {
 
     let lineCount = 0;
 
-    // TODO: remove below eslint-disable line
-    // eslint-disable-next-line no-restricted-syntax
     for (const line of lines) {
       lineCount += Math.max(1, Math.ceil(line.length / width));
     }
@@ -136,14 +134,13 @@ class Spinner {
       this.stop();
     }
 
-    // SIGINT: 128 + 2
-    // SIGTERM: 128 + 15
+    // SIGINT: 128 + 2, SIGTERM: 128 + 15
     const exitCode = signal === 'SIGINT' ? 130 : signal === 'SIGTERM' ? 143 : 1;
     process.exit(exitCode);
   }
 
   // ------------------------------------------------------------------------------
-  // Public Method
+  // Public Methods
   // ------------------------------------------------------------------------------
 
   start(text) {

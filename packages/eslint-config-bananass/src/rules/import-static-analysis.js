@@ -24,9 +24,8 @@ module.exports = {
   /**
    * Enforce either using, or omitting, the `node:` protocol when importing Node.js builtin modules.
    *
-   * @description This rule is not included in `airbnb-base`.
+   * @description This rule is not included in `airbnb-base` and not implemented yet in `v2.31.0`. I've replaced it with `'n/prefer-node-protocol'`.
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/enforce-node-protocol-usage.md}
-   * @todo This rule is not implemented yet in `v2.31.0`.
    */
   'import/enforce-node-protocol-usage': 'off',
 
