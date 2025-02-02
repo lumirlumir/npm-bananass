@@ -21,6 +21,7 @@ import {
   bananassOpen,
   bananassRandom,
   bananassRun,
+  bananassSubmit,
 } from './cli/index.js';
 
 // --------------------------------------------------------------------------------
@@ -39,7 +40,7 @@ bananassLogin(program);
 bananassOpen(program);
 bananassRandom(program);
 bananassRun(program);
-// bananassSubmit(program);
+bananassSubmit(program);
 
 // --------------------------------------------------------------------------------
 // Parse `commander`
