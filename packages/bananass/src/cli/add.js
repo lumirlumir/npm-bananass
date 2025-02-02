@@ -1,17 +1,12 @@
 /**
- * @fileoverview CLI `global` command.
+ * @fileoverview CLI `add` command.
  */
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-import {
-  PKG_DESCRIPTION,
-  PKG_HOMEPAGE,
-  PKG_NAME,
-  PKG_VERSION,
-} from '../core/constants.js';
+import { warning } from 'bananass-utils-console/theme';
 
 // --------------------------------------------------------------------------------
 // Types
@@ -26,13 +21,10 @@ import {
 // --------------------------------------------------------------------------------
 
 /**
- * Global: `npx bananass` command.
+ * Add: `npx bananass add` command.
  *
  * @param {Command} program The `commander` package's `program`.
  */
-export default function global(program) {
-  program
-    .name(PKG_NAME)
-    .description(`${PKG_DESCRIPTION} (${PKG_HOMEPAGE})`)
-    .version(PKG_VERSION, '-v, --version');
+export default function add(program) {
+  program.command('add').description(warning('TODO: Working in progress...🚧', false));
 }
