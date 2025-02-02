@@ -7,6 +7,7 @@ import bananassInit from './bananass-init.js';
 import bananassLint from './bananass-lint.js';
 import bananassLogin from './bananass-login.js';
 import bananassOpen from './bananass-open.js';
+import bananassRandom from './bananass-random.js';
 
 export {
   global,
@@ -18,4 +19,5 @@ export {
   bananassLint,
   bananassLogin,
   bananassOpen,
+  bananassRandom,
 };
