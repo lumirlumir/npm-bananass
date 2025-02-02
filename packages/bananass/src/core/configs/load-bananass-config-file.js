@@ -2,7 +2,7 @@ import path from 'node:path';
 import { createRequire } from 'node:module';
 
 import loadPackageJsonFile from './load-package-json-file.js';
-import { JS_EXT_ARRAY } from '../constants';
+import { JS_EXT_ARRAY } from '../constants.js';
 
 export default async function loadBananassConfigFile(
   pathToBananassConfigFile,
