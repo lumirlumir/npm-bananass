@@ -20,6 +20,7 @@ import {
   bananassLogin,
   bananassOpen,
   bananassRandom,
+  bananassRun,
 } from './cli/index.js';
 
 // --------------------------------------------------------------------------------
@@ -37,7 +38,7 @@ bananassLint(program);
 bananassLogin(program);
 bananassOpen(program);
 bananassRandom(program);
-// bananassRun(program);
+bananassRun(program);
 // bananassSubmit(program);
 
 // --------------------------------------------------------------------------------
