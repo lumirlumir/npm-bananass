@@ -70,6 +70,7 @@ module.exports = {
         '**/karma.conf.js', // karma config
         '**/.eslintrc.js', // eslint config
         '**/eslint.config.{js,mjs,cjs}', // eslint config
+        '**/.vitepress/**/*.{js,mjs,cjs}', // vitepress config
       ],
       optionalDependencies: false,
     },
