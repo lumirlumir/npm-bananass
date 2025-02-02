@@ -3,5 +3,6 @@ import bananassAdd from './bananass-add.js';
 import bananassCase from './bananass-case.js';
 import bananassClean from './bananass-clean.js';
 import bananassInfo from './bananass-info.js';
+import bananassInit from './bananass-init.js';
 
-export { global, bananassAdd, bananassCase, bananassClean, bananassInfo };
+export { global, bananassAdd, bananassCase, bananassClean, bananassInfo, bananassInit };
