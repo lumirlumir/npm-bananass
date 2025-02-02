@@ -2,8 +2,6 @@
  * @fileoverview This file declares a function that finds the first existing path (file or directory) from candidates.
  */
 
-/* eslint-disable no-restricted-syntax -- TODO: Delete this rule in the `eslint-config-bananass` */
-
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
