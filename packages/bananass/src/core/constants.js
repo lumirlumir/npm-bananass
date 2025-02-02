@@ -25,9 +25,13 @@ const { description, homepage, name, version } = createRequire(import.meta.url)(
 export const BAEKJOON_PROBLEM_NUMBER_MIN = 1_000;
 
 /* String */
+/** @type string */
 export const PKG_DESCRIPTION = description;
+/** @type string */
 export const PKG_HOMEPAGE = homepage;
+/** @type string */
 export const PKG_NAME = name;
+/** @type string */
 export const PKG_VERSION = version;
 
 /* Array */
