@@ -16,10 +16,7 @@ import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, success, error } from 'bananass-utils-console/theme';
 import webpack from 'webpack';
 
-import {
-  OUTPUT_DIR_NAME_ARRAY,
-  BAEKJOON_PROBLEM_NUMBER_MIN,
-} from '../../core/constants.js';
+import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../core/constants.js';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -44,12 +41,10 @@ export default async function build(problems, { build: options }) {
   // ------------------------------------------------------------------------------
   // Declaration
   // ------------------------------------------------------------------------------
-  const { templateType } = options;
-
-  const webpackEntryFileName = `template-${templateType}.cjs`;
-
+  const webpackEntryFileName = `template-${options.templateType}.cjs`;
   const rootDir = getRootDir();
-  const outputDir = resolve(rootDir, OUTPUT_DIR_NAME_ARRAY[0]);
+  const outDir = resolve(rootDir, options.outDir);
+
   const logger = createLogger(options);
   const spinner = createSpinner({
     color: 'yellow',
@@ -108,7 +103,7 @@ export default async function build(problems, { build: options }) {
      * See {@link https://webpack.js.org/concepts/#output}.
      */
     output: {
-      path: outputDir,
+      path: outDir,
       filename: `${problem}.js`,
       // clean: options.clean, // DO NOT USE THIS OPTION.
     },
@@ -137,7 +132,7 @@ export default async function build(problems, { build: options }) {
     // Secondly, even if we use `webpackConfigs.output.clean` only once with the `map()` method's `index` parameter,
     // it cannot guarantee the build order and may lead to race conditions where files get deleted unpredictably.
     if (options.clean) {
-      rmSync(outputDir, { recursive: true, force: true });
+      rmSync(outDir, { recursive: true, force: true });
     }
 
     await new Promise((res, rej) => {
@@ -155,7 +150,7 @@ export default async function build(problems, { build: options }) {
         spinner.success(success('Bananass build completed successfully.', false)),
       )
       .eol()
-      .log('Output Directory:', outputDir)
+      .log('Output Directory:', outDir)
       .log('Created:', problems.map(problem => `${problem}.js`).join(', '));
   } catch ({ message }) {
     logger.log(() => spinner.error());
