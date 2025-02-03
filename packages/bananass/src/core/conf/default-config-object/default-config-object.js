@@ -34,6 +34,7 @@ const build = {
   clean: false,
   debug: false,
   quiet: false,
+  templateType: 'fs',
 };
 
 /** @type {ConfigObjectCleanOptions} */

@@ -32,12 +32,12 @@ import {
  * @param // TODO
  * @async
  */
-export default async function build(problems, options) {
+export default async function build(problems, { build: options }) {
   // ------------------------------------------------------------------------------
   // Declaration
   // ------------------------------------------------------------------------------
 
-  const WEBPACK_ENTRY_FILE_NAME = 'template.js';
+  const WEBPACK_ENTRY_FILE_NAME = 'template.cjs';
   const rootDir = getRootDir();
   const outputDir = resolve(rootDir, OUTPUT_DIR_NAME_ARRAY[0]);
   const logger = createLogger(options);

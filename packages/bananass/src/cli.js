@@ -12,6 +12,7 @@ import { program } from 'commander';
 import {
   global,
   bananassAdd,
+  bananassBuild,
   bananassClean,
   bananassInfo,
   bananassInit,
@@ -30,7 +31,7 @@ import {
 
 global(program);
 bananassAdd(program);
-// bananassBuild(program);
+bananassBuild(program);
 bananassClean(program);
 bananassInfo(program);
 bananassInit(program);

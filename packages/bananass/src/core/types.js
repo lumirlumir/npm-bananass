@@ -31,6 +31,7 @@
  * @property {boolean} clean Clean the output directory before emit.
  * @property {boolean} debug Enable debug mode.
  * @property {boolean} quiet Enable quiet mode.
+ * @property {'fs' | 'rl'} templateType Webpack entry file template type. Select from `fs` (File System) or `rl` (Read Line).
  */
 
 /**
