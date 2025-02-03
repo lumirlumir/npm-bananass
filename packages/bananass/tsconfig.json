@@ -5,7 +5,8 @@
     "emitDeclarationOnly": true,
     "outDir": "build",
     "target": "ESNext",
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "skipLibCheck": true
   },
   "include": ["src/**/*.js"],
   "exclude": ["src/**/*.test.js", "src/**/*.spec.js"]
