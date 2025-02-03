@@ -3,17 +3,16 @@
  */
 
 // --------------------------------------------------------------------------------
-// Typedefs
+// Import
 // --------------------------------------------------------------------------------
 
-import { DEFAULT_OUT_DIR_NAME } from '../../constants.js';
+import { DEFAULT_ENTRY_DIR_NAME, DEFAULT_OUT_DIR_NAME } from '../../constants.js';
 
 // --------------------------------------------------------------------------------
 // Typedefs
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').ConfigObject} ConfigObject
  * @typedef {import('../../types.js').ConfigObjectAddOptions} ConfigObjectAddOptions
  * @typedef {import('../../types.js').ConfigObjectBuildOptions} ConfigObjectBuildOptions
  * @typedef {import('../../types.js').ConfigObjectCleanOptions} ConfigObjectCleanOptions
@@ -29,67 +28,48 @@ import { DEFAULT_OUT_DIR_NAME } from '../../constants.js';
  */
 
 // --------------------------------------------------------------------------------
-// Config Object Default Options
+// Export
 // --------------------------------------------------------------------------------
 
 /** @type {ConfigObjectAddOptions} */
-const add = {};
+export const add = {};
 
 /** @type {ConfigObjectBuildOptions} */
-const build = {
+export const build = {
   clean: false,
   debug: false,
+  entryDir: DEFAULT_ENTRY_DIR_NAME,
   outDir: DEFAULT_OUT_DIR_NAME,
   quiet: false,
   templateType: 'fs',
 };
 
 /** @type {ConfigObjectCleanOptions} */
-const clean = {};
+export const clean = {};
 
 /** @type {ConfigObjectInfoOptions} */
-const info = {};
+export const info = {};
 
 /** @type {ConfigObjectInitOptions} */
-const init = {};
+export const init = {};
 
 /** @type {ConfigObjectLintOptions} */
-const lint = {};
+export const lint = {};
 
 /** @type {ConfigObjectLoginOptions} */
-const login = {};
+export const login = {};
 
 /** @type {ConfigObjectOpenOptions} */
-const open = {};
+export const open = {};
 
 /** @type {ConfigObjectRandomOptions} */
-const random = {};
+export const random = {};
 
 /** @type {ConfigObjectRunOptions} */
-const run = {};
+export const run = {};
 
 /** @type {ConfigObjectSubmitOptions} */
-const submit = {};
+export const submit = {};
 
 /** @type {ConfigObjectTestcaseOptions} */
-const testcase = {};
-
-// --------------------------------------------------------------------------------
-// Export
-// --------------------------------------------------------------------------------
-
-/** @type {ConfigObject} */
-export default {
-  add,
-  build,
-  clean,
-  info,
-  init,
-  lint,
-  login,
-  open,
-  random,
-  run,
-  submit,
-  testcase,
-};
+export const testcase = {};

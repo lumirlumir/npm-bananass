@@ -7,7 +7,6 @@
 // --------------------------------------------------------------------------------
 
 import { createRequire } from 'node:module';
-import { join } from 'node:path';
 
 // --------------------------------------------------------------------------------
 // Declaration
@@ -34,6 +33,9 @@ export const PKG_NAME = name;
 /** @type string */
 export const PKG_VERSION = version;
 
+/** @type string */
+export const DEFAULT_ENTRY_DIR_NAME = name;
+/** @type string */
 export const DEFAULT_OUT_DIR_NAME = `.${name}`;
 
 /* Array */
@@ -41,4 +43,3 @@ export const DEFAULT_OUT_DIR_NAME = `.${name}`;
 // Array constants with `BASE` in their name must include the extension.
 export const JS_EXT_ARRAY = Object.freeze(['.js', '.cjs', '.mjs']);
 export const PACKAGE_JSON_FILE_BASE_ARRAY = Object.freeze(['package.json']);
-export const ENTRY_DIR_NAME_ARRAY = Object.freeze([name, join('src', name)]);
