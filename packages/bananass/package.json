@@ -43,7 +43,7 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "npx babel src -d build && npx tsc && cp ../../LICENSE.md ../../README.md .",
-    "test": "true",
+    "test": "node --test",
     "dev": "node src/cli.js",
     "start": "node build/cli.js"
   },
