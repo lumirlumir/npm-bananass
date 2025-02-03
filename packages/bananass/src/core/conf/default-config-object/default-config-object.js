@@ -6,6 +6,12 @@
 // Typedefs
 // --------------------------------------------------------------------------------
 
+import { DEFAULT_OUT_DIR_NAME } from '../../constants.js';
+
+// --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
 /**
  * @typedef {import('../../types.js').ConfigObject} ConfigObject
  * @typedef {import('../../types.js').ConfigObjectAddOptions} ConfigObjectAddOptions
@@ -33,6 +39,7 @@ const add = {};
 const build = {
   clean: false,
   debug: false,
+  outDir: DEFAULT_OUT_DIR_NAME,
   quiet: false,
   templateType: 'fs',
 };

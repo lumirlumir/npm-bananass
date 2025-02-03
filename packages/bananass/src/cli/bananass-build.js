@@ -10,7 +10,7 @@ import logger from 'bananass-utils-console/logger';
 
 import { build } from '../commands/index.js';
 import { configLoader, defaultConfigObject } from '../core/conf/index.js';
-import { ENTRY_DIR_NAME_ARRAY, OUTPUT_DIR_NAME_ARRAY } from '../core/constants.js';
+import { ENTRY_DIR_NAME_ARRAY } from '../core/constants.js';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -38,27 +38,21 @@ function toInlineCodeString(arr) {
  * @param {Command} program The `commander` package's `program`.
  */
 export default function bananassBuild(program) {
+  const { clean, debug, outDir, quiet, templateType } = defaultConfigObject.build;
+
   program
     .command('build')
     .description(
-      `build and create bundled files using Webpack from the ${toInlineCodeString(ENTRY_DIR_NAME_ARRAY)} directory and outputs them to the ${toInlineCodeString(OUTPUT_DIR_NAME_ARRAY)} directory`,
+      `build and create bundled files using webpack and babel from the ${toInlineCodeString(ENTRY_DIR_NAME_ARRAY)} directory and outputs them to the \`${outDir}\` directory`,
     )
     .argument('[problems...]', 'baekjoon problem number list', null)
-    .option(
-      '-c, --clean',
-      `clean the output directory before emit (default: ${defaultConfigObject.build.clean})`,
-    ) // DO NOT USE `Default option value` of `commander` package as it overrides the every other options from the config file. Same goes for the other options.
-    .option(
-      '-D, --debug',
-      `enable debug mode (default: ${defaultConfigObject.build.debug})`,
-    )
-    .option(
-      '-q, --quiet',
-      `enable quiet mode (default: ${defaultConfigObject.build.quiet})`,
-    )
+    .option('-c, --clean', `clean the output directory before emit (default: ${clean})`) // DO NOT USE `Default option value` of `commander` package as it overrides the every other options from the config file. Same goes for the other options.
+    .option('-D, --debug', `enable debug mode (default: ${debug})`)
+    .option('-o, --out-dir <dir>', `output directory name (default: ${outDir})`)
+    .option('-q, --quiet', `enable quiet mode (default: ${quiet})`)
     .option(
       '-t, --template-type <type>',
-      `Webpack entry file template type. Select from 'fs' (File System) or 'rl' (Read Line) (default: ${defaultConfigObject.build.templateType})`,
+      `webpack entry file template type. select from \`fs\` (file system) or \`rl\` (read line) (default: ${templateType})`,
     )
     .action(async (problems, options, command) => {
       const cliConfigObject = { build: options };
