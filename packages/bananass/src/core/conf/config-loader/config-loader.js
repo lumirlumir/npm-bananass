@@ -33,6 +33,7 @@ import { PKG_NAME } from '../../constants.js';
  * @param {ConfigObject | {[key: number]: {[key: number]: string}}} configLoaderOptions.cliConfigObject CLI config object.
  * @param {ConfigObject | {[key: number]: {[key: number]: string}}} configLoaderOptions.defaultConfigObject Default config object.
  * @returns Merged configuration object.
+ * @async
  */
 export default async function configLoader({
   cwd = process.cwd(),
