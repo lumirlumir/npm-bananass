@@ -1,6 +1,5 @@
 import global from './global.js';
 import bananassAdd from './bananass-add.js';
-import bananassCase from './bananass-case.js';
 import bananassClean from './bananass-clean.js';
 import bananassInfo from './bananass-info.js';
 import bananassInit from './bananass-init.js';
@@ -10,11 +9,11 @@ import bananassOpen from './bananass-open.js';
 import bananassRandom from './bananass-random.js';
 import bananassRun from './bananass-run.js';
 import bananassSubmit from './bananass-submit.js';
+import bananassTestcase from './bananass-testcase.js';
 
 export {
   global,
   bananassAdd,
-  bananassCase,
   bananassClean,
   bananassInfo,
   bananassInit,
@@ -24,4 +23,5 @@ export {
   bananassRandom,
   bananassRun,
   bananassSubmit,
+  bananassTestcase,
 };

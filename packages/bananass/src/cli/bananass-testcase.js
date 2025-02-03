@@ -1,5 +1,5 @@
 /**
- * @fileoverview CLI `case` command.
+ * @fileoverview CLI `testcase` command.
  */
 
 // --------------------------------------------------------------------------------
@@ -21,10 +21,12 @@ import { warning } from 'bananass-utils-console/theme';
 // --------------------------------------------------------------------------------
 
 /**
- * Case: `npx bananass case` command.
+ * Case: `npx bananass testcase` command.
  *
  * @param {Command} program The `commander` package's `program`.
  */
-export default function bananassCase(program) {
-  program.command('case').description(warning('TODO: Working in progress...🚧', false));
+export default function bananassTestcase(program) {
+  program
+    .command('testcase')
+    .description(warning('TODO: Working in progress...🚧', false));
 }

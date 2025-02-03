@@ -12,7 +12,6 @@ import { program } from 'commander';
 import {
   global,
   bananassAdd,
-  bananassCase,
   bananassClean,
   bananassInfo,
   bananassInit,
@@ -22,6 +21,7 @@ import {
   bananassRandom,
   bananassRun,
   bananassSubmit,
+  bananassTestcase,
 } from './cli/index.js';
 
 // --------------------------------------------------------------------------------
@@ -31,7 +31,6 @@ import {
 global(program);
 bananassAdd(program);
 // bananassBuild(program);
-bananassCase(program);
 bananassClean(program);
 bananassInfo(program);
 bananassInit(program);
@@ -41,6 +40,7 @@ bananassOpen(program);
 bananassRandom(program);
 bananassRun(program);
 bananassSubmit(program);
+bananassTestcase(program);
 
 // --------------------------------------------------------------------------------
 // Parse `commander`
