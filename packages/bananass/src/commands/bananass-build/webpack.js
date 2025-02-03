@@ -43,6 +43,7 @@ export default async function build(problems, { build: options }) {
   // ------------------------------------------------------------------------------
   const webpackEntryFileName = `template-${options.templateType}.cjs`;
   const rootDir = getRootDir();
+  const entryDir = resolve(rootDir, options.entryDir);
   const outDir = resolve(rootDir, options.outDir);
 
   const logger = createLogger(options);
@@ -113,9 +114,7 @@ export default async function build(problems, { build: options }) {
      */
     plugins: [
       new webpack.DefinePlugin({
-        BAEKJOON_PROBLEM_NUMBER_WITH_PATH: JSON.stringify(
-          resolve(rootDir, 'bananass', problem), // TODO: add `src/bananass` directory.
-        ),
+        BAEKJOON_PROBLEM_NUMBER_WITH_PATH: JSON.stringify(resolve(entryDir, problem)),
       }),
     ],
   }));
