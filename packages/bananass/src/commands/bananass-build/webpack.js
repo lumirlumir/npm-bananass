@@ -1,5 +1,5 @@
 /**
- * @fileoverview Asynchronously build and create bundled files using Webpack.
+ * @fileoverview Asynchronously build and create bundled files using Webpack and Babel.
  */
 
 // --------------------------------------------------------------------------------
@@ -22,6 +22,14 @@ import {
 } from '../../core/constants.js';
 
 // --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
+/**
+ * @typedef {import('../../core/types.js').ConfigObject} ConfigObject
+ */
+
+// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
@@ -29,15 +37,17 @@ import {
  * Asynchronously build and create bundled files using Webpack.
  *
  * @param {string[]} problems Baekjoon problem number list.
- * @param // TODO
+ * @param {ConfigObject} configObject Configuration object.
  * @async
  */
 export default async function build(problems, { build: options }) {
   // ------------------------------------------------------------------------------
   // Declaration
   // ------------------------------------------------------------------------------
+  const { templateType } = options;
 
-  const WEBPACK_ENTRY_FILE_NAME = 'template.cjs';
+  const webpackEntryFileName = `template-${templateType}.cjs`;
+
   const rootDir = getRootDir();
   const outputDir = resolve(rootDir, OUTPUT_DIR_NAME_ARRAY[0]);
   const logger = createLogger(options);
@@ -92,7 +102,7 @@ export default async function build(problems, { build: options }) {
     /**
      * See {@link https://webpack.js.org/concepts/#entry}.
      */
-    entry: resolve(dirname(fileURLToPath(import.meta.url)), WEBPACK_ENTRY_FILE_NAME),
+    entry: resolve(dirname(fileURLToPath(import.meta.url)), webpackEntryFileName),
 
     /**
      * See {@link https://webpack.js.org/concepts/#output}.
