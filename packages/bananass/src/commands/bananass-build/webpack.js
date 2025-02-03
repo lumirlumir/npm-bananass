@@ -17,10 +17,9 @@ import { bananass, success, error } from 'bananass-utils-console/theme';
 import webpack from 'webpack';
 
 import {
-  OUTPUT_DIRECTORY_NAME,
+  OUTPUT_DIR_NAME_ARRAY,
   BAEKJOON_PROBLEM_NUMBER_MIN,
-  BAEKJOON_PROBLEM_NUMBER_MAX,
-} from '../../constants/index.js';
+} from '../../core/constants.js';
 
 // --------------------------------------------------------------------------------
 // Export
@@ -33,14 +32,14 @@ import {
  * @param // TODO
  * @async
  */
-export default async function build(problems, options) {
+export default async function build(problems, { build: options }) {
   // ------------------------------------------------------------------------------
   // Declaration
   // ------------------------------------------------------------------------------
 
   const WEBPACK_ENTRY_FILE_NAME = 'template.cjs';
   const rootDir = getRootDir();
-  const outputDir = resolve(rootDir, OUTPUT_DIRECTORY_NAME);
+  const outputDir = resolve(rootDir, OUTPUT_DIR_NAME_ARRAY[0]);
   const logger = createLogger(options);
   const spinner = createSpinner({
     color: 'yellow',
@@ -64,15 +63,12 @@ export default async function build(problems, options) {
       throw new TypeError(error('The `problems` parameter must be of type `string[]`.'));
     }
 
-    if (
-      Number(problem) < BAEKJOON_PROBLEM_NUMBER_MIN ||
-      Number(problem) > BAEKJOON_PROBLEM_NUMBER_MAX
-    ) {
+    if (Number(problem) < BAEKJOON_PROBLEM_NUMBER_MIN) {
       logger.log(() => spinner.error());
 
       throw new TypeError(
         error(
-          `The Baekjoon problem number must be between ${BAEKJOON_PROBLEM_NUMBER_MIN} and ${BAEKJOON_PROBLEM_NUMBER_MAX}.`,
+          `Invalid Baekjoon problem number: ${problem}. The problem number must be greater than or equal to ${BAEKJOON_PROBLEM_NUMBER_MIN}.`,
         ),
       );
     }

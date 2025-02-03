@@ -24,7 +24,7 @@
     "test:pkg:ecbr": "npm run test -w packages/eslint-config-bananass-react",
     "test:pkg:pcb": "npm run test -w packages/prettier-config-bananass",
     "build": "npx lerna run build",
-    "build:ex:sb": "npm run bananass:build -w examples/solutions-bananass -- 1000",
+    "build:ex:sb": "npm run bananass:build -w examples/solutions-bananass",
     "build:pkg:b": "npm run build -w packages/bananass",
     "build:pkg:buc": "npm run build -w packages/bananass-utils-console",
     "build:pkg:buv": "npm run build -w packages/bananass-utils-vitepress",

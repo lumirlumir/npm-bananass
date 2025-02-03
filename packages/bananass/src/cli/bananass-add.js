@@ -1,25 +1,30 @@
 /**
- * @fileoverview This file declares constants used throughout the `bananass` package.
+ * @fileoverview CLI `add` command.
  */
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-import { createRequire } from 'node:module';
-import { join } from 'node:path';
+import { warning } from 'bananass-utils-console/theme';
 
 // --------------------------------------------------------------------------------
-// Declaration
+// Typedefs
 // --------------------------------------------------------------------------------
 
-const { name } = createRequire(import.meta.url)('../../package.json');
+/**
+ * @typedef {import('commander').Command} Command
+ */
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-export const ENTRY_DIRECTORY_NAME_ARRAY = Object.freeze([name, join('src', name)]);
-export const OUTPUT_DIRECTORY_NAME = `.${name}`;
-export const BAEKJOON_PROBLEM_NUMBER_MIN = 1_000;
-export const BAEKJOON_PROBLEM_NUMBER_MAX = 100_000; // This value can be updated later.
+/**
+ * Add: `npx bananass add` command.
+ *
+ * @param {Command} program The `commander` package's `program`.
+ */
+export default function bananassAdd(program) {
+  program.command('add').description(warning('TODO: Working in progress...🚧', false));
+}
