@@ -40,7 +40,6 @@
     "dev:ws:ecbr": "npm run dev -w websites/eslint-config-bananass-react",
     "dev:ws:vp": "npm run dev -w websites/vitepress",
     "start": "npm run start:ws:vp",
-    "start:pkg:b": "npm run start -w packages/bananass",
     "start:ws:vp": "npm run start -w websites/vitepress",
     "fix": "concurrently \"npm:fix:*\"",
     "fix:eslint": "npx eslint --fix",
