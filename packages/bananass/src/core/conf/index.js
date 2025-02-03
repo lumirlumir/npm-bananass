@@ -1,4 +1,4 @@
 import configLoader from './config-loader/index.js';
-import defaultConfig from './default-config/default-config.js';
+import defaultConfigObject from './default-config-object/index.js';
 
-export { configLoader, defaultConfig };
+export { configLoader, defaultConfigObject };
