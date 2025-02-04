@@ -24,22 +24,36 @@ const { description, homepage, name, version } = createRequire(import.meta.url)(
 export const BAEKJOON_PROBLEM_NUMBER_MIN = 1_000;
 
 /* String */
-/** @type string */
+/** @type {string} */
 export const PKG_DESCRIPTION = description;
-/** @type string */
+/** @type {string} */
 export const PKG_HOMEPAGE = homepage;
-/** @type string */
+/** @type {string} */
 export const PKG_NAME = name;
-/** @type string */
+/** @type {string} */
 export const PKG_VERSION = version;
 
-/** @type string */
+/** @type {string} */
 export const DEFAULT_ENTRY_DIR_NAME = name;
-/** @type string */
+/** @type {string} */
 export const DEFAULT_OUT_DIR_NAME = `.${name}`;
 
 /* Array */
-// Array constants with `NAME` in their name must not include the extension.
-// Array constants with `BASE` in their name must include the extension.
-export const JS_EXT_ARRAY = Object.freeze(['.js', '.cjs', '.mjs']);
-export const PACKAGE_JSON_FILE_BASE_ARRAY = Object.freeze(['package.json']);
+export const SUPPORTED_SOLUTION_FILE_EXTENSIONS = [
+  '.js',
+  '.mjs',
+  '.cjs',
+  '.ts',
+  '.mts',
+  '.cts',
+];
+
+export const SUPPORTED_CONFIG_FILE_EXTENSIONS = [
+  ...SUPPORTED_SOLUTION_FILE_EXTENSIONS,
+  '.json',
+  '.jsonc',
+  '.json5',
+  '.yaml',
+  '.yml',
+  '.toml',
+];
