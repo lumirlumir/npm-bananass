@@ -17,6 +17,7 @@
     "publish-package": "npx lerna publish from-package --pre-dist-tag canary --yes",
     "coverage": "npx c8 --reporter=lcov npm run test",
     "test": "npx lerna run test",
+    "test:ex:sb": "npm run test -w examples/solutions-bananass",
     "test:pkg:b": "npm run test -w packages/bananass",
     "test:pkg:buc": "npm run test -w packages/bananass-utils-console",
     "test:pkg:buv": "npm run test -w packages/bananass-utils-vitepress",

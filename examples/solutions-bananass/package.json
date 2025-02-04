@@ -3,7 +3,8 @@
   "name": "examples-solutions-bananass",
   "version": "0.0.0",
   "scripts": {
-    "bananass:build": "npx bananass build"
+    "bananass:build": "npx bananass build",
+    "test": "bash tests/commands.test.sh"
   },
   "devDependencies": {
     "bananass": "^0.0.0"
