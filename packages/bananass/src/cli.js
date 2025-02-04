@@ -14,6 +14,7 @@ import {
   bananassAdd,
   bananassBuild,
   bananassClean,
+  bananassHome,
   bananassInfo,
   bananassInit,
   bananassLint,
@@ -33,6 +34,7 @@ global(program);
 bananassAdd(program);
 bananassBuild(program);
 bananassClean(program);
+bananassHome(program);
 bananassInfo(program);
 bananassInit(program);
 bananassLint(program);

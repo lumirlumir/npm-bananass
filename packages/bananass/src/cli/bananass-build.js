@@ -20,6 +20,12 @@ import { configLoader, defaultConfigObject } from '../core/conf/index.js';
  */
 
 // --------------------------------------------------------------------------------
+// Declarations
+// --------------------------------------------------------------------------------
+
+const { clean, debug, entryDir, outDir, quiet, templateType } = defaultConfigObject.build;
+
+// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
@@ -29,9 +35,6 @@ import { configLoader, defaultConfigObject } from '../core/conf/index.js';
  * @param {Command} program The `commander` package's `program`.
  */
 export default function bananassBuild(program) {
-  const { clean, debug, entryDir, outDir, quiet, templateType } =
-    defaultConfigObject.build;
-
   program
     .command('build')
     .description(
