@@ -2,7 +2,7 @@ name: pull-request
 
 on:
   pull_request_target:
-    types: [opened, edited]
+    types: [opened, edited, synchronize]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -16,9 +16,91 @@ jobs:
       - name: Set up checkout
         uses: actions/checkout@v4
 
-      - name: Extract package names from monorepo structure to use as scopes
-        id: extract-package-names
-        run: echo "SCOPES=$(find . -name package.json -exec jq -r .name {} \; | paste -sd '\n' -)" >> $GITHUB_ENV
+      # This step extracts the correct package names because it runs before the `npm install` step.
+      - name: Extract package names from the monorepo structure for use as scopes.
+        run: |
+          {
+            echo "SCOPES<<EOF"
+            find . -name package.json -not -path '**/node_modules/*' -exec jq -r .name {} \; | paste -sd '\n' -
+            echo "EOF"
+          } >> $GITHUB_ENV
 
       - name: Debug extracted package names
-        run: echo ${{ env.SCOPES }}
+        run: echo '${{ env.SCOPES }}'
+
+      - uses: amannn/action-semantic-pull-request@v5
+        id: lint-pull-request-title
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # Configure which types are allowed (newline-delimited).
+          # Default: https://github.com/commitizen/conventional-commit-types
+          types: |
+            build
+            chore
+            ci
+            docs
+            feat
+            fix
+            perf
+            refactor
+            revert
+            style
+            test
+          # Configure which scopes are allowed (newline-delimited).
+          # These are regex patterns auto-wrapped in `^ $`.
+          scopes: ${{ env.SCOPES }}
+          # Configure that a scope must always be provided.
+          requireScope: false
+          # Configure additional validation for the subject based on a regex.
+          # This example ensures the subject doesn't start with an uppercase character.
+          subjectPattern: ^(?![A-Z]).+$
+          # If `subjectPattern` is configured, you can use this property to override
+          # the default error message that is shown when the pattern doesn't match.
+          # The variables `subject` and `title` can be used within the message.
+          subjectPatternError: The subject "{subject}" found in the pull request title "{title}" didn't match the configured pattern. Please ensure that the subject doesn't start with an uppercase character.
+
+      - uses: marocchino/sticky-pull-request-comment@v2
+        # When the previous steps fails, the workflow would stop. By adding this
+        # condition you can continue the execution with the populated error message.
+        if: always() && (steps.lint-pull-request-title.outputs.error_message != null)
+        with:
+          header: pull-request-title-lint-error
+          message: |
+            Thank you for opening this pull request!🥳
+
+            It looks like your proposed title needs to be adjusted. We require pull request titles to follow:
+            - [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/)
+            - [Conventional Commits types](https://github.com/commitizen/conventional-commit-types/blob/master/index.json)
+
+            <details>
+            <summary>Conventional Commits types</summary>
+
+            | Type     | Title                    | Description                                                                                            |
+            | -------- | ------------------------ | -------------------------------------------------------------------------------------------------------|
+            | feat     | Features                 | A new feature                                                                                          |
+            | fix      | Bug Fixes                | A bug fix                                                                                              |
+            | build    | Builds                   | Changes that affect the build system or external dependencies                                          |
+            | chore    | Chores                   | Other changes that don't modify src or test files                                                      |
+            | ci       | Continuous Integrations  | Changes to our CI configuration files and scripts (example: GitHub Actions, npm scripts)               |
+            | docs     | Documentation            | Documentation only changes                                                                             |
+            | perf     | Performance Improvements | A code change that improves performance                                                                |
+            | refactor | Code Refactoring         | A code change that neither fixes a bug nor adds a feature                                              |
+            | revert   | Reverts                  | Reverts a previous commit                                                                              |
+            | style    | Styles                   | Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc) |
+            | test     | Tests                    | Adding missing tests or correcting existing tests                                                      |
+
+            </details>
+
+            Details:
+
+            ```
+            ${{ steps.lint-pull-request-title.outputs.error_message }}
+            ```
+
+      # Delete a previous comment when the issue has been resolved
+      - if: ${{ steps.lint-pull-request-title.outputs.error_message == null }}
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: pull-request-title-lint-error
+          delete: true
