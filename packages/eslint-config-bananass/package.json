@@ -40,7 +40,7 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "cp ../../LICENSE.md ../../README.md .",
+    "build": "shx cp ../../LICENSE.md ../../README.md .",
     "test": "node --test"
   },
   "peerDependencies": {
