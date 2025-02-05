@@ -1,0 +1,24 @@
+name: pull-request
+
+on:
+  pull_request_target:
+    types: [opened, edited]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-pull-request-title:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up checkout
+        uses: actions/checkout@v4
+
+      - name: Extract package names from monorepo structure to use as scopes
+        id: extract-package-names
+        run: echo "SCOPES=$(find . -name package.json -exec jq -r .name {} \; | paste -sd '\n' -)" >> $GITHUB_ENV
+
+      - name: Debug extracted package names
+        run: echo ${{ env.SCOPES }}
