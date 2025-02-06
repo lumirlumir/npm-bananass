@@ -10,6 +10,8 @@ concurrency:
 
 jobs:
   lint-pull-request-title:
+    if: github.event.action == 'opened' || github.event.changes.title
+
     runs-on: ubuntu-latest
 
     steps:
@@ -136,3 +138,87 @@ jobs:
         with:
           header: pull-request-title-lint-error
           delete: true
+
+    outputs:
+      type: ${{ steps.lint-pull-request-title.outputs.type }}
+      scope: ${{ steps.lint-pull-request-title.outputs.scope }}
+
+  labeler:
+    runs-on: ubuntu-latest
+
+    needs:
+      - lint-pull-request-title
+
+    steps:
+      - name: Labeler
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // --------------------------------------------------------------------------------
+            // Declarations
+            // --------------------------------------------------------------------------------
+
+            const isBreakingChange = context.payload.pull_request.title.includes(')!: ');
+
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const issue_number = context.issue.number;
+
+            const breakingChangeLabelPrefix = 'BREAKING CHANGE';
+            const typeLabelPrefix = 'type:';
+            const scopeLabelPrefix = 'scope:';
+
+            const newBreakingChangeLabel = breakingChangeLabelPrefix;
+            const newTypeLabel = `${typeLabelPrefix} ${{ needs.lint-pull-request-title.outputs.type }}`;
+            const newScopeLabel = `${scopeLabelPrefix} ${{ needs.lint-pull-request-title.outputs.scope }}`;
+
+            const labelsToAdd = isBreakingChange ? [newBreakingChangeLabel, newTypeLabel, newScopeLabel] : [newTypeLabel, newScopeLabel];
+
+            // --------------------------------------------------------------------------------
+            // List all labels
+            // --------------------------------------------------------------------------------
+
+            // https://docs.github.com/en/rest/issues/labels?apiVersion=2022-11-28#list-labels-for-an-issue
+            const { data: labels } = await github.rest.issues.listLabelsOnIssue({
+              owner,
+              repo,
+              issue_number,
+            });
+
+            console.log(`Current labels: ${labels.map(({ label }) => `\`${label}\``).join(', ')}`);
+
+            // --------------------------------------------------------------------------------
+            // Remove all `BREAKING CHANGE`, `type:` and `scope:` labels
+            // --------------------------------------------------------------------------------
+
+            labels.forEach(async ({ name }) => {
+              if (name.startsWith(breakingChangeLabelPrefix) || name.startsWith(typeLabelPrefix) || name.startsWith(scopeLabelPrefix)) {
+                // https://docs.github.com/en/rest/issues/labels?apiVersion=2022-11-28#remove-a-label-from-an-issue
+                await github.rest.issues.removeLabel({
+                  owner,
+                  repo,
+                  issue_number,
+                  name,
+                }).catch(error => {
+                  if (error.status !== 404) { // If the label doesn't exist, ignore the error
+                    throw error;
+                  }
+                });
+
+                console.log(`Removed label: ${name}`);
+              }
+            });
+
+            // --------------------------------------------------------------------------------
+            // Add `BREAKING CHANGE`, `type:` and `scope:` labels
+            // --------------------------------------------------------------------------------
+
+            // https://docs.github.com/en/rest/issues/labels?apiVersion=2022-11-28#add-labels-to-an-issue
+            await github.rest.issues.addLabels({
+              owner,
+              repo,
+              issue_number,
+              labels: labelsToAdd,
+            })
+
+            console.log(`Added labels: ${labelsToAdd.map(({ label }) => `\`${label}\``).join(', ')}`);
