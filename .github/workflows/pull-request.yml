@@ -164,9 +164,10 @@ jobs:
             const repo = context.repo.repo;
             const issue_number = context.issue.number;
 
-            const breakingChangeLabelPrefix = 'BREAKING CHANGE';
-            const typeLabelPrefix = 'type:';
-            const scopeLabelPrefix = 'scope:';
+            const emojiPrefix = ':label: ';
+            const breakingChangeLabelPrefix = `${emojiPrefix}BREAKING CHANGE`;
+            const typeLabelPrefix = `${emojiPrefix}type:`;
+            const scopeLabelPrefix = `${emojiPrefix}scope:`;
 
             const newBreakingChangeLabel = breakingChangeLabelPrefix;
             const newTypeLabel = `${typeLabelPrefix} ${{ needs.lint-pull-request-title.outputs.type }}`;
