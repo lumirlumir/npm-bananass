@@ -130,7 +130,7 @@ jobs:
             ${{ steps.lint-pull-request-title.outputs.error_message }}
             ```
 
-      # Delete a previous comment when the issue has been resolved
+      # Delete the previous comment when the issue has been resolved.
       - if: ${{ steps.lint-pull-request-title.outputs.error_message == null }}
         uses: marocchino/sticky-pull-request-comment@v2
         with:
@@ -173,7 +173,7 @@ jobs:
             const newTypeLabel = `${typeLabelPrefix} ${{ needs.lint-pull-request-title.outputs.type }}`;
             const newScopeLabel = `${scopeLabelPrefix} ${{ needs.lint-pull-request-title.outputs.scope }}`;
 
-            const labelsToAdd = isBreakingChange ? [newBreakingChangeLabel, newTypeLabel, newScopeLabel] : [newTypeLabel, newScopeLabel];
+            const newConventionalCommitsTypeLabels = isBreakingChange ? [newBreakingChangeLabel, newTypeLabel, newScopeLabel] : [newTypeLabel, newScopeLabel];
 
             // --------------------------------------------------------------------------------
             // List all current labels
@@ -186,30 +186,42 @@ jobs:
               issue_number,
             });
 
-            console.log(`Current labels: ${labels.map(({ name }) => `\`${name}\``).join(', ')}`);
+            const oldConventionalCommitsTypeLabels = labels
+              .map(({ name }) => name)
+              .filter(label => label.startsWith(emojiPrefix));
+
+            // --------------------------------------------------------------------------------
+            // Choose the labels to add and remove
+            // --------------------------------------------------------------------------------
+
+            const labelsToAdd = newConventionalCommitsTypeLabels.filter(label => !oldConventionalCommitsTypeLabels.includes(label));
+            const labelsToRemove = oldConventionalCommitsTypeLabels.filter(label => !newConventionalCommitsTypeLabels.includes(label));
+
+            // --------------------------------------------------------------------------------
+            // Debug
+            // --------------------------------------------------------------------------------
+
+            console.log(`New Conventional Commits type labels: ${newConventionalCommitsTypeLabels.join(', ')}`);
+            console.log(`Old Conventional Commits type labels: ${oldConventionalCommitsTypeLabels.join(', ')}`);
+            console.log(`Labels to add: ${labelsToAdd.join(', ')}`);
+            console.log(`Labels to remove: ${labelsToRemove.join(', ')}`);
 
             // --------------------------------------------------------------------------------
             // Remove all `BREAKING CHANGE`, `type:` and `scope:` labels synchronously
             // --------------------------------------------------------------------------------
 
-            for (const { name } of labels) {
-              if (
-                name.startsWith(breakingChangeLabelPrefix) ||
-                name.startsWith(typeLabelPrefix) ||
-                name.startsWith(scopeLabelPrefix)
-              ) {
-                try {
-                  await github.rest.issues.removeLabel({
-                    owner,
-                    repo,
-                    issue_number,
-                    name,
-                  });
-                  console.log(`Removed label: \`${name}\``);
-                } catch (error) {
-                  if (error.status !== 404) { // If the label doesn't exist, ignore the error
-                    throw error;
-                  }
+            for (const label of labelsToRemove) {
+              try {
+                await github.rest.issues.removeLabel({
+                  owner,
+                  repo,
+                  issue_number,
+                  name: label,
+                });
+                console.log(`Removed label: \`${label}\``);
+              } catch (error) {
+                if (error.status !== 404) { // If the label doesn't exist, ignore the error
+                  throw error;
                 }
               }
             }
@@ -227,3 +239,15 @@ jobs:
             })
 
             console.log(`Added labels: ${labelsToAdd.map(labelToAdd => `\`${labelToAdd}\``).join(', ')}`);
+
+      # Delete the previous comment if it exists.
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: labeler
+          delete: true
+
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: labeler
+          message: |
+            Labels have been automatically applied based on the [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/).🏷️
