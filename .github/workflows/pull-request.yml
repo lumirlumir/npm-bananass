@@ -255,6 +255,16 @@ jobs:
                 issue_number,
                 labels: labelsToAdd,
               })
+
+              for (const label of labelsToAdd) {
+                await github.rest.issues.updateLabel({
+                  owner,
+                  repo,
+                  name: label,
+                  color: '000000',
+                  description: 'Auto-generated label based on Conventional Commits specification for GitHub release notes',
+                });
+              }
             }
 
             console.log(`Added labels: ${formatLabels(labelsToAdd)}`);
