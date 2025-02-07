@@ -219,7 +219,7 @@ jobs:
             // --------------------------------------------------------------------------------
 
             if (labelsToAdd.length === 0 && labelsToRemove.length === 0) {
-              console.log('No labels to add or remove.');
+              console.log('No labels to add or remove: skipped');
               return 'skipped';
             }
 
