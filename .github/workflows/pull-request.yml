@@ -155,7 +155,7 @@ jobs:
         with:
           script: |
             // --------------------------------------------------------------------------------
-            // Declarations
+            // Constants
             // --------------------------------------------------------------------------------
 
             const isBreakingChange = context.payload.pull_request.title.includes(')!: ');
@@ -174,6 +174,12 @@ jobs:
             const newScopeLabel = `${scopeLabelPrefix} ${{ needs.lint-pull-request-title.outputs.scope }}`;
 
             const newConventionalCommitsTypeLabels = isBreakingChange ? [newBreakingChangeLabel, newTypeLabel, newScopeLabel] : [newTypeLabel, newScopeLabel];
+
+            // --------------------------------------------------------------------------------
+            // Helpers
+            // --------------------------------------------------------------------------------
+
+            const formatLabels = labels => labels.map(label => `\`${label}\``).join(', ');
 
             // --------------------------------------------------------------------------------
             // List all current labels
@@ -201,10 +207,10 @@ jobs:
             // Debug
             // --------------------------------------------------------------------------------
 
-            console.log(`New Conventional Commits type labels: ${newConventionalCommitsTypeLabels.join(', ')}`);
-            console.log(`Old Conventional Commits type labels: ${oldConventionalCommitsTypeLabels.join(', ')}`);
-            console.log(`Labels to add: ${labelsToAdd.join(', ')}`);
-            console.log(`Labels to remove: ${labelsToRemove.join(', ')}`);
+            console.log(`New Conventional Commits type labels: ${formatLabels(newConventionalCommitsTypeLabels)}`);
+            console.log(`Old Conventional Commits type labels: ${formatLabels(oldConventionalCommitsTypeLabels)}`);
+            console.log(`Labels to add: ${formatLabels(labelsToAdd)}`);
+            console.log(`Labels to remove: ${formatLabels(labelsToRemove)}`);
 
             // --------------------------------------------------------------------------------
             // Remove all `BREAKING CHANGE`, `type:` and `scope:` labels synchronously
@@ -238,7 +244,7 @@ jobs:
               labels: labelsToAdd,
             })
 
-            console.log(`Added labels: ${labelsToAdd.map(labelToAdd => `\`${labelToAdd}\``).join(', ')}`);
+            console.log(`Added labels: ${formatLabels(labelsToAdd)}`);
 
       # Delete the previous comment if it exists.
       - uses: marocchino/sticky-pull-request-comment@v2
