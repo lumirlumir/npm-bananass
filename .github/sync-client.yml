@@ -11,12 +11,12 @@ lumirlumir/lumirlumir-configs:
   # ./.github/workflows
   - source: ./.github/workflows/bump.yml
     dest: ./configs/.github/workflows/monorepo-bump.yml
-  - source: ./.github/workflows/labeler.yml
-    dest: ./configs/.github/workflows/labeler.yml
   - source: ./.github/workflows/lint.yml
     dest: ./configs/.github/workflows/lint.yml
   - source: ./.github/workflows/publish.yml
     dest: ./configs/.github/workflows/publish.yml
+  - source: ./.github/workflows/pull-request.yml
+    dest: ./configs/.github/workflows/pull-request.yml
   - source: ./.github/workflows/sync-client.yml
     dest: ./configs/.github/workflows/sync-client.yml
   - source: ./.github/workflows/test.yml
@@ -30,8 +30,6 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.github/PULL_REQUEST_TEMPLATE.md
   - source: ./.github/dependabot.yml
     dest: ./configs/.github/dependabot.yml
-  - source: ./.github/labeler.yml
-    dest: ./configs/.github/labeler.yml
   - source: ./.github/release.yml
     dest: ./configs/.github/release.yml
   # ./.husky

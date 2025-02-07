@@ -3,52 +3,64 @@
 changelog:
   exclude:
     labels:
-      - release
+      - ':label: scope: release'
 
   categories:
-    - title: 🚀 Features
+    - title: ':boom: BREAKING CHANGES'
       labels:
-        - feat
+        - ':label: BREAKING CHANGE'
 
-    - title: 🐛 Bug Fixes
+    - title: ':sparkles: Features'
       labels:
-        - fix
+        - ':label: type: feat'
 
-    - title: ⚡ Performance
+    - title: ':bug: Bug Fixes'
       labels:
-        - perf
+        - ':label: type: fix'
 
-    - title: ♻️ Refactoring
+    - title: ':hammer_and_wrench: Builds'
       labels:
-        - rafactor
-        - rename
-        - remove
+        - ':label: type: build'
 
-    - title: 🧪 Tests
+    - title: ':toolbox: Chores'
       labels:
-        - test
-
-    - title: ⬆️ Dependency Updates
-      labels:
-        - dependencies
-
-    - title: 🔄 Continuous Integration
-      labels:
-        - build
-        - ci
-
-    - title: 🧰 Maintenance
-      labels:
-        - '*'
+        - ':label: type: chore'
       exclude:
         labels:
-          - feat
-          - fix
-          - perf
-          - refactor
-          - rename
-          - remove
-          - test
-          - dependencies
-          - build
-          - ci
+          - 'dependencies'
+          - ':label: scope: deps'
+          - ':label: scope: deps-dev'
+
+    - title: ':arrows_counterclockwise: Continuous Integrations'
+      labels:
+        - ':label: type: ci'
+
+    - title: ':memo: Documentation'
+      labels:
+        - ':label: type: docs'
+
+    - title: ':zap: Performance Improvements'
+      labels:
+        - ':label: type: perf'
+
+    - title: ':recycle: Code Refactoring'
+      labels:
+        - ':label: type: refactor'
+
+    - title: ':rewind: Reverts'
+      labels:
+        - ':label: type: revert'
+
+    - title: ':art: Styles'
+      labels:
+        - ':label: type: style'
+
+    - title: ':test_tube: Tests'
+      labels:
+        - ':label: type: test'
+
+    - title: ':arrow_up: Dependency Updates'
+      labels:
+        - 'dependencies'
+        - ':label: scope: deps'
+        - ':label: scope: deps-dev'
