@@ -236,6 +236,12 @@ jobs:
             // Add `BREAKING CHANGE`, `type:` and `scope:` labels
             // --------------------------------------------------------------------------------
 
+            // Return early if there are no labels to add
+            if(labelsToAdd.length === 0) {
+              console.log('No labels to add.');
+              return;
+            }
+
             // https://docs.github.com/en/rest/issues/labels?apiVersion=2022-11-28#add-labels-to-an-issue
             await github.rest.issues.addLabels({
               owner,
