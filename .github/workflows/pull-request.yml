@@ -152,7 +152,9 @@ jobs:
     steps:
       - name: Labeler
         uses: actions/github-script@v7
+        id: labeler
         with:
+          result-encoding: string
           script: |
             // --------------------------------------------------------------------------------
             // Constants
@@ -213,6 +215,15 @@ jobs:
             console.log(`Labels to remove: ${formatLabels(labelsToRemove)}`);
 
             // --------------------------------------------------------------------------------
+            // Return early if there are no labels to add or remove
+            // --------------------------------------------------------------------------------
+
+            if (labelsToAdd.length === 0 && labelsToRemove.length === 0) {
+              console.log('No labels to add or remove.');
+              return 'skipped';
+            }
+
+            // --------------------------------------------------------------------------------
             // Remove all `BREAKING CHANGE`, `type:` and `scope:` labels synchronously
             // --------------------------------------------------------------------------------
 
@@ -236,29 +247,27 @@ jobs:
             // Add `BREAKING CHANGE`, `type:` and `scope:` labels
             // --------------------------------------------------------------------------------
 
-            // Return early if there are no labels to add
-            if(labelsToAdd.length === 0) {
-              console.log('No labels to add.');
-              return;
-            }
-
             // https://docs.github.com/en/rest/issues/labels?apiVersion=2022-11-28#add-labels-to-an-issue
-            await github.rest.issues.addLabels({
-              owner,
-              repo,
-              issue_number,
-              labels: labelsToAdd,
-            })
+            if (labelsToAdd.length !== 0) {
+              await github.rest.issues.addLabels({
+                owner,
+                repo,
+                issue_number,
+                labels: labelsToAdd,
+              })
+            }
 
             console.log(`Added labels: ${formatLabels(labelsToAdd)}`);
 
       # Delete the previous comment if it exists.
-      - uses: marocchino/sticky-pull-request-comment@v2
+      - if: ${{ steps.labeler.outputs.result != 'skipped' }}
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: labeler
           delete: true
 
-      - uses: marocchino/sticky-pull-request-comment@v2
+      - if: ${{ steps.labeler.outputs.result != 'skipped' }}
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: labeler
           message: |
