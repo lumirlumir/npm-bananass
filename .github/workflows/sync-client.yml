@@ -22,5 +22,5 @@ jobs:
           CONFIG_PATH: .github/${{ github.workflow }}.yml
           PR_LABELS: ${{ github.workflow }}
           ASSIGNEES: ${{ github.repository_owner }}
-          COMMIT_PREFIX: ${{ github.workflow }}${{':'}}
-          PR_BODY: check out [`${{ env.SHORT_SHA }}`](https://github.com/${{ github.repository }}/commit/${{ github.sha }}) @${{ github.repository_owner }} :hatching_chick:.
+          COMMIT_PREFIX: 'chore(${{ github.workflow }}):'
+          PR_BODY: '@${{ github.repository_owner }} check out [`${{ env.SHORT_SHA }}`](https://github.com/${{ github.repository }}/commit/${{ github.sha }}).🐣'
