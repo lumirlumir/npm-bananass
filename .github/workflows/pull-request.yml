@@ -142,7 +142,7 @@ jobs:
       scope: ${{ steps.lint-pull-request-title.outputs.scope }}
 
   labeler:
-    if: github.event.action == 'opened' || github.event.changes.title
+    if: github.event.action == 'opened' || github.event.changes.title || github.event.action == 'synchronize'
 
     runs-on: ubuntu-latest
 
