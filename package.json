@@ -7,6 +7,7 @@
     "node": ">=20.18.0"
   },
   "workspaces": [
+    ".",
     "examples/*",
     "packages/*",
     "tests/*",
@@ -16,7 +17,7 @@
     "prepare": "husky",
     "publish-package": "npx lerna publish from-package --pre-dist-tag canary --yes",
     "coverage": "npx c8 --reporter=lcov npm run test",
-    "test": "npx lerna run test",
+    "test": "npx lerna run test --ignore npm-bananass",
     "test:ex:sb": "npm run test -w examples/solutions-bananass",
     "test:pkg:b": "npm run test -w packages/bananass",
     "test:pkg:buc": "npm run test -w packages/bananass-utils-console",
@@ -24,7 +25,7 @@
     "test:pkg:ecb": "npm run test -w packages/eslint-config-bananass",
     "test:pkg:ecbr": "npm run test -w packages/eslint-config-bananass-react",
     "test:pkg:pcb": "npm run test -w packages/prettier-config-bananass",
-    "build": "npx lerna run build",
+    "build": "npx lerna run build --ignore npm-bananass",
     "build:ex:sb": "npm run bananass:build -w examples/solutions-bananass",
     "build:pkg:b": "npm run build -w packages/bananass",
     "build:pkg:buc": "npm run build -w packages/bananass-utils-console",
