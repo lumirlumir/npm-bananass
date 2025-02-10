@@ -18,6 +18,7 @@ import webpack from 'webpack';
 
 import {
   BAEKJOON_PROBLEM_NUMBER_MIN,
+  WEBPACK_BANNER,
   SUPPORTED_SOLUTION_FILE_EXTENSIONS,
 } from '../../core/constants.js';
 
@@ -123,6 +124,11 @@ export default async function build(problems, { build: options }) {
      * @see https://webpack.js.org/concepts/#plugins
      */
     plugins: [
+      new webpack.BannerPlugin({
+        banner: WEBPACK_BANNER,
+        raw: true,
+        stage: webpack.Compilation.PROCESS_ASSETS_STAGE_REPORT,
+      }),
       new webpack.DefinePlugin({
         BAEKJOON_PROBLEM_NUMBER_WITH_PATH: JSON.stringify(resolve(entryDir, problem)),
       }),
