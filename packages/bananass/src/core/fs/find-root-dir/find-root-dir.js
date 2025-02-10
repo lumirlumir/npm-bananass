@@ -1,5 +1,5 @@
 /**
- * @fileoverview Find and get the root directory path based on the existence of `package.json`.
+ * @fileoverview Find root directory path based on the existence of `package.json`.
  */
 
 // --------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ import { error } from 'bananass-utils-console/theme';
 // --------------------------------------------------------------------------------
 
 /**
- * Find and get the root directory path based on the existence of `package.json`.
+ * Find root directory path based on the existence of `package.json`.
  *
  * This function uses `package.json` as a marker to determine the root directory,
  * which is particularly useful in supporting MONOREPO structures.
@@ -28,7 +28,7 @@ import { error } from 'bananass-utils-console/theme';
  * @throws {Error} If `package.json` cannot be found in either the current
  * working directory or the Git root directory, or if Git is not installed or accessible.
  */
-export default function getRootDir() {
+export default function findRootDir() {
   const PACKAGE_JSON = 'package.json';
 
   const path = process.cwd();

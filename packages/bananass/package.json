@@ -51,7 +51,6 @@
     "dev": "node src/cli.js"
   },
   "dependencies": {
-    "bananass-utils": "^0.0.0",
     "bananass-utils-console": "^0.0.0",
     "c12": "^2.0.1",
     "commander": "^13.1.0",
