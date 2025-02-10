@@ -17,13 +17,15 @@ const { description, homepage, name, version } = createRequire(import.meta.url)(
 );
 
 // --------------------------------------------------------------------------------
-// Export
+// Export `number`
 // --------------------------------------------------------------------------------
 
-/* Number */
 export const BAEKJOON_PROBLEM_NUMBER_MIN = 1_000;
 
-/* String */
+// --------------------------------------------------------------------------------
+// Export `string`
+// --------------------------------------------------------------------------------
+
 /** @type {string} */
 export const PKG_DESCRIPTION = description;
 /** @type {string} */
@@ -32,13 +34,33 @@ export const PKG_HOMEPAGE = homepage;
 export const PKG_NAME = name;
 /** @type {string} */
 export const PKG_VERSION = version;
+/** @type {string} */
+export const PKG_GITHUB_REPOSITORY = 'https://github.com/lumirlumir/npm-bananass';
 
 /** @type {string} */
 export const DEFAULT_ENTRY_DIR_NAME = name;
 /** @type {string} */
 export const DEFAULT_OUT_DIR_NAME = `.${name}`;
 
-/* Array */
+/** @type {string} */
+export const WEBPACK_BANNER = `
+/**
+ * This file was generated using the Baekjoon Framework for JavaScript 'Bananass🍌'
+ *
+ * Bananass Homepage: ${PKG_HOMEPAGE}
+ * Bananass GitHub Repository: ${PKG_GITHUB_REPOSITORY}
+ *
+ * Released under the MIT License
+ * Copyright © 2024-${new Date().getFullYear()} 루밀LuMir(lumirlumir)
+ *
+ * DO NOT DELETE THIS COMMENT
+ */
+`.trim();
+
+// --------------------------------------------------------------------------------
+// Export `string[]`
+// --------------------------------------------------------------------------------
+
 export const SUPPORTED_SOLUTION_FILE_EXTENSIONS = [
   '.js',
   '.mjs',
