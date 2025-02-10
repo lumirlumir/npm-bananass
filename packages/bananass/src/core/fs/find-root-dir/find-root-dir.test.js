@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `getRootDir.js`.
+ * @fileoverview Test for `findRootDir.js`.
  */
 
 // --------------------------------------------------------------------------------
@@ -12,7 +12,7 @@ import { resolve } from 'node:path';
 import cp from 'node:child_process';
 import fs from 'node:fs';
 
-import getRootDir from './getRootDir.js';
+import findRootDir from './find-root-dir.js';
 
 // --------------------------------------------------------------------------------
 // Test
@@ -22,7 +22,7 @@ afterEach(() => {
   mock.reset();
 });
 
-describe('getRootDir.js', () => {
+describe('findRootDir.js', () => {
   it('should return `process.cwd()` when `package.json` exists in current directory', () => {
     const MOCK_CWD = resolve('my-folder', 'cwd');
     const MOCK_VALID_PATHS = [MOCK_CWD, resolve(MOCK_CWD, 'package.json')];
@@ -30,7 +30,7 @@ describe('getRootDir.js', () => {
     mock.method(process, 'cwd', () => MOCK_CWD);
     mock.method(fs, 'existsSync', path => MOCK_VALID_PATHS.includes(path));
 
-    strictEqual(getRootDir(), MOCK_CWD);
+    strictEqual(findRootDir(), MOCK_CWD);
   });
 
   it('should throw error when git command fails', () => {
@@ -43,7 +43,7 @@ describe('getRootDir.js', () => {
       throw new Error('Throw error');
     });
 
-    throws(() => getRootDir(), { name: 'Error', message: /Git command failed/ });
+    throws(() => findRootDir(), { name: 'Error', message: /Git command failed/ });
   });
 
   it('should return git root when `package.json` exists only in git root', () => {
@@ -59,7 +59,7 @@ describe('getRootDir.js', () => {
     mock.method(fs, 'existsSync', path => MOCK_VALID_PATHS.includes(path));
     mock.method(cp, 'execSync', () => MOCK_GIT_ROOT);
 
-    strictEqual(getRootDir(), MOCK_GIT_ROOT);
+    strictEqual(findRootDir(), MOCK_GIT_ROOT);
   });
 
   it('should throw error when `package.json` not found anywhere', () => {
@@ -71,6 +71,6 @@ describe('getRootDir.js', () => {
     mock.method(fs, 'existsSync', path => MOCK_VALID_PATHS.includes(path));
     mock.method(cp, 'execSync', () => MOCK_GIT_ROOT);
 
-    throws(() => getRootDir(), { name: 'Error', message: /Cannot find root directory/ });
+    throws(() => findRootDir(), { name: 'Error', message: /Cannot find root directory/ });
   });
 });

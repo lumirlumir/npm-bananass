@@ -10,12 +10,12 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { rmSync } from 'node:fs';
 
-import { getRootDir } from 'bananass-utils/fs';
 import createLogger from 'bananass-utils-console/logger';
 import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, success, error } from 'bananass-utils-console/theme';
 import webpack from 'webpack';
 
+import { findRootDir } from '../../core/fs/index.js';
 import {
   BAEKJOON_PROBLEM_NUMBER_MIN,
   WEBPACK_BANNER,
@@ -46,7 +46,7 @@ export default async function build(problems, { build: options }) {
   // Declaration
   // ------------------------------------------------------------------------------
   const webpackEntryFileName = `template-${options.templateType}.cjs`;
-  const rootDir = getRootDir();
+  const rootDir = findRootDir();
   const entryDir = resolve(rootDir, options.entryDir);
   const outDir = resolve(rootDir, options.outDir);
 
