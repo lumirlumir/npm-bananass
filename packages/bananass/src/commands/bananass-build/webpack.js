@@ -1,5 +1,5 @@
 /**
- * @fileoverview Asynchronously build and create bundled files using Webpack and Babel.
+ * @fileoverview Asynchronously build and create bundled files using webpack and esbuild.
  */
 
 // --------------------------------------------------------------------------------
@@ -16,7 +16,10 @@ import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, success, error } from 'bananass-utils-console/theme';
 import webpack from 'webpack';
 
-import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../core/constants.js';
+import {
+  BAEKJOON_PROBLEM_NUMBER_MIN,
+  SUPPORTED_SOLUTION_FILE_EXTENSIONS,
+} from '../../core/constants.js';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -86,22 +89,29 @@ export default async function build(problems, { build: options }) {
 
   const webpackConfigs = problems.map(problem => ({
     /**
-     * See {@link https://webpack.js.org/configuration/target/}.
+     * @see https://webpack.js.org/configuration/target/
      */
     target: 'node',
 
     /**
-     * See {@link https://webpack.js.org/configuration/mode/}.
+     * @see https://webpack.js.org/configuration/mode/
      */
     mode: 'production',
 
     /**
-     * See {@link https://webpack.js.org/concepts/#entry}.
+     * @see https://webpack.js.org/configuration/resolve/#resolveextensions
+     */
+    resolve: {
+      extensions: SUPPORTED_SOLUTION_FILE_EXTENSIONS,
+    },
+
+    /**
+     * @see https://webpack.js.org/concepts/#entry
      */
     entry: resolve(dirname(fileURLToPath(import.meta.url)), webpackEntryFileName),
 
     /**
-     * See {@link https://webpack.js.org/concepts/#output}.
+     * @see https://webpack.js.org/concepts/#output
      */
     output: {
       path: outDir,
@@ -110,13 +120,35 @@ export default async function build(problems, { build: options }) {
     },
 
     /**
-     * See {@link https://webpack.js.org/concepts/#plugins}.
+     * @see https://webpack.js.org/concepts/#plugins
      */
     plugins: [
       new webpack.DefinePlugin({
         BAEKJOON_PROBLEM_NUMBER_WITH_PATH: JSON.stringify(resolve(entryDir, problem)),
       }),
     ],
+
+    module: {
+      rules: [
+        {
+          test: /\.(?:js|mjs|cjs)$/i, // JavaScript
+          loader: 'esbuild-loader',
+          options: {
+            target: 'node14',
+            format: 'cjs',
+          },
+        },
+        {
+          test: /\.(?:ts|mts|cts)$/i, // TypeScript
+          loader: 'esbuild-loader',
+          options: {
+            loader: 'ts',
+            target: 'node14',
+            format: 'cjs',
+          },
+        },
+      ],
+    },
   }));
 
   // ------------------------------------------------------------------------------

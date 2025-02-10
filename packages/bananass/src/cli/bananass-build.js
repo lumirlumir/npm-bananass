@@ -38,7 +38,7 @@ export default function bananassBuild(program) {
   program
     .command('build')
     .description(
-      `build and create bundled files using webpack and babel from the \`${entryDir}\` directory and outputs them to the \`${outDir}\` directory`,
+      `build and create bundled files using webpack and esbuild from the \`${entryDir}\` directory and outputs them to the \`${outDir}\` directory`,
     )
     .argument('<problems...>', 'baekjoon problem number list')
     .option('-c, --clean', `clean the output directory before emit (default: ${clean})`) // DO NOT USE `Default option value` of `commander` package as it overrides the every other options from the config file. Same goes for the other options.
