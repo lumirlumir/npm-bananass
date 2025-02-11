@@ -3,6 +3,7 @@
  */
 
 // @ts-nocheck -- TODO: Delete this line later.
+// TODO: More detailed error messages.
 
 // --------------------------------------------------------------------------------
 // Import
@@ -18,8 +19,8 @@ import { bananass, success, error } from 'bananass-utils-console/theme';
 import webpack from 'webpack';
 
 import { findRootDir } from '../../core/fs/index.js';
+import { Problems, ConfigObjectBuildOptions } from '../../core/structs/index.js';
 import {
-  BAEKJOON_PROBLEM_NUMBER_MIN,
   WEBPACK_BANNER,
   SUPPORTED_SOLUTION_FILE_EXTENSIONS,
 } from '../../core/constants.js';
@@ -29,6 +30,7 @@ import {
 // --------------------------------------------------------------------------------
 
 /**
+ * @typedef {import('../../core/types.js').Problems} Problems
  * @typedef {import('../../core/types.js').ConfigObject} ConfigObject
  */
 
@@ -37,16 +39,17 @@ import {
 // --------------------------------------------------------------------------------
 
 /**
- * Asynchronously build and create bundled files using Webpack.
+ * Asynchronously build and create bundled files using webpack and esbuild.
  *
- * @param {string[]} problems Baekjoon problem number list.
- * @param {ConfigObject} configObject Configuration object.
+ * @param {Problems} problems
+ * @param {ConfigObject} configObject
  * @async
  */
 export default async function build(problems, { build: options }) {
   // ------------------------------------------------------------------------------
   // Declaration
   // ------------------------------------------------------------------------------
+
   const webpackEntryFileName = `template-${options.templateType}.cjs`;
   const rootDir = findRootDir();
   const entryDir = resolve(rootDir, options.entryDir);
@@ -65,26 +68,14 @@ export default async function build(problems, { build: options }) {
   // Runtime Input Validation
   // ------------------------------------------------------------------------------
 
-  /**
-   * `problems` parameter validation.
-   */
-  problems.forEach(problem => {
-    if (typeof problem !== 'string') {
-      logger.log(() => spinner.error());
+  try {
+    Problems.assert(problems);
+    ConfigObjectBuildOptions.assert(options);
+  } catch ({ message }) {
+    logger.log(() => spinner.error());
 
-      throw new TypeError(error('The `problems` parameter must be of type `string[]`.'));
-    }
-
-    if (Number(problem) < BAEKJOON_PROBLEM_NUMBER_MIN) {
-      logger.log(() => spinner.error());
-
-      throw new TypeError(
-        error(
-          `Invalid Baekjoon problem number: ${problem}. The problem number must be greater than or equal to ${BAEKJOON_PROBLEM_NUMBER_MIN}.`,
-        ),
-      );
-    }
-  });
+    throw new TypeError(error(message));
+  }
 
   // ------------------------------------------------------------------------------
   // Webpack Configs

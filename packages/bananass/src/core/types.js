@@ -1,5 +1,5 @@
 /**
- * @fileoverview Define common types for input completion.
+ * @fileoverview Define common types.
  */
 
 // --------------------------------------------------------------------------------
@@ -74,6 +74,12 @@
 
 /**
  * @typedef {object} ConfigObjectTestcaseOptions
+ */
+
+// --------------------------------------------------------------------------------
+
+/**
+ * @typedef {string[]} Problems Nonempty string array of problem numbers. Each problem number must be greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
  */
 
 // --------------------------------------------------------------------------------
