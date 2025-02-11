@@ -97,7 +97,7 @@ export const testcase = {};
 // --------------------------------------------------------------------------------
 
 /** @type {ConfigObject} */
-export default {
+export const defaultConfigObject = {
   cwd: findRootDir(),
   entryDir: DEFAULT_ENTRY_DIR_NAME,
   outDir: DEFAULT_OUT_DIR_NAME,
