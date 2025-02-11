@@ -7,73 +7,93 @@
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {object} ConfigObject
- * @property {ConfigObjectAddOptions} add Add options.
- * @property {ConfigObjectBuildOptions} build Build options.
- * @property {ConfigObjectCleanOptions} clean Clean options.
- * @property {ConfigObjectInfoOptions} info Info options.
- * @property {ConfigObjectInitOptions} init Init options.
- * @property {ConfigObjectLintOptions} lint Lint options.
- * @property {ConfigObjectLoginOptions} login Login options.
- * @property {ConfigObjectOpenOptions} open Open options.
- * @property {ConfigObjectRandomOptions} random Random options.
- * @property {ConfigObjectRunOptions} run Run options.
- * @property {ConfigObjectSubmitOptions} submit Submit options.
- * @property {ConfigObjectTestcaseOptions} testcase Testcase options.
- */
-
-/**
- * @typedef {object} ConfigObjectAddOptions
- */
-
-/**
- * @typedef {object} ConfigObjectBuildOptions
- * @property {boolean} clean Clean the output directory before emit.
- * @property {boolean} debug Enable debug mode.
+ * @typedef {object} ConfigObject Bananass configuration object.
+ *
+ * @property {string} cwd Current working directory.
  * @property {string} entryDir Entry directory name.
  * @property {string} outDir Output directory name.
+ *
+ * @property {ConfigObjectBrowser} browser
+ * @property {ConfigObjectConsole} console
+ *
+ * @property {ConfigObjectAdd} add
+ * @property {ConfigObjectBuild} build
+ * @property {ConfigObjectClean} clean
+ * @property {ConfigObjectInfo} info
+ * @property {ConfigObjectInit} init
+ * @property {ConfigObjectLint} lint
+ * @property {ConfigObjectLogin} login
+ * @property {ConfigObjectOpen} open
+ * @property {ConfigObjectRandom} random
+ * @property {ConfigObjectRun} run
+ * @property {ConfigObjectSubmit} submit
+ * @property {ConfigObjectTestcase} testcase
+ */
+
+/* Global */
+
+/**
+ * @typedef {object} ConfigObjectBrowser Global browser options.
+ * @property {'chrome' | 'edge' | 'firefox' | 'default'} browser Browser name. Select from `chrome`, `edge`, `firefox`, or `default`.
+ * @property {boolean} private Open browser in incognito(secret or private) mode.
+ */
+
+/**
+ * @typedef {object} ConfigObjectConsole Global console options.
+ * @property {boolean} debug Enable debug mode.
  * @property {boolean} quiet Enable quiet mode.
+ */
+
+/* Exclusive */
+
+/**
+ * @typedef {object} ConfigObjectAdd Options exclusive to the `bananass add` command.
+ */
+
+/**
+ * @typedef {object} ConfigObjectBuild Options exclusive to the `bananass build` command.
+ * @property {boolean} clean Clean the output directory before emit.
  * @property {'fs' | 'rl'} templateType Webpack entry file template type. Select from `fs` (File System) or `rl` (Read Line).
  */
 
 /**
- * @typedef {object} ConfigObjectCleanOptions
+ * @typedef {object} ConfigObjectClean Options exclusive to the `bananass clean` command.
  */
 
 /**
- * @typedef {object} ConfigObjectInfoOptions
+ * @typedef {object} ConfigObjectInfo Options exclusive to the `bananass info` command.
  */
 
 /**
- * @typedef {object} ConfigObjectInitOptions
+ * @typedef {object} ConfigObjectInit Options exclusive to the `bananass init` command.
  */
 
 /**
- * @typedef {object} ConfigObjectLintOptions
+ * @typedef {object} ConfigObjectLint Options exclusive to the `bananass lint` command.
  */
 
 /**
- * @typedef {object} ConfigObjectLoginOptions
+ * @typedef {object} ConfigObjectLogin Options exclusive to the `bananass login` command.
  */
 
 /**
- * @typedef {object} ConfigObjectOpenOptions
+ * @typedef {object} ConfigObjectOpen Options exclusive to the `bananass open` command.
  */
 
 /**
- * @typedef {object} ConfigObjectRandomOptions
+ * @typedef {object} ConfigObjectRandom Options exclusive to the `bananass random` command.
  */
 
 /**
- * @typedef {object} ConfigObjectRunOptions
+ * @typedef {object} ConfigObjectRun Options exclusive to the `bananass run` command.
  */
 
 /**
- * @typedef {object} ConfigObjectSubmitOptions
+ * @typedef {object} ConfigObjectSubmit Options exclusive to the `bananass submit` command.
  */
 
 /**
- * @typedef {object} ConfigObjectTestcaseOptions
+ * @typedef {object} ConfigObjectTestcase Options exclusive to the `bananass testcase` command.
  */
 
 // --------------------------------------------------------------------------------
