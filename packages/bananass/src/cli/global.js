@@ -8,9 +8,9 @@
 
 import {
   PKG_DESCRIPTION,
-  PKG_HOMEPAGE,
   PKG_NAME,
   PKG_VERSION,
+  URL_HOMEPAGE,
 } from '../core/constants.js';
 
 // --------------------------------------------------------------------------------
@@ -33,6 +33,6 @@ import {
 export default function global(program) {
   program
     .name(PKG_NAME)
-    .description(`${PKG_DESCRIPTION} (${PKG_HOMEPAGE})`)
+    .description(`${PKG_DESCRIPTION} (${URL_HOMEPAGE})`)
     .version(PKG_VERSION, '-v, --version');
 }

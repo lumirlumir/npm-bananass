@@ -29,13 +29,18 @@ export const BAEKJOON_PROBLEM_NUMBER_MIN = 1_000;
 /** @type {string} */
 export const PKG_DESCRIPTION = description;
 /** @type {string} */
-export const PKG_HOMEPAGE = homepage;
-/** @type {string} */
 export const PKG_NAME = name;
 /** @type {string} */
 export const PKG_VERSION = version;
+
 /** @type {string} */
-export const PKG_GITHUB_REPOSITORY = 'https://github.com/lumirlumir/npm-bananass';
+export const URL_HOMEPAGE = homepage;
+/** @type {string} */
+export const URL_GITHUB_REPO = 'https://github.com/lumirlumir/npm-bananass';
+/** @type {string} */
+export const URL_GITHUB_ISSUES = `${URL_GITHUB_REPO}/issues`;
+/** @type {string} */
+export const URL_GITHUB_DISCUSSIONS = `${URL_GITHUB_REPO}/discussions`;
 
 /** @type {string} */
 export const DEFAULT_ENTRY_DIR_NAME = name;
@@ -47,8 +52,8 @@ export const WEBPACK_BANNER = `
 /**
  * This file was generated using the Baekjoon Framework for JavaScript 'Bananass🍌'
  *
- * Bananass Homepage: ${PKG_HOMEPAGE}
- * Bananass GitHub Repository: ${PKG_GITHUB_REPOSITORY}
+ * Bananass Homepage: ${URL_HOMEPAGE}
+ * Bananass GitHub Repository: ${URL_GITHUB_REPO}
  *
  * Released under the MIT License
  * Copyright © 2024-${new Date().getFullYear()} 루밀LuMir(lumirlumir)
