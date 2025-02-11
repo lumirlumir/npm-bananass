@@ -34,19 +34,19 @@ import { DEFAULT_ENTRY_DIR_NAME, DEFAULT_OUT_DIR_NAME } from '../../constants.js
  */
 
 // --------------------------------------------------------------------------------
-// Named Export
+// Declarations
 // --------------------------------------------------------------------------------
 
 /* Global */
 
 /** @type {ConfigObjectBrowser} */
-export const browser = {
+const browser = {
   browser: 'default',
   private: false,
 };
 
 /** @type {ConfigObjectConsole} */
-export const console = {
+const console = {
   debug: false,
   quiet: false,
 };
@@ -54,50 +54,50 @@ export const console = {
 /* Exclusive */
 
 /** @type {ConfigObjectAdd} */
-export const add = {};
+const add = {};
 
 /** @type {ConfigObjectBuild} */
-export const build = {
+const build = {
   clean: false,
   templateType: 'fs',
 };
 
 /** @type {ConfigObjectClean} */
-export const clean = {};
+const clean = {};
 
 /** @type {ConfigObjectInfo} */
-export const info = {};
+const info = {};
 
 /** @type {ConfigObjectInit} */
-export const init = {};
+const init = {};
 
 /** @type {ConfigObjectLint} */
-export const lint = {};
+const lint = {};
 
 /** @type {ConfigObjectLogin} */
-export const login = {};
+const login = {};
 
 /** @type {ConfigObjectOpen} */
-export const open = {};
+const open = {};
 
 /** @type {ConfigObjectRandom} */
-export const random = {};
+const random = {};
 
 /** @type {ConfigObjectRun} */
-export const run = {};
+const run = {};
 
 /** @type {ConfigObjectSubmit} */
-export const submit = {};
+const submit = {};
 
 /** @type {ConfigObjectTestcase} */
-export const testcase = {};
+const testcase = {};
 
 // --------------------------------------------------------------------------------
-// Default Export
+// Export
 // --------------------------------------------------------------------------------
 
 /** @type {ConfigObject} */
-export const defaultConfigObject = {
+export default {
   cwd: findRootDir(),
   entryDir: DEFAULT_ENTRY_DIR_NAME,
   outDir: DEFAULT_OUT_DIR_NAME,
