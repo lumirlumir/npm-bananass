@@ -19,7 +19,7 @@ import { bananass, success, error } from 'bananass-utils-console/theme';
 import webpack from 'webpack';
 
 import { findRootDir } from '../../core/fs/index.js';
-import { Problems } from '../../core/structs/index.js';
+import { Problems, ConfigObjectBuildOptions } from '../../core/structs/index.js';
 import {
   WEBPACK_BANNER,
   SUPPORTED_SOLUTION_FILE_EXTENSIONS,
@@ -70,6 +70,7 @@ export default async function build(problems, { build: options }) {
 
   try {
     Problems.assert(problems);
+    ConfigObjectBuildOptions.assert(options);
   } catch ({ message }) {
     logger.log(() => spinner.error());
 
