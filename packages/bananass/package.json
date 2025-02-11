@@ -11,6 +11,7 @@
     "./package.json": "./package.json"
   },
   "bin": {
+    "b": "src/cli.js",
     "bananass": "src/cli.js"
   },
   "files": [
