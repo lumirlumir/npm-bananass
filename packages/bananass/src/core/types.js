@@ -8,18 +8,18 @@
 
 /**
  * @typedef {object} ConfigObject
- * @property {ConfigObjectAddOptions} addOptions Add options.
- * @property {ConfigObjectBuildOptions} buildOptions Build options.
- * @property {ConfigObjectCleanOptions} cleanOptions Clean options.
- * @property {ConfigObjectInfoOptions} infoOptions Info options.
- * @property {ConfigObjectInitOptions} initOptions Init options.
- * @property {ConfigObjectLintOptions} lintOptions Lint options.
- * @property {ConfigObjectLoginOptions} loginOptions Login options.
- * @property {ConfigObjectOpenOptions} openOptions Open options.
- * @property {ConfigObjectRandomOptions} randomOptions Random options.
- * @property {ConfigObjectRunOptions} runOptions Run options.
- * @property {ConfigObjectSubmitOptions} submitOptions Submit options.
- * @property {ConfigObjectTestcaseOptions} testcaseOptions Testcase options.
+ * @property {ConfigObjectAddOptions} add Add options.
+ * @property {ConfigObjectBuildOptions} build Build options.
+ * @property {ConfigObjectCleanOptions} clean Clean options.
+ * @property {ConfigObjectInfoOptions} info Info options.
+ * @property {ConfigObjectInitOptions} init Init options.
+ * @property {ConfigObjectLintOptions} lint Lint options.
+ * @property {ConfigObjectLoginOptions} login Login options.
+ * @property {ConfigObjectOpenOptions} open Open options.
+ * @property {ConfigObjectRandomOptions} random Random options.
+ * @property {ConfigObjectRunOptions} run Run options.
+ * @property {ConfigObjectSubmitOptions} submit Submit options.
+ * @property {ConfigObjectTestcaseOptions} testcase Testcase options.
  */
 
 /**

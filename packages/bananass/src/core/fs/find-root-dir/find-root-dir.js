@@ -2,6 +2,8 @@
  * @fileoverview Find root directory path based on the existence of `package.json`.
  */
 
+// @ts-nocheck -- TODO: Delete this line later.
+
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
