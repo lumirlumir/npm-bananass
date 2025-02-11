@@ -1,5 +1,5 @@
 /**
- * @fileoverview Define common types for input completion.
+ * @fileoverview Define common types.
  */
 
 // --------------------------------------------------------------------------------
