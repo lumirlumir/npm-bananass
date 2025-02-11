@@ -2,6 +2,8 @@
  * @fileoverview Asynchronously build and create bundled files using webpack and esbuild.
  */
 
+// @ts-nocheck -- TODO: Delete this line later.
+
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------

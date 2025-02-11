@@ -1,10 +1,12 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "checkJs": true,
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "build",
     "target": "ESNext",
+    "module": "ESNext",
     "moduleResolution": "Node",
     "skipLibCheck": true // TODO: Remove this line later
   },
