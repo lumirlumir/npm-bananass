@@ -77,6 +77,12 @@
  */
 
 // --------------------------------------------------------------------------------
+
+/**
+ * @typedef {string[]} Problems Nonempty string array of problem numbers. Each problem number must be greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
+ */
+
+// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
