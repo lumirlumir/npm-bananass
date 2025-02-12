@@ -1,21 +1,20 @@
 /**
- * @fileoverview `Problems` type struct.
+ * @fileoverview `ConfigObjectInfo` type struct.
  */
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-import { array, nonempty, refine, string } from 'superstruct';
-import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../constants.js';
+import { object } from 'superstruct';
 
 // --------------------------------------------------------------------------------
 // Typedefs
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').Problems} Problems
- * @typedef {import('superstruct').Struct<Problems>} ProblemsStruct
+ * @typedef {import('../../types.js').ConfigObjectInfo} ConfigObjectInfo
+ * @typedef {import('superstruct').Struct<ConfigObjectInfo>} ConfigObjectInfoStruct
  */
 
 // --------------------------------------------------------------------------------
@@ -23,18 +22,14 @@ import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../constants.js';
 // --------------------------------------------------------------------------------
 
 /**
- * `Problems` type struct.
+ * `ConfigObjectInfo` type struct.
  *
- * @type {ProblemsStruct}
+ * @type {ConfigObjectInfoStruct}
  */
-const Problems = refine(nonempty(array(string())), 'Problems', problems =>
-  problems.every(problem => Number(problem) >= BAEKJOON_PROBLEM_NUMBER_MIN)
-    ? true
-    : `\`Problems\` must be nonempty string array of Baekjoon problem numbers. Each problem number must be greater than or equal to \`${BAEKJOON_PROBLEM_NUMBER_MIN}\``,
-);
+const ConfigObjectInfo = object({});
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-export default Problems;
+export default ConfigObjectInfo;

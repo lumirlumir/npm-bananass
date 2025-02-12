@@ -1,21 +1,20 @@
 /**
- * @fileoverview `Problems` type struct.
+ * @fileoverview `ConfigObjectBrowser` type struct.
  */
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-import { array, nonempty, refine, string } from 'superstruct';
-import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../constants.js';
+import { boolean, enums, object } from 'superstruct';
 
 // --------------------------------------------------------------------------------
 // Typedefs
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').Problems} Problems
- * @typedef {import('superstruct').Struct<Problems>} ProblemsStruct
+ * @typedef {import('../../types.js').ConfigObjectBrowser} ConfigObjectBrowser
+ * @typedef {import('superstruct').Struct<ConfigObjectBrowser>} ConfigObjectBrowserStruct
  */
 
 // --------------------------------------------------------------------------------
@@ -23,18 +22,17 @@ import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../constants.js';
 // --------------------------------------------------------------------------------
 
 /**
- * `Problems` type struct.
+ * `ConfigObjectBrowser` type struct.
  *
- * @type {ProblemsStruct}
+ * @type {ConfigObjectBrowserStruct}
  */
-const Problems = refine(nonempty(array(string())), 'Problems', problems =>
-  problems.every(problem => Number(problem) >= BAEKJOON_PROBLEM_NUMBER_MIN)
-    ? true
-    : `\`Problems\` must be nonempty string array of Baekjoon problem numbers. Each problem number must be greater than or equal to \`${BAEKJOON_PROBLEM_NUMBER_MIN}\``,
-);
+const ConfigObjectBrowser = object({
+  browser: enums(['chrome', 'edge', 'firefox', 'default']),
+  secretMode: boolean(),
+});
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-export default Problems;
+export default ConfigObjectBrowser;

@@ -1,20 +1,20 @@
 /**
- * @fileoverview `ConfigObjectBuildOptions` type struct.
+ * @fileoverview `ConfigObjectAdd` type struct.
  */
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-import { boolean, enums, object, string } from 'superstruct';
+import { object } from 'superstruct';
 
 // --------------------------------------------------------------------------------
 // Typedefs
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').ConfigObjectBuildOptions} ConfigObjectBuildOptions
- * @typedef {import('superstruct').Struct<ConfigObjectBuildOptions>} ConfigObjectBuildOptionsStruct
+ * @typedef {import('../../types.js').ConfigObjectAdd} ConfigObjectAdd
+ * @typedef {import('superstruct').Struct<ConfigObjectAdd>} ConfigObjectAddStruct
  */
 
 // --------------------------------------------------------------------------------
@@ -22,21 +22,14 @@ import { boolean, enums, object, string } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * `ConfigObjectBuildOptions` type struct.
+ * `ConfigObjectAdd` type struct.
  *
- * @type {ConfigObjectBuildOptionsStruct}
+ * @type {ConfigObjectAddStruct}
  */
-const ConfigObjectBuildOptions = object({
-  clean: boolean(),
-  debug: boolean(),
-  entryDir: string(),
-  outDir: string(),
-  quiet: boolean(),
-  templateType: enums(['fs', 'rl']),
-});
+const ConfigObjectAdd = object({});
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-export default ConfigObjectBuildOptions;
+export default ConfigObjectAdd;
