@@ -46,6 +46,13 @@ import {
  */
 export default async function build(problems, configObject) {
   // ------------------------------------------------------------------------------
+  // Runtime Validation
+  // ------------------------------------------------------------------------------
+
+  Problems.assert(problems);
+  ConfigObject.assert(configObject);
+
+  // ------------------------------------------------------------------------------
   // Declarations
   // ------------------------------------------------------------------------------
 
@@ -59,30 +66,17 @@ export default async function build(problems, configObject) {
 
   const resolvedEntryDir = resolve(cwd, entryDir);
   const resolvedOutDir = resolve(cwd, outDir);
-
   const webpackEntryFileName = `template-${templateType}.cjs`;
 
   // @ts-ignore -- TODO: Update type declarion in `bananass-utils-console`.
   const logger = createLogger(console);
-  const spinner = createSpinner({
-    color: 'yellow',
-  });
-
-  // CLI Animation. Ensure correct `this` binding for `spinner.start` using arrow function. (Or use `apply`, `call` or `bind` method.)
-  logger.log(() => spinner.start(bananass('Bananass build is running...')));
+  const spinner = createSpinner({ color: 'yellow' });
 
   // ------------------------------------------------------------------------------
-  // Runtime Input Validation
+  // CLI Animation
   // ------------------------------------------------------------------------------
 
-  try {
-    Problems.assert(problems);
-    ConfigObject.assert(configObject);
-  } catch ({ message }) {
-    logger.log(() => spinner.error());
-
-    throw new TypeError(error(message));
-  }
+  logger.log(() => spinner.start(bananass('Bananass build is running...'))); // Ensure correct `this` binding for `spinner.start` using arrow function. (Or use `apply`, `call` or `bind` method.)
 
   // ------------------------------------------------------------------------------
   // Webpack Configs

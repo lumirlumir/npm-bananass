@@ -57,6 +57,7 @@
     "commander": "^13.1.0",
     "consola": "^3.4.0",
     "esbuild-loader": "^4.2.2",
+    "open": "^10.1.0",
     "superstruct": "^2.0.2",
     "webpack": "^5.97.1"
   }
