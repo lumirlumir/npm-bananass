@@ -42,7 +42,7 @@ import { DEFAULT_ENTRY_DIR_NAME, DEFAULT_OUT_DIR_NAME } from '../../constants.js
 /** @type {ConfigObjectBrowser} */
 const browser = {
   browser: 'default',
-  private: false,
+  secretMode: false,
 };
 
 /** @type {ConfigObjectConsole} */

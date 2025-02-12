@@ -35,7 +35,7 @@
 /**
  * @typedef {object} ConfigObjectBrowser Global browser options.
  * @property {'chrome' | 'edge' | 'firefox' | 'default'} browser Browser name. Select from `chrome`, `edge`, `firefox`, or `default`.
- * @property {boolean} private Open browser in private(secret or incognito) mode.
+ * @property {boolean} secretMode Open browser in secret (private or incognito) mode.
  */
 
 /**
