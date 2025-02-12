@@ -16,18 +16,18 @@
  * @property {ConfigObjectBrowser} browser
  * @property {ConfigObjectConsole} console
  *
- * @property {ConfigObjectAdd} add
+ * @property {ConfigObjectAdd} [add] TODO: Remove optional types.
  * @property {ConfigObjectBuild} build
- * @property {ConfigObjectClean} clean
- * @property {ConfigObjectInfo} info
- * @property {ConfigObjectInit} init
- * @property {ConfigObjectLint} lint
- * @property {ConfigObjectLogin} login
- * @property {ConfigObjectOpen} open
- * @property {ConfigObjectRandom} random
- * @property {ConfigObjectRun} run
- * @property {ConfigObjectSubmit} submit
- * @property {ConfigObjectTestcase} testcase
+ * @property {ConfigObjectClean} [clean] TODO: Remove optional types.
+ * @property {ConfigObjectInfo} [info] TODO: Remove optional types.
+ * @property {ConfigObjectInit} [init] TODO: Remove optional types.
+ * @property {ConfigObjectLint} [lint] TODO: Remove optional types.
+ * @property {ConfigObjectLogin} [login] TODO: Remove optional types.
+ * @property {ConfigObjectOpen} [open] TODO: Remove optional types.
+ * @property {ConfigObjectRandom} [random] TODO: Remove optional types.
+ * @property {ConfigObjectRun} [run] TODO: Remove optional types.
+ * @property {ConfigObjectSubmit} [submit] TODO: Remove optional types.
+ * @property {ConfigObjectTestcase} [testcase] TODO: Remove optional types.
  */
 
 /* Global */
