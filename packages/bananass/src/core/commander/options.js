@@ -1,5 +1,7 @@
 /**
  * @fileoverview `option`s used in `commander` for `bananass` CLI.
+ *
+ * DO NOT USE `Default option value` of `commander` package as it overrides the every other options from the config file.
  */
 
 // --------------------------------------------------------------------------------
