@@ -9,7 +9,7 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Node",
-    "skipLibCheck": true // TODO: Remove this line later
+    "skipLibCheck": true
   },
   "include": ["src/**/*.js"],
   "exclude": ["src/**/*.test.js", "src/**/*.spec.js"]
