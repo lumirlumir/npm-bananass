@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "allowJs": true,
+    "checkJs": true,
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "build",
     "target": "ESNext",
-    "moduleResolution": "Node"
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "skipLibCheck": true
   },
   "include": ["src/**/*.js"],
   "exclude": ["src/**/*.test.js", "src/**/*.spec.js"]
