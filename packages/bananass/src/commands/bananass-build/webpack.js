@@ -68,7 +68,6 @@ export default async function build(problems, configObject) {
   const resolvedOutDir = resolve(cwd, outDir);
   const webpackEntryFileName = `template-${templateType}.cjs`;
 
-  // @ts-ignore -- TODO: Update type declarion in `bananass-utils-console`.
   const logger = createLogger(console);
   const spinner = createSpinner({ color: 'yellow' });
 

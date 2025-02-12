@@ -48,7 +48,6 @@ export default async function home(configObject) {
     console,
   } = configObject;
 
-  // @ts-ignore -- TODO: Update type declarion in `bananass-utils-console`.
   const logger = createLogger(console);
   const spinner = createSpinner({ color: 'yellow' });
 
