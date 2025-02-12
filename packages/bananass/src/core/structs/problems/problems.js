@@ -30,7 +30,7 @@ import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../constants.js';
 const Problems = refine(nonempty(array(string())), 'Problems', problems =>
   problems.every(problem => Number(problem) >= BAEKJOON_PROBLEM_NUMBER_MIN)
     ? true
-    : `\`Problems\` must be nonempty string array of problem numbers. Each problem number must be greater than or equal to \`${BAEKJOON_PROBLEM_NUMBER_MIN}\``,
+    : `\`Problems\` must be nonempty string array of Baekjoon problem numbers. Each problem number must be greater than or equal to \`${BAEKJOON_PROBLEM_NUMBER_MIN}\``,
 );
 
 // --------------------------------------------------------------------------------
