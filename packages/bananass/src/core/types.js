@@ -13,21 +13,21 @@
  * @property {string} [entryDir] Entry directory name.
  * @property {string} [outDir] Output directory name.
  *
- * @property {ConfigObjectBrowser} [browser]
- * @property {ConfigObjectConsole} [console]
+ * @property {ConfigObjectBrowser} [browser] Global browser options.
+ * @property {ConfigObjectConsole} [console] Global console options.
  *
- * @property {ConfigObjectAdd} [add]
- * @property {ConfigObjectBuild} [build]
- * @property {ConfigObjectClean} [clean]
- * @property {ConfigObjectInfo} [info]
- * @property {ConfigObjectInit} [init]
- * @property {ConfigObjectLint} [lint]
- * @property {ConfigObjectLogin} [login]
- * @property {ConfigObjectOpen} [open]
- * @property {ConfigObjectRandom} [random]
- * @property {ConfigObjectRun} [run]
- * @property {ConfigObjectSubmit} [submit]
- * @property {ConfigObjectTestcase} [testcase]
+ * @property {ConfigObjectAdd} [add] Options exclusive to the `bananass add` command.
+ * @property {ConfigObjectBuild} [build] Options exclusive to the `bananass build` command.
+ * @property {ConfigObjectClean} [clean] Options exclusive to the `bananass clean` command.
+ * @property {ConfigObjectInfo} [info] Options exclusive to the `bananass info` command.
+ * @property {ConfigObjectInit} [init] Options exclusive to the `bananass init` command.
+ * @property {ConfigObjectLint} [lint] Options exclusive to the `bananass lint` command.
+ * @property {ConfigObjectLogin} [login] Options exclusive to the `bananass login` command.
+ * @property {ConfigObjectOpen} [open] Options exclusive to the `bananass open` command.
+ * @property {ConfigObjectRandom} [random] Options exclusive to the `bananass random` command.
+ * @property {ConfigObjectRun} [run] Options exclusive to the `bananass run` command.
+ * @property {ConfigObjectSubmit} [submit] Options exclusive to the `bananass submit` command.
+ * @property {ConfigObjectTestcase} [testcase] Options exclusive to the `bananass testcase` command.
  */
 
 /* Global */

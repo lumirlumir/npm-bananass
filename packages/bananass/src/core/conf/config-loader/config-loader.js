@@ -30,7 +30,7 @@ import { PKG_NAME } from '../../constants.js';
  * - Merge priority: CLI config object > Config file config object > Default config object
  *
  * @param {object} configLoaderOptions
- * @param {string} configLoaderOptions.cwd Current working directory.
+ * @param {string} [configLoaderOptions.cwd] Current working directory.
  * @param {ConfigObject} configLoaderOptions.cliConfigObject CLI config object.
  * @param {ConfigObject} configLoaderOptions.defaultConfigObject Default config object.
  * @returns Merged configuration object.
