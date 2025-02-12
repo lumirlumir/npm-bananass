@@ -1,12 +1,12 @@
 /**
- * @fileoverview `options` used in `commander` for `bananass` CLI.
+ * @fileoverview `option`s used in `commander` for `bananass` CLI.
  */
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-import { defaultConfigObject as dco } from './conf/index.js';
+import { defaultConfigObject as dco } from '../conf/index.js';
 
 // --------------------------------------------------------------------------------
 // Helpers
