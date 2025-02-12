@@ -9,39 +9,39 @@
 /**
  * @typedef {object} ConfigObject Bananass configuration object.
  *
- * @property {string} cwd Current working directory.
- * @property {string} entryDir Entry directory name.
- * @property {string} outDir Output directory name.
+ * @property {string} [cwd] Current working directory.
+ * @property {string} [entryDir] Entry directory name.
+ * @property {string} [outDir] Output directory name.
  *
- * @property {ConfigObjectBrowser} browser
- * @property {ConfigObjectConsole} console
+ * @property {ConfigObjectBrowser} [browser]
+ * @property {ConfigObjectConsole} [console]
  *
- * @property {ConfigObjectAdd} [add] TODO: Remove optional types.
- * @property {ConfigObjectBuild} build
- * @property {ConfigObjectClean} [clean] TODO: Remove optional types.
- * @property {ConfigObjectInfo} [info] TODO: Remove optional types.
- * @property {ConfigObjectInit} [init] TODO: Remove optional types.
- * @property {ConfigObjectLint} [lint] TODO: Remove optional types.
- * @property {ConfigObjectLogin} [login] TODO: Remove optional types.
- * @property {ConfigObjectOpen} [open] TODO: Remove optional types.
- * @property {ConfigObjectRandom} [random] TODO: Remove optional types.
- * @property {ConfigObjectRun} [run] TODO: Remove optional types.
- * @property {ConfigObjectSubmit} [submit] TODO: Remove optional types.
- * @property {ConfigObjectTestcase} [testcase] TODO: Remove optional types.
+ * @property {ConfigObjectAdd} [add]
+ * @property {ConfigObjectBuild} [build]
+ * @property {ConfigObjectClean} [clean]
+ * @property {ConfigObjectInfo} [info]
+ * @property {ConfigObjectInit} [init]
+ * @property {ConfigObjectLint} [lint]
+ * @property {ConfigObjectLogin} [login]
+ * @property {ConfigObjectOpen} [open]
+ * @property {ConfigObjectRandom} [random]
+ * @property {ConfigObjectRun} [run]
+ * @property {ConfigObjectSubmit} [submit]
+ * @property {ConfigObjectTestcase} [testcase]
  */
 
 /* Global */
 
 /**
  * @typedef {object} ConfigObjectBrowser Global browser options.
- * @property {'chrome' | 'edge' | 'firefox' | 'default'} browser Browser name. Select from `chrome`, `edge`, `firefox`, or `default`.
- * @property {boolean} secretMode Open browser in secret (private or incognito) mode.
+ * @property {'chrome' | 'edge' | 'firefox' | 'default'} [browser] Browser name. Select from `chrome`, `edge`, `firefox`, or `default`.
+ * @property {boolean} [secretMode] Open browser in secret (private or incognito) mode.
  */
 
 /**
  * @typedef {object} ConfigObjectConsole Global console options.
- * @property {boolean} debug Enable debug mode.
- * @property {boolean} quiet Enable quiet mode.
+ * @property {boolean} [debug] Enable debug mode.
+ * @property {boolean} [quiet] Enable quiet mode.
  */
 
 /* Exclusive */
@@ -52,8 +52,8 @@
 
 /**
  * @typedef {object} ConfigObjectBuild Options exclusive to the `bananass build` command.
- * @property {boolean} clean Clean the output directory before emit.
- * @property {'fs' | 'rl'} templateType Webpack entry file template type. Select from `fs` (File System) or `rl` (Read Line).
+ * @property {boolean} [clean] Clean the output directory before emit.
+ * @property {'fs' | 'rl'} [templateType] Webpack entry file template type. Select from `fs` (File System) or `rl` (Read Line).
  */
 
 /**
