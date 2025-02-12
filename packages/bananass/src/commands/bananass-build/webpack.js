@@ -2,7 +2,6 @@
  * @fileoverview Asynchronously build and create bundled files using webpack and esbuild.
  */
 
-// @ts-nocheck -- TODO: Delete this line later.
 // TODO: More detailed error messages.
 
 // --------------------------------------------------------------------------------
@@ -18,8 +17,7 @@ import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, success, error } from 'bananass-utils-console/theme';
 import webpack from 'webpack';
 
-import { findRootDir } from '../../core/fs/index.js';
-import { Problems, ConfigObjectBuildOptions } from '../../core/structs/index.js';
+import { Problems, ConfigObject } from '../../core/structs/index.js';
 import {
   WEBPACK_BANNER,
   SUPPORTED_SOLUTION_FILE_EXTENSIONS,
@@ -30,6 +28,7 @@ import {
 // --------------------------------------------------------------------------------
 
 /**
+ * @typedef {import('webpack').Configuration} WebpackConfig
  * @typedef {import('../../core/types.js').Problems} Problems
  * @typedef {import('../../core/types.js').ConfigObject} ConfigObject
  */
@@ -45,23 +44,31 @@ import {
  * @param {ConfigObject} configObject
  * @async
  */
-export default async function build(problems, { build: options }) {
+export default async function build(problems, configObject) {
   // ------------------------------------------------------------------------------
-  // Declaration
+  // Declarations
   // ------------------------------------------------------------------------------
 
-  const webpackEntryFileName = `template-${options.templateType}.cjs`;
-  const rootDir = findRootDir();
-  const entryDir = resolve(rootDir, options.entryDir);
-  const outDir = resolve(rootDir, options.outDir);
+  const {
+    cwd,
+    entryDir,
+    outDir,
+    console,
+    build: { clean, templateType },
+  } = configObject;
 
-  const logger = createLogger(options);
+  const resolvedEntryDir = resolve(cwd, entryDir);
+  const resolvedOutDir = resolve(cwd, outDir);
+
+  const webpackEntryFileName = `template-${templateType}.cjs`;
+
+  // @ts-ignore -- TODO: Update type declarion in `bananass-utils-console`.
+  const logger = createLogger(console);
   const spinner = createSpinner({
     color: 'yellow',
   });
 
-  // Ensure correct `this` binding for `spinner.start` using arrow function. (Or use `apply`, `call` or `bind` method.)
-  // CLI Animation.
+  // CLI Animation. Ensure correct `this` binding for `spinner.start` using arrow function. (Or use `apply`, `call` or `bind` method.)
   logger.log(() => spinner.start(bananass('Bananass build is running...')));
 
   // ------------------------------------------------------------------------------
@@ -70,7 +77,7 @@ export default async function build(problems, { build: options }) {
 
   try {
     Problems.assert(problems);
-    ConfigObjectBuildOptions.assert(options);
+    ConfigObject.assert(configObject);
   } catch ({ message }) {
     logger.log(() => spinner.error());
 
@@ -81,6 +88,7 @@ export default async function build(problems, { build: options }) {
   // Webpack Configs
   // ------------------------------------------------------------------------------
 
+  /** @type {WebpackConfig[]} */
   const webpackConfigs = problems.map(problem => ({
     /**
      * @see https://webpack.js.org/configuration/target/
@@ -108,7 +116,7 @@ export default async function build(problems, { build: options }) {
      * @see https://webpack.js.org/concepts/#output
      */
     output: {
-      path: outDir,
+      path: resolvedOutDir,
       filename: `${problem}.js`,
       // clean: options.clean, // DO NOT USE THIS OPTION.
     },
@@ -123,7 +131,9 @@ export default async function build(problems, { build: options }) {
         stage: webpack.Compilation.PROCESS_ASSETS_STAGE_REPORT,
       }),
       new webpack.DefinePlugin({
-        BAEKJOON_PROBLEM_NUMBER_WITH_PATH: JSON.stringify(resolve(entryDir, problem)),
+        BAEKJOON_PROBLEM_NUMBER_WITH_PATH: JSON.stringify(
+          resolve(resolvedEntryDir, problem),
+        ),
       }),
     ],
 
@@ -161,13 +171,14 @@ export default async function build(problems, { build: options }) {
     // resulting in only one file in the output directory.
     // Secondly, even if we use `webpackConfigs.output.clean` only once with the `map()` method's `index` parameter,
     // it cannot guarantee the build order and may lead to race conditions where files get deleted unpredictably.
-    if (options.clean) {
-      rmSync(outDir, { recursive: true, force: true });
+    if (clean) {
+      rmSync(resolvedOutDir, { recursive: true, force: true });
     }
 
     await new Promise((res, rej) => {
       webpack(webpackConfigs, (err, stats) => {
         if (err || stats.hasErrors()) {
+          // @ts-ignore -- TODO: Remove this line later.
           rej(new Error(err || stats.toString()));
         } else {
           res(stats);
@@ -180,7 +191,7 @@ export default async function build(problems, { build: options }) {
         spinner.success(success('Bananass build completed successfully.', false)),
       )
       .eol()
-      .log('Output Directory:', outDir)
+      .log('Output Directory:', resolvedOutDir)
       .log('Created:', problems.map(problem => `${problem}.js`).join(', '));
   } catch ({ message }) {
     logger.log(() => spinner.error());

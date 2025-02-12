@@ -8,6 +8,8 @@
 // --------------------------------------------------------------------------------
 
 import { loadConfig } from 'c12';
+
+import { findRootDir } from '../../fs/index.js';
 import { PKG_NAME } from '../../constants.js';
 
 // --------------------------------------------------------------------------------
@@ -23,20 +25,19 @@ import { PKG_NAME } from '../../constants.js';
 // --------------------------------------------------------------------------------
 
 /**
- * Load and merge configuration options.
+ * Load and merge configuration objects.
  *
  * - Merge priority: CLI config object > Config file config object > Default config object
- * - `{[key: number]: {[key: number]: string}}` object is used for testing.
  *
  * @param {object} configLoaderOptions
- * @param {string} configLoaderOptions.cwd Current working directory.
- * @param {ConfigObject | {[key: number]: {[key: number]: string}}} configLoaderOptions.cliConfigObject CLI config object.
- * @param {ConfigObject | {[key: number]: {[key: number]: string}}} configLoaderOptions.defaultConfigObject Default config object.
+ * @param {string} [configLoaderOptions.cwd] Current working directory.
+ * @param {ConfigObject} configLoaderOptions.cliConfigObject CLI config object.
+ * @param {ConfigObject} configLoaderOptions.defaultConfigObject Default config object.
  * @returns Merged configuration object.
  * @async
  */
 export default async function configLoader({
-  cwd = process.cwd(),
+  cwd = findRootDir(),
   cliConfigObject = {},
   defaultConfigObject = {},
 }) {

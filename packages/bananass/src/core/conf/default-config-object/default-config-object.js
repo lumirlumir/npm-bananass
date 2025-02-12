@@ -6,6 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import { findRootDir } from '../../fs/index.js';
 import { DEFAULT_ENTRY_DIR_NAME, DEFAULT_OUT_DIR_NAME } from '../../constants.js';
 
 // --------------------------------------------------------------------------------
@@ -13,63 +14,107 @@ import { DEFAULT_ENTRY_DIR_NAME, DEFAULT_OUT_DIR_NAME } from '../../constants.js
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').ConfigObjectAddOptions} ConfigObjectAddOptions
- * @typedef {import('../../types.js').ConfigObjectBuildOptions} ConfigObjectBuildOptions
- * @typedef {import('../../types.js').ConfigObjectCleanOptions} ConfigObjectCleanOptions
- * @typedef {import('../../types.js').ConfigObjectInfoOptions} ConfigObjectInfoOptions
- * @typedef {import('../../types.js').ConfigObjectInitOptions} ConfigObjectInitOptions
- * @typedef {import('../../types.js').ConfigObjectLintOptions} ConfigObjectLintOptions
- * @typedef {import('../../types.js').ConfigObjectLoginOptions} ConfigObjectLoginOptions
- * @typedef {import('../../types.js').ConfigObjectOpenOptions} ConfigObjectOpenOptions
- * @typedef {import('../../types.js').ConfigObjectRandomOptions} ConfigObjectRandomOptions
- * @typedef {import('../../types.js').ConfigObjectRunOptions} ConfigObjectRunOptions
- * @typedef {import('../../types.js').ConfigObjectSubmitOptions} ConfigObjectSubmitOptions
- * @typedef {import('../../types.js').ConfigObjectTestcaseOptions} ConfigObjectTestcaseOptions
+ * @typedef {import('../../types.js').ConfigObject} ConfigObject
+ *
+ * @typedef {import('../../types.js').ConfigObjectBrowser} ConfigObjectBrowser
+ * @typedef {import('../../types.js').ConfigObjectConsole} ConfigObjectConsole
+ *
+ * @typedef {import('../../types.js').ConfigObjectAdd} ConfigObjectAdd
+ * @typedef {import('../../types.js').ConfigObjectBuild} ConfigObjectBuild
+ * @typedef {import('../../types.js').ConfigObjectClean} ConfigObjectClean
+ * @typedef {import('../../types.js').ConfigObjectInfo} ConfigObjectInfo
+ * @typedef {import('../../types.js').ConfigObjectInit} ConfigObjectInit
+ * @typedef {import('../../types.js').ConfigObjectLint} ConfigObjectLint
+ * @typedef {import('../../types.js').ConfigObjectLogin} ConfigObjectLogin
+ * @typedef {import('../../types.js').ConfigObjectOpen} ConfigObjectOpen
+ * @typedef {import('../../types.js').ConfigObjectRandom} ConfigObjectRandom
+ * @typedef {import('../../types.js').ConfigObjectRun} ConfigObjectRun
+ * @typedef {import('../../types.js').ConfigObjectSubmit} ConfigObjectSubmit
+ * @typedef {import('../../types.js').ConfigObjectTestcase} ConfigObjectTestcase
  */
+
+// --------------------------------------------------------------------------------
+// Declarations
+// --------------------------------------------------------------------------------
+
+/* Global */
+
+/** @type {ConfigObjectBrowser} */
+const browser = {
+  browser: 'default',
+  secretMode: false,
+};
+
+/** @type {ConfigObjectConsole} */
+const console = {
+  debug: false,
+  quiet: false,
+};
+
+/* Exclusive */
+
+/** @type {ConfigObjectAdd} */
+const add = {};
+
+/** @type {ConfigObjectBuild} */
+const build = {
+  clean: false,
+  templateType: 'fs',
+};
+
+/** @type {ConfigObjectClean} */
+const clean = {};
+
+/** @type {ConfigObjectInfo} */
+const info = {};
+
+/** @type {ConfigObjectInit} */
+const init = {};
+
+/** @type {ConfigObjectLint} */
+const lint = {};
+
+/** @type {ConfigObjectLogin} */
+const login = {};
+
+/** @type {ConfigObjectOpen} */
+const open = {};
+
+/** @type {ConfigObjectRandom} */
+const random = {};
+
+/** @type {ConfigObjectRun} */
+const run = {};
+
+/** @type {ConfigObjectSubmit} */
+const submit = {};
+
+/** @type {ConfigObjectTestcase} */
+const testcase = {};
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {ConfigObjectAddOptions} */
-export const add = {};
-
-/** @type {ConfigObjectBuildOptions} */
-export const build = {
-  clean: false,
-  debug: false,
+/** @type {ConfigObject} */
+export default {
+  cwd: findRootDir(),
   entryDir: DEFAULT_ENTRY_DIR_NAME,
   outDir: DEFAULT_OUT_DIR_NAME,
-  quiet: false,
-  templateType: 'fs',
+
+  browser,
+  console,
+
+  add,
+  build,
+  clean,
+  info,
+  init,
+  lint,
+  login,
+  open,
+  random,
+  run,
+  submit,
+  testcase,
 };
-
-/** @type {ConfigObjectCleanOptions} */
-export const clean = {};
-
-/** @type {ConfigObjectInfoOptions} */
-export const info = {};
-
-/** @type {ConfigObjectInitOptions} */
-export const init = {};
-
-/** @type {ConfigObjectLintOptions} */
-export const lint = {};
-
-/** @type {ConfigObjectLoginOptions} */
-export const login = {};
-
-/** @type {ConfigObjectOpenOptions} */
-export const open = {};
-
-/** @type {ConfigObjectRandomOptions} */
-export const random = {};
-
-/** @type {ConfigObjectRunOptions} */
-export const run = {};
-
-/** @type {ConfigObjectSubmitOptions} */
-export const submit = {};
-
-/** @type {ConfigObjectTestcaseOptions} */
-export const testcase = {};
