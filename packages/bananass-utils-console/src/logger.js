@@ -10,6 +10,17 @@
 import c from 'ansi-colors';
 
 // --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
+/**
+ * @typedef {object} Options Logger options.
+ * @property {boolean} [debug] Enable debug mode.
+ * @property {boolean} [quiet] Enable quiet mode.
+ * @property {string | boolean} [textPrefix] Text prefix.
+ */
+
+// --------------------------------------------------------------------------------
 // Class
 // --------------------------------------------------------------------------------
 
@@ -18,13 +29,20 @@ class Logger {
   // Private Properties
   // ------------------------------------------------------------------------------
 
+  /** @type {boolean} */
   #debug;
+  /** @type {boolean} */
   #quiet;
+  /** @type {string | symbol} */
   #textPrefix;
+  /** @type {string} */
   #textPrefixDefault = '>';
+  /** @type {'log' | 'debug'} */
   #lastMethodCalled = 'log';
+  /** @type {symbol} */
   #undeclaredValue = Symbol('undeclared-value');
 
+  /** @param {Options} options */
   constructor(options = {}) {
     this.#debug = options.debug ?? false;
     this.#quiet = options.quiet ?? false;
@@ -41,10 +59,18 @@ class Logger {
   // ------------------------------------------------------------------------------
 
   /**
+   * Log a message or executes a callback.
    *
+   * The first parameter can be a message or a callback function.
+   * - If it's a function, it's invoked with subsequent arguments.
+   * - Otherwise, the message (with a configured text prefix) and additional arguments are logged.
    *
+   * Behavior based on `quiet` option:
    * - `quiet === true`: output X
    * - `quiet === false`: output O
+   *
+   * @param {...any} params
+   * @returns {Logger}
    */
   log(...params) {
     const textOrCallback =
@@ -73,11 +99,19 @@ class Logger {
   }
 
   /**
+   * Log a message or executes a callback in debug mode.
    *
+   * The first parameter can be a message or a callback function.
+   * - If it's a function, it's invoked with subsequent arguments.
+   * - Otherwise, the message (with a configured text prefix) and additional arguments are logged in debug mode.
    *
+   * Behavior based on `debug` and `quiet` options:
    * - `quiet === true`: output X
    * - `quiet === false && debug === true`: output O
    * - `quiet === false && debug === false`: output X
+   *
+   * @param {...any} params
+   * @returns {Logger}
    */
   debug(...params) {
     const textOrCallback =
@@ -106,6 +140,15 @@ class Logger {
     return this;
   }
 
+  /**
+   * Ends the current line by logging an empty line using the last method called.
+   *
+   * This method temporarily sets the text prefix to an undeclared value,
+   * then invokes either `log()` or `debug()` depending on the previously method called.
+   * After logging, it restores the original text prefix.
+   *
+   * @returns {Logger}
+   */
   eol() {
     const prevTextPrefix = this.#textPrefix;
     this.#textPrefix = this.#undeclaredValue;
@@ -121,6 +164,11 @@ class Logger {
     return this;
   }
 
+  /**
+   * Get the last method called.
+   *
+   * @returns {'log' | 'debug'}
+   */
   get lastMethodCalled() {
     return this.#lastMethodCalled;
   }
@@ -131,10 +179,13 @@ class Logger {
 // --------------------------------------------------------------------------------
 
 /**
+ * Creates a new `Logger` instance.
  *
- * @param {{textPrefix: string | boolean}} options
- * @param {string | boolean} options.textPrefix
- * @returns
+ * @param {Options} options
+ * @returns {Logger}
+ *
+ * @example
+ * import createLogger from 'bananass-utils-console/logger';
  */
 export default function createLogger(options) {
   return new Logger(options);
