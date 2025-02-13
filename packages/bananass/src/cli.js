@@ -11,19 +11,19 @@
 import { program } from 'commander';
 import {
   global,
-  bananassAdd,
-  bananassBuild,
-  bananassClean,
-  bananassHome,
-  bananassInfo,
-  bananassInit,
-  bananassLint,
-  bananassLogin,
-  bananassOpen,
-  bananassRandom,
-  bananassRun,
-  bananassSubmit,
-  bananassTestcase,
+  add,
+  build,
+  clean,
+  home,
+  info,
+  init,
+  lint,
+  login,
+  open,
+  random,
+  run,
+  submit,
+  testcase,
 } from './cli/index.js';
 
 // --------------------------------------------------------------------------------
@@ -31,19 +31,19 @@ import {
 // --------------------------------------------------------------------------------
 
 global(program);
-bananassAdd(program);
-bananassBuild(program);
-bananassClean(program);
-bananassHome(program);
-bananassInfo(program);
-bananassInit(program);
-bananassLint(program);
-bananassLogin(program);
-bananassOpen(program);
-bananassRandom(program);
-bananassRun(program);
-bananassSubmit(program);
-bananassTestcase(program);
+add(program);
+build(program);
+clean(program);
+home(program);
+info(program);
+init(program);
+lint(program);
+login(program);
+open(program);
+random(program);
+run(program);
+submit(program);
+testcase(program);
 
 // --------------------------------------------------------------------------------
 // Parse `commander`

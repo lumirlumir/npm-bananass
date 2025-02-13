@@ -25,6 +25,6 @@ import { warning } from 'bananass-utils-console/theme';
  *
  * @param {Command} program The `commander` package's `program`.
  */
-export default function bananassSubmit(program) {
+export default function submit(program) {
   program.command('submit').description(warning('TODO: Working in progress...🚧', false));
 }

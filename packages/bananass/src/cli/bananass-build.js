@@ -8,7 +8,7 @@
 
 import logger from 'bananass-utils-console/logger';
 
-import { build } from '../commands/index.js';
+import { build as buildCmd } from '../commands/index.js';
 import { configLoader, defaultConfigObject } from '../core/conf/index.js';
 
 import { build as buildDesc } from '../core/cli/descriptions.js';
@@ -41,7 +41,7 @@ import {
  *
  * @param {Command} program The `commander` package's `program`.
  */
-export default function bananassBuild(program) {
+export default function build(program) {
   program
     .command('build')
     .description(buildDesc)
@@ -84,6 +84,6 @@ export default function bananassBuild(program) {
         .debug('config object:', configObject)
         .eol();
 
-      await build(problems, configObject);
+      await buildCmd(problems, configObject);
     });
 }
