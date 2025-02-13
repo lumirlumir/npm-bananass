@@ -50,6 +50,6 @@
     "@stylistic/eslint-plugin-js": "^3.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-n": "^17.15.1",
-    "globals": "^15.14.0"
+    "globals": "^15.15.0"
   }
 }
