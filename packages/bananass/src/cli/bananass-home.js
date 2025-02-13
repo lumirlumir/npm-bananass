@@ -11,13 +11,13 @@ import logger from 'bananass-utils-console/logger';
 import { home } from '../commands/index.js';
 import { configLoader, defaultConfigObject } from '../core/conf/index.js';
 
-import { home as homeDesc } from '../core/commander/descriptions.js';
+import { home as homeDesc } from '../core/cli/descriptions.js';
 import {
   browser as browserOpt,
   secretMode as secretModeOpt,
   debug as debugOpt,
   quiet as quietOpt,
-} from '../core/commander/options.js';
+} from '../core/cli/options.js';
 
 // --------------------------------------------------------------------------------
 // Typedefs
