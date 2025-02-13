@@ -64,7 +64,7 @@ export default async function home(configObject) {
   try {
     await open(URL_HOMEPAGE, {
       app: {
-        name: apps[browser === 'default' ? 'browser' : browser],
+        name: apps[browser === 'default' ? 'browser' : browser], // TODO: Reduce redundancy
         arguments: secretMode ? ['--incognito', '--private-window', '--inPrivate'] : [],
       },
     });
