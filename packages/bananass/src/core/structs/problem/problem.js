@@ -1,14 +1,12 @@
 /**
- * @fileoverview `Problems` type struct.
+ * @fileoverview `Problem` type struct.
  */
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-import { array, nonempty, refine } from 'superstruct';
-
-import Problem from '../problem/index.js';
+import { refine, string } from 'superstruct';
 import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../constants.js';
 
 // --------------------------------------------------------------------------------
@@ -16,8 +14,8 @@ import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../constants.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').Problems} Problems
- * @typedef {import('superstruct').Struct<Problems>} ProblemsStruct
+ * @typedef {import('../../types.js').Problem} Problem
+ * @typedef {import('superstruct').Struct<Problem>} ProblemStruct
  */
 
 // --------------------------------------------------------------------------------
@@ -25,18 +23,18 @@ import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../constants.js';
 // --------------------------------------------------------------------------------
 
 /**
- * `Problems` type struct.
+ * `Problem` type struct.
  *
- * @type {ProblemsStruct}
+ * @type {ProblemStruct}
  */
-const Problems = refine(nonempty(array(Problem)), 'Problems', problems =>
-  problems.every(problem => Number(problem) >= BAEKJOON_PROBLEM_NUMBER_MIN)
+const Problem = refine(string(), 'Problem', problem =>
+  Number(problem) >= BAEKJOON_PROBLEM_NUMBER_MIN
     ? true
-    : `\`Problems\` must be Baekjoon problem numbers as a nonempty string array. Each problem number must be greater than or equal to \`${BAEKJOON_PROBLEM_NUMBER_MIN}\``,
+    : `\`Problem\` must be Baekjoon problem number as a string. Problem number must be greater than or equal to \`${BAEKJOON_PROBLEM_NUMBER_MIN}\``,
 );
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-export default Problems;
+export default Problem;

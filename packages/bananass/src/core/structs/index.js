@@ -24,6 +24,7 @@ import ConfigObjectRun from './config-object-run/index.js';
 import ConfigObjectSubmit from './config-object-submit/index.js';
 import ConfigObjectTestcase from './config-object-testcase/index.js';
 
+import Problem from './problem/index.js';
 import Problems from './problems/index.js';
 
 // --------------------------------------------------------------------------------
@@ -46,5 +47,6 @@ export {
   ConfigObjectRun,
   ConfigObjectSubmit,
   ConfigObjectTestcase,
+  Problem,
   Problems,
 };
