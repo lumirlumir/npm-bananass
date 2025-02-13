@@ -11,8 +11,8 @@ import logger from 'bananass-utils-console/logger';
 import { build } from '../commands/index.js';
 import { configLoader, defaultConfigObject } from '../core/conf/index.js';
 
-import { build as buildDesc } from '../core/commander/descriptions.js';
-import { problems as problemsArg } from '../core/commander/arguments.js';
+import { build as buildDesc } from '../core/cli/descriptions.js';
+import { problems as problemsArg } from '../core/cli/arguments.js';
 import {
   cwd as cwdOpt,
   entryDir as entryDirOpt,
@@ -21,7 +21,7 @@ import {
   quiet as quietOpt,
   clean as cleanOpt,
   templateType as templateTypeOpt,
-} from '../core/commander/options.js';
+} from '../core/cli/options.js';
 
 // --------------------------------------------------------------------------------
 // Typedefs
