@@ -8,7 +8,7 @@
 
 import logger from 'bananass-utils-console/logger';
 
-import { open } from '../commands/index.js';
+import { open as openCmd } from '../commands/index.js';
 import { configLoader, defaultConfigObject } from '../core/conf/index.js';
 
 import { open as openDesc } from '../core/cli/descriptions.js';
@@ -38,7 +38,7 @@ import {
  *
  * @param {Command} program The `commander` package's `program`.
  */
-export default function bananassOpen(program) {
+export default function open(program) {
   program
     .command('open')
     .description(openDesc)
@@ -75,6 +75,6 @@ export default function bananassOpen(program) {
         .debug('config object:', configObject)
         .eol();
 
-      await open(problems, configObject);
+      await openCmd(problems, configObject);
     });
 }

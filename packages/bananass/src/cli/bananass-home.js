@@ -8,7 +8,7 @@
 
 import logger from 'bananass-utils-console/logger';
 
-import { home } from '../commands/index.js';
+import { home as homeCmd } from '../commands/index.js';
 import { configLoader, defaultConfigObject } from '../core/conf/index.js';
 
 import { home as homeDesc } from '../core/cli/descriptions.js';
@@ -37,7 +37,7 @@ import {
  *
  * @param {Command} program The `commander` package's `program`.
  */
-export default function bananassHome(program) {
+export default function home(program) {
   program
     .command('home')
     .description(homeDesc)
@@ -72,6 +72,6 @@ export default function bananassHome(program) {
         .debug('config object:', configObject)
         .eol();
 
-      await home(configObject);
+      await homeCmd(configObject);
     });
 }
