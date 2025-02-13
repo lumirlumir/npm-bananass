@@ -1,5 +1,5 @@
 /**
- * @fileoverview Asynchronously open the official documentation homepage in a browser.
+ * @fileoverview Asynchronously open the given baekjoon problem numbers in a browser
  */
 
 // --------------------------------------------------------------------------------
@@ -11,14 +11,15 @@ import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, error, success } from 'bananass-utils-console/theme';
 import open, { apps } from 'open';
 
-import { ConfigObject } from '../../core/structs/index.js';
-import { URL_HOMEPAGE } from '../../core/constants.js';
+import { Problems, ConfigObject } from '../../core/structs/index.js';
+import { URL_BOJ_PROBLEM } from '../../core/constants.js';
 
 // --------------------------------------------------------------------------------
 // Typedefs
 // --------------------------------------------------------------------------------
 
 /**
+ * @typedef {import('../../core/types.js').Problems} Problems
  * @typedef {import('../../core/types.js').ConfigObject} ConfigObject
  */
 
@@ -27,16 +28,18 @@ import { URL_HOMEPAGE } from '../../core/constants.js';
 // --------------------------------------------------------------------------------
 
 /**
- * Asynchronously open the official documentation homepage in a browser.
+ * Asynchronously open the given baekjoon problem numbers in a browser
  *
+ * @param {Problems} problems
  * @param {ConfigObject} configObject
  * @async
  */
-export default async function home(configObject) {
+export default async function home(problems, configObject) {
   // ------------------------------------------------------------------------------
   // Runtime Validation
   // ------------------------------------------------------------------------------
 
+  Problems.assert(problems);
   ConfigObject.assert(configObject);
 
   // ------------------------------------------------------------------------------
@@ -62,12 +65,18 @@ export default async function home(configObject) {
   // ------------------------------------------------------------------------------
 
   try {
-    await open(URL_HOMEPAGE, {
-      app: {
-        name: apps[browser === 'default' ? 'browser' : browser], // TODO: Reduce redundancy
-        arguments: secretMode ? ['--incognito', '--private-window', '--inPrivate'] : [],
-      },
-    });
+    await Promise.all(
+      problems.map(problem =>
+        open(URL_BOJ_PROBLEM(problem), {
+          app: {
+            name: apps[browser === 'default' ? 'browser' : browser], // TODO: Reduce redundancy
+            arguments: secretMode
+              ? ['--incognito', '--private-window', '--inPrivate']
+              : [],
+          },
+        }),
+      ),
+    );
 
     logger.log(() => spinner.success(success('Opened in a browser', false)));
   } catch ({ message }) {

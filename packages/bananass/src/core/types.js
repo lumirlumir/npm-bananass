@@ -99,7 +99,11 @@
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {string[]} Problems Nonempty string array of Baekjoon problem numbers. Each problem number must be greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
+ * @typedef {string} Problem Baekjoon problem number as a string. Problem number must be greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
+ */
+
+/**
+ * @typedef {Problem[]} Problems Baekjoon problem numbers as a nonempty string array. Each problem number must be greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
  */
 
 // --------------------------------------------------------------------------------

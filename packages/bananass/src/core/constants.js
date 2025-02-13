@@ -9,6 +9,14 @@
 import { createRequire } from 'node:module';
 
 // --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
+/**
+ * @typedef {import('./types.js').Problem} Problem
+ */
+
+// --------------------------------------------------------------------------------
 // Declaration
 // --------------------------------------------------------------------------------
 
@@ -41,6 +49,10 @@ export const URL_GITHUB_REPO = 'https://github.com/lumirlumir/npm-bananass';
 export const URL_GITHUB_ISSUES = `${URL_GITHUB_REPO}/issues`;
 /** @type {string} */
 export const URL_GITHUB_DISCUSSIONS = `${URL_GITHUB_REPO}/discussions`;
+/** @type {string} */
+export const URL_BOJ_MAIN = 'https://www.acmicpc.net';
+/** @param {Problem} problem */
+export const URL_BOJ_PROBLEM = problem => `${URL_BOJ_MAIN}/problem/${problem}`;
 
 /** @type {string} */
 export const DEFAULT_ENTRY_DIR_NAME = name;
