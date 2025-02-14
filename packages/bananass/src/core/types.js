@@ -62,6 +62,7 @@
 
 /**
  * @typedef {object} ConfigObjectInfo Options exclusive to the `bananass info` command.
+ * @property {boolean} [all] Show all information including Not Found.
  */
 
 /**

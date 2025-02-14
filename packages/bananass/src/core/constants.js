@@ -78,6 +78,16 @@ export const WEBPACK_BANNER = `
 // Export `string[]`
 // --------------------------------------------------------------------------------
 
+export const BANANASS_PKG_NAMES = [
+  'bananass',
+  'bananass-utils-console',
+  'bananass-utils-vitepress',
+  'create-bananass',
+  'eslint-config-bananass',
+  'eslint-config-bananass-react',
+  'prettier-config-bananass',
+];
+
 export const SUPPORTED_SOLUTION_FILE_EXTENSIONS = [
   '.js',
   '.mjs',

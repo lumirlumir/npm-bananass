@@ -21,6 +21,9 @@ export const discussion = 'open the github discussions in a browser';
 /** @type {string} */
 export const home = 'open the official documentation homepage in a browser';
 /** @type {string} */
+export const info =
+  'print relevant details about the current system which can be used to report bugs';
+/** @type {string} */
 export const open = 'open the given baekjoon problem numbers in a browser';
 /** @type {string} */
 export const repo = 'open the github repository in a browser';

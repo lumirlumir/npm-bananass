@@ -74,6 +74,13 @@ export const clean = [
 ];
 /** @type {[string, string]} */
 export const templateType = [
-  '-T, --template-type <type>',
+  '-t, --template-type <type>',
   `webpack entry file template type. select from \`fs\` (file system) or \`rl\` (read line) ${formatDefaultValue(dco.build.templateType)}`,
+];
+
+// info
+/** @type {[string, string]} */
+export const all = [
+  '-a, --all',
+  `show all information including not found ${formatDefaultValue(dco.info.all)}`,
 ];

@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { object } from 'superstruct';
+import { boolean, object } from 'superstruct';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -26,7 +26,9 @@ import { object } from 'superstruct';
  *
  * @type {ConfigObjectInfoStruct}
  */
-const ConfigObjectInfo = object({});
+const ConfigObjectInfo = object({
+  all: boolean(),
+});
 
 // --------------------------------------------------------------------------------
 // Export
