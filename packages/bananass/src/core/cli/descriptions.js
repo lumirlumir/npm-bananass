@@ -18,3 +18,5 @@ export const build = `build and create bundled files using webpack and esbuild f
 export const home = 'open the official documentation homepage in a browser';
 
 export const open = 'open the given baekjoon problem numbers in a browser';
+
+export const repo = 'open the github repository in a browser';
