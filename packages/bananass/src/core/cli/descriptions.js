@@ -14,9 +14,11 @@ import { defaultConfigObject as dco } from '../conf/index.js';
 
 /** @type {string} */
 export const build = `build and create bundled files using webpack and esbuild from the \`${dco.entryDir}\` directory and outputs them to the \`${dco.outDir}\` directory`;
-
+/** @type {string} */
+export const discussion = 'open the github discussions in a browser';
+/** @type {string} */
 export const home = 'open the official documentation homepage in a browser';
-
+/** @type {string} */
 export const open = 'open the given baekjoon problem numbers in a browser';
-
+/** @type {string} */
 export const repo = 'open the github repository in a browser';
