@@ -67,7 +67,7 @@ export default function open(program) {
         defaultConfigObject,
       });
 
-      logger(options)
+      logger(configObject.console)
         .debug('command:', command.name())
         .debug('problems:', problems)
         .debug('cli options:', options)
