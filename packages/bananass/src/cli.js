@@ -12,6 +12,7 @@ import { program } from 'commander';
 import {
   global,
   add,
+  bug,
   build,
   clean,
   discussion,
@@ -34,6 +35,7 @@ import {
 
 global(program);
 add(program);
+bug(program);
 build(program);
 clean(program);
 discussion(program);
