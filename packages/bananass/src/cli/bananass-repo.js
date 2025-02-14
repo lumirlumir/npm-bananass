@@ -65,7 +65,7 @@ export default function repo(program) {
         defaultConfigObject,
       });
 
-      logger(options)
+      logger(configObject.console)
         .debug('command:', command.name())
         .debug('cli options:', options)
         .debug('cli config object:', cliConfigObject)
