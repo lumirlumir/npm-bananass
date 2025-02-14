@@ -32,7 +32,7 @@ import { URL_GITHUB_ISSUES } from '../../core/constants.js';
  * @param {ConfigObject} configObject
  * @async
  */
-export default async function repo(configObject) {
+export default async function bug(configObject) {
   // ------------------------------------------------------------------------------
   // Runtime Validation
   // ------------------------------------------------------------------------------
