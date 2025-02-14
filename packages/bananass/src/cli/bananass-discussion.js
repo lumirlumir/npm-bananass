@@ -1,5 +1,5 @@
 /**
- * @fileoverview CLI `repo` command.
+ * @fileoverview CLI `discussion` command.
  */
 
 // --------------------------------------------------------------------------------
@@ -8,10 +8,10 @@
 
 import logger from 'bananass-utils-console/logger';
 
-import { repo as repoCmd } from '../commands/index.js';
+import { discussion as discussionCmd } from '../commands/index.js';
 import { configLoader, defaultConfigObject } from '../core/conf/index.js';
 
-import { repo as repoDesc } from '../core/cli/descriptions.js';
+import { discussion as discussionDesc } from '../core/cli/descriptions.js';
 import {
   browser as browserOpt,
   secretMode as secretModeOpt,
@@ -33,14 +33,17 @@ import {
 // --------------------------------------------------------------------------------
 
 /**
- * Repo: `npx bananass repo` command.
+ * Discussion: `npx bananass discussion` command.
  *
  * @param {Command} program The `commander` package's `program`.
  */
-export default function repo(program) {
+export default function discussion(program) {
   program
-    .command('repo')
-    .description(repoDesc)
+    .command('discussion')
+    .alias('discussions')
+    .alias('discuss')
+    .alias('disc')
+    .description(discussionDesc)
     .option(...browserOpt)
     .option(...secretModeOpt)
     .option(...debugOpt)
@@ -72,6 +75,6 @@ export default function repo(program) {
         .debug('config object:', configObject)
         .eol();
 
-      await repoCmd(configObject);
+      await discussionCmd(configObject);
     });
 }
