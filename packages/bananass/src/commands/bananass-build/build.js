@@ -96,7 +96,7 @@ export default async function build(problems, configObject) {
 
         /** @see https://webpack.js.org/configuration/resolve/#resolveextensions */
         resolve: {
-          extensions: SUPPORTED_SOLUTION_FILE_EXTENSIONS,
+          extensions: SUPPORTED_SOLUTION_FILE_EXTENSIONS, // TODO: reduce redundancy
         },
 
         /** @see https://webpack.js.org/concepts/#entry */

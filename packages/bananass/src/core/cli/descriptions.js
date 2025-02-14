@@ -27,3 +27,5 @@ export const info =
 export const open = 'open the given baekjoon problem numbers in a browser';
 /** @type {string} */
 export const repo = 'open the github repository in a browser';
+/** @type {string} */
+export const run = 'run generated testcases and compare them with the expected outputs';
