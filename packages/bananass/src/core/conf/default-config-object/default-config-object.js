@@ -66,7 +66,9 @@ const build = {
 const clean = {};
 
 /** @type {ConfigObjectInfo} */
-const info = {};
+const info = {
+  all: false,
+};
 
 /** @type {ConfigObjectInit} */
 const init = {};
