@@ -108,6 +108,28 @@
  */
 
 // --------------------------------------------------------------------------------
+
+/**
+ * @typedef {object} SolutionWithTestcases Object containing `solution` function and `testcases`.
+ * @property {Solution} solution Solution function.
+ * @property {Testcases} testcases Testcases array.
+ */
+
+/**
+ * @typedef {function} Solution Solution function.
+ */
+
+/**
+ * @typedef {object} Testcase Testcase object.
+ * @property {string} input Input string.
+ * @property {number | string} output Output number or string.
+ */
+
+/**
+ * @typedef {Testcase[]} Testcases Testcases array.
+ */
+
+// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
