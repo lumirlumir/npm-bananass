@@ -110,9 +110,9 @@
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {object} SolutionWithTestcases Object containing `solution` function and `testcases`.
+ * @typedef {object} SolutionWithTestcases Wrapper object containing `solution` function and `testcases`.
  * @property {Solution} solution Solution function.
- * @property {Testcases} testcases Testcases array.
+ * @property {Testcases} [testcases] Testcases array.
  */
 
 /**
