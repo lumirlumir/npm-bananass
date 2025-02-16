@@ -357,11 +357,11 @@ module.exports = {
   /**
    * Disallow the use of `console`.
    *
-   * @description I've changed the rule to `'off'` from `'error'`.
+   * @description I've changed the rule to `'warn'` from `'error'`.
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-console}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/errors.js#L27}
    */
-  'no-console': 'off',
+  'no-console': 'warn',
 
   /**
    * Disallow `continue` statements.
