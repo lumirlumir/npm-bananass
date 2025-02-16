@@ -4,6 +4,11 @@
   "type": "module",
   "description": "Baekjoon Framework for JavaScript.🍌",
   "exports": {
+    ".": {
+      "types": "./build/public/index.d.ts",
+      "import": "./src/public/index.js",
+      "require": "./src/public/index.cjs"
+    },
     "./core/structs": {
       "types": "./build/core/structs/index.d.ts",
       "default": "./src/core/structs/index.js"
@@ -17,6 +22,16 @@
       "default": "./src/core/types.js"
     },
     "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./build/*"
+      ],
+      ".": [
+        "./build/public/index.d.ts"
+      ]
+    }
   },
   "bin": {
     "b": "src/cli.js",
