@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { bigint, boolean, number, object, string, union } from 'superstruct';
+import { boolean, number, object, string, union } from 'superstruct';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -28,7 +28,7 @@ import { bigint, boolean, number, object, string, union } from 'superstruct';
  */
 const Testcase = object({
   input: string(),
-  output: union([number(), string(), boolean(), bigint()]),
+  output: union([number(), string(), boolean()]),
 });
 
 // --------------------------------------------------------------------------------

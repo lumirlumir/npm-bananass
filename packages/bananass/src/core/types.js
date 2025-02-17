@@ -122,8 +122,8 @@
 /**
  * @typedef {object} Testcase Testcase object.
  * @property {string} input Input string.
- * @property {number | string | boolean | bigint} output
- * Output value. It can be a primitive type except for `symbol`, `undefined`, and `null`.
+ * @property {number | string | boolean} output
+ * Output value. It can be a primitive type except for `bigint`, `symbol`, `undefined`, and `null`.
  *
  * Output values will be **coerced to a `string`** before comparison using the `bananass run` command.
  * (This behavior mimics how `console.log` converts values to a `string` before displaying them.)
