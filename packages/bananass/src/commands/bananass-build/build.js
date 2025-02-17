@@ -119,7 +119,9 @@ export default async function build(problems, configObject) {
           new webpack.DefinePlugin({
             BAEKJOON_PROBLEM_NUMBER_WITH_PATH: JSON.stringify(
               resolve(resolvedEntryDir, problem),
-            ),
+            ), // TODO: `globalThis.BAEKJOON_PROBLEM_NUMBER_WITH_PATH`.
+
+            'globalThis.IS_PROD': JSON.stringify(true), // Same with `process.env.NODE_ENV === 'production'`.
           }),
         ],
 
