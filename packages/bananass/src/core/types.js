@@ -116,7 +116,9 @@
  */
 
 /**
- * @typedef {function} Solution Solution function.
+ * @callback Solution Solution function.
+ * @param {Testcase['input']} input
+ * @return {Testcase['output']}
  */
 
 /**
