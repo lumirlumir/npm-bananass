@@ -174,9 +174,7 @@ export default async function build(problems, configObject) {
     });
 
     logger
-      .log(() =>
-        spinner.success(success('Bananass build completed successfully.', false)),
-      )
+      .log(() => spinner.success(success('Bananass build completed successfully', false)))
       .eol()
       .log('Output Directory:', resolvedOutDir)
       .log('Created:', problems.map(problem => `${problem}.js`).join(', '));
