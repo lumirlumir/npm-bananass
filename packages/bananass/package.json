@@ -5,9 +5,7 @@
   "description": "Baekjoon Framework for JavaScript.🍌",
   "exports": {
     ".": {
-      "types": "./build/public/index.d.ts",
-      "import": "./src/public/index.js",
-      "require": "./src/public/index.cjs"
+      "types": "./build/core/types.d.ts"
     },
     "./core/structs": {
       "types": "./build/core/structs/index.d.ts",
@@ -29,7 +27,7 @@
         "./build/*"
       ],
       ".": [
-        "./build/public/index.d.ts"
+        "./build/core/types.d.ts"
       ]
     }
   },
@@ -77,6 +75,7 @@
   "dependencies": {
     "bananass-utils-console": "^0.0.0",
     "c12": "^2.0.2",
+    "chalk": "^5.4.1",
     "commander": "^13.1.0",
     "consola": "^3.4.0",
     "enhanced-resolve": "^5.18.1",
