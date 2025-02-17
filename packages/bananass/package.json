@@ -77,7 +77,6 @@
     "c12": "^2.0.2",
     "chalk": "^5.4.1",
     "commander": "^13.1.0",
-    "consola": "^3.4.0",
     "enhanced-resolve": "^5.18.1",
     "envinfo": "^7.14.0",
     "esbuild-loader": "^4.3.0",
