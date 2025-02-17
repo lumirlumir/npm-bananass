@@ -27,6 +27,7 @@ updates:
         patterns:
           - 'next'
           - '@next/*'
+    open-pull-requests-limit: 3
     reviewers:
       - 'lumirlumir'
     schedule:
@@ -46,6 +47,7 @@ updates:
       include: 'scope'
     # Workflow files stored in the default location of `.github/workflows`. (You don't need to specify `/.github/workflows` for `directory`. You can use `directory: "/"`.)
     directory: '/'
+    open-pull-requests-limit: 3
     reviewers:
       - 'lumirlumir'
     schedule:
