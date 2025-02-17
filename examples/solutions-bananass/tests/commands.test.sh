@@ -21,4 +21,5 @@ echo
 echo '> run `npx bananass build` command'
 echo
 
-npx bananass build $(ls $entry_dir | sed 's/\.[^.]*$//')
+npx bananass build $(ls $entry_dir | sed 's/\.[^.]*$//') # `fs` template.
+npx bananass build $(ls $entry_dir | sed 's/\.[^.]*$//') --template-type rl # `rl` template.
