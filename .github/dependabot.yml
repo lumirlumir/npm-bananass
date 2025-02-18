@@ -13,6 +13,7 @@ updates:
     groups:
       bananass:
         patterns:
+          - 'bananass-utils-vitepress'
           - 'eslint-config-bananass'
           - 'eslint-config-bananass-react'
           - 'prettier-config-bananass'
