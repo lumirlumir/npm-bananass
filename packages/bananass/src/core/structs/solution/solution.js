@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { func } from 'superstruct';
+import { func, refine } from 'superstruct';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -25,8 +25,12 @@ import { func } from 'superstruct';
  * `Solution` type struct.
  *
  * @type {SolutionStruct}
- */
-const Solution = func();
+ */ // @ts-ignore -- TODO: Remove this line.
+const Solution = refine(func(), 'Solution', solutionFunc =>
+  solutionFunc.length === 1
+    ? true
+    : `\`Solution\` must be a function that takes one parameter`,
+);
 
 // --------------------------------------------------------------------------------
 // Export
