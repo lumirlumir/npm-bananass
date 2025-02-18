@@ -6,14 +6,13 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { Problem, SolutionWithTestcases, Testcase } from '../../core/structs/index.js';
+import { SolutionWithTestcases, Testcase } from '../../core/structs/index.js';
 
 // --------------------------------------------------------------------------------
 // Typedefs
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../core/types.js').Problem} Problem
  * @typedef {import('../../core/types.js').SolutionWithTestcases} SolutionWithTestcases
  */
 
@@ -24,15 +23,13 @@ import { Problem, SolutionWithTestcases, Testcase } from '../../core/structs/ind
 /**
  * Test runner. Return an object with test results.
  *
- * @param {Problem} problem
  * @param {SolutionWithTestcases} solutionWithTestcases
  */
-export default function testRunner(problem, solutionWithTestcases) {
+export default function testRunner(solutionWithTestcases) {
   // ------------------------------------------------------------------------------
   // Runtime Validation
   // ------------------------------------------------------------------------------
 
-  Problem.assert(problem);
   SolutionWithTestcases.assert(solutionWithTestcases);
 
   // ------------------------------------------------------------------------------
@@ -50,23 +47,31 @@ export default function testRunner(problem, solutionWithTestcases) {
 
     const outputExpected = String(output);
     const outputActual = String(solution(input));
-    const result = Object.is(outputExpected, outputActual);
+    const isTestPassed = Object.is(outputExpected, outputActual);
 
     return {
       input,
       outputExpected,
       outputActual,
-      result,
+      isTestPassed,
     };
   });
+
+  const numberOfTests = testcases.length;
+  const numberOfTestsPassed = results.filter(({ isTestPassed }) => isTestPassed).length;
+  const numberOfTestsFailed = numberOfTests - numberOfTestsPassed;
+
+  const isAllTestsPassed = numberOfTests === numberOfTestsPassed;
 
   // ------------------------------------------------------------------------------
   // Return
   // ------------------------------------------------------------------------------
 
   return {
-    /** @type {Problem} */
-    problem,
     results,
+    numberOfTests,
+    numberOfTestsPassed,
+    numberOfTestsFailed,
+    isAllTestsPassed,
   };
 }
