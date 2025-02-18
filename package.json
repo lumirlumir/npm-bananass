@@ -43,6 +43,7 @@
     "dev:ws:vp": "npm run dev -w websites/vitepress",
     "start": "npm run start:ws:vp",
     "start:ws:vp": "npm run start -w websites/vitepress",
+    "run:ex:sb": "npm run bananass:run -w examples/solutions-bananass",
     "fix": "concurrently \"npm:fix:*\"",
     "fix:eslint": "npx eslint --fix",
     "fix:prettier": "npx prettier . --write",

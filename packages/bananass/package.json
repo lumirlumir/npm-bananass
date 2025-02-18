@@ -4,6 +4,9 @@
   "type": "module",
   "description": "Baekjoon Framework for JavaScript.🍌",
   "exports": {
+    ".": {
+      "types": "./build/core/types.d.ts"
+    },
     "./core/structs": {
       "types": "./build/core/structs/index.d.ts",
       "default": "./src/core/structs/index.js"
@@ -17,6 +20,16 @@
       "default": "./src/core/types.js"
     },
     "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./build/*"
+      ],
+      ".": [
+        "./build/core/types.d.ts"
+      ]
+    }
   },
   "bin": {
     "b": "src/cli.js",
@@ -62,10 +75,12 @@
   "dependencies": {
     "bananass-utils-console": "^0.0.0",
     "c12": "^2.0.2",
+    "chalk": "^5.4.1",
     "commander": "^13.1.0",
-    "consola": "^3.4.0",
+    "enhanced-resolve": "^5.18.1",
     "envinfo": "^7.14.0",
     "esbuild-loader": "^4.3.0",
+    "jiti": "^2.4.2",
     "open": "^10.1.0",
     "superstruct": "^2.0.2",
     "webpack": "^5.98.0"

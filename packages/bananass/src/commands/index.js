@@ -13,9 +13,10 @@ import home from './bananass-home/index.js';
 import info from './bananass-info/index.js';
 import open from './bananass-open/index.js';
 import repo from './bananass-repo/index.js';
+import run from './bananass-run/index.js';
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-export { bug, build, discussion, home, info, open, repo };
+export { bug, build, discussion, home, info, open, repo, run };

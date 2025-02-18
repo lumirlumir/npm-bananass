@@ -1,4 +1,17 @@
-const { log } = require('node:console');
+const testcases = [
+  {
+    input: '1 1',
+    output: '0.5',
+  },
+  {
+    input: '2 3',
+    output: '3.0',
+  },
+  {
+    input: '4 5',
+    output: '10.0',
+  },
+];
 
 function solution(input) {
   const [W, H] = input
@@ -8,7 +21,7 @@ function solution(input) {
 
   const width = (W * H) / 2;
 
-  log(width.toFixed(1));
+  return width.toFixed(1); // `toFixed` returns a string.
 }
 
-module.exports = solution;
+module.exports = globalThis.IS_PROD ? { solution } : { solution, testcases };

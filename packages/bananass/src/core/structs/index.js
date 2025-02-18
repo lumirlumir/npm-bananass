@@ -27,6 +27,11 @@ import ConfigObjectTestcase from './config-object-testcase/index.js';
 import Problem from './problem/index.js';
 import Problems from './problems/index.js';
 
+import SolutionWithTestcases from './solution-with-testcases/index.js';
+import Solution from './solution/index.js';
+import Testcase from './testcase/index.js';
+import Testcases from './testcases/index.js';
+
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
@@ -49,4 +54,8 @@ export {
   ConfigObjectTestcase,
   Problem,
   Problems,
+  SolutionWithTestcases,
+  Solution,
+  Testcase,
+  Testcases,
 };

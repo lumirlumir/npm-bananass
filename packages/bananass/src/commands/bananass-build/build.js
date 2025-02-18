@@ -96,7 +96,7 @@ export default async function build(problems, configObject) {
 
         /** @see https://webpack.js.org/configuration/resolve/#resolveextensions */
         resolve: {
-          extensions: SUPPORTED_SOLUTION_FILE_EXTENSIONS,
+          extensions: SUPPORTED_SOLUTION_FILE_EXTENSIONS, // TODO: reduce redundancy
         },
 
         /** @see https://webpack.js.org/concepts/#entry */
@@ -119,7 +119,9 @@ export default async function build(problems, configObject) {
           new webpack.DefinePlugin({
             BAEKJOON_PROBLEM_NUMBER_WITH_PATH: JSON.stringify(
               resolve(resolvedEntryDir, problem),
-            ),
+            ), // TODO: `globalThis.BAEKJOON_PROBLEM_NUMBER_WITH_PATH`.
+
+            'globalThis.IS_PROD': JSON.stringify(true), // Same with `process.env.NODE_ENV === 'production'`.
           }),
         ],
 
@@ -172,9 +174,7 @@ export default async function build(problems, configObject) {
     });
 
     logger
-      .log(() =>
-        spinner.success(success('Bananass build completed successfully.', false)),
-      )
+      .log(() => spinner.success(success('Bananass build completed successfully', false)))
       .eol()
       .log('Output Directory:', resolvedOutDir)
       .log('Created:', problems.map(problem => `${problem}.js`).join(', '));

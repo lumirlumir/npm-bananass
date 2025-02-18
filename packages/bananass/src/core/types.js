@@ -108,6 +108,36 @@
  */
 
 // --------------------------------------------------------------------------------
+
+/**
+ * @typedef {object} SolutionWithTestcases Wrapper object containing `solution` function and `testcases`.
+ * @property {Solution} solution Solution function.
+ * @property {Testcases} [testcases] Testcases array.
+ */
+
+/**
+ * @callback Solution Solution function.
+ * @param {Testcase['input']} input
+ * @return {Testcase['output']}
+ */
+
+/**
+ * @typedef {object} Testcase Testcase object.
+ * @property {string} input Input string.
+ * @property {number | string | boolean} output
+ * Output value. It can be a primitive type except for `bigint`, `symbol`, `undefined`, and `null`.
+ *
+ * Output values will be **coerced to a `string`** when running the `bananass run` command.
+ * (This behavior mimics how `console.log` converts values to a `string` before displaying them.)
+ *
+ * Note that `bigint` is not allowed, as `console.log(BigInt(1))` outputs `1n`, whereas `console.log(String(BigInt(1)))` outputs `1`, which have different representations.
+ */
+
+/**
+ * @typedef {Testcase[]} Testcases Testcases array.
+ */
+
+// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 

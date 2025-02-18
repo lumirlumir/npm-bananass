@@ -1,4 +1,17 @@
-const { log } = require('node:console');
+const testcases = [
+  {
+    input: '1 2',
+    output: '3',
+  },
+  {
+    input: '3 4',
+    output: '7',
+  },
+  {
+    input: '5 6',
+    output: '11',
+  },
+];
 
 function solution(input) {
   const [a, b] = input
@@ -6,7 +19,7 @@ function solution(input) {
     .split(' ')
     .map(val => Number(val));
 
-  log(a + b);
+  return a + b;
 }
 
-module.exports = solution;
+module.exports = globalThis.IS_PROD ? { solution } : { solution, testcases };
