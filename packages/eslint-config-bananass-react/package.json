@@ -41,6 +41,9 @@
   "bugs": {
     "url": "https://github.com/lumirlumir/npm-bananass/issues"
   },
+  "publishConfig": {
+    "provenance": true
+  },
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "shx cp ../../LICENSE.md ../../README.md .",
