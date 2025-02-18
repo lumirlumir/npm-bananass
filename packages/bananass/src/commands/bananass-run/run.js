@@ -1,5 +1,7 @@
 /**
  * @fileoverview Asynchronously run generated testcases and compare them with the expected outputs.
+ *
+ * Note that `Array.prototype.map` is stable, meaning that the order of the elements in the original array is preserved.
  */
 
 // --------------------------------------------------------------------------------
@@ -117,25 +119,31 @@ export default async function run(problems, configObject) {
   // ------------------------------------------------------------------------------
 
   try {
-    testResults = importedModules.map((importedModule, index) =>
-      testRunner(problems[index], importedModule),
-    );
+    testResults = importedModules.map(importedModule => testRunner(importedModule));
   } catch ({ message }) {
     logger.log(() => spinner.error(error('Failed to run tests', false)));
 
     throw new Error(error(message, false));
   }
 
+  const hasFailedTests = testResults.some(({ isAllTestsPassed }) => !isAllTestsPassed);
+
   // ------------------------------------------------------------------------------
   // Log Results
   // ------------------------------------------------------------------------------
 
   logger
-    .log(() => spinner.success(success('Bananass run completed successfully', false)))
+    .log(() =>
+      hasFailedTests
+        ? spinner.error(
+            error('Bananass run completed with errors due to failed tests', false),
+          )
+        : spinner.success(success('Bananass run completed successfully', false)),
+    )
     .eol();
 
-  testResults.forEach(({ problem, results }) => {
-    logger.log(chalk.cyan.bold(`PROBLEM:`, chalk.green.bold(problem)));
+  testResults.forEach(({ results }, idx) => {
+    logger.log(chalk.cyan.bold(`PROBLEM:`, chalk.green.bold(problems[idx])));
 
     results.forEach(({ input, outputExpected, outputActual }, index, thisArg) => {
       logger
@@ -165,11 +173,11 @@ export default async function run(problems, configObject) {
       }
     });
 
-    results.forEach(({ result }, index) => {
+    results.forEach(({ isTestPassed }, index) => {
       logger.log(
         '\u2022',
         chalk.cyan.bold(`TESTCASE`, chalk.underline(`#${index + 1}`)),
-        result ? chalk.green.bold('PASSED') : chalk.red.bold('FAILED'),
+        isTestPassed ? chalk.green.bold('PASSED') : chalk.red.bold('FAILED'),
       );
     });
   });
@@ -178,4 +186,10 @@ export default async function run(problems, configObject) {
   // U+2022: "Bullet" (•)
   // U+2500: "Box Drawings Light Horizontal" (━)
   // U+2501: "Box Drawings Heavy Horizontal" (━)
+
+  // ------------------------------------------------------------------------------
+  // Exit with Code
+  // ------------------------------------------------------------------------------
+
+  if (hasFailedTests) process.exit(1);
 }
