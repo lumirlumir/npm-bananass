@@ -11,19 +11,14 @@
 
 const { browser, builtin, es2025, node, jest, vitest, mocha } = require('globals');
 
-const nodePlugin = require('eslint-plugin-n');
 const importPlugin = require('eslint-plugin-import');
+const nodePlugin = require('eslint-plugin-n');
 const stylisticJsPlugin = require('@stylistic/eslint-plugin-js');
 
-const eslintLayoutFormatting = require('../rules/eslint-layout-formatting');
-const eslintPossibleProblems = require('../rules/eslint-possible-problems');
-const eslintSuggestions = require('../rules/eslint-suggestions');
-const n = require('../rules/node');
-const importHelpfulWarnings = require('../rules/import-helpful-warnings');
-const importModuleSystems = require('../rules/import-module-systems');
-const importStaticAnalysis = require('../rules/import-static-analysis');
-const importStyleGuide = require('../rules/import-style-guide');
-const stylisticJs = require('../rules/stylistic-js');
+const eslintRules = require('../rules/eslint');
+const importRules = require('../rules/import');
+const nodeRules = require('../rules/node');
+const stylisticJsRules = require('../rules/stylistic-js');
 
 // --------------------------------------------------------------------------------
 // Exports
@@ -48,14 +43,9 @@ module.exports = {
     '@stylistic/js': stylisticJsPlugin,
   },
   rules: {
-    ...eslintLayoutFormatting,
-    ...eslintPossibleProblems,
-    ...eslintSuggestions,
-    ...n,
-    ...importHelpfulWarnings,
-    ...importModuleSystems,
-    ...importStaticAnalysis,
-    ...importStyleGuide,
-    ...stylisticJs,
+    ...eslintRules,
+    ...importRules,
+    ...nodeRules,
+    ...stylisticJsRules,
   },
 };
