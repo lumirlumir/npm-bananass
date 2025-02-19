@@ -41,7 +41,6 @@
     "LICENSE.md",
     "README.md",
     "!src/**/*.test.js",
-    "!src/**/*.spec.js",
     "!**/fixtures/**"
   ],
   "keywords": [

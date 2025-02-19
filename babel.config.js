@@ -7,7 +7,7 @@ module.exports = {
       },
     ],
   ],
-  ignore: ['**/*.test.js', '**/*.spec.js'],
+  ignore: ['**/*.test.js'],
   minified: true,
   comments: false,
 };

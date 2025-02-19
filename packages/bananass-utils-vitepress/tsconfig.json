@@ -8,5 +8,5 @@
     "moduleResolution": "Node"
   },
   "include": ["src/**/*.js"],
-  "exclude": ["src/**/*.test.js", "src/**/*.spec.js"]
+  "exclude": ["src/**/*.test.js"]
 }
