@@ -6,15 +6,15 @@
   "exports": {
     "./logger": {
       "types": "./build/logger.d.ts",
-      "default": "./build/logger.js"
+      "default": "./src/logger.js"
     },
     "./spinner": {
       "types": "./build/spinner.d.ts",
-      "default": "./build/spinner.js"
+      "default": "./src/spinner.js"
     },
     "./theme": {
       "types": "./build/theme.d.ts",
-      "default": "./build/theme.js"
+      "default": "./src/theme.js"
     },
     "./package.json": "./package.json"
   },
@@ -35,9 +35,12 @@
     }
   },
   "files": [
+    "src",
     "build",
     "LICENSE.md",
-    "README.md"
+    "README.md",
+    "!src/**/*.test.js",
+    "!**/fixtures/**"
   ],
   "keywords": [
     "bananass",
@@ -46,6 +49,7 @@
     "javascript",
     "utils",
     "console",
+    "icon",
     "logger",
     "spinner",
     "theme"
@@ -69,7 +73,7 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "npx babel src -d build && npx tsc && shx cp ../../LICENSE.md ../../README.md .",
+    "build": "npx tsc && shx cp ../../LICENSE.md ../../README.md .",
     "test": "node --test"
   },
   "dependencies": {

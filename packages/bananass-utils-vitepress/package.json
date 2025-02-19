@@ -6,23 +6,23 @@
   "exports": {
     ".": {
       "types": "./build/index.d.ts",
-      "default": "./build/index.js"
+      "default": "./src/index.js"
     },
     "./head": {
       "types": "./build/head/index.d.ts",
-      "default": "./build/head/index.js"
+      "default": "./src/head/index.js"
     },
     "./i18n": {
       "types": "./build/i18n/index.d.ts",
-      "default": "./build/i18n/index.js"
+      "default": "./src/i18n/index.js"
     },
     "./i18n/en": {
       "types": "./build/i18n/en.d.ts",
-      "default": "./build/i18n/en.js"
+      "default": "./src/i18n/en.js"
     },
     "./i18n/ko": {
       "types": "./build/i18n/ko.d.ts",
-      "default": "./build/i18n/ko.js"
+      "default": "./src/i18n/ko.js"
     },
     "./package.json": "./package.json"
   },
@@ -46,9 +46,12 @@
     }
   },
   "files": [
+    "src",
     "build",
     "LICENSE.md",
-    "README.md"
+    "README.md",
+    "!src/**/*.test.js",
+    "!**/fixtures/**"
   ],
   "keywords": [
     "bananass",
@@ -77,7 +80,7 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "npx babel src -d build && npx tsc && shx cp ../../LICENSE.md ../../README.md .",
+    "build": "npx tsc && shx cp ../../LICENSE.md ../../README.md .",
     "test": "node --test"
   }
 }
