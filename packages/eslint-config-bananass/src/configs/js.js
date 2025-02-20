@@ -1,5 +1,5 @@
 /**
- * @fileoverview Configuration applied when a user configuration extends from `recommended`.
+ * @fileoverview Configuration applied when a user configuration extends from `js`.
  *
  * - Values not explicitly defined on the object will use their default values.
  * - Use the config inspector (`--inspect-config` in the CLI) to test which config objects apply to a specific file.
@@ -25,7 +25,7 @@ const stylisticJsRules = require('../rules/stylistic-js');
 // --------------------------------------------------------------------------------
 
 module.exports = {
-  name: 'bananass/recommended',
+  name: 'bananass/js',
   languageOptions: {
     globals: {
       ...browser,

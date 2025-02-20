@@ -1,3 +1,3 @@
 const bananass = require('eslint-config-bananass');
 
-module.exports = [bananass.configs.recommended];
+module.exports = [bananass.configs.js];
