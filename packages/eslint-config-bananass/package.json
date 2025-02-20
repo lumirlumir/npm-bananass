@@ -59,6 +59,7 @@
   "dependencies": {
     "@stylistic/eslint-plugin-js": "^3.1.0",
     "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-n": "^17.15.1",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-compiler": "^19.0.0-beta-714736e-20250131",
