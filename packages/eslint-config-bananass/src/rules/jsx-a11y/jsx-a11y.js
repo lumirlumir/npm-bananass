@@ -1,7 +1,7 @@
 /**
  * Airbnb + recommended
  *
- * 'jsx-a11y/label-has-associated-control': 'off', // <label><input /></label>
+ * I've set almost every `'error'` rules to `'warn'` because I don't want to enforce them.
  */
 
 module.exports = {
@@ -11,14 +11,15 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/alt-text.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L21-L27
    */
-  'jsx-a11y/alt-text': '',
+  'jsx-a11y/alt-text': 'warn',
 
   /**
    * Enforce `<a>` text to not exactly match "click here", "here", "link", or "a link".
    *
+   * @description This rule is not included in `airbnb-base`.
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/anchor-ambiguous-text.md
    */
-  'jsx-a11y/anchor-ambiguous-text': '',
+  'jsx-a11y/anchor-ambiguous-text': 'off',
 
   /**
    * Enforce all anchors to contain accessible content.
@@ -26,7 +27,7 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/anchor-has-content.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L31
    */
-  'jsx-a11y/anchor-has-content': '',
+  'jsx-a11y/anchor-has-content': 'warn',
 
   /**
    * Enforce all anchors are valid, navigable elements.
@@ -34,15 +35,22 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/anchor-is-valid.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L35-L39
    */
-  'jsx-a11y/anchor-is-valid': '',
+  'jsx-a11y/anchor-is-valid': [
+    'warn',
+    {
+      components: ['Link'],
+      specialLink: ['to'],
+      aspects: ['noHref', 'invalidHref', 'preferButton'],
+    },
+  ],
 
   /**
-   * Enforce elements with aria-activedescendant are tabbable.
+   * Enforce elements with `aria-activedescendant` are tabbable.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/aria-activedescendant-has-tabindex.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L43
    */
-  'jsx-a11y/aria-activedescendant-has-tabindex': '',
+  'jsx-a11y/aria-activedescendant-has-tabindex': 'warn',
 
   /**
    * Enforce all `aria-*` props are valid.
@@ -50,7 +58,7 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/aria-props.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L47
    */
-  'jsx-a11y/aria-props': '',
+  'jsx-a11y/aria-props': 'error',
 
   /**
    * Enforce ARIA state and property values are valid.
@@ -58,7 +66,7 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/aria-proptypes.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L51
    */
-  'jsx-a11y/aria-proptypes': '',
+  'jsx-a11y/aria-proptypes': 'error',
 
   /**
    * Enforce that elements with ARIA roles must use a valid, non-abstract ARIA role.
@@ -66,7 +74,7 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/aria-role.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L55
    */
-  'jsx-a11y/aria-role': '',
+  'jsx-a11y/aria-role': ['error', { ignoreNonDOM: false }],
 
   /**
    * Enforce that elements that do not support ARIA roles, states, and properties do not have those attributes.
@@ -74,7 +82,7 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/aria-unsupported-elements.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L60
    */
-  'jsx-a11y/aria-unsupported-elements': '',
+  'jsx-a11y/aria-unsupported-elements': 'error',
 
   /**
    * Enforce that autocomplete attributes are used correctly.
@@ -82,23 +90,25 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/autocomplete-valid.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L64-L66
    */
-  'jsx-a11y/autocomplete-valid': '',
+  'jsx-a11y/autocomplete-valid': 'off',
 
   /**
    * Enforce a clickable non-interactive element has at least one keyboard event listener.
    *
+   * @description I've set this rule to `'off'`.
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/click-events-have-key-events.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L70
    */
-  'jsx-a11y/click-events-have-key-events': '',
+  'jsx-a11y/click-events-have-key-events': 'off',
 
   /**
    * Enforce that a control (an interactive element) has a text label.
    *
+   * @description I've set this rule to `'off'`.
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/control-has-associated-label.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L74-L99
    */
-  'jsx-a11y/control-has-associated-label': '',
+  'jsx-a11y/control-has-associated-label': 'off',
 
   /**
    * Enforce heading (`h1`, `h2`, etc) elements contain accessible content.
@@ -106,15 +116,15 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/heading-has-content.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L103
    */
-  'jsx-a11y/heading-has-content': '',
+  'jsx-a11y/heading-has-content': 'error',
 
   /**
-   * Enforce <html> element has lang prop.
+   * Enforce `<html>` element has lang prop.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/html-has-lang.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L107
    */
-  'jsx-a11y/html-has-lang': '',
+  'jsx-a11y/html-has-lang': 'warn',
 
   /**
    * Enforce iframe elements have a title attribute.
@@ -122,7 +132,7 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/iframe-has-title.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L111
    */
-  'jsx-a11y/iframe-has-title': '',
+  'jsx-a11y/iframe-has-title': 'warn',
 
   /**
    * Enforce `<img>` alt prop does not contain the word "image", "picture", or "photo".
@@ -130,23 +140,25 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/img-redundant-alt.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L115
    */
-  'jsx-a11y/img-redundant-alt': '',
+  'jsx-a11y/img-redundant-alt': 'warn',
 
   /**
    * Enforce that elements with interactive handlers like `onClick` must be focusable.
    *
+   * @description I've set this rule to `'off'`.
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/interactive-supports-focus.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L119
    */
-  'jsx-a11y/interactive-supports-focus': '',
+  'jsx-a11y/interactive-supports-focus': 'off',
 
   /**
    * Enforce that a `label` tag has a text label and an associated control.
    *
+   * @description I've set this rule to `'off'`.
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/label-has-associated-control.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L123-L129
    */
-  'jsx-a11y/label-has-associated-control': '',
+  'jsx-a11y/label-has-associated-control': 'off',
 
   /**
    * Enforce `lang` attribute has a valid value.
@@ -154,7 +166,7 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/lang.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L133
    */
-  'jsx-a11y/lang': '',
+  'jsx-a11y/lang': 'error',
 
   /**
    * Enforces that `<audio>` and `<video>` elements must have a `<track>` for captions.
@@ -162,7 +174,7 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/media-has-caption.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L137-L141
    */
-  'jsx-a11y/media-has-caption': '',
+  'jsx-a11y/media-has-caption': 'warn',
 
   /**
    * Enforce that `onMouseOver`/`onMouseOut` are accompanied by `onFocus`/`onBlur` for keyboard-only users.
