@@ -1,7 +1,13 @@
 /**
- * Airbnb + recommended
+ * @fileoverview This file follows:
  *
- * I've set almost every `'error'` rules to `'warn'` because I don't want to enforce them.
+ * - The order of the rules listed on `eslint-plugin-jsx-a11y`.
+ *   - See, {@link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y?tab=readme-ov-file#supported-rules}.
+ *
+ * - The best practices outlined in `eslint-config-airbnb@19.0.4`.
+ *   - See, {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js}.
+ *
+ * - I've set almost every `'error'` rules to `'warn'` because I don't want to enforce them.
  */
 
 module.exports = {

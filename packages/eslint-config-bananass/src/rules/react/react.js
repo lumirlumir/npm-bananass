@@ -395,11 +395,13 @@ module.exports = {
   /**
    * Disallow `target="_blank"` attribute without `rel="noreferrer"`.
    *
+   * @description I've set this rule to `'warn'`.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L318
+   * @link https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L79
    */
   'react/jsx-no-target-blank': [
-    'error',
+    'warn',
     {
       allowReferrer: false,
       enforceDynamicLinks: 'always',
@@ -710,10 +712,12 @@ module.exports = {
   /**
    * Disallow usage of unknown DOM property.
    *
+   * @description I've set this rule to `'warn'`.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L210
+   * @link https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L64
    */
-  'react/no-unknown-property': 'error',
+  'react/no-unknown-property': 'warn',
 
   /**
    * Disallow usage of unsafe lifecycle methods.
@@ -809,10 +813,12 @@ module.exports = {
   /**
    * Disallow missing React when using JSX.
    *
+   * @link I've set this rule to `'warn'`.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L230
+   * @link https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L65
    */
-  'react/react-in-jsx-scope': 'error',
+  'react/react-in-jsx-scope': 'warn',
 
   /**
    * Enforce a `defaultProps` definition for every prop that is not a required prop.
