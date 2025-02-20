@@ -84,7 +84,6 @@ export const BANANASS_PKG_NAMES = [
   'bananass-utils-vitepress',
   'create-bananass',
   'eslint-config-bananass',
-  'eslint-config-bananass-react',
   'prettier-config-bananass',
 ];
 

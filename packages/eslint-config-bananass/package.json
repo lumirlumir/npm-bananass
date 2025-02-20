@@ -24,7 +24,14 @@
     "eslint-config",
     "config",
     "flat",
-    "flat-config"
+    "flat-config",
+    "typescript",
+    "react",
+    "nextjs",
+    "js",
+    "ts",
+    "jsx",
+    "tsx"
   ],
   "author": "루밀LuMir <rpfos@naver.com> (https://github.com/lumirlumir)",
   "license": "MIT",
@@ -46,12 +53,16 @@
     "test": "node --test"
   },
   "peerDependencies": {
-    "eslint": "^9.0.0"
+    "eslint": "^9.0.0",
+    "react": "^18.2.0 || ^19.0.0"
   },
   "dependencies": {
     "@stylistic/eslint-plugin-js": "^3.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-n": "^17.15.1",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-compiler": "^19.0.0-beta-714736e-20250131",
+    "eslint-plugin-react-hooks": "^5.1.0",
     "globals": "^15.15.0"
   }
 }

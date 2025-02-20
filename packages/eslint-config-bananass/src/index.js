@@ -7,7 +7,9 @@
 // Require
 // --------------------------------------------------------------------------------
 
-const recommended = require('./configs/recommended');
+const js = require('./configs/js');
+const jsxReact = require('./configs/jsx-react');
+
 const { name, version } = require('../package.json');
 
 // --------------------------------------------------------------------------------
@@ -20,6 +22,15 @@ module.exports = {
     version,
   },
   configs: {
-    recommended,
+    js,
+    ts: '...', // TODO
+    jsx: {
+      react: jsxReact,
+      next: '...', // TODO
+    },
+    tsx: {
+      react: '...', // TODO
+      next: '...', // TODO
+    },
   },
 };

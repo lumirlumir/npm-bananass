@@ -4,5 +4,5 @@ module.exports = [
   {
     ignores: ['**/build/', '**/coverage/', '**/.vitepress/cache/'],
   },
-  bananass.configs.recommended,
+  bananass.configs.js,
 ];
