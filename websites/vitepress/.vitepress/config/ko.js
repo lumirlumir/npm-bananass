@@ -72,10 +72,6 @@ export default defineConfig({
             text: 'eslint-config-bananass',
             link: 'https://eslint-config-bananass.lumir.page',
           },
-          {
-            text: 'eslint-config-bananass-react',
-            link: 'https://eslint-config-bananass-react.lumir.page',
-          },
         ],
       },
       {
@@ -104,10 +100,6 @@ export default defineConfig({
           {
             text: 'eslint-config-bananass',
             link: `${NPM_URL}/package/eslint-config-bananass`,
-          },
-          {
-            text: 'eslint-config-bananass-react',
-            link: `${NPM_URL}/package/eslint-config-bananass-react`,
           },
           {
             text: 'prettier-config-bananass',
