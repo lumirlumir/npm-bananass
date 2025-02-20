@@ -9,10 +9,12 @@
 // Require
 // --------------------------------------------------------------------------------
 
+const jsxA11yPlugin = require('eslint-plugin-jsx-a11y');
 const reactPlugin = require('eslint-plugin-react');
 const reactCompilerPlugin = require('eslint-plugin-react-compiler');
 const reactHooksPlugin = require('eslint-plugin-react-hooks');
 
+const jsxA11yRules = require('../rules/jsx-a11y');
 const reactRules = require('../rules/react');
 const reactCompilerRules = require('../rules/react-compiler');
 const reactHooksRules = require('../rules/react-hooks');
@@ -38,6 +40,7 @@ module.exports = {
   plugins: {
     ...js.plugins,
 
+    'jsx-a11y': jsxA11yPlugin,
     react: reactPlugin,
     'react-compiler': reactCompilerPlugin,
     'react-hooks': reactHooksPlugin,
@@ -45,6 +48,7 @@ module.exports = {
   rules: {
     ...js.rules,
 
+    ...jsxA11yRules,
     ...reactRules,
     ...reactCompilerRules,
     ...reactHooksRules,
