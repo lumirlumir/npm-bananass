@@ -179,10 +179,11 @@ module.exports = {
   /**
    * Enforce that `onMouseOver`/`onMouseOut` are accompanied by `onFocus`/`onBlur` for keyboard-only users.
    *
+   * @description I've set this rule to `'off'`.
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/mouse-events-have-key-events.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L145
    */
-  'jsx-a11y/mouse-events-have-key-events': '',
+  'jsx-a11y/mouse-events-have-key-events': 'off',
 
   /**
    * Enforce that the `accessKey` prop is not used on any element to avoid complications with keyboard commands used by a screen reader.
@@ -190,23 +191,22 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-access-key.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L149
    */
-  'jsx-a11y/no-access-key': '',
+  'jsx-a11y/no-access-key': 'warn',
 
   /**
    * Disallow `aria-hidden="true"` from being set on focusable elements.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-aria-hidden-on-focusable.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L153
    */
-  'jsx-a11y/no-aria-hidden-on-focusable': '',
+  'jsx-a11y/no-aria-hidden-on-focusable': 'warn',
 
   /**
-   * Enforce autoFocus prop is not enabled.
+   * Enforce `autoFocus` prop is not enabled.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-autofocus.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L153
    */
-  'jsx-a11y/no-autofocus': '',
+  'jsx-a11y/no-autofocus': ['warn', { ignoreNonDOM: true }],
 
   /**
    * Enforce distracting elements are not used.
@@ -214,7 +214,7 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-distracting-elements.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L157-L159
    */
-  'jsx-a11y/no-distracting-elements': '',
+  'jsx-a11y/no-distracting-elements': 'error',
 
   /**
    * Interactive elements should not be assigned non-interactive roles.
@@ -222,7 +222,7 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-interactive-element-to-noninteractive-role.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L163-L165
    */
-  'jsx-a11y/no-interactive-element-to-noninteractive-role': '',
+  'jsx-a11y/no-interactive-element-to-noninteractive-role': 'warn',
 
   /**
    * Non-interactive elements should not be assigned mouse or keyboard event listeners.
@@ -230,7 +230,7 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-noninteractive-element-interactions.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L169-L178
    */
-  'jsx-a11y/no-noninteractive-element-interactions': '',
+  'jsx-a11y/no-noninteractive-element-interactions': 'warn',
 
   /**
    * Non-interactive elements should not be assigned interactive roles.
@@ -238,7 +238,7 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-noninteractive-element-to-interactive-role.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L182-L188
    */
-  'jsx-a11y/no-noninteractive-element-to-interactive-role': '',
+  'jsx-a11y/no-noninteractive-element-to-interactive-role': 'warn',
 
   /**
    * `tabIndex` should only be declared on interactive elements.
@@ -246,7 +246,7 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-noninteractive-tabindex.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L192-L195
    */
-  'jsx-a11y/no-noninteractive-tabindex': '',
+  'jsx-a11y/no-noninteractive-tabindex': 'warn',
 
   /**
    * Enforce explicit role property is not the same as implicit/default role property on element.
@@ -254,7 +254,7 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-redundant-roles.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L203
    */
-  'jsx-a11y/no-redundant-roles': '',
+  'jsx-a11y/no-redundant-roles': 'error',
 
   /**
    * Enforce that non-interactive, visible elements (such as `<div>`) that have click handlers use the role attribute.
@@ -262,14 +262,14 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-static-element-interactions.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L207-L216
    */
-  'jsx-a11y/no-static-element-interactions': '',
+  'jsx-a11y/no-static-element-interactions': 'warn',
 
   /**
    * Enforces using semantic DOM elements over the ARIA `role` property.
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/prefer-tag-over-role.md
    */
-  'jsx-a11y/prefer-tag-over-role': '',
+  'jsx-a11y/prefer-tag-over-role': 'warn',
 
   /**
    * Enforce that elements with ARIA roles must have all required attributes for that role.
@@ -277,7 +277,7 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/role-has-required-aria-props.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L221
    */
-  'jsx-a11y/role-has-required-aria-props': '',
+  'jsx-a11y/role-has-required-aria-props': 'warn',
 
   /**
    * Enforce that elements with explicit or implicit roles defined contain only `aria-*` properties supported by that `role`.
@@ -285,7 +285,7 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/role-supports-aria-props.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L226
    */
-  'jsx-a11y/role-supports-aria-props': '',
+  'jsx-a11y/role-supports-aria-props': 'warn',
 
   /**
    * Enforce `scope` prop is only used on `<th>` elements.
@@ -293,7 +293,7 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/scope.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L230
    */
-  'jsx-a11y/scope': '',
+  'jsx-a11y/scope': 'warn',
 
   /**
    * Enforce `tabIndex` value is not greater than zero.
@@ -301,5 +301,5 @@ module.exports = {
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/tabindex-no-positive.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L234
    */
-  'jsx-a11y/tabindex-no-positive': '',
+  'jsx-a11y/tabindex-no-positive': 'warn',
 };
