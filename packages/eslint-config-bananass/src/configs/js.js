@@ -9,7 +9,7 @@
 // Require
 // --------------------------------------------------------------------------------
 
-const { browser, builtin, es2025, node, jest, vitest, mocha } = require('globals');
+const { globals } = require('../language-options');
 const { importPlugin, nodePlugin, stylisticJsPlugin } = require('../plugins');
 const { eslintRules, importRules, nodeRules, stylisticJsRules } = require('../rules');
 
@@ -20,15 +20,7 @@ const { eslintRules, importRules, nodeRules, stylisticJsRules } = require('../ru
 module.exports = {
   name: 'bananass/js',
   languageOptions: {
-    globals: {
-      ...browser,
-      ...builtin,
-      ...es2025,
-      ...node,
-      ...jest,
-      ...vitest,
-      ...mocha,
-    },
+    globals,
   },
   plugins: {
     ...importPlugin,

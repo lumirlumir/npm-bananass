@@ -9,7 +9,12 @@
 // Require
 // --------------------------------------------------------------------------------
 
+const { globals, parserOptions } = require('../language-options');
+
 const {
+  importPlugin,
+  nodePlugin,
+  stylisticJsPlugin,
   jsxA11yPlugin,
   reactPlugin,
   reactCompilerPlugin,
@@ -18,14 +23,16 @@ const {
 } = require('../plugins');
 
 const {
+  eslintRules,
+  importRules,
+  nodeRules,
+  stylisticJsRules,
   jsxA11yRules,
   reactRules,
   reactCompilerRules,
   reactHooksRules,
   nextRules,
 } = require('../rules');
-
-const js = require('./js');
 
 // --------------------------------------------------------------------------------
 // Exports
@@ -35,17 +42,13 @@ module.exports = {
   name: 'bananass/jsx-next',
   files: ['**/*.js', '**/*.cjs', '**/*.mjs', '**/*.jsx'],
   languageOptions: {
-    ...js.languageOptions,
-
-    parserOptions: {
-      ecmaFeatures: {
-        jsx: true,
-      },
-    },
+    globals,
+    parserOptions,
   },
   plugins: {
-    ...js.plugins,
-
+    ...importPlugin,
+    ...nodePlugin,
+    ...stylisticJsPlugin,
     ...jsxA11yPlugin,
     ...reactPlugin,
     ...reactCompilerPlugin,
@@ -53,8 +56,10 @@ module.exports = {
     ...nextPlugin,
   },
   rules: {
-    ...js.rules,
-
+    ...eslintRules,
+    ...importRules,
+    ...nodeRules,
+    ...stylisticJsRules,
     ...jsxA11yRules,
     ...reactRules,
     ...reactCompilerRules,
