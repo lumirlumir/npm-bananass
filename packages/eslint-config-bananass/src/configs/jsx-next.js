@@ -1,5 +1,5 @@
 /**
- * @fileoverview Configuration applied when a user configuration extends from `jsx.react`.
+ * @fileoverview Configuration applied when a user configuration extends from `jsx.next`.
  *
  * - Values not explicitly defined on the object will use their default values.
  * - Use the config inspector (`--inspect-config` in the CLI) to test which config objects apply to a specific file.
@@ -19,6 +19,7 @@ const {
   reactPlugin,
   reactCompilerPlugin,
   reactHooksPlugin,
+  nextPlugin,
 } = require('../plugins');
 
 const {
@@ -30,6 +31,7 @@ const {
   reactRules,
   reactCompilerRules,
   reactHooksRules,
+  nextRules,
 } = require('../rules');
 
 // --------------------------------------------------------------------------------
@@ -37,7 +39,7 @@ const {
 // --------------------------------------------------------------------------------
 
 module.exports = {
-  name: 'bananass/jsx-react',
+  name: 'bananass/jsx-next',
   files: ['**/*.js', '**/*.cjs', '**/*.mjs', '**/*.jsx'],
   languageOptions: {
     globals,
@@ -51,6 +53,7 @@ module.exports = {
     ...reactPlugin,
     ...reactCompilerPlugin,
     ...reactHooksPlugin,
+    ...nextPlugin,
   },
   rules: {
     ...eslintRules,
@@ -61,6 +64,9 @@ module.exports = {
     ...reactRules,
     ...reactCompilerRules,
     ...reactHooksRules,
+    ...nextRules,
+
+    'react/react-in-jsx-scope': 'off',
   },
   settings: {
     react: {

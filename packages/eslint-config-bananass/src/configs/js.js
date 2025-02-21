@@ -9,16 +9,9 @@
 // Require
 // --------------------------------------------------------------------------------
 
-const { browser, builtin, es2025, node, jest, vitest, mocha } = require('globals');
-
-const importPlugin = require('eslint-plugin-import');
-const nodePlugin = require('eslint-plugin-n');
-const stylisticJsPlugin = require('@stylistic/eslint-plugin-js');
-
-const eslintRules = require('../rules/eslint');
-const importRules = require('../rules/import');
-const nodeRules = require('../rules/node');
-const stylisticJsRules = require('../rules/stylistic-js');
+const { globals } = require('../language-options');
+const { importPlugin, nodePlugin, stylisticJsPlugin } = require('../plugins');
+const { eslintRules, importRules, nodeRules, stylisticJsRules } = require('../rules');
 
 // --------------------------------------------------------------------------------
 // Exports
@@ -27,20 +20,12 @@ const stylisticJsRules = require('../rules/stylistic-js');
 module.exports = {
   name: 'bananass/js',
   languageOptions: {
-    globals: {
-      ...browser,
-      ...builtin,
-      ...es2025,
-      ...node,
-      ...jest,
-      ...vitest,
-      ...mocha,
-    },
+    globals,
   },
   plugins: {
-    n: nodePlugin,
-    import: importPlugin,
-    '@stylistic/js': stylisticJsPlugin,
+    ...importPlugin,
+    ...nodePlugin,
+    ...stylisticJsPlugin,
   },
   rules: {
     ...eslintRules,
