@@ -114,6 +114,7 @@ module.exports = {
    * Ensure imports point to a file/module that can be resolved.
    *
    * @description This rule doesn't support the `exports` field of `package.json`, which has been the standard since Node.js v12. As it causes false positives, I've disabled it.
+   * @link issue: {@link https://github.com/import-js/eslint-plugin-import/issues/1810}
    * @link issue: {@link https://github.com/import-js/eslint-plugin-import/issues/3088}
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-unresolved.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L37}

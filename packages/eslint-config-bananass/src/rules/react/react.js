@@ -196,7 +196,7 @@ module.exports = {
     {
       props: 'never',
       children: 'never',
-      propElementValues: 'never',
+      propElementValues: 'ignore',
     },
   ],
 
