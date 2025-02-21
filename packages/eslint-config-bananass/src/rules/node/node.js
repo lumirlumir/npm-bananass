@@ -110,7 +110,7 @@ module.exports = {
   'n/no-missing-import': 'error',
 
   /**
-   * Disallow require() expressions which import non-existence modules.
+   * Disallow `require()` expressions which import non-existence modules.
    *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-missing-require.md}
