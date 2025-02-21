@@ -59,6 +59,7 @@
   "dependencies": {
     "@next/eslint-plugin-next": "^15.1.7",
     "@stylistic/eslint-plugin-js": "^3.1.0",
+    "@typescript-eslint/parser": "^8.24.1",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-n": "^17.15.1",
