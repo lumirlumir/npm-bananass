@@ -4,4 +4,5 @@ module.exports = [
   bananass.configs.js,
   bananass.configs.jsx.react,
   bananass.configs.jsx.next,
+  bananass.configs.ts,
 ];
