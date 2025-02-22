@@ -9,6 +9,7 @@
 // Require
 // --------------------------------------------------------------------------------
 
+const { js } = require('../files');
 const { globals } = require('../language-options');
 const { importPlugin, nodePlugin, stylisticJsPlugin } = require('../plugins');
 const { eslintRules, importRules, nodeRules, stylisticJsRules } = require('../rules');
@@ -19,6 +20,7 @@ const { eslintRules, importRules, nodeRules, stylisticJsRules } = require('../ru
 
 module.exports = {
   name: 'bananass/js',
+  files: js,
   languageOptions: {
     globals,
   },
