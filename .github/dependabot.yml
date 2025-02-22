@@ -27,6 +27,9 @@ updates:
         patterns:
           - 'next'
           - '@next/*'
+      typescript-eslint:
+        patterns:
+          - '@typescript-eslint/*'
     open-pull-requests-limit: 3
     reviewers:
       - 'lumirlumir'
