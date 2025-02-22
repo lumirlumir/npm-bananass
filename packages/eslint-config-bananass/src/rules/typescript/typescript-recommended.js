@@ -5,7 +5,7 @@
  *   - See, {@link https://typescript-eslint.io/rules/?=xextension-recommended-xtypeInformation}.
  *   - See, {@link https://github.com/typescript-eslint/typescript-eslint/blob/v8.24.1/packages/eslint-plugin/src/configs/recommended.ts}.
  *
- * - This file doesn't include `extesion` rules. See `typescript-extensions.js` for those.
+ * - This file doesn't include `extesion` rules. See `typescript-extension.js` for those.
  */
 
 // --------------------------------------------------------------------------------
