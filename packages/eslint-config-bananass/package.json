@@ -53,8 +53,7 @@
     "test": "node --test"
   },
   "peerDependencies": {
-    "eslint": "^9.0.0",
-    "react": "^18.2.0 || ^19.0.0"
+    "eslint": "^9.0.0"
   },
   "dependencies": {
     "@next/eslint-plugin-next": "^15.1.7",
