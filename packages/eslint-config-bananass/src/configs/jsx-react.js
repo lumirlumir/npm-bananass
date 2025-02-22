@@ -9,7 +9,9 @@
 // Require
 // --------------------------------------------------------------------------------
 
+const { js, jsx } = require('../files');
 const { globals, parserOptions } = require('../language-options');
+const { react } = require('../settings');
 
 const {
   importPlugin,
@@ -38,7 +40,7 @@ const {
 
 module.exports = {
   name: 'bananass/jsx-react',
-  files: ['**/*.js', '**/*.cjs', '**/*.mjs', '**/*.jsx'],
+  files: [...js, ...jsx],
   languageOptions: {
     globals,
     parserOptions,
@@ -63,8 +65,6 @@ module.exports = {
     ...reactHooksRules,
   },
   settings: {
-    react: {
-      version: 'detect',
-    },
+    react,
   },
 };
