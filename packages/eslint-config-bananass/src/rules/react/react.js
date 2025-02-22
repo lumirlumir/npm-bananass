@@ -366,7 +366,7 @@ module.exports = {
    * @description This rule does not exist in `eslint-config-airbnb@19.0.4`.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-leaked-render.md
    */
-  'react/jsx-no-leaked-render': 'error',
+  'react/jsx-no-leaked-render': 'warn',
 
   /**
    * Disallow usage of string literals in JSX.

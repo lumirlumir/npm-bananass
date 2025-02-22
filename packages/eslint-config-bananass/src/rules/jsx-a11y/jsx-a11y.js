@@ -275,7 +275,7 @@ module.exports = {
    *
    * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/prefer-tag-over-role.md
    */
-  'jsx-a11y/prefer-tag-over-role': 'warn',
+  'jsx-a11y/prefer-tag-over-role': 'off',
 
   /**
    * Enforce that elements with ARIA roles must have all required attributes for that role.

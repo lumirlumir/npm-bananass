@@ -56,7 +56,7 @@ module.exports = {
     'error',
     {
       properties: 'never', // Does not check property names.
-      ignoreDestructuring: false,
+      ignoreDestructuring: true,
     },
   ],
 
@@ -679,25 +679,7 @@ module.exports = {
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-param-reassign}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L226-L241}
    */
-  'no-param-reassign': [
-    'error',
-    {
-      props: true,
-      ignorePropertyModificationsFor: [
-        'acc', // for reduce accumulators
-        'accumulator', // for reduce accumulators
-        'e', // for e.returnvalue
-        'ctx', // for Koa routing
-        'context', // for Koa routing
-        'req', // for Express requests
-        'request', // for Express requests
-        'res', // for Express responses
-        'response', // for Express responses
-        '$scope', // for Angular 1 scopes
-        'staticContext', // for ReactRouter context
-      ],
-    },
-  ],
+  'no-param-reassign': ['error', { props: false }],
 
   /**
    * Disallow the unary operators `++` and `--`.
