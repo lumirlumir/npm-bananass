@@ -234,7 +234,7 @@ module.exports = {
     'error',
     {
       allow: 'as-needed',
-      extensions: ['.jsx'],
+      extensions: ['.jsx', '.tsx'],
       ignoreFilesWithoutCode: true,
     },
   ],
