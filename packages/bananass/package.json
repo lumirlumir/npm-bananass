@@ -76,7 +76,7 @@
   },
   "dependencies": {
     "bananass-utils-console": "^0.0.0",
-    "c12": "^2.0.2",
+    "c12": "^2.0.4",
     "chalk": "^5.4.1",
     "commander": "^13.1.0",
     "enhanced-resolve": "^5.18.1",
