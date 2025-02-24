@@ -56,7 +56,7 @@ module.exports = {
   /**
    * @link https://typescript-eslint.io/rules/no-require-imports
    */
-  '@typescript-eslint/no-require-imports': 'warn',
+  '@typescript-eslint/no-require-imports': 'off',
 
   /**
    * @link https://typescript-eslint.io/rules/no-this-alias
