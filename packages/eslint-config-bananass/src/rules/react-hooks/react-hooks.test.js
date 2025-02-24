@@ -21,10 +21,12 @@ const prefix = 'react-hooks/';
 // Test
 // --------------------------------------------------------------------------------
 
-describe(`All key values must start with \`${prefix}\`.`, () => {
-  it('react-hooks.js', () => {
-    Object.keys(reactHooks).forEach(key => {
-      strictEqual(key.startsWith(prefix), true);
+describe('react-hooks', () => {
+  describe(`All key values must start with \`${prefix}\`.`, () => {
+    it('react-hooks.js', () => {
+      Object.keys(reactHooks).forEach(key => {
+        strictEqual(key.startsWith(prefix), true);
+      });
     });
   });
 });

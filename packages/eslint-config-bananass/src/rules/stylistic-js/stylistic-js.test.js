@@ -21,10 +21,12 @@ const prefix = '@stylistic/js/';
 // Test
 // --------------------------------------------------------------------------------
 
-describe(`All key values must start with \`${prefix}\`.`, () => {
-  it('stylistic-js.js', () => {
-    Object.keys(stylisticJs).forEach(key => {
-      strictEqual(key.startsWith(prefix), true);
+describe('stylistic-js', () => {
+  describe(`All key values must start with \`${prefix}\`.`, () => {
+    it('stylistic-js.js', () => {
+      Object.keys(stylisticJs).forEach(key => {
+        strictEqual(key.startsWith(prefix), true);
+      });
     });
   });
 });

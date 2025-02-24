@@ -23,22 +23,24 @@ const prefix = '/';
 // Test
 // --------------------------------------------------------------------------------
 
-describe(`All key values must not include \`${prefix}\`.`, () => {
-  it('eslint-layout-formatting.js', () => {
-    Object.keys(eslintLayoutFormatting).forEach(key => {
-      strictEqual(key.includes(prefix), false);
+describe('eslint', () => {
+  describe(`All key values must not include \`${prefix}\`.`, () => {
+    it('eslint-layout-formatting.js', () => {
+      Object.keys(eslintLayoutFormatting).forEach(key => {
+        strictEqual(key.includes(prefix), false);
+      });
     });
-  });
 
-  it('eslint-possible-problems.js', () => {
-    Object.keys(eslintPossibleProblems).forEach(key => {
-      strictEqual(key.includes(prefix), false);
+    it('eslint-possible-problems.js', () => {
+      Object.keys(eslintPossibleProblems).forEach(key => {
+        strictEqual(key.includes(prefix), false);
+      });
     });
-  });
 
-  it('eslint-suggestions.js', () => {
-    Object.keys(eslintSuggestions).forEach(key => {
-      strictEqual(key.includes(prefix), false);
+    it('eslint-suggestions.js', () => {
+      Object.keys(eslintSuggestions).forEach(key => {
+        strictEqual(key.includes(prefix), false);
+      });
     });
   });
 });

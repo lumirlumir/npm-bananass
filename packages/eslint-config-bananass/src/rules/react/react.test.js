@@ -21,10 +21,12 @@ const prefix = 'react/';
 // Test
 // --------------------------------------------------------------------------------
 
-describe(`All key values must start with \`${prefix}\`.`, () => {
-  it('react.js', () => {
-    Object.keys(react).forEach(key => {
-      strictEqual(key.startsWith(prefix), true);
+describe('react', () => {
+  describe(`All key values must start with \`${prefix}\`.`, () => {
+    it('react.js', () => {
+      Object.keys(react).forEach(key => {
+        strictEqual(key.startsWith(prefix), true);
+      });
     });
   });
 });
