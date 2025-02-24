@@ -43,7 +43,7 @@ module.exports = {
   /**
    * @link https://typescript-eslint.io/rules/consistent-indexed-object-style
    */
-  '@typescript-eslint/consistent-indexed-object-style': 'error',
+  '@typescript-eslint/consistent-indexed-object-style': 'warn',
 
   /**
    * @link https://typescript-eslint.io/rules/consistent-type-assertions

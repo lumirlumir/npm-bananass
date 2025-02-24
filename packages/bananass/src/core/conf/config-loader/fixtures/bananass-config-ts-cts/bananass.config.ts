@@ -1,8 +1,4 @@
-interface Config {
-  [key: number]: {
-    [key: number]: string;
-  };
-}
+type Config = Record<number, Record<number, string>>;
 
 const config: Config = {
   1: {
