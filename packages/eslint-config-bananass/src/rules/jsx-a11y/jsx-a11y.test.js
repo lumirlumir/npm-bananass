@@ -21,10 +21,12 @@ const prefix = 'jsx-a11y/';
 // Test
 // --------------------------------------------------------------------------------
 
-describe(`All key values must start with \`${prefix}\`.`, () => {
-  it('jsx-a11y.js', () => {
-    Object.keys(jsxA11y).forEach(key => {
-      strictEqual(key.startsWith(prefix), true);
+describe('jsx-a11y', () => {
+  describe(`All key values must start with \`${prefix}\`.`, () => {
+    it('jsx-a11y.js', () => {
+      Object.keys(jsxA11y).forEach(key => {
+        strictEqual(key.startsWith(prefix), true);
+      });
     });
   });
 });

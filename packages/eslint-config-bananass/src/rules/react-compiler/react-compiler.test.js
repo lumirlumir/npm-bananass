@@ -21,10 +21,12 @@ const prefix = 'react-compiler/';
 // Test
 // --------------------------------------------------------------------------------
 
-describe(`All key values must start with \`${prefix}\`.`, () => {
-  it('react-compiler.js', () => {
-    Object.keys(reactCompiler).forEach(key => {
-      strictEqual(key.startsWith(prefix), true);
+describe('react-compiler', () => {
+  describe(`All key values must start with \`${prefix}\`.`, () => {
+    it('react-compiler.js', () => {
+      Object.keys(reactCompiler).forEach(key => {
+        strictEqual(key.startsWith(prefix), true);
+      });
     });
   });
 });

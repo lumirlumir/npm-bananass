@@ -21,10 +21,12 @@ const prefix = 'n/';
 // Test
 // --------------------------------------------------------------------------------
 
-describe(`All key values must start with \`${prefix}\`.`, () => {
-  it('node.js', () => {
-    Object.keys(node).forEach(key => {
-      strictEqual(key.startsWith(prefix), true);
+describe('node', () => {
+  describe(`All key values must start with \`${prefix}\`.`, () => {
+    it('node.js', () => {
+      Object.keys(node).forEach(key => {
+        strictEqual(key.startsWith(prefix), true);
+      });
     });
   });
 });
