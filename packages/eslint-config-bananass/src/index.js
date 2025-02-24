@@ -10,6 +10,7 @@
 const js = require('./configs/js');
 const jsxReact = require('./configs/jsx-react');
 const jsxNext = require('./configs/jsx-next');
+const ts = require('./configs/ts');
 
 const { name, version } = require('../package.json');
 
@@ -24,7 +25,7 @@ module.exports = {
   },
   configs: {
     js,
-    ts: '...', // TODO
+    ts,
     jsx: {
       react: jsxReact,
       next: jsxNext,

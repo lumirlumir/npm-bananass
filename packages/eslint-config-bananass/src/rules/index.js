@@ -7,6 +7,7 @@ const reactRules = require('./react');
 const reactCompilerRules = require('./react-compiler');
 const reactHooksRules = require('./react-hooks');
 const nextRules = require('./next');
+const typescriptRules = require('./typescript');
 
 module.exports = {
   eslintRules,
@@ -18,4 +19,5 @@ module.exports = {
   reactCompilerRules,
   reactHooksRules,
   nextRules,
+  typescriptRules,
 };

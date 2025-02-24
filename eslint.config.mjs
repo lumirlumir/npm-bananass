@@ -1,8 +1,9 @@
-const bananass = require('eslint-config-bananass');
+import bananass from 'eslint-config-bananass';
 
-module.exports = [
+export default [
   {
     ignores: ['**/build/', '**/coverage/', '**/.vitepress/cache/'],
   },
   bananass.configs.js,
+  bananass.configs.ts,
 ];

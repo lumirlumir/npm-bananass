@@ -70,7 +70,5 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/LICENSE.md
   - source: ./VScode.code-workspace
     dest: ./configs/VScode.code-workspace
-  - source: ./eslint.config.js
-    dest: ./configs/eslint.config.js
   - source: ./lint-staged.config.js
     dest: ./configs/lint-staged.config.js

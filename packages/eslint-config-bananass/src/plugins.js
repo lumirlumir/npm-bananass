@@ -17,6 +17,8 @@ const reactHooksPlugin = require('eslint-plugin-react-hooks');
 
 const nextPlugin = require('@next/eslint-plugin-next');
 
+const typescriptPlugin = require('@typescript-eslint/eslint-plugin');
+
 // --------------------------------------------------------------------------------
 // Exports
 // --------------------------------------------------------------------------------
@@ -36,3 +38,5 @@ module.exports.reactCompilerPlugin = { 'react-compiler': reactCompilerPlugin };
 module.exports.reactHooksPlugin = { 'react-hooks': reactHooksPlugin };
 
 module.exports.nextPlugin = { '@next/next': nextPlugin };
+
+module.exports.typescriptPlugin = { '@typescript-eslint': typescriptPlugin };

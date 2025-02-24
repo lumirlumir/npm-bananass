@@ -1,26 +1,25 @@
 /**
- * @fileoverview Configuration applied when a user configuration extends from `jsx.react`.
+ * @fileoverview Configuration applied when a user configuration extends from `ts`.
  *
  * - Values not explicitly defined on the object will use their default values.
  * - Use the config inspector (`--inspect-config` in the CLI) to test which config objects apply to a specific file.
+ *
+ * @see https://eslint.org/docs/latest/use/configure/parser#configure-a-custom-parser
+ * @see https://eslint.org/docs/latest/use/command-line-interface#--parser
  */
 
 // --------------------------------------------------------------------------------
 // Require
 // --------------------------------------------------------------------------------
 
-const { js, jsx } = require('../files');
-const { globals, parserOptions } = require('../language-options');
-const { react } = require('../settings');
+const { ts } = require('../files');
+const { globals, parser } = require('../language-options');
 
 const {
   importPlugin,
   nodePlugin,
   stylisticJsPlugin,
-  jsxA11yPlugin,
-  reactPlugin,
-  reactCompilerPlugin,
-  reactHooksPlugin,
+  typescriptPlugin,
 } = require('../plugins');
 
 const {
@@ -28,10 +27,7 @@ const {
   importRules,
   nodeRules,
   stylisticJsRules,
-  jsxA11yRules,
-  reactRules,
-  reactCompilerRules,
-  reactHooksRules,
+  typescriptRules,
 } = require('../rules');
 
 // --------------------------------------------------------------------------------
@@ -39,32 +35,23 @@ const {
 // --------------------------------------------------------------------------------
 
 module.exports = {
-  name: 'bananass/jsx-react',
-  files: [...js, ...jsx],
+  name: 'bananass/ts',
+  files: ts,
   languageOptions: {
     globals,
-    parserOptions,
+    parser,
   },
   plugins: {
     ...importPlugin,
     ...nodePlugin,
     ...stylisticJsPlugin,
-    ...jsxA11yPlugin,
-    ...reactPlugin,
-    ...reactCompilerPlugin,
-    ...reactHooksPlugin,
+    ...typescriptPlugin,
   },
   rules: {
     ...eslintRules,
     ...importRules,
     ...nodeRules,
     ...stylisticJsRules,
-    ...jsxA11yRules,
-    ...reactRules,
-    ...reactCompilerRules,
-    ...reactHooksRules,
-  },
-  settings: {
-    react,
+    ...typescriptRules,
   },
 };
