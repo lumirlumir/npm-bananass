@@ -1,4 +1,4 @@
-import en from './en.js';
-import ko from './ko.js';
+import en from './en/index.js';
+import ko from './ko/index.js';
 
 export { en, ko };
