@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import c from 'ansi-colors';
+import c from 'chalk';
 import isUnicodeSupported from 'is-unicode-supported';
 
 // --------------------------------------------------------------------------------
