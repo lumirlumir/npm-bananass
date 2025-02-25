@@ -40,7 +40,7 @@
  * //   },
  * // }
  */
-export default function en({ themeConfigEditLinkPattern = '' }) {
+export default function en({ themeConfigEditLinkPattern = '' } = {}) {
   return {
     label: 'English',
     lang: 'en-US',

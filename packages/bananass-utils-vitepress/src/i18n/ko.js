@@ -94,7 +94,7 @@
 export default function ko({
   searchOptionsLocalesKey = 'root',
   themeConfigEditLinkPattern = '',
-}) {
+} = {}) {
   return {
     label: '한국어',
     lang: 'ko-KR',
