@@ -1,5 +1,5 @@
 /**
- * @fileoverview A collection of functions for console theme colors and icons.
+ * @fileoverview Console theme.
  * @module bananass-utils-console/theme
  */
 

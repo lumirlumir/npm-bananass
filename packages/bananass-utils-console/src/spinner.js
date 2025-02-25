@@ -1,5 +1,5 @@
 /**
- * @fileoverview Tiny terminal spinner.
+ * @fileoverview Console spinner.
  * @module bananass-utils-console/spinner
  * @see https://github.com/sindresorhus/yocto-spinner/tree/v0.1.2 `yocto-spinner` package `v0.1.2`.
  */

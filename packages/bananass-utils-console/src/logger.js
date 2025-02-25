@@ -1,5 +1,5 @@
 /**
- * @fileoverview Logger utility.
+ * @fileoverview Console logger.
  * @module bananass-utils-console/logger
  */
 
