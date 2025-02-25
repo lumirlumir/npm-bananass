@@ -17,7 +17,7 @@ import {
   warningIcon,
   infoIcon,
   bananassIcon,
-} from './icons/index.js';
+} from '../icons/index.js';
 import { success, error, warning, info, bananass } from './theme.js';
 
 // --------------------------------------------------------------------------------

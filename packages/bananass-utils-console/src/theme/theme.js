@@ -14,7 +14,7 @@ import {
   warningIcon,
   infoIcon,
   bananassIcon,
-} from './icons/index.js';
+} from '../icons/index.js';
 
 // --------------------------------------------------------------------------------
 // Declaration
