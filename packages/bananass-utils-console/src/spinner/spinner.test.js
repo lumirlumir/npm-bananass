@@ -7,7 +7,7 @@
 // --------------------------------------------------------------------------------
 
 import { strictEqual, match, ok } from 'node:assert';
-import { describe, it } from 'node:test';
+import { describe, it, mock } from 'node:test';
 import { stripVTControlCharacters as stripAnsi } from 'node:util';
 import { PassThrough } from 'node:stream';
 
@@ -199,6 +199,17 @@ describe('spinner.js', () => {
     const output = runSpinner(spinner => spinner.error('failed'));
 
     match(output, /✕ failed\n$/);
+  });
+
+  it('spinner stops and exits process on SIGINT', () => {
+    mock.method(process, 'exit', () => {});
+
+    const stream = getPassThroughStream();
+    createSpinner({ stream }).start();
+
+    process.emit('SIGINT');
+
+    mock.reset();
   });
 
   it('spinner renders multiple frames using timer', () => {
