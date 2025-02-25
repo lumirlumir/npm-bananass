@@ -8,11 +8,11 @@
 
 import { strictEqual, match, ok } from 'node:assert';
 import { describe, it } from 'node:test';
+import { stripVTControlCharacters as stripAnsi } from 'node:util';
 import process from 'node:process';
 import { PassThrough } from 'node:stream'; // TODO: Remove `PassThrough` and replace it with stream mocking.
 
 import getStream from 'get-stream'; // TODO: Remove `get-stream` devdependency and replace it with stream mocking.
-import stripAnsi from 'strip-ansi';
 
 import createSpinner from './spinner.js';
 

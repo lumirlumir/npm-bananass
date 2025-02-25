@@ -8,8 +8,7 @@
 
 import { strictEqual } from 'node:assert';
 import { describe, it, mock, afterEach } from 'node:test';
-
-import stripAnsi from 'strip-ansi';
+import { stripVTControlCharacters as stripAnsi } from 'node:util';
 
 import createLogger from './logger.js';
 
