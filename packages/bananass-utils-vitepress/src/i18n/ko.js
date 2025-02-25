@@ -12,7 +12,7 @@
  * @param {object} options Configuration options.
  * @param {string} [options.searchOptionsLocalesKey='root'] The locale key for search options. (default: `'root'`)
  * @param {string} [options.themeConfigEditLinkPattern=''] The pattern for edit links. (default: `''`)
- * @returns {object} The configuration object for Korean language support.
+ * @returns The configuration object for Korean language support.
  *
  * @example
  * import { ko } from 'bananass-utils-vitepress/i18n';

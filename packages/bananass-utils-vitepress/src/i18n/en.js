@@ -11,7 +11,7 @@
  *
  * @param {object} options Configuration options.
  * @param {string} [options.themeConfigEditLinkPattern=''] The pattern for edit links. (default: `''`)
- * @returns {object} The configuration object for English language support.
+ * @returns The configuration object for English language support.
  *
  * @example
  * import { en } from 'bananass-utils-vitepress/i18n';
