@@ -4,8 +4,6 @@
  * @see https://github.com/sindresorhus/yocto-spinner/tree/v0.1.2 `yocto-spinner` package `v0.1.2`.
  */
 
-// @ts-nocheck
-
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
@@ -46,6 +44,7 @@ class Spinner {
 
   constructor(options = {}) {
     const spinner = options.spinner ?? defaultSpinner;
+
     this.#frames = spinner.frames;
     this.#interval = spinner.interval;
     this.#text = options.text ?? '';
@@ -66,8 +65,7 @@ class Spinner {
   #render() {
     const currentTime = Date.now();
 
-    // Ensure we only update the spinner frame at the wanted interval,
-    // even if the render method is called more often.
+    // Ensure we only update the spinner frame at the wanted interval, even if the render method is called more often.
     if (
       this.#currentFrame === -1 ||
       currentTime - this.#lastSpinnerFrameTime >= this.#interval
@@ -219,12 +217,16 @@ class Spinner {
     return this;
   }
 
+  // ------------------------------------------------------------------------------
+  // Getters and Setters
+  // ------------------------------------------------------------------------------
+
   get text() {
     return this.#text;
   }
 
-  set text(value = '') {
-    this.#text = value;
+  set text(value) {
+    this.#text = value ?? '';
     this.#render();
   }
 
