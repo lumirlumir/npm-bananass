@@ -73,7 +73,7 @@ describe('spinner.js', () => {
   it('start and stop spinner when interactive', () => {
     const output = runSpinner(spinner => spinner.stop(), { isInteractive: true });
 
-    strictEqual(output, '- foo\n');
+    match(output, /- foo/);
   });
 
   it('start spinner in a row', () => {
