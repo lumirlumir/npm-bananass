@@ -94,6 +94,26 @@ describe('spinner.js', () => {
     match(output, /✦ foo\n$/);
   });
 
+  it('spinner set text and get text', () => {
+    const spinner = createSpinner({ text: 'foo' });
+
+    strictEqual(spinner.text, 'foo');
+
+    spinner.text = 'bar';
+
+    strictEqual(spinner.text, 'bar');
+  });
+
+  it('spinner set color and get color', () => {
+    const spinner = createSpinner({ color: 'red' });
+
+    strictEqual(spinner.color, 'red');
+
+    spinner.color = 'green';
+
+    strictEqual(spinner.color, 'green');
+  });
+
   it('spinner changes text', () => {
     const output = runSpinner(spinner => {
       spinner.text = 'bar';
