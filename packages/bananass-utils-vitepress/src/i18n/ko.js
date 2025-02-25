@@ -15,9 +15,9 @@
  * @returns {object} The configuration object for Korean language support.
  *
  * @example
- * import koreanConfig from 'bananass-utils-vitepress/i18n/ko';
+ * import { ko } from 'bananass-utils-vitepress/i18n';
  *
- * console.log(koreanConfig({
+ * console.log(ko({
  *   searchOptionsLocalesKey: 'root',
  *   themeConfigEditLinkPattern: 'https://github.com/org/repo/edit/main/docs/:path'
  * }));
@@ -91,7 +91,7 @@
  * //   },
  * // }
  */
-export default function koreanConfig({
+export default function ko({
   searchOptionsLocalesKey = 'root',
   themeConfigEditLinkPattern = '',
 }) {

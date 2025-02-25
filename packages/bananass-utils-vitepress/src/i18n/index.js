@@ -1,4 +1,4 @@
-import englishConfig from './en.js';
-import koreanConfig from './ko.js';
+import en from './en.js';
+import ko from './ko.js';
 
-export { englishConfig, koreanConfig };
+export { en, ko };

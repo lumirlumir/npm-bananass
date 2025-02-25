@@ -14,9 +14,9 @@
  * @returns {object} The configuration object for English language support.
  *
  * @example
- * import englishConfig from 'bananass-utils-vitepress/i18n/en';
+ * import { en } from 'bananass-utils-vitepress/i18n';
  *
- * console.log(englishConfig({
+ * console.log(en({
  *   themeConfigEditLinkPattern: 'https://github.com/org/repo/edit/main/docs/:path'
  * }));
  *
@@ -40,7 +40,7 @@
  * //   },
  * // }
  */
-export default function englishConfig({ themeConfigEditLinkPattern = '' }) {
+export default function en({ themeConfigEditLinkPattern = '' }) {
   return {
     label: 'English',
     lang: 'en-US',
