@@ -4,10 +4,6 @@
   "type": "module",
   "description": "VitePress Utilities for Bananass Framework.🍌",
   "exports": {
-    ".": {
-      "types": "./build/index.d.ts",
-      "default": "./src/index.js"
-    },
     "./head": {
       "types": "./build/head/index.d.ts",
       "default": "./src/head/index.js"
@@ -15,14 +11,6 @@
     "./i18n": {
       "types": "./build/i18n/index.d.ts",
       "default": "./src/i18n/index.js"
-    },
-    "./i18n/en": {
-      "types": "./build/i18n/en.d.ts",
-      "default": "./src/i18n/en.js"
-    },
-    "./i18n/ko": {
-      "types": "./build/i18n/ko.d.ts",
-      "default": "./src/i18n/ko.js"
     },
     "./package.json": "./package.json"
   },
@@ -36,12 +24,6 @@
       ],
       "i18n": [
         "./build/i18n/index.d.ts"
-      ],
-      "i18n/en": [
-        "./build/i18n/en.d.ts"
-      ],
-      "i18n/ko": [
-        "./build/i18n/ko.d.ts"
       ]
     }
   },
