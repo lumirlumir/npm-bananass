@@ -9,20 +9,17 @@
 import { strictEqual, match, ok } from 'node:assert';
 import { describe, it } from 'node:test';
 import { stripVTControlCharacters as stripAnsi } from 'node:util';
-import process from 'node:process';
-import { PassThrough } from 'node:stream'; // TODO: Remove `PassThrough` and replace it with stream mocking.
-
-import getStream from 'get-stream'; // TODO: Remove `get-stream` devdependency and replace it with stream mocking.
+import { PassThrough } from 'node:stream';
 
 import createSpinner from './spinner.js';
 
 // --------------------------------------------------------------------------------
-// Declaration
+// Mock
 // --------------------------------------------------------------------------------
 
 delete process.env.CI;
 
-const getPassThroughStream = () => {
+function getPassThroughStream() {
   const stream = new PassThrough();
 
   stream.clearLine = () => {};
@@ -30,9 +27,20 @@ const getPassThroughStream = () => {
   stream.moveCursor = () => {};
 
   return stream;
-};
+}
 
-const runSpinner = async (callback, options = {}) => {
+function getStream(stream) {
+  let data = '';
+  let chunk;
+
+  while ((chunk = stream.read()) !== null) {
+    data += chunk;
+  }
+
+  return data;
+}
+
+function runSpinner(callback, options = {}) {
   const stream = getPassThroughStream();
   const spinner = createSpinner({
     stream,
@@ -48,46 +56,46 @@ const runSpinner = async (callback, options = {}) => {
   callback(spinner);
   stream.end();
 
-  return stripAnsi(await getStream(stream));
-};
+  return stripAnsi(getStream(stream));
+}
 
 // --------------------------------------------------------------------------------
 // Test
 // --------------------------------------------------------------------------------
 
 describe('spinner.js', () => {
-  it('start and stop spinner', async () => {
-    const output = await runSpinner(spinner => spinner.stop());
+  it('start and stop spinner', () => {
+    const output = runSpinner(spinner => spinner.stop());
 
     strictEqual(output, '- foo\n');
   });
 
-  it('spinner.success()', async () => {
-    const output = await runSpinner(spinner => spinner.success());
+  it('spinner.success()', () => {
+    const output = runSpinner(spinner => spinner.success());
 
     match(output, /✓ foo\n$/);
   });
 
-  it('spinner.error()', async () => {
-    const output = await runSpinner(spinner => spinner.error());
+  it('spinner.error()', () => {
+    const output = runSpinner(spinner => spinner.error());
 
     match(output, /✕ foo\n$/);
   });
 
-  it('spinner.warning()', async () => {
-    const output = await runSpinner(spinner => spinner.warning());
+  it('spinner.warning()', () => {
+    const output = runSpinner(spinner => spinner.warning());
 
     match(output, /⚠ foo\n$/);
   });
 
-  it('spinner.info()', async () => {
-    const output = await runSpinner(spinner => spinner.info());
+  it('spinner.info()', () => {
+    const output = runSpinner(spinner => spinner.info());
 
     match(output, /✦ foo\n$/);
   });
 
-  it('spinner changes text', async () => {
-    const output = await runSpinner(spinner => {
+  it('spinner changes text', () => {
+    const output = runSpinner(spinner => {
       spinner.text = 'bar';
       spinner.stop();
     });
@@ -95,8 +103,8 @@ describe('spinner.js', () => {
     strictEqual(output, '- foo\n- bar\n');
   });
 
-  it('spinner stops with final text', async () => {
-    const output = await runSpinner(spinner => spinner.stop('final'));
+  it('spinner stops with final text', () => {
+    const output = runSpinner(spinner => spinner.stop('final'));
 
     match(output, /final\n$/);
   });
@@ -112,14 +120,14 @@ describe('spinner.js', () => {
     ok(true);
   });
 
-  it('spinner starts with custom text', async () => {
-    const output = await runSpinner(spinner => spinner.stop(), { text: 'custom' });
+  it('spinner starts with custom text', () => {
+    const output = runSpinner(spinner => spinner.stop(), { text: 'custom' });
 
     strictEqual(output, '- custom\n');
   });
 
-  it('spinner starts and changes text multiple times', async () => {
-    const output = await runSpinner(spinner => {
+  it('spinner starts and changes text multiple times', () => {
+    const output = runSpinner(spinner => {
       spinner.text = 'bar';
       spinner.text = 'baz';
       spinner.stop();
@@ -128,8 +136,8 @@ describe('spinner.js', () => {
     strictEqual(output, '- foo\n- bar\n- baz\n');
   });
 
-  it('spinner handles multiple start/stop cycles', async () => {
-    const output = await runSpinner(spinner => {
+  it('spinner handles multiple start/stop cycles', () => {
+    const output = runSpinner(spinner => {
       spinner.stop();
       spinner.start('bar');
       spinner.stop();
@@ -140,14 +148,14 @@ describe('spinner.js', () => {
     strictEqual(output, '- foo\n- bar\n- baz\n');
   });
 
-  it('spinner stops with success symbol and final text', async () => {
-    const output = await runSpinner(spinner => spinner.success('done'));
+  it('spinner stops with success symbol and final text', () => {
+    const output = runSpinner(spinner => spinner.success('done'));
 
     match(output, /✓ done\n$/);
   });
 
-  it('spinner stops with error symbol and final text', async () => {
-    const output = await runSpinner(spinner => spinner.error('failed'));
+  it('spinner stops with error symbol and final text', () => {
+    const output = runSpinner(spinner => spinner.error('failed'));
 
     match(output, /✕ failed\n$/);
   });
