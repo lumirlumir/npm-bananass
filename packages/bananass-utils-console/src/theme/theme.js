@@ -1,5 +1,5 @@
 /**
- * @fileoverview A collection of functions for console theme colors and icons.
+ * @fileoverview Console theme.
  * @module bananass-utils-console/theme
  */
 
@@ -14,7 +14,7 @@ import {
   warningIcon,
   infoIcon,
   bananassIcon,
-} from './icons/index.js';
+} from '../icons/index.js';
 
 // --------------------------------------------------------------------------------
 // Declaration
