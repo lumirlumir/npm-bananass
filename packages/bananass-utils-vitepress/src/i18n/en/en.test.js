@@ -16,7 +16,7 @@ import en from './en.js';
 // --------------------------------------------------------------------------------
 
 describe('en.js', () => {
-  it('should return default configuration when no `themeConfigEditLinkPattern` is provided', () => {
+  it('should return default configuration when no option is provided', () => {
     const enConfig = en();
 
     strictEqual(enConfig.themeConfig.editLink.pattern, '');
