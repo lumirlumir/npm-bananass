@@ -71,9 +71,12 @@ describe('spinner.js', () => {
   });
 
   it('start and stop spinner when interactive', () => {
-    const output = runSpinner(spinner => spinner.stop(), { isInteractive: true });
+    const output = runSpinner(spinner => spinner.stop(), {
+      isInteractive: true,
+      text: 'foo\nbar\nbaz',
+    });
 
-    match(output, /- foo/);
+    match(output, /- foo\nbar\nbaz/);
   });
 
   it('start spinner in a row', () => {
@@ -196,5 +199,17 @@ describe('spinner.js', () => {
     const output = runSpinner(spinner => spinner.error('failed'));
 
     match(output, /✕ failed\n$/);
+  });
+
+  it('spinner renders multiple frames using timer', () => {
+    const stream = getPassThroughStream();
+    const spinner = createSpinner({
+      stream,
+      spinner: { frames: ['-'], interval: 5 },
+    }).start();
+
+    setTimeout(() => {
+      spinner.stop();
+    }, 10);
   });
 });
