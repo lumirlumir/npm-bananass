@@ -21,7 +21,7 @@ import {
   warningIcon,
   infoIcon,
   defaultSpinner,
-} from './icons/index.js';
+} from '../icons/index.js';
 
 // --------------------------------------------------------------------------------
 // Class
