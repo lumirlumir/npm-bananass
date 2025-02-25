@@ -8,7 +8,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import englishConfig from 'bananass-utils-vitepress/i18n/en';
+import { en } from 'bananass-utils-vitepress/i18n';
 import { defineConfig } from 'vitepress';
 
 // --------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ const SITE_URL = 'https://bananass.lumir.page';
 const GITHUB_URL = 'https://github.com/lumirlumir/npm-bananass';
 const NPM_URL = 'https://www.npmjs.com';
 
-const { themeConfig, ...restConfig } = englishConfig({
+const { themeConfig, ...restConfig } = en({
   themeConfigEditLinkPattern: `${GITHUB_URL}/edit/main/websites/vitepress/:path`,
 });
 

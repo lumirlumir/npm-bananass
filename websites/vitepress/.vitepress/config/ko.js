@@ -8,7 +8,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import koreanConfig from 'bananass-utils-vitepress/i18n/ko';
+import { ko } from 'bananass-utils-vitepress/i18n';
 import { defineConfig } from 'vitepress';
 
 // --------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ const SITE_URL = 'https://bananass.lumir.page';
 const GITHUB_URL = 'https://github.com/lumirlumir/npm-bananass';
 const NPM_URL = 'https://www.npmjs.com';
 
-const { themeConfig, ...restConfig } = koreanConfig({
+const { themeConfig, ...restConfig } = ko({
   themeConfigEditLinkPattern: `${GITHUB_URL}/edit/main/websites/vitepress/:path`,
 });
 
