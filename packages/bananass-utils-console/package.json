@@ -4,17 +4,21 @@
   "type": "module",
   "description": "Console Utilities for Bananass Framework.🍌",
   "exports": {
+    "./icons": {
+      "types": "./build/icons/index.d.ts",
+      "default": "./src/icons/index.js"
+    },
     "./logger": {
-      "types": "./build/logger.d.ts",
-      "default": "./src/logger.js"
+      "types": "./build/logger/index.d.ts",
+      "default": "./src/logger/index.js"
     },
     "./spinner": {
-      "types": "./build/spinner.d.ts",
-      "default": "./src/spinner.js"
+      "types": "./build/spinner/index.d.ts",
+      "default": "./src/spinner/index.js"
     },
     "./theme": {
-      "types": "./build/theme.d.ts",
-      "default": "./src/theme.js"
+      "types": "./build/theme/index.d.ts",
+      "default": "./src/theme/index.js"
     },
     "./package.json": "./package.json"
   },
@@ -23,14 +27,17 @@
       "*": [
         "./build/*"
       ],
+      "icons": [
+        "./build/icons/index.d.ts"
+      ],
       "logger": [
-        "./build/logger.d.ts"
+        "./build/logger/index.d.ts"
       ],
       "spinner": [
-        "./build/spinner.d.ts"
+        "./build/spinner/index.d.ts"
       ],
       "theme": [
-        "./build/theme.d.ts"
+        "./build/theme/index.d.ts"
       ]
     }
   },
