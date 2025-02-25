@@ -87,8 +87,5 @@
     "chalk": "^5.4.1",
     "is-interactive": "^2.0.0",
     "is-unicode-supported": "^2.1.0"
-  },
-  "devDependencies": {
-    "get-stream": "^9.0.1"
   }
 }
