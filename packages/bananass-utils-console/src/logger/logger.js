@@ -88,6 +88,7 @@ class Logger {
     if (typeof textOrCallback === 'function') {
       textOrCallback(...args);
     } else {
+      // eslint-disable-next-line no-console -- Needed for logging.
       console.log(
         ...[this.#textPrefix, textOrCallback, ...args].filter(
           arg => arg !== this.#undeclaredValue,
@@ -130,6 +131,7 @@ class Logger {
     if (typeof textOrCallback === 'function') {
       textOrCallback(...args);
     } else {
+      // eslint-disable-next-line no-console -- Needed for logging.
       console.log(
         ...[this.#textPrefix, textOrCallback, ...args]
           .filter(arg => arg !== this.#undeclaredValue)
@@ -164,6 +166,10 @@ class Logger {
     return this;
   }
 
+  // ------------------------------------------------------------------------------
+  // Getters and Setters
+  // ------------------------------------------------------------------------------
+
   /**
    * Get the last method called.
    *
@@ -182,10 +188,21 @@ class Logger {
  * Creates a new `Logger` instance.
  *
  * @param {Options} options
- * @returns {Logger}
+ * @returns {Logger} A new `Logger` instance.
  *
  * @example
  * import createLogger from 'bananass-utils-console/logger';
+ *
+ * const logger = createLogger({
+ *   debug: false,
+ *   quiet: false,
+ *   textPrefix: '>',
+ * })
+ *
+ * logger
+ *   .log('Hello, log!');
+ *   .debug('Hello, debug!');
+ *   .eol();
  */
 export default function createLogger(options) {
   return new Logger(options);

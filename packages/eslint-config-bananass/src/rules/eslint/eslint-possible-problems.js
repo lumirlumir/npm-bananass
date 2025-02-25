@@ -86,7 +86,7 @@ module.exports = {
    * @link eslint: {@link https://eslint.org/docs/latest/rules/no-cond-assign}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/errors.js#L24}
    */
-  'no-cond-assign': ['error', 'always'],
+  'no-cond-assign': ['error', 'except-parens'],
 
   /**
    * Disallow reassigning `const` variables.
