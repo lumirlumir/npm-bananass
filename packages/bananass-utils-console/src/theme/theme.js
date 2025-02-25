@@ -7,7 +7,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import c from 'ansi-colors';
+import c from 'chalk';
 import {
   successIcon,
   errorIcon,

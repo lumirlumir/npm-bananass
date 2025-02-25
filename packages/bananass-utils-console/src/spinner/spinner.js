@@ -12,7 +12,7 @@
 
 import process from 'node:process';
 
-import c from 'ansi-colors';
+import c from 'chalk';
 import isInteractive from 'is-interactive';
 
 import {

@@ -9,7 +9,7 @@
 import { strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
-import c from 'ansi-colors';
+import c from 'chalk';
 
 import {
   successIcon,
