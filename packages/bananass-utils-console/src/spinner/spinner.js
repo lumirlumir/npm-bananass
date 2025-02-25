@@ -50,7 +50,8 @@ class Spinner {
     this.#text = options.text ?? '';
     this.#stream = options.stream ?? process.stderr;
     this.#color = options.color ?? 'cyan';
-    this.#isInteractive = isInteractive({ stream: this.#stream });
+    this.#isInteractive =
+      options.isInteractive ?? isInteractive({ stream: this.#stream });
     this.#exitHandlerBound = this.#exitHandler.bind(this);
   }
 

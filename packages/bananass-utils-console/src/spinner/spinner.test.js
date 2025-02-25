@@ -70,6 +70,24 @@ describe('spinner.js', () => {
     strictEqual(output, '- foo\n');
   });
 
+  it('start and stop spinner when interactive', () => {
+    const output = runSpinner(spinner => spinner.stop(), { isInteractive: true });
+
+    strictEqual(output, '- foo\n');
+  });
+
+  it('start spinner in a row', () => {
+    const output = runSpinner(spinner => spinner.start().stop());
+
+    strictEqual(output, '- foo\n');
+  });
+
+  it('stop spinner in a row', () => {
+    const output = runSpinner(spinner => spinner.stop().stop());
+
+    strictEqual(output, '- foo\n');
+  });
+
   it('spinner.success()', () => {
     const output = runSpinner(spinner => spinner.success());
 
