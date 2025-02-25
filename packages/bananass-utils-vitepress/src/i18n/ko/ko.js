@@ -12,12 +12,12 @@
  * @param {object} options Configuration options.
  * @param {string} [options.searchOptionsLocalesKey='root'] The locale key for search options. (default: `'root'`)
  * @param {string} [options.themeConfigEditLinkPattern=''] The pattern for edit links. (default: `''`)
- * @returns {object} The configuration object for Korean language support.
+ * @returns The configuration object for Korean language support.
  *
  * @example
- * import koreanConfig from 'bananass-utils-vitepress/i18n/ko';
+ * import { ko } from 'bananass-utils-vitepress/i18n';
  *
- * console.log(koreanConfig({
+ * console.log(ko({
  *   searchOptionsLocalesKey: 'root',
  *   themeConfigEditLinkPattern: 'https://github.com/org/repo/edit/main/docs/:path'
  * }));
@@ -91,10 +91,10 @@
  * //   },
  * // }
  */
-export default function koreanConfig({
+export default function ko({
   searchOptionsLocalesKey = 'root',
   themeConfigEditLinkPattern = '',
-}) {
+} = {}) {
   return {
     label: '한국어',
     lang: 'ko-KR',
