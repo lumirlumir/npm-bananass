@@ -20,24 +20,38 @@ import isUnicodeSupported from 'is-unicode-supported';
  */
 
 // --------------------------------------------------------------------------------
+// Helpers
+// --------------------------------------------------------------------------------
+
+/**
+ * @param {any} unicode Used when Unicode is supported.
+ * @param {any} ascii Used when Unicode is not supported.
+ * @returns {any}
+ */
+const choose = (unicode, ascii) => (isUnicodeSupported() ? unicode : ascii);
+
+// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
 /** @type {string} */
-export const successIcon = c.green.bold(isUnicodeSupported() ? '✓' : 'V');
+export const successIcon = c.bold(choose('✓', 'V'));
 /** @type {string} */
-export const errorIcon = c.red.bold(isUnicodeSupported() ? '✕' : 'X');
+export const errorIcon = c.bold(choose('✕', 'X'));
 /** @type {string} */
-export const warningIcon = c.yellow.bold(isUnicodeSupported() ? '⚠' : '!');
+export const warningIcon = c.bold(choose('⚠', '!'));
 /** @type {string} */
-export const infoIcon = c.blue.bold(isUnicodeSupported() ? '✦' : 'i');
+export const infoIcon = c.bold(choose('✦', 'i'));
 /** @type {string} */
-export const bananassIcon = c.yellow(isUnicodeSupported() ? '🍌' : '');
+export const bananassIcon = choose('🍌', '');
+
+// --------------------------------------------------------------------------------
 
 /** @type {SpinnerStyle} */
 export const defaultSpinner = {
-  frames: isUnicodeSupported()
-    ? ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
-    : ['-', '\\', '|', '/'],
+  frames: choose(
+    ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'],
+    ['-', '\\', '|', '/'],
+  ),
   interval: 80,
 };
