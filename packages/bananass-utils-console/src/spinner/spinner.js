@@ -8,8 +8,6 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import process from 'node:process';
-
 import c from 'chalk';
 import isInteractive from 'is-interactive';
 
@@ -22,6 +20,39 @@ import {
 } from '../icons/index.js';
 
 // --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
+/**
+ * @typedef {import('chalk').ForegroundColorName} ForegroundColorName
+ */
+
+/**
+ * @typedef {object} SpinnerStyle
+ * @property {string[]} frames
+ * @property {number} [interval]
+ */
+
+/**
+ * @typedef {object} Options Spinner options.
+ * @property {string} [text] Text to display next to the spinner. (default: `''`)
+ * @property {ForegroundColorName} [color] The color of the spinner. (default: `'yellow'`)
+ * @property {NodeJS.WriteStream} [stream] The stream to which the spinner is written. (default: `process.stderr`)
+ * @property {boolean} [isInteractive] Whether the spinner should be interactive. (default: Auto-detected)
+ * @property {SpinnerStyle} [spinner]
+ * Customize the spinner animation with a custom set of frames and interval.
+ *
+ * ```
+ * {
+ *    frames: ['-', '\\', '|', '/'],
+ *    interval: 100,
+ * }
+ * ```
+ *
+ * Pass in any spinner from [`cli-spinners`](https://github.com/sindresorhus/cli-spinners).
+ */
+
+// --------------------------------------------------------------------------------
 // Class
 // --------------------------------------------------------------------------------
 
@@ -30,18 +61,30 @@ class Spinner {
   // Private Properties
   // ------------------------------------------------------------------------------
 
+  /** @type {SpinnerStyle['frames']} */
   #frames;
+  /** @type {SpinnerStyle['interval']} */
   #interval;
+  /** @type {number} */
   #currentFrame = -1;
+  /** @type {NodeJS.Timeout} */
   #timer;
+  /** @type {string} */
   #text;
+  /** @type {NodeJS.WriteStream} */
   #stream;
+  /** @type {ForegroundColorName} */
   #color;
+  /** @type {number} */
   #lines = 0;
+  /** @type {boolean} */
   #isInteractive;
+  /** @type {(signal: string) => void} */
   #exitHandlerBound;
+  /** @type {number} */
   #lastSpinnerFrameTime = 0;
 
+  /** @param {Options} options */
   constructor(options = {}) {
     const spinner = options.spinner ?? defaultSpinner;
 
@@ -49,7 +92,7 @@ class Spinner {
     this.#interval = spinner.interval;
     this.#text = options.text ?? '';
     this.#stream = options.stream ?? process.stderr;
-    this.#color = options.color ?? 'cyan';
+    this.#color = options.color ?? 'yellow';
     this.#isInteractive =
       options.isInteractive ?? isInteractive({ stream: this.#stream });
     this.#exitHandlerBound = this.#exitHandler.bind(this);
@@ -59,6 +102,7 @@ class Spinner {
   // Private Methods
   // ------------------------------------------------------------------------------
 
+  /** @param {string} symbol @param {string} text */
   #symbolStop(symbol, text) {
     return this.stop(`${symbol} ${text ?? this.#text}`);
   }
@@ -75,7 +119,7 @@ class Spinner {
       this.#lastSpinnerFrameTime = currentTime;
     }
 
-    const applyColor = c[this.#color] ?? c.cyan;
+    const applyColor = c[this.#color] ?? c.yellow;
     const frame = this.#frames[this.#currentFrame];
     let string = `${applyColor(frame)} ${this.#text}`;
 
@@ -91,10 +135,12 @@ class Spinner {
     }
   }
 
+  /** @param {string} text */
   #write(text) {
     this.#stream.write(text);
   }
 
+  /** @param {string} text */
   #lineCount(text) {
     const width = this.#stream.columns ?? 80;
     const lines = text.split('\n');
@@ -130,6 +176,7 @@ class Spinner {
     process.off('SIGTERM', this.#exitHandlerBound);
   }
 
+  /** @param {string} signal */
   #exitHandler(signal) {
     if (this.isSpinning) {
       this.stop();
@@ -144,6 +191,14 @@ class Spinner {
   // Public Methods
   // ------------------------------------------------------------------------------
 
+  /**
+   * Starts the spinner.
+   *
+   * Optionally, updates the text.
+   *
+   * @param {string} [text] The text to display next to the spinner.
+   * @returns The spinner instance.
+   */
   start(text) {
     if (text) {
       this.#text = text;
@@ -164,6 +219,14 @@ class Spinner {
     return this;
   }
 
+  /**
+   * Stops the spinner.
+   *
+   * Optionally displays a final message.
+   *
+   * @param {string} [finalText] The final text to display after stopping the spinner.
+   * @returns The spinner instance.
+   */
   stop(finalText) {
     if (!this.isSpinning) {
       return this;
@@ -182,22 +245,51 @@ class Spinner {
     return this;
   }
 
+  /**
+   * Stops the spinner and displays a success symbol with the message.
+   *
+   * @param {string} [text] The success message to display.
+   * @returns The spinner instance.
+   */
   success(text) {
     return this.#symbolStop(successIcon, text);
   }
 
+  /**
+   * Stops the spinner and displays an error symbol with the message.
+   *
+   * @param {string} [text] The error message to display.
+   * @returns The spinner instance.
+   */
   error(text) {
     return this.#symbolStop(errorIcon, text);
   }
 
+  /**
+   * Stops the spinner and displays a warning symbol with the message.
+   *
+   * @param {string} [text] The warning message to display.
+   * @returns The spinner instance.
+   */
   warning(text) {
     return this.#symbolStop(warningIcon, text);
   }
 
+  /**
+   * Stops the spinner and displays an info symbol with the message.
+   *
+   * @param {string} [text] The info message to display.
+   * @returns The spinner instance.
+   */
   info(text) {
     return this.#symbolStop(infoIcon, text);
   }
 
+  /**
+   * Clears the spinner.
+   *
+   * @returns The spinner instance.
+   */
   clear() {
     if (!this.#isInteractive) {
       return this;
@@ -222,24 +314,45 @@ class Spinner {
   // Getters and Setters
   // ------------------------------------------------------------------------------
 
+  /**
+   * Change the text displayed next to the spinner.
+   *
+   * @example
+   * spinner.text = 'New text';
+   */
   get text() {
     return this.#text;
   }
 
+  /**
+   * Change the text displayed next to the spinner.
+   *
+   * @example
+   * spinner.text = 'New text';
+   */
   set text(value) {
     this.#text = value ?? '';
     this.#render();
   }
 
+  /**
+   * Change the spinner color.
+   */
   get color() {
     return this.#color;
   }
 
+  /**
+   * Change the spinner color.
+   */
   set color(value) {
     this.#color = value;
     this.#render();
   }
 
+  /**
+   * Returns whether the spinner is currently spinning.
+   */
   get isSpinning() {
     return this.#timer !== undefined;
   }
@@ -249,6 +362,29 @@ class Spinner {
 // Export
 // --------------------------------------------------------------------------------
 
+/**
+ * Creates a new spinner instance.
+ *
+ * @param {Options} options
+ * @returns {Spinner} A new spinner instance.
+ *
+ * @example
+ * import createSpinner from 'bananass-utils-console/spinner';
+ *
+ * const spinner = createSpinner({
+ *   text: 'Loading…'
+ *   color: 'yellow',
+ *   stream: process.stderr,
+ *   spinner: {
+ *     frames: ['-', '\\', '|', '/'],
+ *     interval: 100,
+ *   },
+ * }).start();
+ *
+ * setTimeout(() => {
+ *   spinner.success('Success!');
+ * }, 2000);
+ */
 export default function createSpinner(options) {
   return new Spinner(options);
 }
