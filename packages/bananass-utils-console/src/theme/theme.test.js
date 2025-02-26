@@ -29,7 +29,7 @@ describe('theme.js', () => {
     const message = 'Operation successful.';
 
     it('with a icon', () => {
-      strictEqual(success(message), c.green(`${successIcon} ${message}`));
+      strictEqual(success(message, true), c.green(`${successIcon} ${message}`));
     });
     it('without a icon', () => {
       strictEqual(success(message, false), c.green(message));
@@ -40,7 +40,7 @@ describe('theme.js', () => {
     const message = 'Something went wrong.';
 
     it('with a icon', () => {
-      strictEqual(error(message), c.red(`${errorIcon} ${message}`));
+      strictEqual(error(message, true), c.red(`${errorIcon} ${message}`));
     });
     it('without a icon', () => {
       strictEqual(error(message, false), c.red(message));
@@ -51,7 +51,7 @@ describe('theme.js', () => {
     const message = 'This is a warning.';
 
     it('with a icon', () => {
-      strictEqual(warning(message), c.yellow(`${warningIcon} ${message}`));
+      strictEqual(warning(message, true), c.yellow(`${warningIcon} ${message}`));
     });
     it('without a icon', () => {
       strictEqual(warning(message, false), c.yellow(message));
@@ -62,7 +62,7 @@ describe('theme.js', () => {
     const message = 'Informational message.';
 
     it('with a icon', () => {
-      strictEqual(info(message), c.blue(`${infoIcon} ${message}`));
+      strictEqual(info(message, true), c.blue(`${infoIcon} ${message}`));
     });
     it('without a icon', () => {
       strictEqual(info(message, false), c.blue(message));
@@ -73,7 +73,7 @@ describe('theme.js', () => {
     const message = 'Hello, Bananass.';
 
     it('with a icon', () => {
-      strictEqual(bananass(message), c.yellow(`${bananassIcon} ${message}`));
+      strictEqual(bananass(message, true), c.yellow(`${bananassIcon} ${message}`));
     });
     it('without a icon', () => {
       strictEqual(bananass(message, false), c.yellow(message));
