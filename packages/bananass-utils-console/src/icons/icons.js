@@ -35,15 +35,26 @@ const choose = (unicode, ascii) => (isUnicodeSupported() ? unicode : ascii);
 // --------------------------------------------------------------------------------
 
 /** @type {string} */
-export const successIcon = c.bold(choose('✓', 'V'));
+export const successIcon = c.bold.green(choose('✓', 'V'));
 /** @type {string} */
-export const errorIcon = c.bold(choose('✕', 'X'));
+export const errorIcon = c.bold.red(choose('✕', 'X'));
 /** @type {string} */
-export const warningIcon = c.bold(choose('⚠', '!'));
+export const warningIcon = c.bold.yellow(choose('⚠', '!'));
 /** @type {string} */
-export const infoIcon = c.bold(choose('✦', 'i'));
+export const infoIcon = c.bold.blue(choose('✦', 'i'));
 /** @type {string} */
 export const bananassIcon = choose('🍌', '');
+
+// --------------------------------------------------------------------------------
+
+/** @type {string} */
+export const successText = c.white.bgGreen.bold(' SUCCESS ');
+/** @type {string} */
+export const errorText = c.white.bgRed.bold(' ERROR ');
+/** @type {string} */
+export const warningText = c.white.bgYellow.bold(' WARN ');
+/** @type {string} */
+export const infoText = c.white.bgBlue.bold(' INFO ');
 
 // --------------------------------------------------------------------------------
 

@@ -31,7 +31,7 @@ import {
  * @private
  */
 const format = (str, showIcon, color, icon) =>
-  color(`${showIcon ? `${icon} ` : ''}${str}`);
+  `${showIcon ? `${icon} ` : ''}${color(str)}`;
 
 // --------------------------------------------------------------------------------
 // Export
