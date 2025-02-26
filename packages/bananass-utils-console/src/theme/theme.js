@@ -9,10 +9,10 @@
 
 import c from 'chalk';
 import {
-  successIcon,
-  errorIcon,
-  warningIcon,
-  infoIcon,
+  successText,
+  errorText,
+  warningText,
+  infoText,
   bananassIcon,
 } from '../icons/index.js';
 
@@ -49,7 +49,7 @@ const format = (str, showIcon, color, icon) =>
  * // Output: (icon?) Operation successful. (displayed in green text in the terminal.)
  */
 export function success(str, showIcon = false) {
-  return format(str, showIcon, c.green, successIcon);
+  return format(str, showIcon, c.green, successText);
 }
 
 /**
@@ -64,7 +64,7 @@ export function success(str, showIcon = false) {
  * // Output: (icon?) Something went wrong. (displayed in red text in the terminal.)
  */
 export function error(str, showIcon = false) {
-  return format(str, showIcon, c.red, errorIcon);
+  return format(str, showIcon, c.red, errorText);
 }
 
 /**
@@ -79,7 +79,7 @@ export function error(str, showIcon = false) {
  * // Output: (icon?) This is a warning. (displayed in yellow text in the terminal.)
  */
 export function warning(str, showIcon = false) {
-  return format(str, showIcon, c.yellow, warningIcon);
+  return format(str, showIcon, c.yellow, warningText);
 }
 
 /**
@@ -94,7 +94,7 @@ export function warning(str, showIcon = false) {
  * // Output: (icon?) Informational message. (displayed in blue text in the terminal.)
  */
 export function info(str, showIcon = false) {
-  return format(str, showIcon, c.blue, infoIcon);
+  return format(str, showIcon, c.blue, infoText);
 }
 
 /**

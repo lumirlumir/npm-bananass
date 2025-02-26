@@ -48,13 +48,13 @@ export const bananassIcon = choose('🍌', '');
 // --------------------------------------------------------------------------------
 
 /** @type {string} */
-export const successText = c.white.bgGreen.bold(' SUCCESS ');
+export const successText = c.white.bgGreen.bold(` ${successIcon} SUCCESS `);
 /** @type {string} */
-export const errorText = c.white.bgRed.bold(' ERROR ');
+export const errorText = c.white.bgRed.bold(` ${errorIcon} ERROR `);
 /** @type {string} */
-export const warningText = c.white.bgYellow.bold(' WARN ');
+export const warningText = c.white.bgYellow.bold(` ${warningIcon} WARN `);
 /** @type {string} */
-export const infoText = c.white.bgBlue.bold(' INFO ');
+export const infoText = c.white.bgBlue.bold(` ${infoIcon} INFO `);
 
 // --------------------------------------------------------------------------------
 

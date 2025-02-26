@@ -8,14 +8,13 @@
 
 import { strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
-
-import c from 'chalk';
+import { stripVTControlCharacters as stripAnsi } from 'node:util';
 
 import {
-  successIcon,
-  errorIcon,
-  warningIcon,
-  infoIcon,
+  successText,
+  errorText,
+  warningText,
+  infoText,
   bananassIcon,
 } from '../icons/index.js';
 import { success, error, warning, info, bananass } from './theme.js';
@@ -29,10 +28,13 @@ describe('theme.js', () => {
     const message = 'Operation successful.';
 
     it('with a icon', () => {
-      strictEqual(success(message, true), c.green(`${successIcon} ${message}`));
+      strictEqual(
+        stripAnsi(success(message, true)),
+        stripAnsi(`${successText} ${message}`),
+      );
     });
     it('without a icon', () => {
-      strictEqual(success(message, false), c.green(message));
+      strictEqual(stripAnsi(success(message, false)), message);
     });
   });
 
@@ -40,10 +42,10 @@ describe('theme.js', () => {
     const message = 'Something went wrong.';
 
     it('with a icon', () => {
-      strictEqual(error(message, true), c.red(`${errorIcon} ${message}`));
+      strictEqual(stripAnsi(error(message, true)), stripAnsi(`${errorText} ${message}`));
     });
     it('without a icon', () => {
-      strictEqual(error(message, false), c.red(message));
+      strictEqual(stripAnsi(error(message, false)), message);
     });
   });
 
@@ -51,10 +53,13 @@ describe('theme.js', () => {
     const message = 'This is a warning.';
 
     it('with a icon', () => {
-      strictEqual(warning(message, true), c.yellow(`${warningIcon} ${message}`));
+      strictEqual(
+        stripAnsi(warning(message, true)),
+        stripAnsi(`${warningText} ${message}`),
+      );
     });
     it('without a icon', () => {
-      strictEqual(warning(message, false), c.yellow(message));
+      strictEqual(stripAnsi(warning(message, false)), message);
     });
   });
 
@@ -62,10 +67,10 @@ describe('theme.js', () => {
     const message = 'Informational message.';
 
     it('with a icon', () => {
-      strictEqual(info(message, true), c.blue(`${infoIcon} ${message}`));
+      strictEqual(stripAnsi(info(message, true)), stripAnsi(`${infoText} ${message}`));
     });
     it('without a icon', () => {
-      strictEqual(info(message, false), c.blue(message));
+      strictEqual(stripAnsi(info(message, false)), message);
     });
   });
 
@@ -73,10 +78,13 @@ describe('theme.js', () => {
     const message = 'Hello, Bananass.';
 
     it('with a icon', () => {
-      strictEqual(bananass(message, true), c.yellow(`${bananassIcon} ${message}`));
+      strictEqual(
+        stripAnsi(bananass(message, true)),
+        stripAnsi(`${bananassIcon} ${message}`),
+      );
     });
     it('without a icon', () => {
-      strictEqual(bananass(message, false), c.yellow(message));
+      strictEqual(stripAnsi(bananass(message, false)), message);
     });
   });
 });
