@@ -14,7 +14,7 @@ import isUnicodeSupported from 'is-unicode-supported';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {object} SpinnerIcon
+ * @typedef {object} SpinnerStyle
  * @property {string[]} frames
  * @property {number} [interval]
  */
@@ -34,7 +34,7 @@ export const infoIcon = c.blue.bold(isUnicodeSupported() ? '✦' : 'i');
 /** @type {string} */
 export const bananassIcon = c.yellow(isUnicodeSupported() ? '🍌' : '');
 
-/** @type {SpinnerIcon} */
+/** @type {SpinnerStyle} */
 export const defaultSpinner = {
   frames: isUnicodeSupported()
     ? ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
