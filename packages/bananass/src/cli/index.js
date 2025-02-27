@@ -6,7 +6,6 @@ import clean from './bananass-clean.js';
 import discussion from './bananass-discussion.js';
 import home from './bananass-home.js';
 import info from './bananass-info.js';
-import init from './bananass-init.js';
 import lint from './bananass-lint.js';
 import login from './bananass-login.js';
 import open from './bananass-open.js';
@@ -25,7 +24,6 @@ export {
   discussion,
   home,
   info,
-  init,
   lint,
   login,
   open,

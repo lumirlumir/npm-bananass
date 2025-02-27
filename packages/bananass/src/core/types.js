@@ -20,7 +20,6 @@
  * @property {ConfigObjectBuild} [build] Options exclusive to the `bananass build` command.
  * @property {ConfigObjectClean} [clean] Options exclusive to the `bananass clean` command.
  * @property {ConfigObjectInfo} [info] Options exclusive to the `bananass info` command.
- * @property {ConfigObjectInit} [init] Options exclusive to the `bananass init` command.
  * @property {ConfigObjectLint} [lint] Options exclusive to the `bananass lint` command.
  * @property {ConfigObjectLogin} [login] Options exclusive to the `bananass login` command.
  * @property {ConfigObjectOpen} [open] Options exclusive to the `bananass open` command.
@@ -63,10 +62,6 @@
 /**
  * @typedef {object} ConfigObjectInfo Options exclusive to the `bananass info` command.
  * @property {boolean} [all] Show all information including Not Found.
- */
-
-/**
- * @typedef {object} ConfigObjectInit Options exclusive to the `bananass init` command.
  */
 
 /**
