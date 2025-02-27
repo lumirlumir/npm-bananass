@@ -18,7 +18,6 @@ import {
   discussion,
   home,
   info,
-  init,
   lint,
   login,
   open,
@@ -41,7 +40,6 @@ clean(program);
 discussion(program);
 home(program);
 info(program);
-init(program);
 lint(program);
 login(program);
 open(program);

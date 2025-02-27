@@ -15,7 +15,6 @@ import ConfigObjectAdd from '../config-object-add/index.js';
 import ConfigObjectBuild from '../config-object-build/index.js';
 import ConfigObjectClean from '../config-object-clean/index.js';
 import ConfigObjectInfo from '../config-object-info/index.js';
-import ConfigObjectInit from '../config-object-init/index.js';
 import ConfigObjectLint from '../config-object-lint/index.js';
 import ConfigObjectLogin from '../config-object-login/index.js';
 import ConfigObjectOpen from '../config-object-open/index.js';
@@ -54,7 +53,6 @@ const ConfigObject = object({
   build: ConfigObjectBuild,
   clean: ConfigObjectClean,
   info: ConfigObjectInfo,
-  init: ConfigObjectInit,
   lint: ConfigObjectLint,
   login: ConfigObjectLogin,
   open: ConfigObjectOpen,
