@@ -2,6 +2,7 @@ import bananass from 'eslint-config-bananass';
 
 export default [
   {
+    // Bananass build directory (Rename it if you change the `outDir` field in `bananass.config.mjs`)
     ignores: ['**/.bananass/'],
   },
   bananass.configs.js,
