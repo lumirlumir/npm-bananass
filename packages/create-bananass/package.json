@@ -8,6 +8,7 @@
   },
   "files": [
     "src",
+    "templates",
     "LICENSE.md",
     "README.md",
     "!src/**/*.test.js",
