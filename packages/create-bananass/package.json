@@ -1,0 +1,52 @@
+{
+  "name": "create-bananass",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Create a Bananass framework project for solving Baekjoon problems with JavaScript.🍌",
+  "bin": {
+    "create-bananass": "src/cli.js"
+  },
+  "files": [
+    "src",
+    "LICENSE.md",
+    "README.md",
+    "!src/**/*.test.js",
+    "!**/fixtures/**"
+  ],
+  "keywords": [
+    "bananass",
+    "bananas",
+    "banana",
+    "baekjoon",
+    "framework",
+    "javascript",
+    "create",
+    "create-bananass"
+  ],
+  "author": "루밀LuMir <rpfos@naver.com> (https://github.com/lumirlumir)",
+  "license": "MIT",
+  "homepage": "https://bananass.lumir.page",
+  "repository": {
+    "type": "github",
+    "url": "git+https://github.com/lumirlumir/npm-bananass.git",
+    "directory": "packages/create-bananass"
+  },
+  "bugs": {
+    "url": "https://github.com/lumirlumir/npm-bananass/issues"
+  },
+  "engines": {
+    "node": ">=20.18.0"
+  },
+  "publishConfig": {
+    "provenance": true
+  },
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "shx cp ../../LICENSE.md ../../README.md .",
+    "test": "node --test",
+    "dev": "node src/cli.js"
+  },
+  "dependencies": {
+    "bananass-utils-console": "^0.0.0"
+  }
+}
