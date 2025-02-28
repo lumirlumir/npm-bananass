@@ -8,6 +8,6 @@
   },
   "devDependencies": {
     "eslint-config-bananass": "^0.0.0",
-    "@eslint/config-inspector": "^1.0.0"
+    "@eslint/config-inspector": "^1.0.1"
   }
 }
