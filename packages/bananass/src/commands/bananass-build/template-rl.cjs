@@ -2,7 +2,7 @@
  * @fileoverview Entry file for the `webpack.js` file.
  *
  * The `build` function's `webpackConfigs.entry` property references this file.
- * The global variable `BAEKJOON_PROBLEM_NUMBER_WITH_PATH` is defined via the `build` function's `webpackConfigs.plugin`'s `new webpack.DefinePlugin`.
+ * The global variable `globalThis.BAEKJOON_PROBLEM_NUMBER_WITH_PATH` is defined via the `build` function's `webpackConfigs.plugin`'s `new webpack.DefinePlugin`.
  */
 
 // --------------------------------------------------------------------------------
@@ -13,8 +13,7 @@ const { createInterface } = require('node:readline');
 const { stdin: input, stdout: output } = require('node:process');
 const { EOL } = require('node:os');
 
-// dynamic require
-const solutionModule = require(BAEKJOON_PROBLEM_NUMBER_WITH_PATH); // eslint-disable-line
+const solutionModule = require(globalThis.BAEKJOON_PROBLEM_NUMBER_WITH_PATH); // dynamic require
 
 // --------------------------------------------------------------------------------
 // Declaration
