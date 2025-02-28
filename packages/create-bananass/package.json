@@ -47,6 +47,8 @@
     "dev": "node src/cli.js"
   },
   "dependencies": {
-    "bananass-utils-console": "^0.0.0"
+    "bananass-utils-console": "^0.0.0",
+    "commander": "^13.1.0",
+    "consola": "^3.4.0"
   }
 }
