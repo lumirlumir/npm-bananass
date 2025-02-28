@@ -2,8 +2,6 @@
  * @fileoverview Asynchronously build and create bundled files using webpack and esbuild.
  */
 
-// TODO: More detailed error messages.
-
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
@@ -72,13 +70,14 @@ export default async function build(problems, configObject) {
   );
 
   const logger = createLogger(console);
-  const spinner = createSpinner({ color: 'yellow' });
+  const spinner = createSpinner();
 
   // ------------------------------------------------------------------------------
   // CLI Animation
   // ------------------------------------------------------------------------------
 
-  logger.log(() => spinner.start(bananass('Bananass build is running...'))); // Ensure correct `this` binding for `spinner.start` using arrow function. (Or use `apply`, `call` or `bind` method.)
+  // Ensure correct `this` binding for `spinner.start` using arrow function. (Or use `apply`, `call` or `bind` method.)
+  logger.log(() => spinner.start(bananass('Bananass build is running...')));
 
   // ------------------------------------------------------------------------------
   // Webpack Configs
@@ -96,7 +95,7 @@ export default async function build(problems, configObject) {
 
         /** @see https://webpack.js.org/configuration/resolve/#resolveextensions */
         resolve: {
-          extensions: SUPPORTED_SOLUTION_FILE_EXTENSIONS, // TODO: reduce redundancy
+          extensions: SUPPORTED_SOLUTION_FILE_EXTENSIONS,
         },
 
         /** @see https://webpack.js.org/concepts/#entry */
@@ -150,7 +149,7 @@ export default async function build(problems, configObject) {
   );
 
   // ------------------------------------------------------------------------------
-  // Webpack Run
+  // Clean Output Directory
   // ------------------------------------------------------------------------------
 
   try {
@@ -160,27 +159,41 @@ export default async function build(problems, configObject) {
     // resulting in only one file in the output directory.
     // Secondly, even if we use `webpackConfigs.output.clean` only once with the `map()` method's `index` parameter,
     // it cannot guarantee the build order and may lead to race conditions where files get deleted unpredictably.
-    if (clean) await rm(resolvedOutDir, { recursive: true, force: true }); // TODO: detach `rm` logic and make a new error message.
+    if (clean) await rm(resolvedOutDir, { recursive: true, force: true });
+  } catch ({ message }) {
+    logger.log(() => spinner.error(error('Failed to clean output directory')));
 
+    throw new Error(error(message, true));
+  }
+
+  // ------------------------------------------------------------------------------
+  // Run Webpack
+  // ------------------------------------------------------------------------------
+
+  try {
     await new Promise((res, rej) => {
       webpack(webpackConfigs, (err, stats) => {
         if (err || stats.hasErrors()) {
-          // @ts-ignore -- TODO: Remove this line later.
-          rej(new Error(err || stats.toString()));
+          rej(err || new Error(stats.toString()));
         } else {
           res(stats);
         }
       });
     });
+  } catch (err) {
+    logger.log(() => spinner.error(error('Failed to run webpack')));
 
-    logger
-      .log(() => spinner.success(success('Bananass build completed successfully', false)))
-      .eol()
-      .log('Output Directory:', resolvedOutDir)
-      .log('Created:', problems.map(problem => `${problem}.js`).join(', '));
-  } catch ({ message }) {
-    logger.log(() => spinner.error());
-
-    throw new Error(error(`Webpack run failed - ${message}`));
+    const message = err.message || String(err);
+    throw new Error(error(message, true));
   }
+
+  // ------------------------------------------------------------------------------
+  // Exit
+  // ------------------------------------------------------------------------------
+
+  logger
+    .log(() => spinner.success(success('Bananass build completed successfully')))
+    .eol()
+    .log('Output Directory:', resolvedOutDir)
+    .log('Created:', problems.map(problem => `${problem}.js`).join(', '));
 }
