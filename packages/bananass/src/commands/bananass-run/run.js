@@ -68,7 +68,7 @@ export default async function run(problems, configObject) {
   let testResults;
 
   const logger = createLogger({ ...console, textPrefix: false });
-  const spinner = createSpinner({ color: 'yellow' }); // TODO: Set default spinner color to yellow.
+  const spinner = createSpinner();
 
   // ------------------------------------------------------------------------------
   // CLI Animation
@@ -92,9 +92,9 @@ export default async function run(problems, configObject) {
       ),
     );
   } catch ({ message }) {
-    logger.log(() => spinner.error(error('Failed to resolve entry files', false)));
+    logger.log(() => spinner.error(error('Failed to resolve entry files')));
 
-    throw new Error(error(message, false));
+    throw new Error(error(message, true));
   }
 
   // ------------------------------------------------------------------------------
@@ -109,9 +109,9 @@ export default async function run(problems, configObject) {
       ),
     );
   } catch ({ message }) {
-    logger.log(() => spinner.error(error('Failed to import modules', false)));
+    logger.log(() => spinner.error(error('Failed to import modules')));
 
-    throw new Error(error(message, false));
+    throw new Error(error(message, true));
   }
 
   // ------------------------------------------------------------------------------
@@ -121,9 +121,9 @@ export default async function run(problems, configObject) {
   try {
     testResults = importedModules.map(importedModule => testRunner(importedModule));
   } catch ({ message }) {
-    logger.log(() => spinner.error(error('Failed to run tests', false)));
+    logger.log(() => spinner.error(error('Failed to run tests')));
 
-    throw new Error(error(message, false));
+    throw new Error(error(message, true));
   }
 
   const hasFailedTests = testResults.some(({ isAllTestsPassed }) => !isAllTestsPassed);
@@ -135,10 +135,8 @@ export default async function run(problems, configObject) {
   logger
     .log(() =>
       hasFailedTests
-        ? spinner.error(
-            error('Bananass run completed with errors due to failed tests', false),
-          )
-        : spinner.success(success('Bananass run completed successfully', false)),
+        ? spinner.error(error('Bananass run completed with errors due to failed tests'))
+        : spinner.success(success('Bananass run completed successfully')),
     )
     .eol();
 

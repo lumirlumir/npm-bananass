@@ -49,7 +49,7 @@ export default async function home(configObject) {
   } = configObject;
 
   const logger = createLogger(console);
-  const spinner = createSpinner({ color: 'yellow' });
+  const spinner = createSpinner();
 
   // ------------------------------------------------------------------------------
   // CLI Animation
@@ -68,11 +68,15 @@ export default async function home(configObject) {
         arguments: secretMode ? ['--incognito', '--private-window', '--inPrivate'] : [],
       },
     });
-
-    logger.log(() => spinner.success(success('Opened in a browser', false)));
   } catch ({ message }) {
-    logger.log(() => spinner.error());
+    logger.log(() => spinner.error(error('Failed to open homepage')));
 
-    throw new Error(error(`Failed to open homepage - ${message}`));
+    throw new Error(error(message, true));
   }
+
+  // ------------------------------------------------------------------------------
+  // Exit
+  // ------------------------------------------------------------------------------
+
+  logger.log(() => spinner.success(success('Opened in a browser')));
 }
