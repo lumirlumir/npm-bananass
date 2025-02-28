@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * @fileoverview Entry file for the `npx bananass` CLI command. See the `bin.bananass` property in `../package.json`.
+ * @fileoverview Entry file for the `npx bananass` CLI command. See the `bin` field in `../package.json`.
  */
 
 // --------------------------------------------------------------------------------
