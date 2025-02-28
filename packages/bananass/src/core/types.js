@@ -17,13 +17,17 @@
  * @property {ConfigObjectConsole} [console] Global console options.
  *
  * @property {ConfigObjectAdd} [add] Options exclusive to the `bananass add` command.
+ * @property {ConfigObjectBug} [bug] Options exclusive to the `bananass bug` command.
  * @property {ConfigObjectBuild} [build] Options exclusive to the `bananass build` command.
  * @property {ConfigObjectClean} [clean] Options exclusive to the `bananass clean` command.
+ * @property {ConfigObjectDiscussion} [discussion] Options exclusive to the `bananass discussion` command.
+ * @property {ConfigObjectHome} [home] Options exclusive to the `bananass home` command.
  * @property {ConfigObjectInfo} [info] Options exclusive to the `bananass info` command.
  * @property {ConfigObjectLint} [lint] Options exclusive to the `bananass lint` command.
  * @property {ConfigObjectLogin} [login] Options exclusive to the `bananass login` command.
  * @property {ConfigObjectOpen} [open] Options exclusive to the `bananass open` command.
  * @property {ConfigObjectRandom} [random] Options exclusive to the `bananass random` command.
+ * @property {ConfigObjectRepo} [repo] Options exclusive to the `bananass repo`
  * @property {ConfigObjectRun} [run] Options exclusive to the `bananass run` command.
  * @property {ConfigObjectSubmit} [submit] Options exclusive to the `bananass submit` command.
  * @property {ConfigObjectTestcase} [testcase] Options exclusive to the `bananass testcase` command.
@@ -50,6 +54,10 @@
  */
 
 /**
+ * @typedef {object} ConfigObjectBug Options exclusive to the `bananass bug` command.
+ */
+
+/**
  * @typedef {object} ConfigObjectBuild Options exclusive to the `bananass build` command.
  * @property {boolean} [clean] Clean the output directory before emit.
  * @property {'fs' | 'rl'} [templateType] Webpack entry file template type. Select from `fs` (File System) or `rl` (Read Line).
@@ -57,6 +65,14 @@
 
 /**
  * @typedef {object} ConfigObjectClean Options exclusive to the `bananass clean` command.
+ */
+
+/**
+ * @typedef {object} ConfigObjectDiscussion Options exclusive to the `bananass discussion` command.
+ */
+
+/**
+ * @typedef {object} ConfigObjectHome Options exclusive to the `bananass home` command.
  */
 
 /**
@@ -78,6 +94,10 @@
 
 /**
  * @typedef {object} ConfigObjectRandom Options exclusive to the `bananass random` command.
+ */
+
+/**
+ * @typedef {object} ConfigObjectRepo Options exclusive to the `bananass repo` command.
  */
 
 /**
