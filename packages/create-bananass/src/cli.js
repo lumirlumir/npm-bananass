@@ -11,58 +11,111 @@
 // --------------------------------------------------------------------------------
 
 import { cp } from 'node:fs/promises';
+import { createRequire } from 'node:module';
 
+import createLogger from 'bananass-utils-console/logger';
 import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, error, success } from 'bananass-utils-console/theme';
-// import { program } from 'commander';
+import { program } from 'commander';
 import { consola } from 'consola';
 
 // --------------------------------------------------------------------------------
-// Inquirer
+// Declarations
 // --------------------------------------------------------------------------------
 
-/** @type {string} */
-const language = await consola.prompt('which language do you want to use?', {
-  type: 'select',
-  options: ['JavaScript', 'TypeScript'],
-});
-
-/** @type {boolean} */
-const isVSC = await consola.prompt('Do you use Visual Studio Code?', {
-  type: 'confirm',
-});
-
-console.log(); // Add a new line
+const {
+  description: pkgDescription,
+  homepage: pkgHomepage,
+  name: pkgName,
+  version: pkgVersion,
+} = createRequire(import.meta.url)('../package.json');
 
 // --------------------------------------------------------------------------------
-// CLI Animation
+// Commander
 // --------------------------------------------------------------------------------
 
-const spinner = createSpinner().start(
-  bananass('Creating a new Bananass framework project...', true),
-);
+program
+  .name(pkgName)
+  .description(`${pkgDescription} (${pkgHomepage})`)
+  .version(pkgVersion, '-v, --version')
+  .option('-d, --debug', 'enable debug mode', false)
+  .option(
+    '-f, --force',
+    'force to create a new project even if the directory or files already exist',
+    false,
+  )
+  .action(async options => {
+    // ----------------------------------------------------------------------------
+    // Declarations
+    // ----------------------------------------------------------------------------
 
-// --------------------------------------------------------------------------------
-// Copy Files
-// --------------------------------------------------------------------------------
+    const { debug, force } = options;
 
-try {
-  await cp(new URL(`../templates/${language}`, import.meta.url), 'dest', {
-    // TODO: Change the destination path
-    errorOnExist: true,
-    recursive: true,
-    force: false, // TODO: Get a option from CLI.
+    const logger = createLogger({ debug });
+    const spinner = createSpinner();
 
-    filter: src => isVSC || !src.includes('.vscode'), // Exclude `.vscode` folder if `isVSC` is `false`.
-  });
-} catch ({ message }) {
-  spinner.error(error('Failed to copy files'));
+    // ----------------------------------------------------------------------------
 
-  throw new Error(error(message, true));
-}
+    logger.debug('cli options:', options);
 
-// --------------------------------------------------------------------------------
-// Exit
-// --------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------
+    // Inquirer
+    // ----------------------------------------------------------------------------
 
-spinner.success(success('Successfully created a new Bananass framework project!'));
+    /** @type {string} */
+    const projectName = await consola.prompt('What is your project name?', {
+      type: 'text',
+    });
+
+    /** @type {string} */
+    const language = await consola.prompt('which language do you want to use?', {
+      type: 'select',
+      options: ['JavaScript', 'TypeScript'],
+    });
+
+    /** @type {boolean} */
+    const isVSC = await consola.prompt('Do you use Visual Studio Code?', {
+      type: 'confirm',
+    });
+
+    console.log(); // Add a new line
+
+    // ----------------------------------------------------------------------------
+
+    logger
+      .debug('projectName:', projectName)
+      .debug('language:', language)
+      .debug('isVSC:', isVSC)
+      .eol();
+
+    // ----------------------------------------------------------------------------
+    // CLI Animation
+    // ----------------------------------------------------------------------------
+
+    spinner.start(bananass('Creating a new Bananass framework project...', true));
+
+    // ----------------------------------------------------------------------------
+    // Copy Files
+    // ----------------------------------------------------------------------------
+
+    try {
+      await cp(new URL(`../templates/${language}`, import.meta.url), projectName, {
+        // TODO: Change the destination path
+        errorOnExist: true,
+        recursive: true,
+        force,
+        filter: src => isVSC || !src.includes('.vscode'), // Exclude `.vscode` folder if `isVSC` is `false`.
+      });
+    } catch ({ message }) {
+      spinner.error(error('Failed to copy files'));
+
+      throw new Error(error(message, true));
+    }
+
+    // ----------------------------------------------------------------------------
+    // Exit
+    // ----------------------------------------------------------------------------
+
+    spinner.success(success('Successfully created a new Bananass framework project!'));
+  })
+  .parse();
