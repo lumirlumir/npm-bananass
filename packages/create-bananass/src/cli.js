@@ -47,8 +47,13 @@ program
     false,
   )
   .option(
-    '-s, --skip-install',
-    'explicitly tell the cli to skip installing packages',
+    '--skip-git',
+    'explicitly tell the cli to skip initializing a git repository',
+    false,
+  )
+  .option(
+    '--skip-install',
+    'explicitly tell the cli to skip installing packages with npm',
     false,
   )
   .action(async (directoryCli, options) => {
@@ -56,7 +61,7 @@ program
     // Declarations
     // ----------------------------------------------------------------------------
 
-    const { debug, force, skipInstall } = options;
+    const { debug, force, skipGit, skipInstall } = options;
 
     const logger = createLogger({ debug });
     const spinner = createSpinner();
@@ -125,6 +130,39 @@ program
       spinner.error(error('Failed to copy files'));
 
       throw new Error(error(message, true));
+    }
+
+    // ----------------------------------------------------------------------------
+    // Initialize Git Repository
+    // ----------------------------------------------------------------------------
+
+    if (!skipGit) {
+      spinner.start(bananass('Initializing git repository...', true));
+
+      try {
+        await new Promise((res, rej) => {
+          const gitInit = spawn('git', ['init'], {
+            cwd: directory,
+            shell: true, // Required for Windows
+          });
+
+          gitInit.on('close', code => {
+            if (code === 0) {
+              res();
+            } else {
+              rej(new Error(`git init failed with exit code ${code}`));
+            }
+          });
+
+          gitInit.on('error', err => {
+            rej(err);
+          });
+        });
+      } catch ({ message }) {
+        spinner.error(error('Failed to initialize git repository'));
+
+        throw new Error(error(message, true));
+      }
     }
 
     // ----------------------------------------------------------------------------
