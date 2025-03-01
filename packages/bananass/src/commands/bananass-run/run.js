@@ -74,7 +74,7 @@ export default async function run(problems, configObject) {
   // CLI Animation
   // ------------------------------------------------------------------------------
 
-  logger.log(() => spinner.start(bananass('Bananass run is running...')));
+  logger.log(() => spinner.start(bananass('Bananass run is running...', true)));
 
   // ------------------------------------------------------------------------------
   // Resolve Entry Files

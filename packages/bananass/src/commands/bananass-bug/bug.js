@@ -55,7 +55,7 @@ export default async function bug(configObject) {
   // CLI Animation
   // ------------------------------------------------------------------------------
 
-  logger.log(() => spinner.start(bananass('Opening in a browser...'))); // TODO: Set `showIcon` true
+  logger.log(() => spinner.start(bananass('Opening in a browser...', true)));
 
   // ------------------------------------------------------------------------------
   // Open
