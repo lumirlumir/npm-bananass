@@ -39,6 +39,7 @@ program
   .name(pkgName)
   .description(`${pkgDescription} (${pkgHomepage})`)
   .version(pkgVersion, '-v, --version')
+  .argument('[directory]', 'directory should this project be located in')
   .option('-d, --debug', 'enable debug mode', false)
   .option(
     '-f, --force',
@@ -50,7 +51,7 @@ program
     'explicitly tell the cli to skip installing packages',
     false,
   )
-  .action(async options => {
+  .action(async (directoryCli, options) => {
     // ----------------------------------------------------------------------------
     // Declarations
     // ----------------------------------------------------------------------------
@@ -62,7 +63,7 @@ program
 
     // ----------------------------------------------------------------------------
 
-    logger.debug('cli options:', options);
+    logger.debug('directory:', directoryCli).debug('cli options:', options);
 
     // ----------------------------------------------------------------------------
     // Inquirer
