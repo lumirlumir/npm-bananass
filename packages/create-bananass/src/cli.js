@@ -122,7 +122,7 @@ program
       }
 
       // --------------------------------------------------------------------------
-      // Merge CLI and PROMPT values (PROMPT values Override CLI values)
+      // Merge CLI and PROMPT values (PROMPT values override CLI values)
       // --------------------------------------------------------------------------
 
       const directory = promptDirectory ?? cliDirectory;
@@ -200,6 +200,58 @@ program
       }
 
       // --------------------------------------------------------------------------
+      // Install Visual Studio Code Extensions
+      // --------------------------------------------------------------------------
+
+      if (!skipVsc) {
+        logger.log(() =>
+          spinner.start(bananass('Installing Visual Studio Code extensions...', true)),
+        );
+
+        try {
+          const extensions = ['dbaeumer.vscode-eslint', 'esbenp.prettier-vscode'];
+
+          await Promise.all(
+            extensions.map(
+              extension =>
+                new Promise((res, rej) => {
+                  const installExtension = spawn(
+                    'code',
+                    ['--install-extension', extension],
+                    {
+                      cwd: directory,
+                      shell: true, // Required for Windows
+                    },
+                  );
+
+                  installExtension.on('close', code => {
+                    if (code === 0) {
+                      res();
+                    } else {
+                      rej(
+                        new Error(
+                          `code --install-extension ${extension} failed with exit code ${code}`,
+                        ),
+                      );
+                    }
+                  });
+
+                  installExtension.on('error', err => {
+                    rej(err);
+                  });
+                }),
+            ),
+          );
+        } catch ({ message }) {
+          logger.log(() =>
+            spinner.error(error('Failed to install Visual Studio Code extensions')),
+          );
+
+          throw new Error(error(message, true));
+        }
+      }
+
+      // --------------------------------------------------------------------------
       // Initialize Git Repository
       // --------------------------------------------------------------------------
 
@@ -264,12 +316,6 @@ program
           throw new Error(error(message, true));
         }
       }
-
-      // --------------------------------------------------------------------------
-      // Install VS Code Extensions
-      // --------------------------------------------------------------------------
-
-      // TODO: vscode extensions and quiet mode
 
       // --------------------------------------------------------------------------
       // Exit
