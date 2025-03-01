@@ -23,7 +23,7 @@ import { program } from 'commander';
 import { consola } from 'consola';
 
 // --------------------------------------------------------------------------------
-// Declarations
+// Typedefs
 // --------------------------------------------------------------------------------
 
 /**
@@ -262,7 +262,7 @@ program
       // Install VS Code Extensions
       // --------------------------------------------------------------------------
 
-      // TODO
+      // TODO: vscode extensions and quiet mode
 
       // --------------------------------------------------------------------------
       // Exit
@@ -272,8 +272,3 @@ program
     },
   )
   .parse();
-
-// const handleSigTerm = () => process.exit(0)
-
-// process.on('SIGINT', handleSigTerm)
-// process.on('SIGTERM', handleSigTerm)
