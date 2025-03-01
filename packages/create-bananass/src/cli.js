@@ -29,6 +29,7 @@ import { consola } from 'consola';
 /**
  * @typedef cliOptions
  * @property {boolean} [debug] Enable debug mode.
+ * @property {boolean} [quiet] Enable quiet mode.
  * @property {boolean} [force] Force to create a new project even if the path already exist.
  * @property {boolean} [typescript] Initialize as a typescript project.
  * @property {boolean} [yes] Skip all prompts and use the default values.
@@ -59,6 +60,7 @@ program
   .argument('[directory]', 'the directory in which this project should be located', '.')
   .usage('[directory] [options]')
   .option('-d, --debug', 'enable debug mode', false)
+  .option('-q, --quiet', 'enable quiet mode', false)
   .option(
     '-f, --force',
     'force to create a new project even if the path already exist',
@@ -77,6 +79,7 @@ program
 
       const {
         debug: cliDebug,
+        quiet: cliQuiet,
         force: cliForce,
         typescript: cliTypescript,
         yes: cliYes,
@@ -124,6 +127,7 @@ program
 
       const directory = promptDirectory ?? cliDirectory;
       const debug = cliDebug;
+      const quiet = cliQuiet;
       const force = cliForce;
       const typescript = promptTypescript ?? cliTypescript;
       const yes = cliYes;
@@ -135,7 +139,7 @@ program
       // Declarations
       // --------------------------------------------------------------------------
 
-      const logger = createLogger({ debug });
+      const logger = createLogger({ debug, quiet });
       const spinner = createSpinner();
 
       // --------------------------------------------------------------------------
@@ -152,6 +156,7 @@ program
         .eol()
         .debug('merged directory:', directory)
         .debug('merged debug:', debug)
+        .debug('merged quiet:', quiet)
         .debug('merged force:', force)
         .debug('merged typescript:', typescript)
         .debug('merged yes:', yes)
@@ -164,13 +169,15 @@ program
       // CLI Animation
       // --------------------------------------------------------------------------
 
-      spinner.start(bananass('Creating a new Bananass framework project...', true));
+      logger.log(() =>
+        spinner.start(bananass('Creating a new Bananass framework project...', true)),
+      );
 
       // --------------------------------------------------------------------------
       // Copy Files
       // --------------------------------------------------------------------------
 
-      spinner.start(bananass('Copying files...', true));
+      logger.log(() => spinner.start(bananass('Copying files...', true)));
 
       try {
         await cp(
@@ -187,7 +194,7 @@ program
           },
         );
       } catch ({ message }) {
-        spinner.error(error('Failed to copy files'));
+        logger.log(() => spinner.error(error('Failed to copy files')));
 
         throw new Error(error(message, true));
       }
@@ -197,7 +204,7 @@ program
       // --------------------------------------------------------------------------
 
       if (!skipGit) {
-        spinner.start(bananass('Initializing git repository...', true));
+        logger.log(() => spinner.start(bananass('Initializing git repository...', true)));
 
         try {
           await new Promise((res, rej) => {
@@ -219,7 +226,7 @@ program
             });
           });
         } catch ({ message }) {
-          spinner.error(error('Failed to initialize git repository'));
+          logger.log(() => spinner.error(error('Failed to initialize git repository')));
 
           throw new Error(error(message, true));
         }
@@ -230,7 +237,7 @@ program
       // --------------------------------------------------------------------------
 
       if (!skipInstall) {
-        spinner.start(bananass('Installing packages...', true));
+        logger.log(() => spinner.start(bananass('Installing packages...', true)));
 
         try {
           await new Promise((res, rej) => {
@@ -252,7 +259,7 @@ program
             });
           });
         } catch ({ message }) {
-          spinner.error(error('Failed to install packages'));
+          logger.log(() => spinner.error(error('Failed to install packages')));
 
           throw new Error(error(message, true));
         }
@@ -268,7 +275,11 @@ program
       // Exit
       // --------------------------------------------------------------------------
 
-      spinner.success(success('Successfully created a new Bananass framework project!'));
+      logger.log(() =>
+        spinner.success(
+          success('Successfully created a new Bananass framework project!'),
+        ),
+      );
     },
   )
   .parse();
