@@ -83,6 +83,7 @@ program
       'Which directory should this project be located in?',
       {
         type: 'text',
+        cancel: 'reject',
       },
     );
 
@@ -90,11 +91,13 @@ program
     const language = await consola.prompt('Which language do you want to use?', {
       type: 'select',
       options: ['JavaScript', 'TypeScript'],
+      cancel: 'reject',
     });
 
     /** @type {boolean} */
     const isVSC = await consola.prompt('Do you use Visual Studio Code?', {
       type: 'confirm',
+      cancel: 'reject',
     });
 
     console.log(); // Add a new line
