@@ -12,6 +12,7 @@
     "bananass": "^0.0.0",
     "eslint": "^9.21.0",
     "eslint-config-bananass": "^0.0.0",
+    "jiti": "^2.4.2",
     "prettier": "^3.5.2",
     "prettier-config-bananass": "^0.0.0"
   }
