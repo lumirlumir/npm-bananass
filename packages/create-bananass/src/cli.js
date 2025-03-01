@@ -63,12 +63,15 @@ program
     // ----------------------------------------------------------------------------
 
     /** @type {string} */
-    const projectName = await consola.prompt('What is your project name?', {
-      type: 'text',
-    });
+    const directory = await consola.prompt(
+      'Which directory should this project be located in?',
+      {
+        type: 'text',
+      },
+    );
 
     /** @type {string} */
-    const language = await consola.prompt('which language do you want to use?', {
+    const language = await consola.prompt('Which language do you want to use?', {
       type: 'select',
       options: ['JavaScript', 'TypeScript'],
     });
@@ -83,7 +86,7 @@ program
     // ----------------------------------------------------------------------------
 
     logger
-      .debug('projectName:', projectName)
+      .debug('directory:', directory)
       .debug('language:', language)
       .debug('isVSC:', isVSC)
       .eol();
@@ -99,8 +102,7 @@ program
     // ----------------------------------------------------------------------------
 
     try {
-      await cp(new URL(`../templates/${language}`, import.meta.url), projectName, {
-        // TODO: Change the destination path
+      await cp(new URL(`../templates/${language}`, import.meta.url), directory, {
         errorOnExist: true,
         recursive: true,
         force,
