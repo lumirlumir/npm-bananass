@@ -102,12 +102,16 @@ program
     // ----------------------------------------------------------------------------
 
     try {
-      await cp(new URL(`../templates/${language}`, import.meta.url), directory, {
-        errorOnExist: true,
-        recursive: true,
-        force,
-        filter: src => isVSC || !src.includes('.vscode'), // Exclude `.vscode` folder if `isVSC` is `false`.
-      });
+      await cp(
+        new URL(`../templates/${language.toLowerCase()}`, import.meta.url),
+        directory,
+        {
+          errorOnExist: true,
+          recursive: true,
+          force,
+          filter: src => isVSC || !src.includes('.vscode'), // Exclude `.vscode` folder if `isVSC` is `false`.
+        },
+      );
     } catch ({ message }) {
       spinner.error(error('Failed to copy files'));
 
