@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "create-bananass-javascript",
+  "version": "0.0.0",
+  "engines": {
+    "node": ">=20.18.0"
+  },
+  "scripts": {
+    "build": "echo build"
+  },
+  "devDependencies": {
+    "bananass": "^0.0.0",
+    "eslint": "^9.21.0",
+    "eslint-config-bananass": "^0.0.0",
+    "prettier": "^3.5.2",
+    "prettier-config-bananass": "^0.0.0"
+  }
+}

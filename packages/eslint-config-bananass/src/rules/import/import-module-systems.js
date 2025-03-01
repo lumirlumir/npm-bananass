@@ -36,7 +36,12 @@ module.exports = {
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-import-module-exports.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L265-L267}
    */
-  'import/no-import-module-exports': 'error',
+  'import/no-import-module-exports': [
+    'error',
+    {
+      exceptions: ['**/*.{ts,cts}'],
+    },
+  ],
 
   /**
    * Forbid Node.js builtin modules.

@@ -10,6 +10,7 @@
     ".",
     "examples/*",
     "packages/*",
+    "packages/create-bananass/templates/*",
     "tests/*",
     "websites/*"
   ],
