@@ -1,5 +1,6 @@
 import bananass from 'eslint-config-bananass';
 
+/** @type {import("eslint").Linter.Config[]} */
 export default [
   {
     // Bananass build directory (Rename it if you change the `outDir` field in `bananass.config.mjs`)
