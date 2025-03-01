@@ -45,12 +45,17 @@ program
     'force to create a new project even if the directory or files already exist',
     false,
   )
+  .option(
+    '-s, --skip-install',
+    'explicitly tell the cli to skip installing packages',
+    false,
+  )
   .action(async options => {
     // ----------------------------------------------------------------------------
     // Declarations
     // ----------------------------------------------------------------------------
 
-    const { debug, force } = options;
+    const { debug, force, skipInstall } = options;
 
     const logger = createLogger({ debug });
     const spinner = createSpinner();
@@ -125,31 +130,33 @@ program
     // Install Packages
     // ----------------------------------------------------------------------------
 
-    spinner.start(bananass('Installing packages...', true));
+    if (!skipInstall) {
+      spinner.start(bananass('Installing packages...', true));
 
-    try {
-      await new Promise((res, rej) => {
-        const npmInstall = spawn('npm', ['install'], {
-          cwd: directory,
-          shell: true, // Required for Windows
+      try {
+        await new Promise((res, rej) => {
+          const npmInstall = spawn('npm', ['install'], {
+            cwd: directory,
+            shell: true, // Required for Windows
+          });
+
+          npmInstall.on('close', code => {
+            if (code === 0) {
+              res();
+            } else {
+              rej(new Error(`npm install failed with exit code ${code}`));
+            }
+          });
+
+          npmInstall.on('error', err => {
+            rej(err);
+          });
         });
+      } catch ({ message }) {
+        spinner.error(error('Failed to install packages'));
 
-        npmInstall.on('close', code => {
-          if (code === 0) {
-            res();
-          } else {
-            rej(new Error(`npm install failed with exit code ${code}`));
-          }
-        });
-
-        npmInstall.on('error', err => {
-          rej(err);
-        });
-      });
-    } catch ({ message }) {
-      spinner.error(error('Failed to install packages'));
-
-      throw new Error(error(message, true));
+        throw new Error(error(message, true));
+      }
     }
 
     // ----------------------------------------------------------------------------
