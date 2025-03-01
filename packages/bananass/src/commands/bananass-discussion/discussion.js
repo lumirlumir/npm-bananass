@@ -55,7 +55,7 @@ export default async function repo(configObject) {
   // CLI Animation
   // ------------------------------------------------------------------------------
 
-  logger.log(() => spinner.start(bananass('Opening in a browser...')));
+  logger.log(() => spinner.start(bananass('Opening in a browser...', true)));
 
   // ------------------------------------------------------------------------------
   // Open

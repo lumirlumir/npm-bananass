@@ -77,7 +77,7 @@ export default async function build(problems, configObject) {
   // ------------------------------------------------------------------------------
 
   // Ensure correct `this` binding for `spinner.start` using arrow function. (Or use `apply`, `call` or `bind` method.)
-  logger.log(() => spinner.start(bananass('Bananass build is running...')));
+  logger.log(() => spinner.start(bananass('Bananass build is running...', true)));
 
   // ------------------------------------------------------------------------------
   // Webpack Configs
