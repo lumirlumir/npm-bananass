@@ -12,6 +12,7 @@
 
 import { cp } from 'node:fs/promises';
 import { createRequire } from 'node:module';
+import { spawn } from 'node:child_process';
 
 import createLogger from 'bananass-utils-console/logger';
 import createSpinner from 'bananass-utils-console/spinner';
@@ -101,6 +102,8 @@ program
     // Copy Files
     // ----------------------------------------------------------------------------
 
+    spinner.start(bananass('Copying files...', true));
+
     try {
       await cp(
         new URL(`../templates/${language.toLowerCase()}`, import.meta.url),
@@ -114,6 +117,37 @@ program
       );
     } catch ({ message }) {
       spinner.error(error('Failed to copy files'));
+
+      throw new Error(error(message, true));
+    }
+
+    // ----------------------------------------------------------------------------
+    // Install Packages
+    // ----------------------------------------------------------------------------
+
+    spinner.start(bananass('Installing packages...', true));
+
+    try {
+      await new Promise((res, rej) => {
+        const npmInstall = spawn('npm', ['install'], {
+          cwd: directory,
+          shell: true, // Required for Windows
+        });
+
+        npmInstall.on('close', code => {
+          if (code === 0) {
+            res();
+          } else {
+            rej(new Error(`npm install failed with exit code ${code}`));
+          }
+        });
+
+        npmInstall.on('error', err => {
+          rej(err);
+        });
+      });
+    } catch ({ message }) {
+      spinner.error(error('Failed to install packages'));
 
       throw new Error(error(message, true));
     }
