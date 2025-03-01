@@ -46,6 +46,10 @@ program
     'force to create a new project even if the directory or files already exist',
     false,
   )
+  .option('-y, --yes', 'skip all prompts and use the default values', false)
+  .option('--js, --javascript', 'Initialize as a JavaScript project', false)
+  .option('--ts, --typescript', 'Initialize as a TypeScript project', false)
+  .option('--no-vsc', 'Do not include Visual Studio Code settings', false)
   .option(
     '--skip-git',
     'explicitly tell the cli to skip initializing a git repository',
@@ -197,6 +201,10 @@ program
         throw new Error(error(message, true));
       }
     }
+
+    // ----------------------------------------------------------------------------
+    // Install VS Code Extensions
+    // ----------------------------------------------------------------------------
 
     // ----------------------------------------------------------------------------
     // Exit
