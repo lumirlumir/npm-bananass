@@ -40,6 +40,7 @@ program
   .description(`${pkgDescription} (${pkgHomepage})`)
   .version(pkgVersion, '-v, --version')
   .argument('[directory]', 'directory should this project be located in')
+  .usage('[directory] [options]')
   .option('-d, --debug', 'enable debug mode', false)
   .option(
     '-f, --force',
@@ -216,3 +217,8 @@ program
     spinner.success(success('Successfully created a new Bananass framework project!'));
   })
   .parse();
+
+// const handleSigTerm = () => process.exit(0)
+
+// process.on('SIGINT', handleSigTerm)
+// process.on('SIGTERM', handleSigTerm)
