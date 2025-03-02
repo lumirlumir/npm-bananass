@@ -125,20 +125,14 @@
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {object} SolutionWithTestcases Wrapper object containing `solution` function and `testcases`.
- * @property {Solution} solution Solution function.
- * @property {Testcases} [testcases] Testcases array.
- */
-
-/**
  * @callback Solution Solution function.
- * @param {Testcase['input']} input
+ * @param {Testcase['input']} [input]
  * @return {Testcase['output']}
  */
 
 /**
  * @typedef {object} Testcase Testcase object.
- * @property {string} input Input string.
+ * @property {string} [input] Input string.
  * @property {number | string | boolean} output
  * Output value. It can be a primitive type except for `bigint`, `symbol`, `undefined`, and `null`.
  *
@@ -150,6 +144,12 @@
 
 /**
  * @typedef {Testcase[]} Testcases Testcases array.
+ */
+
+/**
+ * @typedef {object} SolutionWithTestcases Wrapper object containing `solution` function and `testcases`.
+ * @property {Solution} solution Solution function.
+ * @property {Testcases} [testcases] Testcases array.
  */
 
 // --------------------------------------------------------------------------------
