@@ -9,8 +9,6 @@ lumirlumir/lumirlumir-configs:
   - source: ./.github/ISSUE_TEMPLATE/3-others.md
     dest: ./configs/.github/ISSUE_TEMPLATE/3-others.md
   # ./.github/workflows
-  - source: ./.github/workflows/bump.yml
-    dest: ./configs/.github/workflows/monorepo-bump.yml
   - source: ./.github/workflows/lint.yml
     dest: ./configs/.github/workflows/lint.yml
   - source: ./.github/workflows/publish.yml
@@ -21,6 +19,8 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.github/workflows/sync-client.yml
   - source: ./.github/workflows/test.yml
     dest: ./configs/.github/workflows/test.yml
+  - source: ./.github/workflows/version-monorepo.yml
+    dest: ./configs/.github/workflows/version-monorepo.yml
   # ./.github
   - source: ./.github/CODEOWNERS
     dest: ./configs/.github/CODEOWNERS
