@@ -27,9 +27,9 @@ import { func, refine } from 'superstruct';
  * @type {SolutionStruct}
  */ // @ts-ignore -- TODO: Remove this line.
 const Solution = refine(func(), 'Solution', solutionFunc =>
-  solutionFunc.length === 1
+  solutionFunc.length <= 1
     ? true
-    : `\`Solution\` must be a function that takes one parameter`,
+    : `\`Solution\` must be a function that takes zero or one parameter.`,
 );
 
 // --------------------------------------------------------------------------------
