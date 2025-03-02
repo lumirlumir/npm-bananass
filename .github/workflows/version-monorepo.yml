@@ -81,7 +81,7 @@ jobs:
         run: |
           {
             echo "RELEASE_INFO<<EOF"
-            gh release view v${{ env.NEW_VERSION }}
+            gh release view v${{ env.NEW_VERSION }} --json body | jq -r '.body'
             echo "EOF"
           } >> $GITHUB_ENV
 
@@ -96,20 +96,20 @@ jobs:
           body: |
             ## Release Information
 
-            New release of ${{ github.repository }} has arrived! :tada:
+            New release of `${{ github.repository }}` has arrived! :tada:
 
-            This PR bumps the package versions from v${{ env.OLD_VERSION }} to v${{ env.NEW_VERSION }}.
+            This PR bumps the package versions from `v${{ env.OLD_VERSION }}` to `v${{ env.NEW_VERSION }}`.
 
             See [Actions](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for more details.
 
-            | Info        | Value                    |
-            | ----------- | ------------------------ |
-            | Repository  | ${{ github.repository }} |
-            | SEMVER      | ${{ inputs.semver }}     |
-            | Pre ID      | ${{ inputs.preid }}      |
-            | Short SHA   | ${{ env.SHORT_SHA }}     |
-            | Old Version | ${{ env.OLD_VERSION }}   |
-            | New Version | ${{ env.NEW_VERSION }}   |
+            | Info        | Value                      |
+            | ----------- | -------------------------- |
+            | Repository  | `${{ github.repository }}` |
+            | SEMVER      | `${{ inputs.semver }}`     |
+            | Pre ID      | `${{ inputs.preid }}`      |
+            | Short SHA   | ${{ env.SHORT_SHA }}       |
+            | Old Version | `v${{ env.OLD_VERSION }}`  |
+            | New Version | `v${{ env.NEW_VERSION }}`  |
 
             ---
 
