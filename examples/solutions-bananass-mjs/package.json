@@ -2,6 +2,7 @@
   "private": true,
   "name": "examples-solutions-bananass-mjs",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "bananass:build": "npx bananass build",
     "bananass:run": "npx bananass run",
