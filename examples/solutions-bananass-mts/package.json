@@ -6,7 +6,7 @@
   "scripts": {
     "bananass:build": "npx bananass build",
     "bananass:run": "npx bananass run",
-    "test": "bash ../../scripts/examples-solutions-bananass-test.sh"
+    "test": "npx tsc --noEmit && bash ../../scripts/examples-solutions-bananass-test.sh"
   },
   "devDependencies": {
     "bananass": "^0.0.0"

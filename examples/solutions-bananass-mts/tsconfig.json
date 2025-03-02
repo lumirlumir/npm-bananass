@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "nodenext"
+  },
+  "include": ["bananass/**/*.ts", "bananass/**/*.mts", "bananass/**/*.cts"]
+}
