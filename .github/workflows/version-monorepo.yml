@@ -97,13 +97,13 @@ jobs:
           branch: 'chore-release-bump-package-versions-from-v${{ env.OLD_VERSION }}-to-v${{ env.NEW_VERSION }}-${{ env.SHORT_SHA }}'
           base: 'main'
           assignees: ${{ github.actor }}
-          title: 'chore(release): bump package versions from `v${{ env.OLD_VERSION }}` to `v${{ env.NEW_VERSION }}`'
+          title: 'chore(release): bump package versions from `v${{ env.OLD_VERSION }}` to `v${{ env.NEW_VERSION }}` (${{ inputs.semver }})'
           body: |
             ## Release Information: `v${{ env.NEW_VERSION }}`
 
             New release of `${{ github.repository }}` has arrived! :tada:
 
-            This PR bumps the package versions from `v${{ env.OLD_VERSION }}` to `v${{ env.NEW_VERSION }}`.
+            This PR bumps the package versions from `v${{ env.OLD_VERSION }}` to `v${{ env.NEW_VERSION }}` (${{ inputs.semver }}).
 
             See [Actions](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for more details.
 
