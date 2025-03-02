@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "examples-solutions-readline-esm",
+  "name": "examples-solutions-readline-mjs",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

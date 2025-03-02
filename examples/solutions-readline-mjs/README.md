@@ -1,4 +1,4 @@
-# `examples-solutions-readline-esm`
+# `examples-solutions-readline-mjs`
 
 <kbd>한국어</kbd> | <kbd>[English](README.en.md)</kbd>
 
@@ -8,7 +8,7 @@
 
 > [!IMPORTANT]
 >
-> 해당 예제에는 문제 풀이 예제를 더 이상 추가하고 있지 않습니다. 문제 풀이 예제를 추가하려면 바나나<sup>Bananass</sup> 프레임워크를 이용한 `examples/solutions-bananass` 디렉토리를 참조하세요.
+> 해당 예제에는 문제 풀이 예제를 더 이상 추가하고 있지 않습니다. 문제 풀이 예제를 추가하려면 바나나<sup>Bananass</sup> 프레임워크를 이용한 `examples/solutions-bananass-*` 디렉토리를 참조하세요.
 
 ## 시작하기
 
@@ -19,15 +19,15 @@
 루트 디렉토리에서 다음 명령어를 실행하여 예제를 시작할 수 있습니다.
 
 ```sh
-npm run start:1000 -w examples/solutions-readline-esm # 1000번 문제
+npm run start:1000 -w examples/solutions-readline-mjs # 1000번 문제
 ```
 
 ### 디렉토리로 이동하여 실행
 
-`examples/solutions-readline-esm` 디렉토리로 이동한 후, 다음 명령어를 실행하여 예제를 시작할 수 있습니다.
+`examples/solutions-readline-mjs` 디렉토리로 이동한 후, 다음 명령어를 실행하여 예제를 시작할 수 있습니다.
 
 ```sh
-cd examples/solutions-readline-esm
+cd examples/solutions-readline-mjs
 
 npm run start:1000 # 1000번 문제
 ```

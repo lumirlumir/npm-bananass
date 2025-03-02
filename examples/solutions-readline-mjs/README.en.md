@@ -1,4 +1,4 @@
-# `examples-solutions-readline-esm`
+# `examples-solutions-readline-mjs`
 
 <kbd>[한국어](README.md)</kbd> | <kbd>English</kbd>
 
@@ -8,7 +8,7 @@ By following the [Getting Started](#getting-started) section below, you can run 
 
 > [!IMPORTANT]
 >
-> This example no longer adds problem-solving examples. To add problem-solving examples, refer to the `examples/solutions-bananass` directory using the Bananass framework.
+> This example no longer adds problem-solving examples. To add problem-solving examples, refer to the `examples/solutions-bananass-*` directory using the Bananass framework.
 
 ## Getting Started
 
@@ -19,15 +19,15 @@ You can run the example by choosing one of the following two methods.
 You can start the example by running the following commands from the root directory:
 
 ```sh
-npm run start:1000 -w examples/solutions-readline-esm # Problem 1000
+npm run start:1000 -w examples/solutions-readline-mjs # Problem 1000
 ```
 
 ### Navigate to the Directory and Run
 
-Navigate to the `examples/solutions-readline-esm` directory and then run the following commands to start the example:
+Navigate to the `examples/solutions-readline-mjs` directory and then run the following commands to start the example:
 
 ```sh
-cd examples/solutions-readline-esm
+cd examples/solutions-readline-mjs
 
 npm run start:1000 # Problem 1000
 ```
