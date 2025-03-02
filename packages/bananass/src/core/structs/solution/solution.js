@@ -29,7 +29,7 @@ import { func, refine } from 'superstruct';
 const Solution = refine(func(), 'Solution', solutionFunc =>
   solutionFunc.length <= 1
     ? true
-    : `\`Solution\` must be a function that takes zero or one parameter.`,
+    : `\`Solution\` must be a function that takes zero or one parameter`,
 );
 
 // --------------------------------------------------------------------------------
