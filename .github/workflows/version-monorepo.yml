@@ -27,6 +27,10 @@ on:
           - beta
           - rc
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   version-monorepo:
     runs-on: ubuntu-latest
@@ -92,9 +96,10 @@ jobs:
           commit-message: 'chore(release): bump package versions from `v${{ env.OLD_VERSION }}` to `v${{ env.NEW_VERSION }}`'
           branch: 'chore-release-bump-package-versions-from-v${{ env.OLD_VERSION }}-to-v${{ env.NEW_VERSION }}-${{ env.SHORT_SHA }}'
           base: 'main'
+          assignees: ${{ github.actor }}
           title: 'chore(release): bump package versions from `v${{ env.OLD_VERSION }}` to `v${{ env.NEW_VERSION }}`'
           body: |
-            ## Release Information
+            ## Release Information: `v${{ env.NEW_VERSION }}`
 
             New release of `${{ github.repository }}` has arrived! :tada:
 
@@ -110,7 +115,5 @@ jobs:
             | Short SHA   | ${{ env.SHORT_SHA }}       |
             | Old Version | `v${{ env.OLD_VERSION }}`  |
             | New Version | `v${{ env.NEW_VERSION }}`  |
-
-            ---
 
             ${{ env.RELEASE_INFO }}
