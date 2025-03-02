@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "examples-solutions-bananass",
+  "name": "examples-solutions-bananass-cjs",
   "version": "0.0.0",
   "scripts": {
     "bananass:build": "npx bananass build",
