@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { boolean, object } from 'superstruct';
+import { boolean, object, optional } from 'superstruct';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -27,8 +27,8 @@ import { boolean, object } from 'superstruct';
  * @type {ConfigObjectConsoleStruct}
  */
 const ConfigObjectConsole = object({
-  debug: boolean(),
-  quiet: boolean(),
+  debug: optional(boolean()),
+  quiet: optional(boolean()),
 });
 
 // --------------------------------------------------------------------------------

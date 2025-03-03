@@ -22,7 +22,6 @@ describe('config-object-info.js', () => {
 
     strictEqual(ConfigObjectInfo.is(configObjectInfo), true);
   });
-
   it('should return true for a valid `all` property', () => {
     const configObjectInfo = {
       all: true,
@@ -39,7 +38,6 @@ describe('config-object-info.js', () => {
 
     strictEqual(ConfigObjectInfo.is(configObjectInfo), false);
   });
-
   it('should return false for an invalid `all` property', () => {
     const configObjectInfo = {
       all: 'Hello, World!',
