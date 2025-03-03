@@ -139,12 +139,6 @@
  */
 
 /**
- * @callback Solution Solution function.
- * @param {Input} [input] Input string.
- * @return {Output}
- */
-
-/**
  * @typedef {object} Testcase Testcase object.
  * @property {Input} [input] Input string.
  * @property {Output} output
@@ -152,6 +146,12 @@
 
 /**
  * @typedef {Testcase[]} Testcases Testcases array.
+ */
+
+/**
+ * @callback Solution Solution function.
+ * @param {Input} [input] Input string.
+ * @return {Output}
  */
 
 /**
