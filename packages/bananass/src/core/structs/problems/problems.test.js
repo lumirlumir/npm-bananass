@@ -19,6 +19,7 @@ describe('problems.js', () => {
   // true
   it('should return true for a single valid problem string', () => {
     const problems = ['1234'];
+
     strictEqual(Problems.is(problems), true);
   });
 
