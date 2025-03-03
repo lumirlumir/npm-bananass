@@ -22,7 +22,7 @@ afterEach(() => {
   mock.reset();
 });
 
-describe('findRootDir.js', () => {
+describe('find-root-dir.js', () => {
   it('should return `process.cwd()` when `package.json` exists in current directory', () => {
     const MOCK_CWD = resolve('my-folder', 'cwd');
     const MOCK_VALID_PATHS = [MOCK_CWD, resolve(MOCK_CWD, 'package.json')];

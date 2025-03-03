@@ -125,15 +125,11 @@
 // --------------------------------------------------------------------------------
 
 /**
- * @callback Solution Solution function.
- * @param {Testcase['input']} [input]
- * @return {Testcase['output']}
+ * @typedef {string} Input Input string.
  */
 
 /**
- * @typedef {object} Testcase Testcase object.
- * @property {string} [input] Input string.
- * @property {number | string | boolean} output
+ * @typedef {string | number | boolean} Output
  * Output value. It can be a primitive type except for `bigint`, `symbol`, `undefined`, and `null`.
  *
  * Output values will be **coerced to a `string`** when running the `bananass run` command.
@@ -143,7 +139,19 @@
  */
 
 /**
+ * @typedef {object} Testcase Testcase object.
+ * @property {Input} [input] Input string.
+ * @property {Output} output
+ */
+
+/**
  * @typedef {Testcase[]} Testcases Testcases array.
+ */
+
+/**
+ * @callback Solution Solution function.
+ * @param {Input} [input] Input string.
+ * @return {Output}
  */
 
 /**
