@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { boolean, enums, object } from 'superstruct';
+import { boolean, enums, object, optional } from 'superstruct';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -27,8 +27,8 @@ import { boolean, enums, object } from 'superstruct';
  * @type {ConfigObjectBrowserStruct}
  */
 const ConfigObjectBrowser = object({
-  browser: enums(['chrome', 'edge', 'firefox', 'default']),
-  secretMode: boolean(),
+  browser: optional(enums(['chrome', 'edge', 'firefox', 'default'])),
+  secretMode: optional(boolean()),
 });
 
 // --------------------------------------------------------------------------------
