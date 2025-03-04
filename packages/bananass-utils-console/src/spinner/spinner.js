@@ -363,7 +363,7 @@ class Spinner {
 // --------------------------------------------------------------------------------
 
 /**
- * Creates a new spinner instance.
+ * Create a new spinner instance.
  *
  * @param {Options} [options]
  * @returns {Spinner} A new spinner instance.

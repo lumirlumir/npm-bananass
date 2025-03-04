@@ -1,5 +1,7 @@
 /**
  * @fileoverview Entry file.
+ *
+ * The structs in this file should match the typedefs in `types.js`.
  */
 
 // --------------------------------------------------------------------------------
@@ -30,10 +32,12 @@ import ConfigObjectTestcase from './config-object-testcase/index.js';
 import Problem from './problem/index.js';
 import Problems from './problems/index.js';
 
-import SolutionWithTestcases from './solution-with-testcases/index.js';
-import Solution from './solution/index.js';
+import Input from './input/index.js';
+import Output from './output/index.js';
 import Testcase from './testcase/index.js';
 import Testcases from './testcases/index.js';
+import Solution from './solution/index.js';
+import SolutionWithTestcases from './solution-with-testcases/index.js';
 
 // --------------------------------------------------------------------------------
 // Export
@@ -60,8 +64,10 @@ export {
   ConfigObjectTestcase,
   Problem,
   Problems,
-  SolutionWithTestcases,
-  Solution,
+  Input,
+  Output,
   Testcase,
   Testcases,
+  Solution,
+  SolutionWithTestcases,
 };
