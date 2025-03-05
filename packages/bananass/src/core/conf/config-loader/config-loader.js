@@ -9,6 +9,7 @@
 
 import { loadConfig } from 'c12';
 
+import dco from '../default-config-object/index.js';
 import { findRootDir } from '../../fs/index.js';
 import { PKG_NAME } from '../../constants.js';
 
@@ -30,17 +31,17 @@ import { PKG_NAME } from '../../constants.js';
  * - Merge priority: CLI config object > Config file config object > Default config object
  *
  * @param {object} configLoaderOptions
- * @param {string} [configLoaderOptions.cwd] Current working directory.
- * @param {ConfigObject} configLoaderOptions.cliConfigObject CLI config object.
- * @param {ConfigObject} configLoaderOptions.defaultConfigObject Default config object.
+ * @param {string} [configLoaderOptions.cwd] Current working directory. (default: `findRootDir()`)
+ * @param {ConfigObject} [configLoaderOptions.cliConfigObject] CLI config object. (default: `{}`)
+ * @param {ConfigObject} [configLoaderOptions.defaultConfigObject] Default config object. (default: `defaultConfigObject`)
  * @returns Merged configuration object.
  * @async
  */
 export default async function configLoader({
   cwd = findRootDir(),
   cliConfigObject = {},
-  defaultConfigObject = {},
-}) {
+  defaultConfigObject = dco,
+} = {}) {
   const config = await loadConfig({
     cwd,
     name: PKG_NAME,
