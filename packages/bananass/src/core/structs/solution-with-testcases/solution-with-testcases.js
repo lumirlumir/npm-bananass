@@ -6,7 +6,8 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { object } from 'superstruct';
+import { object, optional } from 'superstruct';
+
 import Solution from '../solution/index.js';
 import Testcases from '../testcases/index.js';
 
@@ -30,7 +31,7 @@ import Testcases from '../testcases/index.js';
  */
 const SolutionWithTestcases = object({
   solution: Solution,
-  testcases: Testcases,
+  testcases: optional(Testcases),
 });
 
 // --------------------------------------------------------------------------------
