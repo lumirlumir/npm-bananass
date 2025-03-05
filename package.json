@@ -70,11 +70,11 @@
     "lerna": "^8.2.0",
     "lint-staged": "^15.4.3",
     "markdownlint-cli": "^0.44.0",
-    "prettier": "^3.5.2",
+    "prettier": "^3.5.3",
     "prettier-config-bananass": "^0.0.0",
     "shx": "^0.3.4",
     "textlint": "^14.3.0",
     "textlint-rule-allowed-uris": "^1.0.8",
-    "typescript": "^5.7.2"
+    "typescript": "^5.8.2"
   }
 }
