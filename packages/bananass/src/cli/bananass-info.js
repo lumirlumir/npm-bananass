@@ -9,7 +9,7 @@
 import logger from 'bananass-utils-console/logger';
 
 import { info as infoCmd } from '../commands/index.js';
-import { configLoader, defaultConfigObject } from '../core/conf/index.js';
+import { configLoader } from '../core/conf/index.js';
 
 import { info as infoDesc } from '../core/cli/descriptions.js';
 import {
@@ -57,10 +57,7 @@ export default function info(program) {
         },
       };
 
-      const { config: configObject } = await configLoader({
-        cliConfigObject,
-        defaultConfigObject,
-      });
+      const { config: configObject } = await configLoader({ cliConfigObject });
 
       logger(configObject.console)
         .debug('command:', command.name())

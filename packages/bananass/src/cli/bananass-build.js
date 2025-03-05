@@ -9,7 +9,7 @@
 import logger from 'bananass-utils-console/logger';
 
 import { build as buildCmd } from '../commands/index.js';
-import { configLoader, defaultConfigObject } from '../core/conf/index.js';
+import { configLoader } from '../core/conf/index.js';
 
 import { build as buildDesc } from '../core/cli/descriptions.js';
 import { problems as problemsArg } from '../core/cli/arguments.js';
@@ -71,10 +71,7 @@ export default function build(program) {
         },
       };
 
-      const { config: configObject } = await configLoader({
-        cliConfigObject,
-        defaultConfigObject,
-      });
+      const { config: configObject } = await configLoader({ cliConfigObject });
 
       logger(configObject.console)
         .debug('command:', command.name())
