@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { object, string } from 'superstruct';
+import { object, string, optional } from 'superstruct';
 
 import ConfigObjectBrowser from '../config-object-browser/index.js';
 import ConfigObjectConsole from '../config-object-console/index.js';
@@ -46,28 +46,28 @@ import ConfigObjectTestcase from '../config-object-testcase/index.js';
  * @type {ConfigObjectStruct}
  */
 const ConfigObject = object({
-  cwd: string(),
-  entryDir: string(),
-  outDir: string(),
+  cwd: optional(string()),
+  entryDir: optional(string()),
+  outDir: optional(string()),
 
-  browser: ConfigObjectBrowser,
-  console: ConfigObjectConsole,
+  browser: optional(ConfigObjectBrowser),
+  console: optional(ConfigObjectConsole),
 
-  add: ConfigObjectAdd,
-  bug: ConfigObjectBug,
-  build: ConfigObjectBuild,
-  clean: ConfigObjectClean,
-  discussion: ConfigObjectDiscussion,
-  home: ConfigObjectHome,
-  info: ConfigObjectInfo,
-  lint: ConfigObjectLint,
-  login: ConfigObjectLogin,
-  open: ConfigObjectOpen,
-  random: ConfigObjectRandom,
-  repo: ConfigObjectRepo,
-  run: ConfigObjectRun,
-  submit: ConfigObjectSubmit,
-  testcase: ConfigObjectTestcase,
+  add: optional(ConfigObjectAdd),
+  bug: optional(ConfigObjectBug),
+  build: optional(ConfigObjectBuild),
+  clean: optional(ConfigObjectClean),
+  discussion: optional(ConfigObjectDiscussion),
+  home: optional(ConfigObjectHome),
+  info: optional(ConfigObjectInfo),
+  lint: optional(ConfigObjectLint),
+  login: optional(ConfigObjectLogin),
+  open: optional(ConfigObjectOpen),
+  random: optional(ConfigObjectRandom),
+  repo: optional(ConfigObjectRepo),
+  run: optional(ConfigObjectRun),
+  submit: optional(ConfigObjectSubmit),
+  testcase: optional(ConfigObjectTestcase),
 });
 
 // --------------------------------------------------------------------------------

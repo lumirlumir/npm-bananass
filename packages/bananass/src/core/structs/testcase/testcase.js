@@ -6,7 +6,10 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { boolean, number, object, optional, string, union } from 'superstruct';
+import { object, optional } from 'superstruct';
+
+import Input from '../input/index.js';
+import Output from '../output/index.js';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -27,8 +30,8 @@ import { boolean, number, object, optional, string, union } from 'superstruct';
  * @type {TestcaseStruct}
  */
 const Testcase = object({
-  input: optional(string()),
-  output: union([number(), string(), boolean()]),
+  input: optional(Input),
+  output: Output,
 });
 
 // --------------------------------------------------------------------------------

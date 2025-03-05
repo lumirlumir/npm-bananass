@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { boolean, enums, object } from 'superstruct';
+import { boolean, enums, object, optional } from 'superstruct';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -27,8 +27,8 @@ import { boolean, enums, object } from 'superstruct';
  * @type {ConfigObjectBuildStruct}
  */
 const ConfigObjectBuild = object({
-  clean: boolean(),
-  templateType: enums(['fs', 'rl']),
+  clean: optional(boolean()),
+  templateType: optional(enums(['fs', 'rl'])),
 });
 
 // --------------------------------------------------------------------------------

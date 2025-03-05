@@ -1,20 +1,20 @@
 /**
- * @fileoverview `ConfigObjectConsole` type struct.
+ * @fileoverview `Input` type struct.
  */
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-import { boolean, object, optional } from 'superstruct';
+import { string } from 'superstruct';
 
 // --------------------------------------------------------------------------------
 // Typedefs
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').ConfigObjectConsole} ConfigObjectConsole
- * @typedef {import('superstruct').Struct<ConfigObjectConsole>} ConfigObjectConsoleStruct
+ * @typedef {import('../../types.js').Input} Input
+ * @typedef {import('superstruct').Struct<Input>} InputStruct
  */
 
 // --------------------------------------------------------------------------------
@@ -22,17 +22,14 @@ import { boolean, object, optional } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * `ConfigObjectConsole` type struct.
+ * `Input` type struct.
  *
- * @type {ConfigObjectConsoleStruct}
+ * @type {InputStruct}
  */
-const ConfigObjectConsole = object({
-  debug: optional(boolean()),
-  quiet: optional(boolean()),
-});
+const Input = string();
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-export default ConfigObjectConsole;
+export default Input;
