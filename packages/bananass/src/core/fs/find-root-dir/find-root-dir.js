@@ -7,8 +7,8 @@
 // --------------------------------------------------------------------------------
 
 import { join, resolve } from 'node:path';
-import cp from 'node:child_process';
-import fs from 'node:fs';
+import cp from 'node:child_process'; // DO NOT USE DESTRUCTURING syntax due to `mock` usage in test.
+import fs from 'node:fs'; // DO NOT USE DESTRUCTURING syntax due to `mock` usage in test.
 
 import { error } from 'bananass-utils-console/theme';
 
@@ -42,7 +42,8 @@ export default function findRootDir() {
   } catch ({ message }) {
     throw new Error(
       error(
-        `Git command failed. Ensure Git is installed and you are inside a Git repository - ${message}`,
+        `Git command failed. Ensure Git is installed and you are inside a Git repository\n${message}`,
+        true,
       ),
     );
   }
@@ -50,7 +51,8 @@ export default function findRootDir() {
 
   throw new Error(
     error(
-      `Cannot find root directory. Ensure ${PACKAGE_JSON} exists in the project root.\n> path: ${path}\n> pathFallback: ${pathFallback}`,
+      `Cannot find root directory. Ensure ${PACKAGE_JSON} exists in the project root\n> path: ${path}\n> pathFallback: ${pathFallback}`,
+      true,
     ),
   );
 }
