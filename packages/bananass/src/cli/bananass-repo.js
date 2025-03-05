@@ -25,7 +25,6 @@ import {
 
 /**
  * @typedef {import('commander').Command} Command
- * @typedef {import('../core/types.js').ConfigObject} ConfigObject
  */
 
 // --------------------------------------------------------------------------------
@@ -48,24 +47,22 @@ export default function repo(program) {
     .action(async (options, command) => {
       const { browser, secretMode, debug, quiet } = options;
 
-      /** @type {ConfigObject} */
-      const cliConfigObject = {
-        browser: {
-          browser,
-          secretMode,
+      const { config: configObject } = await configLoader({
+        cliConfigObject: {
+          browser: {
+            browser,
+            secretMode,
+          },
+          console: {
+            debug,
+            quiet,
+          },
         },
-        console: {
-          debug,
-          quiet,
-        },
-      };
-
-      const { config: configObject } = await configLoader({ cliConfigObject });
+      });
 
       logger(configObject.console)
         .debug('command:', command.name())
         .debug('cli options:', options)
-        .debug('cli config object:', cliConfigObject)
         .debug('config object:', configObject)
         .eol();
 
