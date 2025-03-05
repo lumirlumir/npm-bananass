@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `findRootDir.js`.
+ * @fileoverview Test for `find-root-dir.js`.
  */
 
 // --------------------------------------------------------------------------------
