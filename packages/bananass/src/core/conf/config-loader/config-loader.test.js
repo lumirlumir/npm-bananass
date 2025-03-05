@@ -21,7 +21,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const fixturesDir = join(__dirname, 'fixtures');
 
-const configFileObject = {
+const configObject = {
   1: {
     1: 'a',
     2: 'b',
@@ -49,65 +49,73 @@ describe('config-loader.js', () => {
     it('should load `bananass.config.cjs` correctly', async () => {
       const { config } = await configLoader({
         cwd: join(fixturesDir, 'bananass-config-cjs'),
+        defaultConfigObject: {},
       });
 
-      deepStrictEqual(config, configFileObject);
+      deepStrictEqual(config, configObject);
     });
 
     it('should load `bananass.config.cts` correctly', async () => {
       const { config } = await configLoader({
         cwd: join(fixturesDir, 'bananass-config-cts'),
+        defaultConfigObject: {},
       });
 
-      deepStrictEqual(config, configFileObject);
+      deepStrictEqual(config, configObject);
     });
 
     it('should load CJS `bananass.config.js` correctly, even if the `type` is not specified in `package.json`', async () => {
       const { config } = await configLoader({
         cwd: join(fixturesDir, 'bananass-config-js-cjs'),
+        defaultConfigObject: {},
       });
 
-      deepStrictEqual(config, configFileObject);
+      deepStrictEqual(config, configObject);
     });
 
     it('should load ESM `bananass.config.js` correctly, even if the `type` is not specified in `package.json`', async () => {
       const { config } = await configLoader({
         cwd: join(fixturesDir, 'bananass-config-js-mjs'),
+        defaultConfigObject: {},
       });
 
-      deepStrictEqual(config, configFileObject);
+      deepStrictEqual(config, configObject);
     });
 
     it('should load `bananass.config.mjs` correctly', async () => {
       const { config } = await configLoader({
         cwd: join(fixturesDir, 'bananass-config-mjs'),
+        defaultConfigObject: {},
       });
 
-      deepStrictEqual(config, configFileObject);
+      deepStrictEqual(config, configObject);
     });
 
     it('should load `bananass.config.mts` correctly', async () => {
       const { config } = await configLoader({
         cwd: join(fixturesDir, 'bananass-config-mts'),
+        defaultConfigObject: {},
       });
 
-      deepStrictEqual(config, configFileObject);
+      deepStrictEqual(config, configObject);
     });
 
     it('should load `bananass.config.ts` correctly, even if the `type` is not specified in `package.json`', async () => {
       const { config } = await configLoader({
         cwd: join(fixturesDir, 'bananass-config-ts-cts'),
+        defaultConfigObject: {},
       });
 
-      deepStrictEqual(config, configFileObject);
+      deepStrictEqual(config, configObject);
     });
 
     it('should load `bananass.config.ts` correctly, even if the `type` is not specified in `package.json`', async () => {
       const { config } = await configLoader({
         cwd: join(fixturesDir, 'bananass-config-ts-mts'),
+        defaultConfigObject: {},
       });
 
-      deepStrictEqual(config, configFileObject);
+      deepStrictEqual(config, configObject);
     });
 
     it('should use default options when no config files are found', async () => {
@@ -157,6 +165,7 @@ describe('config-loader.js', () => {
     it('should override all options when all options are specified', async () => {
       const { config } = await configLoader({
         cwd: join(fixturesDir, 'bananass-config-cjs'),
+        defaultConfigObject: {},
         cliConfigObject: {
           1: {
             1: 'overrided',
@@ -199,6 +208,7 @@ describe('config-loader.js', () => {
     it('should override some options when some options are specified', async () => {
       const { config } = await configLoader({
         cwd: join(fixturesDir, 'bananass-config-cjs'),
+        defaultConfigObject: {},
         cliConfigObject: {
           1: {
             1: 'overrided',
@@ -236,6 +246,7 @@ describe('config-loader.js', () => {
     it('should add new properties when unknown config file options are specified', async () => {
       const { config } = await configLoader({
         cwd: join(fixturesDir, 'bananass-config-cjs'),
+        defaultConfigObject: {},
         cliConfigObject: {
           3: {
             4: 'overrided',
@@ -273,18 +284,20 @@ describe('config-loader.js', () => {
     it('should use the options of config file when no options are specified', async () => {
       const { config } = await configLoader({
         cwd: join(fixturesDir, 'bananass-config-cjs'),
+        defaultConfigObject: {},
         cliConfigObject: {},
       });
 
-      deepStrictEqual(config, configFileObject);
+      deepStrictEqual(config, configObject);
     });
 
     it('should use the options of config file when `cliOptions` is not specified', async () => {
       const { config } = await configLoader({
         cwd: join(fixturesDir, 'bananass-config-cjs'),
+        defaultConfigObject: {},
       });
 
-      deepStrictEqual(config, configFileObject);
+      deepStrictEqual(config, configObject);
     });
   });
 });
