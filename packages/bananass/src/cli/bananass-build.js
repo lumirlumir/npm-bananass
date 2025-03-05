@@ -29,7 +29,6 @@ import {
 
 /**
  * @typedef {import('commander').Command} Command
- * @typedef {import('../core/types.js').ConfigObject} ConfigObject
  */
 
 // --------------------------------------------------------------------------------
@@ -56,28 +55,26 @@ export default function build(program) {
     .action(async (problems, options, command) => {
       const { cwd, entryDir, outDir, debug, quiet, clean, templateType } = options;
 
-      /** @type {ConfigObject} */
-      const cliConfigObject = {
-        cwd,
-        entryDir,
-        outDir,
-        console: {
-          debug,
-          quiet,
+      const { config: configObject } = await configLoader({
+        cliConfigObject: {
+          cwd,
+          entryDir,
+          outDir,
+          console: {
+            debug,
+            quiet,
+          },
+          build: {
+            clean,
+            templateType,
+          },
         },
-        build: {
-          clean,
-          templateType,
-        },
-      };
-
-      const { config: configObject } = await configLoader({ cliConfigObject });
+      });
 
       logger(configObject.console)
         .debug('command:', command.name())
         .debug('problems:', problems)
         .debug('cli options:', options)
-        .debug('cli config object:', cliConfigObject)
         .debug('config object:', configObject)
         .eol();
 
