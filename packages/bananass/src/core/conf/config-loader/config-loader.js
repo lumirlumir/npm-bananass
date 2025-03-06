@@ -7,11 +7,14 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import { extname, basename } from 'node:path';
+
+import { error } from 'bananass-utils-console/theme';
 import { loadConfig } from 'c12';
 
 import dco from '../default-config-object/index.js';
 import { findRootDir } from '../../fs/index.js';
-import { PKG_NAME } from '../../constants.js';
+import { PKG_NAME, SUPPORTED_CONFIG_FILE_EXTENSIONS as SCFE } from '../../constants.js';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -52,6 +55,17 @@ export default async function configLoader({
     defaultConfig: defaultConfigObject,
     overrides: cliConfigObject,
   });
+
+  if (!SCFE.includes(extname(config.configFile))) {
+    throw new Error(
+      error(
+        `${basename(config.configFile)} is not supported. Please use one of the following extensions: ${SCFE.filter(
+          ext => ext !== '.config',
+        ).join(', ')}`,
+        true,
+      ),
+    );
+  }
 
   return config;
 }
