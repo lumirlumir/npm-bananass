@@ -37,7 +37,7 @@ import { PKG_NAME, SUPPORTED_CONFIG_FILE_EXTENSIONS as SCFE } from '../../consta
  * @param {string} [configLoaderOptions.cwd] Current working directory. (default: `findRootDir()`)
  * @param {ConfigObject} [configLoaderOptions.cliConfigObject] CLI config object. (default: `{}`)
  * @param {ConfigObject} [configLoaderOptions.defaultConfigObject] Default config object. (default: `defaultConfigObject`)
- * @returns Merged configuration object.
+ * @returns {Promise<ConfigObject>} Merged configuration object.
  * @async
  */
 export default async function configLoader({
@@ -45,7 +45,7 @@ export default async function configLoader({
   cliConfigObject = {},
   defaultConfigObject = dco,
 } = {}) {
-  const config = await loadConfig({
+  const { config, configFile } = await loadConfig({
     cwd,
     name: PKG_NAME,
     rcFile: false,
@@ -56,10 +56,10 @@ export default async function configLoader({
     overrides: cliConfigObject,
   });
 
-  if (!SCFE.includes(extname(config.configFile))) {
+  if (!SCFE.includes(extname(configFile))) {
     throw new Error(
       error(
-        `${basename(config.configFile)} is not supported. Please use one of the following extensions: ${SCFE.filter(
+        `${basename(configFile)} is not supported. Please use one of the following extensions: ${SCFE.filter(
           ext => ext !== '.config',
         ).join(', ')}`,
         true,

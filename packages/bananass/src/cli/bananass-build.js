@@ -55,7 +55,7 @@ export default function build(program) {
     .action(async (problems, options, command) => {
       const { cwd, entryDir, outDir, debug, quiet, clean, templateType } = options;
 
-      const { config: configObject } = await configLoader({
+      const configObject = await configLoader({
         cliConfigObject: {
           cwd,
           entryDir,

@@ -50,7 +50,7 @@ export default function discussion(program) {
     .action(async (options, command) => {
       const { browser, secretMode, debug, quiet } = options;
 
-      const { config: configObject } = await configLoader({
+      const configObject = await configLoader({
         cliConfigObject: {
           browser: {
             browser,

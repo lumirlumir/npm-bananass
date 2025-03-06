@@ -49,7 +49,7 @@ export default function open(program) {
     .action(async (problems, options, command) => {
       const { browser, secretMode, debug, quiet } = options;
 
-      const { config: configObject } = await configLoader({
+      const configObject = await configLoader({
         cliConfigObject: {
           browser: {
             browser,
