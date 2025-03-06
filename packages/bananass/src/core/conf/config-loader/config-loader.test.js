@@ -12,7 +12,7 @@ import { deepStrictEqual, rejects } from 'node:assert';
 import { describe, it } from 'node:test';
 
 import configLoader from './config-loader.js';
-import dco from '../default-config-object/index.js';
+import defaultConfigObject from '../default-config-object/index.js';
 
 // --------------------------------------------------------------------------------
 // Helpers
@@ -50,13 +50,13 @@ describe('config-loader.js', () => {
     it('should use default parameters when no arguments are provided', async () => {
       const config = await configLoader();
 
-      deepStrictEqual(config, dco);
+      deepStrictEqual(config, defaultConfigObject);
     });
 
     it('should use default options for missing arguments', async () => {
       const config = await configLoader({ cwd: join(fixturesDir, 'empty') });
 
-      deepStrictEqual(config, dco);
+      deepStrictEqual(config, defaultConfigObject);
     });
   });
 
