@@ -44,7 +44,9 @@ const configObject = {
 // --------------------------------------------------------------------------------
 
 describe('config-loader.js', () => {
-  // Load config files
+  // Default options
+
+  // Correct config files
   describe('should load config files correctly', () => {
     it('should load `bananass.config.cjs` correctly', async () => {
       const { config } = await configLoader({
@@ -100,7 +102,7 @@ describe('config-loader.js', () => {
       deepStrictEqual(config, configObject);
     });
 
-    it('should load `bananass.config.ts` correctly, even if the `type` is not specified in `package.json`', async () => {
+    it('should load CJS `bananass.config.ts` correctly, even if the `type` is not specified in `package.json`', async () => {
       const { config } = await configLoader({
         cwd: join(fixturesDir, 'bananass-config-ts-cts'),
         defaultConfigObject: {},
@@ -109,7 +111,7 @@ describe('config-loader.js', () => {
       deepStrictEqual(config, configObject);
     });
 
-    it('should load `bananass.config.ts` correctly, even if the `type` is not specified in `package.json`', async () => {
+    it('should load ESM `bananass.config.ts` correctly, even if the `type` is not specified in `package.json`', async () => {
       const { config } = await configLoader({
         cwd: join(fixturesDir, 'bananass-config-ts-mts'),
         defaultConfigObject: {},
@@ -160,6 +162,8 @@ describe('config-loader.js', () => {
       deepStrictEqual(config, expected);
     });
   });
+
+  // Incorrect config files
 
   describe('CLI options should override config files', () => {
     it('should override all options when all options are specified', async () => {
@@ -301,5 +305,3 @@ describe('config-loader.js', () => {
     });
   });
 });
-
-// TODO: Add more tests.
