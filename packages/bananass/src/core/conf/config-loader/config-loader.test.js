@@ -8,10 +8,11 @@
 
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { deepStrictEqual } from 'node:assert';
+import { deepStrictEqual, rejects } from 'node:assert';
 import { describe, it } from 'node:test';
 
 import configLoader from './config-loader.js';
+import defaultConfigObject from '../default-config-object/index.js';
 
 // --------------------------------------------------------------------------------
 // Helpers
@@ -44,7 +45,20 @@ const configObject = {
 // --------------------------------------------------------------------------------
 
 describe('config-loader.js', () => {
-  // Default options
+  // Default parameters
+  describe('should use default parameters and options correctly', () => {
+    it('should use default parameters when no arguments are provided', async () => {
+      const config = await configLoader();
+
+      deepStrictEqual(config, defaultConfigObject);
+    });
+
+    it('should use default options for missing arguments', async () => {
+      const config = await configLoader({ cwd: join(fixturesDir, 'empty') });
+
+      deepStrictEqual(config, defaultConfigObject);
+    });
+  });
 
   // Correct config files
   describe('should load config files correctly', () => {
@@ -164,6 +178,91 @@ describe('config-loader.js', () => {
   });
 
   // Incorrect config files
+  describe('should throw an error when incorrect config files are found', () => {
+    it('should throw an error when loading `bananass.config.json`', () => {
+      rejects(
+        () =>
+          configLoader({
+            cwd: join(fixturesDir, 'bananass-config-json'),
+            defaultConfigObject: {},
+          }),
+        {
+          name: 'Error',
+          message: /bananass.config.json is not supported/,
+        },
+      );
+    });
+
+    it('should throw an error when loading `bananass.config.json5`', () => {
+      rejects(
+        () =>
+          configLoader({
+            cwd: join(fixturesDir, 'bananass-config-json5'),
+            defaultConfigObject: {},
+          }),
+        {
+          name: 'Error',
+          message: /bananass.config.json5 is not supported/,
+        },
+      );
+    });
+
+    it('should throw an error when loading `bananass.config.jsonc`', () => {
+      rejects(
+        () =>
+          configLoader({
+            cwd: join(fixturesDir, 'bananass-config-jsonc'),
+            defaultConfigObject: {},
+          }),
+        {
+          name: 'Error',
+          message: /bananass.config.jsonc is not supported/,
+        },
+      );
+    });
+
+    it('should throw an error when loading `bananass.config.toml`', () => {
+      rejects(
+        () =>
+          configLoader({
+            cwd: join(fixturesDir, 'bananass-config-toml'),
+            defaultConfigObject: {},
+          }),
+        {
+          name: 'Error',
+          message: /bananass.config.toml is not supported/,
+        },
+      );
+    });
+
+    it('should throw an error when loading `bananass.config.yaml`', () => {
+      rejects(
+        () =>
+          configLoader({
+            cwd: join(fixturesDir, 'bananass-config-yaml'),
+            defaultConfigObject: {},
+          }),
+        {
+          name: 'Error',
+          message: /bananass.config.yaml is not supported/,
+        },
+      );
+    });
+
+    it('should throw an error when loading `bananass.config.yml`', () => {
+      rejects(
+        () =>
+          configLoader({
+            cwd: join(fixturesDir, 'bananass-config-yml'),
+            defaultConfigObject: {},
+          }),
+        {
+          name: 'Error',
+          message: /bananass.config.yml is not supported/,
+        },
+      );
+    });
+  });
 
   describe('CLI options should override config files', () => {
     it('should override all options when all options are specified', async () => {
