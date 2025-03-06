@@ -49,7 +49,7 @@ export default function run(program) {
     .action(async (problems, options, command) => {
       const { cwd, entryDir, debug, quiet } = options;
 
-      const { config: configObject } = await configLoader({
+      const configObject = await configLoader({
         cliConfigObject: {
           cwd,
           entryDir,

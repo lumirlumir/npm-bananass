@@ -94,10 +94,5 @@ export const SUPPORTED_SOLUTION_FILE_EXTENSIONS = [
 
 export const SUPPORTED_CONFIG_FILE_EXTENSIONS = [
   ...SUPPORTED_SOLUTION_FILE_EXTENSIONS,
-  '.json',
-  '.jsonc',
-  '.json5',
-  '.yaml',
-  '.yml',
-  '.toml',
+  '.config',
 ];

@@ -45,7 +45,7 @@ export default function info(program) {
     .action(async (options, command) => {
       const { debug, quiet, all } = options;
 
-      const { config: configObject } = await configLoader({
+      const configObject = await configLoader({
         cliConfigObject: {
           console: {
             debug,
