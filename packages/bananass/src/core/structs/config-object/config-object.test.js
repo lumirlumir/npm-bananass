@@ -47,4 +47,12 @@ describe('config-object.js', () => {
 
     strictEqual(ConfigObject.is(configObject), false);
   });
+  it('should return false for an invalid type', () => {
+    strictEqual(ConfigObject.is(0), false);
+    strictEqual(ConfigObject.is('string'), false);
+    strictEqual(ConfigObject.is(true), false);
+    strictEqual(ConfigObject.is(undefined), false);
+    strictEqual(ConfigObject.is(null), false);
+    strictEqual(ConfigObject.is([]), false);
+  });
 });
