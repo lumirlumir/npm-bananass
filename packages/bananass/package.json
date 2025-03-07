@@ -71,7 +71,7 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "npx tsc && shx cp ../../LICENSE.md ../../README.md .",
-    "test": "node --test",
+    "test": "node --experimental-test-module-mocks --test",
     "dev": "node src/cli.js"
   },
   "dependencies": {
