@@ -15,6 +15,7 @@ import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, success, error } from 'bananass-utils-console/theme';
 import webpack from 'webpack';
 
+import { defaultConfigObject as dco } from '../../core/conf/index.js';
 import { Problems, ConfigObject } from '../../core/structs/index.js';
 import {
   WEBPACK_BANNER,
@@ -42,7 +43,7 @@ import {
  * @param {ConfigObject} configObject
  * @async
  */
-export default async function build(problems, configObject) {
+export default async function build(problems, configObject = dco) {
   // ------------------------------------------------------------------------------
   // Runtime Validation
   // ------------------------------------------------------------------------------
@@ -55,11 +56,17 @@ export default async function build(problems, configObject) {
   // ------------------------------------------------------------------------------
 
   const {
-    cwd,
-    entryDir,
-    outDir,
-    console,
-    build: { clean, templateType },
+    cwd = dco.cwd,
+    entryDir = dco.entryDir,
+    outDir = dco.outDir,
+    console: {
+      debug = dco.console.debug, // (This comment was used for code formatting.)
+      quiet = dco.console.quiet,
+    } = dco.console,
+    build: {
+      clean = dco.build.clean, // (This comment was used for code formatting.)
+      templateType = dco.build.templateType,
+    } = dco.build,
   } = configObject;
 
   const resolvedEntryDir = resolve(cwd, entryDir);
@@ -69,7 +76,7 @@ export default async function build(problems, configObject) {
     `template-${templateType}.cjs`,
   );
 
-  const logger = createLogger(console);
+  const logger = createLogger({ debug, quiet });
   const spinner = createSpinner();
 
   // ------------------------------------------------------------------------------
