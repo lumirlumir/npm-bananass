@@ -8,6 +8,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import { PKG_AUTHOR, URL_HOMEPAGE } from 'bananass/core/constants';
 import { generateGoogleAnalyticsScript } from 'bananass-utils-vitepress/head';
 import footnote from 'markdown-it-footnote';
 import { defineConfig } from 'vitepress';
@@ -17,8 +18,6 @@ import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-i
 // Constants
 // --------------------------------------------------------------------------------
 
-const AUTHOR = '루밀LuMir';
-const SITE_URL = 'https://bananass.lumir.page';
 const GOOGLE_GA_ID = 'G-1Q3XQ6JTF9';
 
 // --------------------------------------------------------------------------------
@@ -32,16 +31,16 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/logo-small.png', type: 'image/png' }],
     ['link', { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' }],
     ['meta', { name: 'theme-color', content: '#fff478' }],
-    ['meta', { name: 'author', content: AUTHOR }],
+    ['meta', { name: 'author', content: PKG_AUTHOR }],
 
     // Open Graph
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:image:width', content: '1280' }],
     ['meta', { property: 'og:image:height', content: '640' }],
-    ['meta', { property: 'og:article:author', content: AUTHOR }],
+    ['meta', { property: 'og:article:author', content: PKG_AUTHOR }],
 
     // Twitter
-    ['meta', { name: 'twitter:creator', content: AUTHOR }],
+    ['meta', { name: 'twitter:creator', content: PKG_AUTHOR }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
 
     // Google Fonts
@@ -74,10 +73,10 @@ export default defineConfig({
 
   /* Sitemap */
   sitemap: {
-    hostname: SITE_URL,
+    hostname: URL_HOMEPAGE,
   },
 
-  /* Thme Configuration */
+  /* Theme Configuration */
   themeConfig: {
     logo: {
       src: '/logo.svg',

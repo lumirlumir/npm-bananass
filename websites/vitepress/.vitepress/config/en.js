@@ -8,6 +8,11 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import {
+  URL_HOMEPAGE,
+  URL_GITHUB_REPO,
+  // BANANASS_PKG_NAMES,
+} from 'bananass/core/constants';
 import { en } from 'bananass-utils-vitepress/i18n';
 import { defineConfig } from 'vitepress';
 
@@ -17,12 +22,10 @@ import { defineConfig } from 'vitepress';
 
 const TITLE = 'Bananass';
 const DESCRIPTION = 'Baekjoon Framework for JavaScript.🍌';
-const SITE_URL = 'https://bananass.lumir.page';
-const GITHUB_URL = 'https://github.com/lumirlumir/npm-bananass';
 const NPM_URL = 'https://www.npmjs.com';
 
 const { themeConfig, ...restConfig } = en({
-  themeConfigEditLinkPattern: `${GITHUB_URL}/edit/main/websites/vitepress/:path`,
+  themeConfigEditLinkPattern: `${URL_GITHUB_REPO}/edit/main/websites/vitepress/:path`,
 });
 
 // --------------------------------------------------------------------------------
@@ -47,18 +50,18 @@ export default defineConfig({
     ],
 
     // Open Graph
-    ['meta', { property: 'og:url', content: SITE_URL }],
+    ['meta', { property: 'og:url', content: URL_HOMEPAGE }],
     ['meta', { property: 'og:title', content: TITLE }],
     ['meta', { property: 'og:description', content: DESCRIPTION }],
-    ['meta', { property: 'og:image', content: `${SITE_URL}/logo-og.png` }],
+    ['meta', { property: 'og:image', content: `${URL_HOMEPAGE}/logo-og.png` }],
     ['meta', { property: 'og:site_name', content: TITLE }],
     ['meta', { property: 'og:locale', content: 'en' }],
 
     // Twitter
-    ['meta', { name: 'twitter:url', content: SITE_URL }],
+    ['meta', { name: 'twitter:url', content: URL_HOMEPAGE }],
     ['meta', { name: 'twitter:title', content: TITLE }],
     ['meta', { name: 'twitter:description', content: DESCRIPTION }],
-    ['meta', { name: 'twitter:image', content: `${SITE_URL}/logo-og.png` }],
+    ['meta', { name: 'twitter:image', content: `${URL_HOMEPAGE}/logo-og.png` }],
   ],
 
   themeConfig: {
@@ -119,7 +122,7 @@ export default defineConfig({
       },
       {
         icon: 'github',
-        link: GITHUB_URL,
+        link: URL_GITHUB_REPO,
         ariaLabel: 'GitHub repository link for Bananass framework',
       },
     ],
