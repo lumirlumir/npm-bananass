@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: / # TODO
+      link: /en/get-started/installation
     - theme: alt
       text: Learn
       link: / # TODO

@@ -69,6 +69,11 @@ export default defineConfig({
 
     nav: [
       {
+        text: '시작하기',
+        link: '/get-started/installation',
+        activeMatch: '/get-started/installation/',
+      },
+      {
         text: 'ESLint',
         link: 'https://eslint-config-bananass.lumir.page',
       },
@@ -81,7 +86,22 @@ export default defineConfig({
       },
     ],
 
-    sidebar: {},
+    sidebar: {
+      '/get-started/': [
+        {
+          base: '/get-started/',
+          text: '시작하기',
+          link: 'installation',
+          collapsed: false, // Set it `false` to show `>` icon.
+          items: [
+            {
+              text: '설치하기',
+              link: 'installation',
+            },
+          ],
+        },
+      ],
+    },
 
     socialLinks: [
       {

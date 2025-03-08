@@ -69,6 +69,11 @@ export default defineConfig({
 
     nav: [
       {
+        text: 'Get Started',
+        link: '/en/get-started/installation',
+        activeMatch: '/en/get-started/installation/',
+      },
+      {
         text: 'ESLint',
         link: 'https://eslint-config-bananass.lumir.page',
       },
@@ -81,7 +86,22 @@ export default defineConfig({
       },
     ],
 
-    sidebar: {},
+    sidebar: {
+      '/en/get-started/': [
+        {
+          base: '/en/get-started/',
+          text: 'Get Started',
+          link: 'installation',
+          collapsed: false, // Set it `false` to show `>` icon.
+          items: [
+            {
+              text: 'Installation',
+              link: 'installation',
+            },
+          ],
+        },
+      ],
+    },
 
     socialLinks: [
       {
