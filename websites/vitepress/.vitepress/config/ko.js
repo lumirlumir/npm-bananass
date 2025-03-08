@@ -11,7 +11,7 @@
 import {
   URL_HOMEPAGE,
   URL_GITHUB_REPO,
-  // BANANASS_PKG_NAMES,
+  BANANASS_PKG_NAMES,
 } from 'bananass/core/constants';
 import { ko } from 'bananass-utils-vitepress/i18n';
 import { defineConfig } from 'vitepress';
@@ -53,7 +53,7 @@ export default defineConfig({
     ['meta', { property: 'og:url', content: URL_HOMEPAGE }],
     ['meta', { property: 'og:title', content: TITLE }],
     ['meta', { property: 'og:description', content: DESCRIPTION }],
-    ['meta', { property: 'og:image', content: `${URL_HOMEPAGE}/logo-og.png` }],
+    ['meta', { property: 'og:image', content: `${URL_HOMEPAGE}/logo-og-ko.png` }],
     ['meta', { property: 'og:site_name', content: TITLE }],
     ['meta', { property: 'og:locale', content: 'ko' }],
 
@@ -61,7 +61,7 @@ export default defineConfig({
     ['meta', { name: 'twitter:url', content: URL_HOMEPAGE }],
     ['meta', { name: 'twitter:title', content: TITLE }],
     ['meta', { name: 'twitter:description', content: DESCRIPTION }],
-    ['meta', { name: 'twitter:image', content: `${URL_HOMEPAGE}/logo-og.png` }],
+    ['meta', { name: 'twitter:image', content: `${URL_HOMEPAGE}/logo-og-ko.png` }],
   ],
 
   themeConfig: {
@@ -70,45 +70,14 @@ export default defineConfig({
     nav: [
       {
         text: 'ESLint',
-        items: [
-          {
-            text: 'eslint-config-bananass',
-            link: 'https://eslint-config-bananass.lumir.page',
-          },
-        ],
+        link: 'https://eslint-config-bananass.lumir.page',
       },
       {
         text: '패키지',
-        items: [
-          {
-            text: 'bananass',
-            link: `${NPM_URL}/package/bananass`,
-          },
-          {
-            text: 'bananass-dataset',
-            link: `${NPM_URL}/package/bananass-dataset`,
-          },
-          {
-            text: 'bananass-utils-console',
-            link: `${NPM_URL}/package/bananass-utils-console`,
-          },
-          {
-            text: 'bananass-utils-vitepress',
-            link: `${NPM_URL}/package/bananass-utils-vitepress`,
-          },
-          {
-            text: 'create-bananass',
-            link: `${NPM_URL}/package/create-bananass`,
-          },
-          {
-            text: 'eslint-config-bananass',
-            link: `${NPM_URL}/package/eslint-config-bananass`,
-          },
-          {
-            text: 'prettier-config-bananass',
-            link: `${NPM_URL}/package/prettier-config-bananass`,
-          },
-        ],
+        items: BANANASS_PKG_NAMES.map(pkgName => ({
+          text: pkgName,
+          link: `${NPM_URL}/package/${pkgName}`,
+        })),
       },
     ],
 
