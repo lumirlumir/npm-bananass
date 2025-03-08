@@ -46,7 +46,7 @@
  * //     },
  * //
  * //     footer: {
- * //       message: 'MIT 라이선스에 따라 배포됩니다.',
+ * //       message: 'MIT 라이선스에 따라 배포합니다.',
  * //       copyright: `저작권 © 2024-${new Date().getFullYear()} <a href="https://github.com/lumirlumir">루밀LuMir(lumirlumir)</a>`,
  * //     },
  * //
@@ -119,7 +119,7 @@ export default function ko({
       },
 
       footer: {
-        message: 'MIT 라이선스에 따라 배포됩니다.',
+        message: 'MIT 라이선스에 따라 배포합니다.',
         copyright: `저작권 © 2024-${new Date().getFullYear()} <a href="https://github.com/lumirlumir">루밀LuMir(lumirlumir)</a>`,
       },
 
