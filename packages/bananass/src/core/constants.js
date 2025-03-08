@@ -38,6 +38,8 @@ export const PKG_DESCRIPTION = description;
 export const PKG_NAME = name;
 /** @type {string} */
 export const PKG_VERSION = version;
+/** @type {string} */
+export const PKG_AUTHOR = '루밀LuMir';
 
 /** @type {string} */
 export const URL_HOMEPAGE = homepage;
@@ -66,7 +68,7 @@ export const WEBPACK_BANNER = `
  * Bananass GitHub Repository: ${URL_GITHUB_REPO}
  *
  * Released under the MIT License
- * Copyright © 2024-${new Date().getFullYear()} 루밀LuMir(lumirlumir)
+ * Copyright © 2024-${new Date().getFullYear()} ${PKG_AUTHOR}(lumirlumir)
  *
  * DO NOT DELETE THIS COMMENT
  */
