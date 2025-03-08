@@ -51,7 +51,7 @@
  * //     },
  * //
  * //     lastUpdated: {
- * //       label: '최종 수정 날짜',
+ * //       text: '최종 수정 날짜',
  * //     },
  * //
  * //     outline: {
@@ -124,7 +124,7 @@ export default function ko({
       },
 
       lastUpdated: {
-        label: '최종 수정 날짜',
+        text: '최종 수정 날짜',
       },
 
       outline: {
