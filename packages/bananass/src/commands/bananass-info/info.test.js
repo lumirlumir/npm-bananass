@@ -1,6 +1,5 @@
 /**
  * @fileoverview Test for `info.js`.
- * @see https://nodejs.org/en/learn/test-runner/mocking#modules--units
  */
 
 // --------------------------------------------------------------------------------
