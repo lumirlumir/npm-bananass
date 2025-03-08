@@ -33,7 +33,7 @@ import { URL_GITHUB_DISCUSSIONS } from '../../core/constants.js';
  * @param {ConfigObject} configObject
  * @async
  */
-export default async function repo(configObject = dco) {
+export default async function discussion(configObject = dco) {
   // ------------------------------------------------------------------------------
   // Runtime Validation
   // ------------------------------------------------------------------------------
