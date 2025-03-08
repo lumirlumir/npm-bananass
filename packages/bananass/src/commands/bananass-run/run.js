@@ -18,6 +18,7 @@ import chalk from 'chalk';
 import enhancedResolve from 'enhanced-resolve';
 import { createJiti } from 'jiti';
 
+import { defaultConfigObject as dco } from '../../core/conf/index.js';
 import testRunner from './test-runner.js';
 import { Problems, ConfigObject } from '../../core/structs/index.js';
 import { SUPPORTED_SOLUTION_FILE_EXTENSIONS } from '../../core/constants.js';
@@ -43,7 +44,7 @@ import { SUPPORTED_SOLUTION_FILE_EXTENSIONS } from '../../core/constants.js';
  * @param {ConfigObject} configObject
  * @async
  */
-export default async function run(problems, configObject) {
+export default async function run(problems, configObject = dco) {
   // ------------------------------------------------------------------------------
   // Runtime Validation
   // ------------------------------------------------------------------------------
@@ -60,14 +61,21 @@ export default async function run(problems, configObject) {
   });
   const jiti = createJiti(import.meta.url);
 
-  const { cwd, entryDir, console } = configObject;
+  const {
+    cwd = dco.cwd,
+    entryDir = dco.entryDir,
+    console: {
+      debug = dco.console.debug, // (This comment was used for code formatting.)
+      quiet = dco.console.quiet,
+    } = dco.console,
+  } = configObject;
 
   const resolvedEntryDir = resolve(cwd, entryDir);
   let /** @type {string[]} */ resolvedEntryFiles;
   let /** @type {SolutionWithTestcases[]} */ importedModules;
   let testResults;
 
-  const logger = createLogger({ ...console, textPrefix: false });
+  const logger = createLogger({ debug, quiet, textPrefix: false });
   const spinner = createSpinner();
 
   // ------------------------------------------------------------------------------

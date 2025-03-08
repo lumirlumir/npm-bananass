@@ -11,6 +11,7 @@ import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, error, success } from 'bananass-utils-console/theme';
 import open, { apps } from 'open';
 
+import { defaultConfigObject as dco } from '../../core/conf/index.js';
 import { ConfigObject } from '../../core/structs/index.js';
 import { URL_GITHUB_REPO } from '../../core/constants.js';
 
@@ -32,7 +33,7 @@ import { URL_GITHUB_REPO } from '../../core/constants.js';
  * @param {ConfigObject} configObject
  * @async
  */
-export default async function repo(configObject) {
+export default async function repo(configObject = dco) {
   // ------------------------------------------------------------------------------
   // Runtime Validation
   // ------------------------------------------------------------------------------
@@ -44,11 +45,17 @@ export default async function repo(configObject) {
   // ------------------------------------------------------------------------------
 
   const {
-    browser: { browser, secretMode },
-    console,
+    browser: {
+      browser = dco.browser.browser,
+      secretMode = dco.browser.secretMode,
+    } = dco.browser,
+    console: {
+      debug = dco.console.debug, // (This comment was used for code formatting.)
+      quiet = dco.console.quiet,
+    } = dco.console,
   } = configObject;
 
-  const logger = createLogger(console);
+  const logger = createLogger({ debug, quiet });
   const spinner = createSpinner();
 
   // ------------------------------------------------------------------------------
