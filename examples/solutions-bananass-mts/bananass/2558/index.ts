@@ -1,4 +1,4 @@
-import solution from './solution.js';
-import testcases from './testcases.js';
+import solution from './solution.ts';
+import testcases from './testcases.ts';
 
 export default { solution, testcases };
