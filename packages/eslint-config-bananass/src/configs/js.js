@@ -13,6 +13,7 @@ const { js } = require('../files');
 const { globals } = require('../language-options');
 const { importPlugin, nodePlugin, stylisticJsPlugin } = require('../plugins');
 const { eslintRules, importRules, nodeRules, stylisticJsRules } = require('../rules');
+const { node } = require('../settings');
 
 // --------------------------------------------------------------------------------
 // Exports
@@ -34,5 +35,8 @@ module.exports = {
     ...importRules,
     ...nodeRules,
     ...stylisticJsRules,
+  },
+  settings: {
+    node,
   },
 };
