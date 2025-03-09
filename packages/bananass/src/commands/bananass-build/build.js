@@ -134,6 +134,7 @@ export default async function build(problems, configObject = dco) {
           rules: [
             {
               test: /\.(?:js|mjs|cjs)$/i, // JavaScript
+              include: [/node_modules/, new RegExp(resolvedEntryDir)],
               loader: 'esbuild-loader',
               options: {
                 target: 'node14',
