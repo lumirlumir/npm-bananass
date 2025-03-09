@@ -11,7 +11,7 @@
 
 const { js, jsx } = require('../files');
 const { globals, parserOptions } = require('../language-options');
-const { react } = require('../settings');
+const { node, react } = require('../settings');
 
 const {
   importPlugin,
@@ -65,6 +65,7 @@ module.exports = {
     ...reactHooksRules,
   },
   settings: {
+    node,
     react,
   },
 };

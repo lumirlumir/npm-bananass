@@ -14,6 +14,7 @@
 
 const { ts } = require('../files');
 const { globals, parser } = require('../language-options');
+const { node } = require('../settings');
 
 const {
   importPlugin,
@@ -53,5 +54,8 @@ module.exports = {
     ...nodeRules,
     ...stylisticJsRules,
     ...typescriptRules,
+  },
+  settings: {
+    node,
   },
 };

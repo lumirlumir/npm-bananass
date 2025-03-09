@@ -11,7 +11,7 @@
 
 const { ts, tsx } = require('../files');
 const { globals, parser, parserOptions } = require('../language-options');
-const { react } = require('../settings');
+const { node, react } = require('../settings');
 
 const {
   importPlugin,
@@ -70,6 +70,7 @@ module.exports = {
     ...typescriptRules,
   },
   settings: {
+    node,
     react,
   },
 };
