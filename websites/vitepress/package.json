@@ -9,8 +9,10 @@
     "start": "npx vitepress preview"
   },
   "devDependencies": {
+    "@codecov/vite-plugin": "^1.9.0",
     "bananass": "^0.0.0",
     "bananass-utils-vitepress": "^0.0.0",
+    "is-interactive": "^2.0.0",
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-mathjax3": "^4.3.2",
     "vitepress": "^1.6.3",
