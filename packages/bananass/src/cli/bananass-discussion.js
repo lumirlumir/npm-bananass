@@ -42,6 +42,8 @@ export default function discussion(program) {
     .alias('discussions')
     .alias('discuss')
     .alias('disc')
+    .alias('question')
+    .alias('questions')
     .description(discussionDesc)
     .option(...browserOpt)
     .option(...secretModeOpt)
