@@ -17,7 +17,7 @@
 
 [[TOC]]
 
-## 훑어보기
+## 훑어보기 {#overview}
 
 아래와 같은 `solution` 함수의 매개변수<sup>Parameter</sup> `input`에는 다양한 형식의 문자열이 들어올 수 있습니다.
 
@@ -97,9 +97,9 @@ export default { solution };
 
 그렇다면, 들어온 입력값 `input`을 어떻게 분해<sup>파싱, Parsing</sup>하여, 원하는 형태로 가공한 후 사용할 수 있을까요? 예제와 함께 하나씩 살펴봅시다!
 
-## 1. 입력값이 하나일 경우 (문자열)
+## 1. 입력값이 하나일 경우 (문자열) {#1-when-the-input-value-is-a-single-string}
 
-가장 단순한 경우입니다! 아래와 같은 입력값을 가정하겠습니다.
+가장 단순한 경우입니다. 아래와 같은 입력값 `input`을 가정하겠습니다.
 
 ### 예제 입력
 
@@ -107,9 +107,9 @@ export default { solution };
 hello
 ```
 
-가장 많이 사용되는 방식은 [`String.prototype.trim()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/Trim) 메서드를 이용하여, 혹시 모를 문자열의 앞 뒤 공백을 제거하는 것입니다!
+가장 많이 사용하는 방식은 [`String.prototype.trim()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/Trim) 메서드를 이용하여, 혹시 모를 문자열의 앞 뒤 공백을 제거하는 것입니다!
 
-::: danger 주의!
+::: danger 주의하세요!
 
 단, 일부 문제에는 공백을 함부로 삭제하면 안되는 경우도 존재합니다. 이런 상황에서는 `trim()`을 사용해서는 안됩니다. 주의하세요!!
 
@@ -133,9 +133,11 @@ const inputParsed = input;
 'hello' // string
 ```
 
-## 2. 입력값이 하나일 경우 (숫자)
+## 2. 입력값이 하나일 경우 (숫자) {#2-when-the-input-value-is-a-single-number}
 
-이제 문자열<sup>`string`</sup> 타입으로 들어온 숫자를 다루기 쉽게 숫자<sup>`number`</sup> 타입으로 변환해 주어야 합니다! 아래와 같은 입력값을 가정하겠습니다.
+앞서 '중요합니다!'에서 언급했듯, `input`에는 항상 문자열 `string` 타입만 들어옵니다. 백준의 '예제 입력'이 숫자로 되어있을지라도, 항상 해당 숫자를 문자열 형태로 받아옵니다.
+
+이제 문자열<sup>`string`</sup> 타입으로 들어온 숫자를 다루기 쉽게 숫자<sup>`number`</sup> 타입으로 변환해 주어야 합니다! 아래와 같은 입력값 `input`을 가정하겠습니다.
 
 ### 예제 입력
 
@@ -143,13 +145,13 @@ const inputParsed = input;
 3
 ```
 
-그럼 문자열을 어떻게 숫자로 변환해 줄 수 있을까요? 아래와 같은 자바스크립트 빌트인 함수 `Number()`를 이용하면 됩니다!
+그럼 문자열을 어떻게 숫자로 변환해 줄 수 있을까요? 아래와 같은 자바스크립트 빌트인 객체 `Number()`를 이용하면 됩니다!
 
-> [!NOTE]
+> [!NOTE] 주목해주세요!
 >
 > `+input` 혹은 `parseInt(input)`을 사용하여 문자열 형태의 입력값을 숫자로 변환해 주어도 됩니다.
 >
-> 단, ESLint의 [`no-implicit-coercion`](https://eslint.org/docs/latest/rules/no-implicit-coercion) 규칙에서 권장하듯, 위에서 언급한 암묵적 타입 변환 방법 대신 가능하면 `Number()` 함수를 사용하는 것이 좋습니다.
+> 단, ESLint의 [`no-implicit-coercion`](https://eslint.org/docs/latest/rules/no-implicit-coercion) 규칙에서 권장하듯, 단축 형 변환<sup>Shorthand Type Conversions</sup> 대신 가능한 `Number()` 객체를 사용하는 것을 (개인적으로) 권장합니다.
 
 ### 분해 방법
 
@@ -163,9 +165,9 @@ const inputParsed = Number(input.trim());
 3 // number
 ```
 
-## 3. 입력값이 띄어쓰기로 구분된 한 줄의 값들인 경우 (문자열)
+## 3. 입력값이 띄어쓰기로 구분된 한 줄의 값들인 경우 (문자열) {#3-when-the-input-value-is-a-single-line-of-strings-separated-by-spaces}
 
-이번에는 아래와 같은 입력값이 들어오면 어떨까요?
+이번에는 아래와 같은 입력값 `input`이 들어오면 어떨까요?
 
 ### 예제 입력
 
@@ -173,7 +175,7 @@ const inputParsed = Number(input.trim());
 hello bananass
 ```
 
-이런 경우 `String.prototype.split()` 메서드를 이용하여 띄어쓰기로 구분된 값들을 배열<sup>`array`</sup>로 만들어 줄 수 있습니다!
+이런 경우 [`String.prototype.split()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/split) 메서드를 이용하여 띄어쓰기로 구분된 값들을 배열<sup>`array`</sup>로 만들어 줄 수 있습니다!
 
 ### 분해 방법
 
@@ -187,9 +189,9 @@ const inputParsed = input.trim().split(' ');
 ['hello', 'bananass'] // string[]
 ```
 
-## 4. 입력값이 띄어쓰기로 구분된 한 줄의 값들인 경우 (숫자)
+## 4. 입력값이 띄어쓰기로 구분된 한 줄의 값들인 경우 (숫자) {#4-when-the-input-value-is-a-single-line-of-numbers-separated-by-spaces}
 
-이제 슬슬 감이 오시나요? 아래 예제를 더 살펴보죠!
+이제 슬슬 감이 오실까요? 아래 예제를 더 살펴보죠!
 
 ### 예제 입력
 
@@ -197,7 +199,7 @@ const inputParsed = input.trim().split(' ');
 3 24 98
 ```
 
-이런 경우 `String.prototype.split()` 메서드를 이용하여 띄어쓰기로 구분된 값들을 배열<sup>`array`</sup>로 만들어 준 후, `Array.prototype.map()` 메서드를 이용하여 각 값들을 숫자로 변환해 주어야 합니다!
+이런 경우 [`String.prototype.split()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/split) 메서드를 이용하여 띄어쓰기로 구분된 값들을 배열<sup>`array`</sup>로 만들어 준 후, [`Array.prototype.map()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map) 메서드를 이용하여 각 값들을 숫자로 변환해 주어야 합니다.
 
 ### 분해 방법
 
@@ -205,7 +207,7 @@ const inputParsed = input.trim().split(' ');
 const inputParsed = input.trim().split(' ').map(val => Number(val));
 ```
 
-or
+또는
 
 ```js
 const inputParsed = input.trim().split(' ').map(Number);
@@ -217,15 +219,15 @@ const inputParsed = input.trim().split(' ').map(Number);
 [3, 24, 98] // number[]
 ```
 
-## 5. 입력값이 여러 줄의 값들인 경우 (문자열)
+## 5. 입력값이 여러 줄의 값들인 경우 (문자열) {#5-when-the-input-value-is-multiple-lines-of-strings}
 
 이번에는 띄어쓰기가 아닌, 개행 문자(`\n`)로 구분된 여러 줄의 문자열 값들이 들어오는 경우를 살펴보겠습니다!
 
-> [!IMPORTANT]
+> [!IMPORTANT] 중요합니다!
 >
-> 백준의 Node.js 환경은 리눅스를 사용하므로, 개행 문자가 LF(`\n`)입니다.
+> 백준의 Node.js 서버 환경은 리눅스<sup>Linux</sup>를 운영체제로 사용하므로, 개행 문자가 LF(`\n`)입니다.
 >
-> 바나나 프레임워크에서는 이러한 백준 Node.js 환경에 맞게, 윈도우<sup>Windows</sup>의 CRLF(`\r\n`) 혹은 POSIX(리눅스<sup>Linux</sup>, 맥<sup>macOS</sup>)의 LF(`\n`)를 구분하지 않고 `\n`으로 통일하여 입력값(`input`)으로 제공합니다. 즉, 개행 문자로 항상 `\n`을 사용하도록 만들어 두었으니, 편하게 `\n`을 통해 개행을 구분하시면 됩니다!
+> 바나나 프레임워크에서는 이러한 백준 Node.js 환경에 맞게, 윈도우<sup>Windows</sup>의 CRLF(`\r\n`) 혹은 POSIX(리눅스<sup>Linux</sup>, 맥<sup>macOS</sup>)의 LF(`\n`)를 구분하지 않고 `\n`으로 통일하여 입력값 `input`으로 사용할 수 있게 설계하였습니다. 즉, 개행 문자로 항상 `\n`을 사용하도록 만들어 두었으니, 편하게 `\n`을 통해 개행을 구분하시면 됩니다.
 
 ### 예제 입력
 
@@ -236,7 +238,7 @@ c
 d
 ```
 
-이런 경우에도 `String.prototype.split()` 메서드를 이용하여 개행 문자(`\n`)로 구분된 값들을 배열<sup>`array`</sup>로 만들어 줄 수 있습니다!
+이런 경우에도 `String.prototype.split()` 메서드를 이용하여 개행 문자(`\n`)로 구분된 값들을 배열<sup>`array`</sup>로 만들어 줄 수 있습니다.
 
 ### 분해 방법
 
@@ -250,9 +252,9 @@ const inputParsed = input.trim().split('\n');
 ['a', 'b', 'c', 'd'] // string[]
 ```
 
-## 6. 입력값이 여러 줄의 값들인 경우 (숫자)
+## 6. 입력값이 여러 줄의 값들인 경우 (숫자) {#6-when-the-input-value-is-multiple-lines-of-numbers}
 
-이제 혼자서도 하실 수 있겠죠? 아래 예제를 살펴보세요!
+이제 혼자서도 하실 수 있겠죠? 아래 예제를 살펴봅시다!
 
 ### 예제 입력
 
@@ -262,7 +264,7 @@ const inputParsed = input.trim().split('\n');
 98
 ```
 
-`String.prototype.split()` 메서드를 이용하여 개행 문자(`\n`)로 구분된 값들을 배열<sup>`array`</sup>로 만들어 준 후, `Array.prototype.map()` 메서드를 이용하여 각 값들을 숫자로 변환해 주어야 합니다!
+`String.prototype.split()` 메서드를 이용하여 개행 문자(`\n`)로 구분된 값들을 배열<sup>`array`</sup>로 만들어 준 후, `Array.prototype.map()` 메서드를 이용하여 각 값들을 숫자로 변환해 주어야 합니다.
 
 ### 분해 방법
 
@@ -282,9 +284,9 @@ const inputParsed = input.trim().split('\n').map(Number);
 [3, 24, 98] // number[]
 ```
 
-## 7. 입력값이 여러 줄의 값이고 띄어쓰기로 구분되어 있는 경우 (문자열)
+## 7. 입력값이 여러 줄의 값이고 띄어쓰기로 구분되어 있는 경우 (문자열) {#7-when-the-input-value-is-multiple-lines-of-strings-separated-by-spaces}
 
-이번에는 좀 더 복잡한 경우를 살펴보겠습니다! 이제 방법이 떠오르시나요? 다음 예제를 봅시다.
+이번에는 좀 더 복잡한 경우를 살펴보겠습니다! 이제 풀이 방법이 떠오르실까요? 다음 예제를 봅시다.
 
 ### 예제 입력
 
@@ -314,9 +316,9 @@ const inputParsed = input.trim().split('\n').map(val => val.split(' '));
 ] // string[][]
 ```
 
-## 8. 입력값이 여러 줄의 값이고 띄어쓰기로 구분되어 있는 경우 (숫자)
+## 8. 입력값이 여러 줄의 값이고 띄어쓰기로 구분되어 있는 경우 (숫자) {#8-when-the-input-value-is-multiple-lines-of-numbers-separated-by-spaces}
 
-마지막 예제입니다! 앞에서 설명한 모든 내용들을 적용하면 됩니다. 아래 예제를 살펴보세요!
+마지막 예제입니다! 앞에서 설명한 모든 내용들을 적용하시면 됩니다. 아래 예제를 살펴보세요!
 
 ### 예제 입력
 
