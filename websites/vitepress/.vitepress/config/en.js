@@ -87,7 +87,7 @@ export default defineConfig({
     ],
 
     sidebar: {
-      '/en/get-started/': [
+      '/en/': [
         {
           base: '/en/get-started/',
           text: 'Get Started',
@@ -97,6 +97,25 @@ export default defineConfig({
             {
               text: 'Installation',
               link: 'installation',
+            },
+          ],
+        },
+        {
+          base: '/en/learn/',
+          text: 'Learn',
+          // link: '',
+          collapsed: false,
+          items: [
+            {
+              text: 'How to Solve Problems',
+              // link: '',
+              collapsed: false,
+              items: [
+                {
+                  text: 'How to Parse Input Value',
+                  link: 'how-to-parse-input-value',
+                },
+              ],
             },
           ],
         },

@@ -87,7 +87,7 @@ export default defineConfig({
     ],
 
     sidebar: {
-      '/get-started/': [
+      '/': [
         {
           base: '/get-started/',
           text: '시작하기',
@@ -97,6 +97,25 @@ export default defineConfig({
             {
               text: '설치하기',
               link: 'installation',
+            },
+          ],
+        },
+        {
+          base: '/learn/',
+          text: '학습하기',
+          // link: '',
+          collapsed: false,
+          items: [
+            {
+              text: '문제 풀이를 하는 방법',
+              // link: '',
+              collapsed: false,
+              items: [
+                {
+                  text: '입력값 분해하기',
+                  link: 'how-to-parse-input-value',
+                },
+              ],
             },
           ],
         },
