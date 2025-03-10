@@ -4,8 +4,8 @@ title: Bananass Framework
 
 hero:
   name: Bananass
-  text: Baekjoon Framework for JavaScript.
-  tagline: A new paradigm for solving algorithm problems in JavaScript.
+  text: Baekjoon Framework for JavaScript
+  tagline: A new paradigm for solving algorithm problems in JavaScript
   image:
     src: /logo.svg
     alt: Bananass Framework Logo
