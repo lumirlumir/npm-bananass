@@ -272,7 +272,7 @@ const inputParsed = input.trim().split('\n');
 const inputParsed = input.trim().split('\n').map(val => Number(val));
 ```
 
-or
+또는
 
 ```js
 const inputParsed = input.trim().split('\n').map(Number);
