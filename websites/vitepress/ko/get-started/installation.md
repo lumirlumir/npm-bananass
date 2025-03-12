@@ -62,8 +62,7 @@
 
 가장 빠르게 바나나 프레임워크를 만나는 방법은 `create-bananass` 명령어를 이용하는 것입니다!
 
-[React](https://ko.react.dev)의 <code>create-react-app</code>, [Next.js](https://nextjs.org)의 <code>create-next-app</code>처럼 <code>create-banananss</code>를 통해 지금 바로 바나나 프레임워크를 시작할 수 있습니다. 이 명령어는 바나나 프레임워크를 위한 프로젝트 템플릿을 생성합니다.
-
+[React](https://ko.react.dev)의 <code>create-react-app</code>, [Next.js](https://nextjs.org)의 <code>create-next-app</code>처럼 <code>create-bananass</code>를 통해 지금 바로 바나나 프레임워크를 시작할 수 있습니다. 이 명��어는 바나나 프레임워크를 위한 프로젝트 템플릿을 생성합니다.
 아래 명령어 중 하나를 통해 `create-bananass`를 실행해주세요.
 
 ::: code-group
