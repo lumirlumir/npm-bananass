@@ -117,6 +117,10 @@ export default defineConfig({
                 },
               ],
             },
+            {
+              text: '바나나 없이 문제 풀기',
+              link: 'solving-problems-without-bananass-framework',
+            },
           ],
         },
       ],
