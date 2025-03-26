@@ -25,7 +25,7 @@ import { func, refine } from 'superstruct';
  * `Solution` type struct.
  *
  * @type {SolutionStruct}
- */ // @ts-ignore -- Types cannot be matched, as `superstruct` is unable to infer the input and output types of the function.
+ */ // @ts-expect-error -- Types cannot be matched, as `superstruct` is unable to infer the input and output types of the function.
 const Solution = refine(func(), 'Solution', solution =>
   solution.length <= 1
     ? true

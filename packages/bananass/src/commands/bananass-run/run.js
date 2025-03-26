@@ -110,7 +110,7 @@ export default async function run(problems, configObject = dco) {
   // ------------------------------------------------------------------------------
 
   try {
-    // @ts-ignore -- TODO: Delete it.
+    // @ts-expect-error -- TODO: Delete it.
     importedModules = await Promise.all(
       resolvedEntryFiles.map(resolvedEntryFile =>
         jiti.import(resolvedEntryFile, { default: true }),

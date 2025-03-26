@@ -9,6 +9,7 @@
 // --------------------------------------------------------------------------------
 
 import {
+  URL_NPM,
   URL_HOMEPAGE,
   URL_GITHUB_REPO,
   BANANASS_PKG_NAMES,
@@ -22,7 +23,6 @@ import { defineConfig } from 'vitepress';
 
 const TITLE = '바나나';
 const DESCRIPTION = '백준 자바스크립트 프레임워크.🍌';
-const NPM_URL = 'https://www.npmjs.com';
 
 const { themeConfig, ...restConfig } = ko({
   themeConfigEditLinkPattern: `${URL_GITHUB_REPO}/edit/main/websites/vitepress/:path`,
@@ -81,7 +81,7 @@ export default defineConfig({
         text: '패키지',
         items: BANANASS_PKG_NAMES.map(pkgName => ({
           text: pkgName,
-          link: `${NPM_URL}/package/${pkgName}`,
+          link: `${URL_NPM}/package/${pkgName}`,
         })),
       },
     ],
@@ -129,7 +129,7 @@ export default defineConfig({
     socialLinks: [
       {
         icon: 'npm',
-        link: `${NPM_URL}/~lumir`,
+        link: `${URL_NPM}/~lumir`,
         ariaLabel: '루밀LuMir의 npm 프로필 링크',
       },
       {
