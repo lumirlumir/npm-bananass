@@ -44,6 +44,8 @@ export const PKG_AUTHOR = '루밀LuMir';
 /** @type {string} */
 export const URL_HOMEPAGE = homepage;
 /** @type {string} */
+export const URL_NPM = 'https://www.npmjs.com';
+/** @type {string} */
 export const URL_GITHUB_REPO = 'https://github.com/lumirlumir/npm-bananass';
 /** @type {string} */
 export const URL_GITHUB_ISSUES = `${URL_GITHUB_REPO}/issues`;
