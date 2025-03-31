@@ -102,7 +102,7 @@ React의 `create-react-app`, Next.js의 `create-next-app` 처럼,
 
 바나나 프레임워크는 `create-bananass-app`을 통해 즉시 설치하고 사용할 수 있습니다! (사실 앱<sup>App</sup>은 아니지만, 그건 중요한게 아닙니다...🤔)
 
-```bash
+```sh
 npx create-bananass-app my-bananass-app --no-install
 ```
 

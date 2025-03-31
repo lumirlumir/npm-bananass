@@ -76,13 +76,13 @@
 
 Git Bash 상에 아래 명령어를 입력합니다.
 
-```bash
+```sh
 git clone https://github.com/lumirlumir/PS_Framework.git
 ```
 
 ## 3. File Structures
 
-```bash
+```sh
 📦PS_Framework
 ┣ 📂.github
 ┃ ┗ 📂workflows
