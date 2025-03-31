@@ -102,7 +102,7 @@ Like `create-react-app` for React and `create-next-app` for Next.js,
 
 You can instantly install and use the Bananass Framework with `create-bananass-app`! (Although it's not really an app<sup>App</sup>, but that's not important...🤔)
 
-```bash
+```sh
 npx create-bananass-app my-bananass-app --no-install
 ```
 
