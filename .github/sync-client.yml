@@ -60,10 +60,10 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.nvmrc
   - source: ./.prettierignore
     dest: ./configs/.prettierignore
-  - source: ./.prettierrc.js
-    dest: ./configs/.prettierrc.js
-  - source: ./.textlintrc.js
-    dest: ./configs/.textlintrc.js
+  - source: ./.prettierrc.cjs
+    dest: ./configs/.prettierrc.cjs
+  - source: ./.textlintrc.cjs
+    dest: ./configs/.textlintrc.cjs
   - source: ./CODE_OF_CONDUCT.en.md
     dest: ./configs/CODE_OF_CONDUCT.en.md
   - source: ./CODE_OF_CONDUCT.md
@@ -74,5 +74,14 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/VScode.code-workspace
   - source: ./eslint.config.mjs
     dest: ./configs/eslint.config.mjs
-  - source: ./lint-staged.config.js
-    dest: ./configs/lint-staged.config.js
+  - source: ./lint-staged.config.mjs
+    dest: ./configs/lint-staged.config.mjs
+  # tsconfig.json
+  - source: ./packages/bananass/tsconfig.json
+    dest: ./configs/tsconfig.json
+  - source: ./packages/bananass-utils-console/tsconfig.json
+    dest: ./configs/tsconfig.json
+  - source: ./packages/bananass-utils-vitepress/tsconfig.json
+    dest: ./configs/tsconfig.json
+  - source: ./packages/create-bananass/tsconfig.json
+    dest: ./configs/tsconfig.json
