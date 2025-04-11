@@ -68,7 +68,7 @@
     "eslint-config-bananass": "^0.0.0",
     "eslint-plugin-mark": "^0.1.0-canary.1",
     "husky": "^9.1.7",
-    "lerna": "^8.2.1",
+    "lerna": "^8.2.2",
     "lint-staged": "^15.5.0",
     "markdownlint-cli": "^0.44.0",
     "prettier": "^3.5.3",
