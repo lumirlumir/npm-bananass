@@ -35,6 +35,7 @@ const {
 // Exports
 // --------------------------------------------------------------------------------
 
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
   name: 'bananass/ts',
   files: ts,
