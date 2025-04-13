@@ -1,13 +1,13 @@
 {
   "private": true,
   "name": "websites-eslint-config-bananass",
-  "version": "0.1.0-canary.0",
+  "version": "0.1.0-canary.1",
   "scripts": {
     "build": "npx @eslint/config-inspector build --config ./config.js --outDir ./build",
     "dev": "npx @eslint/config-inspector --config ./config.js"
   },
   "devDependencies": {
     "@eslint/config-inspector": "^1.0.2",
-    "eslint-config-bananass": "^0.1.0-canary.0"
+    "eslint-config-bananass": "^0.1.0-canary.1"
   }
 }
