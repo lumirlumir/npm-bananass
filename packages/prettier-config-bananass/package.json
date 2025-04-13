@@ -4,15 +4,28 @@
   "description": "Prettier Config for Bananass Framework.🍌",
   "exports": {
     ".": {
-      "default": "./src/index.js"
+      "default": "./src/index.js",
+      "types": "./build/index.d.ts"
     },
     "./package.json": "./package.json"
   },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./build/*"
+      ],
+      ".": [
+        "./build/index.d.ts"
+      ]
+    }
+  },
   "files": [
     "src",
-    "!src/**/*.test.js",
+    "build",
     "LICENSE.md",
-    "README.md"
+    "README.md",
+    "!src/**/*.test.js",
+    "!**/fixtures/**"
   ],
   "keywords": [
     "bananass",
@@ -40,7 +53,7 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "shx cp ../../LICENSE.md ../../README.md .",
+    "build": "npx tsc && shx cp ../../LICENSE.md ../../README.md .",
     "test": "node --test"
   },
   "peerDependencies": {
