@@ -14,6 +14,7 @@ const ts = require('./configs/ts');
 const tsxReact = require('./configs/tsx-react');
 const tsxNext = require('./configs/tsx-next');
 
+// @ts-expect-error -- TODO
 const { name, version } = require('../package.json');
 
 // --------------------------------------------------------------------------------

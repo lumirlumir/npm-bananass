@@ -7,6 +7,7 @@
 // --------------------------------------------------------------------------------
 
 const { browser, builtin, es2025, node, jest, vitest, mocha } = require('globals');
+// @ts-expect-error -- TODO
 const typescriptParser = require('@typescript-eslint/parser');
 
 // --------------------------------------------------------------------------------
