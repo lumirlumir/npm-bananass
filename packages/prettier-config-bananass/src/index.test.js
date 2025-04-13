@@ -9,7 +9,7 @@
 import { strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
-import prettierConfig from './index';
+import prettierConfig from './index.js';
 
 // --------------------------------------------------------------------------------
 // Test
