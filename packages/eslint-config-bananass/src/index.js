@@ -20,21 +20,19 @@ const { name, version } = require('../package.json');
 // Exports
 // --------------------------------------------------------------------------------
 
+/** @type {import("eslint").ESLint.Plugin} */
 module.exports = {
   meta: {
     name,
     version,
   },
+
   configs: {
     js,
     ts,
-    jsx: {
-      react: jsxReact,
-      next: jsxNext,
-    },
-    tsx: {
-      react: tsxReact,
-      next: tsxNext,
-    },
+    jsxReact,
+    jsxNext,
+    tsxReact,
+    tsxNext,
   },
 };
