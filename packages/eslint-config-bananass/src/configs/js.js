@@ -19,6 +19,7 @@ const { node } = require('../settings');
 // Exports
 // --------------------------------------------------------------------------------
 
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
   name: 'bananass/js',
   files: js,

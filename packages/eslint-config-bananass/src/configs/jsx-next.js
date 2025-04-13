@@ -40,6 +40,7 @@ const {
 // Exports
 // --------------------------------------------------------------------------------
 
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
   name: 'bananass/jsx-next',
   files: [...js, ...jsx],

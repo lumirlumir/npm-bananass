@@ -40,6 +40,7 @@ const {
 // Exports
 // --------------------------------------------------------------------------------
 
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
   name: 'bananass/tsx-react',
   files: [...ts, ...tsx],
