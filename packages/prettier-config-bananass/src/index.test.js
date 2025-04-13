@@ -3,13 +3,13 @@
  */
 
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const { strictEqual } = require('node:assert');
-const { describe, it } = require('node:test');
+import { strictEqual } from 'node:assert';
+import { describe, it } from 'node:test';
 
-const prettierConfig = require('./index');
+import prettierConfig from './index.js';
 
 // --------------------------------------------------------------------------------
 // Test
