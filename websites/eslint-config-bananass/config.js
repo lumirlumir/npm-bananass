@@ -1,7 +1,7 @@
-const bananass = require('eslint-config-bananass');
+import bananass from 'eslint-config-bananass';
 
 /** @type {import("eslint").Linter.Config[]} */
-module.exports = [
+export default [
   bananass.configs.js,
   bananass.configs.jsxReact,
   bananass.configs.jsxNext,

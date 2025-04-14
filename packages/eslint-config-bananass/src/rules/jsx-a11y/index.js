@@ -1,3 +1,3 @@
-const jsxA11y = require('./jsx-a11y');
+import jsxA11y from './jsx-a11y.js';
 
-module.exports = jsxA11y;
+export default jsxA11y;

@@ -24,7 +24,7 @@ import {
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('chalk').ForegroundColorName} ForegroundColorName
+ * @typedef {'black'|'red'|'green'|'yellow'|'blue'|'cyan'|'magenta'|'white'|'gray'|'grey'|'blackBright'|'redBright'|'greenBright'|'yellowBright'|'blueBright'|'cyanBright'|'magentaBright'|'whiteBright'} ForegroundColorName
  */
 
 /**

@@ -1,3 +1,3 @@
-const reactHooks = require('./react-hooks');
+import reactHooks from './react-hooks.js';
 
-module.exports = reactHooks;
+export default reactHooks;

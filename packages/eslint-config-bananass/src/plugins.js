@@ -3,40 +3,40 @@
  */
 
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const importPlugin = require('eslint-plugin-import');
-const nodePlugin = require('eslint-plugin-n');
-const stylisticJsPlugin = require('@stylistic/eslint-plugin-js');
+import importPluginModule from 'eslint-plugin-import';
+import nodePluginModule from 'eslint-plugin-n';
+import stylisticJsPluginModule from '@stylistic/eslint-plugin-js';
 
-const jsxA11yPlugin = require('eslint-plugin-jsx-a11y');
-const reactPlugin = require('eslint-plugin-react');
-const reactCompilerPlugin = require('eslint-plugin-react-compiler');
-const reactHooksPlugin = require('eslint-plugin-react-hooks');
+import jsxA11yPluginModule from 'eslint-plugin-jsx-a11y';
+import reactPluginModule from 'eslint-plugin-react';
+import reactCompilerPluginModule from 'eslint-plugin-react-compiler';
+import reactHooksPluginModule from 'eslint-plugin-react-hooks';
 
-const nextPlugin = require('@next/eslint-plugin-next');
+import nextPluginModule from '@next/eslint-plugin-next';
 
-const typescriptPlugin = require('@typescript-eslint/eslint-plugin');
+import typescriptPluginModule from '@typescript-eslint/eslint-plugin';
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
-module.exports.importPlugin = { import: importPlugin };
+export const importPlugin = { import: importPluginModule };
 
-module.exports.nodePlugin = { n: nodePlugin };
+export const nodePlugin = { n: nodePluginModule };
 
-module.exports.stylisticJsPlugin = { '@stylistic/js': stylisticJsPlugin };
+export const stylisticJsPlugin = { '@stylistic/js': stylisticJsPluginModule };
 
-module.exports.jsxA11yPlugin = { 'jsx-a11y': jsxA11yPlugin };
+export const jsxA11yPlugin = { 'jsx-a11y': jsxA11yPluginModule };
 
-module.exports.reactPlugin = { react: reactPlugin };
+export const reactPlugin = { react: reactPluginModule };
 
-module.exports.reactCompilerPlugin = { 'react-compiler': reactCompilerPlugin };
+export const reactCompilerPlugin = { 'react-compiler': reactCompilerPluginModule };
 
-module.exports.reactHooksPlugin = { 'react-hooks': reactHooksPlugin };
+export const reactHooksPlugin = { 'react-hooks': reactHooksPluginModule };
 
-module.exports.nextPlugin = { '@next/next': nextPlugin };
+export const nextPlugin = { '@next/next': nextPluginModule };
 
-module.exports.typescriptPlugin = { '@typescript-eslint': typescriptPlugin };
+export const typescriptPlugin = { '@typescript-eslint': typescriptPluginModule };

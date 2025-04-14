@@ -1,3 +1,3 @@
-const stylisticJs = require('./stylistic-js');
+import stylisticJs from './stylistic-js.js';
 
-module.exports = stylisticJs;
+export default stylisticJs;

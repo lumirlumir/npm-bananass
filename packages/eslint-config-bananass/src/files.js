@@ -3,13 +3,13 @@
  */
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
-module.exports.js = ['**/*.js', '**/*.cjs', '**/*.mjs'];
+export const js = ['**/*.js', '**/*.cjs', '**/*.mjs'];
 
-module.exports.jsx = ['**/*.jsx'];
+export const jsx = ['**/*.jsx'];
 
-module.exports.ts = ['**/*.ts', '**/*.cts', '**/*.mts'];
+export const ts = ['**/*.ts', '**/*.cts', '**/*.mts'];
 
-module.exports.tsx = ['**/*.tsx'];
+export const tsx = ['**/*.tsx'];

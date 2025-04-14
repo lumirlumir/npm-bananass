@@ -9,34 +9,35 @@
  */
 
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const { ts } = require('../files');
-const { globals, parser } = require('../language-options');
-const { node } = require('../settings');
+import { ts } from '../files.js';
+import { globals, parser } from '../language-options.js';
+import { node } from '../settings.js';
 
-const {
+import {
   importPlugin,
   nodePlugin,
   stylisticJsPlugin,
   typescriptPlugin,
-} = require('../plugins');
+} from '../plugins.js';
 
-const {
+import {
   eslintRules,
   importRules,
   nodeRules,
   stylisticJsRules,
   typescriptRules,
-} = require('../rules');
+} from '../rules/index.js';
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
 /** @type {import("eslint").Linter.Config} */
-module.exports = {
+// @ts-expect-error -- TODO: `typescriptPlugin` makes an error here, but it is a valid config.
+export default {
   name: 'bananass/ts',
   files: ts,
   languageOptions: {

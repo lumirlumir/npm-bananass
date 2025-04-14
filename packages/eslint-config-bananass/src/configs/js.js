@@ -6,21 +6,21 @@
  */
 
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const { js } = require('../files');
-const { globals } = require('../language-options');
-const { importPlugin, nodePlugin, stylisticJsPlugin } = require('../plugins');
-const { eslintRules, importRules, nodeRules, stylisticJsRules } = require('../rules');
-const { node } = require('../settings');
+import { js } from '../files.js';
+import { globals } from '../language-options.js';
+import { importPlugin, nodePlugin, stylisticJsPlugin } from '../plugins.js';
+import { eslintRules, importRules, nodeRules, stylisticJsRules } from '../rules/index.js';
+import { node } from '../settings.js';
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
 /** @type {import("eslint").Linter.Config} */
-module.exports = {
+export default {
   name: 'bananass/js',
   files: js,
   languageOptions: {

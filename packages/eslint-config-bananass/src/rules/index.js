@@ -1,15 +1,15 @@
-const eslintRules = require('./eslint');
-const importRules = require('./import');
-const nodeRules = require('./node');
-const stylisticJsRules = require('./stylistic-js');
-const jsxA11yRules = require('./jsx-a11y');
-const reactRules = require('./react');
-const reactCompilerRules = require('./react-compiler');
-const reactHooksRules = require('./react-hooks');
-const nextRules = require('./next');
-const typescriptRules = require('./typescript');
+import eslintRules from './eslint/index.js';
+import importRules from './import/index.js';
+import nodeRules from './node/index.js';
+import stylisticJsRules from './stylistic-js/index.js';
+import jsxA11yRules from './jsx-a11y/index.js';
+import reactRules from './react/index.js';
+import reactCompilerRules from './react-compiler/index.js';
+import reactHooksRules from './react-hooks/index.js';
+import nextRules from './next/index.js';
+import typescriptRules from './typescript/index.js';
 
-module.exports = {
+export {
   eslintRules,
   importRules,
   nodeRules,

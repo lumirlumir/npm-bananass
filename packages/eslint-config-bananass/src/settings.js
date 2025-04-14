@@ -3,10 +3,10 @@
  */
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
-module.exports.node = {
+export const node = {
   resolverConfig: {
     // `eslint-plugin-n` uses webpack's `enhanced-resolve` under the hood.
     extensions: [
@@ -27,6 +27,6 @@ module.exports.node = {
   },
 };
 
-module.exports.react = {
+export const react = {
   version: 'detect',
 };
