@@ -6,10 +6,11 @@
  */
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
-module.exports = {
+/** @type {import("eslint").Linter.RulesRecord} */
+export default {
   /**
    * Surfaces diagnostics from React Forget.
    */

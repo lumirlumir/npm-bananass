@@ -1,8 +1,9 @@
-const eslintLayoutFormatting = require('./eslint-layout-formatting');
-const eslintPossibleProblems = require('./eslint-possible-problems');
-const eslintSuggestions = require('./eslint-suggestions');
+import eslintLayoutFormatting from './eslint-layout-formatting.js';
+import eslintPossibleProblems from './eslint-possible-problems.js';
+import eslintSuggestions from './eslint-suggestions.js';
 
-module.exports = {
+/** @type {import("eslint").Linter.RulesRecord} */
+export default {
   ...eslintLayoutFormatting,
   ...eslintPossibleProblems,
   ...eslintSuggestions,

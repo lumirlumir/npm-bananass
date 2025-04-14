@@ -1,3 +1,3 @@
-const react = require('./react');
+import react from './react.js';
 
-module.exports = react;
+export default react;

@@ -6,14 +6,14 @@
  */
 
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const { js, jsx } = require('../files');
-const { globals, parserOptions } = require('../language-options');
-const { node, react } = require('../settings');
+import { js, jsx } from '../files.js';
+import { globals, parserOptions } from '../language-options.js';
+import { node, react } from '../settings.js';
 
-const {
+import {
   importPlugin,
   nodePlugin,
   stylisticJsPlugin,
@@ -21,9 +21,9 @@ const {
   reactPlugin,
   reactCompilerPlugin,
   reactHooksPlugin,
-} = require('../plugins');
+} from '../plugins.js';
 
-const {
+import {
   eslintRules,
   importRules,
   nodeRules,
@@ -32,14 +32,14 @@ const {
   reactRules,
   reactCompilerRules,
   reactHooksRules,
-} = require('../rules');
+} from '../rules/index.js';
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
 /** @type {import("eslint").Linter.Config} */
-module.exports = {
+export default {
   name: 'bananass/jsx-react',
   files: [...js, ...jsx],
   languageOptions: {

@@ -12,10 +12,11 @@
  */
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
-module.exports = {
+/** @type {import("eslint").Linter.RulesRecord} */
+export default {
   /**
    * Enforce getter and setter pairs in objects and classes.
    *

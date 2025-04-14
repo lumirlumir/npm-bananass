@@ -8,10 +8,11 @@
  */
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
-module.exports = {
+/** @type {import("eslint").Linter.RulesRecord} */
+export default {
   // warnings
   '@next/next/google-font-display': 'warn',
   '@next/next/google-font-preconnect': 'warn',

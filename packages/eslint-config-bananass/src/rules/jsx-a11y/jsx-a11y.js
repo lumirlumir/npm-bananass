@@ -10,7 +10,12 @@
  * - I've set almost every `'error'` rules to `'warn'` because I don't want to enforce them.
  */
 
-module.exports = {
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+/** @type {import("eslint").Linter.RulesRecord} */
+export default {
   /**
    * Enforce all elements that require alternative text have meaningful information to relay back to end user.
    *

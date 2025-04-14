@@ -6,10 +6,11 @@
  */
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
-module.exports = {
+/** @type {import("eslint").Linter.RulesRecord} */
+export default {
   /**
    * Verifies the list of dependencies for Hooks like `useEffect` and similar.
    *

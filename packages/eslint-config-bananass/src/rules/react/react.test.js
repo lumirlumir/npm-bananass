@@ -3,16 +3,16 @@
  */
 
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const { strictEqual } = require('node:assert');
-const { describe, it } = require('node:test');
+import { strictEqual } from 'node:assert';
+import { describe, it } from 'node:test';
 
-const react = require('./react');
+import react from './react.js';
 
 // --------------------------------------------------------------------------------
-// Declaration
+// Helper
 // --------------------------------------------------------------------------------
 
 const prefix = 'react/';

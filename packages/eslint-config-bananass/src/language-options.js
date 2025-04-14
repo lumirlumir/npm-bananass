@@ -3,30 +3,29 @@
  */
 
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const { browser, builtin, es2025, node, jest, vitest, mocha } = require('globals');
-// @ts-expect-error -- TODO
-const typescriptParser = require('@typescript-eslint/parser');
+import globalsModule from 'globals';
+import typescriptParser from '@typescript-eslint/parser';
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
-module.exports.globals = {
-  ...browser,
-  ...builtin,
-  ...es2025,
-  ...node,
-  ...jest,
-  ...vitest,
-  ...mocha,
+export const globals = {
+  ...globalsModule.browser,
+  ...globalsModule.builtin,
+  ...globalsModule.es2025,
+  ...globalsModule.node,
+  ...globalsModule.jest,
+  ...globalsModule.vitest,
+  ...globalsModule.mocha,
 };
 
-module.exports.parser = typescriptParser;
+export const parser = typescriptParser;
 
-module.exports.parserOptions = {
+export const parserOptions = {
   ecmaFeatures: {
     jsx: true,
   },

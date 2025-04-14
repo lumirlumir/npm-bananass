@@ -1,3 +1,3 @@
-const next = require('./next');
+import next from './next.js';
 
-module.exports = next;
+export default next;

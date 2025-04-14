@@ -12,10 +12,11 @@
  */
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
-module.exports = {
+/** @type {import("eslint").Linter.RulesRecord} */
+export default {
   /**
    * Enforce consistency of spacing after the start of a comment `//` or `/*`.
    *

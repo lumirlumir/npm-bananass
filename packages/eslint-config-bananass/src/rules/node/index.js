@@ -1,3 +1,3 @@
-const node = require('./node');
+import node from './node.js';
 
-module.exports = node;
+export default node;

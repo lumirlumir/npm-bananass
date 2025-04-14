@@ -3,18 +3,18 @@
  */
 
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const { strictEqual } = require('node:assert');
-const { describe, it } = require('node:test');
+import { strictEqual } from 'node:assert';
+import { describe, it } from 'node:test';
 
-const eslintLayoutFormatting = require('./eslint-layout-formatting');
-const eslintPossibleProblems = require('./eslint-possible-problems');
-const eslintSuggestions = require('./eslint-suggestions');
+import eslintLayoutFormatting from './eslint-layout-formatting.js';
+import eslintPossibleProblems from './eslint-possible-problems.js';
+import eslintSuggestions from './eslint-suggestions.js';
 
 // --------------------------------------------------------------------------------
-// Declaration
+// Helper
 // --------------------------------------------------------------------------------
 
 const prefix = '/';

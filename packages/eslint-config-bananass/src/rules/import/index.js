@@ -1,9 +1,10 @@
-const importHelpfulWarnings = require('./import-helpful-warnings');
-const importModuleSystems = require('./import-module-systems');
-const importStaticAnalysis = require('./import-static-analysis');
-const importStyleGuide = require('./import-style-guide');
+import importHelpfulWarnings from './import-helpful-warnings.js';
+import importModuleSystems from './import-module-systems.js';
+import importStaticAnalysis from './import-static-analysis.js';
+import importStyleGuide from './import-style-guide.js';
 
-module.exports = {
+/** @type {import("eslint").Linter.RulesRecord} */
+export default {
   ...importHelpfulWarnings,
   ...importModuleSystems,
   ...importStaticAnalysis,

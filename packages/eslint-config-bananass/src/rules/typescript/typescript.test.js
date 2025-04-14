@@ -3,18 +3,18 @@
  */
 
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const { strictEqual } = require('node:assert');
-const { describe, it } = require('node:test');
+import { strictEqual } from 'node:assert';
+import { describe, it } from 'node:test';
 
-const typescriptExtension = require('./typescript-extension');
-const typescriptRecommended = require('./typescript-recommended');
-const typescriptStylistic = require('./typescript-stylistic');
+import typescriptExtension from './typescript-extension.js';
+import typescriptRecommended from './typescript-recommended.js';
+import typescriptStylistic from './typescript-stylistic.js';
 
 // --------------------------------------------------------------------------------
-// Declaration
+// Helper
 // --------------------------------------------------------------------------------
 
 const prefix = '@typescript-eslint/';

@@ -1,3 +1,3 @@
-const reactCompiler = require('./react-compiler');
+import reactCompiler from './react-compiler.js';
 
-module.exports = reactCompiler;
+export default reactCompiler;

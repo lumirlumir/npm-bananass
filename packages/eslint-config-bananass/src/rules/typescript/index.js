@@ -1,8 +1,9 @@
-const typescriptExtension = require('./typescript-extension');
-const typescriptRecommended = require('./typescript-recommended');
-const typescriptStylistic = require('./typescript-stylistic');
+import typescriptExtension from './typescript-extension.js';
+import typescriptRecommended from './typescript-recommended.js';
+import typescriptStylistic from './typescript-stylistic.js';
 
-module.exports = {
+/** @type {import("eslint").Linter.RulesRecord} */
+export default {
   ...typescriptExtension,
   ...typescriptRecommended,
   ...typescriptStylistic,

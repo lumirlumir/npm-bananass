@@ -3,16 +3,16 @@
  */
 
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const { strictEqual } = require('node:assert');
-const { describe, it } = require('node:test');
+import { strictEqual } from 'node:assert';
+import { describe, it } from 'node:test';
 
-const node = require('./node');
+import node from './node.js';
 
 // --------------------------------------------------------------------------------
-// Declaration
+// Helper
 // --------------------------------------------------------------------------------
 
 const prefix = 'n/';
