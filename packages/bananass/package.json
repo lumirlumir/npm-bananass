@@ -1,6 +1,6 @@
 {
   "name": "bananass",
-  "version": "0.1.0-canary.1",
+  "version": "0.1.0-canary.2",
   "type": "module",
   "description": "Baekjoon Framework for JavaScript.🍌",
   "exports": {
@@ -75,7 +75,7 @@
     "dev": "node src/cli.js"
   },
   "dependencies": {
-    "bananass-utils-console": "^0.1.0-canary.1",
+    "bananass-utils-console": "^0.1.0-canary.2",
     "c12": "^3.0.3",
     "chalk": "^5.4.1",
     "commander": "^13.1.0",

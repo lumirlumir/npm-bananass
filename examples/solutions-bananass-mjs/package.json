@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "examples-solutions-bananass-mjs",
-  "version": "0.1.0-canary.1",
+  "version": "0.1.0-canary.2",
   "type": "module",
   "scripts": {
     "bananass:build": "npx bananass build",
@@ -9,6 +9,6 @@
     "test": "bash ../../scripts/examples-solutions-bananass-test.sh"
   },
   "devDependencies": {
-    "bananass": "^0.1.0-canary.1"
+    "bananass": "^0.1.0-canary.2"
   }
 }
