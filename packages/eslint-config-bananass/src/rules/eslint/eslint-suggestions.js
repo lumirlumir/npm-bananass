@@ -1223,7 +1223,7 @@ module.exports = {
    * @link eslint: {@link https://eslint.org/docs/latest/rules/require-unicode-regexp}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L399}
    */
-  'require-unicode-regexp': ['warn', { requireFlag: 'u' }],
+  'require-unicode-regexp': 'off',
 
   /**
    * Require generator functions to contain `yield`.
