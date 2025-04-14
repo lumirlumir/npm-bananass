@@ -41,7 +41,7 @@ import {
 // --------------------------------------------------------------------------------
 
 /** @type {import("eslint").Linter.Config} */
-// @ts-expect-error -- `typescriptPlugin` makes an error here, but it is a valid config.
+// @ts-expect-error -- TODO: `typescriptPlugin` makes an error here, but it is a valid config.
 export default {
   name: 'bananass/tsx-react',
   files: [...ts, ...tsx],
