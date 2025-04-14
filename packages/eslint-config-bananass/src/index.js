@@ -1,28 +1,32 @@
 /**
  * @fileoverview Entry file for the `eslint-config-bananass` package.
- * @module eslint-config-bananass
  */
 
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const js = require('./configs/js');
-const jsxReact = require('./configs/jsx-react');
-const jsxNext = require('./configs/jsx-next');
-const ts = require('./configs/ts');
-const tsxReact = require('./configs/tsx-react');
-const tsxNext = require('./configs/tsx-next');
+import { createRequire } from 'node:module';
 
-// @ts-expect-error -- TODO
-const { name, version } = require('../package.json');
+import js from './configs/js.js';
+import jsxReact from './configs/jsx-react.js';
+import jsxNext from './configs/jsx-next.js';
+import ts from './configs/ts.js';
+import tsxReact from './configs/tsx-react.js';
+import tsxNext from './configs/tsx-next.js';
 
 // --------------------------------------------------------------------------------
-// Exports
+// Helpers
+// --------------------------------------------------------------------------------
+
+const { name, version } = createRequire(import.meta.url)('../package.json');
+
+// --------------------------------------------------------------------------------
+// Export
 // --------------------------------------------------------------------------------
 
 /** @type {import("eslint").ESLint.Plugin} */
-module.exports = {
+export default {
   meta: {
     name,
     version,

@@ -6,14 +6,14 @@
  */
 
 // --------------------------------------------------------------------------------
-// Require
+// Import
 // --------------------------------------------------------------------------------
 
-const { ts, tsx } = require('../files');
-const { globals, parser, parserOptions } = require('../language-options');
-const { node, react } = require('../settings');
+import { ts, tsx } from '../files.js';
+import { globals, parser, parserOptions } from '../language-options.js';
+import { node, react } from '../settings.js';
 
-const {
+import {
   importPlugin,
   nodePlugin,
   stylisticJsPlugin,
@@ -22,9 +22,9 @@ const {
   reactCompilerPlugin,
   reactHooksPlugin,
   typescriptPlugin,
-} = require('../plugins');
+} from '../plugins.js';
 
-const {
+import {
   eslintRules,
   importRules,
   nodeRules,
@@ -34,14 +34,15 @@ const {
   reactCompilerRules,
   reactHooksRules,
   typescriptRules,
-} = require('../rules');
+} from '../rules/index.js';
 
 // --------------------------------------------------------------------------------
 // Exports
 // --------------------------------------------------------------------------------
 
 /** @type {import("eslint").Linter.Config} */
-module.exports = {
+// @ts-expect-error -- `typescriptPlugin` makes an error here, but it is a valid config.
+export default {
   name: 'bananass/tsx-react',
   files: [...ts, ...tsx],
   languageOptions: {
