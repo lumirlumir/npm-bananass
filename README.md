@@ -123,7 +123,7 @@
 npm create bananass@latest
 ```
 
-더욱 자세한 사용법은 [바나나 프레임워크 문서](https://bananass.lumir.page)를 참고해주세요.
+더 자세한 사용법은 [바나나 프레임워크 문서](https://bananass.lumir.page)를 참고해주세요.
 
 ## 바나나 프레임워크 문서
 
