@@ -1,8 +1,18 @@
-# bananass
+# Bananass
+
+[![Lint](https://img.shields.io/github/actions/workflow/status/lumirlumir/npm-bananass/lint.yml?label=Lint&color=fff478&labelColor=333333&logo=github)](https://github.com/lumirlumir/npm-bananass/actions/workflows/lint.yml)
+[![Test](https://img.shields.io/github/actions/workflow/status/lumirlumir/npm-bananass/test.yml?label=Test&color=fff478&labelColor=333333&logo=github)](https://github.com/lumirlumir/npm-bananass/actions/workflows/test.yml)
+[![Codecov](https://img.shields.io/codecov/c/gh/lumirlumir/npm-bananass?token=2zUCHlMFT3&label=Codecov&color=fff478&labelColor=333333&logo=codecov)](https://codecov.io/gh/lumirlumir/npm-bananass)
+![Node Current](https://img.shields.io/node/v/bananass?label=Node&color=fff478&labelColor=333333&logo=node.js)
+
+[![npm package bananass latest version](https://img.shields.io/npm/v/bananass?label=bananass@latest&color=fff478&labelColor=333333&logo=npm)](https://www.npmjs.com/package/bananass)
+[![npm package bananass next version](https://img.shields.io/npm/v/bananass/next?label=bananass@next&color=fff478&labelColor=333333&logo=npm)](https://www.npmjs.com/package/bananass)
 
 <kbd>[한국어](README.md)</kbd> | <kbd>English</kbd>
 
-Bananass<sup>🍌🍌🍌🍌</sup>: <kbd>Noun</kbd> Baekjoon framework for JavaScript.
+Baekjoon Framework for JavaScript.
+
+A new paradigm for solving algorithm problems in JavaScript.
 
 > [!IMPORTANT]
 >
@@ -21,19 +31,22 @@ Bananass<sup>🍌🍌🍌🍌</sup>: <kbd>Noun</kbd> Baekjoon framework for Java
 <!-- markdownlint-disable-next-line md026 -->
 ## Hello, Bananass!
 
-Welcome to the Bananass<sup>🍌🍌🍌🍌</sup> framework.🎉
+Welcome to the Bananass framework!🎉
 
-The Bananass Framework is a **Baekjoon framework for JavaScript** created by [LuMir](https://github.com/lumirlumir), designed for more convenient problem-solving in the Baekjoon Node.js environment.
+The Bananass is a **Baekjoon framework for solving algorithm problems based on JavaScript and TypeScript**, providing a simple and convenient user experience by solving common issues encountered in the Baekjoon Node.js environment.
 
-You no longer need to write template code using the `readline` or `fs` modules and copy-paste it every time! With the Bananass Framework, you can experience more convenient problem-solving, just like writing a single solution function<sup>`function solution() {}`</sup> on [**Programmers**](https://programmers.co.kr/).
+- Do you need support for TypeScript?
+- Are you having trouble using the latest JavaScript syntax, such as ES16<sup>ES2025</sup>?
+- Do you want to use external libraries?
+- Are you tired of repeatedly copying and pasting `readline` / `fs` template code?
 
-But do we really need to learn a framework just to solve Baekjoon problems? Let's find out why below!
+Don't worry anymore! The Bananass framework solves all these problems for you.
 
 ## Why Bananass?
 
-Why hasn't there been a framework specialized for problem-solving among the numerous frameworks in the JavaScript ecosystem? Shall we take a look at an example of solving the [Baekjoon Problem 1000: A+B](https://www.acmicpc.net/problem/1000) using JavaScript together?
+Let's take a look at an example of solving the [Baekjoon 1000: A+B](https://www.acmicpc.net/problem/1000) problem using JavaScript!
 
-- Before: Solving the problem using the traditional method.
+- Solving the problem using the traditional method:
 
     ```js
     const readline = require('node:readline');
@@ -56,18 +69,16 @@ Why hasn't there been a framework specialized for problem-solving among the nume
     });
 
     function solution(inputStr) {
-      const input = inputStr
+      const [a, b] = inputStr
         .trim()
         .split(' ')
         .map(val => Number(val));
-
-      const [a, b] = input;
 
       return a + b;
     }
     ```
 
-- After: Solving the problem using the Bananass Framework.
+- Solving the problem using the Bananass Framework:
 
     ```js
     function solution(input) {
@@ -76,47 +87,53 @@ Why hasn't there been a framework specialized for problem-solving among the nume
         .split(' ')
         .map(Number);
 
-      console.log(a + b);
+      return a + b;
     }
 
-    module.exports = solution;
+    export default { solution };
     ```
 
-Wow!😲 Isn't it amazing? Now you can focus solely on the algorithm logic with simplified code.
+More concise and intuitive code! It reduces the time spent on input handling, allowing you to focus solely on the algorithm.
 
-But is that all? Of course not!
+## Is that all?
 
-- Use of the latest syntax like ES2025, not limited to the Baekjoon Node.js environment
-- Use of custom modules and external libraries like `lodash`
-- Built-in support for ESLint and Prettier
-- Extensive documentation and community support
-- ...
+Of course, that's not all!
 
-How about it? Wouldn't you like to experience more convenient problem-solving with the Bananass Framework?🤔
+- Support for JavaScript and TypeScript.
+- Support for both ESM<sup>ECMAScript Module</sup> and CommonJS module systems.
+- Support for the latest syntax, including ES16<sup>ES2025</sup>, independent of the Baekjoon Node.js environment.
+- Support for importing custom modules and external libraries like `lodash`.
+- Support for starting with a single `solution` function, just like on Programmers.
+- Support for writing and running test cases.
+- Support for starting with `create-bananass`.
+- Faster input/output using the `fs` module.
+- Various convenient CLI commands.
+- Rich and detailed documentation.
+- Built-in support for ESLint and Prettier.
+
+How about it? Don't you want to experience even more convenient problem-solving with the Banana framework?
 
 ## Getting Started with Bananass
 
-Like `create-react-app` for React and `create-next-app` for Next.js,
+Like `create-react-app` for [React](https://react.dev) and `create-next-app` for [Next.js](https://nextjs.org), Experience a new paradigm in problem-solving right now with `create-bananass-app` provided by the Bananass Framework!
 
-**Experience a new paradigm in problem-solving right now with `create-bananass-app` provided by the Bananass Framework!**
-
-You can instantly install and use the Bananass Framework with `create-bananass-app`! (Although it's not really an app<sup>App</sup>, but that's not important...🤔)
+You can instantly install and use the Bananass Framework with `create-bananass-app`.
 
 ```sh
-npx create-bananass-app my-bananass-app --no-install
+npm create bananass@latest
 ```
 
-For more detailed usage, please refer to the [Bananass Framework Documentation](https://bananass.lumir.page).
+For more detailed usage, please refer to the [Bananass Framework Documentation](https://bananass.lumir.page/en).
 
 ## Bananass Framework Documentation
 
-> <https://bananass.lumir.page>
+> <https://bananass.lumir.page/en>
 
-The Bananass Framework values documentation as its highest priority. You can find all usage instructions and features of the Bananass Framework in the [Bananass Framework Documentation](https://bananass.lumir.page).
+The Bananass Framework values documentation as its highest priority. You can find all usage instructions and features of the Bananass Framework in the [Bananass Framework Documentation](https://bananass.lumir.page/en).
 
 ## Contribution (Issues, Pull Requests, Discussions)
 
-Thank you for your interest in the Bananass Framework.🙇‍♂️ We appreciate the valuable time you invest in the Bananass Framework.
+Thank you for your interest in the Bananass Framework!
 
 We welcome issues, pull requests, and discussions on various topics, including bugs and suggestions.
 

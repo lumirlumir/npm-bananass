@@ -33,7 +33,7 @@
 
 바나나<sup>Bananass</sup> 프레임워크에 오신 것을 환영합니다!🎉
 
-바나나는 **자바스크립트<sup>JavaScript</sup> 및 타입스크립트<sup>TypeScript</sup> 기반의 알고리즘 문제 풀이를 위한 백준 프레임워크**로, 백준 Node.js 환경에서 반복적으로 마주치는 문제점들을 해결하며, 간결하고 편리한 사용자 경험을 제공합니다!
+바나나는 **자바스크립트<sup>JavaScript</sup> 및 타입스크립트<sup>TypeScript</sup> 기반의 알고리즘 문제 풀이를 위한 백준 프레임워크**로, 백준 Node.js 환경에서 반복적으로 마주치는 문제점들을 해결하며, 간결하고 편리한 사용자 경험을 제공합니다.
 
 - 타입스크립트<sup>TypeScript</sup> 지원이 필요하시다고요?
 - ES16<sup>ES2025</sup> 등 자바스크립트 최신 문법을 쓰고 싶은데 막히셨나요?
@@ -93,9 +93,9 @@
     export default { solution };
     ```
 
-더 간결하고, 더 직관적인 코드! 입력 처리에 들이던 시간은 줄이고, 알고리즘에만 집중할 수 있습니다.
+더 간결하고, 더 직관적인 코드! 입력 처리에 들이던 시간은 줄이고, 오직 알고리즘에만 집중할 수 있습니다.
 
-## 근데, 이게 전부인가요?
+## 이게 전부인가요?
 
 물론, 아닙니다!
 
@@ -115,9 +115,9 @@
 
 ## 바나나로 시작하기
 
-React의 `create-react-app`, Next.js의 `create-next-app` 처럼, 바나나 프레임워크에서 제공하는 `create-bananass`로 지금 바로 새로운 문제 풀이 패러다임을 경험해보세요!
+[React](https://ko.react.dev)의 `create-react-app`, [Next.js](https://nextjs.org)의 `create-next-app` 처럼, 바나나 프레임워크에서 제공하는 `create-bananass`로 지금 바로 새로운 문제 풀이 패러다임을 경험해보세요!
 
-바나나 프레임워크는 `create-bananass`를 통해 즉시 설치하고 사용할 수 있습니다!
+바나나 프레임워크는 `create-bananass`를 통해 즉시 설치하고 사용할 수 있습니다.
 
 ```sh
 npm create bananass@latest
