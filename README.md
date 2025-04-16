@@ -31,7 +31,7 @@
 <!-- markdownlint-disable-next-line md026 -->
 ## 안녕, 바나나!
 
-바나나<sup>Bananass</sup> 프레임워크에 오신 것을 환영합니다!🎉
+바나나<sup>Bananass</sup> 프레임워크에 오신 것을 환영합니다!
 
 바나나는 **자바스크립트<sup>JavaScript</sup> 및 타입스크립트<sup>TypeScript</sup> 기반의 알고리즘 문제 풀이를 위한 백준 프레임워크**로, 백준 Node.js 환경에서 반복적으로 마주치는 문제점들을 해결하며, 간결하고 편리한 사용자 경험을 제공합니다.
 
