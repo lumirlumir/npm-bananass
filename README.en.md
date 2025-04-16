@@ -111,7 +111,7 @@ Of course, that's not all!
 - Rich and detailed documentation.
 - Built-in support for ESLint and Prettier.
 
-How about it? Don't you want to experience even more convenient problem-solving with the Banana framework?
+How about it? Don't you want to experience even more convenient problem-solving with the Bananass framework?
 
 ## Getting Started with Bananass
 
@@ -126,8 +126,6 @@ npm create bananass@latest
 For more detailed usage, please refer to the [Bananass Framework Documentation](https://bananass.lumir.page/en).
 
 ## Bananass Framework Documentation
-
-> <https://bananass.lumir.page/en>
 
 The Bananass Framework values documentation as its highest priority. You can find all usage instructions and features of the Bananass Framework in the [Bananass Framework Documentation](https://bananass.lumir.page/en).
 
