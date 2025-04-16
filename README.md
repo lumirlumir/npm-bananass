@@ -129,7 +129,7 @@ npm create bananass@latest
 
 > <https://bananass.lumir.page>
 
-바나나 프레임워크는 문서화를 가장 큰 가치로 여깁니다! 바나나 프레임워크의 모든 사용법과 기능은 [바나나 프레임워크 문서](https://bananass.lumir.page)에서 확인하실 수 있습니다.
+바나나 프레임워크는 문서화를 가장 큰 가치로 여깁니다. 바나나 프레임워크의 모든 사용법과 기능은 [바나나 프레임워크 문서](https://bananass.lumir.page)에서 확인하실 수 있습니다.
 
 ## 기여(이슈<sup>Issue</sup>, 끌어오기 요청<sup>Pull Request</sup>, 토론<sup>Discussion</sup>)
 

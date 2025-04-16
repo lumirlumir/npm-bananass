@@ -115,9 +115,9 @@ How about it? Don't you want to experience even more convenient problem-solving 
 
 ## Getting Started with Bananass
 
-Like `create-react-app` for [React](https://react.dev) and `create-next-app` for [Next.js](https://nextjs.org), Experience a new paradigm in problem-solving right now with `create-bananass-app` provided by the Bananass Framework!
+Like `create-react-app` for [React](https://react.dev) and `create-next-app` for [Next.js](https://nextjs.org), Experience a new paradigm in problem-solving right now with `create-bananass` provided by the Bananass Framework!
 
-You can instantly install and use the Bananass Framework with `create-bananass-app`.
+You can instantly install and use the Bananass Framework with `create-bananass`.
 
 ```sh
 npm create bananass@latest
