@@ -13,5 +13,5 @@ export default {
   // ...
 };
 
-// Take a look at https://github.com/lumirlumir/npm-bananass/blob/main/packages/prettier-config-bananass/src/index.js
-// which lists the default configuration.
+// Please take a look at https://github.com/lumirlumir/npm-bananass/blob/main/packages/prettier-config-bananass/src/index.js
+// which contains the default configuration.

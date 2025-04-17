@@ -15,5 +15,5 @@ export default {
   // ...
 };
 
-// Take a look at https://bananass.lumir.page
-// which lists all the available configurations and options.
+// Please take a look at https://bananass.lumir.page
+// which contains all the available configurations and options.
