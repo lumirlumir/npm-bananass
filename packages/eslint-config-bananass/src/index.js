@@ -16,9 +16,20 @@ import tsxReact from './configs/tsx-react.js';
 import tsxNext from './configs/tsx-next.js';
 
 // --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
+/**
+ * @typedef {object} PackageJson
+ * @property {string} name
+ * @property {string} version
+ */
+
+// --------------------------------------------------------------------------------
 // Helpers
 // --------------------------------------------------------------------------------
 
+/** @type {PackageJson} */
 const { name, version } = createRequire(import.meta.url)('../package.json');
 
 // --------------------------------------------------------------------------------

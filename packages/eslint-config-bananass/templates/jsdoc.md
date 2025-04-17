@@ -14,10 +14,11 @@ Every file under `eslint-config-bananass/src/rules` directory should follow the 
  */
 
 // --------------------------------------------------------------------------------
-// Exports
+// Export
 // --------------------------------------------------------------------------------
 
-module.exports = {
+/** @type {import("eslint").Linter.RulesRecord} */
+export default {
   /**
    * Descriptions from the official documentation.
    *
