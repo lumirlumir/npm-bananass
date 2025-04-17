@@ -20,7 +20,7 @@ import tsxNext from './configs/tsx-next.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {Object} PackageJson
+ * @typedef {object} PackageJson
  * @property {string} name
  * @property {string} version
  */
