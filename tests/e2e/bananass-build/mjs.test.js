@@ -74,16 +74,16 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      // it('`file.cjs` should build correctly', async () => {
-      //   await build(['1002'], configObjectFS);
+      it('`file.cjs` should build correctly', async () => {
+        await build(['1002'], configObjectFS);
 
-      //   const outFile = resolve(outDir, '1002.js');
-      //   const result = runOutFile(outFile, '1 2');
+        const outFile = resolve(outDir, '1002.cjs');
+        const result = runOutFile(outFile, '1 2');
 
-      //   ok(existsSync(outFile));
-      //   strictEqual(result.status, 0);
-      //   strictEqual(result.stdout, '3');
-      // });
+        ok(existsSync(outFile));
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
 
       // it('`file.mjs` with `export default` should build correctly', async () => {
       //   await build(['1003'], configObjectFS);
@@ -142,14 +142,17 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      // it('`file.cjs` should build correctly', async () => {
-      //   await build(['1002'], configObjectRL);
-      //   const outFile = resolve(outDir, '1002.js');
-      //   const result = runOutFile(outFile, '1 2');
-      //   ok(existsSync(outFile));
-      //   strictEqual(result.status, 0);
-      //   strictEqual(result.stdout, '3');
-      // });
+      it('`file.cjs` should build correctly', async () => {
+        await build(['1002'], configObjectRL);
+
+        const outFile = resolve(outDir, '1002.cjs');
+        const result = runOutFile(outFile, '1 2');
+
+        ok(existsSync(outFile));
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
+
       // it('`file.mjs` with `export default` should build correctly', async () => {
       //   await build(['1003'], configObjectRL);
       //   const outFile = resolve(outDir, '1003.js');
