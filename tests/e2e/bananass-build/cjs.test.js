@@ -69,7 +69,7 @@ describe('cjs', () => {
       strictEqual(result.stdout, '3');
     });
 
-    it('`.cjs` file should build correctly', async () => {
+    it('`file.cjs` file should build correctly', async () => {
       await build(['1002'], configObject);
 
       const outFile = resolve(outDir, '1002.js');
@@ -80,7 +80,7 @@ describe('cjs', () => {
       strictEqual(result.stdout, '3');
     });
 
-    it('`.mjs` file should build correctly', async () => {
+    it('`file.mjs` file should build correctly', async () => {
       await build(['1003'], configObject);
 
       const outFile = resolve(outDir, '1003.js');
@@ -108,6 +108,28 @@ describe('cjs', () => {
       await build(['2001'], configObject);
 
       const outFile = resolve(outDir, '2001.js');
+      const result = runOutFile(outFile, '1 2');
+
+      ok(existsSync(outFile));
+      strictEqual(result.status, 0);
+      strictEqual(result.stdout, '3');
+    });
+
+    it('`directory/index.cjs` should build correctly', async () => {
+      await build(['2002'], configObject);
+
+      const outFile = resolve(outDir, '2002.js');
+      const result = runOutFile(outFile, '1 2');
+
+      ok(existsSync(outFile));
+      strictEqual(result.status, 0);
+      strictEqual(result.stdout, '3');
+    });
+
+    it('`directory/index.mjs` should build correctly', async () => {
+      await build(['2003'], configObject);
+
+      const outFile = resolve(outDir, '2003.js');
       const result = runOutFile(outFile, '1 2');
 
       ok(existsSync(outFile));
