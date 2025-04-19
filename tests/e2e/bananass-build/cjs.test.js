@@ -106,6 +106,17 @@ describe('cjs', () => {
       strictEqual(result.status, 0);
       strictEqual(result.stdout, '3');
     });
+
+    it('User-created external modules using the `cjs` format should build correctly.', async () => {
+      await build(['1005'], configObject);
+
+      const outFile = resolve(outDir, '1005.js');
+      const result = runOutFile(outFile, '1 2');
+
+      ok(existsSync(outFile));
+      strictEqual(result.status, 0);
+      strictEqual(result.stdout, '3');
+    });
   });
 
   describe('When the solution is in a single directory with multiple files', () => {
@@ -157,6 +168,17 @@ describe('cjs', () => {
       await build(['2004'], configObject);
 
       const outFile = resolve(outDir, '2004.js');
+      const result = runOutFile(outFile, '1 2');
+
+      ok(existsSync(outFile));
+      strictEqual(result.status, 0);
+      strictEqual(result.stdout, '3');
+    });
+
+    it('User-created external modules using the `cjs` format should build correctly.', async () => {
+      await build(['2005'], configObject);
+
+      const outFile = resolve(outDir, '2005.js');
       const result = runOutFile(outFile, '1 2');
 
       ok(existsSync(outFile));
