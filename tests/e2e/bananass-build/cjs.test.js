@@ -73,9 +73,37 @@ describe('cjs', () => {
       strictEqual(result.status, 0);
       strictEqual(result.stdout, '3');
     });
+
+    it('`.cjs` file should build correctly', async () => {
+      await build(['1002'], {
+        cwd,
+        console: { quiet: true },
+      });
+
+      const outFile = resolve(outDir, '1002.js');
+      const result = runOutFile(outFile, '1 2');
+
+      ok(existsSync(outFile));
+      strictEqual(result.status, 0);
+      strictEqual(result.stdout, '3');
+    });
+
+    it('`.mjs` file should build correctly', async () => {
+      await build(['1003'], {
+        cwd,
+        console: { quiet: true },
+      });
+
+      const outFile = resolve(outDir, '1003.js');
+      const result = runOutFile(outFile, '1 2');
+
+      ok(existsSync(outFile));
+      strictEqual(result.status, 0);
+      strictEqual(result.stdout, '3');
+    });
   });
 
-  describe('when the solution is in single directory and multiple files', () => {
+  describe('when the solution is in a single directory with multiple files', () => {
     it('A solution directory with `solution` and `testcases` should build correctly', async () => {
       await build(['2000'], {
         cwd,
