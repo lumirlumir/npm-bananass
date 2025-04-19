@@ -165,7 +165,7 @@ describe('cjs', () => {
       });
 
       it('`file.mjs` with `export` should build correctly', async () => {
-        await build(['1004'], configObjectFS);
+        await build(['1004'], configObjectRL);
 
         const outFile = resolve(outDir, '1004.cjs');
         const result = runOutFile(outFile, '1 2');
@@ -175,8 +175,8 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `cjs` format should build correctly.', async () => {
-        await build(['1005'], configObjectFS);
+      it('User-created external modules using the `cjs` format should build correctly', async () => {
+        await build(['1005'], configObjectRL);
 
         const outFile = resolve(outDir, '1005.cjs');
         const result = runOutFile(outFile, '1 2');
@@ -313,7 +313,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `cjs` format should build correctly.', async () => {
+      it('User-created external modules using the `cjs` format should build correctly', async () => {
         await build(['2005'], configObjectRL);
 
         const outFile = resolve(outDir, '2005.cjs');

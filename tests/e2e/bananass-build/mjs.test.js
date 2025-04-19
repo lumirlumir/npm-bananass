@@ -107,16 +107,16 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      // it('User-created external modules using the `cjs` format should build correctly.', async () => {
-      //   await build(['1005'], configObjectFS);
+      it('User-created external modules using the `cjs` format should build correctly', async () => {
+        await build(['1005'], configObjectFS);
 
-      //   const outFile = resolve(outDir, '1005.js');
-      //   const result = runOutFile(outFile, '1 2');
+        const outFile = resolve(outDir, '1005.cjs');
+        const result = runOutFile(outFile, '1 2');
 
-      //   ok(existsSync(outFile));
-      //   strictEqual(result.status, 0);
-      //   strictEqual(result.stdout, '3');
-      // });
+        ok(existsSync(outFile));
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
     });
 
     describe('`rl`(readline) template', () => {
@@ -165,7 +165,7 @@ describe('mjs', () => {
       });
 
       it('`file.mjs` with `export` should build correctly', async () => {
-        await build(['1004'], configObjectFS);
+        await build(['1004'], configObjectRL);
 
         const outFile = resolve(outDir, '1004.cjs');
         const result = runOutFile(outFile, '1 2');
@@ -175,14 +175,16 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      // it('User-created external modules using the `cjs` format should build correctly.', async () => {
-      //   await build(['1005'], configObjectFS);
-      //   const outFile = resolve(outDir, '1005.js');
-      //   const result = runOutFile(outFile, '1 2');
-      //   ok(existsSync(outFile));
-      //   strictEqual(result.status, 0);
-      //   strictEqual(result.stdout, '3');
-      // });
+      it('User-created external modules using the `cjs` format should build correctly', async () => {
+        await build(['1005'], configObjectRL);
+
+        const outFile = resolve(outDir, '1005.cjs');
+        const result = runOutFile(outFile, '1 2');
+
+        ok(existsSync(outFile));
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
     });
   });
 
