@@ -24,6 +24,7 @@ import { build } from 'bananass/commands';
 
 const cwd = resolve(import.meta.dirname, './fixtures/cjs');
 const outDir = resolve(cwd, '.bananass');
+const configObject = { cwd, console: { quiet: true } };
 
 /** @param {string} outFile @param {string} input */
 function runOutFile(outFile, input) {
@@ -45,12 +46,9 @@ afterEach(() => {
 });
 
 describe('cjs', () => {
-  describe('when the entire solution is in a single file', () => {
+  describe('When the entire solution is in a single file', () => {
     it('A single file with `solution` and `testcases` should build correctly', async () => {
-      await build(['1000'], {
-        cwd,
-        console: { quiet: true },
-      });
+      await build(['1000'], configObject);
 
       const outFile = resolve(outDir, '1000.js');
       const result = runOutFile(outFile, '1 2');
@@ -61,10 +59,7 @@ describe('cjs', () => {
     });
 
     it('A single file with only `solution` should build correctly', async () => {
-      await build(['1001'], {
-        cwd,
-        console: { quiet: true },
-      });
+      await build(['1001'], configObject);
 
       const outFile = resolve(outDir, '1001.js');
       const result = runOutFile(outFile, '1 2');
@@ -75,10 +70,7 @@ describe('cjs', () => {
     });
 
     it('`.cjs` file should build correctly', async () => {
-      await build(['1002'], {
-        cwd,
-        console: { quiet: true },
-      });
+      await build(['1002'], configObject);
 
       const outFile = resolve(outDir, '1002.js');
       const result = runOutFile(outFile, '1 2');
@@ -89,10 +81,7 @@ describe('cjs', () => {
     });
 
     it('`.mjs` file should build correctly', async () => {
-      await build(['1003'], {
-        cwd,
-        console: { quiet: true },
-      });
+      await build(['1003'], configObject);
 
       const outFile = resolve(outDir, '1003.js');
       const result = runOutFile(outFile, '1 2');
@@ -103,14 +92,22 @@ describe('cjs', () => {
     });
   });
 
-  describe('when the solution is in a single directory with multiple files', () => {
+  describe('When the solution is in a single directory with multiple files', () => {
     it('A solution directory with `solution` and `testcases` should build correctly', async () => {
-      await build(['2000'], {
-        cwd,
-        console: { quiet: true },
-      });
+      await build(['2000'], configObject);
 
       const outFile = resolve(outDir, '2000.js');
+      const result = runOutFile(outFile, '1 2');
+
+      ok(existsSync(outFile));
+      strictEqual(result.status, 0);
+      strictEqual(result.stdout, '3');
+    });
+
+    it('A solution directory with only `solution` should build correctly', async () => {
+      await build(['2001'], configObject);
+
+      const outFile = resolve(outDir, '2001.js');
       const result = runOutFile(outFile, '1 2');
 
       ok(existsSync(outFile));
@@ -121,10 +118,7 @@ describe('cjs', () => {
 
   describe('Multiple files', () => {
     it('Multipe files should build correctly', async () => {
-      await build(['1000', '1001', '2000'], {
-        cwd,
-        console: { quiet: true },
-      });
+      await build(['1000', '1001', '2000'], configObject);
 
       const outFile1000 = resolve(outDir, '1000.js');
       const result1000 = runOutFile(outFile1000, '1 2');
