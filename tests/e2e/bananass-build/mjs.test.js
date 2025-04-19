@@ -107,7 +107,7 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `cjs` format should build correctly', async () => {
+      it('User-created external modules using the `mjs` format should build correctly', async () => {
         await build(['1005'], configObjectFS);
 
         const outFile = resolve(outDir, '1005.cjs');
@@ -175,7 +175,7 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `cjs` format should build correctly', async () => {
+      it('User-created external modules using the `mjs` format should build correctly', async () => {
         await build(['1005'], configObjectRL);
 
         const outFile = resolve(outDir, '1005.cjs');
@@ -245,14 +245,16 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      //   it('User-created external modules using the `cjs` format should build correctly.', async () => {
-      //     await build(['2005'], configObjectFS);
-      //     const outFile = resolve(outDir, '2005.js');
-      //     const result = runOutFile(outFile, '1 2');
-      //     ok(existsSync(outFile));
-      //     strictEqual(result.status, 0);
-      //     strictEqual(result.stdout, '3');
-      //   });
+      it('User-created external modules using the `mjs` format should build correctly.', async () => {
+        await build(['2005'], configObjectFS);
+
+        const outFile = resolve(outDir, '2005.cjs');
+        const result = runOutFile(outFile, '1 2');
+
+        ok(existsSync(outFile));
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
     });
 
     describe('`rl`(readline) template', () => {
@@ -311,14 +313,16 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      //   it('User-created external modules using the `cjs` format should build correctly.', async () => {
-      //     await build(['2005'], configObjectRL);
-      //     const outFile = resolve(outDir, '2005.js');
-      //     const result = runOutFile(outFile, '1 2');
-      //     ok(existsSync(outFile));
-      //     strictEqual(result.status, 0);
-      //     strictEqual(result.stdout, '3');
-      //   });
+      it('User-created external modules using the `mjs` format should build correctly.', async () => {
+        await build(['2005'], configObjectRL);
+
+        const outFile = resolve(outDir, '2005.cjs');
+        const result = runOutFile(outFile, '1 2');
+
+        ok(existsSync(outFile));
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
     });
   });
 
