@@ -7,6 +7,10 @@
     ".": {
       "types": "./build/core/types.d.ts"
     },
+    "./commands": {
+      "types": "./build/commands/index.d.ts",
+      "default": "./src/commands/index.js"
+    },
     "./core/structs": {
       "types": "./build/core/structs/index.d.ts",
       "default": "./src/core/structs/index.js"
