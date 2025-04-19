@@ -63,16 +63,16 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      // it('A single file with only `solution` should build correctly', async () => {
-      //   await build(['1001'], configObjectFS);
+      it('A single file with only `solution` should build correctly', async () => {
+        await build(['1001'], configObjectFS);
 
-      //   const outFile = resolve(outDir, '1001.js');
-      //   const result = runOutFile(outFile, '1 2');
+        const outFile = resolve(outDir, '1001.cjs');
+        const result = runOutFile(outFile, '1 2');
 
-      //   ok(existsSync(outFile));
-      //   strictEqual(result.status, 0);
-      //   strictEqual(result.stdout, '3');
-      // });
+        ok(existsSync(outFile));
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
 
       // it('`file.cjs` should build correctly', async () => {
       //   await build(['1002'], configObjectFS);
@@ -131,14 +131,17 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      // it('A single file with only `solution` should build correctly', async () => {
-      //   await build(['1001'], configObjectRL);
-      //   const outFile = resolve(outDir, '1001.js');
-      //   const result = runOutFile(outFile, '1 2');
-      //   ok(existsSync(outFile));
-      //   strictEqual(result.status, 0);
-      //   strictEqual(result.stdout, '3');
-      // });
+      it('A single file with only `solution` should build correctly', async () => {
+        await build(['1001'], configObjectRL);
+
+        const outFile = resolve(outDir, '1001.cjs');
+        const result = runOutFile(outFile, '1 2');
+
+        ok(existsSync(outFile));
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
+
       // it('`file.cjs` should build correctly', async () => {
       //   await build(['1002'], configObjectRL);
       //   const outFile = resolve(outDir, '1002.js');
