@@ -111,7 +111,7 @@ export default async function build(problems, configObject = dco) {
         /** @see https://webpack.js.org/concepts/#output */
         output: {
           path: resolvedOutDir,
-          filename: `${problem}.js`,
+          filename: `${problem}.cjs`,
           // clean: options.clean, // DO NOT USE THIS OPTION.
         },
 

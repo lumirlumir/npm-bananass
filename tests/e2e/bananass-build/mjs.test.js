@@ -1,5 +1,5 @@
 /**
- * @fileoverview E2E tests for building CJS solutions using Bananass.
+ * @fileoverview E2E tests for building MJS solutions using Bananass.
  *
  * NOTE: None of the files in the `fixtures` directory are based on actual Baekjoon problems.
  * They are simply A + B examples used for testing purposes.
@@ -25,7 +25,7 @@ import { build } from 'bananass/commands';
 // Helpers
 // --------------------------------------------------------------------------------
 
-const cwd = resolve(import.meta.dirname, './fixtures/cjs');
+const cwd = resolve(import.meta.dirname, './fixtures/mjs');
 const outDir = resolve(cwd, '.bananass');
 const configObjectFS = { cwd, console: { quiet: true }, build: { templateType: 'fs' } };
 const configObjectRL = { cwd, console: { quiet: true }, build: { templateType: 'rl' } };
@@ -49,7 +49,7 @@ afterEach(() => {
   if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
 });
 
-describe('cjs', () => {
+describe('mjs', () => {
   describe('When the entire solution is in a single file', () => {
     describe('`fs`(file system) template', () => {
       it('A single file with `solution` and `testcases` should build correctly', async () => {
@@ -107,7 +107,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `cjs` format should build correctly.', async () => {
+      it('User-created external modules using the `mjs` format should build correctly', async () => {
         await build(['1005'], configObjectFS);
 
         const outFile = resolve(outDir, '1005.cjs');
@@ -175,7 +175,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `cjs` format should build correctly', async () => {
+      it('User-created external modules using the `mjs` format should build correctly', async () => {
         await build(['1005'], configObjectRL);
 
         const outFile = resolve(outDir, '1005.cjs');
@@ -245,7 +245,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `cjs` format should build correctly.', async () => {
+      it('User-created external modules using the `mjs` format should build correctly.', async () => {
         await build(['2005'], configObjectFS);
 
         const outFile = resolve(outDir, '2005.cjs');
@@ -313,7 +313,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `cjs` format should build correctly', async () => {
+      it('User-created external modules using the `mjs` format should build correctly.', async () => {
         await build(['2005'], configObjectRL);
 
         const outFile = resolve(outDir, '2005.cjs');
