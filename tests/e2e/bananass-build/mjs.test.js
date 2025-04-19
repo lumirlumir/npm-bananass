@@ -201,14 +201,17 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      //   it('A solution directory with only `solution` should build correctly', async () => {
-      //     await build(['2001'], configObjectFS);
-      //     const outFile = resolve(outDir, '2001.js');
-      //     const result = runOutFile(outFile, '1 2');
-      //     ok(existsSync(outFile));
-      //     strictEqual(result.status, 0);
-      //     strictEqual(result.stdout, '3');
-      //   });
+      it('A solution directory with only `solution` should build correctly', async () => {
+        await build(['2001'], configObjectFS);
+
+        const outFile = resolve(outDir, '2001.cjs');
+        const result = runOutFile(outFile, '1 2');
+
+        ok(existsSync(outFile));
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
+
       //   it('`directory/index.cjs` should build correctly', async () => {
       //     await build(['2002'], configObjectFS);
       //     const outFile = resolve(outDir, '2002.js');
@@ -255,14 +258,17 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      //   it('A solution directory with only `solution` should build correctly', async () => {
-      //     await build(['2001'], configObjectRL);
-      //     const outFile = resolve(outDir, '2001.js');
-      //     const result = runOutFile(outFile, '1 2');
-      //     ok(existsSync(outFile));
-      //     strictEqual(result.status, 0);
-      //     strictEqual(result.stdout, '3');
-      //   });
+      it('A solution directory with only `solution` should build correctly', async () => {
+        await build(['2001'], configObjectRL);
+
+        const outFile = resolve(outDir, '2001.cjs');
+        const result = runOutFile(outFile, '1 2');
+
+        ok(existsSync(outFile));
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
+
       //   it('`directory/index.cjs` should build correctly', async () => {
       //     await build(['2002'], configObjectRL);
       //     const outFile = resolve(outDir, '2002.js');
