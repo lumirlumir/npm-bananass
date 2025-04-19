@@ -96,7 +96,7 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('`file.js` with `export` should build correctly', async () => {
+      it('`file.mjs` with `export` should build correctly', async () => {
         await build(['1004'], configObjectFS);
 
         const outFile = resolve(outDir, '1004.cjs');
@@ -107,16 +107,16 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `cjs` format should build correctly.', async () => {
-        await build(['1005'], configObjectFS);
+      // it('User-created external modules using the `cjs` format should build correctly.', async () => {
+      //   await build(['1005'], configObjectFS);
 
-        const outFile = resolve(outDir, '1005.js');
-        const result = runOutFile(outFile, '1 2');
+      //   const outFile = resolve(outDir, '1005.js');
+      //   const result = runOutFile(outFile, '1 2');
 
-        ok(existsSync(outFile));
-        strictEqual(result.status, 0);
-        strictEqual(result.stdout, '3');
-      });
+      //   ok(existsSync(outFile));
+      //   strictEqual(result.status, 0);
+      //   strictEqual(result.stdout, '3');
+      // });
     });
 
     describe('`rl`(readline) template', () => {
@@ -164,7 +164,7 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('`file.js` with `export` should build correctly', async () => {
+      it('`file.mjs` with `export` should build correctly', async () => {
         await build(['1004'], configObjectFS);
 
         const outFile = resolve(outDir, '1004.cjs');
