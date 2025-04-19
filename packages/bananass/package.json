@@ -32,6 +32,18 @@
       ],
       ".": [
         "./build/core/types.d.ts"
+      ],
+      "./commands": [
+        "./build/commands/index.d.ts"
+      ],
+      "./core/structs": [
+        "./build/core/structs/index.d.ts"
+      ],
+      "./core/constants": [
+        "./build/core/constants.d.ts"
+      ],
+      "./core/types": [
+        "./build/core/types.d.ts"
       ]
     }
   },
