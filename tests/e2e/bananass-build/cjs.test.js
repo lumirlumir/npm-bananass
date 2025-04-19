@@ -6,7 +6,6 @@
  */
 
 // TODO: Add tests for:
-// - External libraries: local
 // - External libraries: npm
 
 // --------------------------------------------------------------------------------
@@ -353,6 +352,22 @@ describe('cjs', () => {
       strictEqual(result2000.stdout, '3');
     });
 
-    it('Multiple files with `rl` template should build correctly', async () => {});
+    it('Multiple files with `rl` template should build correctly', async () => {
+      await build(['1000', '2000'], configObjectRL);
+
+      const outFile1000 = resolve(outDir, '1000.js');
+      const result1000 = runOutFile(outFile1000, '1 2');
+
+      const outFile2000 = resolve(outDir, '2000.js');
+      const result2000 = runOutFile(outFile2000, '1 2');
+
+      ok(existsSync(outFile1000));
+      strictEqual(result1000.status, 0);
+      strictEqual(result1000.stdout, '3');
+
+      ok(existsSync(outFile2000));
+      strictEqual(result2000.status, 0);
+      strictEqual(result2000.stdout, '3');
+    });
   });
 });
