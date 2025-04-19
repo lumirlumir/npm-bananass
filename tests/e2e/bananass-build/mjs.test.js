@@ -223,14 +223,17 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      //   it('`directory/index.mjs` with `export default` should build correctly', async () => {
-      //     await build(['2003'], configObjectFS);
-      //     const outFile = resolve(outDir, '2003.js');
-      //     const result = runOutFile(outFile, '1 2');
-      //     ok(existsSync(outFile));
-      //     strictEqual(result.status, 0);
-      //     strictEqual(result.stdout, '3');
-      //   });
+      it('`directory/index.mjs` with `export default` should build correctly', async () => {
+        await build(['2003'], configObjectFS);
+
+        const outFile = resolve(outDir, '2003.cjs');
+        const result = runOutFile(outFile, '1 2');
+
+        ok(existsSync(outFile));
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
+
       //   it('`directory/index.mjs` with `export` should build correctly', async () => {
       //     await build(['2004'], configObjectFS);
       //     const outFile = resolve(outDir, '2004.js');
@@ -239,6 +242,7 @@ describe('mjs', () => {
       //     strictEqual(result.status, 0);
       //     strictEqual(result.stdout, '3');
       //   });
+
       //   it('User-created external modules using the `cjs` format should build correctly.', async () => {
       //     await build(['2005'], configObjectFS);
       //     const outFile = resolve(outDir, '2005.js');
@@ -283,14 +287,17 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      //   it('`directory/index.mjs` with `export default` should build correctly', async () => {
-      //     await build(['2003'], configObjectRL);
-      //     const outFile = resolve(outDir, '2003.js');
-      //     const result = runOutFile(outFile, '1 2');
-      //     ok(existsSync(outFile));
-      //     strictEqual(result.status, 0);
-      //     strictEqual(result.stdout, '3');
-      //   });
+      it('`directory/index.mjs` with `export default` should build correctly', async () => {
+        await build(['2003'], configObjectRL);
+
+        const outFile = resolve(outDir, '2003.cjs');
+        const result = runOutFile(outFile, '1 2');
+
+        ok(existsSync(outFile));
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
+
       //   it('`directory/index.mjs` with `export` should build correctly', async () => {
       //     await build(['2004'], configObjectRL);
       //     const outFile = resolve(outDir, '2004.js');
@@ -299,6 +306,7 @@ describe('mjs', () => {
       //     strictEqual(result.status, 0);
       //     strictEqual(result.stdout, '3');
       //   });
+
       //   it('User-created external modules using the `cjs` format should build correctly.', async () => {
       //     await build(['2005'], configObjectRL);
       //     const outFile = resolve(outDir, '2005.js');
