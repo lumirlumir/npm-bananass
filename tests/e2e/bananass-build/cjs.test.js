@@ -5,6 +5,11 @@
  * They are simply A + B examples used for testing purposes.
  */
 
+// TODO: Add tests for:
+// - templateType: 'rl',
+// - External libraries: local
+// - External libraries: npm
+
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
@@ -24,7 +29,7 @@ import { build } from 'bananass/commands';
 
 const cwd = resolve(import.meta.dirname, './fixtures/cjs');
 const outDir = resolve(cwd, '.bananass');
-const configObject = { cwd, console: { quiet: true } };
+const configObject = { cwd, console: { quiet: true }, build: { templateType: 'fs' } };
 
 /** @param {string} outFile @param {string} input */
 function runOutFile(outFile, input) {
