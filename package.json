@@ -28,6 +28,7 @@
     "test:pkg:buv": "npm run test -w packages/bananass-utils-vitepress",
     "test:pkg:ecb": "npm run test -w packages/eslint-config-bananass",
     "test:pkg:pcb": "npm run test -w packages/prettier-config-bananass",
+    "test:t:e2e": "npm run test -w tests/e2e",
     "build": "npx lerna run build --ignore npm-bananass",
     "build:ex:sb-cjs": "npm run bananass:build -w examples/solutions-bananass-cjs",
     "build:ex:sb-cts": "npm run bananass:build -w examples/solutions-bananass-cts",
