@@ -17,7 +17,7 @@ import { describe, it, afterEach } from 'node:test';
 import { stripVTControlCharacters as stripAnsi } from 'node:util';
 import { spawnSync } from 'node:child_process';
 import { resolve } from 'node:path';
-import { existsSync, rmSync } from 'node:fs';
+import { existsSync, rmSync, readFileSync } from 'node:fs';
 
 import { build } from 'bananass/commands';
 
@@ -320,6 +320,46 @@ describe('mjs', () => {
         const result = runOutFile(outFile, '1 2');
 
         ok(existsSync(outFile));
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
+    });
+  });
+
+  describe('Latest ECMAScript features with `@babel/preset-env` should be transpiled correctly', () => {
+    describe('`fs`(file system) template', () => {
+      it('ES2025 `regexp-modifiers` should be transpiled correctly', async () => {
+        // https://babeljs.io/docs/babel-plugin-transform-regexp-modifiers
+
+        await build(['3000'], configObjectFS);
+
+        const outFile = resolve(outDir, '3000.cjs');
+        ok(existsSync(outFile));
+
+        const fileContent = readFileSync(outFile, 'utf-8');
+        strictEqual(fileContent.includes('/(?:[Aa])a/'), true);
+        strictEqual(fileContent.includes('/(?i:a)a/'), false);
+
+        const result = runOutFile(outFile, '1 2');
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
+    });
+
+    describe('`rl`(readline) template', () => {
+      it('ES2025 `regexp-modifiers` should be transpiled correctly', async () => {
+        // https://babeljs.io/docs/babel-plugin-transform-regexp-modifiers
+
+        await build(['3000'], configObjectRL);
+
+        const outFile = resolve(outDir, '3000.cjs');
+        ok(existsSync(outFile));
+
+        const fileContent = readFileSync(outFile, 'utf-8');
+        strictEqual(fileContent.includes('/(?:[Aa])a/'), true);
+        strictEqual(fileContent.includes('/(?i:a)a/'), false);
+
+        const result = runOutFile(outFile, '1 2');
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
