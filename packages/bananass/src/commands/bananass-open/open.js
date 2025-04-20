@@ -30,9 +30,8 @@ import { URL_BOJ_PROBLEM } from '../../core/constants.js';
 
 /**
  * Asynchronously open the given baekjoon problem numbers in a browser
- *
  * @param {Problems} problems
- * @param {ConfigObject} configObject
+ * @param {ConfigObject} [configObject = dco]
  * @async
  */
 export default async function home(problems, configObject = dco) {

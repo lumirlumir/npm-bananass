@@ -29,8 +29,7 @@ import { URL_GITHUB_ISSUES } from '../../core/constants.js';
 
 /**
  * Asynchronously open the github issues in a browser.
- *
- * @param {ConfigObject} configObject
+ * @param {ConfigObject} [configObject = dco]
  * @async
  */
 export default async function bug(configObject = dco) {

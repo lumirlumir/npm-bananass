@@ -60,6 +60,8 @@ export const URL_BOJ_PROBLEM = problem => `${URL_BOJ_MAIN}/problem/${problem}`;
 export const DEFAULT_ENTRY_DIR_NAME = name;
 /** @type {string} */
 export const DEFAULT_OUT_DIR_NAME = `.${name}`;
+/** @type {string} */
+export const DEFAULT_OUT_FILE_EXTENSION = '.cjs';
 
 /** @type {string} */
 export const WEBPACK_BANNER = `
