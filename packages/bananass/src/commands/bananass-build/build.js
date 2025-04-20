@@ -134,11 +134,19 @@ export default async function build(problems, configObject = dco) {
           rules: [
             {
               test: /\.(?:js|mjs|cjs)$/i, // JavaScript
-              include: () => false,
-              loader: 'esbuild-loader',
+              loader: 'babel-loader',
               options: {
-                target: 'node14',
-                format: 'cjs',
+                targets: { node: '16.13' }, // TODO: Move Baekjoon Node.js version to constants.
+                presets: [
+                  // Preset ordering is reversed (last to first).
+                  // https://babeljs.io/docs/presets#preset-ordering
+                  [
+                    '@babel/preset-env',
+                    {
+                      targets: { node: '16.13' },
+                    },
+                  ],
+                ],
               },
             },
             {
