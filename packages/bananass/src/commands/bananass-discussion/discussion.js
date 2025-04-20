@@ -29,8 +29,7 @@ import { URL_GITHUB_DISCUSSIONS } from '../../core/constants.js';
 
 /**
  * Asynchronously open the github discussions in a browser.
- *
- * @param {ConfigObject} configObject
+ * @param {ConfigObject} [configObject = dco]
  * @async
  */
 export default async function discussion(configObject = dco) {

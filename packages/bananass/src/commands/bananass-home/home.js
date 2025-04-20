@@ -29,8 +29,7 @@ import { URL_HOMEPAGE } from '../../core/constants.js';
 
 /**
  * Asynchronously open the official documentation homepage in a browser.
- *
- * @param {ConfigObject} configObject
+ * @param {ConfigObject} [configObject = dco]
  * @async
  */
 export default async function home(configObject = dco) {

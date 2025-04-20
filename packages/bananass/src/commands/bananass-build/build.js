@@ -1,5 +1,5 @@
 /**
- * @fileoverview Asynchronously build and create bundled files using webpack and esbuild.
+ * @fileoverview Asynchronously build and create bundled files using webpack, babel and esbuild.
  */
 
 // --------------------------------------------------------------------------------
@@ -18,6 +18,7 @@ import webpack from 'webpack';
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
 import { Problems, ConfigObject } from '../../core/structs/index.js';
 import {
+  DEFAULT_OUT_FILE_EXTENSION,
   WEBPACK_BANNER,
   SUPPORTED_SOLUTION_FILE_EXTENSIONS,
 } from '../../core/constants.js';
@@ -37,10 +38,9 @@ import {
 // --------------------------------------------------------------------------------
 
 /**
- * Asynchronously build and create bundled files using webpack and esbuild.
- *
+ * Asynchronously build and create bundled files using webpack, babel and esbuild.
  * @param {Problems} problems
- * @param {ConfigObject} configObject
+ * @param {ConfigObject} [configObject = dco]
  * @async
  */
 export default async function build(problems, configObject = dco) {
@@ -111,7 +111,7 @@ export default async function build(problems, configObject = dco) {
         /** @see https://webpack.js.org/concepts/#output */
         output: {
           path: resolvedOutDir,
-          filename: `${problem}.cjs`,
+          filename: `${problem}${DEFAULT_OUT_FILE_EXTENSION}`,
           // clean: options.clean, // DO NOT USE THIS OPTION.
         },
 
@@ -202,5 +202,8 @@ export default async function build(problems, configObject = dco) {
     .log(() => spinner.success(success('Bananass build completed successfully')))
     .eol()
     .log('Output Directory:', resolvedOutDir)
-    .log('Created:', problems.map(problem => `${problem}.js`).join(', '));
+    .log(
+      'Created:',
+      problems.map(problem => `${problem}${DEFAULT_OUT_FILE_EXTENSION}`).join(', '),
+    );
 }
