@@ -52,10 +52,10 @@ describe('transform-array-prototype-to-sorted.js', () => {
 
   it('should transform consecutive calls', () => {
     const code = '[1, 2, 3].toSorted().toSorted();';
-    const out = transformSync(code, options).code;
+    const transformedCode = transformSync(code, options).code;
     const expected = '[1, 2, 3].slice().sort().slice().sort();';
 
-    strictEqual(out, expected);
+    strictEqual(transformedCode, expected);
   });
 
   it('should not transform when more than one argument is passed', () => {

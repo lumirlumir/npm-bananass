@@ -44,10 +44,10 @@ describe('transform-array-prototype-to-reversed.js', () => {
 
   it('should transform consecutive calls', () => {
     const code = '[1, 2, 3].toReversed().toReversed();';
-    const out = transformSync(code, options).code;
+    const transformedCode = transformSync(code, options).code;
     const expected = '[1, 2, 3].slice().reverse().slice().reverse();';
 
-    strictEqual(out, expected);
+    strictEqual(transformedCode, expected);
   });
 
   it('should not transform when an argument is passed', () => {
