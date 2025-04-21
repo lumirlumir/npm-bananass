@@ -15,6 +15,8 @@ import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, success, error } from 'bananass-utils-console/theme';
 import webpack from 'webpack';
 
+import { transformArrayPrototypeToSorted } from '../../babel-plugins/index.js';
+
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
 import { Problems, ConfigObject } from '../../core/structs/index.js';
 import {
@@ -147,6 +149,7 @@ export default async function build(problems, configObject = dco) {
                     },
                   ],
                 ],
+                plugins: [transformArrayPrototypeToSorted],
               },
             },
             {

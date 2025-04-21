@@ -326,7 +326,7 @@ describe('mjs', () => {
     });
   });
 
-  describe('Latest ECMAScript features with `@babel/preset-env` should be transpiled correctly', () => {
+  describe('Latest ECMAScript features with `@babel/preset-env` and custom plugins should be transpiled correctly', () => {
     describe('`fs`(file system) template', () => {
       it('ES2025 `regexp-modifiers` should be transpiled correctly', async () => {
         // https://babeljs.io/docs/babel-plugin-transform-regexp-modifiers
@@ -339,6 +339,20 @@ describe('mjs', () => {
         const fileContent = readFileSync(outFile, 'utf-8');
         strictEqual(fileContent.includes('/(?:[Aa])a/'), true);
         strictEqual(fileContent.includes('/(?i:a)a/'), false);
+
+        const result = runOutFile(outFile, '1 2');
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
+
+      it('Custom `transform-array-prototype-to-sorted` plugin should be applied correctly', async () => {
+        await build(['3001'], configObjectFS);
+
+        const outFile = resolve(outDir, '3001.cjs');
+        ok(existsSync(outFile));
+
+        const fileContent = readFileSync(outFile, 'utf-8');
+        strictEqual(fileContent.includes('toSorted()'), false);
 
         const result = runOutFile(outFile, '1 2');
         strictEqual(result.status, 0);
@@ -358,6 +372,20 @@ describe('mjs', () => {
         const fileContent = readFileSync(outFile, 'utf-8');
         strictEqual(fileContent.includes('/(?:[Aa])a/'), true);
         strictEqual(fileContent.includes('/(?i:a)a/'), false);
+
+        const result = runOutFile(outFile, '1 2');
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
+
+      it('Custom `transform-array-prototype-to-sorted` plugin should be applied correctly', async () => {
+        await build(['3001'], configObjectRL);
+
+        const outFile = resolve(outDir, '3001.cjs');
+        ok(existsSync(outFile));
+
+        const fileContent = readFileSync(outFile, 'utf-8');
+        strictEqual(fileContent.includes('toSorted()'), false);
 
         const result = runOutFile(outFile, '1 2');
         strictEqual(result.status, 0);
