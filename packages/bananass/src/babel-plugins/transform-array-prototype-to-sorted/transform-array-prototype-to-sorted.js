@@ -35,7 +35,6 @@ export default function transformArrayPrototypeToSorted() {
           t.isIdentifier(node.callee.property, { name: 'toSorted' }) &&
           node.arguments.length <= 1
         ) {
-          // `arr.toSorted(args)` => `arr.slice().sort(args)`
           const arr = node.callee.object;
           const sliceCall = t.callExpression(
             t.memberExpression(arr, t.identifier('slice')),
