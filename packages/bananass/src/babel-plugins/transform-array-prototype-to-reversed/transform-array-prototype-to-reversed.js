@@ -1,5 +1,5 @@
 /**
- * @fileoverview Transform ES2023 `array.prototype.toReversed()` to `array.prototype.slice().reverse()`.
+ * @fileoverview Transform ES2023 `Array.prototype.toReversed()` to `Array.prototype.slice().reverse()`.
  * AST: https://astexplorer.net/
  */
 
@@ -14,7 +14,7 @@ import { types as t } from '@babel/core';
 // --------------------------------------------------------------------------------
 
 /**
- * Transform ES2023 `array.prototype.toReversed()` to `array.prototype.slice().reverse()`.
+ * Transform ES2023 `Array.prototype.toReversed()` to `Array.prototype.slice().reverse()`.
  *
  * Compatibility: ES3
  * - `slice()`: ES3
