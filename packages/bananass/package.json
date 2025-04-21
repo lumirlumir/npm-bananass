@@ -105,5 +105,8 @@
     "open": "^10.1.1",
     "superstruct": "^2.0.2",
     "webpack": "^5.99.6"
+  },
+  "devDependencies": {
+    "@types/babel__core": "^7.20.5"
   }
 }
