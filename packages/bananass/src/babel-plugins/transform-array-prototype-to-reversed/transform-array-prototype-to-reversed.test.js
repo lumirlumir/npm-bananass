@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `transform-array-prototype-to-sorted.js`.
+ * @fileoverview Test for `transform-array-prototype-to-reversed.js`.
  */
 
 // --------------------------------------------------------------------------------
@@ -11,62 +11,54 @@ import { describe, it } from 'node:test';
 
 import { transformSync } from '@babel/core';
 
-import transformArrayPrototypeToSorted from './transform-array-prototype-to-sorted.js';
+import transformArrayPrototypeToReversed from './transform-array-prototype-to-reversed.js';
 
 // --------------------------------------------------------------------------------
 // Helpers
 // --------------------------------------------------------------------------------
 
 const options = {
-  plugins: [transformArrayPrototypeToSorted],
+  plugins: [transformArrayPrototypeToReversed],
 };
 
 // --------------------------------------------------------------------------------
 // Test
 // --------------------------------------------------------------------------------
 
-describe('transform-array-prototype-to-sorted.js', () => {
-  it('should transform `arr.toSorted()` to `arr.slice().sort()`', () => {
-    const code = '[1, 2, 3].toSorted();';
+describe('transform-array-prototype-to-reversed.js', () => {
+  it('should transform `arr.toReversed()` to `arr.slice().reverse()`', () => {
+    const code = '[1, 2, 3].toReversed();';
     const transformedCode = transformSync(code, options).code;
-    const expected = '[1, 2, 3].slice().sort();';
-
-    strictEqual(transformedCode, expected);
-  });
-
-  it('should transform with a compare function', () => {
-    const code = '[3, 1, 2].toSorted((a, b) => b - a);';
-    const transformedCode = transformSync(code, options).code;
-    const expected = '[3, 1, 2].slice().sort((a, b) => b - a);';
+    const expected = '[1, 2, 3].slice().reverse();';
 
     strictEqual(transformedCode, expected);
   });
 
   it('should transform chained calls', () => {
-    const code = 'getArr().toSorted().map(x => x * 2);';
+    const code = 'getArr().toReversed().map(x => x * 2);';
     const transformedCode = transformSync(code, options).code;
-    const expected = 'getArr().slice().sort().map(x => x * 2);';
+    const expected = 'getArr().slice().reverse().map(x => x * 2);';
 
     strictEqual(transformedCode, expected);
   });
 
   it('should transform consecutive calls', () => {
-    const code = '[1, 2, 3].toSorted().toSorted();';
+    const code = '[1, 2, 3].toReversed().toReversed();';
     const transformedCode = transformSync(code, options).code;
-    const expected = '[1, 2, 3].slice().sort().slice().sort();';
+    const expected = '[1, 2, 3].slice().reverse().slice().reverse();';
 
     strictEqual(transformedCode, expected);
   });
 
-  it('should not transform when more than one argument is passed', () => {
-    const code = '[1, 2].toSorted(compareFn, extra);';
+  it('should not transform when an argument is passed', () => {
+    const code = '[1, 2, 3].toReversed(123);';
     const transformedCode = transformSync(code, options).code;
 
     strictEqual(transformedCode, code);
   });
 
-  it('should not touch non-toSorted methods', () => {
-    const code = '[1, 2, 3].slice();';
+  it('should not touch non-toReversed methods', () => {
+    const code = '[1, 2, 3].reverse();';
     const transformedCode = transformSync(code, options).code;
 
     strictEqual(transformedCode, code);

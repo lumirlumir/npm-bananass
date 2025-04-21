@@ -358,6 +358,20 @@ describe('mjs', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      it('Custom `transform-array-prototype-to-reversed` plugin should be applied correctly', async () => {
+        await build(['3002'], configObjectFS);
+
+        const outFile = resolve(outDir, '3002.cjs');
+        ok(existsSync(outFile));
+
+        const fileContent = readFileSync(outFile, 'utf-8');
+        strictEqual(fileContent.includes('toReversed()'), false);
+
+        const result = runOutFile(outFile, '1 2');
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
     });
 
     describe('`rl`(readline) template', () => {
@@ -386,6 +400,20 @@ describe('mjs', () => {
 
         const fileContent = readFileSync(outFile, 'utf-8');
         strictEqual(fileContent.includes('toSorted()'), false);
+
+        const result = runOutFile(outFile, '1 2');
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
+
+      it('Custom `transform-array-prototype-to-reversed` plugin should be applied correctly', async () => {
+        await build(['3002'], configObjectRL);
+
+        const outFile = resolve(outDir, '3002.cjs');
+        ok(existsSync(outFile));
+
+        const fileContent = readFileSync(outFile, 'utf-8');
+        strictEqual(fileContent.includes('toReversed()'), false);
 
         const result = runOutFile(outFile, '1 2');
         strictEqual(result.status, 0);

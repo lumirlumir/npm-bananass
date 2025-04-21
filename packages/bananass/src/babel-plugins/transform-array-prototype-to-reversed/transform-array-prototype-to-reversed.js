@@ -1,5 +1,5 @@
 /**
- * @fileoverview Transform ES2023 `array.prototype.toSorted(compareFn)` to `array.prototype.slice().sort(compareFn)`.
+ * @fileoverview Transform ES2023 `array.prototype.toReversed()` to `array.prototype.slice().reverse()`.
  * AST: https://astexplorer.net/
  */
 
@@ -14,17 +14,17 @@ import { types as t } from '@babel/core';
 // --------------------------------------------------------------------------------
 
 /**
- * Transform ES2023 `array.prototype.toSorted(compareFn)` to `array.prototype.slice().sort(compareFn)`.
+ * Transform ES2023 `array.prototype.toReversed()` to `array.prototype.slice().reverse()`.
  *
  * Compatibility: ES3
  * - `slice()`: ES3
- * - `sort()`: ES1
+ * - `reverse()`: ES1
  *
  * @return {import("@babel/core").PluginObj}
  */
-export default function transformArrayPrototypeToSorted() {
+export default function transformArrayPrototypeToReversed() {
   return {
-    name: 'transform-array-prototype-to-sorted',
+    name: 'transform-array-prototype-to-reversed',
 
     visitor: {
       CallExpression(path) {
@@ -32,20 +32,20 @@ export default function transformArrayPrototypeToSorted() {
 
         if (
           t.isMemberExpression(node.callee) &&
-          t.isIdentifier(node.callee.property, { name: 'toSorted' }) &&
-          node.arguments.length <= 1
+          t.isIdentifier(node.callee.property, { name: 'toReversed' }) &&
+          node.arguments.length === 0
         ) {
           const arr = node.callee.object;
           const sliceCall = t.callExpression(
             t.memberExpression(arr, t.identifier('slice')),
             [],
           );
-          const sortCall = t.callExpression(
-            t.memberExpression(sliceCall, t.identifier('sort')),
-            node.arguments,
+          const reverseCall = t.callExpression(
+            t.memberExpression(sliceCall, t.identifier('reverse')),
+            [],
           );
 
-          path.replaceWith(sortCall);
+          path.replaceWith(reverseCall);
         }
       },
     },
