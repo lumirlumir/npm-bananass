@@ -1,5 +1,5 @@
 /**
- * @fileoverview Transform `array.prototype.toSorted(compareFn)` to `array.prototype.slice().sort(compareFn)`.
+ * @fileoverview Transform ES2023 `array.prototype.toSorted(compareFn)` to `array.prototype.slice().sort(compareFn)`.
  * AST: https://astexplorer.net/
  */
 
@@ -14,7 +14,7 @@ import { types as t } from '@babel/core';
 // --------------------------------------------------------------------------------
 
 /**
- * Transform `array.prototype.toSorted(compareFn)` to `array.prototype.slice().sort(compareFn)`.
+ * Transform ES2023 `array.prototype.toSorted(compareFn)` to `array.prototype.slice().sort(compareFn)`.
  *
  * Compatibility: ES3
  * - `slice()`: ES3
