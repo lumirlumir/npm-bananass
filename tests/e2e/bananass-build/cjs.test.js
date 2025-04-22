@@ -372,6 +372,20 @@ describe('cjs', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      it('Custom `transform-object-has-own` plugin should be applied correctly', async () => {
+        await build(['3003'], configObjectFS);
+
+        const outFile = resolve(outDir, '3003.cjs');
+        ok(existsSync(outFile));
+
+        const fileContent = readFileSync(outFile, 'utf-8');
+        strictEqual(fileContent.includes('Object.hasOwn'), false);
+
+        const result = runOutFile(outFile, '1 2');
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
     });
 
     describe('`rl`(readline) template', () => {
@@ -414,6 +428,20 @@ describe('cjs', () => {
 
         const fileContent = readFileSync(outFile, 'utf-8');
         strictEqual(fileContent.includes('toReversed()'), false);
+
+        const result = runOutFile(outFile, '1 2');
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
+
+      it('Custom `transform-object-has-own` plugin should be applied correctly', async () => {
+        await build(['3003'], configObjectRL);
+
+        const outFile = resolve(outDir, '3003.cjs');
+        ok(existsSync(outFile));
+
+        const fileContent = readFileSync(outFile, 'utf-8');
+        strictEqual(fileContent.includes('Object.hasOwn'), false);
 
         const result = runOutFile(outFile, '1 2');
         strictEqual(result.status, 0);
