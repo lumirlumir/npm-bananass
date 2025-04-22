@@ -3,6 +3,11 @@
   "version": "0.1.0-canary.2",
   "type": "module",
   "description": "Create a Bananass framework project for solving Baekjoon problems with JavaScript.🍌",
+  "exports": {
+    "./package.json": "./package.json",
+    "./templates/javascript/package.json": "./templates/javascript/package.json",
+    "./templates/typescript/package.json": "./templates/typescript/package.json"
+  },
   "bin": {
     "create-bananass": "src/cli.js"
   },
