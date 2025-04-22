@@ -51,3 +51,5 @@ export default function transformArrayPrototypeToSorted() {
     },
   };
 }
+
+// TODO: Add computed property support

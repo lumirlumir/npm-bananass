@@ -51,3 +51,5 @@ export default function transformArrayPrototypeToReversed() {
     },
   };
 }
+
+// TODO: Add computed property support
