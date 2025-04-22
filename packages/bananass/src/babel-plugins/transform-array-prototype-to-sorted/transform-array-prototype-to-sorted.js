@@ -1,5 +1,5 @@
 /**
- * @fileoverview Transform ES2023 `array.prototype.toSorted(compareFn)` to `array.prototype.slice().sort(compareFn)`.
+ * @fileoverview Transform ES2023 `Array.prototype.toSorted(compareFn)` to `Array.prototype.slice().sort(compareFn)`.
  * AST: https://astexplorer.net/
  */
 
@@ -14,7 +14,7 @@ import { types as t } from '@babel/core';
 // --------------------------------------------------------------------------------
 
 /**
- * Transform ES2023 `array.prototype.toSorted(compareFn)` to `array.prototype.slice().sort(compareFn)`.
+ * Transform ES2023 `Array.prototype.toSorted(compareFn)` to `Array.prototype.slice().sort(compareFn)`.
  *
  * Compatibility: ES3
  * - `slice()`: ES3
@@ -51,3 +51,5 @@ export default function transformArrayPrototypeToSorted() {
     },
   };
 }
+
+// TODO: Add computed property support

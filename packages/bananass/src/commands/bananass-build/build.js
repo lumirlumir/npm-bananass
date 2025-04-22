@@ -18,6 +18,7 @@ import webpack from 'webpack';
 import {
   transformArrayPrototypeToReversed,
   transformArrayPrototypeToSorted,
+  transformObjectHasOwn,
 } from '../../babel-plugins/index.js';
 
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
@@ -155,6 +156,7 @@ export default async function build(problems, configObject = dco) {
                 plugins: [
                   transformArrayPrototypeToReversed,
                   transformArrayPrototypeToSorted,
+                  transformObjectHasOwn,
                 ],
               },
             },
