@@ -3,7 +3,7 @@
   "name": "create-bananass-javascript",
   "version": "0.1.0-canary.2",
   "engines": {
-    "node": ">=20.18.0"
+    "node": "^20.18.0 || >= 22.3.0"
   },
   "scripts": {
     "build": "echo build"
