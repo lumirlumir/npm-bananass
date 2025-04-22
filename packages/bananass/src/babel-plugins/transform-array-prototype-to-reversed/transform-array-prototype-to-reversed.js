@@ -32,7 +32,11 @@ export default function transformArrayPrototypeToReversed() {
 
         if (
           t.isMemberExpression(node.callee) &&
-          t.isIdentifier(node.callee.property, { name: 'toReversed' }) &&
+          (node.callee.computed
+            ? // bracket form: `arr['toReversed']`
+              t.isStringLiteral(node.callee.property, { value: 'toReversed' })
+            : // dot form: `arr.toReversed`
+              t.isIdentifier(node.callee.property, { name: 'toReversed' })) &&
           node.arguments.length === 0
         ) {
           const arr = node.callee.object;
@@ -51,5 +55,3 @@ export default function transformArrayPrototypeToReversed() {
     },
   };
 }
-
-// TODO: Add computed property support

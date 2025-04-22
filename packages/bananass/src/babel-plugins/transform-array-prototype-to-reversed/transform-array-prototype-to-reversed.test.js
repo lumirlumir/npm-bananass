@@ -26,8 +26,16 @@ const options = {
 // --------------------------------------------------------------------------------
 
 describe('transform-array-prototype-to-reversed.js', () => {
-  it('should transform `arr.toReversed()` to `arr.slice().reverse()`', () => {
+  it('should transform dot form `arr.toReversed()` to `arr.slice().reverse()`', () => {
     const code = '[1, 2, 3].toReversed();';
+    const transformedCode = transformSync(code, options).code;
+    const expected = '[1, 2, 3].slice().reverse();';
+
+    strictEqual(transformedCode, expected);
+  });
+
+  it('should transform bracket form `arr["toReversed"]()` to `arr.slice().reverse()`', () => {
+    const code = '[1, 2, 3]["toReversed"]();';
     const transformedCode = transformSync(code, options).code;
     const expected = '[1, 2, 3].slice().reverse();';
 
