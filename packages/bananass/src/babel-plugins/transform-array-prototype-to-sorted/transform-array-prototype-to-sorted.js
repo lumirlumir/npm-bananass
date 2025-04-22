@@ -32,7 +32,11 @@ export default function transformArrayPrototypeToSorted() {
 
         if (
           t.isMemberExpression(node.callee) &&
-          t.isIdentifier(node.callee.property, { name: 'toSorted' }) &&
+          (node.callee.computed
+            ? // bracket form: `arr['toSorted']`
+              t.isStringLiteral(node.callee.property, { value: 'toSorted' })
+            : // dot form: `arr.toSorted`
+              t.isIdentifier(node.callee.property, { name: 'toSorted' })) &&
           node.arguments.length <= 1
         ) {
           const arr = node.callee.object;
@@ -51,5 +55,3 @@ export default function transformArrayPrototypeToSorted() {
     },
   };
 }
-
-// TODO: Add computed property support

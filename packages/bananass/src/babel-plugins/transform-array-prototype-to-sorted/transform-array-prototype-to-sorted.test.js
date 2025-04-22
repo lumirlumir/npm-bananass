@@ -26,8 +26,16 @@ const options = {
 // --------------------------------------------------------------------------------
 
 describe('transform-array-prototype-to-sorted.js', () => {
-  it('should transform `arr.toSorted()` to `arr.slice().sort()`', () => {
+  it('should transform dot form `arr.toSorted()` to `arr.slice().sort()`', () => {
     const code = '[1, 2, 3].toSorted();';
+    const transformedCode = transformSync(code, options).code;
+    const expected = '[1, 2, 3].slice().sort();';
+
+    strictEqual(transformedCode, expected);
+  });
+
+  it('should transform bracket form `arr["toSorted"]()` to `arr.slice().sort()`', () => {
+    const code = '[1, 2, 3]["toSorted"]();';
     const transformedCode = transformSync(code, options).code;
     const expected = '[1, 2, 3].slice().sort();';
 
