@@ -38,6 +38,7 @@
     "build:pkg:b": "npm run build -w packages/bananass",
     "build:pkg:buc": "npm run build -w packages/bananass-utils-console",
     "build:pkg:buv": "npm run build -w packages/bananass-utils-vitepress",
+    "build:pkg:cb": "npm run build -w packages/create-bananass",
     "build:pkg:ecb": "npm run build -w packages/eslint-config-bananass",
     "build:pkg:pcb": "npm run build -w packages/prettier-config-bananass",
     "build:ws:ecb": "npm run build -w websites/eslint-config-bananass",
