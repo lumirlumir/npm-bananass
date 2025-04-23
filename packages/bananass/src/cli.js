@@ -24,7 +24,6 @@ import {
   repo,
   run,
   submit,
-  testcase,
 } from './cli/index.js';
 
 // --------------------------------------------------------------------------------
@@ -45,7 +44,6 @@ open(program);
 repo(program);
 run(program);
 submit(program);
-testcase(program);
 
 // --------------------------------------------------------------------------------
 // Parse `commander`

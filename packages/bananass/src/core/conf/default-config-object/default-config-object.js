@@ -99,9 +99,6 @@ const run = {};
 /** @type {ConfigObjectSubmit} */
 const submit = {};
 
-/** @type {ConfigObjectTestcase} */
-const testcase = {};
-
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
@@ -128,5 +125,4 @@ export default {
   repo,
   run,
   submit,
-  testcase,
 };

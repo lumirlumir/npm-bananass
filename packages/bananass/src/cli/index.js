@@ -12,7 +12,6 @@ import open from './bananass-open.js';
 import repo from './bananass-repo.js';
 import run from './bananass-run.js';
 import submit from './bananass-submit.js';
-import testcase from './bananass-testcase.js';
 
 export {
   global,
@@ -29,5 +28,4 @@ export {
   repo,
   run,
   submit,
-  testcase,
 };

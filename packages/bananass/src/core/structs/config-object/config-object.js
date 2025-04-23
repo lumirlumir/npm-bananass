@@ -24,7 +24,6 @@ import ConfigObjectOpen from '../config-object-open/index.js';
 import ConfigObjectRepo from '../config-object-repo/index.js';
 import ConfigObjectRun from '../config-object-run/index.js';
 import ConfigObjectSubmit from '../config-object-submit/index.js';
-import ConfigObjectTestcase from '../config-object-testcase/index.js';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -65,7 +64,6 @@ const ConfigObject = object({
   repo: optional(ConfigObjectRepo),
   run: optional(ConfigObjectRun),
   submit: optional(ConfigObjectSubmit),
-  testcase: optional(ConfigObjectTestcase),
 });
 
 // --------------------------------------------------------------------------------
