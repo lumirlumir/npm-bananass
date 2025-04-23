@@ -452,6 +452,8 @@ describe('mts', () => {
     });
   });
 
+  */
+
   describe('Multiple files', () => {
     it('Multiple files with `fs` template should build correctly', async () => {
       await build(['1000', '1001', '2000'], configObjectFS);
@@ -496,6 +498,4 @@ describe('mts', () => {
       strictEqual(result2000.stdout, '3');
     });
   });
-
-  */
 });
