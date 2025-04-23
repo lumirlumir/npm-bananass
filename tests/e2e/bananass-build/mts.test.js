@@ -245,9 +245,7 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
-      it('User-created external modules using the `mjs` format should build correctly.', async () => {
+      it('User-created external modules using the `mts` format should build correctly.', async () => {
         await build(['2005'], configObjectFS);
 
         const outFile = resolve(outDir, '2005.cjs');
@@ -257,8 +255,6 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
-
-      */
     });
 
     describe('`rl`(readline) template', () => {
@@ -317,9 +313,7 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
-      it('User-created external modules using the `mjs` format should build correctly.', async () => {
+      it('User-created external modules using the `mts` format should build correctly.', async () => {
         await build(['2005'], configObjectRL);
 
         const outFile = resolve(outDir, '2005.cjs');
@@ -329,8 +323,6 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
-
-      */
     });
   });
 
