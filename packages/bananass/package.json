@@ -101,6 +101,7 @@
     "commander": "^13.1.0",
     "enhanced-resolve": "^5.18.1",
     "envinfo": "^7.14.0",
+    "esbuild-loader": "^4.3.0",
     "jiti": "^2.4.2",
     "open": "^10.1.1",
     "superstruct": "^2.0.2",
