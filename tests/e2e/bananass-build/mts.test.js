@@ -188,8 +188,6 @@ describe('mts', () => {
     });
   });
 
-  /*
-
   describe('When the solution is in a single directory with multiple files', () => {
     describe('`fs`(file system) template', () => {
       it('A solution directory with `solution` and `testcases` should build correctly', async () => {
@@ -202,6 +200,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('A solution directory with only `solution` should build correctly', async () => {
         await build(['2001'], configObjectFS);
@@ -257,6 +257,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      */
     });
 
     describe('`rl`(readline) template', () => {
@@ -270,6 +272,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('A solution directory with only `solution` should build correctly', async () => {
         await build(['2001'], configObjectRL);
@@ -325,8 +329,12 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      */
     });
   });
+
+  /*
 
   describe('Latest ECMAScript features with `@babel/preset-env` and custom plugins should be transpiled correctly', () => {
     describe('`fs`(file system) template', () => {
