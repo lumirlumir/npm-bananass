@@ -234,9 +234,7 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
-      it('`directory/index.mjs` with `export` should build correctly', async () => {
+      it('`directory/index.mts` with `export` should build correctly', async () => {
         await build(['2004'], configObjectFS);
 
         const outFile = resolve(outDir, '2004.cjs');
@@ -246,6 +244,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('User-created external modules using the `mjs` format should build correctly.', async () => {
         await build(['2005'], configObjectFS);
@@ -306,9 +306,7 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
-      it('`directory/index.mjs` with `export` should build correctly', async () => {
+      it('`directory/index.mts` with `export` should build correctly', async () => {
         await build(['2004'], configObjectRL);
 
         const outFile = resolve(outDir, '2004.cjs');
@@ -318,6 +316,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('User-created external modules using the `mjs` format should build correctly.', async () => {
         await build(['2005'], configObjectRL);
