@@ -74,9 +74,7 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
-      it('`file.cjs` should build correctly', async () => {
+      it('`file.cts` should build correctly', async () => {
         await build(['1002'], configObjectFS);
 
         const outFile = resolve(outDir, '1002.cjs');
@@ -86,6 +84,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('`file.mjs` with `export default` should build correctly', async () => {
         await build(['1003'], configObjectFS);
@@ -146,9 +146,7 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
-      it('`file.cjs` should build correctly', async () => {
+      it('`file.cts` should build correctly', async () => {
         await build(['1002'], configObjectRL);
 
         const outFile = resolve(outDir, '1002.cjs');
@@ -158,6 +156,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('`file.mjs` with `export default` should build correctly', async () => {
         await build(['1003'], configObjectRL);
