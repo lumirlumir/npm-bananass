@@ -63,8 +63,6 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
       it('A single file with only `solution` should build correctly', async () => {
         await build(['1001'], configObjectFS);
 
@@ -75,6 +73,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('`file.cjs` should build correctly', async () => {
         await build(['1002'], configObjectFS);
@@ -135,8 +135,6 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
       it('A single file with only `solution` should build correctly', async () => {
         await build(['1001'], configObjectRL);
 
@@ -147,6 +145,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('`file.cjs` should build correctly', async () => {
         await build(['1002'], configObjectRL);
