@@ -212,9 +212,7 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
-      it('`directory/index.cjs` should build correctly', async () => {
+      it('`directory/index.cts` should build correctly', async () => {
         await build(['2002'], configObjectFS);
 
         const outFile = resolve(outDir, '2002.cjs');
@@ -224,6 +222,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('`directory/index.mjs` with `export default` should build correctly', async () => {
         await build(['2003'], configObjectFS);
@@ -284,9 +284,7 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
-      it('`directory/index.cjs` should build correctly', async () => {
+      it('`directory/index.cts` should build correctly', async () => {
         await build(['2002'], configObjectRL);
 
         const outFile = resolve(outDir, '2002.cjs');
@@ -296,6 +294,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('`directory/index.mjs` with `export default` should build correctly', async () => {
         await build(['2003'], configObjectRL);
