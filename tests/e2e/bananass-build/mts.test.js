@@ -96,9 +96,7 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
-      it('`file.mjs` with `export` should build correctly', async () => {
+      it('`file.mts` with `export` should build correctly', async () => {
         await build(['1004'], configObjectFS);
 
         const outFile = resolve(outDir, '1004.cjs');
@@ -108,8 +106,6 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
-
-      */
 
       it('User-created external modules using the `mjs` format should build correctly', async () => {
         await build(['1005'], configObjectFS);
@@ -168,9 +164,7 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
-      it('`file.mjs` with `export` should build correctly', async () => {
+      it('`file.mts` with `export` should build correctly', async () => {
         await build(['1004'], configObjectRL);
 
         const outFile = resolve(outDir, '1004.cjs');
@@ -180,8 +174,6 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
-
-      */
 
       it('User-created external modules using the `mjs` format should build correctly', async () => {
         await build(['1005'], configObjectRL);
