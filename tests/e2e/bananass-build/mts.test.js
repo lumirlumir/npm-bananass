@@ -17,7 +17,7 @@ import { describe, it, afterEach } from 'node:test';
 import { stripVTControlCharacters as stripAnsi } from 'node:util';
 import { spawnSync } from 'node:child_process';
 import { resolve } from 'node:path';
-import { existsSync, rmSync } from 'node:fs';
+import { existsSync, rmSync, readFileSync } from 'node:fs';
 
 import { build } from 'bananass/commands';
 
@@ -326,8 +326,6 @@ describe('mts', () => {
     });
   });
 
-  /*
-
   describe('Latest ECMAScript features with `@babel/preset-env` and custom plugins should be transpiled correctly', () => {
     describe('`fs`(file system) template', () => {
       it('ES2025 `regexp-modifiers` should be transpiled correctly', async () => {
@@ -346,6 +344,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('Custom `transform-array-prototype-to-sorted` plugin should be applied correctly', async () => {
         await build(['3001'], configObjectFS);
@@ -388,6 +388,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      */
     });
 
     describe('`rl`(readline) template', () => {
@@ -407,6 +409,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('Custom `transform-array-prototype-to-sorted` plugin should be applied correctly', async () => {
         await build(['3001'], configObjectRL);
@@ -449,10 +453,10 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      */
     });
   });
-
-  */
 
   describe('Multiple files', () => {
     it('Multiple files with `fs` template should build correctly', async () => {
