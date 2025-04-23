@@ -21,11 +21,9 @@ import {
   lint,
   login,
   open,
-  random,
   repo,
   run,
   submit,
-  testcase,
 } from './cli/index.js';
 
 // --------------------------------------------------------------------------------
@@ -43,11 +41,9 @@ info(program);
 lint(program);
 login(program);
 open(program);
-random(program);
 repo(program);
 run(program);
 submit(program);
-testcase(program);
 
 // --------------------------------------------------------------------------------
 // Parse `commander`

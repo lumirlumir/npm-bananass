@@ -28,9 +28,15 @@ const { description, homepage, name, version } = createRequire(import.meta.url)(
 // Export
 // --------------------------------------------------------------------------------
 
+// #region Number
+
 export const BAEKJOON_PROBLEM_NUMBER_MIN = 1_000;
 
+// #endregion Number
+
 // --------------------------------------------------------------------------------
+
+// #region String
 
 /** @type {string} */
 export const PKG_DESCRIPTION = description;
@@ -78,7 +84,11 @@ export const WEBPACK_BANNER = `
  */
 `.trim();
 
+// #endregion String
+
 // --------------------------------------------------------------------------------
+
+// #region Array
 
 export const BANANASS_PKG_NAMES = [
   'bananass',
@@ -102,3 +112,5 @@ export const SUPPORTED_CONFIG_FILE_EXTENSIONS = [
   ...SUPPORTED_SOLUTION_FILE_EXTENSIONS,
   '.config',
 ];
+
+// #endregion Array

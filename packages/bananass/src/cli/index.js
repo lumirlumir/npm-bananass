@@ -9,11 +9,9 @@ import info from './bananass-info.js';
 import lint from './bananass-lint.js';
 import login from './bananass-login.js';
 import open from './bananass-open.js';
-import random from './bananass-random.js';
 import repo from './bananass-repo.js';
 import run from './bananass-run.js';
 import submit from './bananass-submit.js';
-import testcase from './bananass-testcase.js';
 
 export {
   global,
@@ -27,9 +25,7 @@ export {
   lint,
   login,
   open,
-  random,
   repo,
   run,
   submit,
-  testcase,
 };
