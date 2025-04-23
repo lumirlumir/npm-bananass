@@ -93,6 +93,7 @@
   "dependencies": {
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
+    "@babel/preset-typescript": "^7.27.0",
     "babel-loader": "^10.0.0",
     "bananass-utils-console": "^0.1.0-canary.2",
     "c12": "^3.0.3",
@@ -100,7 +101,6 @@
     "commander": "^13.1.0",
     "enhanced-resolve": "^5.18.1",
     "envinfo": "^7.14.0",
-    "esbuild-loader": "^4.3.0",
     "jiti": "^2.4.2",
     "open": "^10.1.1",
     "superstruct": "^2.0.2",

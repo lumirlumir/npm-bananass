@@ -139,7 +139,7 @@ export default async function build(problems, configObject = dco) {
         module: {
           rules: [
             {
-              test: /\.(?:js|mjs|cjs)$/i, // JavaScript
+              test: /\.(?:js|mjs|cjs|ts|mts|cts)$/i, // JavaScript and TypeScript.
               loader: 'babel-loader',
               options: {
                 targets: { node: '16.13' }, // TODO: Move Baekjoon Node.js version to constants.
@@ -152,21 +152,18 @@ export default async function build(problems, configObject = dco) {
                       targets: { node: '16.13' },
                     },
                   ],
+                  [
+                    '@babel/preset-typescript',
+                    {
+                      allowDeclareFields: true,
+                    },
+                  ],
                 ],
                 plugins: [
                   transformArrayPrototypeToReversed,
                   transformArrayPrototypeToSorted,
                   transformObjectHasOwn,
                 ],
-              },
-            },
-            {
-              test: /\.(?:ts|mts|cts)$/i, // TypeScript
-              loader: 'esbuild-loader',
-              options: {
-                loader: 'ts',
-                target: 'node14',
-                format: 'cjs',
               },
             },
           ],
