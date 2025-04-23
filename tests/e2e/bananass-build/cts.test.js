@@ -107,8 +107,6 @@ describe('cts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
       it('User-created external modules using the `cts` format should build correctly', async () => {
         await build(['1005'], configObjectFS);
 
@@ -119,8 +117,6 @@ describe('cts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
-
-      */
     });
 
     describe('`rl`(readline) template', () => {
@@ -179,8 +175,6 @@ describe('cts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
       it('User-created external modules using the `cts` format should build correctly', async () => {
         await build(['1005'], configObjectRL);
 
@@ -191,8 +185,6 @@ describe('cts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
-
-      */
     });
   });
 
