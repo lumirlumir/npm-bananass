@@ -190,8 +190,6 @@ describe('cts', () => {
 
   describe('When the solution is in a single directory with multiple files', () => {
     describe('`fs`(file system) template', () => {
-      /*
-
       it('A solution directory with `solution` and `testcases` should build correctly', async () => {
         await build(['2000'], configObjectFS);
 
@@ -202,6 +200,8 @@ describe('cts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('A solution directory with only `solution` should build correctly', async () => {
         await build(['2001'], configObjectFS);
@@ -262,8 +262,6 @@ describe('cts', () => {
     });
 
     describe('`rl`(readline) template', () => {
-      /*
-
       it('A solution directory with `solution` and `testcases` should build correctly', async () => {
         await build(['2000'], configObjectRL);
 
@@ -274,6 +272,8 @@ describe('cts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('A solution directory with only `solution` should build correctly', async () => {
         await build(['2001'], configObjectRL);
@@ -467,8 +467,6 @@ describe('cts', () => {
   });
 
   describe('Multiple files', () => {
-    /*
-
     it('Multiple files with `fs` template should build correctly', async () => {
       await build(['1000', '1001', '2000'], configObjectFS);
 
@@ -511,7 +509,5 @@ describe('cts', () => {
       strictEqual(result2000.status, 0);
       strictEqual(result2000.stdout, '3');
     });
-
-    */
   });
 });
