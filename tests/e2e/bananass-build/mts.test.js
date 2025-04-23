@@ -107,7 +107,7 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `mjs` format should build correctly', async () => {
+      it('User-created external modules using the `mts` format should build correctly', async () => {
         await build(['1005'], configObjectFS);
 
         const outFile = resolve(outDir, '1005.cjs');
@@ -175,7 +175,7 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `mjs` format should build correctly', async () => {
+      it('User-created external modules using the `mts` format should build correctly', async () => {
         await build(['1005'], configObjectRL);
 
         const outFile = resolve(outDir, '1005.cjs');
@@ -223,9 +223,7 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
-      it('`directory/index.mjs` with `export default` should build correctly', async () => {
+      it('`directory/index.mts` with `export default` should build correctly', async () => {
         await build(['2003'], configObjectFS);
 
         const outFile = resolve(outDir, '2003.cjs');
@@ -235,6 +233,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('`directory/index.mjs` with `export` should build correctly', async () => {
         await build(['2004'], configObjectFS);
@@ -295,9 +295,7 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
-      it('`directory/index.mjs` with `export default` should build correctly', async () => {
+      it('`directory/index.mts` with `export default` should build correctly', async () => {
         await build(['2003'], configObjectRL);
 
         const outFile = resolve(outDir, '2003.cjs');
@@ -307,6 +305,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('`directory/index.mjs` with `export` should build correctly', async () => {
         await build(['2004'], configObjectRL);
