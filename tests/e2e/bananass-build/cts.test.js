@@ -74,8 +74,6 @@ describe('cts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
       it('`file.cts` should build correctly', async () => {
         await build(['1002'], configObjectFS);
 
@@ -86,6 +84,8 @@ describe('cts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('`file.mts` with `export default` should build correctly', async () => {
         await build(['1003'], configObjectFS);
@@ -146,8 +146,6 @@ describe('cts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
       it('`file.cts` should build correctly', async () => {
         await build(['1002'], configObjectRL);
 
@@ -158,6 +156,8 @@ describe('cts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('`file.mts` with `export default` should build correctly', async () => {
         await build(['1003'], configObjectRL);
