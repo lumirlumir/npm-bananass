@@ -23,7 +23,6 @@ import ConfigObjectInfo from './config-object-info/index.js';
 import ConfigObjectLint from './config-object-lint/index.js';
 import ConfigObjectLogin from './config-object-login/index.js';
 import ConfigObjectOpen from './config-object-open/index.js';
-import ConfigObjectRandom from './config-object-random/index.js';
 import ConfigObjectRepo from './config-object-repo/index.js';
 import ConfigObjectRun from './config-object-run/index.js';
 import ConfigObjectSubmit from './config-object-submit/index.js';
@@ -57,7 +56,6 @@ export {
   ConfigObjectLint,
   ConfigObjectLogin,
   ConfigObjectOpen,
-  ConfigObjectRandom,
   ConfigObjectRepo,
   ConfigObjectRun,
   ConfigObjectSubmit,

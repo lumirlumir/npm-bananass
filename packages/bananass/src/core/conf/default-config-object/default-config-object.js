@@ -29,7 +29,6 @@ import { DEFAULT_ENTRY_DIR_NAME, DEFAULT_OUT_DIR_NAME } from '../../constants.js
  * @typedef {import('../../types.js').ConfigObjectLint} ConfigObjectLint
  * @typedef {import('../../types.js').ConfigObjectLogin} ConfigObjectLogin
  * @typedef {import('../../types.js').ConfigObjectOpen} ConfigObjectOpen
- * @typedef {import('../../types.js').ConfigObjectRandom} ConfigObjectRandom
  * @typedef {import('../../types.js').ConfigObjectRepo} ConfigObjectRepo
  * @typedef {import('../../types.js').ConfigObjectRun} ConfigObjectRun
  * @typedef {import('../../types.js').ConfigObjectSubmit} ConfigObjectSubmit
@@ -91,9 +90,6 @@ const login = {};
 /** @type {ConfigObjectOpen} */
 const open = {};
 
-/** @type {ConfigObjectRandom} */
-const random = {};
-
 /** @type {ConfigObjectRepo} */
 const repo = {};
 
@@ -129,7 +125,6 @@ export default {
   lint,
   login,
   open,
-  random,
   repo,
   run,
   submit,

@@ -26,7 +26,6 @@
  * @property {ConfigObjectLint} [lint] Options exclusive to the `bananass lint` command.
  * @property {ConfigObjectLogin} [login] Options exclusive to the `bananass login` command.
  * @property {ConfigObjectOpen} [open] Options exclusive to the `bananass open` command.
- * @property {ConfigObjectRandom} [random] Options exclusive to the `bananass random` command.
  * @property {ConfigObjectRepo} [repo] Options exclusive to the `bananass repo` command.
  * @property {ConfigObjectRun} [run] Options exclusive to the `bananass run` command.
  * @property {ConfigObjectSubmit} [submit] Options exclusive to the `bananass submit` command.
@@ -90,10 +89,6 @@
 
 /**
  * @typedef {object} ConfigObjectOpen Options exclusive to the `bananass open` command.
- */
-
-/**
- * @typedef {object} ConfigObjectRandom Options exclusive to the `bananass random` command.
  */
 
 /**

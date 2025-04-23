@@ -21,7 +21,6 @@ import {
   lint,
   login,
   open,
-  random,
   repo,
   run,
   submit,
@@ -43,7 +42,6 @@ info(program);
 lint(program);
 login(program);
 open(program);
-random(program);
 repo(program);
 run(program);
 submit(program);
