@@ -6,6 +6,8 @@
 // Typedefs
 // --------------------------------------------------------------------------------
 
+// #region ConfigObject
+
 /**
  * @typedef {object} ConfigObject Bananass configuration object.
  *
@@ -31,7 +33,7 @@
  * @property {ConfigObjectSubmit} [submit] Options exclusive to the `bananass submit` command.
  */
 
-/* Global */
+// #region ConfigObject/Global
 
 /**
  * @typedef {object} ConfigObjectBrowser Global browser options.
@@ -45,7 +47,9 @@
  * @property {boolean} [quiet] Enable quiet mode.
  */
 
-/* Exclusive */
+// #endregion ConfigObject/Global
+
+// #region ConfigObject/Exclusive
 
 /**
  * @typedef {object} ConfigObjectAdd Options exclusive to the `bananass add` command.
@@ -102,7 +106,13 @@
  * @typedef {object} ConfigObjectSubmit Options exclusive to the `bananass submit` command.
  */
 
+// #endregion ConfigObject/Exclusive
+
+// #endregion ConfigObject
+
 // --------------------------------------------------------------------------------
+
+// #region Problem
 
 /**
  * @typedef {string} Problem Baekjoon problem number as a string. Problem number must be greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
@@ -112,7 +122,11 @@
  * @typedef {Problem[]} Problems Baekjoon problem numbers as a nonempty string array. Each problem number must be greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
  */
 
+// #endregion Problem
+
 // --------------------------------------------------------------------------------
+
+// #region Solution
 
 /**
  * @typedef {string} Input Input string.
@@ -155,6 +169,8 @@
  * @property {Solution} solution Solution function.
  * @property {Testcases} [testcases] Testcases array.
  */
+
+// #endregion Solution
 
 // --------------------------------------------------------------------------------
 // Export
