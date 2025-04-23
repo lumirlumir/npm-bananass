@@ -201,8 +201,6 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
       it('A solution directory with only `solution` should build correctly', async () => {
         await build(['2001'], configObjectFS);
 
@@ -213,6 +211,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('`directory/index.cjs` should build correctly', async () => {
         await build(['2002'], configObjectFS);
@@ -273,8 +273,6 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
       it('A solution directory with only `solution` should build correctly', async () => {
         await build(['2001'], configObjectRL);
 
@@ -285,6 +283,8 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('`directory/index.cjs` should build correctly', async () => {
         await build(['2002'], configObjectRL);
