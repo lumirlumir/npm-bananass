@@ -345,8 +345,6 @@ describe('mts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
       it('Custom `transform-array-prototype-to-sorted` plugin should be applied correctly', async () => {
         await build(['3001'], configObjectFS);
 
@@ -388,8 +386,6 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
-
-      */
     });
 
     describe('`rl`(readline) template', () => {
@@ -409,8 +405,6 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
-
-      /*
 
       it('Custom `transform-array-prototype-to-sorted` plugin should be applied correctly', async () => {
         await build(['3001'], configObjectRL);
@@ -453,8 +447,6 @@ describe('mts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
-
-      */
     });
   });
 
