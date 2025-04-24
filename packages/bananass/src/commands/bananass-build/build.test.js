@@ -84,5 +84,32 @@ describe('build.js', () => {
       if (existsSync(customOutDir))
         rmSync(customOutDir, { recursive: true, force: true });
     });
+
+    it('`clean` should work as expected', async () => {
+      await build(['1000'], configObject);
+      ok(existsSync(resolve(outDir, '1000.cjs')));
+
+      await build(['1001'], configObject);
+      ok(existsSync(resolve(outDir, '1001.cjs')));
+
+      await build(['1002'], { ...configObject, build: { clean: true } });
+      ok(!existsSync(resolve(outDir, '1000.cjs')));
+      ok(!existsSync(resolve(outDir, '1001.cjs')));
+      ok(existsSync(resolve(outDir, '1002.cjs')));
+    });
+
+    // it('`templateType` should work as expected', async () => {
+    //   const customTemplateType = 'esbuild';
+
+    //   await build(['1000'], {
+    //     ...configObject,
+    //     templateType: customTemplateType,
+    //   });
+
+    //   ok(existsSync(outDir));
+    //   ok(existsSync(resolve(outDir, '1000.cjs')));
+
+    //   if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
+    // });
   });
 });
