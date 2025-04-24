@@ -17,6 +17,7 @@ concurrency:
 jobs:
   test-cross-platform:
     strategy:
+      fail-fast: false
       matrix:
         runner-image:
           - macos-latest
@@ -37,6 +38,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          # Do not cache node_modules, as it can cause unexpected issues when testing cross-platform.
 
       - name: Set up node_modules
         run: npm ci
