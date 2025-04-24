@@ -62,15 +62,14 @@
 
     rl.on('line', line => {
       inputStr = `${inputStr}${line}${EOL}`;
-
     }).on('close', () => {
       console.log(solution(inputStr));
 
       process.exit(0);
     });
 
-    function solution(inputStr) {
-      const [a, b] = inputStr
+    function solution(input) {
+      const [a, b] = input
         .trim()
         .split(' ')
         .map(val => Number(val));

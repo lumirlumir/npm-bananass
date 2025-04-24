@@ -102,16 +102,16 @@ console.log(A + B);
 
 ```js [1000-raw-rl.cjs]
 const { createInterface } = require('readline');
-const { stdin: input, stdout: output } = require('process');
+const { stdin, stdout } = require('process');
 const { EOL } = require('os');
 
-const rl = createInterface({ input, output });
-let inputFile = '';
+const rl = createInterface({ input: stdin, output: stdout });
+let inputStr = '';
 
 rl.on('line', line => {
-  inputFile += `${line}${EOL}`;
+  inputStr += `${line}${EOL}`;
 }).on('close', () => {
-  console.log(solution(inputFile));
+  console.log(solution(inputStr));
 });
 
 function solution(input) {
