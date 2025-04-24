@@ -25,6 +25,7 @@ import { defaultConfigObject as dco } from '../../core/conf/index.js';
 import { Problems, ConfigObject } from '../../core/structs/index.js';
 import {
   DEFAULT_OUT_FILE_EXTENSION,
+  NODE_VERSION_BAEKJOON,
   WEBPACK_BANNER,
   SUPPORTED_SOLUTION_FILE_EXTENSIONS,
 } from '../../core/constants.js';
@@ -49,14 +50,14 @@ function babelLoaderConfig(babelPresets = []) {
   return {
     loader: 'babel-loader',
     options: {
-      targets: { node: '16.13.1' }, // TODO: Move Baekjoon Node.js version to constants.
+      targets: { node: NODE_VERSION_BAEKJOON },
       presets: [
         // Preset ordering is reversed (last to first).
         // https://babeljs.io/docs/presets#preset-ordering
         [
           '@babel/preset-env',
           {
-            targets: { node: '16.13.1' },
+            targets: { node: NODE_VERSION_BAEKJOON },
           },
         ],
         ...babelPresets,
@@ -198,7 +199,7 @@ export default async function build(problems, configObject = dco) {
                   loader: 'esbuild-loader',
                   options: {
                     loader: 'ts',
-                    target: 'node16.13.1', // https://esbuild.github.io/api/#target
+                    target: `node${NODE_VERSION_BAEKJOON}`, // https://esbuild.github.io/api/#target
                     format: 'cjs',
                   },
                 },
