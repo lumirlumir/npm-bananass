@@ -234,8 +234,6 @@ describe('cts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
       it('`directory/index.mts` with `export` should build correctly', async () => {
         await build(['2004'], configObjectFS);
 
@@ -246,6 +244,8 @@ describe('cts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('User-created external modules using the `cts` format should build correctly.', async () => {
         await build(['2005'], configObjectFS);
@@ -306,8 +306,6 @@ describe('cts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
       it('`directory/index.mts` with `export` should build correctly', async () => {
         await build(['2004'], configObjectRL);
 
@@ -318,6 +316,8 @@ describe('cts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('User-created external modules using the `cts` format should build correctly.', async () => {
         await build(['2005'], configObjectRL);
