@@ -16,7 +16,6 @@ import ConfigObjectConsole from './config-object-console/index.js';
 import ConfigObjectAdd from './config-object-add/index.js';
 import ConfigObjectBug from './config-object-bug/index.js';
 import ConfigObjectBuild from './config-object-build/index.js';
-import ConfigObjectClean from './config-object-clean/index.js';
 import ConfigObjectDiscussion from './config-object-discussion/index.js';
 import ConfigObjectHome from './config-object-home/index.js';
 import ConfigObjectInfo from './config-object-info/index.js';
@@ -48,7 +47,6 @@ export {
   ConfigObjectAdd,
   ConfigObjectBug,
   ConfigObjectBuild,
-  ConfigObjectClean,
   ConfigObjectDiscussion,
   ConfigObjectHome,
   ConfigObjectInfo,

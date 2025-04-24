@@ -69,6 +69,11 @@ export const DEFAULT_OUT_DIR_NAME = `.${name}`;
 /** @type {string} */
 export const DEFAULT_OUT_FILE_EXTENSION = '.cjs';
 
+/** @satisfies {string} */
+export const NODE_VERSION_BAEKJOON = '16.13.1';
+/** @satisfies {string} */
+export const NODE_VERSION_CODEFORCES = '15.8.0';
+
 /** @type {string} */
 export const WEBPACK_BANNER = `
 /**

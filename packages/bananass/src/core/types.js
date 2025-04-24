@@ -21,7 +21,6 @@
  * @property {ConfigObjectAdd} [add] Options exclusive to the `bananass add` command.
  * @property {ConfigObjectBug} [bug] Options exclusive to the `bananass bug` command.
  * @property {ConfigObjectBuild} [build] Options exclusive to the `bananass build` command.
- * @property {ConfigObjectClean} [clean] Options exclusive to the `bananass clean` command.
  * @property {ConfigObjectDiscussion} [discussion] Options exclusive to the `bananass discussion` command.
  * @property {ConfigObjectHome} [home] Options exclusive to the `bananass home` command.
  * @property {ConfigObjectInfo} [info] Options exclusive to the `bananass info` command.
@@ -63,10 +62,6 @@
  * @typedef {object} ConfigObjectBuild Options exclusive to the `bananass build` command.
  * @property {boolean} [clean] Clean the output directory before emit.
  * @property {'fs' | 'rl'} [templateType] Webpack entry file template type. Select from `fs` (File System) or `rl` (Read Line).
- */
-
-/**
- * @typedef {object} ConfigObjectClean Options exclusive to the `bananass clean` command.
  */
 
 /**

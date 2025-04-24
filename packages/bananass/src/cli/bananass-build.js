@@ -36,7 +36,7 @@ import {
 // --------------------------------------------------------------------------------
 
 /**
- * Build. `npx bananass build` command.
+ * Build: `npx bananass build` command.
  *
  * @param {Command} program The `commander` package's `program`.
  */
