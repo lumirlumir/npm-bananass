@@ -212,8 +212,6 @@ describe('cts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
       it('`directory/index.cts` should build correctly', async () => {
         await build(['2002'], configObjectFS);
 
@@ -224,6 +222,8 @@ describe('cts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('`directory/index.mts` with `export default` should build correctly', async () => {
         await build(['2003'], configObjectFS);
@@ -284,8 +284,6 @@ describe('cts', () => {
         strictEqual(result.stdout, '3');
       });
 
-      /*
-
       it('`directory/index.cts` should build correctly', async () => {
         await build(['2002'], configObjectRL);
 
@@ -296,6 +294,8 @@ describe('cts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      /*
 
       it('`directory/index.mts` with `export default` should build correctly', async () => {
         await build(['2003'], configObjectRL);
