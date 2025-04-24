@@ -14,7 +14,6 @@ import {
   add,
   bug,
   build,
-  clean,
   discussion,
   home,
   info,
@@ -34,7 +33,6 @@ global(program);
 add(program);
 bug(program);
 build(program);
-clean(program);
 discussion(program);
 home(program);
 info(program);

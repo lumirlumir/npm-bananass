@@ -2,7 +2,6 @@ import global from './global.js';
 import add from './bananass-add.js';
 import bug from './bananass-bug.js';
 import build from './bananass-build.js';
-import clean from './bananass-clean.js';
 import discussion from './bananass-discussion.js';
 import home from './bananass-home.js';
 import info from './bananass-info.js';
@@ -18,7 +17,6 @@ export {
   add,
   bug,
   build,
-  clean,
   discussion,
   home,
   info,

@@ -22,7 +22,6 @@ import { DEFAULT_ENTRY_DIR_NAME, DEFAULT_OUT_DIR_NAME } from '../../constants.js
  * @typedef {import('../../types.js').ConfigObjectAdd} ConfigObjectAdd
  * @typedef {import('../../types.js').ConfigObjectBug} ConfigObjectBug
  * @typedef {import('../../types.js').ConfigObjectBuild} ConfigObjectBuild
- * @typedef {import('../../types.js').ConfigObjectClean} ConfigObjectClean
  * @typedef {import('../../types.js').ConfigObjectDiscussion} ConfigObjectDiscussion
  * @typedef {import('../../types.js').ConfigObjectHome} ConfigObjectHome
  * @typedef {import('../../types.js').ConfigObjectInfo} ConfigObjectInfo
@@ -65,9 +64,6 @@ const build = {
   clean: false,
   templateType: 'fs',
 };
-
-/** @type {ConfigObjectClean} */
-const clean = {};
 
 /** @type {ConfigObjectDiscussion} */
 const discussion = {};
@@ -114,7 +110,6 @@ export default {
   add,
   bug,
   build,
-  clean,
   discussion,
   home,
   info,
