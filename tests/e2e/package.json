@@ -1,12 +1,12 @@
 {
   "private": true,
   "name": "tests-e2e",
-  "version": "0.1.0-canary.2",
+  "version": "0.1.0-canary.3",
   "type": "module",
   "scripts": {
     "test": "node --test"
   },
   "devDependencies": {
-    "bananass": "^0.1.0-canary.2"
+    "bananass": "^0.1.0-canary.3"
   }
 }
