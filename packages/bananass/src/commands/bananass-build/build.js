@@ -8,7 +8,7 @@
 
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import { rm } from 'node:fs/promises';
+import fsPromises from 'node:fs/promises'; // DO NOT USE DESTRUCTURING syntax due to `mock` usage in test.
 
 import createLogger from 'bananass-utils-console/logger';
 import createSpinner from 'bananass-utils-console/spinner';
@@ -221,7 +221,7 @@ export default async function build(problems, configObject = dco) {
     // resulting in only one file in the output directory.
     // Secondly, even if we use `webpackConfigs.output.clean` only once with the `map()` method's `index` parameter,
     // it cannot guarantee the build order and may lead to race conditions where files get deleted unpredictably.
-    if (clean) await rm(resolvedOutDir, { recursive: true, force: true });
+    if (clean) await fsPromises.rm(resolvedOutDir, { recursive: true, force: true });
   } catch ({ message }) {
     logger.log(() => spinner.error(error('Failed to clean output directory')));
 

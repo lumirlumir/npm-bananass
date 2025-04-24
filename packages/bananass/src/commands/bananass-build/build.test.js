@@ -6,10 +6,11 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { ok, rejects } from 'node:assert';
-import { describe, it, afterEach } from 'node:test';
+import { match, ok, rejects } from 'node:assert';
+import { describe, it, afterEach, mock } from 'node:test';
 import { resolve } from 'node:path';
-import { existsSync, rmSync } from 'node:fs';
+import { existsSync, rmSync, readFileSync } from 'node:fs';
+import fsPromises from 'node:fs/promises';
 
 import build from './build.js';
 
@@ -98,18 +99,45 @@ describe('build.js', () => {
       ok(existsSync(resolve(outDir, '1002.cjs')));
     });
 
-    // it('`templateType` should work as expected', async () => {
-    //   const customTemplateType = 'esbuild';
+    it('`clean` should throw an error for some reason', async () => {
+      mock.method(fsPromises, 'rm', () => {
+        throw new Error('Dummy error message');
+      });
 
-    //   await build(['1000'], {
-    //     ...configObject,
-    //     templateType: customTemplateType,
-    //   });
+      await rejects(
+        () => build(['1000'], { ...configObject, build: { clean: true } }),
+        /Dummy error message/,
+      );
+    });
 
-    //   ok(existsSync(outDir));
-    //   ok(existsSync(resolve(outDir, '1000.cjs')));
+    it("`templateType: 'fs'` should work as expected", async () => {
+      await build(['1000'], {
+        ...configObject,
+        build: {
+          templateType: 'fs',
+        },
+      });
 
-    //   if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
-    // });
+      const outFile = resolve(outDir, '1000.cjs');
+      ok(existsSync(outFile));
+
+      const fileContent = readFileSync(outFile, 'utf-8');
+      match(fileContent, /require\("node:fs"\)/u);
+    });
+
+    it("`templateType: 'rl'` should work as expected", async () => {
+      await build(['1000'], {
+        ...configObject,
+        build: {
+          templateType: 'rl',
+        },
+      });
+
+      const outFile = resolve(outDir, '1000.cjs');
+      ok(existsSync(outFile));
+
+      const fileContent = readFileSync(outFile, 'utf-8');
+      match(fileContent, /require\("node:readline"\)/u);
+    });
   });
 });
