@@ -245,7 +245,7 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `mjs` format should build correctly.', async () => {
+      it('User-created external modules using the `mjs` format should build correctly', async () => {
         await build(['2005'], configObjectFS);
 
         const outFile = resolve(outDir, '2005.cjs');
@@ -313,7 +313,7 @@ describe('mjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `mjs` format should build correctly.', async () => {
+      it('User-created external modules using the `mjs` format should build correctly', async () => {
         await build(['2005'], configObjectRL);
 
         const outFile = resolve(outDir, '2005.cjs');

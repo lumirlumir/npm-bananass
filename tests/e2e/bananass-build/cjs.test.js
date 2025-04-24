@@ -107,7 +107,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `cjs` format should build correctly.', async () => {
+      it('User-created external modules using the `cjs` format should build correctly', async () => {
         await build(['1005'], configObjectFS);
 
         const outFile = resolve(outDir, '1005.cjs');
@@ -245,7 +245,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `cjs` format should build correctly.', async () => {
+      it('User-created external modules using the `cjs` format should build correctly', async () => {
         await build(['2005'], configObjectFS);
 
         const outFile = resolve(outDir, '2005.cjs');
