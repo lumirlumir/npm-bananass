@@ -29,5 +29,5 @@ export default function add(program) {
   program
     .command('add')
     .alias('create')
-    .description(warning('Working in progress...🚧', false)); // TODO
+    .description(warning('working in progress...🚧', false)); // TODO
 }
