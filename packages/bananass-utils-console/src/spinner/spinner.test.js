@@ -94,25 +94,25 @@ describe('spinner.js', () => {
   it('spinner.success()', () => {
     const output = runSpinner(spinner => spinner.success());
 
-    match(output, /✓ foo\n$/);
+    match(output, /[✓V] foo\n$/u);
   });
 
   it('spinner.error()', () => {
     const output = runSpinner(spinner => spinner.error());
 
-    match(output, /✕ foo\n$/);
+    match(output, /[✕X] foo\n$/u);
   });
 
   it('spinner.warning()', () => {
     const output = runSpinner(spinner => spinner.warning());
 
-    match(output, /⚠ foo\n$/);
+    match(output, /[⚠!] foo\n$/u);
   });
 
   it('spinner.info()', () => {
     const output = runSpinner(spinner => spinner.info());
 
-    match(output, /✦ foo\n$/);
+    match(output, /[✦i] foo\n$/u);
   });
 
   it('spinner set text and get text', () => {
@@ -192,13 +192,13 @@ describe('spinner.js', () => {
   it('spinner stops with success symbol and final text', () => {
     const output = runSpinner(spinner => spinner.success('done'));
 
-    match(output, /✓ done\n$/);
+    match(output, /[✓V] done\n$/u);
   });
 
   it('spinner stops with error symbol and final text', () => {
     const output = runSpinner(spinner => spinner.error('failed'));
 
-    match(output, /✕ failed\n$/);
+    match(output, /[✕X] failed\n$/u);
   });
 
   it('spinner stops and exits process on SIGINT', () => {

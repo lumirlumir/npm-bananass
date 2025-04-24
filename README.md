@@ -1,7 +1,8 @@
 # 바나나<sup>Bananass</sup>
 
-[![Lint](https://img.shields.io/github/actions/workflow/status/lumirlumir/npm-bananass/lint.yml?label=Lint&color=fff478&labelColor=333333&logo=github)](https://github.com/lumirlumir/npm-bananass/actions/workflows/lint.yml)
-[![Test](https://img.shields.io/github/actions/workflow/status/lumirlumir/npm-bananass/test.yml?label=Test&color=fff478&labelColor=333333&logo=github)](https://github.com/lumirlumir/npm-bananass/actions/workflows/test.yml)
+[![lint](https://img.shields.io/github/actions/workflow/status/lumirlumir/npm-bananass/lint.yml?label=lint&color=fff478&labelColor=333333&logo=github)](https://github.com/lumirlumir/npm-bananass/actions/workflows/lint.yml)
+[![test](https://img.shields.io/github/actions/workflow/status/lumirlumir/npm-bananass/test.yml?label=test&color=fff478&labelColor=333333&logo=github)](https://github.com/lumirlumir/npm-bananass/actions/workflows/test.yml)
+[![test-cross-platform](https://img.shields.io/github/actions/workflow/status/lumirlumir/npm-bananass/test-cross-platform.yml?label=test-cross-platform&color=fff478&labelColor=333333&logo=github)](https://github.com/lumirlumir/npm-bananass/actions/workflows/test-cross-platform.yml)
 [![Codecov](https://img.shields.io/codecov/c/gh/lumirlumir/npm-bananass?token=2zUCHlMFT3&label=Codecov&color=fff478&labelColor=333333&logo=codecov)](https://codecov.io/gh/lumirlumir/npm-bananass)
 ![Node Current](https://img.shields.io/node/v/bananass?label=Node&color=fff478&labelColor=333333&logo=node.js)
 
