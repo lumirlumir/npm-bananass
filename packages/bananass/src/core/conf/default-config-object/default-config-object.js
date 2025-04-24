@@ -37,7 +37,7 @@ import { DEFAULT_ENTRY_DIR_NAME, DEFAULT_OUT_DIR_NAME } from '../../constants.js
 // Declarations
 // --------------------------------------------------------------------------------
 
-/* Global */
+// #region Global
 
 /** @type {ConfigObjectBrowser} */
 const browser = {
@@ -51,7 +51,9 @@ const console = {
   quiet: false,
 };
 
-/* Exclusive */
+// #endregion Global
+
+// #region Exclusive
 
 /** @type {ConfigObjectAdd} */
 const add = {};
@@ -93,6 +95,8 @@ const run = {};
 
 /** @type {ConfigObjectSubmit} */
 const submit = {};
+
+// #endregion Exclusive
 
 // --------------------------------------------------------------------------------
 // Export
