@@ -1,5 +1,5 @@
 /**
- * @fileoverview E2E tests for building CJS solutions using Bananass.
+ * @fileoverview E2E tests for building CTS solutions using Bananass.
  *
  * NOTE: None of the files in the `fixtures` directory are based on actual Baekjoon problems.
  * They are simply A + B examples used for testing purposes.
@@ -25,7 +25,7 @@ import { build } from 'bananass/commands';
 // Helpers
 // --------------------------------------------------------------------------------
 
-const cwd = resolve(import.meta.dirname, './fixtures/cjs');
+const cwd = resolve(import.meta.dirname, './fixtures/cts');
 const outDir = resolve(cwd, '.bananass');
 const configObjectFS = { cwd, console: { quiet: true }, build: { templateType: 'fs' } };
 const configObjectRL = { cwd, console: { quiet: true }, build: { templateType: 'rl' } };
@@ -49,7 +49,7 @@ afterEach(() => {
   if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
 });
 
-describe('cjs', () => {
+describe('cts', () => {
   describe('When the entire solution is in a single file', () => {
     describe('`fs`(file system) template', () => {
       it('A single file with `solution` and `testcases` should build correctly', async () => {
@@ -74,7 +74,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('`file.cjs` should build correctly', async () => {
+      it('`file.cts` should build correctly', async () => {
         await build(['1002'], configObjectFS);
 
         const outFile = resolve(outDir, '1002.cjs');
@@ -85,7 +85,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('`file.mjs` with `export default` should build correctly', async () => {
+      it('`file.mts` with `export default` should build correctly', async () => {
         await build(['1003'], configObjectFS);
 
         const outFile = resolve(outDir, '1003.cjs');
@@ -96,7 +96,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('`file.mjs` with `export` should build correctly', async () => {
+      it('`file.mts` with `export` should build correctly', async () => {
         await build(['1004'], configObjectFS);
 
         const outFile = resolve(outDir, '1004.cjs');
@@ -107,7 +107,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `cjs` format should build correctly', async () => {
+      it('User-created external modules using the `cts` format should build correctly', async () => {
         await build(['1005'], configObjectFS);
 
         const outFile = resolve(outDir, '1005.cjs');
@@ -142,7 +142,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('`file.cjs` should build correctly', async () => {
+      it('`file.cts` should build correctly', async () => {
         await build(['1002'], configObjectRL);
 
         const outFile = resolve(outDir, '1002.cjs');
@@ -153,7 +153,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('`file.mjs` with `export default` should build correctly', async () => {
+      it('`file.mts` with `export default` should build correctly', async () => {
         await build(['1003'], configObjectRL);
 
         const outFile = resolve(outDir, '1003.cjs');
@@ -164,7 +164,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('`file.mjs` with `export` should build correctly', async () => {
+      it('`file.mts` with `export` should build correctly', async () => {
         await build(['1004'], configObjectRL);
 
         const outFile = resolve(outDir, '1004.cjs');
@@ -175,7 +175,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `cjs` format should build correctly', async () => {
+      it('User-created external modules using the `cts` format should build correctly', async () => {
         await build(['1005'], configObjectRL);
 
         const outFile = resolve(outDir, '1005.cjs');
@@ -212,7 +212,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('`directory/index.cjs` should build correctly', async () => {
+      it('`directory/index.cts` should build correctly', async () => {
         await build(['2002'], configObjectFS);
 
         const outFile = resolve(outDir, '2002.cjs');
@@ -223,7 +223,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('`directory/index.mjs` with `export default` should build correctly', async () => {
+      it('`directory/index.mts` with `export default` should build correctly', async () => {
         await build(['2003'], configObjectFS);
 
         const outFile = resolve(outDir, '2003.cjs');
@@ -234,7 +234,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('`directory/index.mjs` with `export` should build correctly', async () => {
+      it('`directory/index.mts` with `export` should build correctly', async () => {
         await build(['2004'], configObjectFS);
 
         const outFile = resolve(outDir, '2004.cjs');
@@ -245,7 +245,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `cjs` format should build correctly', async () => {
+      it('User-created external modules using the `cts` format should build correctly', async () => {
         await build(['2005'], configObjectFS);
 
         const outFile = resolve(outDir, '2005.cjs');
@@ -280,7 +280,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('`directory/index.cjs` should build correctly', async () => {
+      it('`directory/index.cts` should build correctly', async () => {
         await build(['2002'], configObjectRL);
 
         const outFile = resolve(outDir, '2002.cjs');
@@ -291,7 +291,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('`directory/index.mjs` with `export default` should build correctly', async () => {
+      it('`directory/index.mts` with `export default` should build correctly', async () => {
         await build(['2003'], configObjectRL);
 
         const outFile = resolve(outDir, '2003.cjs');
@@ -302,7 +302,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('`directory/index.mjs` with `export` should build correctly', async () => {
+      it('`directory/index.mts` with `export` should build correctly', async () => {
         await build(['2004'], configObjectRL);
 
         const outFile = resolve(outDir, '2004.cjs');
@@ -313,7 +313,7 @@ describe('cjs', () => {
         strictEqual(result.stdout, '3');
       });
 
-      it('User-created external modules using the `cjs` format should build correctly', async () => {
+      it('User-created external modules using the `cts` format should build correctly', async () => {
         await build(['2005'], configObjectRL);
 
         const outFile = resolve(outDir, '2005.cjs');

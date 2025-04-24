@@ -35,9 +35,40 @@ import {
 
 /**
  * @typedef {import('webpack').Configuration} WebpackConfig
+ * @typedef {import('@babel/core').PluginItem} BabelPluginItem
  * @typedef {import('../../core/types.js').Problems} Problems
  * @typedef {import('../../core/types.js').ConfigObject} ConfigObject
  */
+
+// --------------------------------------------------------------------------------
+// Helpers
+// --------------------------------------------------------------------------------
+
+/** @param {BabelPluginItem[]} [babelPresets] */
+function babelLoaderConfig(babelPresets = []) {
+  return {
+    loader: 'babel-loader',
+    options: {
+      targets: { node: '16.13.1' }, // TODO: Move Baekjoon Node.js version to constants.
+      presets: [
+        // Preset ordering is reversed (last to first).
+        // https://babeljs.io/docs/presets#preset-ordering
+        [
+          '@babel/preset-env',
+          {
+            targets: { node: '16.13.1' },
+          },
+        ],
+        ...babelPresets,
+      ],
+      plugins: [
+        transformArrayPrototypeToReversed,
+        transformArrayPrototypeToSorted,
+        transformObjectHasOwn,
+      ],
+    },
+  };
+}
 
 // --------------------------------------------------------------------------------
 // Export
@@ -139,32 +170,39 @@ export default async function build(problems, configObject = dco) {
         module: {
           rules: [
             {
-              test: /\.(?:js|mjs|cjs|ts|mts|cts)$/i, // JavaScript and TypeScript.
-              loader: 'babel-loader',
-              options: {
-                targets: { node: '16.13' }, // TODO: Move Baekjoon Node.js version to constants.
-                presets: [
-                  // Preset ordering is reversed (last to first).
-                  // https://babeljs.io/docs/presets#preset-ordering
-                  [
-                    '@babel/preset-env',
-                    {
-                      targets: { node: '16.13' },
-                    },
-                  ],
+              test: /\.(?:js|mjs|cjs)$/i, // JavaScript: `js`, `mjs`, `cjs`
+              use: [babelLoaderConfig()],
+            },
+            {
+              test: /\.(?:mts|cts)$/i, // TypeScript: `mts`, `cts`
+              use: [
+                babelLoaderConfig([
                   [
                     '@babel/preset-typescript',
                     {
                       allowDeclareFields: true,
                     },
                   ],
-                ],
-                plugins: [
-                  transformArrayPrototypeToReversed,
-                  transformArrayPrototypeToSorted,
-                  transformObjectHasOwn,
-                ],
-              },
+                ]),
+              ],
+            },
+            {
+              test: /\.ts$/i, // TypeScript: `ts`
+              use: [
+                babelLoaderConfig(),
+                // NOTE: `@babel/preset-typescript` treats `.ts` files as ESM by default,
+                // and this behavior is not configurable.
+                // This can cause issues when using CommonJS modules with `.ts` files.
+                // To avoid this, we use `esbuild-loader` to transpile CommonJS format `.ts` files.
+                {
+                  loader: 'esbuild-loader',
+                  options: {
+                    loader: 'ts',
+                    target: 'node16.13.1', // https://esbuild.github.io/api/#target
+                    format: 'cjs',
+                  },
+                },
+              ],
             },
           ],
         },
