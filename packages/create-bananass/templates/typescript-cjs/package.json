@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "create-bananass-typescript",
+  "name": "create-bananass-typescript-cjs",
   "version": "0.1.0-canary.4",
   "engines": {
     "node": "^20.18.0 || >= 22.3.0"

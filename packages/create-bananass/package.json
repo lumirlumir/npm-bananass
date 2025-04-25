@@ -5,8 +5,10 @@
   "description": "Create a Bananass framework project for solving Baekjoon problems with JavaScript/TypeScript.🍌",
   "exports": {
     "./package.json": "./package.json",
-    "./templates/javascript/package.json": "./templates/javascript/package.json",
-    "./templates/typescript/package.json": "./templates/typescript/package.json"
+    "./templates/javascript-cjs/package.json": "./templates/javascript-cjs/package.json",
+    "./templates/javascript-esm/package.json": "./templates/javascript-esm/package.json",
+    "./templates/typescript-cjs/package.json": "./templates/typescript-cjs/package.json",
+    "./templates/typescript-esm/package.json": "./templates/typescript-esm/package.json"
   },
   "bin": {
     "create-bananass": "src/cli.js"
