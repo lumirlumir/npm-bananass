@@ -24,8 +24,8 @@ import isUnicodeSupported from 'is-unicode-supported';
 // --------------------------------------------------------------------------------
 
 /**
- * @param {any} unicode Used when Unicode is supported.
- * @param {any} ascii Used when Unicode is not supported.
+ * @param {string | string[]} unicode Used when Unicode is supported.
+ * @param {string | string[]} ascii Used when Unicode is not supported.
  * @returns {any}
  */
 const choose = (unicode, ascii) => (isUnicodeSupported() ? unicode : ascii);

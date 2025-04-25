@@ -29,8 +29,7 @@ import { URL_GITHUB_REPO } from '../../core/constants.js';
 
 /**
  * Asynchronously open the github repository in a browser.
- *
- * @param {ConfigObject} configObject
+ * @param {ConfigObject} [configObject = dco]
  * @async
  */
 export default async function repo(configObject = dco) {

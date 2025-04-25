@@ -1,8 +1,13 @@
 {
   "name": "create-bananass",
-  "version": "0.1.0-canary.2",
+  "version": "0.1.0-canary.3",
   "type": "module",
   "description": "Create a Bananass framework project for solving Baekjoon problems with JavaScript.🍌",
+  "exports": {
+    "./package.json": "./package.json",
+    "./templates/javascript/package.json": "./templates/javascript/package.json",
+    "./templates/typescript/package.json": "./templates/typescript/package.json"
+  },
   "bin": {
     "create-bananass": "src/cli.js"
   },
@@ -36,7 +41,7 @@
     "url": "https://github.com/lumirlumir/npm-bananass/issues"
   },
   "engines": {
-    "node": ">=20.18.0"
+    "node": "^20.18.0 || >= 22.3.0"
   },
   "publishConfig": {
     "provenance": true
@@ -48,7 +53,7 @@
     "dev": "node src/cli.js"
   },
   "dependencies": {
-    "bananass-utils-console": "^0.1.0-canary.2",
+    "bananass-utils-console": "^0.1.0-canary.3",
     "commander": "^13.1.0",
     "consola": "^3.4.2"
   }

@@ -1,5 +1,5 @@
 /**
- * @fileoverview Asynchronously build and create bundled files using webpack and esbuild.
+ * @fileoverview Asynchronously build and create bundled files using webpack, babel and esbuild.
  */
 
 // --------------------------------------------------------------------------------
@@ -8,16 +8,24 @@
 
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import { rm } from 'node:fs/promises';
+import fsPromises from 'node:fs/promises'; // DO NOT USE DESTRUCTURING syntax due to `mock` usage in test.
 
 import createLogger from 'bananass-utils-console/logger';
 import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, success, error } from 'bananass-utils-console/theme';
 import webpack from 'webpack';
 
+import {
+  transformArrayPrototypeToReversed,
+  transformArrayPrototypeToSorted,
+  transformObjectHasOwn,
+} from '../../babel-plugins/index.js';
+
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
 import { Problems, ConfigObject } from '../../core/structs/index.js';
 import {
+  DEFAULT_OUT_FILE_EXTENSION,
+  NODE_VERSION_BAEKJOON,
   WEBPACK_BANNER,
   SUPPORTED_SOLUTION_FILE_EXTENSIONS,
 } from '../../core/constants.js';
@@ -28,19 +36,49 @@ import {
 
 /**
  * @typedef {import('webpack').Configuration} WebpackConfig
+ * @typedef {import('@babel/core').PluginItem} BabelPluginItem
  * @typedef {import('../../core/types.js').Problems} Problems
  * @typedef {import('../../core/types.js').ConfigObject} ConfigObject
  */
+
+// --------------------------------------------------------------------------------
+// Helpers
+// --------------------------------------------------------------------------------
+
+/** @param {BabelPluginItem[]} [babelPresets] */
+function babelLoaderConfig(babelPresets = []) {
+  return {
+    loader: 'babel-loader',
+    options: {
+      targets: { node: NODE_VERSION_BAEKJOON },
+      presets: [
+        // Preset ordering is reversed (last to first).
+        // https://babeljs.io/docs/presets#preset-ordering
+        [
+          '@babel/preset-env',
+          {
+            targets: { node: NODE_VERSION_BAEKJOON },
+          },
+        ],
+        ...babelPresets,
+      ],
+      plugins: [
+        transformArrayPrototypeToReversed,
+        transformArrayPrototypeToSorted,
+        transformObjectHasOwn,
+      ],
+    },
+  };
+}
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
 /**
- * Asynchronously build and create bundled files using webpack and esbuild.
- *
+ * Asynchronously build and create bundled files using webpack, babel and esbuild.
  * @param {Problems} problems
- * @param {ConfigObject} configObject
+ * @param {ConfigObject} [configObject = dco]
  * @async
  */
 export default async function build(problems, configObject = dco) {
@@ -111,7 +149,7 @@ export default async function build(problems, configObject = dco) {
         /** @see https://webpack.js.org/concepts/#output */
         output: {
           path: resolvedOutDir,
-          filename: `${problem}.js`,
+          filename: `${problem}${DEFAULT_OUT_FILE_EXTENSION}`,
           // clean: options.clean, // DO NOT USE THIS OPTION.
         },
 
@@ -133,22 +171,39 @@ export default async function build(problems, configObject = dco) {
         module: {
           rules: [
             {
-              test: /\.(?:js|mjs|cjs)$/i, // JavaScript
-              include: [/node_modules/, new RegExp(resolvedEntryDir)],
-              loader: 'esbuild-loader',
-              options: {
-                target: 'node14',
-                format: 'cjs',
-              },
+              test: /\.(?:js|mjs|cjs)$/i, // JavaScript: `js`, `mjs`, `cjs`
+              use: [babelLoaderConfig()],
             },
             {
-              test: /\.(?:ts|mts|cts)$/i, // TypeScript
-              loader: 'esbuild-loader',
-              options: {
-                loader: 'ts',
-                target: 'node14',
-                format: 'cjs',
-              },
+              test: /\.(?:mts|cts)$/i, // TypeScript: `mts`, `cts`
+              use: [
+                babelLoaderConfig([
+                  [
+                    '@babel/preset-typescript',
+                    {
+                      allowDeclareFields: true,
+                    },
+                  ],
+                ]),
+              ],
+            },
+            {
+              test: /\.ts$/i, // TypeScript: `ts`
+              use: [
+                babelLoaderConfig(),
+                // NOTE: `@babel/preset-typescript` treats `.ts` files as ESM by default,
+                // and this behavior is not configurable.
+                // This can cause issues when using CommonJS modules with `.ts` files.
+                // To avoid this, we use `esbuild-loader` to transpile CommonJS format `.ts` files.
+                {
+                  loader: 'esbuild-loader',
+                  options: {
+                    loader: 'ts',
+                    target: `node${NODE_VERSION_BAEKJOON}`, // https://esbuild.github.io/api/#target
+                    format: 'cjs',
+                  },
+                },
+              ],
             },
           ],
         },
@@ -166,7 +221,7 @@ export default async function build(problems, configObject = dco) {
     // resulting in only one file in the output directory.
     // Secondly, even if we use `webpackConfigs.output.clean` only once with the `map()` method's `index` parameter,
     // it cannot guarantee the build order and may lead to race conditions where files get deleted unpredictably.
-    if (clean) await rm(resolvedOutDir, { recursive: true, force: true });
+    if (clean) await fsPromises.rm(resolvedOutDir, { recursive: true, force: true });
   } catch ({ message }) {
     logger.log(() => spinner.error(error('Failed to clean output directory')));
 
@@ -202,5 +257,8 @@ export default async function build(problems, configObject = dco) {
     .log(() => spinner.success(success('Bananass build completed successfully')))
     .eol()
     .log('Output Directory:', resolvedOutDir)
-    .log('Created:', problems.map(problem => `${problem}.js`).join(', '));
+    .log(
+      'Created:',
+      problems.map(problem => `${problem}${DEFAULT_OUT_FILE_EXTENSION}`).join(', '),
+    );
 }

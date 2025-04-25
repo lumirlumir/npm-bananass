@@ -8,7 +8,7 @@
 // --------------------------------------------------------------------------------
 
 const { createInterface } = require('node:readline');
-const { stdin: input, stdout: output } = require('node:process');
+const { stdin, stdout } = require('node:process');
 const { EOL } = require('node:os');
 const { log } = require('node:console');
 
@@ -16,27 +16,26 @@ const { log } = require('node:console');
 // Declaration
 // --------------------------------------------------------------------------------
 
-const rl = createInterface({ input, output });
+const rl = createInterface({ input: stdin, output: stdout });
 
-let inputFile = '';
+let inputStr = '';
 
 // --------------------------------------------------------------------------------
 // Event Listening
 // --------------------------------------------------------------------------------
 
 rl.on('line', line => {
-  inputFile += `${line}${EOL}`;
+  inputStr += `${line}${EOL}`;
 }).on('close', () => {
-  solution(inputFile);
+  solution(inputStr);
 });
 
 // --------------------------------------------------------------------------------
 // Solution
 // --------------------------------------------------------------------------------
 
-// eslint-disable-next-line no-shadow
-function solution(inputFile) {
-  const [W, H] = inputFile
+function solution(input) {
+  const [W, H] = input
     .trim()
     .split(' ')
     .map(val => Number(val));

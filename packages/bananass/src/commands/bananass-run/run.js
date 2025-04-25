@@ -39,9 +39,8 @@ import { SUPPORTED_SOLUTION_FILE_EXTENSIONS } from '../../core/constants.js';
 
 /**
  * Asynchronously run generated testcases and compare them with the expected outputs.
- *
  * @param {Problems} problems
- * @param {ConfigObject} configObject
+ * @param {ConfigObject} [configObject = dco]
  * @async
  */
 export default async function run(problems, configObject = dco) {

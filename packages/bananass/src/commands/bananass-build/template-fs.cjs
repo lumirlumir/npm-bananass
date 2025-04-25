@@ -18,10 +18,10 @@ const solutionModule = require(globalThis.BAEKJOON_PROBLEM_NUMBER_WITH_PATH); //
 // --------------------------------------------------------------------------------
 
 const { solution } = solutionModule?.default ?? solutionModule; // Handle both ES module and CommonJS module.
-const inputFile = readFileSync(0, 'utf-8');
+const inputStr = readFileSync(0, 'utf-8');
 
 // --------------------------------------------------------------------------------
 // Run Solution
 // --------------------------------------------------------------------------------
 
-console.log(solution(inputFile)); // eslint-disable-line no-console
+console.log(solution(inputStr)); // eslint-disable-line no-console

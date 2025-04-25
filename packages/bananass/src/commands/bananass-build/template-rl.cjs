@@ -22,14 +22,14 @@ const solutionModule = require(globalThis.BAEKJOON_PROBLEM_NUMBER_WITH_PATH); //
 const { solution } = solutionModule?.default ?? solutionModule; // Handle both ES module and CommonJS module.
 const rl = createInterface({ input, output });
 
-let inputFile = '';
+let inputStr = '';
 
 // --------------------------------------------------------------------------------
 // Event Listening
 // --------------------------------------------------------------------------------
 
 rl.on('line', line => {
-  inputFile += `${line}${EOL}`;
+  inputStr += `${line}${EOL}`;
 }).on('close', () => {
-  console.log(solution(inputFile)); // eslint-disable-line no-console
+  console.log(solution(inputStr)); // eslint-disable-line no-console
 });

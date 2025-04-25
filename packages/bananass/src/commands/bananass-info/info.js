@@ -29,8 +29,7 @@ import { BANANASS_PKG_NAMES } from '../../core/constants.js';
 
 /**
  * Asynchronously print relevant details about the current system which can be used to report bugs.
- *
- * @param {ConfigObject} configObject
+ * @param {ConfigObject} [configObject = dco]
  * @async
  */
 export default async function info(configObject = dco) {
