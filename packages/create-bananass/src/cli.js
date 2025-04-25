@@ -12,9 +12,10 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { cp } from 'node:fs/promises';
+import { cp, rename } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { spawn } from 'node:child_process';
+import { resolve } from 'node:path';
 
 import createLogger from 'bananass-utils-console/logger';
 import createSpinner from 'bananass-utils-console/spinner';
@@ -193,6 +194,8 @@ program
             filter: src => !(skipVsc && src.includes('.vscode')), // Exclude `.vscode` folder if `skipVsc` is `true`.
           },
         );
+
+        await rename(resolve(directory, 'gitignore'), resolve(directory, '.gitignore'));
       } catch ({ message }) {
         logger.log(() => spinner.error(error('Failed to copy files')));
 
