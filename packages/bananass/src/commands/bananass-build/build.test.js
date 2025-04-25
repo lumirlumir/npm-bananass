@@ -66,6 +66,16 @@ describe('build.js', () => {
     it('should throw an error when solution file does not exist', async () => {
       await rejects(() => build(['9999'], configObject), /doesn't exist/);
     });
+
+    it('`webpack.BannerPlugin` should work as expected', async () => {
+      await build(['1000'], configObject);
+
+      const outFile = resolve(outDir, '1000.cjs');
+      ok(existsSync(outFile));
+
+      const fileContent = readFileSync(outFile, 'utf-8');
+      match(fileContent, /DO NOT DELETE THIS COMMENT/u);
+    });
   });
 
   describe('options should work as expected', () => {
