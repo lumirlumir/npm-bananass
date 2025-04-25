@@ -6,6 +6,8 @@
 // Typedefs
 // --------------------------------------------------------------------------------
 
+// #region ConfigObject
+
 /**
  * @typedef {object} ConfigObject Bananass configuration object.
  *
@@ -19,21 +21,18 @@
  * @property {ConfigObjectAdd} [add] Options exclusive to the `bananass add` command.
  * @property {ConfigObjectBug} [bug] Options exclusive to the `bananass bug` command.
  * @property {ConfigObjectBuild} [build] Options exclusive to the `bananass build` command.
- * @property {ConfigObjectClean} [clean] Options exclusive to the `bananass clean` command.
  * @property {ConfigObjectDiscussion} [discussion] Options exclusive to the `bananass discussion` command.
  * @property {ConfigObjectHome} [home] Options exclusive to the `bananass home` command.
  * @property {ConfigObjectInfo} [info] Options exclusive to the `bananass info` command.
  * @property {ConfigObjectLint} [lint] Options exclusive to the `bananass lint` command.
  * @property {ConfigObjectLogin} [login] Options exclusive to the `bananass login` command.
  * @property {ConfigObjectOpen} [open] Options exclusive to the `bananass open` command.
- * @property {ConfigObjectRandom} [random] Options exclusive to the `bananass random` command.
  * @property {ConfigObjectRepo} [repo] Options exclusive to the `bananass repo` command.
  * @property {ConfigObjectRun} [run] Options exclusive to the `bananass run` command.
  * @property {ConfigObjectSubmit} [submit] Options exclusive to the `bananass submit` command.
- * @property {ConfigObjectTestcase} [testcase] Options exclusive to the `bananass testcase` command.
  */
 
-/* Global */
+// #region ConfigObject/Global
 
 /**
  * @typedef {object} ConfigObjectBrowser Global browser options.
@@ -47,7 +46,9 @@
  * @property {boolean} [quiet] Enable quiet mode.
  */
 
-/* Exclusive */
+// #endregion ConfigObject/Global
+
+// #region ConfigObject/Exclusive
 
 /**
  * @typedef {object} ConfigObjectAdd Options exclusive to the `bananass add` command.
@@ -61,10 +62,6 @@
  * @typedef {object} ConfigObjectBuild Options exclusive to the `bananass build` command.
  * @property {boolean} [clean] Clean the output directory before emit.
  * @property {'fs' | 'rl'} [templateType] Webpack entry file template type. Select from `fs` (File System) or `rl` (Read Line).
- */
-
-/**
- * @typedef {object} ConfigObjectClean Options exclusive to the `bananass clean` command.
  */
 
 /**
@@ -93,10 +90,6 @@
  */
 
 /**
- * @typedef {object} ConfigObjectRandom Options exclusive to the `bananass random` command.
- */
-
-/**
  * @typedef {object} ConfigObjectRepo Options exclusive to the `bananass repo` command.
  */
 
@@ -108,11 +101,13 @@
  * @typedef {object} ConfigObjectSubmit Options exclusive to the `bananass submit` command.
  */
 
-/**
- * @typedef {object} ConfigObjectTestcase Options exclusive to the `bananass testcase` command.
- */
+// #endregion ConfigObject/Exclusive
+
+// #endregion ConfigObject
 
 // --------------------------------------------------------------------------------
+
+// #region Problem
 
 /**
  * @typedef {string} Problem Baekjoon problem number as a string. Problem number must be greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
@@ -122,7 +117,11 @@
  * @typedef {Problem[]} Problems Baekjoon problem numbers as a nonempty string array. Each problem number must be greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
  */
 
+// #endregion Problem
+
 // --------------------------------------------------------------------------------
+
+// #region Solution
 
 /**
  * @typedef {string} Input Input string.
@@ -165,6 +164,8 @@
  * @property {Solution} solution Solution function.
  * @property {Testcases} [testcases] Testcases array.
  */
+
+// #endregion Solution
 
 // --------------------------------------------------------------------------------
 // Export

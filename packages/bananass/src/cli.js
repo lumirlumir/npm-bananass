@@ -14,18 +14,15 @@ import {
   add,
   bug,
   build,
-  clean,
   discussion,
   home,
   info,
   lint,
   login,
   open,
-  random,
   repo,
   run,
   submit,
-  testcase,
 } from './cli/index.js';
 
 // --------------------------------------------------------------------------------
@@ -36,18 +33,15 @@ global(program);
 add(program);
 bug(program);
 build(program);
-clean(program);
 discussion(program);
 home(program);
 info(program);
 lint(program);
 login(program);
 open(program);
-random(program);
 repo(program);
 run(program);
 submit(program);
-testcase(program);
 
 // --------------------------------------------------------------------------------
 // Parse `commander`
