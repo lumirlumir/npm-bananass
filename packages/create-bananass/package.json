@@ -1,6 +1,6 @@
 {
   "name": "create-bananass",
-  "version": "0.1.0-canary.3",
+  "version": "0.1.0-canary.4",
   "type": "module",
   "description": "Create a Bananass framework project for solving Baekjoon problems with JavaScript/TypeScript.🍌",
   "exports": {
@@ -54,7 +54,7 @@
     "dev": "node src/cli.js"
   },
   "dependencies": {
-    "bananass-utils-console": "^0.1.0-canary.3",
+    "bananass-utils-console": "^0.1.0-canary.4",
     "commander": "^13.1.0",
     "consola": "^3.4.2"
   }

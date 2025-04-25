@@ -1,6 +1,6 @@
 {
   "name": "bananass-utils-vitepress",
-  "version": "0.1.0-canary.3",
+  "version": "0.1.0-canary.4",
   "type": "module",
   "description": "VitePress Utilities for Bananass Framework.🍌",
   "exports": {
