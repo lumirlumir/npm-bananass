@@ -4,7 +4,7 @@ import type { Linter } from 'eslint';
 
 export default defineConfig([
   // Bananass build directory.
-  // Rename it if you change the `outDir` field in `bananass.config.mts`.
+  // Rename it if you change the `outDir` field in `bananass.config.cts`.
   globalIgnores(['**/.bananass/']),
 
   bananass.configs.js,
