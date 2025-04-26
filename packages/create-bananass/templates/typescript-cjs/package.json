@@ -6,7 +6,22 @@
     "node": "^20.18.0 || >= 22.3.0"
   },
   "scripts": {
-    "build": "echo build"
+    "add": "echo `add` command is still working in progress!",
+    "bug": "bananass bug",
+    "build": "bananass build",
+    "discussion": "bananass discussion",
+    "home": "bananass home",
+    "info": "bananass info",
+    "lint": "echo `lint` command is still working in progress!",
+    "login": "echo `login` command is still working in progress!",
+    "open": "bananass open",
+    "repo": "bananass repo",
+    "run": "bananass run",
+    "submit": "echo `submit` command is still working in progress!",
+    "eslint": "eslint",
+    "eslint:fix": "eslint --fix",
+    "prettier": "prettier . --check --ignore-unknown",
+    "prettier:fix": "prettier . --write --ignore-unknown"
   },
   "devDependencies": {
     "bananass": "^0.1.0-canary.4",
