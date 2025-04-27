@@ -58,6 +58,7 @@
   "dependencies": {
     "bananass-utils-console": "^0.1.0-canary.4",
     "commander": "^13.1.0",
-    "consola": "^3.4.2"
+    "consola": "^3.4.2",
+    "is-interactive": "^2.0.0"
   }
 }

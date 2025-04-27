@@ -20,6 +20,7 @@ import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, error, success } from 'bananass-utils-console/theme';
 import { program } from 'commander';
 import { consola } from 'consola';
+import isInteractive from 'is-interactive';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -97,7 +98,7 @@ program
       let promptSkipGit;
       let promptSkipInstall;
 
-      if (!cliYes) {
+      if (isInteractive() && !cliYes) {
         promptDirectory = await consola.prompt(
           'Which directory should this project be located in?',
           {
