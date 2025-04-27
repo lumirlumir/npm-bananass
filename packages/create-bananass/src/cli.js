@@ -29,7 +29,7 @@ import { consola } from 'consola';
  * @typedef cliOptions
  * @property {boolean} [debug] Enable debug mode.
  * @property {boolean} [quiet] Enable quiet mode.
- * @property {boolean} [force] Force to create a new project even if the path already exist.
+ * @property {boolean} [force] Create a project even if the directory is not empty.
  * @property {boolean} [yes] Skip all prompts and accept only CLI options.
  * @property {boolean} [cjs] Initialize as a CommonJS project.
  * @property {boolean} [typescript] Initialize as a typescript project.
@@ -61,11 +61,7 @@ program
   .usage('[directory] [options]')
   .option('-d, --debug', 'enable debug mode', false)
   .option('-q, --quiet', 'enable quiet mode', false)
-  .option(
-    '-f, --force',
-    'force to create a new project even if the path already exist',
-    false,
-  )
+  .option('-f, --force', 'create a project even if the directory is not empty', false)
   .option('-y, --yes', 'skip all prompts and accept only cli options', false)
   .option('-c, --cjs', 'initialize as a commonjs project', false)
   .option('-t, --typescript', 'initialize as a typescript project', false)
