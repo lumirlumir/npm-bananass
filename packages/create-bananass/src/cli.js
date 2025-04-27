@@ -6,8 +6,6 @@
  * We receive arguments from both CLI and PROMPT.
  */
 
-/* eslint-disable no-console */
-
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
@@ -32,10 +30,11 @@ import { consola } from 'consola';
  * @property {boolean} [debug] Enable debug mode.
  * @property {boolean} [quiet] Enable quiet mode.
  * @property {boolean} [force] Force to create a new project even if the path already exist.
+ * @property {boolean} [yes] Skip all prompts and accept only CLI options.
+ * @property {boolean} [cjs] Initialize as a CommonJS project.
  * @property {boolean} [typescript] Initialize as a typescript project.
- * @property {boolean} [yes] Skip all prompts and use the default values.
- * @property {boolean} [skipVsc] Skip configuring visual studio code environment.
- * @property {boolean} [skipGit] Skip initializing a git repository.
+ * @property {boolean} [skipVsc] Skip initializing visual studio code.
+ * @property {boolean} [skipGit] Skip initializing git.
  * @property {boolean} [skipInstall] Skip installing packages with npm.
  */
 
@@ -67,10 +66,11 @@ program
     'force to create a new project even if the path already exist',
     false,
   )
+  .option('-y, --yes', 'skip all prompts and accept only cli options', false)
+  .option('-c, --cjs', 'initialize as a commonjs project', false)
   .option('-t, --typescript', 'initialize as a typescript project', false)
-  .option('-y, --yes', 'skip all prompts and use the default values', false)
-  .option('--skip-vsc', 'skip configuring visual studio code environment', false)
-  .option('--skip-git', 'skip initializing a git repository', false)
+  .option('--skip-vsc', 'skip initializing visual studio code', false)
+  .option('--skip-git', 'skip initializing git', false)
   .option('--skip-install', 'skip installing packages with npm', false)
   .action(
     async (/** @type {string} */ cliDirectory, /** @type {cliOptions} */ cliOptions) => {
@@ -82,8 +82,9 @@ program
         debug: cliDebug,
         quiet: cliQuiet,
         force: cliForce,
-        typescript: cliTypescript,
         yes: cliYes,
+        cjs: cliCjs,
+        typescript: cliTypescript,
         skipVsc: cliSkipVsc,
         skipGit: cliSkipGit,
         skipInstall: cliSkipInstall,
@@ -94,8 +95,11 @@ program
       // --------------------------------------------------------------------------
 
       let promptDirectory;
+      let promptCjs;
       let promptTypescript;
       let promptSkipVsc;
+      let promptSkipGit;
+      let promptSkipInstall;
 
       if (!cliYes) {
         promptDirectory = await consola.prompt(
@@ -107,19 +111,43 @@ program
           },
         );
 
+        promptCjs = await consola.prompt('Would you like to use CommonJS?', {
+          initial: false,
+          type: 'confirm',
+          cancel: 'reject',
+        });
+
         promptTypescript = await consola.prompt('Would you like to use TypeScript?', {
           initial: false,
           type: 'confirm',
           cancel: 'reject',
         });
 
-        promptSkipVsc = !(await consola.prompt('Do you use Visual Studio Code?', {
-          initial: true,
+        promptSkipVsc = await consola.prompt(
+          'Would you like to skip initializing Visual Studio Code configurations?',
+          {
+            initial: false,
+            type: 'confirm',
+            cancel: 'reject',
+          },
+        );
+
+        promptSkipGit = await consola.prompt('Would you like to skip initializing Git?', {
+          initial: false,
           type: 'confirm',
           cancel: 'reject',
-        }));
+        });
 
-        console.log(); // Add a new line
+        promptSkipInstall = await consola.prompt(
+          'Would you like to skip installing packages with npm?',
+          {
+            initial: false,
+            type: 'confirm',
+            cancel: 'reject',
+          },
+        );
+
+        console.log(); // eslint-disable-line no-console -- Add a new line.
       }
 
       // --------------------------------------------------------------------------
@@ -130,11 +158,12 @@ program
       const debug = cliDebug;
       const quiet = cliQuiet;
       const force = cliForce;
-      const typescript = promptTypescript ?? cliTypescript;
       const yes = cliYes;
+      const cjs = promptCjs ?? cliCjs;
+      const typescript = promptTypescript ?? cliTypescript;
       const skipVsc = promptSkipVsc ?? cliSkipVsc;
-      const skipGit = cliSkipGit;
-      const skipInstall = cliSkipInstall;
+      const skipGit = promptSkipGit ?? cliSkipGit;
+      const skipInstall = promptSkipInstall ?? cliSkipInstall;
 
       // --------------------------------------------------------------------------
       // Declarations
@@ -152,15 +181,19 @@ program
         .debug('cli options:', cliOptions)
         .eol()
         .debug('prompt directory:', promptDirectory)
+        .debug('prompt cjs:', promptCjs)
         .debug('prompt typescript:', promptTypescript)
         .debug('prompt skip vsc:', promptSkipVsc)
+        .debug('prompt skip git:', promptSkipGit)
+        .debug('prompt skip install:', promptSkipInstall)
         .eol()
         .debug('merged directory:', directory)
         .debug('merged debug:', debug)
         .debug('merged quiet:', quiet)
         .debug('merged force:', force)
-        .debug('merged typescript:', typescript)
         .debug('merged yes:', yes)
+        .debug('merged cjs:', cjs)
+        .debug('merged typescript:', typescript)
         .debug('merged skip vsc:', skipVsc)
         .debug('merged skip git:', skipGit)
         .debug('merged skip install:', skipInstall)
@@ -183,7 +216,9 @@ program
       try {
         await cp(
           new URL(
-            `../templates/${typescript ? 'typescript' : 'javascript'}`,
+            `../templates/${typescript ? 'typescript' : 'javascript'}-${
+              cjs ? 'cjs' : 'esm'
+            }/template`,
             import.meta.url,
           ),
           directory,
