@@ -293,11 +293,11 @@ program
       }
 
       // --------------------------------------------------------------------------
-      // Initialize Git Repository
+      // Initialize Git
       // --------------------------------------------------------------------------
 
       if (!skipGit) {
-        logger.log(() => spinner.start(bananass('Initializing git repository...', true)));
+        logger.log(() => spinner.start(bananass('Initializing git...', true)));
 
         try {
           await new Promise((res, rej) => {
@@ -319,7 +319,7 @@ program
             });
           });
         } catch ({ message }) {
-          logger.log(() => spinner.error(error('Failed to initialize git repository')));
+          logger.log(() => spinner.error(error('Failed to initialize git')));
 
           throw new Error(error(message, true));
         }
