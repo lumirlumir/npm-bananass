@@ -111,11 +111,14 @@ program
           },
         );
 
-        promptCjs = await consola.prompt('Would you like to use CommonJS?', {
-          initial: false,
-          type: 'confirm',
-          cancel: 'reject',
-        });
+        promptCjs = await consola.prompt(
+          'Would you like to use CommonJS module system?',
+          {
+            initial: false,
+            type: 'confirm',
+            cancel: 'reject',
+          },
+        );
 
         promptTypescript = await consola.prompt('Would you like to use TypeScript?', {
           initial: false,
@@ -218,7 +221,7 @@ program
           new URL(
             `../templates/${typescript ? 'typescript' : 'javascript'}-${
               cjs ? 'cjs' : 'esm'
-            }/template`,
+            }`,
             import.meta.url,
           ),
           directory,
