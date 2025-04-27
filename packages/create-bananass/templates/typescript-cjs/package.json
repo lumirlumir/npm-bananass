@@ -1,0 +1,36 @@
+{
+  "private": true,
+  "name": "create-bananass-typescript-cjs",
+  "version": "0.1.0-canary.4",
+  "engines": {
+    "node": "^20.18.0 || >= 22.3.0"
+  },
+  "scripts": {
+    "add": "echo `add` command is still working in progress!",
+    "bug": "bananass bug",
+    "build": "bananass build",
+    "discussion": "bananass discussion",
+    "home": "bananass home",
+    "info": "bananass info",
+    "lint": "echo `lint` command is still working in progress!",
+    "login": "echo `login` command is still working in progress!",
+    "open": "bananass open",
+    "repo": "bananass repo",
+    "run": "bananass run",
+    "submit": "echo `submit` command is still working in progress!",
+    "eslint": "eslint",
+    "eslint:fix": "eslint --fix",
+    "prettier": "prettier . --check --ignore-unknown",
+    "prettier:fix": "prettier . --write --ignore-unknown",
+    "tsc": "tsc"
+  },
+  "devDependencies": {
+    "bananass": "^0.1.0-canary.4",
+    "eslint": "^9.25.1",
+    "eslint-config-bananass": "^0.1.0-canary.4",
+    "jiti": "^2.4.2",
+    "prettier": "^3.5.3",
+    "prettier-config-bananass": "^0.1.0-canary.4",
+    "typescript": "^5.8.3"
+  }
+}

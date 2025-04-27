@@ -30,7 +30,7 @@
     "test:pkg:pcb": "npm run test -w packages/prettier-config-bananass",
     "test:t:e2e": "npm run test -w tests/e2e",
     "test:t:i": "npm run test -w tests/integration",
-    "build": "npx lerna run build --ignore npm-bananass",
+    "build": "npx lerna run build --ignore npm-bananass --ignore create-bananass-*",
     "build:ex:sb-cjs": "npm run bananass:build -w examples/solutions-bananass-cjs",
     "build:ex:sb-cts": "npm run bananass:build -w examples/solutions-bananass-cts",
     "build:ex:sb-mjs": "npm run bananass:build -w examples/solutions-bananass-mjs",
