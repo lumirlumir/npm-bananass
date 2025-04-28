@@ -34,7 +34,7 @@ function runCreateBananass(args = []) {
       input: '',
       encoding: 'utf-8',
       shell: true,
-      timeout: 10_000, // 10 seconds.
+      timeout: 5_000, // 5 seconds.
     },
   );
 
@@ -66,6 +66,27 @@ describe('cli', () => {
 
       ok(existsSync(resolve(outDir, '.gitignore')));
       ok(existsSync(resolve(outDir, 'bananass.config.mjs')));
+    });
+
+    it('should create a JavaScript CJS project', () => {
+      const result = runCreateBananass([
+        '--skip-vsc',
+        '--skip-git',
+        '--skip-install',
+        '--cjs',
+      ]);
+      const packageJson = JSON.parse(
+        readFileSync(resolve(outDir, 'package.json'), 'utf-8'),
+      );
+
+      strictEqual(result.status, 0);
+      match(result.stderr, successMessage);
+
+      strictEqual(packageJson.type, 'commonjs');
+      strictEqual(packageJson.name, 'create-bananass-javascript-cjs');
+
+      ok(existsSync(resolve(outDir, '.gitignore')));
+      ok(existsSync(resolve(outDir, 'bananass.config.cjs')));
     });
   });
 });
