@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "create-bananass-javascript-cjs",
-  "version": "0.1.0-canary.4",
+  "version": "0.1.0-canary.5",
   "type": "commonjs",
   "engines": {
     "node": "^20.18.0 || >= 22.3.0"
@@ -25,10 +25,10 @@
     "prettier:fix": "prettier . --write --ignore-unknown"
   },
   "devDependencies": {
-    "bananass": "^0.1.0-canary.4",
+    "bananass": "^0.1.0-canary.5",
     "eslint": "^9.25.1",
-    "eslint-config-bananass": "^0.1.0-canary.4",
+    "eslint-config-bananass": "^0.1.0-canary.5",
     "prettier": "^3.5.3",
-    "prettier-config-bananass": "^0.1.0-canary.4"
+    "prettier-config-bananass": "^0.1.0-canary.5"
   }
 }

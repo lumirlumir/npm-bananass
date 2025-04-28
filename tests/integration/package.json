@@ -1,14 +1,14 @@
 {
   "private": true,
   "name": "tests-integration",
-  "version": "0.1.0-canary.4",
+  "version": "0.1.0-canary.5",
   "type": "module",
   "scripts": {
     "test": "node --test"
   },
   "devDependencies": {
-    "bananass": "^0.1.0-canary.4",
-    "bananass-utils-console": "^0.1.0-canary.4",
-    "create-bananass": "^0.1.0-canary.4"
+    "bananass": "^0.1.0-canary.5",
+    "bananass-utils-console": "^0.1.0-canary.5",
+    "create-bananass": "^0.1.0-canary.5"
   }
 }

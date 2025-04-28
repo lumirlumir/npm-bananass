@@ -1,6 +1,6 @@
 {
   "name": "bananass",
-  "version": "0.1.0-canary.4",
+  "version": "0.1.0-canary.5",
   "type": "module",
   "description": "Baekjoon Framework for JavaScript.🍌",
   "exports": {
@@ -96,7 +96,7 @@
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-typescript": "^7.27.0",
     "babel-loader": "^10.0.0",
-    "bananass-utils-console": "^0.1.0-canary.4",
+    "bananass-utils-console": "^0.1.0-canary.5",
     "c12": "^3.0.3",
     "chalk": "^5.4.1",
     "commander": "^13.1.0",
