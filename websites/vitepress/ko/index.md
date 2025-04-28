@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: 시작하기
-      link: /get-started/installation
+      link: /get-started/quick-start
     - theme: alt
       text: 학습하기
       link: / # TODO

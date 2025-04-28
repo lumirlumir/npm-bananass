@@ -70,8 +70,8 @@ export default defineConfig({
     nav: [
       {
         text: 'Get Started',
-        link: '/en/get-started/installation',
-        activeMatch: '/en/get-started/installation/',
+        link: '/en/get-started/quick-start',
+        activeMatch: '/en/get-started/',
       },
       {
         text: 'ESLint',
@@ -91,9 +91,13 @@ export default defineConfig({
         {
           base: '/en/get-started/',
           text: 'Get Started',
-          link: 'installation',
+          link: 'quick-start',
           collapsed: false, // Set it `false` to show `>` icon.
           items: [
+            {
+              text: 'Quick Start',
+              link: 'quick-start',
+            },
             {
               text: 'Installation',
               link: 'installation',

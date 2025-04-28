@@ -70,8 +70,8 @@ export default defineConfig({
     nav: [
       {
         text: '시작하기',
-        link: '/get-started/installation',
-        activeMatch: '/get-started/installation/',
+        link: '/get-started/quick-start',
+        activeMatch: '/get-started/',
       },
       {
         text: 'ESLint',
@@ -91,9 +91,13 @@ export default defineConfig({
         {
           base: '/get-started/',
           text: '시작하기',
-          link: 'installation',
+          link: 'quick-start',
           collapsed: false, // Set it `false` to show `>` icon.
           items: [
+            {
+              text: '빠르게 시작하기',
+              link: 'quick-start',
+            },
             {
               text: '설치하기',
               link: 'installation',
