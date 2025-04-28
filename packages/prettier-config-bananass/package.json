@@ -1,6 +1,6 @@
 {
   "name": "prettier-config-bananass",
-  "version": "0.1.0-canary.4",
+  "version": "0.1.0-canary.5",
   "type": "module",
   "description": "Prettier Config for Bananass Framework.🍌",
   "exports": {
