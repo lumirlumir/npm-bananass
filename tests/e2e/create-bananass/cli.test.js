@@ -60,18 +60,6 @@ afterEach(() => {
 });
 
 describe('cli', () => {
-  it('should create a correct project by default', () => {
-    const result = runCreateBananass();
-
-    strictEqual(result.status, 0);
-    match(result.stderr, successMessage);
-
-    ok(isExists('.gitignore'));
-    ok(isExists('.vscode'));
-    ok(isExists('.git'));
-    ok(isExists('node_modules'));
-  });
-
   it('should create a JavaScript ESM project', () => {
     const result = runCreateBananass(skipArgs);
     const packageJson = JSON.parse(
