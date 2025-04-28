@@ -37,7 +37,6 @@ function runCreateBananass(args = []) {
       input: '',
       encoding: 'utf-8',
       shell: true,
-      timeout: 5_000, // 5 seconds.
     },
   );
 
@@ -61,85 +60,95 @@ afterEach(() => {
 });
 
 describe('cli', () => {
-  describe('should create a correct project using templates', () => {
-    it('should create a JavaScript ESM project', () => {
-      const result = runCreateBananass(skipArgs);
-      const packageJson = JSON.parse(
-        readFileSync(resolve(outDir, 'package.json'), 'utf-8'),
-      );
+  it('should create a correct project by default', () => {
+    const result = runCreateBananass();
 
-      strictEqual(result.status, 0);
-      match(result.stderr, successMessage);
+    strictEqual(result.status, 0);
+    match(result.stderr, successMessage);
 
-      strictEqual(packageJson.type, 'module');
-      strictEqual(packageJson.name, 'create-bananass-javascript-esm');
+    ok(isExists('.gitignore'));
+    ok(isExists('.vscode'));
+    ok(isExists('.git'));
+    ok(isExists('node_modules'));
+  });
 
-      ok(isExists('.gitignore'));
-      ok(isExists('bananass.config.mjs'));
+  it('should create a JavaScript ESM project', () => {
+    const result = runCreateBananass(skipArgs);
+    const packageJson = JSON.parse(
+      readFileSync(resolve(outDir, 'package.json'), 'utf-8'),
+    );
 
-      ok(!isExists('.vscode'));
-      ok(!isExists('.git'));
-      ok(!isExists('node_modules'));
-    });
+    strictEqual(result.status, 0);
+    match(result.stderr, successMessage);
 
-    it('should create a JavaScript CJS project', () => {
-      const result = runCreateBananass([...skipArgs, '--cjs']);
-      const packageJson = JSON.parse(
-        readFileSync(resolve(outDir, 'package.json'), 'utf-8'),
-      );
+    strictEqual(packageJson.type, 'module');
+    strictEqual(packageJson.name, 'create-bananass-javascript-esm');
 
-      strictEqual(result.status, 0);
-      match(result.stderr, successMessage);
+    ok(isExists('.gitignore'));
+    ok(isExists('bananass.config.mjs'));
 
-      strictEqual(packageJson.type, 'commonjs');
-      strictEqual(packageJson.name, 'create-bananass-javascript-cjs');
+    ok(!isExists('.vscode'));
+    ok(!isExists('.git'));
+    ok(!isExists('node_modules'));
+  });
 
-      ok(isExists('.gitignore'));
-      ok(isExists('bananass.config.cjs'));
+  it('should create a JavaScript CJS project', () => {
+    const result = runCreateBananass([...skipArgs, '--cjs']);
+    const packageJson = JSON.parse(
+      readFileSync(resolve(outDir, 'package.json'), 'utf-8'),
+    );
 
-      ok(!isExists('.vscode'));
-      ok(!isExists('.git'));
-      ok(!isExists('node_modules'));
-    });
+    strictEqual(result.status, 0);
+    match(result.stderr, successMessage);
 
-    it('should create a TypeScript ESM project', () => {
-      const result = runCreateBananass([...skipArgs, '--typescript']);
-      const packageJson = JSON.parse(
-        readFileSync(resolve(outDir, 'package.json'), 'utf-8'),
-      );
+    strictEqual(packageJson.type, 'commonjs');
+    strictEqual(packageJson.name, 'create-bananass-javascript-cjs');
 
-      strictEqual(result.status, 0);
-      match(result.stderr, successMessage);
+    ok(isExists('.gitignore'));
+    ok(isExists('bananass.config.cjs'));
 
-      strictEqual(packageJson.type, 'module');
-      strictEqual(packageJson.name, 'create-bananass-typescript-esm');
+    ok(!isExists('.vscode'));
+    ok(!isExists('.git'));
+    ok(!isExists('node_modules'));
+  });
 
-      ok(isExists('.gitignore'));
-      ok(isExists('bananass.config.mts'));
+  it('should create a TypeScript ESM project', () => {
+    const result = runCreateBananass([...skipArgs, '--typescript']);
+    const packageJson = JSON.parse(
+      readFileSync(resolve(outDir, 'package.json'), 'utf-8'),
+    );
 
-      ok(!isExists('.vscode'));
-      ok(!isExists('.git'));
-      ok(!isExists('node_modules'));
-    });
+    strictEqual(result.status, 0);
+    match(result.stderr, successMessage);
 
-    it('should create a TypeScript CJS project', () => {
-      const result = runCreateBananass([...skipArgs, '--typescript', '--cjs']);
-      const packageJson = JSON.parse(
-        readFileSync(resolve(outDir, 'package.json'), 'utf-8'),
-      );
+    strictEqual(packageJson.type, 'module');
+    strictEqual(packageJson.name, 'create-bananass-typescript-esm');
 
-      strictEqual(result.status, 0);
-      match(result.stderr, successMessage);
+    ok(isExists('.gitignore'));
+    ok(isExists('bananass.config.mts'));
 
-      strictEqual(packageJson.type, 'commonjs');
-      strictEqual(packageJson.name, 'create-bananass-typescript-cjs');
+    ok(!isExists('.vscode'));
+    ok(!isExists('.git'));
+    ok(!isExists('node_modules'));
+  });
 
-      ok(isExists('.gitignore'));
-      ok(isExists('bananass.config.cts'));
+  it('should create a TypeScript CJS project', () => {
+    const result = runCreateBananass([...skipArgs, '--typescript', '--cjs']);
+    const packageJson = JSON.parse(
+      readFileSync(resolve(outDir, 'package.json'), 'utf-8'),
+    );
 
-      ok(!isExists('.vscode'));
-      ok(!isExists('.git'));
-      ok(!isExists('node_modules'));
-    });
+    strictEqual(result.status, 0);
+    match(result.stderr, successMessage);
+
+    strictEqual(packageJson.type, 'commonjs');
+    strictEqual(packageJson.name, 'create-bananass-typescript-cjs');
+
+    ok(isExists('.gitignore'));
+    ok(isExists('bananass.config.cts'));
+
+    ok(!isExists('.vscode'));
+    ok(!isExists('.git'));
+    ok(!isExists('node_modules'));
   });
 });
