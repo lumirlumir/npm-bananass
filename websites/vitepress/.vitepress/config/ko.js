@@ -138,6 +138,10 @@ export default defineConfig({
               text: '설치하기',
               link: '/installation',
             },
+            {
+              text: '에디터 설정하기',
+              link: '/editor-setup',
+            },
           ],
         },
         {

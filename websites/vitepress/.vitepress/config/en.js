@@ -138,6 +138,10 @@ export default defineConfig({
               text: 'Installation',
               link: '/installation',
             },
+            {
+              text: 'Editor Setup',
+              link: '/editor-setup',
+            },
           ],
         },
         {
