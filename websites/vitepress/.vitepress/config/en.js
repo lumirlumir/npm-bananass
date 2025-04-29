@@ -94,30 +94,30 @@ export default defineConfig({
     sidebar: {
       '/en/': [
         {
-          base: '/en/get-started/',
+          base: '/en/get-started',
           text: 'Get Started',
-          link: 'quick-start',
+          link: '/quick-start',
           collapsed: false, // Set it `false` to show `>` icon.
           items: [
             {
               text: 'Quick Start',
-              link: 'quick-start',
+              link: '/quick-start',
             },
             {
               text: 'Installation',
-              link: 'installation',
+              link: '/installation',
             },
           ],
         },
         {
-          base: '/en/learn/',
+          base: '/en/learn',
           text: 'Learn',
           link: '/',
           collapsed: false,
           items: [
             {
               text: 'Project Structure',
-              link: 'project-structure',
+              link: '/project-structure',
             },
             {
               text: 'How to Solve Problems',
@@ -126,17 +126,17 @@ export default defineConfig({
               items: [
                 {
                   text: 'How to Parse Input Value',
-                  link: 'how-to-parse-input-value',
+                  link: '/how-to-parse-input-value',
                 },
               ],
             },
             {
               text: 'Solving Problems without Bananass',
-              link: 'solving-problems-without-bananass-framework',
+              link: '/solving-problems-without-bananass-framework',
             },
             {
               text: 'Q & A',
-              link: 'q-and-a',
+              link: '/q-and-a',
             },
           ],
         },
