@@ -135,6 +135,10 @@ export default defineConfig({
               ],
             },
             {
+              text: 'How to run solution files',
+              link: '/how-to-run-solution-files',
+            },
+            {
               text: 'Solving Problems without Bananass',
               link: '/solving-problems-without-bananass-framework',
             },
