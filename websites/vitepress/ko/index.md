@@ -20,7 +20,7 @@ hero:
       link: /learn
     - theme: alt
       text: API 참고서
-      link: / # TODO
+      link: /apis
     - theme: alt
       text: 문제 풀이 해답
       link: / # TODO

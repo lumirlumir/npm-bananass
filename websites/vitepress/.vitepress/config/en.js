@@ -79,6 +79,11 @@ export default defineConfig({
         activeMatch: 'en/learn/',
       },
       {
+        text: 'APIs',
+        link: 'en/apis',
+        activeMatch: 'en/apis/',
+      },
+      {
         text: 'ESLint',
         link: 'https://eslint-config-bananass.lumir.page',
       },
@@ -92,6 +97,28 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/en/apis': [
+        {
+          base: '/en/apis',
+          text: 'APIs',
+          link: '/',
+          items: [
+            {
+              base: '/en/apis/eslint-config-bananass',
+              text: 'eslint-config-bananass',
+              link: '/',
+              collapsed: false,
+              items: [
+                {
+                  text: 'References',
+                  link: '/references',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+
       '/en/': [
         {
           base: '/en/get-started',

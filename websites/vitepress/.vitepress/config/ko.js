@@ -79,6 +79,11 @@ export default defineConfig({
         activeMatch: '/learn/',
       },
       {
+        text: 'API',
+        link: '/apis',
+        activeMatch: '/apis/',
+      },
+      {
         text: 'ESLint',
         link: 'https://eslint-config-bananass.lumir.page',
       },
@@ -92,6 +97,28 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/apis': [
+        {
+          base: '/apis',
+          text: 'API 참고서',
+          link: '/',
+          items: [
+            {
+              base: '/apis/eslint-config-bananass',
+              text: 'eslint-config-bananass',
+              link: '/',
+              collapsed: false,
+              items: [
+                {
+                  text: '참고 문서',
+                  link: '/references',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+
       '/': [
         {
           base: '/get-started',

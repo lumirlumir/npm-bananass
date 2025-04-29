@@ -20,7 +20,7 @@ hero:
       link: /en/learn
     - theme: alt
       text: APIs
-      link: / # TODO
+      link: /en/apis
     - theme: alt
       text: Solutions
       link: / # TODO
