@@ -34,7 +34,7 @@
 
 바나나<sup>Bananass</sup> 프레임워크에 오신 것을 환영합니다!
 
-바나나는 **자바스크립트<sup>JavaScript</sup> 및 타입스크립트<sup>TypeScript</sup> 기반의 알고리즘 문제 풀이를 위한 백준 프레임워크**로, 백준 Node.js 환경에서 반복적으로 마주치는 문제점들을 해결하며, 간결하고 편리한 사용자 경험을 제공합니다.
+바나나는 **자바스크립트<sup>JavaScript</sup> 및 타입스크립트<sup>TypeScript</sup> 기반의 알고리즘 문제 풀이를 위한 프레임워크**로, [백준](https://www.acmicpc.net/)ㆍ[코드포스](https://codeforces.com/) 등 다양한 문제 풀이 플랫폼들의 Node.js 환경에서 반복적으로 마주치는 문제점들을 해결하며, 간결하고 편리한 사용자 경험을 제공합니다.
 
 - 타입스크립트<sup>TypeScript</sup> 지원이 필요하시다고요?
 - ES16<sup>ES2025</sup> 등 자바스크립트 최신 문법을 쓰고 싶은데 막히셨나요?

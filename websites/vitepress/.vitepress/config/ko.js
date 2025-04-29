@@ -70,8 +70,18 @@ export default defineConfig({
     nav: [
       {
         text: '시작하기',
-        link: '/get-started/installation',
-        activeMatch: '/get-started/installation/',
+        link: '/get-started/quick-start',
+        activeMatch: '/get-started/',
+      },
+      {
+        text: '학습하기',
+        link: '/learn',
+        activeMatch: '/learn/',
+      },
+      {
+        text: 'API',
+        link: '/apis',
+        activeMatch: '/apis/',
       },
       {
         text: 'ESLint',
@@ -87,25 +97,59 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/apis': [
+        {
+          base: '/apis',
+          text: 'API 참고서',
+          link: '/',
+          items: [
+            {
+              base: '/apis/eslint-config-bananass',
+              text: 'eslint-config-bananass',
+              link: '/',
+              collapsed: false,
+              items: [
+                {
+                  text: '참고 문서',
+                  link: '/references',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+
       '/': [
         {
-          base: '/get-started/',
+          base: '/get-started',
           text: '시작하기',
-          link: 'installation',
+          link: '/quick-start',
           collapsed: false, // Set it `false` to show `>` icon.
           items: [
             {
+              text: '시작하기 전에',
+              link: '/before-getting-started',
+            },
+            {
+              text: '빠르게 시작하기',
+              link: '/quick-start',
+            },
+            {
               text: '설치하기',
-              link: 'installation',
+              link: '/installation',
             },
           ],
         },
         {
-          base: '/learn/',
+          base: '/learn',
           text: '학습하기',
-          // link: '',
+          link: '/',
           collapsed: false,
           items: [
+            {
+              text: '프로젝트 구조',
+              link: '/project-structure',
+            },
             {
               text: '문제 풀이를 하는 방법',
               // link: '',
@@ -113,17 +157,21 @@ export default defineConfig({
               items: [
                 {
                   text: '입력값 분해하기',
-                  link: 'how-to-parse-input-value',
+                  link: '/how-to-parse-input-value',
                 },
               ],
             },
             {
+              text: '문제 풀이 파일을 실행하는 방법',
+              link: '/how-to-run-solution-files',
+            },
+            {
               text: '바나나 없이 문제 풀기',
-              link: 'solving-problems-without-bananass-framework',
+              link: '/solving-problems-without-bananass-framework',
             },
             {
               text: '질문과 답변',
-              link: 'q-and-a',
+              link: '/q-and-a',
             },
           ],
         },

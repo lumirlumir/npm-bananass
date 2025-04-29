@@ -70,8 +70,18 @@ export default defineConfig({
     nav: [
       {
         text: 'Get Started',
-        link: '/en/get-started/installation',
-        activeMatch: '/en/get-started/installation/',
+        link: '/en/get-started/quick-start',
+        activeMatch: '/en/get-started/',
+      },
+      {
+        text: 'Learn',
+        link: 'en/learn',
+        activeMatch: 'en/learn/',
+      },
+      {
+        text: 'APIs',
+        link: 'en/apis',
+        activeMatch: 'en/apis/',
       },
       {
         text: 'ESLint',
@@ -87,25 +97,59 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/en/apis': [
+        {
+          base: '/en/apis',
+          text: 'APIs',
+          link: '/',
+          items: [
+            {
+              base: '/en/apis/eslint-config-bananass',
+              text: 'eslint-config-bananass',
+              link: '/',
+              collapsed: false,
+              items: [
+                {
+                  text: 'References',
+                  link: '/references',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+
       '/en/': [
         {
-          base: '/en/get-started/',
+          base: '/en/get-started',
           text: 'Get Started',
-          link: 'installation',
+          link: '/quick-start',
           collapsed: false, // Set it `false` to show `>` icon.
           items: [
             {
+              text: 'Before Getting Started',
+              link: '/before-getting-started',
+            },
+            {
+              text: 'Quick Start',
+              link: '/quick-start',
+            },
+            {
               text: 'Installation',
-              link: 'installation',
+              link: '/installation',
             },
           ],
         },
         {
-          base: '/en/learn/',
+          base: '/en/learn',
           text: 'Learn',
-          // link: '',
+          link: '/',
           collapsed: false,
           items: [
+            {
+              text: 'Project Structure',
+              link: '/project-structure',
+            },
             {
               text: 'How to Solve Problems',
               // link: '',
@@ -113,17 +157,21 @@ export default defineConfig({
               items: [
                 {
                   text: 'How to Parse Input Value',
-                  link: 'how-to-parse-input-value',
+                  link: '/how-to-parse-input-value',
                 },
               ],
             },
             {
+              text: 'How to run solution files',
+              link: '/how-to-run-solution-files',
+            },
+            {
               text: 'Solving Problems without Bananass',
-              link: 'solving-problems-without-bananass-framework',
+              link: '/solving-problems-without-bananass-framework',
             },
             {
               text: 'Q & A',
-              link: 'q-and-a',
+              link: '/q-and-a',
             },
           ],
         },

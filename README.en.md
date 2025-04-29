@@ -34,7 +34,7 @@ A new paradigm for solving algorithm problems in JavaScript.
 
 Welcome to the Bananass framework!
 
-The Bananass is a **Baekjoon framework for solving algorithm problems based on JavaScript and TypeScript**, providing a simple and convenient user experience by solving common issues encountered in the Baekjoon Node.js environment.
+The Bananass is a **framework for solving algorithm problems based on JavaScript and TypeScript**, providing a simple and convenient user experience by solving common issues encountered in Node.js environments on various problem-solving platforms such as [Codeforces](https://codeforces.com/) and [Baekjoon](https://www.acmicpc.net/).
 
 - Do you need support for TypeScript?
 - Are you having trouble using the latest JavaScript syntax, such as ES16<sup>ES2025</sup>?
