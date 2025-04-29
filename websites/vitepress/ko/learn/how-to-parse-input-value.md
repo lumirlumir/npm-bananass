@@ -313,14 +313,6 @@ const inputParsed = input.trim().split('\n').map(val => val.split(' '));
   ['ef', 'gh'],
   ['my', 'name', 'is', 'lumir'],
   ['hello', 'bananass']
-] // string[][]}
-
-```js
-[
-  ['ab', 'cd'],
-  ['ef', 'gh'],
-  ['my', 'name', 'is', 'lumir'],
-  ['hello', 'bananass']
 ] // string[][]
 ```
 
