@@ -100,6 +100,10 @@ export default defineConfig({
           collapsed: false, // Set it `false` to show `>` icon.
           items: [
             {
+              text: 'Before Getting Started',
+              link: '/before-getting-started',
+            },
+            {
               text: 'Quick Start',
               link: '/quick-start',
             },

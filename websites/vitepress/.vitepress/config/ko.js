@@ -100,6 +100,10 @@ export default defineConfig({
           collapsed: false, // Set it `false` to show `>` icon.
           items: [
             {
+              text: '시작하기 전에',
+              link: '/before-getting-started',
+            },
+            {
               text: '빠르게 시작하기',
               link: '/quick-start',
             },

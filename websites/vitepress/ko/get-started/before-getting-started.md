@@ -1,8 +1,8 @@
-# Home
+# 시작하기 전에 {#before-getting-started}
 
 ## 백준 Node.js 환경에 구애받지 않는 ES2025 등 최신 문법의 사용
 
-2024년 12월 기준, [백준의 Node.js 버전](https://help.acmicpc.net/language/info)은 `v16.13.1` 입니다. Node.js `v16.13.1`은 2021년 12월 1일에 발표되었고, 가장 최신의 Node.js `v16` 역시 2023년 08월 08일 부로 그 끝<sup>EOL, End of Life</sup>을 맞이했습니다. 매년 새로운 스펙을 발표하는 자바스크립트는 현재도 계속해서 ES14</sup>, ECMAScript2024<sup>ES2024, ES15</sup> ES15</sup>, ECMAScript2025<sup>ES2025, ES16</sup> 등의 새로운 표준을 매년 출시하고 있습니다.
+2024년 12월 기준, [백준의 Node.js 버전](https://help.acmicpc.net/language/info)은 `v16.13.1` 입니다. Node.js `v16.13.1`은 2021년 12월 1일에 발표되었고, 가장 최신의 Node.js `v16` 역시 2023년 08월 08일 부로 그 끝<sup>EOL, End of Life</sup>을 맞이했습니다. 매년 새로운 스펙을 발표하는 자바스크립트는 현재도 계속해서 ES14, ECMAScript2024<sup>ES2024, ES15</sup> ES15, ECMAScript2025<sup>ES2025, ES16</sup> 등의 새로운 표준을 매년 출시하고 있습니다.
 
 새로운 등장한 문법들을 사용하고 싶지만, 현실적 제약때문에 이를 망설였던 여러분들에게 바나나 프레임워크는 새로운 가능성을 제시합니다!
 
@@ -53,3 +53,14 @@
 바나나 프레임워크는 여러분 모두의 관심을 통해 점점 완벽해지고 성장할 수 있습니다. 기여를 통해 바나나 프레임워크를 성장시키고 오픈소스 세상, 그리고 기여자 목록<sup>Contributor List</sup>에 여러분의 발자취를 남기세요.
 
 작게는 이슈 및 문서 기여부터, 핵심 코드 기여까지, 바나나 프레임워크는 모두의 도움으로 성장할 수 있습니다.
+
+---
+
+Node.js 16.13.1 버전에서는 toSorted 메서드를 지원하지 않습니다. toSorted 메서드는 ECMAScript 2023에서 도입된 새로운 배열 메서드로, 원본 배열을 변경하지 않고 정렬된 새로운 배열을 반환합니다. 이러한 최신 ECMAScript 기능은 Node.js의 최신 버전에서 지원됩니다. 따라서 toSorted 메서드를 사용하려면 Node.js를 최신 버전으로 업그레이드하시는 것이 좋습니다. 최신 버전의 Node.js는 공식 웹사이트에서 다운로드하실 수 있습니다.
+NODE.JS — RUN JAVASCRIPT EVERYWHERE
+
+---
+
+> [!TIP]
+>
+> 바나나 프레임워크는 내부적으로 `readline` 모듈을 사용합니다! 아래 코드와 유사한 코드를 기본 템플릿으로 하여 웹팩<sup>Webpack</sup>을 통해 번들링을 진행한 후, 바벨<sup>Babel</sup>을 통한 트랜스파일링<sup>Transpiling</sup>을 거쳐, 빌드<sup>Build</sup> 결과물들을 생성합니다.
