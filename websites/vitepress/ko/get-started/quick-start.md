@@ -2,13 +2,13 @@
 
 ::: danger 반드시 읽어주세요!
 
-이번 챕터는 상세한 설치 방법 및 사용 방법을 설명하기 보다는, 쉽고 빠르게 바나나 프레임워크를 만나볼 수 있는 방법을 소개합니다! 바나나 프레임워크의 상세한 사용 방법은 [학습하기](../learn/) 문서를 참고해주세요.
+이번 챕터는 상세한 설치 방법 및 사용 방법을 설명하기 보다는, 쉽고 빠르게 바나나 프레임워크를 만나볼 수 있는 방법만을 소개합니다! 바나나 프레임워크의 상세한 사용 방법은 [학습하기](../learn/) 문서를 참고해주세요.
 
 :::
 
 지금 바로 바나나 프레임워크를 만나볼 수 있는, 빠르게 시작하기 문서에 오신 것을 환영합니다!
 
-이번 챕터에서는 `create-bananass` 명령어를 이용하여 바나나 프레임워크를 설치하고, 예제로 추가되어 있는 [백준 1000번 문제](https://www.acmicpc.net/problem/1000)를 함께 풀고 제출해 보겠습니다.
+이번 챕터에서는 `create-bananass` 명령어를 이용하여 바나나 프레임워크를 설치하고, 예제로 추가되어 있는 [백준 1000번 문제](https://www.acmicpc.net/problem/1000)를 풀고 제출하는 방법에 대해 소개합니다!
 
 ---
 
@@ -97,13 +97,15 @@ bananass-project/
 └── ...
 ```
 
-강조 표시된 폴더 및 파일에 집중해주세요. 이번 챕터에서 중요한 역할을 맡고 있습니다!
+강조 표시된 폴더 및 파일에 집중해주세요! 이번 챕터에서 중요한 역할을 맡고 있습니다.
 
 ### `package.json` {#package-json}
 
 `package.json`은 바나나 프레임워크의 설정을 담고 있는 파일입니다!
 
-`package.json`의 `scripts` 항목에는 여러 명령어가 추가되어 있습니다. 이번 챕터에서는 이 중 `build`, `run`, `open` 명령어만을 활용하여 함께 문제를 풀고 제출하려 합니다!
+`package.json`의 `scripts` 항목에는 여러 명령어가 추가되어 있습니다. `scripts`에 추가되어 있는 명령어들은 `npm run build`, `npm run run`, `npm run open` 등의 터미널(CLI) 명령어를 통해 실행할 수 있습니다.
+
+이 중 `build`, `run`, `open` 명령어에 집중해주세요! 앞으로, 이 명령어들을 활용하여 함께 문제를 풀고 제출하려 합니다.
 
 ```json {4,6,8}
 {
@@ -121,7 +123,7 @@ bananass-project/
 
 ### `bananass` 폴더 {#bananass-folder}
 
-`bananass` 폴더는 바나나 프레임워크를 통한 문제 풀이 파일이 위치할 폴더입니다! 이 폴더에 문제를 풀고 제출할 코드를 작성해주세요.
+`bananass` 폴더는 바나나 프레임워크를 통한 문제 풀이 파일이 위치할 폴더입니다! 이 폴더에 파일을 만들어 문제를 풀고 제출할 코드를 작성해주세요.
 
 1000번 문제의 경우 `1000.js`라는 파일 이름으로 작성하면 되고, 1001번 문제는 `1001.js`, 12345번 문제는 `12345.js` 파일로 작성하면 됩니다! 현재는 예제로서, `1000.js`, `1001.js` 등의 문제 풀이 파일이 미리 작성되어 있습니다.
 
@@ -129,11 +131,11 @@ bananass-project/
 
 `.bananass` 폴더는 `npm run build 1000` 혹은 `npx bananass build 1000` 등의 `build` 명령어를 터미널에 입력하였을 때, 자동으로 생성되는 폴더입니다.
 
-`bananass` 폴더에 위치한 `1000.js` 등의 문제 풀이 파일이 `.bananass` 폴더에 위치한 `1000.cjs` 등의 동일한 이름을 가진 파일로 변환됩니다! 변환된 파일은 백준 Node.js 환경과 100% 호환되며, 해당 파일의 내용을 복사하여 백준 홈페이지에 붙여넣기 하면 제출할 수 있습니다.
+`bananass` 폴더에 위치한 `1000.js` 등의 문제 풀이 파일이 `.bananass` 폴더에 위치한 `1000.cjs` 등 동일한 이름을 가진 파일로 변환됩니다! 변환된 파일은 백준 Node.js 환경과 100% 호환되며, 해당 파일의 내용을 복사하여 백준 홈페이지에 붙여넣기 하면 제출할 수 있습니다.
 
 ## 빠르게 풀어보기 {#quick-solve}
 
-이제, 바나나 프레임워크를 통해 문제를 풀어보겠습니다. [백준 1000번 문제](https://www.acmicpc.net/problem/1000)를 함께 풀어보죠!
+이제, 바나나 프레임워크를 통해 문제를 풀어보겠습니다. 함께 [백준 1000번 문제](https://www.acmicpc.net/problem/1000)를 풀어보죠!
 
 우선, `bananass` 폴더에 위치한 `1000.js` 혹은 `1000.ts` 파일을 열어주세요. 아래와 같이 작성되어 있습니다.
 
@@ -265,20 +267,30 @@ export default { solution, testcases };
 
 :::
 
+파일을 한번 살펴보셨나요? 바나나 프레임워크 문제 풀이 파일의 핵심은 **3가지**입니다! `testcases`, `solution` 그리고 `export`. 기억하셨나요?
+
+다시 한번 설명하겠습니다. `testcases`, `solution` 그리고 `export`!
+
 ### `testcases` 변수 작성하기 {#writing-testcases}
 
-`testcases`는 `solution` 함수의 입력값과 출력값을 담고 있는 배열입니다. `input`과 `output`은 백준 사이트에 명시되어 있는 입력값과 출력값을 의미하며, 동일하게 작성하면 됩니다!
+`testcases`는 `solution` 함수의 입력값과 출력값을 담고 있는 배열입니다! `input`과 `output`은 백준, 코드포스 등의 사이트에 명시되어 있는 입력값<sup>예제 입력</sup>과 출력값<sup>예제 출력</sup>을 의미하며, 이와 동일하게 작성하면 됩니다.
 
-`testcases`의 `input`에 해당하는 값을 `solution` 함수에 입력하면, `output`에 해당하는 값이 반환되어야 합니다. 즉, 예제 입력과 예제 출력에 해당하는 값을 담고 있습니다. `testcases`는 선택 사항이며, 작성하지 않아도 문제 풀이에는 지장이 없습니다. 하지만, 작성할 경우 `npm run run` 혹은 `npx bananass run` 명령어를 통해 작성한 코드가 올바르게 동작하는지 확인할 수 있습니다.
-
-`testcases`는 선택 사항이지만, 작성할 경우 `npm run run` 혹은 `npx bananass run` 명령어를 통해 작성한 코드가 올바르게 동작하는지 확인할 수 있습니다. 따라서, 문제 풀이를 작성하기 전, 먼저 `testcases`를 작성하는 것을 추천합니다!
+`testcases`의 `input`에 해당하는 값을 `solution` 함수에 입력하면, `output`에 해당하는 값을 반환해야 합니다. `testcases`는 선택 사항이며, 작성하지 않아도 문제 풀이에는 지장이 없습니다. 하지만, 작성할 경우 `npm run run` 혹은 `npx bananass run` 명령어를 통해 작성한 `solution` 함수가 올바르게 동작하는지 확인할 수 있습니다. 따라서, 문제 풀이를 작성하기 전, 먼저 `testcases`를 작성하여 `solution` 함수의 예상 동작을 정의하는 것을 추천합니다!
 
 ### `solution` 함수 작성하기 {#writing-solution}
 
-`solution`은 문제를 해결하기 위한 함수입니다. `input`을 인자로 받아, 문제의 정답을 반환해야 합니다.
+`solution`은 문제 풀이를 위한 함수입니다. `input`을 인자로 받아, `output`에 해당하는 문제의 정답을 반환해야 합니다.
 
 `input`은 항상 문자열로 주어지며, `output`은 문자열<sup>`string`</sup>, 숫자<sup>`number`</sup>, 불리언<sup>`boolean`</sup> 타입 중 하나를 반환해야 합니다.
 
 ### `testcases` 및 `solution` 내보내기 {#exporting-testcases-and-solution}
 
-`testcases` 및 `solution` 함수는 `module.exports` 혹은 `export default`를 통해 내보내야 합니다. 바나나 프레임워크는 이 테스트 케이스와 함수를 통해 문제를 해결합니다.
+::: danger 반드시 읽어주세요!
+
+`module.exports` 및 `export default` 등을 통하여 `solution` 함수와 `testcases` 변수를 내보낼 때, `solution` 및 `testcases`를 제외한 다른 이름을 사용하면 안됩니다!
+
+이는, 바나나 프레임워크의 규칙으로, 모듈 내보내기를 진행할때는 반드시 `solution`과 `testcases`라는 이름을 사용해야만 합니다.
+
+:::
+
+`testcases` 및 `solution` 함수는 `module.exports` 혹은 `export default`를 통해 내보내야 합니다.
