@@ -75,7 +75,7 @@ export default defineConfig({
       },
       {
         text: '학습하기',
-        link: '/learn/project-structure',
+        link: '/learn',
         activeMatch: '/learn/',
       },
       {
@@ -112,7 +112,7 @@ export default defineConfig({
         {
           base: '/learn/',
           text: '학습하기',
-          link: 'project-structure',
+          link: '/',
           collapsed: false,
           items: [
             {

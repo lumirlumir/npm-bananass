@@ -75,7 +75,7 @@ export default defineConfig({
       },
       {
         text: 'Learn',
-        link: 'en/learn/project-structure',
+        link: 'en/learn',
         activeMatch: 'en/learn/',
       },
       {
@@ -112,7 +112,7 @@ export default defineConfig({
         {
           base: '/en/learn/',
           text: 'Learn',
-          link: 'project-structure',
+          link: '/',
           collapsed: false,
           items: [
             {

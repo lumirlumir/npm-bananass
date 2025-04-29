@@ -17,7 +17,7 @@ hero:
       link: /get-started/quick-start
     - theme: alt
       text: 학습하기
-      link: /learn/project-structure
+      link: /learn
     - theme: alt
       text: API 참고서
       link: / # TODO

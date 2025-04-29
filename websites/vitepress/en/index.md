@@ -17,7 +17,7 @@ hero:
       link: /en/get-started/quick-start
     - theme: alt
       text: Learn
-      link: /en/learn/project-structure
+      link: /en/learn
     - theme: alt
       text: APIs
       link: / # TODO
