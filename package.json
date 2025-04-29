@@ -71,7 +71,7 @@
     "editorconfig-checker": "^6.0.1",
     "eslint": "^9.25.1",
     "eslint-config-bananass": "^0.1.0-canary.5",
-    "eslint-plugin-mark": "^0.1.0-canary.1",
+    "eslint-plugin-mark": "^0.1.0-canary.5",
     "husky": "^9.1.7",
     "lerna": "^8.2.2",
     "lint-staged": "^15.5.1",
