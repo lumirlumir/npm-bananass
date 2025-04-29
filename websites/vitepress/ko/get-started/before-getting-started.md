@@ -2,7 +2,7 @@
 
 바나나<sup>Bananass</sup> 프레임워크에 오신 것을 환영합니다!:banana::tada::confetti_ball::partying_face:
 
-바나나는 **자바스크립트<sup>JavaScript</sup> 및 타입스크립트<sup>TypeScript</sup> 기반의 알고리즘 문제 풀이를 위한 프레임워크**로, [코드포스](https://codeforces.com/)ㆍ[백준](https://www.acmicpc.net/) 등 다양한 문제 풀이 플랫폼들의 Node.js 환경에서 반복적으로 마주치는 문제점들을 해결하며, 간결하고 편리한 사용자 경험을 제공합니다.
+바나나는 **자바스크립트<sup>JavaScript</sup> 및 타입스크립트<sup>TypeScript</sup> 기반의 알고리즘 문제 풀이를 위한 프레임워크**로, [백준](https://www.acmicpc.net/)ㆍ[코드포스](https://codeforces.com/) 등 다양한 문제 풀이 플랫폼들의 Node.js 환경에서 반복적으로 마주치는 문제점들을 해결하며, 간결하고 편리한 사용자 경험을 제공합니다.
 
 그렇다면, 왜 바나나일까요? 그리고 바나나 프레임워크는 기존의 불편함들을 어떻게 해결할까요?
 
@@ -14,16 +14,24 @@
 
 ## Node.js 환경에 구애받지 않는 ES16<sup>ES2025</sup> 등 최신 문법 지원 {#support-for-modern-syntax}
 
-2024년 12월 기준, [백준의 Node.js 버전](https://help.acmicpc.net/language/info)은 `v16.13.1` 입니다. Node.js `v16.13.1`은 2021년 12월 1일에 발표되었고, 가장 최신의 Node.js `v16` 역시 2023년 08월 08일 부로 그 끝<sup>EOL, End of Life</sup>을 맞이했습니다. 매년 새로운 스펙을 발표하는 자바스크립트는 현재도 계속해서 ES14, ECMAScript2024<sup>ES2024, ES15</sup> ES15, ECMAScript2025<sup>ES2025, ES16</sup> 등의 새로운 표준을 매년 출시하고 있습니다.
+2025년 5월 기준, [백준](https://help.acmicpc.net/language/info)의 Node.js 버전은 `v16.13.1`이고, [코드포스](https://codeforces.com/)의 Node.js 버전은 `v15.8.0` 입니다.
 
-Node.js 16.13.1 버전에서는 toSorted 메서드를 지원하지 않습니다. toSorted 메서드는 ECMAScript 2023에서 도입된 새로운 배열 메서드로, 원본 배열을 변경하지 않고 정렬된 새로운 배열을 반환합니다. 이러한 최신 ECMAScript 기능은 Node.js의 최신 버전에서 지원됩니다. 따라서 toSorted 메서드를 사용하려면 Node.js를 최신 버전으로 업그레이드하시는 것이 좋습니다. 최신 버전의 Node.js는 공식 웹사이트에서 다운로드하실 수 있습니다.
-NODE.JS — RUN JAVASCRIPT EVERYWHERE
+- Node.js는 `v16.13.1`을 [2021년 12월 01일](https://github.com/nodejs/node/releases/tag/v16.13.1)에 발표하였고, 가장 최신의 Node.js `v16` 역시 2023년 08월 08일 부로 그 끝<sup>EOL, End of Life</sup>을 맞이했습니다.
+- Node.js는 `v15.8.0`을 [2021년 02월 02일](https://github.com/nodejs/node/releases/tag/v15.8.0)에 발표하였고, 가장 최신의 Node.js `v15` 역시 2021년 04월 07일 부로 그 끝<sup>EOL, End of Life</sup>을 맞이했습니다.
 
-새로운 등장한 문법들을 사용하고 싶지만, 현실적 제약때문에 이를 망설였던 여러분들에게 바나나 프레임워크는 새로운 가능성을 제시합니다!
+매년 새로운 스펙을 발표하는 자바스크립트는 현재도 계속해서 ES16<sup>ES2025</sup>, ES17<sup>ES2026</sup> 등 새로운 표준을 매년 출시하고 있습니다. **하지만**, Node.js `v16.13.1` 및 `v15.8.0` 등 더 이상 사용되지 않는<sup>Deprecated</sup> 구 버전의 Node.js에서는 최신 문법을 지원하지 않습니다.
 
-> [!TIP]
->
-> 바나나 프레임워크는 내부적으로 [바벨<sup>Babel</sup>](https://babeljs.io/)을 통한 트랜스파일링<sup>Transpiling</sup>을 이용해 최신 사양의 문법들을 사용할 수 있게 해줍니다.
+예를 들어, 구 버전의 Node.js는 ES14<sup>ES2023</sup>의 [`Array.prototype.toSorted`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted), [`Array.prototype.toReversed`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/toReversed) 등의 최신 프로토타입 메서드<sup>Prototype Method</sup> 및 ES16<sup>ES2025</sup>의 [`regexp-modifiers`](https://github.com/tc39/proposal-regexp-modifiers) 등의 최신 문법을 지원하지 못합니다.
+
+새로운 표준으로 도입된 기능들은 사용자에게 더 나은 개발 경험<sup>DX</sup>과 편리함을 제공합니다. 그렇다면, 문제 풀이 플랫폼들의 Node.js 버전 제약으로 인해 최신 표준을 사용하지 못한 채, 옛 표준에만 얽매여 문제를 풀어야 할까요?
+
+바나나 프레임워크는 이 문제에 대한 해결책을 제시합니다! 바나나 프레임워크는 내부적으로 [바벨<sup>Babel</sup>](https://babeljs.io/)의 [`@babel/preset-env`](https://babeljs.io/docs/babel-preset-env) 및 직접 정의한 [Custom Babel Plugin](https://github.com/lumirlumir/npm-bananass/tree/main/packages/bananass/src/babel-plugins)들을 통한 트랜스파일링<sup>Transpiling</sup>을 통해, 새롭게 표준으로 추가된 최신 사양의 문법들을 사용할 수 있게 해줍니다.
+
+::: warning 주의하세요!
+
+바나나 프레임워크는 앞서 언급한 `@babel/preset-env` 및 Custom Babel Plugin들을 통해 지원하는 최신 기능들만을 사용할 수 있습니다.
+
+:::
 
 ## 사용자 정의 모듈 및 `lodash` 등 외부 라이브러리 불러오기 지원 {#support-for-custom-modules-and-external-libraries-like-lodash}
 
