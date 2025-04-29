@@ -53,17 +53,17 @@
 
 :::
 
-## 프로그래머스처럼 `solution` 함수 하나로 문제 풀이를 시작하세요
+## 프로그래머스처럼 `solution` 함수 하나로 문제 풀이를 시작하세요 {#start-solving-problems-with-a-single-solution-function-like-on-programmers}
 
-## 편리하게 테스트 케이스를 작성하고 실행하세요
+## 편리하게 테스트 케이스를 작성하고 실행하세요 {#write-and-run-test-cases-conveniently}
 
-## `create-bananass`로 지금 바로 시작하세요
+## `create-bananass`로 지금 바로 시작하세요 {#get-started-with-create-bananass}
 
-## 같은 문제라도 더 빠르게 푸세요
+## 같은 문제라도 더 빠르게 푸세요 {#solve-the-same-problem-faster}
 
-## 편의를 위한 다양한 CLI 명령어 지원
+## 편의를 위한 다양한 CLI 명령어 지원 {#various-cli-commands-for-convenience}
 
-## 풍부하고 상세한 문서 지원
+## 풍부하고 상세한 문서 지원 {#rich-and-detailed-documentation-support}
 
 관심 있는 오픈소스가 있지만, 부실한 문서때문에 사용을 망설이신적이 있으신가요? 바나나 프레임워크는 풍부한 문서와 커뮤니티 지원을 목표로 하고 있습니다!
 
@@ -75,7 +75,7 @@
 
 버그 수정 혹은 기능 제안을 하고 싶으신가요? [이슈<sup>Issue</sup>](https://github.com/lumirlumir/npm-bananass/issues) 및 [끌어오기 요청<sup>Pull Request</sup>](https://github.com/lumirlumir/npm-bananass/pulls)을 통해 더 멋진 바나나 프레임워크를 만들어주세요.
 
-## ESLint 및 Prettier 자체 지원
+## ESLint 및 Prettier 자체 지원 {#native-support-for-eslint-and-prettier}
 
 백준 문제를 풀며, 자바스크립트 생태계에서 가장 유명한 에어비앤비<sup>Airbnb</sup> 코드 컨벤션을 따르는 ESLint 및 Prettier의 규칙을 따라가 보세요!
 
@@ -88,7 +88,7 @@
 
 :::
 
-## 완전한 오픈소스
+## 완전한 오픈소스 {#fully-open-source}
 
 바나나<sup>Bananass</sup> 프레임워크는 MIT 라이센스를 따르는 완전한 오픈소스입니다!
 
