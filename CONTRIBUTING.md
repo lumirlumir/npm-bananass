@@ -4,9 +4,9 @@
 
 안녕하세요! 기여에 관심을 가져주셔서 감사합니다.
 
-바나나 프레임워크는 문서, 웹사이트, 코드 개발 뿐만 아니라, 바나나 프레임워크를 통한 백준 문제 풀이 및 해설 등 다양한 방면에서 커뮤니티의 기여를 받고 있습니다. [바나나 프레임워크 리포지토리](https://github.com/lumirlumir/npm-bananass)에 다음과 같은 형태로 기여하실 수 있습니다.
+바나나 프레임워크는 문서, 웹사이트, 코드 개발 뿐만 아니라, 바나나 프레임워크를 통한 백준, 코드포스 문제 풀이 및 해설 등 다양한 방면에서 커뮤니티의 기여를 받고 있습니다. [바나나 프레임워크 리포지토리](https://github.com/lumirlumir/npm-bananass)에 다음과 같은 형태로 기여하실 수 있습니다.
 
-1. 문서 기여: '바나나 프레임워크를 이용한 백준 문제 풀이 및 해설', '바나나 프레임워크 웹사이트 문서', '`README.md`' 등.
+1. 문서 기여: '바나나 프레임워크를 이용한 백준, 코드포스 문제 풀이 및 해설', '바나나 프레임워크 웹사이트 문서', '`README.md`' 등.
 1. 웹사이트 기여: '웹사이트 디자인', '버그 수정', '기능 제안' 등.
 1. 코드 기여: '코드 커버리지를 채우지 못한 부분에 대한 테스트 코드 추가', '버그 수정', '기능 제안' 등.
 
@@ -27,7 +27,10 @@
 
 바나나 프레임워크는 [`npm workspaces`](https://docs.npmjs.com/cli/using-npm/workspaces)와 [`lerna`](https://lerna.js.org/)를 이용한 **모노레포<sup>monorepo</sup>** 구조로 구성되어 있습니다.
 
-핵심 패키지인 `bananass` 패키지는 `packages/bananass` 폴더에 위치하며, 그 외 패키지들도 `packages` 폴더 하위에 위치하고 있습니다. `README.md`, `CONTRIBUTING.md` 등의 커뮤니티 문서들은 프로젝트의 최상단에 위치하며, 바나나 프레임워크 웹사이트 상의 문서들은 `websites/vitepress/ko` 및 `websites/vitepress/en` 폴더에 각각 위치하고 있습니다.
+- 핵심 패키지인 `bananass` 패키지는 `packages/bananass` 폴더에 위치합니다.
+- 그 외 패키지들도 `packages` 폴더 하위에 위치하고 있습니다.
+- `README.md`, `CONTRIBUTING.md` 등의 커뮤니티 문서들은 프로젝트의 최상단에 위치합니다.
+- 바나나 프레임워크 웹사이트 상의 문서들은 `websites/vitepress/ko` 및 `websites/vitepress/en` 폴더에 각각 위치하고 있습니다.
 
 ## 커밋 메시지
 
@@ -57,7 +60,7 @@
 
 1. 문서 혹은 코드를 수정합니다.
 
-1. `my-branch` 브랜치를 생성합니다.
+1. 새로운 분기<sup>Branch</sup>를 생성합니다.
 
     ```sh
     git switch -c my-branch
