@@ -7,7 +7,7 @@ airbnb-base 보다 훨씬 느슨하다.
 ## 설정 방법
 
 ```js
-import bananass = from 'eslint-config-bananass';
+import bananass from 'eslint-config-bananass';
 
 export default [
   bananass.configs.js
