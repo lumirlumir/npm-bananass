@@ -74,6 +74,11 @@ export default defineConfig({
         activeMatch: '/get-started/',
       },
       {
+        text: '학습하기',
+        link: '/learn/project-structure',
+        activeMatch: '/learn/',
+      },
+      {
         text: 'ESLint',
         link: 'https://eslint-config-bananass.lumir.page',
       },
@@ -107,9 +112,13 @@ export default defineConfig({
         {
           base: '/learn/',
           text: '학습하기',
-          // link: '',
+          link: 'project-structure',
           collapsed: false,
           items: [
+            {
+              text: '프로젝트 구조',
+              link: 'project-structure',
+            },
             {
               text: '문제 풀이를 하는 방법',
               // link: '',

@@ -74,6 +74,11 @@ export default defineConfig({
         activeMatch: '/en/get-started/',
       },
       {
+        text: 'Learn',
+        link: 'en/learn/project-structure',
+        activeMatch: 'en/learn/',
+      },
+      {
         text: 'ESLint',
         link: 'https://eslint-config-bananass.lumir.page',
       },
@@ -107,9 +112,13 @@ export default defineConfig({
         {
           base: '/en/learn/',
           text: 'Learn',
-          // link: '',
+          link: 'project-structure',
           collapsed: false,
           items: [
+            {
+              text: 'Project Structure',
+              link: 'project-structure',
+            },
             {
               text: 'How to Solve Problems',
               // link: '',
