@@ -101,7 +101,7 @@ export default { solution };
 
 가장 단순한 경우입니다. 아래와 같은 입력값 `input`을 가정하겠습니다.
 
-### 예제 입력
+### 예제 입력 {#sample-input-1}
 
 ```txt
 hello
@@ -115,19 +115,19 @@ hello
 
 :::
 
-### 분해 방법 1: `String.prototype.trim()`을 이용한 방식
+### 분해 방법 1: `String.prototype.trim()`을 이용한 방식 {#method-1-using-string-prototype-trim}
 
 ```js
 const inputParsed = input.trim();
 ```
 
-### 분해 방법 2: `String.prototype.trim()`을 이용하지 않은 방식
+### 분해 방법 2: `String.prototype.trim()`을 이용하지 않은 방식 {#method-2-without-using-string-prototype-trim}
 
 ```js
 const inputParsed = input;
 ```
 
-### `inputParsed`에 저장된 값
+### `inputParsed`에 저장된 값 {#value-stored-in-inputparsed}
 
 ```js
 'hello' // string
@@ -139,7 +139,7 @@ const inputParsed = input;
 
 이제 문자열<sup>`string`</sup> 타입으로 들어온 숫자를 다루기 쉽게 숫자<sup>`number`</sup> 타입으로 변환해 주어야 합니다! 아래와 같은 입력값 `input`을 가정하겠습니다.
 
-### 예제 입력
+### 예제 입력 {#sample-input-2}
 
 ```txt
 3
@@ -153,13 +153,13 @@ const inputParsed = input;
 >
 > 단, ESLint의 [`no-implicit-coercion`](https://eslint.org/docs/latest/rules/no-implicit-coercion) 규칙에서 권장하듯, 단축 형 변환<sup>Shorthand Type Conversions</sup> 대신 가능한 `Number()` 객체를 사용하는 것을 (개인적으로) 권장합니다.
 
-### 분해 방법
+### 분해 방법 {#parsing-method-2}
 
 ```js
 const inputParsed = Number(input.trim());
 ```
 
-### `inputParsed`에 저장된 값
+### `inputParsed`에 저장된 값 {#value-stored-in-inputparsed-2}
 
 ```js
 3 // number
@@ -169,7 +169,7 @@ const inputParsed = Number(input.trim());
 
 이번에는 아래와 같은 입력값 `input`이 들어오면 어떨까요?
 
-### 예제 입력
+### 예제 입력 {#sample-input-3}
 
 ```txt
 hello bananass
@@ -177,13 +177,13 @@ hello bananass
 
 이런 경우 [`String.prototype.split()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/split) 메서드를 이용하여 띄어쓰기로 구분된 값들을 배열<sup>`array`</sup>로 만들어 줄 수 있습니다!
 
-### 분해 방법
+### 분해 방법 {#parsing-method-3}
 
 ```js
 const inputParsed = input.trim().split(' ');
 ```
 
-### `inputParsed`에 저장된 값
+### `inputParsed`에 저장된 값 {#value-stored-in-inputparsed-3}
 
 ```js
 ['hello', 'bananass'] // string[]
@@ -193,7 +193,7 @@ const inputParsed = input.trim().split(' ');
 
 이제 슬슬 감이 오실까요? 아래 예제를 더 살펴보죠!
 
-### 예제 입력
+### 예제 입력 {#sample-input-4}
 
 ```txt
 3 24 98
@@ -201,7 +201,7 @@ const inputParsed = input.trim().split(' ');
 
 이런 경우 [`String.prototype.split()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/split) 메서드를 이용하여 띄어쓰기로 구분된 값들을 배열<sup>`array`</sup>로 만들어 준 후, [`Array.prototype.map()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map) 메서드를 이용하여 각 값들을 숫자로 변환해 주어야 합니다.
 
-### 분해 방법
+### 분해 방법 {#parsing-method-4}
 
 ```js
 const inputParsed = input.trim().split(' ').map(val => Number(val));
@@ -213,7 +213,7 @@ const inputParsed = input.trim().split(' ').map(val => Number(val));
 const inputParsed = input.trim().split(' ').map(Number);
 ```
 
-### `inputParsed`에 저장된 값
+### `inputParsed`에 저장된 값 {#value-stored-in-inputparsed-4}
 
 ```js
 [3, 24, 98] // number[]
@@ -229,7 +229,7 @@ const inputParsed = input.trim().split(' ').map(Number);
 >
 > 바나나 프레임워크에서는 이러한 백준 Node.js 환경에 맞게, 윈도우<sup>Windows</sup>의 CRLF(`\r\n`) 혹은 POSIX(리눅스<sup>Linux</sup>, 맥<sup>macOS</sup>)의 LF(`\n`)를 구분하지 않고 `\n`으로 통일하여 입력값 `input`으로 사용할 수 있게 설계하였습니다. 즉, 개행 문자로 항상 `\n`을 사용하도록 만들어 두었으니, 편하게 `\n`을 통해 개행을 구분하시면 됩니다.
 
-### 예제 입력
+### 예제 입력 {#sample-input-5}
 
 ```txt
 a
@@ -240,13 +240,13 @@ d
 
 이런 경우에도 `String.prototype.split()` 메서드를 이용하여 개행 문자(`\n`)로 구분된 값들을 배열<sup>`array`</sup>로 만들어 줄 수 있습니다.
 
-### 분해 방법
+### 분해 방법 {#parsing-method-5}
 
 ```js
 const inputParsed = input.trim().split('\n');
 ```
 
-### `inputParsed`에 저장된 값
+### `inputParsed`에 저장된 값 {#value-stored-in-inputparsed-5}
 
 ```js
 ['a', 'b', 'c', 'd'] // string[]
@@ -256,7 +256,7 @@ const inputParsed = input.trim().split('\n');
 
 이제 혼자서도 하실 수 있겠죠? 아래 예제를 살펴봅시다!
 
-### 예제 입력
+### 예제 입력 {#sample-input-6}
 
 ```txt
 3
@@ -266,7 +266,7 @@ const inputParsed = input.trim().split('\n');
 
 `String.prototype.split()` 메서드를 이용하여 개행 문자(`\n`)로 구분된 값들을 배열<sup>`array`</sup>로 만들어 준 후, `Array.prototype.map()` 메서드를 이용하여 각 값들을 숫자로 변환해 주어야 합니다.
 
-### 분해 방법
+### 분해 방법 {#parsing-method-6}
 
 ```js
 const inputParsed = input.trim().split('\n').map(val => Number(val));
@@ -278,7 +278,7 @@ const inputParsed = input.trim().split('\n').map(val => Number(val));
 const inputParsed = input.trim().split('\n').map(Number);
 ```
 
-### `inputParsed`에 저장된 값
+### `inputParsed`에 저장된 값 {#value-stored-in-inputparsed-6}
 
 ```js
 [3, 24, 98] // number[]
@@ -288,7 +288,7 @@ const inputParsed = input.trim().split('\n').map(Number);
 
 이번에는 좀 더 복잡한 경우를 살펴보겠습니다! 이제 풀이 방법이 떠오르실까요? 다음 예제를 봅시다.
 
-### 예제 입력
+### 예제 입력 {#sample-input-7}
 
 ```txt
 ab cd
@@ -299,13 +299,21 @@ hello bananass
 
 `String.prototype.split()` 메서드를 이용하여 개행 문자(`\n`)로 구분된 값들을 배열<sup>`array`</sup>로 만들어 준 후, `Array.prototype.map()` 메서드를 이용하여 각 값들을 띄어쓰기로 구분된 값들로 만들어 줄 수 있습니다!
 
-### 분해 방법
+### 분해 방법 {#parsing-method-7}
 
 ```js
 const inputParsed = input.trim().split('\n').map(val => val.split(' '));
 ```
 
-### `inputParsed`에 저장된 값
+### `inputParsed`에 저장된 값 {#value-stored-in-inputparsed-7}
+
+```js
+[
+  ['ab', 'cd'],
+  ['ef', 'gh'],
+  ['my', 'name', 'is', 'lumir'],
+  ['hello', 'bananass']
+] // string[][]}
 
 ```js
 [
@@ -320,7 +328,7 @@ const inputParsed = input.trim().split('\n').map(val => val.split(' '));
 
 마지막 예제입니다! 앞에서 설명한 모든 내용들을 적용하시면 됩니다. 아래 예제를 살펴보세요!
 
-### 예제 입력
+### 예제 입력 {#sample-input-8}
 
 ```txt
 3 24
@@ -331,7 +339,7 @@ const inputParsed = input.trim().split('\n').map(val => val.split(' '));
 
 `String.prototype.split()` 메서드를 이용하여 개행 문자(`\n`)로 구분된 값들을 배열<sup>`array`</sup>로 만들어 준 후, `Array.prototype.map()` 메서드를 이용하여 각 값들을 띄어쓰기로 구분된 값들로 만들고, 다시 `Array.prototype.map()` 메서드를 이용하여 각 값들을 숫자로 변환해 주어야 합니다!
 
-### 분해 방법
+### 분해 방법 {#parsing-method-8}
 
 ```js
 const inputParsed = input
@@ -340,7 +348,7 @@ const inputParsed = input
   .map(val => val.split(' ').map(val => Number(val)));
 ```
 
-### `inputParsed`에 저장된 값
+### `inputParsed`에 저장된 값 {#value-stored-in-inputparsed-8}
 
 ```js
 [
@@ -351,6 +359,6 @@ const inputParsed = input
 ] // number[][]
 ```
 
-## 마치며
+## 마치며 {#conclusion}
 
-지금까지 소개한 방법 이외에도 다양한 방식으로 `input`이 들어올 수 있습니다. 이번 챕터에서 소개한 방법들을 참고하여, 다양한 형태의 `input`을 분해하여 원하는 형태로 가공해 보세요! 이제 여러분들의 손에 달렸습니다.🙌
+지금까지 소개한 방법 이외에도 다양한 방식으로 `input`이 들어올 수 있습니다. 이번 챕터에서 소개한 방법들을 참고하여, 다양한 형태의 `input`을 분해하여 원하는 형태로 가공해 보세요! 이제 여러분들의 손에 달렸습니다.:raised_hands:

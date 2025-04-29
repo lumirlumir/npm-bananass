@@ -31,6 +31,6 @@ bananass-project/
 └── ...
 ```
 
-### 최상위 폴더
+### 최상위 폴더 {#top-level-folder}
 
 이는 `bananass.config.{js,mjs,cjs,ts,mts,cts}` 파일을 통해 자신의 취향에 맞게 변경할 수 있습니다.
