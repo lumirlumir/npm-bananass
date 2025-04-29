@@ -155,8 +155,17 @@ export default defineConfig({
               link: '/project-structure',
             },
             {
+              text: 'How to Create Solution Files',
+              collapsed: false,
+              items: [
+                {
+                  text: '',
+                  link: '',
+                },
+              ],
+            },
+            {
               text: 'How to Solve Problems',
-              // link: '',
               collapsed: false,
               items: [
                 {
@@ -166,7 +175,7 @@ export default defineConfig({
               ],
             },
             {
-              text: 'How to run solution files',
+              text: 'How to Run Solution Files',
               link: '/how-to-run-solution-files',
             },
             {

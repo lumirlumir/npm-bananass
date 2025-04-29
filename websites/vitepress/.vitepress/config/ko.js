@@ -155,8 +155,17 @@ export default defineConfig({
               link: '/project-structure',
             },
             {
-              text: '문제 풀이를 하는 방법',
-              // link: '',
+              text: '문제 풀이 파일 작성하기',
+              collapsed: false,
+              items: [
+                {
+                  text: '',
+                  link: '',
+                },
+              ],
+            },
+            {
+              text: '문제 풀기',
               collapsed: false,
               items: [
                 {
@@ -166,7 +175,7 @@ export default defineConfig({
               ],
             },
             {
-              text: '문제 풀이 파일을 실행하는 방법',
+              text: '문제 풀이 파일 실행하기',
               link: '/how-to-run-solution-files',
             },
             {
