@@ -215,7 +215,7 @@ export default defineConfig({
                 },
                 {
                   text: '테스트 케이스 및 문제 풀이 함수 내보내기',
-                  link: '',
+                  link: '/exporting-test-cases-and-solution-function',
                 },
                 {
                   text: '하나의 파일에 모든 로직 작성하기',

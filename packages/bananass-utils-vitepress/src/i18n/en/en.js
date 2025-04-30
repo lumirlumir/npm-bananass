@@ -48,6 +48,7 @@ export default function en({ themeConfigEditLinkPattern = '' } = {}) {
     themeConfig: {
       editLink: {
         pattern: themeConfigEditLinkPattern,
+        text: 'Edit this page on GitHub',
       },
 
       footer: {

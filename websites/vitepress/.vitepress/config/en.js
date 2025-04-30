@@ -215,7 +215,7 @@ export default defineConfig({
                 },
                 {
                   text: 'Exporting Test Cases and Solution Function',
-                  link: '',
+                  link: '/exporting-test-cases-and-solution-function',
                 },
                 {
                   text: 'Writing All Logic in a Single File',
