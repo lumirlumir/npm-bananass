@@ -159,7 +159,31 @@ export default defineConfig({
               collapsed: false,
               items: [
                 {
-                  text: '',
+                  text: '테스트 케이스 작성하기',
+                  link: '',
+                },
+                {
+                  text: '문제 풀이 함수 작성하기',
+                  link: '',
+                },
+                {
+                  text: '테스트 케이스 및 문제 풀이 함수 내보내기',
+                  link: '',
+                },
+                {
+                  text: '하나의 파일에 모든 로직 작성하기',
+                  link: '',
+                },
+                {
+                  text: '하나의 폴더에 모듈을 분리하여 로직 작성하기',
+                  link: '',
+                },
+                {
+                  text: '외부 라이브러리 불러오기',
+                  link: '',
+                },
+                {
+                  text: '최종 빌드 출력 결과에서 특정 코드 제외하기',
                   link: '',
                 },
               ],
@@ -172,11 +196,23 @@ export default defineConfig({
                   text: '입력값 분해하기',
                   link: '/how-to-parse-input-value',
                 },
+                {
+                  text: '입력값이 없는 경우',
+                  link: '',
+                },
+                {
+                  text: '출력값 조립하기',
+                  link: '',
+                },
               ],
             },
             {
               text: '문제 풀이 파일 실행하기',
               link: '/how-to-run-solution-files',
+            },
+            {
+              text: '문제 풀이 파일 빌드하기',
+              link: '',
             },
             {
               text: '바나나 없이 문제 풀기',

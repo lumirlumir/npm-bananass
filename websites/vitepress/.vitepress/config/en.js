@@ -159,6 +159,30 @@ export default defineConfig({
               collapsed: false,
               items: [
                 {
+                  text: 'testcases, solution, export',
+                  link: '',
+                },
+                {
+                  text: '',
+                  link: '',
+                },
+                {
+                  text: '',
+                  link: '',
+                },
+                {
+                  text: '',
+                  link: '',
+                },
+                {
+                  text: '',
+                  link: '',
+                },
+                {
+                  text: '',
+                  link: '',
+                },
+                {
                   text: '',
                   link: '',
                 },
@@ -172,11 +196,23 @@ export default defineConfig({
                   text: 'How to Parse Input Value',
                   link: '/how-to-parse-input-value',
                 },
+                {
+                  text: '',
+                  link: '',
+                },
+                {
+                  text: '',
+                  link: '',
+                },
               ],
             },
             {
               text: 'How to Run Solution Files',
               link: '/how-to-run-solution-files',
+            },
+            {
+              text: 'How to Build Solution Files',
+              link: '',
             },
             {
               text: 'Solving Problems without Bananass',
