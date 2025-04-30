@@ -207,7 +207,7 @@ export default defineConfig({
               items: [
                 {
                   text: '테스트 케이스 작성하기',
-                  link: '',
+                  link: '/writing-test-cases',
                 },
                 {
                   text: '문제 풀이 함수 작성하기',

@@ -207,7 +207,7 @@ export default defineConfig({
               items: [
                 {
                   text: 'Writing Test Cases',
-                  link: '',
+                  link: '/writing-test-cases',
                 },
                 {
                   text: 'Writing a Solution Function',
