@@ -223,7 +223,7 @@ export default defineConfig({
                 },
                 {
                   text: 'Writing Modular Logic in a Single Folder',
-                  link: '',
+                  link: '/writing-modular-logic-in-a-single-folder',
                 },
                 {
                   text: 'Importing External Libraries',

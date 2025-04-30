@@ -223,7 +223,7 @@ export default defineConfig({
                 },
                 {
                   text: '하나의 폴더에 모듈을 분리하여 로직 작성하기',
-                  link: '',
+                  link: '/writing-modular-logic-in-a-single-folder',
                 },
                 {
                   text: '외부 라이브러리 불러오기',
