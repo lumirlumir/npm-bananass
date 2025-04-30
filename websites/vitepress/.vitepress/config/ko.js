@@ -277,7 +277,7 @@ export default defineConfig({
             },
             {
               text: '이외의 유용한 CLI 명령어들',
-              link: '',
+              link: '/other-useful-cli-commands',
             },
             {
               text: '<code>bananass.config</code> 파일 작성하기',
