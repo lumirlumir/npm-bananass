@@ -23,7 +23,7 @@ hero:
       link: /apis
     - theme: alt
       text: 문제 풀이 해답
-      link: / # TODO
+      link: /solutions
     - theme: alt
       text: 예제
       link: https://github.com/lumirlumir/npm-bananass/tree/main/examples

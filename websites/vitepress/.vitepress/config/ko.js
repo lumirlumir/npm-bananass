@@ -84,6 +84,11 @@ export default defineConfig({
         activeMatch: '/apis/',
       },
       {
+        text: '문제 풀이',
+        link: '/solutions',
+        activeMatch: '/solutions/',
+      },
+      {
         text: 'ESLint',
         link: 'https://eslint-config-bananass.lumir.page',
       },

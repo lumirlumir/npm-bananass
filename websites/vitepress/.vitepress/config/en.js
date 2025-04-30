@@ -75,13 +75,18 @@ export default defineConfig({
       },
       {
         text: 'Learn',
-        link: 'en/learn',
-        activeMatch: 'en/learn/',
+        link: '/en/learn',
+        activeMatch: '/en/learn/',
       },
       {
         text: 'APIs',
-        link: 'en/apis',
-        activeMatch: 'en/apis/',
+        link: '/en/apis',
+        activeMatch: '/en/apis/',
+      },
+      {
+        text: 'Solutions',
+        link: '/en/solutions',
+        activeMatch: '/en/solutions/',
       },
       {
         text: 'ESLint',
@@ -97,20 +102,20 @@ export default defineConfig({
     ],
 
     sidebar: {
-      '/solutions': [
+      '/en/solutions': [
         {
-          base: '/solutions',
+          base: '/en/solutions',
           text: 'Solutions',
           link: '',
           collapsed: false,
           items: [
             {
-              base: '/solutions/baekjoon',
+              base: '/en/solutions/baekjoon',
               text: 'Baekjoon',
               collapsed: true,
             },
             {
-              base: '/solutions/codeforces',
+              base: '/en/solutions/codeforces',
               text: 'Codeforces',
               collapsed: true,
             },
