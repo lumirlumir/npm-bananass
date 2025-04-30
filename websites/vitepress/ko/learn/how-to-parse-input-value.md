@@ -27,73 +27,7 @@
 >
 > 백준의 '예제 입력'이 숫자로 되어있을지라도, 항상 해당 숫자를 문자열 형태로 받아옵니다.
 
-::: code-group
-
-```js:line-numbers [1000.cjs]
-// 백준 1000번 문제.
-
-function solution(input) {
-  const [a, b] = input
-    .trim()
-    .split(' ')
-    .map(val => Number(val));
-
-  return a + b;
-}
-
-module.exports = { solution };
-```
-
-```js:line-numbers [1000.mjs]
-// 백준 1000번 문제.
-
-function solution(input) {
-  const [a, b] = input
-    .trim()
-    .split(' ')
-    .map(val => Number(val));
-
-  return a + b;
-}
-
-export default { solution };
-```
-
-```ts:line-numbers [1000.cts]
-// 백준 1000번 문제.
-
-import type { Input, Output } from 'bananass';
-
-function solution(input: Input): Output {
-  const [a, b] = input
-    .trim()
-    .split(' ')
-    .map(val => Number(val));
-
-  return a + b;
-}
-
-module.exports = { solution };
-```
-
-```ts:line-numbers [1000.mts]
-// 백준 1000번 문제.
-
-import type { Input, Output } from 'bananass';
-
-function solution(input: Input): Output {
-  const [a, b] = input
-    .trim()
-    .split(' ')
-    .map(val => Number(val));
-
-  return a + b;
-}
-
-export default { solution };
-```
-
-:::
+<!-- @include: @/shared/solution-file-example-min.ko.md -->
 
 그렇다면, 들어온 입력값 `input`을 어떻게 분해<sup>파싱, Parsing</sup>하여, 원하는 형태로 가공한 후 사용할 수 있을까요? 예제와 함께 하나씩 살펴봅시다!
 
