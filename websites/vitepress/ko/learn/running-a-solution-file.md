@@ -1,4 +1,4 @@
-# 문제 풀이 파일을 실행하는 방법 {#how-to-run-solution-files}
+# 문제 풀이 파일 실행하기 {#running-a-solution-file}
 
 [10699번: 오늘 날짜](https://www.acmicpc.net/problem/10699)와 같은 일부 문제들의 경우, `input`과 `output`을 통해 결과를 비교하기 어려운 경우들이 있습니다.
 

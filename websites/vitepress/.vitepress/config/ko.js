@@ -255,7 +255,7 @@ export default defineConfig({
             },
             {
               text: '문제 풀이 파일 실행하기',
-              link: '/how-to-run-solution-files',
+              link: '/running-a-solution-file',
             },
             {
               text: '문제 풀이 파일 빌드하기',

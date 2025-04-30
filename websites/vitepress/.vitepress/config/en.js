@@ -255,7 +255,7 @@ export default defineConfig({
             },
             {
               text: 'Running a Solution File',
-              link: '/how-to-run-solution-files',
+              link: '/running-a-solution-file',
             },
             {
               text: 'Building a Solution File',
