@@ -271,7 +271,7 @@ export default defineConfig({
                 },
                 {
                   text: 'Submitting Using CLI Command',
-                  link: '',
+                  link: '/submitting-using-cli-command',
                 },
               ],
             },

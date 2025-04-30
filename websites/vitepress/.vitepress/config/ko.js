@@ -271,7 +271,7 @@ export default defineConfig({
                 },
                 {
                   text: 'CLI 명령어를 통해 제출하기',
-                  link: '',
+                  link: '/submitting-using-cli-command',
                 },
               ],
             },
