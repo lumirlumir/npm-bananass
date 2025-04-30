@@ -245,11 +245,11 @@ export default defineConfig({
                 },
                 {
                   text: 'If No Input Value',
-                  link: '',
+                  link: '/if-no-input-value',
                 },
                 {
                   text: 'Stringifying Output Value',
-                  link: '',
+                  link: '/stringifying-output-value',
                 },
               ],
             },

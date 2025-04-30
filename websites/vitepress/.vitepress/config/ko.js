@@ -245,7 +245,7 @@ export default defineConfig({
                 },
                 {
                   text: '입력값이 없는 경우',
-                  link: '',
+                  link: '/if-no-input-value',
                 },
                 {
                   text: '출력값 조립하기',
