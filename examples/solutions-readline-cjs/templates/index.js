@@ -2,7 +2,7 @@
  * @fileoverview Use this template in the `src` directory.
  */
 
-/* eslint-disable */ // Remove this line when under the `src` directory.
+/* eslint-disable -- Remove this line when under the `src` directory. */
 
 // --------------------------------------------------------------------------------
 // Require

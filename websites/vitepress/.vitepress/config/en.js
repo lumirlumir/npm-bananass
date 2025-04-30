@@ -210,8 +210,8 @@ export default defineConfig({
                   link: '',
                 },
                 {
-                  text: '',
-                  link: '',
+                  text: 'Writing a Solution Function',
+                  link: '/writing-a-solution-function',
                 },
                 {
                   text: '',

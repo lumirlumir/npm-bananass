@@ -211,7 +211,7 @@ export default defineConfig({
                 },
                 {
                   text: '문제 풀이 함수 작성하기',
-                  link: '',
+                  link: '/writing-a-solution-function',
                 },
                 {
                   text: '테스트 케이스 및 문제 풀이 함수 내보내기',
