@@ -97,11 +97,33 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/solutions': [
+        {
+          base: '/solutions',
+          text: '문제 풀이 해답',
+          link: '',
+          collapsed: false,
+          items: [
+            {
+              base: '/solutions/baekjoon',
+              text: '백준',
+              collapsed: true,
+            },
+            {
+              base: '/solutions/codeforces',
+              text: '코드포스',
+              collapsed: true,
+            },
+          ],
+        },
+      ],
+
       '/apis': [
         {
           base: '/apis',
           text: 'API 참고서',
           link: '/',
+          collapsed: false,
           items: [
             {
               base: '/apis/bananass',

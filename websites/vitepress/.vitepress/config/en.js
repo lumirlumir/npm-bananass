@@ -97,11 +97,33 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/solutions': [
+        {
+          base: '/solutions',
+          text: 'Solutions',
+          link: '',
+          collapsed: false,
+          items: [
+            {
+              base: '/solutions/baekjoon',
+              text: 'Baekjoon',
+              collapsed: true,
+            },
+            {
+              base: '/solutions/codeforces',
+              text: 'Codeforces',
+              collapsed: true,
+            },
+          ],
+        },
+      ],
+
       '/en/apis': [
         {
           base: '/en/apis',
           text: 'APIs',
           link: '/',
+          collapsed: false,
           items: [
             {
               base: '/en/apis/bananass',
