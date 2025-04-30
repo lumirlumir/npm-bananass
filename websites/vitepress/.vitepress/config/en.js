@@ -284,7 +284,7 @@ export default defineConfig({
             },
             {
               text: 'Solving a Problem without Bananass',
-              link: '/solving-problems-without-bananass-framework',
+              link: '/solving-a-problem-without-bananass',
             },
             {
               text: 'Q & A',

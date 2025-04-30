@@ -284,7 +284,7 @@ export default defineConfig({
             },
             {
               text: '바나나 없이 문제 풀기',
-              link: '/solving-problems-without-bananass-framework',
+              link: '/solving-a-problem-without-bananass',
             },
             {
               text: '질문과 답변',
