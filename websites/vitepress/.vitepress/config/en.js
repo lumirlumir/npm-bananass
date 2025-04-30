@@ -75,13 +75,18 @@ export default defineConfig({
       },
       {
         text: 'Learn',
-        link: 'en/learn',
-        activeMatch: 'en/learn/',
+        link: '/en/learn',
+        activeMatch: '/en/learn/',
       },
       {
         text: 'APIs',
-        link: 'en/apis',
-        activeMatch: 'en/apis/',
+        link: '/en/apis',
+        activeMatch: '/en/apis/',
+      },
+      {
+        text: 'Solutions',
+        link: '/en/solutions',
+        activeMatch: '/en/solutions/',
       },
       {
         text: 'ESLint',
@@ -97,12 +102,50 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/en/solutions': [
+        {
+          base: '/en/solutions',
+          text: 'Solutions',
+          link: '',
+          collapsed: false,
+          items: [
+            {
+              base: '/en/solutions/baekjoon',
+              text: 'Baekjoon',
+              collapsed: true,
+            },
+            {
+              base: '/en/solutions/codeforces',
+              text: 'Codeforces',
+              collapsed: true,
+            },
+          ],
+        },
+      ],
+
       '/en/apis': [
         {
           base: '/en/apis',
           text: 'APIs',
           link: '/',
+          collapsed: false,
           items: [
+            {
+              base: '/en/apis/bananass',
+              text: 'bananass',
+            },
+            {
+              base: '/en/apis/bananass-utils-console',
+              text: 'bananass-utils-console',
+            },
+            {
+              base: '/en/apis/bananass-utils-vitepress',
+              text: 'bananass-utils-vitepress',
+            },
+            {
+              base: '/en/apis/create-bananass',
+              text: 'create-bananass',
+            },
             {
               base: '/en/apis/eslint-config-bananass',
               text: 'eslint-config-bananass',
@@ -114,6 +157,10 @@ export default defineConfig({
                   link: '/references',
                 },
               ],
+            },
+            {
+              base: '/en/apis/prettier-config-bananass',
+              text: 'prettier-config-bananass',
             },
           ],
         },
@@ -138,6 +185,10 @@ export default defineConfig({
               text: 'Installation',
               link: '/installation',
             },
+            {
+              text: 'Editor Setup',
+              link: '/editor-setup',
+            },
           ],
         },
         {
@@ -151,19 +202,85 @@ export default defineConfig({
               link: '/project-structure',
             },
             {
+              text: 'How to Create Solution Files',
+              collapsed: true,
+              items: [
+                {
+                  text: 'testcases, solution, export',
+                  link: '',
+                },
+                {
+                  text: '',
+                  link: '',
+                },
+                {
+                  text: '',
+                  link: '',
+                },
+                {
+                  text: '',
+                  link: '',
+                },
+                {
+                  text: '',
+                  link: '',
+                },
+                {
+                  text: '',
+                  link: '',
+                },
+                {
+                  text: '',
+                  link: '',
+                },
+              ],
+            },
+            {
               text: 'How to Solve Problems',
-              // link: '',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   text: 'How to Parse Input Value',
                   link: '/how-to-parse-input-value',
                 },
+                {
+                  text: '',
+                  link: '',
+                },
+                {
+                  text: '',
+                  link: '',
+                },
               ],
             },
             {
-              text: 'How to run solution files',
+              text: 'How to Run Solution Files',
               link: '/how-to-run-solution-files',
+            },
+            {
+              text: 'How to Build Solution Files',
+              link: '',
+            },
+            {
+              text: '',
+              collapsed: true,
+              items: [
+                {
+                  text: '',
+                  link: '',
+                },
+                {
+                  text: '',
+                  link: '',
+                },
+              ],
+            },
+            {
+              text: 'CLI',
+              link: '',
+            },
+            {
+              text: '<code>bananass.config</code>',
             },
             {
               text: 'Solving Problems without Bananass',

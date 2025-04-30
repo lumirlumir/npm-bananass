@@ -84,6 +84,11 @@ export default defineConfig({
         activeMatch: '/apis/',
       },
       {
+        text: '문제 풀이',
+        link: '/solutions',
+        activeMatch: '/solutions/',
+      },
+      {
         text: 'ESLint',
         link: 'https://eslint-config-bananass.lumir.page',
       },
@@ -97,12 +102,50 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/solutions': [
+        {
+          base: '/solutions',
+          text: '문제 풀이 해답',
+          link: '',
+          collapsed: false,
+          items: [
+            {
+              base: '/solutions/baekjoon',
+              text: '백준',
+              collapsed: true,
+            },
+            {
+              base: '/solutions/codeforces',
+              text: '코드포스',
+              collapsed: true,
+            },
+          ],
+        },
+      ],
+
       '/apis': [
         {
           base: '/apis',
           text: 'API 참고서',
           link: '/',
+          collapsed: false,
           items: [
+            {
+              base: '/apis/bananass',
+              text: 'bananass',
+            },
+            {
+              base: '/apis/bananass-utils-console',
+              text: 'bananass-utils-console',
+            },
+            {
+              base: '/apis/bananass-utils-vitepress',
+              text: 'bananass-utils-vitepress',
+            },
+            {
+              base: '/apis/create-bananass',
+              text: 'create-bananass',
+            },
             {
               base: '/apis/eslint-config-bananass',
               text: 'eslint-config-bananass',
@@ -114,6 +157,10 @@ export default defineConfig({
                   link: '/references',
                 },
               ],
+            },
+            {
+              base: '/apis/prettier-config-bananass',
+              text: 'prettier-config-bananass',
             },
           ],
         },
@@ -138,6 +185,10 @@ export default defineConfig({
               text: '설치하기',
               link: '/installation',
             },
+            {
+              text: '에디터 설정하기',
+              link: '/editor-setup',
+            },
           ],
         },
         {
@@ -151,19 +202,85 @@ export default defineConfig({
               link: '/project-structure',
             },
             {
-              text: '문제 풀이를 하는 방법',
-              // link: '',
-              collapsed: false,
+              text: '문제 풀이 파일 작성하기',
+              collapsed: true,
+              items: [
+                {
+                  text: '테스트 케이스 작성하기',
+                  link: '',
+                },
+                {
+                  text: '문제 풀이 함수 작성하기',
+                  link: '',
+                },
+                {
+                  text: '테스트 케이스 및 문제 풀이 함수 내보내기',
+                  link: '',
+                },
+                {
+                  text: '하나의 파일에 모든 로직 작성하기',
+                  link: '',
+                },
+                {
+                  text: '하나의 폴더에 모듈을 분리하여 로직 작성하기',
+                  link: '',
+                },
+                {
+                  text: '외부 라이브러리 불러오기',
+                  link: '',
+                },
+                {
+                  text: '최종 빌드 출력 결과에서 특정 코드 제외하기',
+                  link: '',
+                },
+              ],
+            },
+            {
+              text: '문제 풀기',
+              collapsed: true,
               items: [
                 {
                   text: '입력값 분해하기',
                   link: '/how-to-parse-input-value',
                 },
+                {
+                  text: '입력값이 없는 경우',
+                  link: '',
+                },
+                {
+                  text: '출력값 조립하기',
+                  link: '',
+                },
               ],
             },
             {
-              text: '문제 풀이 파일을 실행하는 방법',
+              text: '문제 풀이 파일 실행하기',
               link: '/how-to-run-solution-files',
+            },
+            {
+              text: '문제 풀이 파일 빌드하기',
+              link: '',
+            },
+            {
+              text: '문제 풀이 파일 제출하기',
+              collapsed: true,
+              items: [
+                {
+                  text: '홈페이지에 직접 제출하기',
+                  link: '',
+                },
+                {
+                  text: 'CLI 명령어를 통해 제출하기',
+                  link: '',
+                },
+              ],
+            },
+            {
+              text: '이외의 유용한 CLI 명령어들',
+              link: '',
+            },
+            {
+              text: '<code>bananass.config</code> 파일 작성하기',
             },
             {
               text: '바나나 없이 문제 풀기',

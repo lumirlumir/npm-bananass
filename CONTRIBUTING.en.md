@@ -42,35 +42,35 @@ All pull request titles follow the [Conventional Commits](https://www.convention
 
 1. Clone it locally (requires [Git](https://git-scm.com/downloads)):
 
-  ```sh
-  git clone https://github.com/lumirlumir/npm-bananass.git
-  ```
+    ```sh
+    git clone https://github.com/lumirlumir/npm-bananass.git
+    ```
 
 1. Change into the `npm-bananass` directory:
 
-  ```sh
-  cd npm-bananass
-  ```
+    ```sh
+    cd npm-bananass
+    ```
 
 1. Install npm packages (requires [Node.js](https://nodejs.org/en)):
 
-  ```sh
-  npm install
-  ```
+    ```sh
+    npm install
+    ```
 
 1. Make your documentation or code changes.  
 
 1. Create a new branch:
 
-  ```sh
-  git switch -c my-branch
-  ```
+    ```sh
+    git switch -c my-branch
+    ```
 
 1. Commit your changes (`husky` and `lint-staged` will auto-format):
 
-  ```sh
-  git commit -am "<type>[optional scope]: <description>"
-  ```
+    ```sh
+    git commit -am "<type>[optional scope]: <description>"
+    ```
 
 1. Push to your remote branch.  
 
