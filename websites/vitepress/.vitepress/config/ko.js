@@ -259,7 +259,7 @@ export default defineConfig({
             },
             {
               text: '문제 풀이 파일 빌드하기',
-              link: '',
+              link: '/building-a-solution-file',
             },
             {
               text: '문제 풀이 파일 제출하기',

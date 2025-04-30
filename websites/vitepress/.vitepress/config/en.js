@@ -259,7 +259,7 @@ export default defineConfig({
             },
             {
               text: 'Building a Solution File',
-              link: '',
+              link: '/building-a-solution-file',
             },
             {
               text: 'Submitting a Solution File',
