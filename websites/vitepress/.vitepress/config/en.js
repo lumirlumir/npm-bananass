@@ -267,7 +267,7 @@ export default defineConfig({
               items: [
                 {
                   text: 'Submitting Directly on the Website',
-                  link: '',
+                  link: '/submitting-directly-on-the-website',
                 },
                 {
                   text: 'Submitting Using CLI Command',

@@ -267,7 +267,7 @@ export default defineConfig({
               items: [
                 {
                   text: '홈페이지에 직접 제출하기',
-                  link: '',
+                  link: '/submitting-directly-on-the-website',
                 },
                 {
                   text: 'CLI 명령어를 통해 제출하기',
