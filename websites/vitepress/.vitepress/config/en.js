@@ -231,7 +231,7 @@ export default defineConfig({
                 },
                 {
                   text: 'Excluding Specific Code from the Final Build File',
-                  link: '',
+                  link: '/excluding-specific-code-from-the-final-build-file',
                 },
               ],
             },
