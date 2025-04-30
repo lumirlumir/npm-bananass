@@ -227,7 +227,7 @@ export default defineConfig({
                 },
                 {
                   text: '외부 라이브러리 불러오기',
-                  link: '',
+                  link: '/importing-external-libraries',
                 },
                 {
                   text: '최종 빌드 파일에서 특정 코드 제외하기',

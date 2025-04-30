@@ -227,7 +227,7 @@ export default defineConfig({
                 },
                 {
                   text: 'Importing External Libraries',
-                  link: '',
+                  link: '/importing-external-libraries',
                 },
                 {
                   text: 'Excluding Specific Code from the Final Build File',
