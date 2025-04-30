@@ -281,6 +281,7 @@ export default defineConfig({
             },
             {
               text: '<code>bananass.config</code> 파일 작성하기',
+              link: '/writing-bananass-config-file',
             },
             {
               text: '바나나 없이 문제 풀기',

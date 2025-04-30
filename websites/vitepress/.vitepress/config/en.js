@@ -281,6 +281,7 @@ export default defineConfig({
             },
             {
               text: 'Writing a <code>bananass.config</code> File',
+              link: '/writing-bananass-config-file',
             },
             {
               text: 'Solving a Problem without Bananass',
