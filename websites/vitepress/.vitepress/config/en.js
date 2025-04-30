@@ -219,7 +219,7 @@ export default defineConfig({
                 },
                 {
                   text: 'Writing All Logic in a Single File',
-                  link: '',
+                  link: '/writing-all-logic-in-a-single-file',
                 },
                 {
                   text: 'Writing Modular Logic in a Single Folder',

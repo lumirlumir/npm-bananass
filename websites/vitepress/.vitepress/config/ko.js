@@ -219,7 +219,7 @@ export default defineConfig({
                 },
                 {
                   text: '하나의 파일에 모든 로직 작성하기',
-                  link: '',
+                  link: '/writing-all-logic-in-a-single-file',
                 },
                 {
                   text: '하나의 폴더에 모듈을 분리하여 로직 작성하기',
