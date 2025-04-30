@@ -249,7 +249,7 @@ export default defineConfig({
                 },
                 {
                   text: '출력값 조립하기',
-                  link: '',
+                  link: '/stringifying-output-value',
                 },
               ],
             },
