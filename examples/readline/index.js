@@ -1,9 +1,10 @@
 /**
- * @fileoverview This example shows how to use `readline` module. For more information, see {@link https://nodejs.org/api/readline.html}.
+ * @fileoverview This example shows how to use `readline` module.
+ * For more information, see https://nodejs.org/api/readline.html.
  *
- * Event `'close'`: {@link https://nodejs.org/api/readline.html#event-close}
- * Event `'line'`: {@link https://nodejs.org/api/readline.html#event-line}
- * `readline.createInterface(options)`: {@link https://nodejs.org/api/readline.html#readlinecreateinterfaceoptions}
+ * Event `close`: https://nodejs.org/api/readline.html#event-close
+ * Event `line`: https://nodejs.org/api/readline.html#event-line
+ * `readline.createInterface(options)`: https://nodejs.org/api/readline.html#readlinecreateinterfaceoptions
  */
 
 // --------------------------------------------------------------------------------

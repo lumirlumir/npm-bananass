@@ -202,89 +202,90 @@ export default defineConfig({
               link: '/project-structure',
             },
             {
-              text: 'How to Create Solution Files',
+              text: 'Writing a Solution File',
               collapsed: true,
               items: [
                 {
-                  text: 'testcases, solution, export',
-                  link: '',
+                  text: 'Writing Test Cases',
+                  link: '/writing-test-cases',
                 },
                 {
-                  text: '',
-                  link: '',
+                  text: 'Writing a Solution Function',
+                  link: '/writing-a-solution-function',
                 },
                 {
-                  text: '',
-                  link: '',
+                  text: 'Exporting Test Cases and Solution Function',
+                  link: '/exporting-test-cases-and-solution-function',
                 },
                 {
-                  text: '',
-                  link: '',
+                  text: 'Writing All Logic in a Single File',
+                  link: '/writing-all-logic-in-a-single-file',
                 },
                 {
-                  text: '',
-                  link: '',
+                  text: 'Writing Modular Logic in a Single Folder',
+                  link: '/writing-modular-logic-in-a-single-folder',
                 },
                 {
-                  text: '',
-                  link: '',
+                  text: 'Importing External Libraries',
+                  link: '/importing-external-libraries',
                 },
                 {
-                  text: '',
-                  link: '',
+                  text: 'Excluding Specific Code from the Final Build File',
+                  link: '/excluding-specific-code-from-the-final-build-file',
                 },
               ],
             },
             {
-              text: 'How to Solve Problems',
+              text: 'Solving a Problem',
               collapsed: true,
               items: [
                 {
-                  text: 'How to Parse Input Value',
-                  link: '/how-to-parse-input-value',
+                  text: 'Parsing Input Value',
+                  link: '/parsing-input-value',
                 },
                 {
-                  text: '',
-                  link: '',
+                  text: 'If No Input Value',
+                  link: '/if-no-input-value',
                 },
                 {
-                  text: '',
-                  link: '',
+                  text: 'Stringifying Output Value',
+                  link: '/stringifying-output-value',
                 },
               ],
             },
             {
-              text: 'How to Run Solution Files',
-              link: '/how-to-run-solution-files',
+              text: 'Running a Solution File',
+              link: '/running-a-solution-file',
             },
             {
-              text: 'How to Build Solution Files',
-              link: '',
+              text: 'Building a Solution File',
+              link: '/building-a-solution-file',
             },
             {
-              text: '',
+              text: 'Submitting a Solution File',
               collapsed: true,
               items: [
                 {
-                  text: '',
-                  link: '',
+                  text: 'Submitting Directly on the Website',
+                  link: '/submitting-directly-on-the-website',
                 },
                 {
-                  text: '',
-                  link: '',
+                  text: 'Submitting Using CLI Command',
+                  link: '/submitting-using-cli-command',
                 },
               ],
             },
             {
-              text: 'CLI',
-              link: '',
+              text: 'Other Useful CLI Commands',
+              link: '/other-useful-cli-commands',
             },
             {
-              text: '<code>bananass.config</code>',
+              text: 'Writing a <code>bananass.config</code> File',
+              link: '/writing-bananass-config-file',
             },
             {
-              text: 'Solving Problems without Bananass',
-              link: '/solving-problems-without-bananass-framework',
+              text: 'Solving a Problem without Bananass',
+              link: '/solving-a-problem-without-bananass',
             },
             {
               text: 'Q & A',

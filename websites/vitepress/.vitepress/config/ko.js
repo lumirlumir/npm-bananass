@@ -207,31 +207,31 @@ export default defineConfig({
               items: [
                 {
                   text: '테스트 케이스 작성하기',
-                  link: '',
+                  link: '/writing-test-cases',
                 },
                 {
                   text: '문제 풀이 함수 작성하기',
-                  link: '',
+                  link: '/writing-a-solution-function',
                 },
                 {
                   text: '테스트 케이스 및 문제 풀이 함수 내보내기',
-                  link: '',
+                  link: '/exporting-test-cases-and-solution-function',
                 },
                 {
                   text: '하나의 파일에 모든 로직 작성하기',
-                  link: '',
+                  link: '/writing-all-logic-in-a-single-file',
                 },
                 {
                   text: '하나의 폴더에 모듈을 분리하여 로직 작성하기',
-                  link: '',
+                  link: '/writing-modular-logic-in-a-single-folder',
                 },
                 {
                   text: '외부 라이브러리 불러오기',
-                  link: '',
+                  link: '/importing-external-libraries',
                 },
                 {
-                  text: '최종 빌드 출력 결과에서 특정 코드 제외하기',
-                  link: '',
+                  text: '최종 빌드 파일에서 특정 코드 제외하기',
+                  link: '/excluding-specific-code-from-the-final-build-file',
                 },
               ],
             },
@@ -241,25 +241,25 @@ export default defineConfig({
               items: [
                 {
                   text: '입력값 분해하기',
-                  link: '/how-to-parse-input-value',
+                  link: '/parsing-input-value',
                 },
                 {
                   text: '입력값이 없는 경우',
-                  link: '',
+                  link: '/if-no-input-value',
                 },
                 {
                   text: '출력값 조립하기',
-                  link: '',
+                  link: '/stringifying-output-value',
                 },
               ],
             },
             {
               text: '문제 풀이 파일 실행하기',
-              link: '/how-to-run-solution-files',
+              link: '/running-a-solution-file',
             },
             {
               text: '문제 풀이 파일 빌드하기',
-              link: '',
+              link: '/building-a-solution-file',
             },
             {
               text: '문제 풀이 파일 제출하기',
@@ -267,24 +267,25 @@ export default defineConfig({
               items: [
                 {
                   text: '홈페이지에 직접 제출하기',
-                  link: '',
+                  link: '/submitting-directly-on-the-website',
                 },
                 {
                   text: 'CLI 명령어를 통해 제출하기',
-                  link: '',
+                  link: '/submitting-using-cli-command',
                 },
               ],
             },
             {
               text: '이외의 유용한 CLI 명령어들',
-              link: '',
+              link: '/other-useful-cli-commands',
             },
             {
               text: '<code>bananass.config</code> 파일 작성하기',
+              link: '/writing-bananass-config-file',
             },
             {
               text: '바나나 없이 문제 풀기',
-              link: '/solving-problems-without-bananass-framework',
+              link: '/solving-a-problem-without-bananass',
             },
             {
               text: '질문과 답변',
