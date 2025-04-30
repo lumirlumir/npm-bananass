@@ -230,7 +230,7 @@ export default defineConfig({
                   link: '',
                 },
                 {
-                  text: '최종 빌드 출력 결과에서 특정 코드 제외하기',
+                  text: '최종 빌드 파일에서 특정 코드 제외하기',
                   link: '',
                 },
               ],
@@ -241,7 +241,7 @@ export default defineConfig({
               items: [
                 {
                   text: '입력값 분해하기',
-                  link: '/how-to-parse-input-value',
+                  link: '/parsing-input-value',
                 },
                 {
                   text: '입력값이 없는 경우',

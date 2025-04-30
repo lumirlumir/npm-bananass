@@ -202,11 +202,11 @@ export default defineConfig({
               link: '/project-structure',
             },
             {
-              text: 'How to Create Solution Files',
+              text: 'Writing a Solution File',
               collapsed: true,
               items: [
                 {
-                  text: 'testcases, solution, export',
+                  text: 'Writing Test Cases',
                   link: '',
                 },
                 {
@@ -214,76 +214,76 @@ export default defineConfig({
                   link: '/writing-a-solution-function',
                 },
                 {
-                  text: '',
+                  text: 'Exporting Test Cases and Solution Function',
                   link: '',
                 },
                 {
-                  text: '',
+                  text: 'Writing All Logic in a Single File',
                   link: '',
                 },
                 {
-                  text: '',
+                  text: 'Writing Modular Logic in a Single Folder',
                   link: '',
                 },
                 {
-                  text: '',
+                  text: 'Importing External Libraries',
                   link: '',
                 },
                 {
-                  text: '',
+                  text: 'Excluding Specific Code from the Final Build File',
                   link: '',
                 },
               ],
             },
             {
-              text: 'How to Solve Problems',
+              text: 'Solving a Problem',
               collapsed: true,
               items: [
                 {
-                  text: 'How to Parse Input Value',
-                  link: '/how-to-parse-input-value',
+                  text: 'Parsing Input Value',
+                  link: '/parsing-input-value',
                 },
                 {
-                  text: '',
+                  text: 'If No Input Value',
                   link: '',
                 },
                 {
-                  text: '',
+                  text: 'Stringifying Output Value',
                   link: '',
                 },
               ],
             },
             {
-              text: 'How to Run Solution Files',
+              text: 'Running a Solution File',
               link: '/how-to-run-solution-files',
             },
             {
-              text: 'How to Build Solution Files',
+              text: 'Building a Solution File',
               link: '',
             },
             {
-              text: '',
+              text: 'Submitting a Solution File',
               collapsed: true,
               items: [
                 {
-                  text: '',
+                  text: 'Submitting Directly on the Website',
                   link: '',
                 },
                 {
-                  text: '',
+                  text: 'Submitting Using CLI Command',
                   link: '',
                 },
               ],
             },
             {
-              text: 'CLI',
+              text: 'Other Useful CLI Commands',
               link: '',
             },
             {
-              text: '<code>bananass.config</code>',
+              text: 'Writing a <code>bananass.config</code> File',
             },
             {
-              text: 'Solving Problems without Bananass',
+              text: 'Solving a Problem without Bananass',
               link: '/solving-problems-without-bananass-framework',
             },
             {

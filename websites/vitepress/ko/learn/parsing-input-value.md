@@ -1,4 +1,4 @@
-# 입력값 분해하기 {#how-to-parse-input-value}
+# 입력값 분해하기 {#parsing-input-value}
 
 이번 챕터에서는 `solution` 함수의 매개변수<sup>Parameter</sup> `input`을 통해 들어온 입력값을 분해<sup>파싱, Parsing</sup>하는 방법을 소개합니다!
 
