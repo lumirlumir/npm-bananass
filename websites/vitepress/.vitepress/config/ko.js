@@ -104,6 +104,22 @@ export default defineConfig({
           link: '/',
           items: [
             {
+              base: '/apis/bananass',
+              text: 'bananass',
+            },
+            {
+              base: '/apis/bananass-utils-console',
+              text: 'bananass-utils-console',
+            },
+            {
+              base: '/apis/bananass-utils-vitepress',
+              text: 'bananass-utils-vitepress',
+            },
+            {
+              base: '/apis/create-bananass',
+              text: 'create-bananass',
+            },
+            {
               base: '/apis/eslint-config-bananass',
               text: 'eslint-config-bananass',
               link: '/',
@@ -114,6 +130,10 @@ export default defineConfig({
                   link: '/references',
                 },
               ],
+            },
+            {
+              base: '/apis/prettier-config-bananass',
+              text: 'prettier-config-bananass',
             },
           ],
         },
@@ -156,7 +176,7 @@ export default defineConfig({
             },
             {
               text: '문제 풀이 파일 작성하기',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   text: '테스트 케이스 작성하기',
@@ -190,7 +210,7 @@ export default defineConfig({
             },
             {
               text: '문제 풀기',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   text: '입력값 분해하기',
@@ -213,6 +233,27 @@ export default defineConfig({
             {
               text: '문제 풀이 파일 빌드하기',
               link: '',
+            },
+            {
+              text: '문제 풀이 파일 제출하기',
+              collapsed: true,
+              items: [
+                {
+                  text: '홈페이지에 직접 제출하기',
+                  link: '',
+                },
+                {
+                  text: 'CLI 명령어를 통해 제출하기',
+                  link: '',
+                },
+              ],
+            },
+            {
+              text: '이외의 유용한 CLI 명령어들',
+              link: '',
+            },
+            {
+              text: '<code>bananass.config</code> 파일 작성하기',
             },
             {
               text: '바나나 없이 문제 풀기',

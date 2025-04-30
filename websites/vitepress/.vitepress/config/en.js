@@ -104,6 +104,22 @@ export default defineConfig({
           link: '/',
           items: [
             {
+              base: '/en/apis/bananass',
+              text: 'bananass',
+            },
+            {
+              base: '/en/apis/bananass-utils-console',
+              text: 'bananass-utils-console',
+            },
+            {
+              base: '/en/apis/bananass-utils-vitepress',
+              text: 'bananass-utils-vitepress',
+            },
+            {
+              base: '/en/apis/create-bananass',
+              text: 'create-bananass',
+            },
+            {
               base: '/en/apis/eslint-config-bananass',
               text: 'eslint-config-bananass',
               link: '/',
@@ -114,6 +130,10 @@ export default defineConfig({
                   link: '/references',
                 },
               ],
+            },
+            {
+              base: '/en/apis/prettier-config-bananass',
+              text: 'prettier-config-bananass',
             },
           ],
         },
@@ -156,7 +176,7 @@ export default defineConfig({
             },
             {
               text: 'How to Create Solution Files',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   text: 'testcases, solution, export',
@@ -190,7 +210,7 @@ export default defineConfig({
             },
             {
               text: 'How to Solve Problems',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   text: 'How to Parse Input Value',
@@ -213,6 +233,27 @@ export default defineConfig({
             {
               text: 'How to Build Solution Files',
               link: '',
+            },
+            {
+              text: '',
+              collapsed: true,
+              items: [
+                {
+                  text: '',
+                  link: '',
+                },
+                {
+                  text: '',
+                  link: '',
+                },
+              ],
+            },
+            {
+              text: 'CLI',
+              link: '',
+            },
+            {
+              text: '<code>bananass.config</code>',
             },
             {
               text: 'Solving Problems without Bananass',
