@@ -4,8 +4,8 @@
   "version": "0.1.0-canary.5",
   "type": "module",
   "scripts": {
-    "bananass:build": "npx bananass build",
-    "bananass:run": "npx bananass run",
+    "build": "bananass build",
+    "run": "bananass run",
     "test": "bash ../../scripts/examples-solutions-bananass-test.sh"
   },
   "devDependencies": {
