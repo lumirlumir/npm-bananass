@@ -22,9 +22,7 @@
 
 > 관련 이슈: [#378](https://github.com/lumirlumir/npm-bananass/discussions/378), [sindresorhus/open#357](https://github.com/sindresorhus/open/issues/357)
 
-이는 웹 브라우저를 실행하는 과정 중 WSL 환경에서 정확한 브라우저를 찾지 못해서 발생하는 오류로, [현재 관련 이슈](https://github.com/sindresorhus/open/issues/357)를 제출해 해결 방안을 찾고 있습니다.
-
-그동안은 사용하시는 브라우저를 아래와 같이 명령어에 정확하게 입력해주세요. (이는, `bug`, `discussion`, `home`, `open` 등 브라우저를 여는 모든 CLI 명령어에 적용됩니다!)
+이는 웹 브라우저를 실행하는 과정 중 WSL 환경에서 정확한 브라우저를 찾지 못해서 발생하는 오류로, 사용하시는 브라우저를 아래와 같이 명령어에 정확하게 입력해주세요. (이는, `bug`, `discussion`, `home`, `open` 등 브라우저를 여는 모든 CLI 명령어에 적용됩니다!)
 
 ```sh
 npx bananass open 1000 --browser chrome
