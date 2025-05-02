@@ -11,7 +11,7 @@ import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, error, success } from 'bananass-utils-console/theme';
 
 import { existsSync } from 'node:fs';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { access, constants, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
@@ -83,6 +83,16 @@ async function createProblemFile(problem, testcases, cwd, entryDir, moduleFormat
   await mkdir(dirPath, { recursive: true });
 
   const filePath = join(dirPath, `${problem}.${moduleFormat}`);
+
+  try {
+    await access(filePath, constants.F_OK);
+    // If the file exists, we throw an error to prevent overwriting.
+    throw new Error(`File for problem ${problem} already exists.`);
+  } catch (err) {
+    // This handles unexpected issues like permission errors (EACCES, EPERM, etc.).
+    // If the error is ENOENT, it means the file does not exist — proceed as expected.
+    if (err.code !== 'ENOENT') throw err;
+  }
 
   const template = await readFile(
     resolve(__dirname, `./templates/solution.${moduleFormat}.txt`),
