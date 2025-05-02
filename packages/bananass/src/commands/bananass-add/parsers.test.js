@@ -2,6 +2,10 @@
  * @fileoverview Test for `baekjoon` fetcher.
  */
 
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFile } from 'node:fs/promises';
@@ -11,7 +15,7 @@ import { describe, it, before, mock } from 'node:test';
 let baekjoonParser;
 
 // --------------------------------------------------------------------------------
-// Mock HTML for cheerio
+// Helpers
 // --------------------------------------------------------------------------------
 
 const __filename = fileURLToPath(import.meta.url);
@@ -22,22 +26,30 @@ const mockHTML = await readFile(
 );
 
 // --------------------------------------------------------------------------------
-// Setup
-// --------------------------------------------------------------------------------
+// Test
+// -------------------------------------------------------------------------------
 
-const getFunctionMock = mock.fn();
+describe('parsers.js', () => {
+  // ------------------------------------------------------------------------------
+  // Mocking
+  // ------------------------------------------------------------------------------
 
-before(async () => {
-  mock.module('axios', {
-    defaultExport: {
-      get: getFunctionMock,
-    },
+  const getFunctionMock = mock.fn();
+
+  before(async () => {
+    mock.module('axios', {
+      defaultExport: {
+        get: getFunctionMock,
+      },
+    });
+
+    baekjoonParser = (await import('./parsers.js')).default.baekjoon;
   });
 
-  baekjoonParser = (await import('./parsers.js')).default.baekjoon;
-});
+  // --------------------------------------------------------------------------------
+  // Test
+  // -------------------------------------------------------------------------------
 
-describe('baekjoon parser', () => {
   it('should parse sample inputs and outputs correctly', async () => {
     getFunctionMock.mock.mockImplementationOnce(async () => ({ data: mockHTML }));
 

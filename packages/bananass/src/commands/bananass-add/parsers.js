@@ -1,3 +1,12 @@
+/**
+ * @fileoverview
+ * This module fetches and parses problem test cases from online competitive programming platforms.
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import { URL_BOJ_PROBLEM } from '../../core/constants.js';
@@ -10,6 +19,10 @@ import { URL_BOJ_PROBLEM } from '../../core/constants.js';
  * @typedef {import('../../core/types.js').Problem} Problem
  * @typedef {import('../../core/types.js').Testcases} Testcases
  */
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
 
 export default {
   /**
