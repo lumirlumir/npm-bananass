@@ -49,7 +49,7 @@ describe('add.js', () => {
   // ------------------------------------------------------------------------------
 
   before(async () => {
-    mock.module(new URL('./parsers.js', import.meta.url), {
+    mock.module(new URL('./parsers.js', import.meta.url).href, {
       defaultExport: {
         baekjoon: async () => [
           { input: '1 2', output: '3' },
