@@ -8,9 +8,9 @@
 
 import { strictEqual } from 'node:assert';
 import { existsSync } from 'node:fs';
-import { readdir, stat, unlink } from 'node:fs/promises';
+import { readdir, readFile, stat, unlink } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
-import { afterEach, before, describe, it, mock } from 'node:test';
+import { beforeEach, before, describe, it, mock } from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 // --------------------------------------------------------------------------------
@@ -61,7 +61,7 @@ describe('add.js', () => {
     add = (await import('./add.js')).default;
   });
 
-  afterEach(async () => {
+  beforeEach(async () => {
     await forEachModuleFormat(async ({ cwd }) => {
       const solutionDir = join(cwd, './bananass');
 
@@ -106,6 +106,13 @@ describe('add.js', () => {
 
         const filePath = join(cwd, TEST_ENTRY_DIR, `1000.${moduleFormat}`);
         strictEqual(existsSync(filePath), true);
+
+        const fileContent = await readFile(filePath, 'utf-8');
+
+        strictEqual(fileContent.includes(`input: "1 2"`), true);
+        strictEqual(fileContent.includes(`output: "3"`), true);
+        strictEqual(fileContent.includes(`input: "3 4"`), true);
+        strictEqual(fileContent.includes(`output: "7"`), true);
       });
     });
   });
