@@ -65,9 +65,16 @@ describe('add.js', () => {
     await forEachModuleFormat(async ({ cwd }) => {
       const solutionDir = join(cwd, './bananass');
 
-      if (await stat(solutionDir, { throwIfNoEntry: false })) {
-        const files = await readdir(solutionDir);
+      let dirStat;
+      try {
+        dirStat = await stat(solutionDir);
+        // eslint-disable-next-line no-unused-vars
+      } catch (_) {
+        /* empty */
+      }
 
+      if (dirStat && dirStat.isDirectory()) {
+        const files = await readdir(solutionDir);
         await Promise.all(files.map(file => unlink(join(solutionDir, file))));
       }
     });
