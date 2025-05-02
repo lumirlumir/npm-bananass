@@ -1,0 +1,7 @@
+const testcases = [
+  /* TESTCASE_PLACEHOLER */
+];
+
+function solution(input) {}
+
+module.exports = globalThis.IS_PROD ? { solution } : { solution, testcases };

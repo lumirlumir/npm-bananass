@@ -1,0 +1,11 @@
+import type { Testcases, Solution, SolutionWithTestcases } from 'bananass';
+
+const testcases = [
+  /* TESTCASE_PLACEHOLDER */
+] satisfies Testcases;
+
+export const solution: Solution = input => {};
+
+export default globalThis.IS_PROD
+  ? { solution }
+  : ({ solution, testcases } satisfies SolutionWithTestcases);

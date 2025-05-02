@@ -1,0 +1,15 @@
+import type {
+  Testcases,
+  Solution,
+  SolutionWithTestcases,
+} from 'bananass' with { 'resolution-mode': 'require' };
+
+const testcases = [
+  /* TESTCASE_PLACEHOLDER */
+] satisfies Testcases;
+
+const solution: Solution = input => {};
+
+module.exports = globalThis.IS_PROD
+  ? { solution }
+  : ({ solution, testcases } satisfies SolutionWithTestcases);
