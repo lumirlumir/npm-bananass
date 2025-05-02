@@ -1,5 +1,5 @@
 const testcases = [
-/* TESTCASE_PLACEHOLER */
+/* TESTCASE_PLACEHOLDER */
 ];
 
 function solution(input) {}
