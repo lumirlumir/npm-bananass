@@ -90,7 +90,13 @@ async function createProblemFile(problem, testcases, cwd, entryDir, moduleFormat
   );
   const testcaseFilledTemplate = template.replace(
     /\/\* TESTCASE_PLACEHOLDER \*\//,
-    testcases.map(tc => JSON.stringify(tc)).join(',\n  '),
+    testcases
+      .map(tc => {
+        const input = JSON.stringify(tc.input);
+        const output = JSON.stringify(tc.output);
+        return `\t{\n\t\tinput: ${input},\n\t\toutput: ${output},\n\t}`;
+      })
+      .join(',\n'),
   );
 
   try {

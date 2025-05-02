@@ -1,7 +1,7 @@
 import type { Testcases, Solution, SolutionWithTestcases } from 'bananass';
 
 const testcases = [
-  /* TESTCASE_PLACEHOLDER */
+/* TESTCASE_PLACEHOLDER */
 ] satisfies Testcases;
 
 export const solution: Solution = input => {};

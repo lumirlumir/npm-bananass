@@ -5,7 +5,7 @@ import type {
 } from 'bananass' with { 'resolution-mode': 'require' };
 
 const testcases = [
-  /* TESTCASE_PLACEHOLDER */
+/* TESTCASE_PLACEHOLDER */
 ] satisfies Testcases;
 
 const solution: Solution = input => {};
