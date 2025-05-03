@@ -124,14 +124,14 @@
 // #region Solution
 
 /**
- * @typedef {string} Input Input string.
+ * @typedef {string} Input Input value. Must be a `string`.
  */
 
 /**
  * @typedef {string | number | boolean} Output
- * Output value. It can be a primitive type except for `bigint`, `symbol`, `undefined`, and `null`.
+ * Output value. Must be a `string`, `number`, or `boolean`. (It can be a primitive type except for `bigint`, `symbol`, `undefined`, and `null`).
  *
- * Output values will be **coerced to a `string`** when running the `bananass run` command.
+ * Output values will be **coerced to a `string` and any trailing whitespace will be removed using `trimEnd()`** when running the `bananass run` command.
  * (This behavior mimics how `console.log` converts values to a `string` before displaying them.)
  *
  * Note that `bigint` is not allowed, as `console.log(BigInt(1))` outputs `1n`, whereas `console.log(String(BigInt(1)))` outputs `1`, which have different representations.
@@ -139,11 +139,11 @@
 
 /**
  * @typedef {object} Testcase Testcase object.
- * @property {Input} [input] Input string.
+ * @property {Input} [input] Input value. Must be a `string`.
  * @property {Output} output
- * Output value. It can be a primitive type except for `bigint`, `symbol`, `undefined`, and `null`.
+ * Output value. Must be a `string`, `number`, or `boolean`. (It can be a primitive type except for `bigint`, `symbol`, `undefined`, and `null`).
  *
- * Output values will be **coerced to a `string`** when running the `bananass run` command.
+ * Output values will be **coerced to a `string` and any trailing whitespace will be removed using `trimEnd()`** when running the `bananass run` command.
  * (This behavior mimics how `console.log` converts values to a `string` before displaying them.)
  *
  * Note that `bigint` is not allowed, as `console.log(BigInt(1))` outputs `1n`, whereas `console.log(String(BigInt(1)))` outputs `1`, which have different representations.
