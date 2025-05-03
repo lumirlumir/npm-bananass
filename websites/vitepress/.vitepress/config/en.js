@@ -53,7 +53,6 @@ export default defineConfig({
     ['meta', { property: 'og:url', content: `${URL_HOMEPAGE}/en` }],
     ['meta', { property: 'og:title', content: TITLE }],
     ['meta', { property: 'og:description', content: DESCRIPTION }],
-    ['meta', { property: 'og:image', content: `${URL_HOMEPAGE}/logo-og-en.png` }],
     ['meta', { property: 'og:site_name', content: TITLE }],
     ['meta', { property: 'og:locale', content: 'en' }],
 
@@ -61,7 +60,6 @@ export default defineConfig({
     ['meta', { name: 'twitter:url', content: `${URL_HOMEPAGE}/en` }],
     ['meta', { name: 'twitter:title', content: TITLE }],
     ['meta', { name: 'twitter:description', content: DESCRIPTION }],
-    ['meta', { name: 'twitter:image', content: `${URL_HOMEPAGE}/logo-og-en.png` }],
   ],
 
   themeConfig: {
