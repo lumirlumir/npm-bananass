@@ -1,8 +1,4 @@
-import type {
-  Testcases,
-  Solution,
-  SolutionWithTestcases,
-} from 'bananass' with { 'resolution-mode': 'require' };
+import type { Testcases, Input, Output } from 'bananass';
 
 const testcases = [
   {
@@ -19,7 +15,7 @@ const testcases = [
   },
 ] satisfies Testcases;
 
-const solution: Solution = input => {
+function solution(input: Input): Output {
   const [W, H] = input
     .trim()
     .split(' ')
@@ -28,8 +24,6 @@ const solution: Solution = input => {
   const width = (W * H) / 2;
 
   return width.toFixed(1); // `toFixed` returns a string.
-};
+}
 
-module.exports = globalThis.IS_PROD
-  ? { solution }
-  : ({ solution, testcases } satisfies SolutionWithTestcases);
+module.exports = globalThis.IS_PROD ? { solution } : { solution, testcases };
