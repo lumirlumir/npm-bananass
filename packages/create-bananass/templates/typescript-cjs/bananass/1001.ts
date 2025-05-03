@@ -2,16 +2,16 @@ import type { Testcases, Input, Output } from 'bananass';
 
 const testcases = [
   {
-    input: '1 2',
-    output: '3',
+    input: '3 2\n',
+    output: 1,
   },
   {
-    input: '3 4',
-    output: '7',
+    input: '5 6\n',
+    output: -1,
   },
   {
-    input: '5 6',
-    output: '11',
+    input: '7 7\n',
+    output: 0,
   },
 ] satisfies Testcases;
 
@@ -21,7 +21,7 @@ function solution(input: Input): Output {
     .split(' ')
     .map(val => Number(val));
 
-  return a + b;
+  return a - b;
 }
 
 module.exports = { solution, testcases };
