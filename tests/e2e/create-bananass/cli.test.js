@@ -73,6 +73,7 @@ describe('cli', () => {
     strictEqual(packageJson.name, 'create-bananass-javascript-esm');
 
     ok(isExists('.gitignore'));
+    ok(isExists('README.md'));
     ok(isExists('bananass.config.mjs'));
 
     ok(!isExists('.vscode'));
@@ -93,6 +94,7 @@ describe('cli', () => {
     strictEqual(packageJson.name, 'create-bananass-javascript-cjs');
 
     ok(isExists('.gitignore'));
+    ok(isExists('README.md'));
     ok(isExists('bananass.config.cjs'));
 
     ok(!isExists('.vscode'));
@@ -113,6 +115,7 @@ describe('cli', () => {
     strictEqual(packageJson.name, 'create-bananass-typescript-esm');
 
     ok(isExists('.gitignore'));
+    ok(isExists('README.md'));
     ok(isExists('bananass.config.mts'));
 
     ok(!isExists('.vscode'));
@@ -133,6 +136,7 @@ describe('cli', () => {
     strictEqual(packageJson.name, 'create-bananass-typescript-cjs');
 
     ok(isExists('.gitignore'));
+    ok(isExists('README.md'));
     ok(isExists('bananass.config.cts'));
 
     ok(!isExists('.vscode'));
