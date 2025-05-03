@@ -37,6 +37,7 @@ export default defineConfig({
 
     // Open Graph
     ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:image', content: `${URL_HOMEPAGE}/logo-og.png` }],
     ['meta', { property: 'og:image:width', content: '1280' }],
     ['meta', { property: 'og:image:height', content: '640' }],
     ['meta', { property: 'og:article:author', content: PKG_AUTHOR }],
@@ -44,6 +45,7 @@ export default defineConfig({
     // Twitter
     ['meta', { name: 'twitter:creator', content: PKG_AUTHOR }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:image', content: `${URL_HOMEPAGE}/logo-og.png` }],
 
     // Google Fonts
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
