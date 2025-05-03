@@ -22,4 +22,4 @@ function solution(input) {
   return a - b;
 }
 
-export default globalThis.IS_PROD ? { solution } : { solution, testcases };
+export default { solution, testcases };

@@ -15,4 +15,4 @@ function solution(input) {
   return A + B;
 }
 
-export default globalThis.IS_PROD ? { solution } : { solution, testcases };
+export default { solution, testcases };

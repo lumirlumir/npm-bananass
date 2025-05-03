@@ -24,4 +24,4 @@ function solution(input: Input): Output {
   return a - b;
 }
 
-module.exports = globalThis.IS_PROD ? { solution } : { solution, testcases };
+module.exports = { solution, testcases };

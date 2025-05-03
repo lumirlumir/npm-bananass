@@ -26,4 +26,4 @@ function solution(input: Input): Output {
   return width.toFixed(1); // `toFixed` returns a string.
 }
 
-module.exports = globalThis.IS_PROD ? { solution } : { solution, testcases };
+module.exports = { solution, testcases };
