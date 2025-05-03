@@ -19,7 +19,12 @@ function solution(input) {
     .split(' ')
     .map(val => Number(val));
 
+  if (!process.env.NODE_ENV === 'production') {
+    console.log('This line should not be included in the production build'); // eslint-disable-line no-console
+  }
+
   return a + b;
 }
 
-module.exports = { solution, testcases };
+module.exports =
+  process.env.NODE_ENV === 'production' ? { solution } : { solution, testcases };

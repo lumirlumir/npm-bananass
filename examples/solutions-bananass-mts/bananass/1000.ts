@@ -1,4 +1,4 @@
-import type { Testcases, Solution, SolutionWithTestcases } from 'bananass';
+import type { Testcases, Input, Output } from 'bananass';
 
 const testcases = [
   {
@@ -15,15 +15,13 @@ const testcases = [
   },
 ] satisfies Testcases;
 
-const solution: Solution = input => {
+function solution(input: Input): Output {
   const [a, b] = input
     .trim()
     .split(' ')
     .map(val => Number(val));
 
   return a + b;
-};
+}
 
-export default globalThis.IS_PROD
-  ? { solution }
-  : ({ solution, testcases } satisfies SolutionWithTestcases);
+export default { solution, testcases };

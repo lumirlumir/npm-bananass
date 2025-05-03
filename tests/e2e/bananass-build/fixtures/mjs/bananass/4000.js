@@ -1,5 +1,3 @@
-import type { Testcases, Input, Output } from 'bananass';
-
 const testcases = [
   {
     input: '1 2',
@@ -13,15 +11,19 @@ const testcases = [
     input: '5 6',
     output: '11',
   },
-] satisfies Testcases;
+];
 
-function solution(input: Input): Output {
+function solution(input) {
   const [a, b] = input
     .trim()
     .split(' ')
     .map(val => Number(val));
 
+  if (!globalThis.IS_PROD) {
+    console.log('This line should not be included in the production build'); // eslint-disable-line no-console
+  }
+
   return a + b;
 }
 
-module.exports = { solution, testcases };
+export default globalThis.IS_PROD ? { solution } : { solution, testcases };

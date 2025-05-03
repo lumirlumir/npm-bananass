@@ -1,4 +1,8 @@
-import type { Testcases, Input, Output } from 'bananass';
+import type {
+  Testcase,
+  Input,
+  Output,
+} from '../types' with { 'resolution-mode': 'require' };
 
 const testcases = [
   {
@@ -13,15 +17,15 @@ const testcases = [
     input: '5 6',
     output: '11',
   },
-] satisfies Testcases;
+] satisfies Testcase[];
 
-function solution(input: Input): Output {
+const solution = (input: Input): Output => {
   const [a, b] = input
     .trim()
     .split(' ')
     .map(val => Number(val));
 
   return a + b;
-}
+};
 
-module.exports = { solution, testcases };
+module.exports = globalThis.IS_PROD ? { solution } : { solution, testcases };
