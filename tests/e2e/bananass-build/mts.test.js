@@ -494,6 +494,44 @@ describe('mts', () => {
     });
   });
 
+  describe('Webpack `definePlugin` should be applied correctly', () => {
+    it('`globalThis.IS_PROD` should work correctly', async () => {
+      await build(['4000'], configObjectFS);
+
+      const outFile = resolve(outDir, '4000.cjs');
+      ok(existsSync(outFile));
+
+      const fileContent = readFileSync(outFile, 'utf-8');
+      strictEqual(
+        fileContent.includes('This line should not be included in the production build'),
+        false,
+      );
+      strictEqual(fileContent.includes('testcases'), false);
+
+      const result = runOutFile(outFile, '1 2');
+      strictEqual(result.status, 0);
+      strictEqual(result.stdout, '3');
+    });
+
+    it("`process.env.NODE_ENV === 'production'` should work correctly", async () => {
+      await build(['4001'], configObjectFS);
+
+      const outFile = resolve(outDir, '4001.cjs');
+      ok(existsSync(outFile));
+
+      const fileContent = readFileSync(outFile, 'utf-8');
+      strictEqual(
+        fileContent.includes('This line should not be included in the production build'),
+        false,
+      );
+      strictEqual(fileContent.includes('testcases'), false);
+
+      const result = runOutFile(outFile, '1 2');
+      strictEqual(result.status, 0);
+      strictEqual(result.stdout, '3');
+    });
+  });
+
   describe('Multiple files', () => {
     it('Multiple files with `fs` template should build correctly', async () => {
       await build(['1000', '1001', '2000'], configObjectFS);
