@@ -1,4 +1,4 @@
-// Baekjoon Problem Solving using **CommonJS Module**.
+import type { Testcases, Input, Output } from 'bananass';
 
 const testcases = [
   {
@@ -13,9 +13,9 @@ const testcases = [
     input: '5 6',
     output: '11',
   },
-];
+] satisfies Testcases;
 
-function solution(input) {
+function solution(input: Input): Output {
   const [a, b] = input
     .trim()
     .split(' ')
@@ -24,5 +24,4 @@ function solution(input) {
   return a + b;
 }
 
-// You can also write default export like this: `module.exports = { solution, testcases };`
-module.exports = globalThis.IS_PROD ? { solution } : { solution, testcases };
+export default { solution, testcases };

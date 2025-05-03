@@ -1,5 +1,3 @@
-// Baekjoon Problem Solving using **CommonJS Module**.
-
 const testcases = [
   {
     input: '1 2',
@@ -24,5 +22,4 @@ function solution(input) {
   return a + b;
 }
 
-// You can also write default export like this: `module.exports = { solution, testcases };`
-module.exports = globalThis.IS_PROD ? { solution } : { solution, testcases };
+module.exports = { solution, testcases };
