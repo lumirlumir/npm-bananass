@@ -16,7 +16,7 @@ To begin, please refer to the official Bananass Framework documentation.
 ### Get Started
 
 - Korean: [빠르게 시작하기](https://bananass.lumir.page/get-started/quick-start)
-- English: [Get Started](https://bananass.lumir.page/en/get-started/quick-start)
+- English: [Quick Start](https://bananass.lumir.page/en/get-started/quick-start)
 
 ### Learn
 
