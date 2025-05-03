@@ -139,6 +139,17 @@ describe('cts', () => {
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
       });
+
+      it('Type importing `with { resolution-mode: require }` should build correctly', async () => {
+        await build(['1999'], configObjectFS);
+
+        const outFile = resolve(outDir, '1999.cjs');
+        const result = runOutFile(outFile, '1 2');
+
+        ok(existsSync(outFile));
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
     });
 
     describe('`rl`(readline) template', () => {
@@ -223,6 +234,17 @@ describe('cts', () => {
         await build(['1007'], configObjectRL);
 
         const outFile = resolve(outDir, '1007.cjs');
+        const result = runOutFile(outFile, '1 2');
+
+        ok(existsSync(outFile));
+        strictEqual(result.status, 0);
+        strictEqual(result.stdout, '3');
+      });
+
+      it('Type importing `with { resolution-mode: require }` should build correctly', async () => {
+        await build(['1999'], configObjectRL);
+
+        const outFile = resolve(outDir, '1999.cjs');
         const result = runOutFile(outFile, '1 2');
 
         ok(existsSync(outFile));
