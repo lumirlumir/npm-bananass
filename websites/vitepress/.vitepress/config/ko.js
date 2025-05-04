@@ -143,20 +143,20 @@ export default defineConfig({
           collapsed: false,
           items: [
             {
-              base: '/apis/bananass',
               text: 'bananass',
+              link: '/bananass',
             },
             {
-              base: '/apis/bananass-utils-console',
               text: 'bananass-utils-console',
+              link: '/bananass-utils-console',
             },
             {
-              base: '/apis/bananass-utils-vitepress',
               text: 'bananass-utils-vitepress',
+              link: '/bananass-utils-vitepress',
             },
             {
-              base: '/apis/create-bananass',
               text: 'create-bananass',
+              link: '/create-bananass',
             },
             {
               base: '/apis/eslint-config-bananass',
@@ -171,8 +171,8 @@ export default defineConfig({
               ],
             },
             {
-              base: '/apis/prettier-config-bananass',
               text: 'prettier-config-bananass',
+              link: '/prettier-config-bananass',
             },
           ],
         },
