@@ -168,3 +168,15 @@ bananass-project/
 :::
 
 `testcases` 및 `solution` 함수는 `module.exports` 혹은 `export default`를 통해 내보내야 합니다.
+
+## 빠르게 실행하기 {#quick-run}
+
+<!-- @include: @/shared/wip.ko.md -->
+
+## 빠르게 빌드하기 {#quick-build}
+
+<!-- @include: @/shared/wip.ko.md -->
+
+## 빠르게 제출하기 {#quick-submit}
+
+<!-- @include: @/shared/wip.ko.md -->

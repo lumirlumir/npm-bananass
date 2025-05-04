@@ -1,3 +1,3 @@
 # API 참고서 {#apis}
 
-API 참고서.
+<!-- @include: @/shared/wip.ko.md -->

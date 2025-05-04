@@ -1,5 +1,7 @@
 # 문제 풀이 함수 작성하기 {#writing-a-solution-function}
 
+<!-- @include: @/shared/wip.ko.md -->
+
 이번 챕터에서는 문제 풀이 함수 `solution`을 작성하는 방법에 대해 소개합니다!
 
 ---

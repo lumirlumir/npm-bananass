@@ -1,5 +1,7 @@
 # 문제 풀이 파일 실행하기 {#running-a-solution-file}
 
+<!-- @include: @/shared/wip.ko.md -->
+
 [10699번: 오늘 날짜](https://www.acmicpc.net/problem/10699)와 같은 일부 문제들의 경우, `input`과 `output`을 통해 결과를 비교하기 어려운 경우들이 있습니다.
 
 이럴 때, `bananass run 1000 --dry-run` 혹은 `bananass run 1000 -d` 명령어를 통해, 결과 비교 없이 `solution` 함수를 단순히 한번 실행하여 결과를 출력해 볼 수 있습니다.

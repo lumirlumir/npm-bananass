@@ -8,6 +8,8 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import { readdirSync } from 'node:fs';
+
 import {
   URL_NPM,
   URL_HOMEPAGE,
@@ -104,18 +106,30 @@ export default defineConfig({
         {
           base: '/solutions',
           text: '문제 풀이 해답',
-          link: '',
+          link: '/',
           collapsed: false,
           items: [
             {
               base: '/solutions/baekjoon',
               text: '백준',
               collapsed: true,
+              items: readdirSync(
+                new URL('../../ko/solutions/baekjoon', import.meta.url),
+              ).map(fileName => ({
+                text: fileName.replace(/\.md$/, ''),
+                link: `/${fileName.replace(/\.md$/, '')}`,
+              })),
             },
             {
               base: '/solutions/codeforces',
               text: '코드포스',
               collapsed: true,
+              items: readdirSync(
+                new URL('../../ko/solutions/codeforces', import.meta.url),
+              ).map(fileName => ({
+                text: fileName.replace(/\.md$/, ''),
+                link: `/${fileName.replace(/\.md$/, '')}`,
+              })),
             },
           ],
         },
@@ -129,36 +143,28 @@ export default defineConfig({
           collapsed: false,
           items: [
             {
-              base: '/apis/bananass',
               text: 'bananass',
+              link: '/bananass',
             },
             {
-              base: '/apis/bananass-utils-console',
               text: 'bananass-utils-console',
+              link: '/bananass-utils-console',
             },
             {
-              base: '/apis/bananass-utils-vitepress',
               text: 'bananass-utils-vitepress',
+              link: '/bananass-utils-vitepress',
             },
             {
-              base: '/apis/create-bananass',
               text: 'create-bananass',
+              link: '/create-bananass',
             },
             {
-              base: '/apis/eslint-config-bananass',
               text: 'eslint-config-bananass',
-              link: '/',
-              collapsed: false,
-              items: [
-                {
-                  text: '참고 문서',
-                  link: '/references',
-                },
-              ],
+              link: '/eslint-config-bananass',
             },
             {
-              base: '/apis/prettier-config-bananass',
               text: 'prettier-config-bananass',
+              link: '/prettier-config-bananass',
             },
           ],
         },
