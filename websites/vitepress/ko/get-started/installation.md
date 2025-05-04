@@ -100,3 +100,5 @@ $ npm init bananass@latest
 :::
 
 ## 직접 설치해서 시작하기 {#getting-started-with-manual-installation}
+
+<!-- @include: @/shared/wip.ko.md -->

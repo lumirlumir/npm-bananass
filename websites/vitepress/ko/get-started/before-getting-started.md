@@ -12,9 +12,13 @@
 
 ## 자바스크립트<sup>JavaScript</sup> 및 타입스크립트<sup>TypeScript</sup> 지원 {#support-for-javascript-and-typescript}
 
+<!-- @include: @/shared/wip.ko.md -->
+
 현대<sup>Modern</sup> 자바스크립트 개발 환경에서, 타입스크립트는 빼놓을 수 없는 위치가 되었습니다.
 
 ## ESM<sup>ECMAScript Module</sup> 및 CommonJS 모듈 시스템 지원 {#support-for-esm-and-commonjs-module-systems}
+
+<!-- @include: @/shared/wip.ko.md -->
 
 ## Node.js 환경에 구애받지 않는 ES16<sup>ES2025</sup> 등 최신 문법 지원 {#support-for-modern-syntax}
 
@@ -55,13 +59,23 @@
 
 ## 프로그래머스처럼 `solution` 함수 하나로 문제 풀이를 시작하세요 {#start-solving-problems-with-a-single-solution-function-like-on-programmers}
 
+<!-- @include: @/shared/wip.ko.md -->
+
 ## 편리하게 테스트 케이스를 작성하고 실행하세요 {#write-and-run-test-cases-conveniently}
+
+<!-- @include: @/shared/wip.ko.md -->
 
 ## `create-bananass`로 지금 바로 시작하세요 {#get-started-with-create-bananass}
 
+<!-- @include: @/shared/wip.ko.md -->
+
 ## 같은 문제라도 더 빠르게 푸세요 {#solve-the-same-problem-faster}
 
+<!-- @include: @/shared/wip.ko.md -->
+
 ## 편의를 위한 다양한 CLI 명령어 지원 {#various-cli-commands-for-convenience}
+
+<!-- @include: @/shared/wip.ko.md -->
 
 ## 풍부하고 상세한 문서 지원 {#rich-and-detailed-documentation-support}
 
@@ -69,7 +83,7 @@
 
 바나나 프레임워크의 사용법을 자세히 알고 싶으신가요? [공식 문서](https://bananass.lumir.page)를 통해 바나나 프레임워크의 사용법을 자세히 알아보세요.
 
-바나나 프레임워크를 이용한 문제 풀이를 확인하고 싶으신가요? 문제 풀이 예시를 통해 다른 사용자들이 어떻게 문제 풀이를 했나 확인해보세요.
+바나나 프레임워크를 이용한 문제 풀이를 확인하고 싶으신가요? [문제 풀이 해답](../solutions)을 통해 다른 사용자들이 어떻게 문제 풀이를 했나 확인해보세요.
 
 바나나 프레임워크를 사용하면서 질문이 있으신가요? [토론<sup>Discussion</sup>](https://github.com/lumirlumir/npm-bananass/discussions)을 통해 다른 사용자들과 소통하고, 문제를 해결해보세요.
 
@@ -94,6 +108,6 @@
 
 수많은 오픈소스 기여를 통해 배운 모든 내용들을 바나나 프레임워크에 녹여냈습니다. 바나나 프레임워크에서 사용하는 [Babel](https://babeljs.io/), [Webpack](https://webpack.js.org/), [ESLint](https://eslint.org/) 등의 기술들은 현대 자바스크립트 개발의 핵심을 품고 있습니다.
 
-바나나 프레임워크는 여러분 모두의 관심을 통해 점점 완벽해지고 성장할 수 있습니다. 기여를 통해 바나나 프레임워크를 성장시키고 오픈소스, 그리고 기여자 목록<sup>Contributor List</sup>에 여러분의 발자취를 남겨주세요.
+바나나 프레임워크는 여러분 모두의 관심을 통해 점점 완벽해지고 성장할 수 있습니다. 기여를 통해 바나나 프레임워크를 함께 성장시키고 오픈소스, 그리고 기여자 목록<sup>Contributor List</sup>에 여러분의 발자취를 남겨주세요.
 
 작게는 이슈 및 문서 기여부터, 핵심 코드 기여까지, 바나나 프레임워크는 모두의 도움으로 성장할 수 있습니다!
