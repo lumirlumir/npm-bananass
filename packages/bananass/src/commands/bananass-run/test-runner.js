@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { SolutionWithTestcases, Testcase } from '../../core/structs/index.js';
+import { SolutionWithTestcases, Input, Output } from '../../core/structs/index.js';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -14,7 +14,17 @@ import { SolutionWithTestcases, Testcase } from '../../core/structs/index.js';
 
 /**
  * @typedef {import('../../core/types.js').SolutionWithTestcases} SolutionWithTestcases
+ * @typedef {import('../../core/types.js').Output} Output
  */
+
+// --------------------------------------------------------------------------------
+// Helpers
+// --------------------------------------------------------------------------------
+
+/** @param {Output} output */
+function transformOutput(output) {
+  return String(output).trimEnd();
+}
 
 // --------------------------------------------------------------------------------
 // Export
@@ -42,26 +52,30 @@ export default function testRunner(solutionWithTestcases) {
   // Test Runner
   // ------------------------------------------------------------------------------
 
-  const results = testcases.map(({ input, output }) => {
-    Testcase.assert({ input, output: solution(input) }); // `solution(input)` should be `Testcase.output` type.
+  const results = testcases.map(({ input, output: outputExpected }) => {
+    const outputActual = solution(input);
 
-    const outputExpected = String(output);
-    const outputActual = String(solution(input));
-    const isTestPassed = Object.is(outputExpected, outputActual);
+    Input.assert(input);
+    Output.assert(outputExpected);
+    Output.assert(outputActual);
+
+    const outputExpectedTransformed = transformOutput(outputExpected);
+    const outputActualTransformed = transformOutput(outputActual);
 
     return {
       input,
       outputExpected,
       outputActual,
-      isTestPassed,
+      outputExpectedTransformed,
+      outputActualTransformed,
+      isTestPassed: Object.is(outputExpectedTransformed, outputActualTransformed),
     };
   });
 
   const numberOfTests = testcases.length;
   const numberOfTestsPassed = results.filter(({ isTestPassed }) => isTestPassed).length;
   const numberOfTestsFailed = numberOfTests - numberOfTestsPassed;
-
-  const isAllTestsPassed = numberOfTests === numberOfTestsPassed;
+  const isAllTestsPassed = Object.is(numberOfTests, numberOfTestsPassed);
 
   // ------------------------------------------------------------------------------
   // Return
