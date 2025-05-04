@@ -8,6 +8,8 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import { readdirSync } from 'node:fs';
+
 import {
   URL_NPM,
   URL_HOMEPAGE,
@@ -104,18 +106,30 @@ export default defineConfig({
         {
           base: '/solutions',
           text: '문제 풀이 해답',
-          link: '',
+          link: '/',
           collapsed: false,
           items: [
             {
               base: '/solutions/baekjoon',
               text: '백준',
               collapsed: true,
+              items: readdirSync(
+                new URL('../../ko/solutions/baekjoon', import.meta.url),
+              ).map(fileName => ({
+                text: fileName.replace(/\.md$/, ''),
+                link: `/${fileName.replace(/\.md$/, '')}`,
+              })),
             },
             {
               base: '/solutions/codeforces',
               text: '코드포스',
               collapsed: true,
+              items: readdirSync(
+                new URL('../../ko/solutions/codeforces', import.meta.url),
+              ).map(fileName => ({
+                text: fileName.replace(/\.md$/, ''),
+                link: `/${fileName.replace(/\.md$/, '')}`,
+              })),
             },
           ],
         },
