@@ -159,16 +159,8 @@ export default defineConfig({
               link: '/create-bananass',
             },
             {
-              base: '/en/apis/eslint-config-bananass',
               text: 'eslint-config-bananass',
-              link: '/',
-              collapsed: false,
-              items: [
-                {
-                  text: 'References',
-                  link: '/references',
-                },
-              ],
+              link: '/eslint-config-bananass',
             },
             {
               text: 'prettier-config-bananass',

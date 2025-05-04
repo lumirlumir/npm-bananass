@@ -1,6 +1,26 @@
+# `eslint-config-bananass` {#eslint-config-bananass}
+
+<!-- @include: @/shared/wip.ko.md -->
+
+코딩 테스트 관련 해서 자주 쓰이는 문법에 대한 규칙은 해제.
+
+`airbnb-base` 보다 훨씬 느슨하다.
+
+## 설정 방법 {#configurations}
+
+```js
+import bananass from 'eslint-config-bananass';
+
+export default [
+  bananass.configs.js
+];
+```
+
+---
+
 <!-- eslint-disable mark/heading-id, mark/no-emoji -- TODO: Remove it later -->
 
-# 참고 문서
+## 참고 문서
 
 - `eslint-config-prettier`가 필요 없습니다. prettier 관련 스타일 옵션들은 `eslint@9`로 넘어오면서 대부분 비활성화 되었고, 남아 있는 일부 옵션들도 개별적으로 모두 제거 해두었기 때문에, `create-bananass-app`을 통한 옵션에서는 Prettier와 ESLint의 충돌이 발생하지 않습니다.
 
