@@ -19,9 +19,10 @@ import enhancedResolve from 'enhanced-resolve';
 import { createJiti } from 'jiti';
 
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
-import testRunner from './test-runner.js';
 import { Problems, ConfigObject } from '../../core/structs/index.js';
 import { SUPPORTED_SOLUTION_FILE_EXTENSIONS } from '../../core/constants.js';
+
+import testRunner from './test-runner.js';
 
 // --------------------------------------------------------------------------------
 // Typedefs
