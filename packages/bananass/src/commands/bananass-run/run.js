@@ -15,13 +15,13 @@ import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, error, success } from 'bananass-utils-console/theme';
 
 import chalk from 'chalk';
-import enhancedResolve from 'enhanced-resolve';
 import { createJiti } from 'jiti';
 
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
-import testRunner from './test-runner.js';
+import { webpackResolve } from '../../core/fs/index.js';
 import { Problems, ConfigObject } from '../../core/structs/index.js';
-import { SUPPORTED_SOLUTION_FILE_EXTENSIONS } from '../../core/constants.js';
+
+import testRunner from './test-runner.js';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -55,9 +55,6 @@ export default async function run(problems, configObject = dco) {
   // Declarations
   // ------------------------------------------------------------------------------
 
-  const webpackResolve = enhancedResolve.create({
-    extensions: SUPPORTED_SOLUTION_FILE_EXTENSIONS,
-  });
   const jiti = createJiti(import.meta.url);
 
   const {
@@ -109,7 +106,7 @@ export default async function run(problems, configObject = dco) {
   // ------------------------------------------------------------------------------
 
   try {
-    // @ts-expect-error -- TODO: Delete it.
+    // @ts-expect-error Types cannot be matched in JavaScript.
     importedModules = await Promise.all(
       resolvedEntryFiles.map(resolvedEntryFile =>
         jiti.import(resolvedEntryFile, { default: true }),
