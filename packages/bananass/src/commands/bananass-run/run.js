@@ -69,7 +69,7 @@ export default async function run(problems, configObject = dco) {
   const resolvedEntryDir = resolve(cwd, entryDir);
   let /** @type {string[]} */ resolvedEntryFiles;
   let /** @type {SolutionWithTestcases[]} */ importedModules;
-  let testResults;
+  let /** @type {ReturnType<testRunner>[]} */ testResults;
 
   const logger = createLogger({ debug, quiet, textPrefix: false });
   const spinner = createSpinner();
