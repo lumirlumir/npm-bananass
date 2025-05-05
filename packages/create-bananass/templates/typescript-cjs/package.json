@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "bananass": "^0.1.0-canary.5",
-    "eslint": "^9.25.1",
+    "eslint": "^9.26.0",
     "eslint-config-bananass": "^0.1.0-canary.5",
     "jiti": "^2.4.2",
     "prettier": "^3.5.3",
