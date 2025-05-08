@@ -12,11 +12,39 @@ export default defineConfig([
   bananass.configs.ts,
   mark.configs.recommendedGfm,
   {
-    name: 'websites-vitepress',
+    name: 'websites-vitepress/global',
     files: ['websites/vitepress/**/*.md'],
     rules: {
       'mark/heading-id': 'error',
       'mark/no-emoji': 'error',
+    },
+  },
+  {
+    name: 'websites-vitepress/solutions/ko',
+    files: ['websites/vitepress/ko/solutions/**/*.md'],
+    rules: {
+      'mark/allowed-heading': [
+        'error',
+        {
+          h2: ['문제 풀이 {#solutions}', '해설 {#explanation}', '기여자 {#contributors}'],
+        },
+      ],
+    },
+  },
+  {
+    name: 'websites-vitepress/solutions/en',
+    files: ['websites/vitepress/en/solutions/**/*.md'],
+    rules: {
+      'mark/allowed-heading': [
+        'error',
+        {
+          h2: [
+            'Solutions {#solutions}',
+            'Explanation {#explanation}',
+            'Contributors {#contributors}',
+          ],
+        },
+      ],
     },
   },
 ]);

@@ -10,6 +10,10 @@ import { createRequire } from 'node:module';
 import { strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
+// --------------------------------------------------------------------------------
+// Helpers
+// --------------------------------------------------------------------------------
+
 const npmBananass = createRequire(import.meta.url)('../../package.json');
 const bananass = createRequire(import.meta.url)('bananass/package.json');
 const bananassUtilsConsole = createRequire(import.meta.url)(
