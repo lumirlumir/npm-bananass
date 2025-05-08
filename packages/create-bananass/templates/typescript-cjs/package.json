@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "create-bananass-typescript-cjs",
-  "version": "0.1.0-canary.5",
+  "version": "0.1.0-canary.6",
   "type": "commonjs",
   "engines": {
     "node": "^20.18.0 || >= 22.3.0"
@@ -26,12 +26,12 @@
     "tsc": "tsc"
   },
   "devDependencies": {
-    "bananass": "^0.1.0-canary.5",
+    "bananass": "^0.1.0-canary.6",
     "eslint": "^9.26.0",
-    "eslint-config-bananass": "^0.1.0-canary.5",
+    "eslint-config-bananass": "^0.1.0-canary.6",
     "jiti": "^2.4.2",
     "prettier": "^3.5.3",
-    "prettier-config-bananass": "^0.1.0-canary.5",
+    "prettier-config-bananass": "^0.1.0-canary.6",
     "typescript": "^5.8.3"
   }
 }
