@@ -1,13 +1,13 @@
 {
   "private": true,
   "name": "examples-solutions-bananass-cjs",
-  "version": "0.1.0-canary.5",
+  "version": "0.1.0-canary.6",
   "scripts": {
     "build": "bananass build",
     "run": "bananass run",
     "test": "bash ../../scripts/examples-solutions-bananass-test.sh"
   },
   "devDependencies": {
-    "bananass": "^0.1.0-canary.5"
+    "bananass": "^0.1.0-canary.6"
   }
 }
