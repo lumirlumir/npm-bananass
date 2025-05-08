@@ -93,7 +93,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.27.1",
-    "@babel/preset-env": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
     "@babel/preset-typescript": "^7.27.1",
     "babel-loader": "^10.0.0",
     "bananass-utils-console": "^0.1.0-canary.5",
