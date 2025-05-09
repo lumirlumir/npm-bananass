@@ -25,7 +25,7 @@ const options = {
 // Test
 // --------------------------------------------------------------------------------
 
-describe('transform-array-prototype-to-sorted.js', () => {
+describe('transform-array-prototype-to-sorted', () => {
   it('should transform dot form `arr.toSorted()` to `arr.slice().sort()`', () => {
     const code = '[1, 2, 3].toSorted();';
     const transformedCode = transformSync(code, options).code;

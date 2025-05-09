@@ -24,7 +24,7 @@ mock.method(console, 'log', () => {}); // Suppress console output.
 // Test
 // --------------------------------------------------------------------------------
 
-describe('info.js', () => {
+describe('info', () => {
   describe('should use default parameters correctly', () => {
     it('should use default parameters when no arguments are provided', async () => {
       await info(); // Same with `await doesNotReject(() => info());`.

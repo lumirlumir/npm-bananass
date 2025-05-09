@@ -15,7 +15,7 @@ import en from './en.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('en.js', () => {
+describe('en', () => {
   it('should return default configuration when no option is provided', () => {
     const enConfig = en();
 

@@ -15,7 +15,7 @@ import ConfigObjectLogin from './config-object-login.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('config-object-login.js', () => {
+describe('config-object-login', () => {
   // true
   it('should return true for an empty object', () => {
     const configObjectLogin = {};

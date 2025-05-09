@@ -15,7 +15,7 @@ import ConfigObjectConsole from './config-object-console.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('config-object-console.js', () => {
+describe('config-object-console', () => {
   // true
   it('should return true for an empty object', () => {
     const configObjectConsole = {};

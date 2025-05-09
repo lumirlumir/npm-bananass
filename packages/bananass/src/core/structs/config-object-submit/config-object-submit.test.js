@@ -15,7 +15,7 @@ import ConfigObjectSubmit from './config-object-submit.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('config-object-submit.js', () => {
+describe('config-object-submit', () => {
   // true
   it('should return true for an empty object', () => {
     const configObjectSubmit = {};

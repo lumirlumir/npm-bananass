@@ -15,7 +15,7 @@ import Output from './output.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('output.js', () => {
+describe('output', () => {
   // true
   it('should return true for string', () => {
     const output = 'Hello, World!';

@@ -15,7 +15,7 @@ import ConfigObjectBuild from './config-object-build.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('config-object-build.js', () => {
+describe('config-object-build', () => {
   // true
   it('should return true for an empty object', () => {
     const configObjectBuild = {};

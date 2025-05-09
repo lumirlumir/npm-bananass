@@ -15,7 +15,7 @@ import Problems from './problems.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('problems.js', () => {
+describe('problems', () => {
   // true
   it('should return true for a single valid problem string', () => {
     const problems = ['1234'];

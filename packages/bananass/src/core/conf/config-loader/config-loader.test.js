@@ -44,7 +44,7 @@ const configObject = {
 // Test
 // --------------------------------------------------------------------------------
 
-describe('config-loader.js', () => {
+describe('config-loader', () => {
   // Default parameters
   describe('should use default parameters and options correctly', () => {
     it('should use default parameters when no arguments are provided', async () => {

@@ -63,7 +63,7 @@ function runSpinner(callback, options = {}) {
 // Test
 // --------------------------------------------------------------------------------
 
-describe('spinner.js', () => {
+describe('spinner', () => {
   it('start and stop spinner', () => {
     const output = runSpinner(spinner => spinner.stop());
 

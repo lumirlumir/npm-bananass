@@ -15,7 +15,7 @@ import Testcases from './testcases.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('testcases.js', () => {
+describe('testcases', () => {
   // true
   it('should return true for valid testcases', () => {
     const testcases = [

@@ -15,7 +15,7 @@ import ConfigObjectRepo from './config-object-repo.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('config-object-repo.js', () => {
+describe('config-object-repo', () => {
   // true
   it('should return true for an empty object', () => {
     const configObjectRepo = {};

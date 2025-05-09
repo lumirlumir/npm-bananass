@@ -15,7 +15,7 @@ import ConfigObjectBrowser from './config-object-browser.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('config-object-browser.js', () => {
+describe('config-object-browser', () => {
   // true
   it('should return true for an empty object', () => {
     const configObjectBrowser = {};

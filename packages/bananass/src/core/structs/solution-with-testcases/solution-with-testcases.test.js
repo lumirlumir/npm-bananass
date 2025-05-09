@@ -15,7 +15,7 @@ import SolutionWithTestcases from './solution-with-testcases.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('solution-with-testcases.js', () => {
+describe('solution-with-testcases', () => {
   // true
   it('should return true for a valid object without testcases', () => {
     const solutionWithTestcases = {

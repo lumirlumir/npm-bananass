@@ -25,7 +25,7 @@ const options = {
 // Test
 // --------------------------------------------------------------------------------
 
-describe('transform-array-prototype-to-reversed.js', () => {
+describe('transform-array-prototype-to-reversed', () => {
   it('should transform dot form `arr.toReversed()` to `arr.slice().reverse()`', () => {
     const code = '[1, 2, 3].toReversed();';
     const transformedCode = transformSync(code, options).code;

@@ -15,7 +15,7 @@ import ConfigObjectHome from './config-object-home.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('config-object-home.js', () => {
+describe('config-object-home', () => {
   // true
   it('should return true for an empty object', () => {
     const configObjectHome = {};
