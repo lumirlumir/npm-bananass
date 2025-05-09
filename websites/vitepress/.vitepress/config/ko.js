@@ -9,6 +9,7 @@
 // --------------------------------------------------------------------------------
 
 import { readdirSync } from 'node:fs';
+import { parse } from 'node:path';
 
 import {
   URL_NPM,
@@ -113,12 +114,12 @@ export default defineConfig({
               base: '/solutions/baekjoon',
               text: '백준',
               collapsed: true,
-              items: readdirSync(
-                new URL('../../ko/solutions/baekjoon', import.meta.url),
-              ).map(fileName => ({
-                text: fileName.replace(/\.md$/, ''),
-                link: `/${fileName.replace(/\.md$/, '')}`,
-              })),
+              items: readdirSync(new URL('../../ko/solutions/baekjoon', import.meta.url))
+                .sort((a, b) => parse(a).name - parse(b).name)
+                .map(fileName => ({
+                  text: parse(fileName).name,
+                  link: `/${parse(fileName).name}`,
+                })),
             },
             {
               base: '/solutions/codeforces',
@@ -127,8 +128,8 @@ export default defineConfig({
               items: readdirSync(
                 new URL('../../ko/solutions/codeforces', import.meta.url),
               ).map(fileName => ({
-                text: fileName.replace(/\.md$/, ''),
-                link: `/${fileName.replace(/\.md$/, '')}`,
+                text: parse(fileName).name,
+                link: `/${parse(fileName).name}`,
               })),
             },
           ],
