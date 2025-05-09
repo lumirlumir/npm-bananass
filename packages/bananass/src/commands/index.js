@@ -8,6 +8,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import add from './bananass-add/index.js';
 import bug from './bananass-bug/index.js';
 import build from './bananass-build/index.js';
 import discussion from './bananass-discussion/index.js';
@@ -21,4 +22,4 @@ import run from './bananass-run/index.js';
 // Export
 // --------------------------------------------------------------------------------
 
-export { bug, build, discussion, home, info, open, repo, run };
+export { bug, build, discussion, home, info, open, repo, run, add };
