@@ -21,7 +21,7 @@ const googleAnalyticsID = 'G-1234567890';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('generate-google-analytics-script.js', () => {
+describe('generate-google-analytics-script', () => {
   it('should return an array', () => {
     const actual = Array.isArray(generateGoogleAnalyticsScript(googleAnalyticsID));
     const expected = true;

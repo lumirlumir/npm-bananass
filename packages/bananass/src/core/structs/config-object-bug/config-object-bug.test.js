@@ -15,7 +15,7 @@ import ConfigObjectBug from './config-object-bug.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('config-object-bug.js', () => {
+describe('config-object-bug', () => {
   // true
   it('should return true for an empty object', () => {
     const configObjectBug = {};

@@ -23,7 +23,7 @@ import { success, error, warning, info, bananass } from './theme.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('theme.js', () => {
+describe('theme', () => {
   describe('success message formatting', () => {
     const message = 'Operation successful.';
 

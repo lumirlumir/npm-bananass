@@ -15,7 +15,7 @@ import prettierConfig from './index.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('index.js', () => {
+describe('index', () => {
   it('printWidth should be 90', () => {
     strictEqual(prettierConfig.printWidth, 90);
   });

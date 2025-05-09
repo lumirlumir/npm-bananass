@@ -25,7 +25,7 @@ const options = {
 // Test
 // --------------------------------------------------------------------------------
 
-describe('transform-object-has-own.js', () => {
+describe('transform-object-has-own', () => {
   it('should transform dot form `Object.hasOwn(obj, prop)`', () => {
     const code = 'Object.hasOwn(obj, prop);';
     const transformedCode = transformSync(code, options).code;

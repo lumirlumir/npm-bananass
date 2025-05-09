@@ -46,7 +46,7 @@ afterEach(() => {
   consoleLogMock.reset();
 });
 
-describe('logger.js', () => {
+describe('logger', () => {
   describe('`log` method', () => {
     // lastMethodCalled
     it("when `log` method is called, `#lastMethodCalled` should be set to `'log'`", () => {

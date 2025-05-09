@@ -15,7 +15,7 @@ import ko from './ko.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('ko.js', () => {
+describe('ko', () => {
   it('should return default configuration when no option is provided', () => {
     const koConfig = ko();
 

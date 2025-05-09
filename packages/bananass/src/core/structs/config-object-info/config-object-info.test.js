@@ -15,7 +15,7 @@ import ConfigObjectInfo from './config-object-info.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('config-object-info.js', () => {
+describe('config-object-info', () => {
   // true
   it('should return true for an empty object', () => {
     const configObjectInfo = {};

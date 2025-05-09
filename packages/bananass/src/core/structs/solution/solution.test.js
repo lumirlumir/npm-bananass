@@ -15,7 +15,7 @@ import Solution from './solution.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('solution.js', () => {
+describe('solution', () => {
   // true
   it('should return true for a function with 0 parameter (arrow func)', () => {
     const solution = () => 'result';

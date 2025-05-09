@@ -15,7 +15,7 @@ import ConfigObjectOpen from './config-object-open.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('config-object-open.js', () => {
+describe('config-object-open', () => {
   // true
   it('should return true for an empty object', () => {
     const configObjectOpen = {};

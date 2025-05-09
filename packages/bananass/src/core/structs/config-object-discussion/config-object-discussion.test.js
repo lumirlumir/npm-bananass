@@ -15,7 +15,7 @@ import ConfigObjectDiscussion from './config-object-discussion.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('config-object-discussion.js', () => {
+describe('config-object-discussion', () => {
   // true
   it('should return true for an empty object', () => {
     const configObjectDiscussion = {};

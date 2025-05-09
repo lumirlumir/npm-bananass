@@ -15,7 +15,7 @@ import ConfigObjectRun from './config-object-run.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('config-object-run.js', () => {
+describe('config-object-run', () => {
   // true
   it('should return true for an empty object', () => {
     const configObjectRun = {};

@@ -15,7 +15,7 @@ import ConfigObjectAdd from './config-object-add.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('config-object-add.js', () => {
+describe('config-object-add', () => {
   // true
   it('should return true for an empty object', () => {
     const configObjectAdd = {};

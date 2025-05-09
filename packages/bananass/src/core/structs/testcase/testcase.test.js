@@ -15,7 +15,7 @@ import Testcase from './testcase.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('testcase.js', () => {
+describe('testcase', () => {
   // true
   it('should return true for a valid object without input', () => {
     const testcase = {

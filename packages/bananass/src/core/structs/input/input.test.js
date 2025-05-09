@@ -15,7 +15,7 @@ import Input from './input.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('input.js', () => {
+describe('input', () => {
   // true
   it('should return true for a single valid input string', () => {
     const input = 'Hello, World!';

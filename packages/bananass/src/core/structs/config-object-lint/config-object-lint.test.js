@@ -15,7 +15,7 @@ import ConfigObjectLint from './config-object-lint.js';
 // Test
 // --------------------------------------------------------------------------------
 
-describe('config-object-lint.js', () => {
+describe('config-object-lint', () => {
   // true
   it('should return true for an empty object', () => {
     const configObjectLint = {};
