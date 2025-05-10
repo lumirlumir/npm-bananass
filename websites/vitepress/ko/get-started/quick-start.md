@@ -6,9 +6,9 @@
 
 :::
 
-지금 바로 바나나 프레임워크를 만나볼 수 있는, 빠르게 시작하기 문서에 오신 것을 환영합니다!
+지금 바로 바나나 프레임워크를 만나볼 수 있는, **빠르게 시작하기** 문서에 오신 것을 환영합니다!
 
-이번 챕터에서는 `create-bananass` 명령어를 이용하여 바나나 프레임워크를 설치하고, 예제로 추가되어 있는 [백준 1000번 문제](https://www.acmicpc.net/problem/1000)를 풀고 제출하는 방법에 대해 소개합니다!
+이번 챕터에서는 [`create-bananass`](installation#getting-started-with-create-bananass) 명령어를 이용하여 바나나 프레임워크를 설치하고, 예제로 추가되어 있는 [백준 1000번 문제](https://www.acmicpc.net/problem/1000)를 풀고 제출하는 방법에 대해 소개합니다!
 
 ---
 
@@ -24,11 +24,11 @@
 
 ### 선행 설치 사항 {#prerequisites}
 
-`create-bananass` 명령어를 실행하기 전, `^20.18.0 || >= 22.3.0` 범위에 해당하는 최신 버전의 [Node.js](https://nodejs.org/) 및 [Git](https://git-scm.com/)을 설치해주세요.
+`create-bananass` 명령어를 실행하기 전, `^20.18.0 || ^22.3.0 || >= 24.0.0` 범위에 해당하는 최신 버전의 [Node.js](https://nodejs.org/) 및 [Git](https://git-scm.com/)을 설치해주세요.
 
 ### `create-bananass`로 설치하기 {#install-with-create-bananass}
 
-Node.js 및 Git을 설치하셨나요? 이제, 아래 명령어 중 하나를 통해 `create-bananass`를 실행해주세요!
+Node.js 및 Git을 설치하셨나요? 이제, 아래 명령어 중 하나를 터미널(CLI)에 입력해 `create-bananass`를 실행해주세요!
 
 ::: code-group
 
