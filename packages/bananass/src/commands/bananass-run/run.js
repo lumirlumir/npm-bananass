@@ -1,6 +1,5 @@
 /**
  * @fileoverview Asynchronously run generated testcases and compare them with the expected outputs.
- *
  * Note that `Array.prototype.map` is stable, meaning that the order of the elements in the original array is preserved.
  */
 
@@ -13,6 +12,10 @@ import { resolve } from 'node:path';
 import createLogger from 'bananass-utils-console/logger';
 import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, error, success } from 'bananass-utils-console/theme';
+import {
+  bulletIcon as BIcon,
+  boxDrawingsLightHorizontalIcon as BDLHIcon,
+} from 'bananass-utils-console/icons';
 
 import chalk from 'chalk';
 import { createJiti } from 'jiti';
@@ -65,6 +68,7 @@ export default async function run(problems, configObject = dco) {
       quiet = dco.console.quiet,
     } = dco.console,
   } = configObject;
+  const { columns } = process.stdout;
 
   const resolvedEntryDir = resolve(cwd, entryDir);
   let /** @type {string[]} */ resolvedEntryFiles;
@@ -149,45 +153,40 @@ export default async function run(problems, configObject = dco) {
 
     results.forEach(({ input, outputExpected, outputActual }, index, thisArg) => {
       logger
-        .log('\u2500'.repeat(process.stdout.columns))
+        .log(BDLHIcon.repeat(columns))
         .log(
-          '\u2022',
+          BIcon,
           chalk.cyan.bold(`TESTCASE`, chalk.underline(`#${index + 1}`)),
           chalk.green.bold('INPUT'),
         )
-        .log(chalk.gray.dim('-'.repeat(process.stdout.columns)))
+        .log(chalk.gray.dim('-'.repeat(columns)))
         .log(chalk.magenta.bold('Your Input:'))
         .log(input)
-        .log(chalk.gray.dim('\u2500'.repeat(process.stdout.columns)))
+        .log(chalk.gray.dim(BDLHIcon.repeat(columns)))
         .log(
-          '\u2022',
+          BIcon,
           chalk.cyan.bold(`TESTCASE`, chalk.underline(`#${index + 1}`)),
           chalk.greenBright.bold('OUTPUT'),
         )
-        .log(chalk.gray.dim('-'.repeat(process.stdout.columns)))
+        .log(chalk.gray.dim('-'.repeat(columns)))
         .log(chalk.magenta.bold('Expected Output:'))
         .log(outputExpected)
         .log(chalk.magenta.bold('Your Output:'))
         .log(outputActual);
 
       if (thisArg.length === index + 1) {
-        logger.log('\u2500'.repeat(process.stdout.columns));
+        logger.log(BDLHIcon.repeat(columns));
       }
     });
 
     results.forEach(({ isTestPassed }, index) => {
       logger.log(
-        '\u2022',
+        BIcon,
         chalk.cyan.bold(`TESTCASE`, chalk.underline(`#${index + 1}`)),
         isTestPassed ? chalk.green.bold('PASSED') : chalk.red.bold('FAILED'),
       );
     });
   });
-
-  // U+2015: "Figure Dash" (―)
-  // U+2022: "Bullet" (•)
-  // U+2500: "Box Drawings Light Horizontal" (━)
-  // U+2501: "Box Drawings Heavy Horizontal" (━)
 
   // ------------------------------------------------------------------------------
   // Exit with Code
