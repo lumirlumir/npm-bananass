@@ -5,7 +5,6 @@ import build from './bananass-build.js';
 import discussion from './bananass-discussion.js';
 import home from './bananass-home.js';
 import info from './bananass-info.js';
-import lint from './bananass-lint.js';
 import login from './bananass-login.js';
 import open from './bananass-open.js';
 import repo from './bananass-repo.js';
@@ -20,7 +19,6 @@ export {
   discussion,
   home,
   info,
-  lint,
   login,
   open,
   repo,

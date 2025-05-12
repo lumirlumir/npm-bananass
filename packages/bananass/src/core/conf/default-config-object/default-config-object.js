@@ -25,7 +25,6 @@ import { DEFAULT_ENTRY_DIR_NAME, DEFAULT_OUT_DIR_NAME } from '../../constants.js
  * @typedef {import('../../types.js').ConfigObjectDiscussion} ConfigObjectDiscussion
  * @typedef {import('../../types.js').ConfigObjectHome} ConfigObjectHome
  * @typedef {import('../../types.js').ConfigObjectInfo} ConfigObjectInfo
- * @typedef {import('../../types.js').ConfigObjectLint} ConfigObjectLint
  * @typedef {import('../../types.js').ConfigObjectLogin} ConfigObjectLogin
  * @typedef {import('../../types.js').ConfigObjectOpen} ConfigObjectOpen
  * @typedef {import('../../types.js').ConfigObjectRepo} ConfigObjectRepo
@@ -78,9 +77,6 @@ const info = {
   all: false,
 };
 
-/** @type {ConfigObjectLint} */
-const lint = {};
-
 /** @type {ConfigObjectLogin} */
 const login = {};
 
@@ -117,7 +113,6 @@ export default {
   discussion,
   home,
   info,
-  lint,
   login,
   open,
   repo,

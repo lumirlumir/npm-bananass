@@ -17,7 +17,6 @@ import {
   discussion,
   home,
   info,
-  lint,
   login,
   open,
   repo,
@@ -36,7 +35,6 @@ build(program);
 discussion(program);
 home(program);
 info(program);
-lint(program);
 login(program);
 open(program);
 repo(program);

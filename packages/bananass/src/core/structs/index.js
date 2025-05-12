@@ -19,7 +19,6 @@ import ConfigObjectBuild from './config-object-build/index.js';
 import ConfigObjectDiscussion from './config-object-discussion/index.js';
 import ConfigObjectHome from './config-object-home/index.js';
 import ConfigObjectInfo from './config-object-info/index.js';
-import ConfigObjectLint from './config-object-lint/index.js';
 import ConfigObjectLogin from './config-object-login/index.js';
 import ConfigObjectOpen from './config-object-open/index.js';
 import ConfigObjectRepo from './config-object-repo/index.js';
@@ -50,7 +49,6 @@ export {
   ConfigObjectDiscussion,
   ConfigObjectHome,
   ConfigObjectInfo,
-  ConfigObjectLint,
   ConfigObjectLogin,
   ConfigObjectOpen,
   ConfigObjectRepo,
