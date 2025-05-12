@@ -1,6 +1,6 @@
 {
   "name": "bananass-utils-console",
-  "version": "0.1.0-canary.6",
+  "version": "0.1.0",
   "type": "module",
   "description": "Console Utilities for Bananass Framework.🍌",
   "exports": {
