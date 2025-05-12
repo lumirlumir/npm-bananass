@@ -11,6 +11,18 @@ Buzz
 FizzBuzz`,
     output: `980806`,
   },
+  {
+    input: `12
+Fizz
+Buzz`,
+    output: `FizzBuzz`,
+  },
+  {
+    input: `17
+Fizz
+19`,
+    output: `Buzz`,
+  },
 ];
 
 function solution(input) {
