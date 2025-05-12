@@ -15,9 +15,9 @@
 ```sh
 bananass-project/
 ├── .bananass/
-│   ├── 1000.js
-│   ├── 1001.js
-│   ├── 1002.js
+│   ├── 1000.cjs
+│   ├── 1001.cjs
+│   ├── 1002.cjs
 │   └── ...
 ├── bananass/
 │   ├── 1000.js
@@ -28,11 +28,9 @@ bananass-project/
 │   ├── 1005.cts
 │   └── ...
 ├── .gitignore
-├── bananass.config.mjs
+├── bananass.config.{js,mjs,cjs,ts,mts,cts}
 ├── package.json
 └── ...
 ```
 
 ### 최상위 폴더 {#top-level-folder}
-
-이는 `bananass.config.{js,mjs,cjs,ts,mts,cts}` 파일을 통해 자신의 취향에 맞게 변경할 수 있습니다.
