@@ -44,6 +44,10 @@ export const warningIcon = c.yellow.bold(choose('⚠', '!'));
 export const infoIcon = c.blue.bold(choose('✦', 'i'));
 /** @type {string} */
 export const bananassIcon = choose('🍌', '');
+/** @type {string} U+2022: "Bullet" (•) */
+export const bulletIcon = choose('\u2022', '*');
+/** @type {string} U+2500: "Box Drawings Light Horizontal" (─) */
+export const boxDrawingsLightHorizontalIcon = choose('\u2500', '-');
 
 // --------------------------------------------------------------------------------
 
