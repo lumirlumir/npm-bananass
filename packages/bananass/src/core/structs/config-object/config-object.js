@@ -17,7 +17,6 @@ import ConfigObjectBuild from '../config-object-build/index.js';
 import ConfigObjectDiscussion from '../config-object-discussion/index.js';
 import ConfigObjectHome from '../config-object-home/index.js';
 import ConfigObjectInfo from '../config-object-info/index.js';
-import ConfigObjectLint from '../config-object-lint/index.js';
 import ConfigObjectLogin from '../config-object-login/index.js';
 import ConfigObjectOpen from '../config-object-open/index.js';
 import ConfigObjectRepo from '../config-object-repo/index.js';
@@ -39,7 +38,6 @@ import ConfigObjectSubmit from '../config-object-submit/index.js';
 
 /**
  * `ConfigObject` type struct.
- *
  * @type {ConfigObjectStruct}
  */
 const ConfigObject = object({
@@ -56,7 +54,6 @@ const ConfigObject = object({
   discussion: optional(ConfigObjectDiscussion),
   home: optional(ConfigObjectHome),
   info: optional(ConfigObjectInfo),
-  lint: optional(ConfigObjectLint),
   login: optional(ConfigObjectLogin),
   open: optional(ConfigObjectOpen),
   repo: optional(ConfigObjectRepo),
