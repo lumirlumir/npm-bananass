@@ -14,7 +14,6 @@ import footnote from 'markdown-it-footnote';
 import { defineConfig } from 'vitepress';
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
 import { codecovVitePlugin } from '@codecov/vite-plugin';
-import isInteractive from 'is-interactive';
 
 // --------------------------------------------------------------------------------
 // Constants
@@ -107,7 +106,7 @@ export default defineConfig({
       groupIconVitePlugin(),
       codecovVitePlugin({
         // Put the Codecov vite plugin after all other plugins
-        enableBundleAnalysis: !isInteractive(), // Works only in CI
+        enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined, // Works only in CI when CODECOV_TOKEN is set
         bundleName: 'websites-vitepress',
         uploadToken: process.env.CODECOV_TOKEN,
         gitService: 'github',
