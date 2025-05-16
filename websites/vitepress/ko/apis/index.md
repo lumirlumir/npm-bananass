@@ -18,7 +18,7 @@
 
 <!-- @include: @/shared/wip.ko.md -->
 
-## [`create-bananass`](create-bananass.md) {#create-bananas}
+## [`create-bananass`](create-bananass.md) {#create-bananass}
 
 <!-- @include: @/shared/wip.ko.md -->
 
