@@ -1,8 +1,9 @@
 # `eslint-config-bananass` {#eslint-config-bananass}
 
+[![GitHub Repository](https://img.shields.io/badge/Repository-fff478?label=GitHub&color=fff478&labelColor=333333&logo=github)](https://github.com/lumirlumir/npm-bananass/tree/main/packages/eslint-config-bananass)&nbsp;
+![Node Current](https://img.shields.io/node/v/eslint-config-bananass?label=Node&color=fff478&labelColor=333333&logo=node.js)  
 [![npm package eslint-config-bananass latest version](https://img.shields.io/npm/v/eslint-config-bananass?label=eslint-config-bananass@latest&color=fff478&labelColor=333333&logo=npm)](https://www.npmjs.com/package/eslint-config-bananass)&nbsp;
-[![npm package eslint-config-bananass next version](https://img.shields.io/npm/v/eslint-config-bananass/next?label=eslint-config-bananass@next&color=fff478&labelColor=333333&logo=npm)](https://www.npmjs.com/package/eslint-config-bananass)&nbsp;
-![Node Current](https://img.shields.io/node/v/eslint-config-bananass?label=Node&color=fff478&labelColor=333333&logo=node.js)
+[![npm package eslint-config-bananass next version](https://img.shields.io/npm/v/eslint-config-bananass/next?label=eslint-config-bananass@next&color=fff478&labelColor=333333&logo=npm)](https://www.npmjs.com/package/eslint-config-bananass)
 
 `eslint-config-bananass`는 [`eslint-config-airbnb`](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb#eslint-config-airbnb) 및 [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript?tab=readme-ov-file#airbnb-javascript-style-guide-)를 기반으로 하는 [ESLint](https://eslint.org) 설정 파일 패키지입니다.
 
