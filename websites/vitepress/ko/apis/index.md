@@ -4,16 +4,28 @@
 
 ## [`bananass`](bananass.md) {#bananass}
 
+<!-- @include: @/shared/wip.ko.md -->
+
 ## [`bananass-utils-console`](bananass-utils-console.md) {#bananass-utils-console}
 
 <!-- @include: @/shared/semver-warning.ko.md -->
+
+<!-- @include: @/shared/wip.ko.md -->
 
 ## [`bananass-utils-vitepress`](bananass-utils-vitepress.md) {#bananass-utils-vitepress}
 
 <!-- @include: @/shared/semver-warning.ko.md -->
 
+<!-- @include: @/shared/wip.ko.md -->
+
 ## [`create-bananass`](create-bananass.md) {#create-bananas}
+
+<!-- @include: @/shared/wip.ko.md -->
 
 ## [`eslint-config-bananass`](eslint-config-bananass.md) {#eslint-config-bananass}
 
+<!-- @include: @/shared/wip.ko.md -->
+
 ## [`prettier-config-bananass`](prettier-config-bananass.md) {#prettier-config-bananass}
+
+<!-- @include: @/shared/wip.ko.md -->
