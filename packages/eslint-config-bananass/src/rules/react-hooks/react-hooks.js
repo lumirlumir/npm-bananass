@@ -25,4 +25,6 @@ export default {
    * @link https://github.com/facebook/react/blob/v19.0.0/packages/eslint-plugin-react-hooks/src/index.js#L17
    */
   'react-hooks/rules-of-hooks': 'error',
+
+  'react-hooks/react-compiler': 'error',
 };

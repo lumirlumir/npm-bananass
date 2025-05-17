@@ -4,7 +4,6 @@ import nodeRules from './node/index.js';
 import stylisticJsRules from './stylistic-js/index.js';
 import jsxA11yRules from './jsx-a11y/index.js';
 import reactRules from './react/index.js';
-import reactCompilerRules from './react-compiler/index.js';
 import reactHooksRules from './react-hooks/index.js';
 import nextRules from './next/index.js';
 import typescriptRules from './typescript/index.js';
@@ -16,7 +15,6 @@ export {
   stylisticJsRules,
   jsxA11yRules,
   reactRules,
-  reactCompilerRules,
   reactHooksRules,
   nextRules,
   typescriptRules,

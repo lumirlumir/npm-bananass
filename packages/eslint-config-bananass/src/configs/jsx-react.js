@@ -19,7 +19,6 @@ import {
   stylisticJsPlugin,
   jsxA11yPlugin,
   reactPlugin,
-  reactCompilerPlugin,
   reactHooksPlugin,
 } from '../plugins.js';
 
@@ -30,7 +29,6 @@ import {
   stylisticJsRules,
   jsxA11yRules,
   reactRules,
-  reactCompilerRules,
   reactHooksRules,
 } from '../rules/index.js';
 
@@ -52,7 +50,6 @@ export default {
     ...stylisticJsPlugin,
     ...jsxA11yPlugin,
     ...reactPlugin,
-    ...reactCompilerPlugin,
     ...reactHooksPlugin,
   },
   rules: {
@@ -62,7 +59,6 @@ export default {
     ...stylisticJsRules,
     ...jsxA11yRules,
     ...reactRules,
-    ...reactCompilerRules,
     ...reactHooksRules,
   },
   settings: {
