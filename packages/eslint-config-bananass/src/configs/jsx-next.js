@@ -19,7 +19,6 @@ import {
   stylisticJsPlugin,
   jsxA11yPlugin,
   reactPlugin,
-  reactCompilerPlugin,
   reactHooksPlugin,
   nextPlugin,
 } from '../plugins.js';
@@ -31,7 +30,6 @@ import {
   stylisticJsRules,
   jsxA11yRules,
   reactRules,
-  reactCompilerRules,
   reactHooksRules,
   nextRules,
 } from '../rules/index.js';
@@ -54,7 +52,6 @@ export default {
     ...stylisticJsPlugin,
     ...jsxA11yPlugin,
     ...reactPlugin,
-    ...reactCompilerPlugin,
     ...reactHooksPlugin,
     ...nextPlugin,
   },
@@ -65,7 +62,6 @@ export default {
     ...stylisticJsRules,
     ...jsxA11yRules,
     ...reactRules,
-    ...reactCompilerRules,
     ...reactHooksRules,
     ...nextRules,
 
