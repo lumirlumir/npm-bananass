@@ -145,13 +145,13 @@ bananass-project/
 
 `bananass` 폴더는 바나나 프레임워크를 통한 문제 풀이 파일이 위치할 폴더입니다! 이 폴더에 파일 혹은 폴더를 추가하여 문제를 풀고 제출할 코드를 작성해주세요.
 
-현재는 예제로서, `bananass` 폴더에 `1000`번, `1001`번 문제 풀이 파일 및 `2558`번 문제 풀이 폴더가 미리 작성되어 있습니다.
+현재는 예제로서, `bananass` 폴더에 `1000`번, `1001`번 문제 풀이 *파일* 및 `2558`번 문제 풀이 *폴더*가 미리 작성되어 있습니다.
 
 문제 풀이 파일은 [하나의 파일에 모든 로직을 작성](../learn/writing-all-logic-in-a-single-file.md)할 수도 있고, [하나의 폴더에 모듈을 분리하여 로직을 작성](../learn/writing-modular-logic-in-a-single-folder.md)할 수도 있습니다. `1000`번 및 `1001`번 문제 풀이 파일은 **하나의 파일에 모든 로직을 작성**한 예시이며, `2558`번 문제 풀이 폴더는 **하나의 폴더에 모듈을 분리하여 로직을 작성**한 예시입니다.
 
 ### `.bananass` 폴더 {#dot-bananass-folder}
 
-`.bananass` 폴더는 `npm run build 1000` 혹은 `npx bananass build 1000` 등의 `build` 명령어를 터미널에 입력하여 문제 풀이 파일을 빌드하였을 때, 자동으로 생성되는 폴더입니다.
+`.bananass` 폴더는 `npm run build 1000` 혹은 `npx bananass build 1000` 등의 [`build`](../learn/other-useful-cli-commands.md#build) 명령어를 터미널에 입력하여 문제 풀이 파일을 빌드하였을 때, 자동으로 생성되는 폴더입니다.
 
 `bananass` 폴더에 위치한 `1000.mjs` 등의 문제 풀이 파일이 `.bananass` 폴더에 위치한 `1000.cjs` 등의 동일한 이름을 가진 파일로 변환됩니다! 변환된 파일은 [백준](https://www.acmicpc.net/), [코드포스](https://codeforces.com/) 등 문제 풀이 플랫폼들의 Node.js 환경과 호환되며, 해당 파일의 내용을 복사하여 홈페이지에 붙여넣기 하면 제출할 수 있습니다.
 
@@ -275,4 +275,6 @@ npx b open 1000
 
 ## 마치며 {#conclusion}
 
-여러분들은 이제 바나나 프레임워크를 사용할 수 있는 기본 준비가 되었습니다. [학습하기](../learn/index.md) 문서를 통해 바나나 프레임워크의 더 많은 사용법과 다양한 기능들을 익혀보세요!:partying_face:
+여러분들은 이제 바나나 프레임워크를 사용할 수 있는 기본 준비가 되었습니다. [학습하기](../learn/index.md) 문서를 통해 바나나 프레임워크의 더 많은 사용법과 다양한 기능들을 익혀보세요!
+
+또한, [문제 풀이 해답](../solutions/index.md)을 통해 다른 사용자들이 어떻게 문제 풀이를 진행했나 확인해보세요.:partying_face:
