@@ -8,3 +8,29 @@
 <!-- @include: @/shared/semver-warning.ko.md -->
 
 <!-- @include: @/shared/wip.ko.md -->
+
+---
+
+[[TOC]]
+
+## 설치하기 {#installation}
+
+::: code-group
+
+```sh [npm]
+npm install -D bananass-utils-vitepress
+```
+
+```sh [pnpm]
+pnpm add -D bananass-utils-vitepress
+```
+
+```sh [yarn]
+yarn add --dev bananass-utils-vitepress
+```
+
+```sh [bun]
+bun add -d bananass-utils-vitepress
+```
+
+:::

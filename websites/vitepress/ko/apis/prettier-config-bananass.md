@@ -6,3 +6,29 @@
 [![npm package prettier-config-bananass next version](https://img.shields.io/npm/v/prettier-config-bananass/next?label=prettier-config-bananass@next&color=fff478&labelColor=333333&logo=npm)](https://www.npmjs.com/package/prettier-config-bananass)
 
 <!-- @include: @/shared/wip.ko.md -->
+
+---
+
+[[TOC]]
+
+## 설치하기 {#installation}
+
+::: code-group
+
+```sh [npm]
+npm install -D prettier prettier-config-bananass
+```
+
+```sh [pnpm]
+pnpm add -D prettier prettier-config-bananass
+```
+
+```sh [yarn]
+yarn add --dev prettier prettier-config-bananass
+```
+
+```sh [bun]
+bun add -d prettier prettier-config-bananass
+```
+
+:::

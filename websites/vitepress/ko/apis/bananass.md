@@ -6,3 +6,29 @@
 [![npm package bananass next version](https://img.shields.io/npm/v/bananass/next?label=bananass@next&color=fff478&labelColor=333333&logo=npm)](https://www.npmjs.com/package/bananass)
 
 <!-- @include: @/shared/wip.ko.md -->
+
+---
+
+[[TOC]]
+
+## 설치하기 {#installation}
+
+::: code-group
+
+```sh [npm]
+npm install -D bananass
+```
+
+```sh [pnpm]
+pnpm add -D bananass
+```
+
+```sh [yarn]
+yarn add --dev bananass
+```
+
+```sh [bun]
+bun add -d bananass
+```
+
+:::
