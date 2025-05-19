@@ -99,7 +99,7 @@
     "bananass-utils-console": "^0.1.0",
     "c12": "^3.0.3",
     "chalk": "^5.4.1",
-    "commander": "^13.1.0",
+    "commander": "^14.0.0",
     "enhanced-resolve": "^5.18.1",
     "envinfo": "^7.14.0",
     "esbuild-loader": "^4.3.0",
