@@ -1,8 +1,6 @@
 # 설치하기 {#installation}
 
-바나나 프레임워크를 설치하는 상세한 방법을 다루는, **설치하기** 문서에 오신 것을 환영합니다!
-
-이번 챕터에서는 바나나 프레임워크를 설치하는 두 가지 방법에 대해 소개합니다.
+이번 챕터에서는 바나나 프레임워크를 설치하는 두 가지 상세한 방법에 대해 소개합니다!
 
 ---
 
@@ -10,7 +8,7 @@
 
 ## 선행 설치 사항 {#prerequisites}
 
-바나나 프레임워크는 LTS<sup>Long Term Support</sup> 및 최신 버전의 Node.js에서 동작하며, Git을 필요로 합니다! 아직 Node.js 및 Git을 설치하지 않았다면 아래 가이드를 참고해주세요.
+바나나 프레임워크는 [LTS<sup>Long Term Support</sup>](https://ko.wikipedia.org/wiki/%EC%9E%A5%EA%B8%B0_%EC%A7%80%EC%9B%90_%EB%B2%84%EC%A0%84) 및 최신 버전의 Node.js에서 동작하며, [Git](https://git-scm.com/)을 필요로 합니다! 아직 Node.js 및 Git을 설치하지 않았다면 아래 가이드를 참고해주세요.
 
 ### Node.js {#nodejs}
 
@@ -96,7 +94,7 @@ $ npm init bananass@latest
 1. `git init` 명령어를 실행하여 Git 저장소를 초기화합니다.
 1. `npm install` 명령어를 실행하여 의존성을 설치합니다.
 
-템플릿 복사를 제외한 모든 과정은 선택적이며, CLI(터미널, 콘솔)에 옵션 인자를 전달하여 **생략할 수 있습니다**. 자세한 내용은 [`create-bananass` CLI 문서](../learn/other-useful-cli-commands.md)를 참고해주세요.
+템플릿 복사를 제외한 모든 과정은 선택적이며, CLI(터미널, 콘솔)에 옵션 인자를 전달하여 **생략할 수 있습니다**. 자세한 내용은 [`create-bananass` CLI 문서](../learn/other-useful-cli-commands.md#create-bananass)를 참고해주세요.
 
 :::
 
