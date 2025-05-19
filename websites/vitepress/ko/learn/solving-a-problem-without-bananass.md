@@ -1,20 +1,20 @@
-# 바나나 프레임워크 없이 백준 Node.js 환경에서 자바스크립트로 문제 풀기 {#solving-problems-in-baekjoon-nodejs-environment-without-bananass-framework}
+# 바나나 프레임워크 없이 Node.js 환경에서 자바스크립트로 문제 풀기 {#solving-problems-in-nodejs-environment-without-bananass-framework}
 
 ::: danger 반드시 읽어주세요!
 
-이번 챕터는 바나나 프레임워크 자체에 집중하기 보다는, 백준 Node.js 환경에서 자바스크립트로 문제 풀이를 하는 일반적인 방법을 소개합니다. **바나나 프레임워크만을 사용하고 싶으신 분들은 뒤로 가기를 눌러도 좋습니다!**
+이번 챕터는 바나나 프레임워크 자체에 집중하기 보다는, Node.js 환경에서 자바스크립트로 문제 풀이를 하는 일반적인 방법을 소개합니다. **바나나 프레임워크만 사용하고 싶으신 분들은 뒤로 가기를 눌러도 좋습니다!**
 
 :::
 
-이번 챕터에서는 바나나 프레임워크 없이 백준 Node.js 환경에서 자바스크립트로 문제 풀이하는 방법 두 가지를 소개합니다.
+이번 챕터에서는 바나나 프레임워크 없이 Node.js 환경에서 자바스크립트로 문제 풀이하는 방법 두 가지를 소개합니다!
 
 아래 예제는 모두 [백준 1000번: A+B](https://www.acmicpc.net/problem/1000) 문제를 예시로 설명합니다.
 
 ::: info 주목해주세요!
 
-바나나 프레임워크는 문제 풀이 파일 빌드<sup>Build</sup> 과정에서, 입출력<sup>I/O</sup> 속도가 더 빠른 `fs` 모듈을 기본 템플릿으로 사용합니다.
+바나나 프레임워크는 문제 풀이 파일 빌드<sup>Build</sup> 과정에서, 입출력<sup>I/O</sup> 속도가 더 빠른 [`fs`](https://nodejs.org/api/fs.html) 모듈을 기본 템플릿으로 사용합니다.
 
-CLI 옵션 및 `bananass.config.*` 파일에서, 빌드 과정에서 사용할 템플릿을 `fs` 모듈 대신 `readline` 모듈로 설정할 수 있습니다. 자세한 내용은 CLI 옵션 및 바나나 프레임워크 설정 파일 문서를 참고해주세요!
+[CLI 옵션](other-useful-cli-commands#build) 및 [`bananass.config.*`](writing-bananass-config-file.md) 파일에서, 빌드 과정에서 사용할 템플릿을 [`fs`](https://nodejs.org/api/fs.html) 모듈 대신 [`readline`](https://nodejs.org/api/readline.html) 모듈로 설정할 수 있습니다. 자세한 내용은 [CLI 옵션](other-useful-cli-commands#build) 및 [바나나 프레임워크 설정 파일 문서](writing-bananass-config-file.md)를 참고해주세요!
 
 :::
 
@@ -44,9 +44,9 @@ CLI 옵션 및 `bananass.config.*` 파일에서, 빌드 과정에서 사용할 �
 
 ### `readFileSync('/dev/stdin')` 사용 {#using-readfilesync-dev-stdin}
 
-1000번 문제를 푸는 예제는 아래와 같습니다.
+[1000번](https://www.acmicpc.net/problem/1000) 문제를 푸는 예제는 아래와 같습니다.
 
-이는, 여러 블로그 등의 문서에서 자바스크립트를 통한 백준 문제 풀이를 설명할 때 주로 사용하는 방식 중 하나입니다.
+이는, 블로그 등의 여러 문서에서 자바스크립트를 통한 문제 풀이를 설명할 때 주로 사용하는 방식 중 하나입니다.
 
 ```js {2} [1000-raw-fs.cjs]
 const [a, b] = require('fs')
