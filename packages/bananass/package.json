@@ -97,7 +97,7 @@
     "@babel/preset-typescript": "^7.27.1",
     "babel-loader": "^10.0.0",
     "bananass-utils-console": "^0.1.0",
-    "c12": "^3.0.3",
+    "c12": "^3.0.4",
     "chalk": "^5.4.1",
     "commander": "^14.0.0",
     "enhanced-resolve": "^5.18.1",
