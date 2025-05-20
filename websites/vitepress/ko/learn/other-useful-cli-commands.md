@@ -75,12 +75,6 @@
 
 <!-- @include: @/shared/wip.ko.md -->
 
-### `submit` {#submit}
-
-> 별칭: 없음
-
-<!-- @include: @/shared/wip.ko.md -->
-
 ### `help` {#help}
 
 > 별칭: 없음

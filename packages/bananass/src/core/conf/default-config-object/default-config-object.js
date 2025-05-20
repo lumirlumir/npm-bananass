@@ -28,7 +28,6 @@ import { DEFAULT_ENTRY_DIR_NAME, DEFAULT_OUT_DIR_NAME } from '../../constants.js
  * @typedef {import('../../types.js').ConfigObjectOpen} ConfigObjectOpen
  * @typedef {import('../../types.js').ConfigObjectRepo} ConfigObjectRepo
  * @typedef {import('../../types.js').ConfigObjectRun} ConfigObjectRun
- * @typedef {import('../../types.js').ConfigObjectSubmit} ConfigObjectSubmit
  */
 
 // --------------------------------------------------------------------------------
@@ -85,9 +84,6 @@ const repo = {};
 /** @type {ConfigObjectRun} */
 const run = {};
 
-/** @type {ConfigObjectSubmit} */
-const submit = {};
-
 // #endregion Exclusive
 
 // --------------------------------------------------------------------------------
@@ -112,5 +108,4 @@ export default {
   open,
   repo,
   run,
-  submit,
 };
