@@ -121,7 +121,7 @@ bananass-project/
 
 `package.json`은 바나나 프레임워크의 설정을 담고 있는 파일입니다!
 
-`package.json`의 `scripts` 항목에는 여러 명령어가 추가되어 있습니다. `scripts`에 추가되어 있는 명령어들은 [`npm run build 1000`](../learn/building-a-solution-file.md), [`npm run run 1000`](../learn/running-a-solution-file.md), [`npm run open 1000`](../learn/submitting-directly-on-the-website.md) 등의 터미널(CLI) 명령어를 통해 실행할 수 있습니다.
+`package.json`의 `scripts` 항목에는 여러 명령어가 추가되어 있습니다. `scripts`에 추가되어 있는 명령어들은 [`npm run build 1000`](../learn/building-a-solution-file.md), [`npm run run 1000`](../learn/running-a-solution-file.md), [`npm run open 1000`](../learn/submitting-a-solution-file.md) 등의 터미널(CLI) 명령어를 통해 실행할 수 있습니다.
 
 `scripts`에 존재하는 여러 명령어들 중 `build`, `run`, `open` 명령어에 집중해주세요! 앞으로, 이 명령어들을 활용하여 함께 문제를 풀고 제출하려 합니다.
 
