@@ -27,7 +27,6 @@
  * @property {ConfigObjectOpen} [open] Options exclusive to the `bananass open` command.
  * @property {ConfigObjectRepo} [repo] Options exclusive to the `bananass repo` command.
  * @property {ConfigObjectRun} [run] Options exclusive to the `bananass run` command.
- * @property {ConfigObjectSubmit} [submit] Options exclusive to the `bananass submit` command.
  */
 
 // #region ConfigObject/Global
@@ -85,10 +84,6 @@
 
 /**
  * @typedef {object} ConfigObjectRun Options exclusive to the `bananass run` command.
- */
-
-/**
- * @typedef {object} ConfigObjectSubmit Options exclusive to the `bananass submit` command.
  */
 
 // #endregion ConfigObject/Exclusive

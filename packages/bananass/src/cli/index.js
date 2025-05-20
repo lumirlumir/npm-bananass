@@ -8,6 +8,5 @@ import info from './bananass-info.js';
 import open from './bananass-open.js';
 import repo from './bananass-repo.js';
 import run from './bananass-run.js';
-import submit from './bananass-submit.js';
 
-export { global, add, bug, build, discussion, home, info, open, repo, run, submit };
+export { global, add, bug, build, discussion, home, info, open, repo, run };

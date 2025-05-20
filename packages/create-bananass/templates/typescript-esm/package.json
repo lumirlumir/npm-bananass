@@ -16,7 +16,6 @@
     "open": "bananass open",
     "repo": "bananass repo",
     "run": "bananass run",
-    "submit": "echo `submit` command is still working in progress!",
     "eslint": "eslint",
     "eslint:fix": "eslint --fix",
     "prettier": "prettier . --check --ignore-unknown",

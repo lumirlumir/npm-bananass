@@ -20,7 +20,6 @@ import {
   open,
   repo,
   run,
-  submit,
 } from './cli/index.js';
 
 // --------------------------------------------------------------------------------
@@ -37,7 +36,6 @@ info(program);
 open(program);
 repo(program);
 run(program);
-submit(program);
 
 // --------------------------------------------------------------------------------
 // Parse `commander`
