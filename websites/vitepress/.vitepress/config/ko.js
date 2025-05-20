@@ -268,17 +268,7 @@ export default defineConfig({
             },
             {
               text: '문제 풀이 파일 제출하기',
-              collapsed: true,
-              items: [
-                {
-                  text: '홈페이지에 직접 제출하기',
-                  link: '/submitting-directly-on-the-website',
-                },
-                {
-                  text: 'CLI 명령어를 통해 제출하기',
-                  link: '/submitting-using-cli-command',
-                },
-              ],
+              link: '/submitting-a-solution-file',
             },
             {
               text: '이외의 유용한 CLI 명령어들',

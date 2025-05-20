@@ -268,17 +268,7 @@ export default defineConfig({
             },
             {
               text: 'Submitting a Solution File',
-              collapsed: true,
-              items: [
-                {
-                  text: 'Submitting Directly on the Website',
-                  link: '/submitting-directly-on-the-website',
-                },
-                {
-                  text: 'Submitting Using CLI Command',
-                  link: '/submitting-using-cli-command',
-                },
-              ],
+              link: '/submitting-a-solution-file',
             },
             {
               text: 'Other Useful CLI Commands',
