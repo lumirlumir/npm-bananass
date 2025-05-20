@@ -57,12 +57,6 @@
 
 <!-- @include: @/shared/wip.ko.md -->
 
-### `login` {#login}
-
-> 별칭: 없음
-
-<!-- @include: @/shared/wip.ko.md -->
-
 ### `open` {#open}
 
 > 별칭: 없음
