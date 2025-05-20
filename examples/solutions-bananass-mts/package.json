@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "examples-solutions-bananass-mts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "scripts": {
     "build": "bananass build",
@@ -9,6 +9,6 @@
     "test": "npx tsc --noEmit && bash ../../scripts/examples-solutions-bananass-test.sh"
   },
   "devDependencies": {
-    "bananass": "^0.1.0"
+    "bananass": "^0.1.1"
   }
 }
