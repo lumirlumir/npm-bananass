@@ -2,11 +2,36 @@
 
 이번 챕터에서는 바나나 프레임워크에서 제공하는 모든 CLI 명령어들을 소개합니다!
 
+::: danger 반드시 읽어주세요!
+
+**사용 예시** 및 **옵션**에서 사용하는 꺾쇠 괄호(`<>`) 및 대괄호(`[]`)의 의미는 다음과 같습니다.
+
+- 꺾쇠 괄호(`<>`)는 *필수* 인자를 의미합니다.
+- 대괄호(`[]`)는 *선택적* 인자를 의미합니다.
+
+:::
+
+::: warning :bulb:매번 CLI에 옵션을 입력하기 귀찮으신가요?:bulb:
+
+CLI 명령어를 입력할 때마다 자주 사용하는 옵션을 매번 입력하기 귀찮으신가요? 그럴 땐 [`bananass.config.*`](writing-bananass-config-file) 파일에 자주 사용하는 옵션을 미리 설정해두면, 매번 입력하지 않아도 됩니다!
+
+자세한 내용은 [`bananass.config` 파일 작성하기](writing-bananass-config-file) 문서를 참고해주세요!
+
+:::
+
 ---
 
 [[TOC]]
 
 ## `bananass` {#bananass}
+
+> 별칭: `b`
+
+```sh
+npx bananass [options] [command]
+```
+
+---
 
 ### `add` {#add}
 
@@ -18,15 +43,38 @@
 
 > 별칭: `bugs`, `issue`, `issues`
 
-<!-- @include: @/shared/wip.ko.md -->
+브라우저에서 [깃허브 이슈<sup>GitHub Issues</sup>](https://github.com/lumirlumir/npm-bananass/issues) 웹 페이지를 열어줍니다.
+
+바나나 프레임워크와 관련된 버그를 제보하거나, 기능 개선 요청 등의 피드백을 남기고 싶을 때 유용하게 사용할 수 있습니다!
+
+#### 사용 예시 {#bug-example}
+
+```sh
+npx bananass bug [options]
+```
+
+#### 옵션 {#bug-options}
+
+| 옵션                    | 인자         | 기본값 | 설명                                           |
+| ----------------------- | ----------- | ----- | --------------------------------------------- |
+| `-b`, `--browser`       | `<browser>` | `default` | 브라우저를 설정합니다. `chrome`, `edge`, `firefox`, `default` 중 하나를 인자로 전달할 수 있습니다. |
+| `-s`, `--secret-mode`   | X           | `false` | 브라우저의 시크릿 모드를 활성화합니다.              |
+| `-d`, `--debug`         | X           | `false` | 디버그 모드를 활성화하여 추가 정보를 출력합니다.     |
+| `-q`, `--quiet`         | X           | `false` | 출력 로그를 최소화하는 조용한 모드를 실행합니다.     |
 
 ### `build` {#build}
 
 > 별칭: 없음
 
-<!-- @include: @/shared/wip.ko.md -->
+웹팩<sup>Webpack</sup>, 바벨<sup>Babel</sup>, ESBuild를 사용하여, `bananass` 폴더에 존재하는 문제 풀이 파일들을 `.bananass` 폴더에 번들링하여 빌드합니다.
 
-#### 옵션 {#options-build}
+#### 사용 예시 {#build-example}
+
+```sh
+npx bananass build 1000
+```
+
+#### 옵션 {#build-options}
 
 | 옵션                    | 인자      | 설명                                                                                                                                                |
 | ----------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
