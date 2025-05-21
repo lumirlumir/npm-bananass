@@ -12,6 +12,7 @@ import { bug as bugCmd } from '../commands/index.js';
 import { configLoader } from '../core/conf/index.js';
 
 import { bug as bugDesc } from '../core/cli/descriptions.js';
+import { browser as browserGroup, console as consoleGroup } from '../core/cli/groups.js';
 import {
   browser as browserOpt,
   secretMode as secretModeOpt,
@@ -33,18 +34,17 @@ import {
 
 /**
  * Bug: `npx bananass bug` command.
- *
  * @param {Command} program The `commander` package's `program`.
  */
 export default function bug(program) {
   program
     .command('bug')
-    .alias('bugs')
-    .alias('issue')
-    .alias('issues')
+    .aliases(['bugs', 'issue', 'issues'])
     .description(bugDesc)
+    .optionsGroup(browserGroup)
     .option(...browserOpt)
     .option(...secretModeOpt)
+    .optionsGroup(consoleGroup)
     .option(...debugOpt)
     .option(...quietOpt)
     .action(async (options, command) => {

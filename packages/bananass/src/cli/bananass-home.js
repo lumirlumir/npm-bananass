@@ -12,6 +12,7 @@ import { home as homeCmd } from '../commands/index.js';
 import { configLoader } from '../core/conf/index.js';
 
 import { home as homeDesc } from '../core/cli/descriptions.js';
+import { browser as browserGroup, console as consoleGroup } from '../core/cli/groups.js';
 import {
   browser as browserOpt,
   secretMode as secretModeOpt,
@@ -33,15 +34,16 @@ import {
 
 /**
  * Home: `npx bananass home` command.
- *
  * @param {Command} program The `commander` package's `program`.
  */
 export default function home(program) {
   program
     .command('home')
     .description(homeDesc)
+    .optionsGroup(browserGroup)
     .option(...browserOpt)
     .option(...secretModeOpt)
+    .optionsGroup(consoleGroup)
     .option(...debugOpt)
     .option(...quietOpt)
     .action(async (options, command) => {

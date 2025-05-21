@@ -12,6 +12,7 @@ import { discussion as discussionCmd } from '../commands/index.js';
 import { configLoader } from '../core/conf/index.js';
 
 import { discussion as discussionDesc } from '../core/cli/descriptions.js';
+import { browser as browserGroup, console as consoleGroup } from '../core/cli/groups.js';
 import {
   browser as browserOpt,
   secretMode as secretModeOpt,
@@ -33,20 +34,17 @@ import {
 
 /**
  * Discussion: `npx bananass discussion` command.
- *
  * @param {Command} program The `commander` package's `program`.
  */
 export default function discussion(program) {
   program
     .command('discussion')
-    .alias('discussions')
-    .alias('discuss')
-    .alias('disc')
-    .alias('question')
-    .alias('questions')
+    .aliases(['discussions', 'discuss', 'disc', 'question', 'questions'])
     .description(discussionDesc)
+    .optionsGroup(browserGroup)
     .option(...browserOpt)
     .option(...secretModeOpt)
+    .optionsGroup(consoleGroup)
     .option(...debugOpt)
     .option(...quietOpt)
     .action(async (options, command) => {

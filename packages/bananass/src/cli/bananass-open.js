@@ -12,6 +12,7 @@ import { open as openCmd } from '../commands/index.js';
 import { configLoader } from '../core/conf/index.js';
 
 import { open as openDesc } from '../core/cli/descriptions.js';
+import { browser as browserGroup, console as consoleGroup } from '../core/cli/groups.js';
 import { problems as problemsArg } from '../core/cli/arguments.js';
 import {
   browser as browserOpt,
@@ -34,7 +35,6 @@ import {
 
 /**
  * Open: `npx bananass open` command.
- *
  * @param {Command} program The `commander` package's `program`.
  */
 export default function open(program) {
@@ -42,8 +42,10 @@ export default function open(program) {
     .command('open')
     .description(openDesc)
     .argument(...problemsArg)
+    .optionsGroup(browserGroup)
     .option(...browserOpt)
     .option(...secretModeOpt)
+    .optionsGroup(consoleGroup)
     .option(...debugOpt)
     .option(...quietOpt)
     .action(async (problems, options, command) => {
