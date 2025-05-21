@@ -46,7 +46,7 @@ VS Code 환경에서 [`create-bananass`](installation.md#getting-started-with-cr
 다음과 같은 단계를 통해 [VS Code의 ESLint 확장<sup>Extension</sup>](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)을 설치할 수 있습니다.
 
 1. VS Code 실행하기
-1. 퀵 오픈 사용하기 (`Ctrl`/`Cmd` + `P` 누르기)
+1. 퀵 오픈 사용하기 (`CTRL/CMD + SHIFT + P` 누르기)
 1. `ext install dbaeumer.vscode-eslint` 입력하기
 1. `Enter` 누르기
 
@@ -77,7 +77,7 @@ VS Code 환경에서 [`create-bananass`](installation.md#getting-started-with-cr
 다음과 같은 단계를 통해 [VS Code의 Prettier 확장<sup>Extension</sup>](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)을 설치할 수 있습니다.
 
 1. VS Code 실행하기
-1. 퀵 오픈 사용하기 (`Ctrl`/`Cmd` + `P` 누르기)
+1. 퀵 오픈 사용하기 (`CTRL/CMD + SHIFT + P` 누르기)
 1. `ext install esbenp.prettier-vscode` 입력하기
 1. `Enter` 누르기
 
