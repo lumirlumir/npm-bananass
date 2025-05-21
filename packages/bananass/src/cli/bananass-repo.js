@@ -12,6 +12,7 @@ import { repo as repoCmd } from '../commands/index.js';
 import { configLoader } from '../core/conf/index.js';
 
 import { repo as repoDesc } from '../core/cli/descriptions.js';
+import { browser as browserGroup, console as consoleGroup } from '../core/cli/groups.js';
 import {
   browser as browserOpt,
   secretMode as secretModeOpt,
@@ -33,15 +34,16 @@ import {
 
 /**
  * Repo: `npx bananass repo` command.
- *
  * @param {Command} program The `commander` package's `program`.
  */
 export default function repo(program) {
   program
     .command('repo')
     .description(repoDesc)
+    .optionsGroup(browserGroup)
     .option(...browserOpt)
     .option(...secretModeOpt)
+    .optionsGroup(consoleGroup)
     .option(...debugOpt)
     .option(...quietOpt)
     .action(async (options, command) => {

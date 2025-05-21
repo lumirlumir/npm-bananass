@@ -14,6 +14,7 @@ import { defaultConfigObject as dco } from '../conf/index.js';
 // Helpers
 // --------------------------------------------------------------------------------
 
+/** @param {string | boolean} defaultValue */
 function formatDefaultValue(defaultValue) {
   return `(default: ${defaultValue})`;
 }
