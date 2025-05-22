@@ -114,7 +114,7 @@ npx bananass build [options] <problems...>
 
 > 별칭: `discussions`, `discuss`, `disc`, `question`, `questions`
 
-브라우저에서 [깃허브 디스커션<sup>GitHub Discussiosn</sup>](https://github.com/lumirlumir/npm-bananass/discussions) 웹 페이지를 열어줍니다.
+브라우저에서 [깃허브 디스커션<sup>GitHub Discussions</sup>](https://github.com/lumirlumir/npm-bananass/discussions) 웹 페이지를 열어줍니다.
 
 바나나 프레임워크와 관련된 질문, 답변, 토론 등을 남기고 싶을 때 유용하게 사용할 수 있습니다!
 
