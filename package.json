@@ -65,7 +65,7 @@
     "lint:textlint": "npx textlint -f pretty-error **/*.md"
   },
   "devDependencies": {
-    "@types/node": "^22.15.19",
+    "@types/node": "^22.15.21",
     "c8": "^10.1.3",
     "concurrently": "^9.1.0",
     "editorconfig-checker": "^6.0.1",
@@ -79,7 +79,7 @@
     "prettier": "^3.5.3",
     "prettier-config-bananass": "^0.1.1",
     "shx": "^0.4.0",
-    "textlint": "^14.7.1",
+    "textlint": "^14.7.2",
     "textlint-rule-allowed-uris": "^1.1.0",
     "typescript": "^5.8.3"
   }
