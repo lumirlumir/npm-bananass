@@ -13,6 +13,7 @@ import { configLoader } from '../core/conf/index.js';
 
 import { run as runDesc } from '../core/cli/descriptions.js';
 import { problems as problemsArg } from '../core/cli/arguments.js';
+import { global as globalGroup, console as consoleGroup } from '../core/cli/groups.js';
 import {
   cwd as cwdOpt,
   entryDir as entryDirOpt,
@@ -34,7 +35,6 @@ import {
 
 /**
  * Run: `npx bananass run` command.
- *
  * @param {Command} program The `commander` package's `program`.
  */
 export default function run(program) {
@@ -42,8 +42,10 @@ export default function run(program) {
     .command('run')
     .description(runDesc)
     .argument(...problemsArg)
+    .optionsGroup(globalGroup)
     .option(...cwdOpt)
     .option(...entryDirOpt)
+    .optionsGroup(consoleGroup)
     .option(...debugOpt)
     .option(...quietOpt)
     .action(async (problems, options, command) => {

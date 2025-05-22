@@ -22,7 +22,6 @@ import { warning } from 'bananass-utils-console/theme';
 
 /**
  * Add: `npx bananass add` command.
- *
  * @param {Command} program The `commander` package's `program`.
  */
 export default function add(program) {

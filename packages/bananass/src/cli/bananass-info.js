@@ -12,6 +12,7 @@ import { info as infoCmd } from '../commands/index.js';
 import { configLoader } from '../core/conf/index.js';
 
 import { info as infoDesc } from '../core/cli/descriptions.js';
+import { console as consoleGroup, info as infoGroup } from '../core/cli/groups.js';
 import {
   debug as debugOpt,
   quiet as quietOpt,
@@ -32,15 +33,16 @@ import {
 
 /**
  * Info: `npx bananass info` command.
- *
  * @param {Command} program The `commander` package's `program`.
  */
 export default function info(program) {
   program
     .command('info')
     .description(infoDesc)
+    .optionsGroup(consoleGroup)
     .option(...debugOpt)
     .option(...quietOpt)
+    .optionsGroup(infoGroup)
     .option(...allOpt)
     .action(async (options, command) => {
       const { debug, quiet, all } = options;
