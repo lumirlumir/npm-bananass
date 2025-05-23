@@ -1,13 +1,13 @@
-import { defineConfig } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import bananass from 'eslint-config-bananass';
 import mark from 'eslint-plugin-mark';
 
 /** @type {import("eslint").Linter.Config[]} */
 export default defineConfig([
-  {
-    name: 'global/ignores',
-    ignores: ['**/build/', '**/coverage/', '**/.vitepress/cache/', '**/.bananass/'],
-  },
+  globalIgnores(
+    ['**/build/', '**/coverage/', '**/.vitepress/cache/', '**/.bananass/'],
+    'global/ignores',
+  ),
   bananass.configs.js,
   bananass.configs.ts,
   mark.configs.recommendedGfm,
