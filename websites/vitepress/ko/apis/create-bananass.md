@@ -6,3 +6,7 @@
 [![npm package create-bananass next version](https://img.shields.io/npm/v/create-bananass/next?label=create-bananass@next&color=fff478&labelColor=333333&logo=npm)](https://www.npmjs.com/package/create-bananass)
 
 <!-- @include: @/shared/wip.ko.md -->
+
+## CLI {#cli}
+
+<!-- @include: @/shared/wip.ko.md -->
