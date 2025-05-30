@@ -14,7 +14,7 @@
 
 <!-- @include: @/shared/wip.ko.md -->
 
-현대<sup>Modern</sup> 자바스크립트 개발 환경에서, 타입스크립트는 빼놓을 수 없는 위치가 되었습니다.
+현대<sup>Modern</sup> 자바스크립트 개발 환경에서, [타입스크립트](https://www.typescriptlang.org/)는 빼놓을 수 없는 위치가 되었습니다.
 
 ## ESM<sup>ECMAScript Module</sup> 및 CommonJS 모듈 시스템 지원 {#support-for-esm-and-commonjs-module-systems}
 
