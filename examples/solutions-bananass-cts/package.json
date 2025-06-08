@@ -1,13 +1,13 @@
 {
   "private": true,
   "name": "examples-solutions-bananass-cts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "scripts": {
     "build": "bananass build",
     "run": "bananass run",
     "test": "npx tsc --noEmit && bash ../../scripts/examples-solutions-bananass-test.sh"
   },
   "devDependencies": {
-    "bananass": "^0.1.1"
+    "bananass": "^0.1.2"
   }
 }

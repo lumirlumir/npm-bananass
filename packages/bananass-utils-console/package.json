@@ -1,6 +1,6 @@
 {
   "name": "bananass-utils-console",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "description": "Console Utilities for Bananass Framework.🍌",
   "exports": {
@@ -81,7 +81,7 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "npx tsc && shx cp ../../LICENSE.md ../../README.md .",
+    "build": "npx tsc && node ../../scripts/cp.mjs ../../LICENSE.md LICENSE.md ../../README.md README.md",
     "test": "node --test"
   },
   "dependencies": {
