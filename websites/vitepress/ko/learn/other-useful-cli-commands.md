@@ -33,12 +33,12 @@ CLI 명령어를 입력할 때마다 자주 사용하는 옵션을 매번 입력
 
 :::
 
-::: warning CLI 명령어와 `bananass.config.*` 중 어떤 옵션이 우선시되나요?
+::: warning CLI 명령어와 [`bananass.config.*`](writing-bananass-config-file) 중 어떤 옵션이 우선시되나요?
 
 옵션의 우선순위는 아래와 같습니다!
 
 1. CLI 명령어에 입력한 옵션 (가장 높은 우선순위)
-1. `bananass.config.*` 파일에 설정한 옵션
+1. [`bananass.config.*`](writing-bananass-config-file) 파일에 설정한 옵션
 1. 바나나 프레임워크의 기본 옵션 (가장 낮은 우선순위)
 
 :::
