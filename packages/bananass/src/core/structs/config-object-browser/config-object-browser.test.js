@@ -50,17 +50,17 @@ describe('config-object-browser', () => {
 
     strictEqual(ConfigObjectBrowser.is(configObjectBrowser), true);
   });
-  it('should return true for a valid `secretMode` property', () => {
+  it('should return true for a valid `secret` property', () => {
     const configObjectBrowser = {
-      secretMode: true,
+      secret: true,
     };
 
     strictEqual(ConfigObjectBrowser.is(configObjectBrowser), true);
   });
-  it('should return true for a valid `browser` and `secretMode` property', () => {
+  it('should return true for a valid `browser` and `secret` property', () => {
     const configObjectBrowser = {
       browser: 'default',
-      secretMode: false,
+      secret: false,
     };
 
     strictEqual(ConfigObjectBrowser.is(configObjectBrowser), true);
