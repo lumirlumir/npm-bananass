@@ -29,7 +29,7 @@ describe('config-object', () => {
 
       browser: {
         browser: 'default',
-        secretMode: false,
+        secret: false,
       },
       console: {
         debug: false,

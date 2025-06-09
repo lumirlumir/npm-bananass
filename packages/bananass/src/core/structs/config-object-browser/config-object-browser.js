@@ -28,7 +28,7 @@ import { boolean, enums, object, optional } from 'superstruct';
  */
 const ConfigObjectBrowser = object({
   browser: optional(enums(['chrome', 'edge', 'firefox', 'default'])),
-  secretMode: optional(boolean()),
+  secret: optional(boolean()),
 });
 
 // --------------------------------------------------------------------------------

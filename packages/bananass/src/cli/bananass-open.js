@@ -16,7 +16,7 @@ import { browser as browserGroup, console as consoleGroup } from '../core/cli/gr
 import { problems as problemsArg } from '../core/cli/arguments.js';
 import {
   browser as browserOpt,
-  secretMode as secretModeOpt,
+  secret as secretOpt,
   debug as debugOpt,
   quiet as quietOpt,
 } from '../core/cli/options.js';
@@ -44,18 +44,18 @@ export default function open(program) {
     .argument(...problemsArg)
     .optionsGroup(browserGroup)
     .option(...browserOpt)
-    .option(...secretModeOpt)
+    .option(...secretOpt)
     .optionsGroup(consoleGroup)
     .option(...debugOpt)
     .option(...quietOpt)
     .action(async (problems, options, command) => {
-      const { browser, secretMode, debug, quiet } = options;
+      const { browser, secret, debug, quiet } = options;
 
       const configObject = await configLoader({
         cliConfigObject: {
           browser: {
             browser,
-            secretMode,
+            secret,
           },
           console: {
             debug,

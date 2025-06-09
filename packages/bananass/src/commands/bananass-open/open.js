@@ -47,14 +47,8 @@ export default async function home(problems, configObject = dco) {
   // ------------------------------------------------------------------------------
 
   const {
-    browser: {
-      browser = dco.browser.browser,
-      secretMode = dco.browser.secretMode,
-    } = dco.browser,
-    console: {
-      debug = dco.console.debug, // (This comment was used for code formatting.)
-      quiet = dco.console.quiet,
-    } = dco.console,
+    browser: { browser = dco.browser.browser, secret = dco.browser.secret } = dco.browser,
+    console: { debug = dco.console.debug, quiet = dco.console.quiet } = dco.console,
   } = configObject;
 
   const logger = createLogger({ debug, quiet });
@@ -76,9 +70,7 @@ export default async function home(problems, configObject = dco) {
         open(URL_BOJ_PROBLEM(problem), {
           app: {
             name: apps[browser === 'default' ? 'browser' : browser], // TODO: Reduce redundancy
-            arguments: secretMode
-              ? ['--incognito', '--private-window', '--inPrivate']
-              : [],
+            arguments: secret ? ['--incognito', '--private-window', '--inPrivate'] : [],
           },
         }),
       ),

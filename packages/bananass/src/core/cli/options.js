@@ -48,9 +48,9 @@ export const browser = [
   `browser name. select from \`chrome\`, \`edge\`, \`firefox\`, or \`default\` ${formatDefaultValue(dco.browser.browser)}`,
 ];
 /** @type {[string, string]} */
-export const secretMode = [
-  '-s, --secret-mode',
-  `open browser in secret (private or incognito) mode ${formatDefaultValue(dco.browser.secretMode)}`,
+export const secret = [
+  '-s, --secret',
+  `open browser in secret (private or incognito) mode ${formatDefaultValue(dco.browser.secret)}`,
 ];
 
 // console

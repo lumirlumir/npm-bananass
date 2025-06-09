@@ -122,7 +122,7 @@ export default {
 
   browser: {
     browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
-    secretMode: false, // 브라우저의 시크릿 모드를 활성화합니다.
+    secret: false, // 브라우저의 시크릿 모드를 활성화합니다.
   },
   console: {
     debug: false, // 디버그 모드를 활성화하여 추가 정보를 출력합니다.
@@ -155,7 +155,7 @@ module.exports = {
 
   browser: {
     browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
-    secretMode: false, // 브라우저의 시크릿 모드를 활성화합니다.
+    secret: false, // 브라우저의 시크릿 모드를 활성화합니다.
   },
   console: {
     debug: false, // 디버그 모드를 활성화하여 추가 정보를 출력합니다.
@@ -189,7 +189,7 @@ export default {
 
   browser: {
     browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
-    secretMode: false, // 브라우저의 시크릿 모드를 활성화합니다.
+    secret: false, // 브라우저의 시크릿 모드를 활성화합니다.
   },
   console: {
     debug: false, // 디버그 모드를 활성화하여 추가 정보를 출력합니다.
@@ -223,7 +223,7 @@ module.exports = {
 
   browser: {
     browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
-    secretMode: false, // 브라우저의 시크릿 모드를 활성화합니다.
+    secret: false, // 브라우저의 시크릿 모드를 활성화합니다.
   },
   console: {
     debug: false, // 디버그 모드를 활성화하여 추가 정보를 출력합니다.

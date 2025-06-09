@@ -8,7 +8,7 @@ module.exports = {
   // entryDir: 'bananass',
   // outDir: '.bananass',
   // browser: {
-  //   secretMode: false,
+  //   secret: false,
   // }
   // build: {
   //   templateType: 'fs',
