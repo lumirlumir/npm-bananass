@@ -14,20 +14,20 @@ import { DEFAULT_ENTRY_DIR_NAME, DEFAULT_OUT_DIR_NAME } from '../../constants.js
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').ConfigObject} ConfigObject
- *
- * @typedef {import('../../types.js').ConfigObjectBrowser} ConfigObjectBrowser
- * @typedef {import('../../types.js').ConfigObjectConsole} ConfigObjectConsole
- *
- * @typedef {import('../../types.js').ConfigObjectAdd} ConfigObjectAdd
- * @typedef {import('../../types.js').ConfigObjectBug} ConfigObjectBug
- * @typedef {import('../../types.js').ConfigObjectBuild} ConfigObjectBuild
- * @typedef {import('../../types.js').ConfigObjectDiscussion} ConfigObjectDiscussion
- * @typedef {import('../../types.js').ConfigObjectHome} ConfigObjectHome
- * @typedef {import('../../types.js').ConfigObjectInfo} ConfigObjectInfo
- * @typedef {import('../../types.js').ConfigObjectOpen} ConfigObjectOpen
- * @typedef {import('../../types.js').ConfigObjectRepo} ConfigObjectRepo
- * @typedef {import('../../types.js').ConfigObjectRun} ConfigObjectRun
+ * @import {
+ *   ConfigObject,
+ *   ConfigObjectBrowser,
+ *   ConfigObjectConsole,
+ *   ConfigObjectAdd,
+ *   ConfigObjectBug,
+ *   ConfigObjectBuild,
+ *   ConfigObjectDiscussion,
+ *   ConfigObjectHome,
+ *   ConfigObjectInfo,
+ *   ConfigObjectOpen,
+ *   ConfigObjectRepo,
+ *   ConfigObjectRun
+ * } from '../../types.js';
  */
 
 // --------------------------------------------------------------------------------

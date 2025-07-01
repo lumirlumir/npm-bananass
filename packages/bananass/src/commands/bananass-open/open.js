@@ -12,7 +12,10 @@ import { bananass, error, success } from 'bananass-utils-console/theme';
 import open, { apps } from 'open';
 
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
-import { Problems, ConfigObject } from '../../core/structs/index.js';
+import {
+  Problems as ProblemsStruct,
+  ConfigObject as ConfigObjectStruct,
+} from '../../core/structs/index.js';
 import { URL_BOJ_PROBLEM } from '../../core/constants.js';
 
 // --------------------------------------------------------------------------------
@@ -20,8 +23,7 @@ import { URL_BOJ_PROBLEM } from '../../core/constants.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../core/types.js').Problems} Problems
- * @typedef {import('../../core/types.js').ConfigObject} ConfigObject
+ * @import { Problems, ConfigObject } from '../../core/types.js';
  */
 
 // --------------------------------------------------------------------------------
@@ -39,8 +41,8 @@ export default async function home(problems, configObject = dco) {
   // Runtime Validation
   // ------------------------------------------------------------------------------
 
-  Problems.assert(problems);
-  ConfigObject.assert(configObject);
+  ProblemsStruct.assert(problems);
+  ConfigObjectStruct.assert(configObject);
 
   // ------------------------------------------------------------------------------
   // Declarations

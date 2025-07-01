@@ -13,8 +13,8 @@ import { string } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').Input} Input
- * @typedef {import('superstruct').Struct<Input>} InputStruct
+ * @import { Input } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -23,8 +23,7 @@ import { string } from 'superstruct';
 
 /**
  * `Input` type struct.
- *
- * @type {InputStruct}
+ * @type {Struct<Input>}
  */
 const Input = string();
 

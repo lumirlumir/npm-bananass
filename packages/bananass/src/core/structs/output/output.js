@@ -13,8 +13,8 @@ import { boolean, number, string, union } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').Output} Output
- * @typedef {import('superstruct').Struct<Output>} OutputStruct
+ * @import { Output } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -23,8 +23,7 @@ import { boolean, number, string, union } from 'superstruct';
 
 /**
  * `Output` type struct.
- *
- * @type {OutputStruct}
+ * @type {Struct<Output>}
  */
 const Output = union([string(), number(), boolean()]);
 

@@ -21,7 +21,7 @@ import { PKG_NAME, SUPPORTED_CONFIG_FILE_EXTENSIONS as SCFE } from '../../consta
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').ConfigObject} ConfigObject
+ * @import { ConfigObject } from '../../types.js';
  */
 
 // --------------------------------------------------------------------------------

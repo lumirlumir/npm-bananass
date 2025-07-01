@@ -7,7 +7,6 @@
 // --------------------------------------------------------------------------------
 
 import { array, nonempty } from 'superstruct';
-
 import Testcase from '../testcase/index.js';
 
 // --------------------------------------------------------------------------------
@@ -15,8 +14,8 @@ import Testcase from '../testcase/index.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').Testcases} Testcases
- * @typedef {import('superstruct').Struct<Testcases>} TestcasesStruct
+ * @import { Testcases } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -25,8 +24,7 @@ import Testcase from '../testcase/index.js';
 
 /**
  * `Testcases` type struct.
- *
- * @type {TestcasesStruct}
+ * @type {Struct<Testcases>}
  */
 const Testcases = nonempty(array(Testcase));
 

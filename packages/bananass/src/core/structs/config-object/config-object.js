@@ -26,8 +26,8 @@ import ConfigObjectRun from '../config-object-run/index.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').ConfigObject} ConfigObject
- * @typedef {import('superstruct').Struct<ConfigObject>} ConfigObjectStruct
+ * @import { ConfigObject } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ import ConfigObjectRun from '../config-object-run/index.js';
 
 /**
  * `ConfigObject` type struct.
- * @type {ConfigObjectStruct}
+ * @type {Struct<ConfigObject>}
  */
 const ConfigObject = object({
   cwd: optional(string()),

@@ -13,8 +13,8 @@ import { object } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').ConfigObjectRepo} ConfigObjectRepo
- * @typedef {import('superstruct').Struct<ConfigObjectRepo>} ConfigObjectRepoStruct
+ * @import { ConfigObjectRepo } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -23,8 +23,7 @@ import { object } from 'superstruct';
 
 /**
  * `ConfigObjectRepo` type struct.
- *
- * @type {ConfigObjectRepoStruct}
+ * @type {Struct<ConfigObjectRepo>}
  */
 const ConfigObjectRepo = object({});
 

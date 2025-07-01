@@ -12,7 +12,7 @@ import { bananass, error, success } from 'bananass-utils-console/theme';
 import open, { apps } from 'open';
 
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
-import { ConfigObject } from '../../core/structs/index.js';
+import { ConfigObject as ConfigObjectStruct } from '../../core/structs/index.js';
 import { URL_GITHUB_ISSUES } from '../../core/constants.js';
 
 // --------------------------------------------------------------------------------
@@ -20,7 +20,7 @@ import { URL_GITHUB_ISSUES } from '../../core/constants.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../core/types.js').ConfigObject} ConfigObject
+ * @import { ConfigObject } from '../../core/types.js';
  */
 
 // --------------------------------------------------------------------------------
@@ -37,7 +37,7 @@ export default async function bug(configObject = dco) {
   // Runtime Validation
   // ------------------------------------------------------------------------------
 
-  ConfigObject.assert(configObject);
+  ConfigObjectStruct.assert(configObject);
 
   // ------------------------------------------------------------------------------
   // Declarations

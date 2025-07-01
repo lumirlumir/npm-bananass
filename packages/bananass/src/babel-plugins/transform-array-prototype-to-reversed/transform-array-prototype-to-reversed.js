@@ -10,6 +10,14 @@
 import { types as t } from '@babel/core';
 
 // --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
+/**
+ * @import { PluginObj } from '@babel/core';
+ */
+
+// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
@@ -20,7 +28,7 @@ import { types as t } from '@babel/core';
  * - `slice()`: ES3
  * - `reverse()`: ES1
  *
- * @return {import("@babel/core").PluginObj}
+ * @return {PluginObj}
  */
 export default function transformArrayPrototypeToReversed() {
   return {

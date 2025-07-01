@@ -13,8 +13,8 @@ import { object } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').ConfigObjectRun} ConfigObjectRun
- * @typedef {import('superstruct').Struct<ConfigObjectRun>} ConfigObjectRunStruct
+ * @import { ConfigObjectRun } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -23,8 +23,7 @@ import { object } from 'superstruct';
 
 /**
  * `ConfigObjectRun` type struct.
- *
- * @type {ConfigObjectRunStruct}
+ * @type {Struct<ConfigObjectRun>}
  */
 const ConfigObjectRun = object({});
 

@@ -7,7 +7,6 @@
 // --------------------------------------------------------------------------------
 
 import { array, nonempty, refine } from 'superstruct';
-
 import Problem from '../problem/index.js';
 import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../constants.js';
 
@@ -16,8 +15,8 @@ import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../constants.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').Problems} Problems
- * @typedef {import('superstruct').Struct<Problems>} ProblemsStruct
+ * @import { Problems } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -26,8 +25,7 @@ import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../constants.js';
 
 /**
  * `Problems` type struct.
- *
- * @type {ProblemsStruct}
+ * @type {Struct<Problems>}
  */
 const Problems = refine(nonempty(array(Problem)), 'Problems', problems =>
   problems.every(problem => Number(problem) >= BAEKJOON_PROBLEM_NUMBER_MIN)

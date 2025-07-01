@@ -13,7 +13,7 @@ import { warning } from 'bananass-utils-console/theme';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('commander').Command} Command
+ * @import { Command } from 'commander';
  */
 
 // --------------------------------------------------------------------------------

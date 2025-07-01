@@ -22,7 +22,10 @@ import {
 } from '../../babel-plugins/index.js';
 
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
-import { Problems, ConfigObject } from '../../core/structs/index.js';
+import {
+  Problems as ProblemsStruct,
+  ConfigObject as ConfigObjectStruct,
+} from '../../core/structs/index.js';
 import {
   DEFAULT_OUT_FILE_EXTENSION,
   NODE_VERSION_BAEKJOON,
@@ -35,10 +38,9 @@ import {
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('webpack').Configuration} WebpackConfig
- * @typedef {import('@babel/core').PluginItem} BabelPluginItem
- * @typedef {import('../../core/types.js').Problems} Problems
- * @typedef {import('../../core/types.js').ConfigObject} ConfigObject
+ * @import { Configuration as WebpackConfig } from 'webpack';
+ * @import { PluginItem as BabelPluginItem } from '@babel/core';
+ * @import { Problems, ConfigObject } from '../../core/types.js';
  */
 
 // --------------------------------------------------------------------------------
@@ -86,8 +88,8 @@ export default async function build(problems, configObject = dco) {
   // Runtime Validation
   // ------------------------------------------------------------------------------
 
-  Problems.assert(problems);
-  ConfigObject.assert(configObject);
+  ProblemsStruct.assert(problems);
+  ConfigObjectStruct.assert(configObject);
 
   // ------------------------------------------------------------------------------
   // Declarations

@@ -13,8 +13,8 @@ import { object } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').ConfigObjectOpen} ConfigObjectOpen
- * @typedef {import('superstruct').Struct<ConfigObjectOpen>} ConfigObjectOpenStruct
+ * @import { ConfigObjectOpen } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -23,8 +23,7 @@ import { object } from 'superstruct';
 
 /**
  * `ConfigObjectOpen` type struct.
- *
- * @type {ConfigObjectOpenStruct}
+ * @type {Struct<ConfigObjectOpen>}
  */
 const ConfigObjectOpen = object({});
 
