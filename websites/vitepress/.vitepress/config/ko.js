@@ -151,10 +151,6 @@ export default defineConfig({
               link: '/bananass-utils-console',
             },
             {
-              text: 'bananass-utils-vitepress',
-              link: '/bananass-utils-vitepress',
-            },
-            {
               text: 'create-bananass',
               link: '/create-bananass',
             },

@@ -15,7 +15,7 @@
  * @returns The configuration object for Korean language support.
  *
  * @example
- * import { ko } from 'bananass-utils-vitepress/i18n';
+ * import ko from 'path/to/this/file.js';
  *
  * console.log(ko({
  *   searchOptionsLocalesKey: 'root',

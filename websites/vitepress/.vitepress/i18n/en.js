@@ -14,7 +14,7 @@
  * @returns The configuration object for English language support.
  *
  * @example
- * import { en } from 'bananass-utils-vitepress/i18n';
+ * import en from 'path/to/this/file.js';
  *
  * console.log(en({
  *   themeConfigEditLinkPattern: 'https://github.com/org/repo/edit/main/docs/:path'
