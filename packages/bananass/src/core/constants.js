@@ -98,7 +98,6 @@ export const WEBPACK_BANNER = `
 export const BANANASS_PKG_NAMES = [
   'bananass',
   'bananass-utils-console',
-  'bananass-utils-vitepress',
   'create-bananass',
   'eslint-config-bananass',
   'prettier-config-bananass',

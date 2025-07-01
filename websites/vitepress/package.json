@@ -11,7 +11,6 @@
   "devDependencies": {
     "@codecov/vite-plugin": "^1.9.1",
     "bananass": "^0.1.2",
-    "bananass-utils-vitepress": "^0.1.2",
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-mathjax3": "^4.3.2",
     "vitepress": "^1.6.3",
