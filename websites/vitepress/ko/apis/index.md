@@ -12,12 +12,6 @@
 
 <!-- @include: @/shared/wip.ko.md -->
 
-## [`bananass-utils-vitepress`](bananass-utils-vitepress.md) {#bananass-utils-vitepress}
-
-<!-- @include: @/shared/semver-warning.ko.md -->
-
-<!-- @include: @/shared/wip.ko.md -->
-
 ## [`create-bananass`](create-bananass.md) {#create-bananass}
 
 <!-- @include: @/shared/wip.ko.md -->
