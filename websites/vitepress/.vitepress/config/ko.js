@@ -1,6 +1,5 @@
 /**
  * @fileoverview Korean configuration for VitePress.
- *
  * @see https://vitepress.dev/reference/site-config#site-config
  */
 
@@ -17,8 +16,8 @@ import {
   URL_GITHUB_REPO,
   BANANASS_PKG_NAMES,
 } from 'bananass/core/constants';
-import { ko } from 'bananass-utils-vitepress/i18n';
 import { defineConfig } from 'vitepress';
+import ko from '../i18n/ko.js';
 
 // --------------------------------------------------------------------------------
 // Declarations
@@ -150,10 +149,6 @@ export default defineConfig({
             {
               text: 'bananass-utils-console',
               link: '/bananass-utils-console',
-            },
-            {
-              text: 'bananass-utils-vitepress',
-              link: '/bananass-utils-vitepress',
             },
             {
               text: 'create-bananass',

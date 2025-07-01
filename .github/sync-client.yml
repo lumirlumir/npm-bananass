@@ -81,8 +81,6 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/tsconfig.json
   - source: ./packages/bananass-utils-console/tsconfig.json
     dest: ./configs/tsconfig.json
-  - source: ./packages/bananass-utils-vitepress/tsconfig.json
-    dest: ./configs/tsconfig.json
   - source: ./packages/create-bananass/tsconfig.json
     dest: ./configs/tsconfig.json
   - source: ./packages/eslint-config-bananass/tsconfig.json

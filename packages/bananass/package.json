@@ -92,7 +92,7 @@
     "dev": "node src/cli.js"
   },
   "dependencies": {
-    "@babel/core": "^7.27.4",
+    "@babel/core": "^7.27.7",
     "@babel/preset-env": "^7.27.2",
     "@babel/preset-typescript": "^7.27.1",
     "babel-loader": "^10.0.0",
@@ -100,7 +100,7 @@
     "c12": "^3.0.4",
     "chalk": "^5.4.1",
     "commander": "^14.0.0",
-    "enhanced-resolve": "^5.18.1",
+    "enhanced-resolve": "^5.18.2",
     "envinfo": "^7.14.0",
     "esbuild-loader": "^4.3.0",
     "jiti": "^2.4.2",
