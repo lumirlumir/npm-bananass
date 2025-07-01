@@ -1,6 +1,5 @@
 /**
  * @fileoverview Vitepress site configuration.
- *
  * @see https://vitepress.dev/reference/site-config#site-config
  * @see https://vitepress.dev/guide/i18n
  * @see https://github.com/vuejs/vitepress/tree/main/docs/.vitepress/config
