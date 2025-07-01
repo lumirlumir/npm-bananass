@@ -18,7 +18,7 @@ import {
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('commander').Command} Command
+ * @import { Command } from 'commander';
  */
 
 // --------------------------------------------------------------------------------
@@ -27,7 +27,6 @@ import {
 
 /**
  * Global: `npx bananass` command.
- *
  * @param {Command} program The `commander` package's `program`.
  */
 export default function global(program) {

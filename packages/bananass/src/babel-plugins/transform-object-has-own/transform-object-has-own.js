@@ -10,6 +10,14 @@
 import { types as t } from '@babel/core';
 
 // --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
+/**
+ * @import { PluginObj } from '@babel/core';
+ */
+
+// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
@@ -18,7 +26,7 @@ import { types as t } from '@babel/core';
  *
  * Compatibility: ES1
  *
- * @return {import("@babel/core").PluginObj}
+ * @return {PluginObj}
  */
 export default function transformObjectHasOwn() {
   return {

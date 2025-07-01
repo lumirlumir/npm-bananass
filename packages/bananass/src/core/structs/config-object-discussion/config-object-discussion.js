@@ -13,8 +13,8 @@ import { object } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').ConfigObjectDiscussion} ConfigObjectDiscussion
- * @typedef {import('superstruct').Struct<ConfigObjectDiscussion>} ConfigObjectDiscussionStruct
+ * @import { ConfigObjectDiscussion } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -23,8 +23,7 @@ import { object } from 'superstruct';
 
 /**
  * `ConfigObjectDiscussion` type struct.
- *
- * @type {ConfigObjectDiscussionStruct}
+ * @type {Struct<ConfigObjectDiscussion>}
  */
 const ConfigObjectDiscussion = object({});
 

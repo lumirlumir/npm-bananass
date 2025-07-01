@@ -7,7 +7,6 @@
 // --------------------------------------------------------------------------------
 
 import { object, optional } from 'superstruct';
-
 import Input from '../input/index.js';
 import Output from '../output/index.js';
 
@@ -16,8 +15,8 @@ import Output from '../output/index.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').Testcase} Testcase
- * @typedef {import('superstruct').Struct<Testcase>} TestcaseStruct
+ * @import { Testcase } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -26,8 +25,7 @@ import Output from '../output/index.js';
 
 /**
  * `Testcase` type struct.
- *
- * @type {TestcaseStruct}
+ * @type {Struct<Testcase>}
  */
 const Testcase = object({
   input: optional(Input),

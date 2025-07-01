@@ -7,7 +7,6 @@
 // --------------------------------------------------------------------------------
 
 import { object, optional } from 'superstruct';
-
 import Solution from '../solution/index.js';
 import Testcases from '../testcases/index.js';
 
@@ -16,8 +15,8 @@ import Testcases from '../testcases/index.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').SolutionWithTestcases} SolutionWithTestcases
- * @typedef {import('superstruct').Struct<SolutionWithTestcases>} SolutionWithTestcasesStruct
+ * @import { SolutionWithTestcases } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -26,8 +25,7 @@ import Testcases from '../testcases/index.js';
 
 /**
  * `SolutionWithTestcases` type struct.
- *
- * @type {SolutionWithTestcasesStruct}
+ * @type {Struct<SolutionWithTestcases>}
  */
 const SolutionWithTestcases = object({
   solution: Solution,

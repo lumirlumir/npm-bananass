@@ -13,8 +13,8 @@ import { boolean, enums, object, optional } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').ConfigObjectBuild} ConfigObjectBuild
- * @typedef {import('superstruct').Struct<ConfigObjectBuild>} ConfigObjectBuildStruct
+ * @import { ConfigObjectBuild } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -23,8 +23,7 @@ import { boolean, enums, object, optional } from 'superstruct';
 
 /**
  * `ConfigObjectBuild` type struct.
- *
- * @type {ConfigObjectBuildStruct}
+ * @type {Struct<ConfigObjectBuild>}
  */
 const ConfigObjectBuild = object({
   clean: optional(boolean()),
