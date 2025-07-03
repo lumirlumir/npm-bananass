@@ -92,8 +92,8 @@
     "dev": "node src/cli.js"
   },
   "dependencies": {
-    "@babel/core": "^7.27.7",
-    "@babel/preset-env": "^7.27.2",
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
     "@babel/preset-typescript": "^7.27.1",
     "babel-loader": "^10.0.0",
     "bananass-utils-console": "^0.1.2",
