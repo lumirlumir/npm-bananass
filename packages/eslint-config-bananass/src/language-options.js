@@ -16,7 +16,7 @@ import typescriptParser from '@typescript-eslint/parser';
 export const globals = {
   ...globalsModule.browser,
   ...globalsModule.builtin,
-  ...globalsModule.es2025,
+  ...globalsModule.es2026,
   ...globalsModule.node,
   ...globalsModule.jest,
   ...globalsModule.vitest,
