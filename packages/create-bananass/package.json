@@ -51,7 +51,7 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "node ../../scripts/cp.mjs ../../LICENSE.md LICENSE.md ../../README.md README.md",
+    "build": "npx tsc --noEmit && node ../../scripts/cp.mjs ../../LICENSE.md LICENSE.md ../../README.md README.md",
     "test": "node --test",
     "dev": "node src/cli.js"
   },
