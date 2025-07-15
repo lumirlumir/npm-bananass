@@ -104,7 +104,7 @@
     "envinfo": "^7.14.0",
     "esbuild-loader": "^4.3.0",
     "jiti": "^2.4.2",
-    "open": "^10.1.2",
+    "open": "^10.2.0",
     "superstruct": "^2.0.2",
     "webpack": "^5.100.1"
   },
