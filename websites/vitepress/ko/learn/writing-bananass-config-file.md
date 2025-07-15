@@ -121,7 +121,7 @@ export default {
   outDir: '.bananass', // 빌드 결과물들을 저장할 출력 디렉토리를 설정합니다.
 
   browser: {
-    browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
+    browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'brave'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
     secret: false, // 브라우저의 시크릿 모드를 활성화합니다.
   },
   console: {
@@ -154,7 +154,7 @@ module.exports = {
   outDir: '.bananass', // 빌드 결과물들을 저장할 출력 디렉토리를 설정합니다.
 
   browser: {
-    browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
+    browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'brave'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
     secret: false, // 브라우저의 시크릿 모드를 활성화합니다.
   },
   console: {
@@ -188,7 +188,7 @@ export default {
   outDir: '.bananass', // 빌드 결과물들을 저장할 출력 디렉토리를 설정합니다.
 
   browser: {
-    browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
+    browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'brave'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
     secret: false, // 브라우저의 시크릿 모드를 활성화합니다.
   },
   console: {
@@ -222,7 +222,7 @@ module.exports = {
   outDir: '.bananass', // 빌드 결과물들을 저장할 출력 디렉토리를 설정합니다.
 
   browser: {
-    browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
+    browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'brave'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
     secret: false, // 브라우저의 시크릿 모드를 활성화합니다.
   },
   console: {
