@@ -45,7 +45,7 @@ export const outDir = [
 /** @type {[string, string]} */
 export const browser = [
   '-b, --browser <browser>',
-  `browser name. select from \`chrome\`, \`edge\`, \`firefox\`, or \`default\` ${formatDefaultValue(dco.browser.browser)}`,
+  `browser name. select from \`chrome\`, \`edge\`, \`firefox\`, \`brave\`, or \`default\` ${formatDefaultValue(dco.browser.browser)}`,
 ];
 /** @type {[string, string]} */
 export const secret = [
