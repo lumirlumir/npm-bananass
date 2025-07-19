@@ -75,5 +75,4 @@ export default async function configLoader({
   return mergedConfigObject;
 }
 
-// TODO: .ts, .js 등이 섞여 있는 폴더에서, 우선순위에 따라 로딩되나 확인하기.
 // TODO: Default export 랑 named export 섞여있는 경우 확인하기.
