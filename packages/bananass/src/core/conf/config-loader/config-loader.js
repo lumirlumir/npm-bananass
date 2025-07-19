@@ -74,5 +74,3 @@ export default async function configLoader({
 
   return mergedConfigObject;
 }
-
-// TODO: Default export 랑 named export 섞여있는 경우 확인하기.
