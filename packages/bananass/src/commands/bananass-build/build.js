@@ -6,8 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { fileURLToPath } from 'node:url';
-import { dirname, resolve } from 'node:path';
+import { resolve } from 'node:path';
 import fsPromises from 'node:fs/promises'; // DO NOT USE DESTRUCTURING syntax due to `mock` usage in test.
 
 import createLogger from 'bananass-utils-console/logger';
@@ -112,7 +111,7 @@ export default async function build(problems, configObject = dco) {
   const resolvedEntryDir = resolve(cwd, entryDir);
   const resolvedOutDir = resolve(cwd, outDir);
   const resolvedWebpackEntryFile = resolve(
-    dirname(fileURLToPath(import.meta.url)),
+    import.meta.dirname,
     `template-${templateType}.cjs`,
   );
 
