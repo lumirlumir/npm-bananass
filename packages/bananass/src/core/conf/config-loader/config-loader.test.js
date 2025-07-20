@@ -6,9 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
-import { rmSync, writeFileSync } from 'node:fs';
 import { deepStrictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
@@ -19,7 +17,7 @@ import defaultConfigObject from '../default-config-object/index.js';
 // Helpers
 // --------------------------------------------------------------------------------
 
-const fixturesDir = fileURLToPath(new URL('fixtures', import.meta.url));
+const fixturesDir = join(import.meta.dirname, 'fixtures');
 const configObject = {
   1: {
     1: 'a',
@@ -373,114 +371,58 @@ describe('config-loader', () => {
   });
 
   describe('should load config files with priority', () => {
-    const cwd = join(fixturesDir, 'priority');
-
     it('should load `bananass.config.js` with priority 1', async () => {
-      writeFileSync(join(cwd, 'bananass.config.js'), 'export default { a: 1 };');
-      writeFileSync(join(cwd, 'bananass.config.mjs'), 'export default { b: 2 };');
-      writeFileSync(join(cwd, 'bananass.config.cjs'), 'module.exports = { c: 3 };');
-      writeFileSync(join(cwd, 'bananass.config.ts'), 'export default { d: 4 };');
-      writeFileSync(join(cwd, 'bananass.config.mts'), 'export default { e: 5 };');
-      writeFileSync(join(cwd, 'bananass.config.cts'), 'module.exports = { f: 6 };');
-
       const config = await configLoader({
-        cwd,
+        cwd: join(fixturesDir, 'priority-6'),
         defaultConfigObject: {},
       });
 
       deepStrictEqual(config, { a: 1 });
-
-      rmSync(join(cwd, 'bananass.config.js'));
-      rmSync(join(cwd, 'bananass.config.mjs'));
-      rmSync(join(cwd, 'bananass.config.cjs'));
-      rmSync(join(cwd, 'bananass.config.ts'));
-      rmSync(join(cwd, 'bananass.config.mts'));
-      rmSync(join(cwd, 'bananass.config.cts'));
     });
 
     it('should load `bananass.config.mjs` with priority 2', async () => {
-      writeFileSync(join(cwd, 'bananass.config.mjs'), 'export default { b: 2 };');
-      writeFileSync(join(cwd, 'bananass.config.cjs'), 'module.exports = { c: 3 };');
-      writeFileSync(join(cwd, 'bananass.config.ts'), 'export default { d: 4 };');
-      writeFileSync(join(cwd, 'bananass.config.mts'), 'export default { e: 5 };');
-      writeFileSync(join(cwd, 'bananass.config.cts'), 'module.exports = { f: 6 };');
-
       const config = await configLoader({
-        cwd,
+        cwd: join(fixturesDir, 'priority-5'),
         defaultConfigObject: {},
       });
 
       deepStrictEqual(config, { b: 2 });
-
-      rmSync(join(cwd, 'bananass.config.mjs'));
-      rmSync(join(cwd, 'bananass.config.cjs'));
-      rmSync(join(cwd, 'bananass.config.ts'));
-      rmSync(join(cwd, 'bananass.config.mts'));
-      rmSync(join(cwd, 'bananass.config.cts'));
     });
 
     it('should load `bananass.config.cjs` with priority 3', async () => {
-      writeFileSync(join(cwd, 'bananass.config.cjs'), 'module.exports = { c: 3 };');
-      writeFileSync(join(cwd, 'bananass.config.ts'), 'export default { d: 4 };');
-      writeFileSync(join(cwd, 'bananass.config.mts'), 'export default { e: 5 };');
-      writeFileSync(join(cwd, 'bananass.config.cts'), 'module.exports = { f: 6 };');
-
       const config = await configLoader({
-        cwd,
+        cwd: join(fixturesDir, 'priority-4'),
         defaultConfigObject: {},
       });
 
       deepStrictEqual(config, { c: 3 });
-
-      rmSync(join(cwd, 'bananass.config.cjs'));
-      rmSync(join(cwd, 'bananass.config.ts'));
-      rmSync(join(cwd, 'bananass.config.mts'));
-      rmSync(join(cwd, 'bananass.config.cts'));
     });
 
     it('should load `bananass.config.ts` with priority 4', async () => {
-      writeFileSync(join(cwd, 'bananass.config.ts'), 'export default { d: 4 };');
-      writeFileSync(join(cwd, 'bananass.config.mts'), 'export default { e: 5 };');
-      writeFileSync(join(cwd, 'bananass.config.cts'), 'module.exports = { f: 6 };');
-
       const config = await configLoader({
-        cwd,
+        cwd: join(fixturesDir, 'priority-3'),
         defaultConfigObject: {},
       });
 
       deepStrictEqual(config, { d: 4 });
-
-      rmSync(join(cwd, 'bananass.config.ts'));
-      rmSync(join(cwd, 'bananass.config.mts'));
-      rmSync(join(cwd, 'bananass.config.cts'));
     });
 
     it('should load `bananass.config.mts` with priority 5', async () => {
-      writeFileSync(join(cwd, 'bananass.config.mts'), 'export default { e: 5 };');
-      writeFileSync(join(cwd, 'bananass.config.cts'), 'module.exports = { f: 6 };');
-
       const config = await configLoader({
-        cwd,
+        cwd: join(fixturesDir, 'priority-2'),
         defaultConfigObject: {},
       });
 
       deepStrictEqual(config, { e: 5 });
-
-      rmSync(join(cwd, 'bananass.config.mts'));
-      rmSync(join(cwd, 'bananass.config.cts'));
     });
 
     it('should load `bananass.config.cts` with priority 6', async () => {
-      writeFileSync(join(cwd, 'bananass.config.cts'), 'module.exports = { f: 6 };');
-
       const config = await configLoader({
-        cwd,
+        cwd: join(fixturesDir, 'priority-1'),
         defaultConfigObject: {},
       });
 
       deepStrictEqual(config, { f: 6 });
-
-      rmSync(join(cwd, 'bananass.config.cts'));
     });
   });
 });
