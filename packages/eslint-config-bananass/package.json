@@ -70,7 +70,7 @@
     "eslint": "^9.0.0"
   },
   "dependencies": {
-    "@next/eslint-plugin-next": "^15.3.5",
+    "@next/eslint-plugin-next": "^15.4.2",
     "@stylistic/eslint-plugin-js": "^4.2.0",
     "@typescript-eslint/eslint-plugin": "^8.32.1",
     "@typescript-eslint/parser": "^8.32.1",
