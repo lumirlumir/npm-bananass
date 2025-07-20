@@ -34,6 +34,6 @@ export const reactPlugin = { react: reactPluginModule };
 
 export const reactHooksPlugin = { 'react-hooks': reactHooksPluginModule };
 
-export const nextPlugin = { '@next/next': nextPluginModule };
+export const nextPlugin = { '@next/next': { rules: nextPluginModule.rules } };
 
 export const typescriptPlugin = { '@typescript-eslint': typescriptPluginModule };
