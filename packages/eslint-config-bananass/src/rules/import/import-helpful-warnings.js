@@ -59,8 +59,8 @@ export default {
         '**/jest.config.js', // jest config
         '**/jest.setup.js', // jest setup
         '**/vue.config.js', // vue-cli config
-        '**/webpack.config.js', // webpack config
-        '**/webpack.config.*.js', // webpack config
+        '**/webpack.config.{js,mjs,cjs}', // webpack config
+        '**/webpack.config.*.{js,mjs,cjs}', // webpack config
         '**/rollup.config.js', // rollup config
         '**/rollup.config.*.js', // rollup config
         '**/gulpfile.js', // gulp config
