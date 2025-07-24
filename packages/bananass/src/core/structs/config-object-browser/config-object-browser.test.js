@@ -43,6 +43,13 @@ describe('config-object-browser', () => {
 
     strictEqual(ConfigObjectBrowser.is(configObjectBrowser), true);
   });
+  it('should return true for a valid `browser` property (`brave`)', () => {
+    const configObjectBrowser = {
+      browser: 'brave',
+    };
+
+    strictEqual(ConfigObjectBrowser.is(configObjectBrowser), true);
+  });
   it('should return true for a valid `browser` property (`default`)', () => {
     const configObjectBrowser = {
       browser: 'default',

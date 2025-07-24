@@ -6,8 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { fileURLToPath } from 'node:url';
-import { dirname, resolve } from 'node:path';
+import { resolve } from 'node:path';
 import fsPromises from 'node:fs/promises'; // DO NOT USE DESTRUCTURING syntax due to `mock` usage in test.
 
 import createLogger from 'bananass-utils-console/logger';
@@ -22,7 +21,10 @@ import {
 } from '../../babel-plugins/index.js';
 
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
-import { Problems, ConfigObject } from '../../core/structs/index.js';
+import {
+  Problems as ProblemsStruct,
+  ConfigObject as ConfigObjectStruct,
+} from '../../core/structs/index.js';
 import {
   DEFAULT_OUT_FILE_EXTENSION,
   NODE_VERSION_BAEKJOON,
@@ -35,10 +37,9 @@ import {
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('webpack').Configuration} WebpackConfig
- * @typedef {import('@babel/core').PluginItem} BabelPluginItem
- * @typedef {import('../../core/types.js').Problems} Problems
- * @typedef {import('../../core/types.js').ConfigObject} ConfigObject
+ * @import { Configuration as WebpackConfig } from 'webpack';
+ * @import { PluginItem as BabelPluginItem } from '@babel/core';
+ * @import { Problems, ConfigObject } from '../../core/types.js';
  */
 
 // --------------------------------------------------------------------------------
@@ -86,8 +87,8 @@ export default async function build(problems, configObject = dco) {
   // Runtime Validation
   // ------------------------------------------------------------------------------
 
-  Problems.assert(problems);
-  ConfigObject.assert(configObject);
+  ProblemsStruct.assert(problems);
+  ConfigObjectStruct.assert(configObject);
 
   // ------------------------------------------------------------------------------
   // Declarations
@@ -110,7 +111,7 @@ export default async function build(problems, configObject = dco) {
   const resolvedEntryDir = resolve(cwd, entryDir);
   const resolvedOutDir = resolve(cwd, outDir);
   const resolvedWebpackEntryFile = resolve(
-    dirname(fileURLToPath(import.meta.url)),
+    import.meta.dirname,
     `template-${templateType}.cjs`,
   );
 

@@ -13,8 +13,8 @@ import { boolean, object, optional } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').ConfigObjectInfo} ConfigObjectInfo
- * @typedef {import('superstruct').Struct<ConfigObjectInfo>} ConfigObjectInfoStruct
+ * @import { ConfigObjectInfo } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -23,8 +23,7 @@ import { boolean, object, optional } from 'superstruct';
 
 /**
  * `ConfigObjectInfo` type struct.
- *
- * @type {ConfigObjectInfoStruct}
+ * @type {Struct<ConfigObjectInfo>}
  */
 const ConfigObjectInfo = object({
   all: optional(boolean()),

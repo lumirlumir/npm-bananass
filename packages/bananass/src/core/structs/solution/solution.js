@@ -13,8 +13,8 @@ import { func, refine } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').Solution} Solution
- * @typedef {import('superstruct').Struct<Solution>} SolutionStruct
+ * @import { Solution } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -23,8 +23,7 @@ import { func, refine } from 'superstruct';
 
 /**
  * `Solution` type struct.
- *
- * @type {SolutionStruct}
+ * @type {Struct<Solution>}
  */ // @ts-expect-error -- Types cannot be matched, as `superstruct` is unable to infer the input and output types of the function.
 const Solution = refine(func(), 'Solution', solution =>
   solution.length <= 1

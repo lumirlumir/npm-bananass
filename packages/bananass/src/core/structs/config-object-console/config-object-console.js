@@ -13,8 +13,8 @@ import { boolean, object, optional } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').ConfigObjectConsole} ConfigObjectConsole
- * @typedef {import('superstruct').Struct<ConfigObjectConsole>} ConfigObjectConsoleStruct
+ * @import { ConfigObjectConsole } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -23,8 +23,7 @@ import { boolean, object, optional } from 'superstruct';
 
 /**
  * `ConfigObjectConsole` type struct.
- *
- * @type {ConfigObjectConsoleStruct}
+ * @type {Struct<ConfigObjectConsole>}
  */
 const ConfigObjectConsole = object({
   debug: optional(boolean()),

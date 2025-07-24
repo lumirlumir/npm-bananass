@@ -13,8 +13,8 @@ import { object } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').ConfigObjectHome} ConfigObjectHome
- * @typedef {import('superstruct').Struct<ConfigObjectHome>} ConfigObjectHomeStruct
+ * @import { ConfigObjectHome } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -23,8 +23,7 @@ import { object } from 'superstruct';
 
 /**
  * `ConfigObjectHome` type struct.
- *
- * @type {ConfigObjectHomeStruct}
+ * @type {Struct<ConfigObjectHome>}
  */
 const ConfigObjectHome = object({});
 

@@ -14,8 +14,8 @@ import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../constants.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').Problem} Problem
- * @typedef {import('superstruct').Struct<Problem>} ProblemStruct
+ * @import { Problem } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -24,8 +24,7 @@ import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../constants.js';
 
 /**
  * `Problem` type struct.
- *
- * @type {ProblemStruct}
+ * @type {Struct<Problem>}
  */
 const Problem = refine(string(), 'Problem', problem =>
   Number(problem) >= BAEKJOON_PROBLEM_NUMBER_MIN

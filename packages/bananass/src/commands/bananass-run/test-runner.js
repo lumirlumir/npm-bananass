@@ -6,15 +6,18 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { SolutionWithTestcases, Input, Output } from '../../core/structs/index.js';
+import {
+  SolutionWithTestcases as SolutionWithTestcasesStruct,
+  Input as InputStruct,
+  Output as OutputStruct,
+} from '../../core/structs/index.js';
 
 // --------------------------------------------------------------------------------
 // Typedefs
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../core/types.js').SolutionWithTestcases} SolutionWithTestcases
- * @typedef {import('../../core/types.js').Output} Output
+ * @import { SolutionWithTestcases, Output } from '../../core/types.js';
  */
 
 // --------------------------------------------------------------------------------
@@ -32,7 +35,6 @@ function transformOutput(output) {
 
 /**
  * Test runner. Return an object with test results.
- *
  * @param {SolutionWithTestcases} solutionWithTestcases
  */
 export default function testRunner(solutionWithTestcases) {
@@ -40,7 +42,7 @@ export default function testRunner(solutionWithTestcases) {
   // Runtime Validation
   // ------------------------------------------------------------------------------
 
-  SolutionWithTestcases.assert(solutionWithTestcases);
+  SolutionWithTestcasesStruct.assert(solutionWithTestcases);
 
   // ------------------------------------------------------------------------------
   // Declarations
@@ -55,9 +57,9 @@ export default function testRunner(solutionWithTestcases) {
   const results = testcases.map(({ input, output: outputExpected }) => {
     const outputActual = solution(input);
 
-    Input.assert(input);
-    Output.assert(outputExpected);
-    Output.assert(outputActual);
+    InputStruct.assert(input);
+    OutputStruct.assert(outputExpected);
+    OutputStruct.assert(outputActual);
 
     const outputExpectedTransformed = transformOutput(outputExpected);
     const outputActualTransformed = transformOutput(outputActual);

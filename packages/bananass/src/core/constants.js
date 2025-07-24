@@ -13,7 +13,7 @@ import { createRequire } from 'node:module';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('./types.js').Problem} Problem
+ * @import { Problem } from "./types.js"
  */
 
 // --------------------------------------------------------------------------------
@@ -112,9 +112,8 @@ export const SUPPORTED_SOLUTION_FILE_EXTENSIONS = [
   '.cts',
 ];
 
-export const SUPPORTED_CONFIG_FILE_EXTENSIONS = [
-  ...SUPPORTED_SOLUTION_FILE_EXTENSIONS,
-  '.config',
-];
+export const SUPPORTED_CONFIG_FILE_NAMES = SUPPORTED_SOLUTION_FILE_EXTENSIONS.map(
+  ext => `${PKG_NAME}.config${ext}`,
+);
 
 // #endregion Array

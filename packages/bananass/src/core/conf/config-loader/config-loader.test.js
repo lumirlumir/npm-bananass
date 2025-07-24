@@ -6,9 +6,8 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
-import { deepStrictEqual, rejects } from 'node:assert';
+import { join } from 'node:path';
+import { deepStrictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
 import configLoader from './config-loader.js';
@@ -18,10 +17,7 @@ import defaultConfigObject from '../default-config-object/index.js';
 // Helpers
 // --------------------------------------------------------------------------------
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const fixturesDir = join(__dirname, 'fixtures');
-
+const fixturesDir = join(import.meta.dirname, 'fixtures');
 const configObject = {
   1: {
     1: 'a',
@@ -178,89 +174,59 @@ describe('config-loader', () => {
   });
 
   // Incorrect config files
-  describe('should throw an error when incorrect config files are found', () => {
-    it('should throw an error when loading `bananass.config.json`', () => {
-      rejects(
-        () =>
-          configLoader({
-            cwd: join(fixturesDir, 'bananass-config-json'),
-            defaultConfigObject: {},
-          }),
-        {
-          name: 'Error',
-          message: /bananass.config.json is not supported/,
-        },
-      );
+  describe('should use default options when incorrect config files are found', () => {
+    it('should use default options when loading `bananass.config.json`', async () => {
+      const config = await configLoader({
+        cwd: join(fixturesDir, 'bananass-config-json'),
+        defaultConfigObject: {},
+      });
+
+      deepStrictEqual(config, {});
     });
 
-    it('should throw an error when loading `bananass.config.json5`', () => {
-      rejects(
-        () =>
-          configLoader({
-            cwd: join(fixturesDir, 'bananass-config-json5'),
-            defaultConfigObject: {},
-          }),
-        {
-          name: 'Error',
-          message: /bananass.config.json5 is not supported/,
-        },
-      );
+    it('should use default options when loading `bananass.config.json5`', async () => {
+      const config = await configLoader({
+        cwd: join(fixturesDir, 'bananass-config-json5'),
+        defaultConfigObject: {},
+      });
+
+      deepStrictEqual(config, {});
     });
 
-    it('should throw an error when loading `bananass.config.jsonc`', () => {
-      rejects(
-        () =>
-          configLoader({
-            cwd: join(fixturesDir, 'bananass-config-jsonc'),
-            defaultConfigObject: {},
-          }),
-        {
-          name: 'Error',
-          message: /bananass.config.jsonc is not supported/,
-        },
-      );
+    it('should use default options when loading `bananass.config.jsonc`', async () => {
+      const config = await configLoader({
+        cwd: join(fixturesDir, 'bananass-config-jsonc'),
+        defaultConfigObject: {},
+      });
+
+      deepStrictEqual(config, {});
     });
 
-    it('should throw an error when loading `bananass.config.toml`', () => {
-      rejects(
-        () =>
-          configLoader({
-            cwd: join(fixturesDir, 'bananass-config-toml'),
-            defaultConfigObject: {},
-          }),
-        {
-          name: 'Error',
-          message: /bananass.config.toml is not supported/,
-        },
-      );
+    it('should use default options when loading `bananass.config.toml`', async () => {
+      const config = await configLoader({
+        cwd: join(fixturesDir, 'bananass-config-toml'),
+        defaultConfigObject: {},
+      });
+
+      deepStrictEqual(config, {});
     });
 
-    it('should throw an error when loading `bananass.config.yaml`', () => {
-      rejects(
-        () =>
-          configLoader({
-            cwd: join(fixturesDir, 'bananass-config-yaml'),
-            defaultConfigObject: {},
-          }),
-        {
-          name: 'Error',
-          message: /bananass.config.yaml is not supported/,
-        },
-      );
+    it('should use default options when loading `bananass.config.yaml`', async () => {
+      const config = await configLoader({
+        cwd: join(fixturesDir, 'bananass-config-yaml'),
+        defaultConfigObject: {},
+      });
+
+      deepStrictEqual(config, {});
     });
 
-    it('should throw an error when loading `bananass.config.yml`', () => {
-      rejects(
-        () =>
-          configLoader({
-            cwd: join(fixturesDir, 'bananass-config-yml'),
-            defaultConfigObject: {},
-          }),
-        {
-          name: 'Error',
-          message: /bananass.config.yml is not supported/,
-        },
-      );
+    it('should use default options when loading `bananass.config.yml`', async () => {
+      const config = await configLoader({
+        cwd: join(fixturesDir, 'bananass-config-yml'),
+        defaultConfigObject: {},
+      });
+
+      deepStrictEqual(config, {});
     });
   });
 
@@ -394,13 +360,69 @@ describe('config-loader', () => {
       deepStrictEqual(config, configObject);
     });
 
-    it('should use the options of config file when `cliOptions` is not specified', async () => {
+    it('should use the options of config file when `cliConfigObject` is not specified', async () => {
       const config = await configLoader({
         cwd: join(fixturesDir, 'bananass-config-cjs'),
         defaultConfigObject: {},
       });
 
       deepStrictEqual(config, configObject);
+    });
+  });
+
+  describe('should load config files with priority', () => {
+    it('should load `bananass.config.js` with priority 1', async () => {
+      const config = await configLoader({
+        cwd: join(fixturesDir, 'priority-6'),
+        defaultConfigObject: {},
+      });
+
+      deepStrictEqual(config, { a: 1 });
+    });
+
+    it('should load `bananass.config.mjs` with priority 2', async () => {
+      const config = await configLoader({
+        cwd: join(fixturesDir, 'priority-5'),
+        defaultConfigObject: {},
+      });
+
+      deepStrictEqual(config, { b: 2 });
+    });
+
+    it('should load `bananass.config.cjs` with priority 3', async () => {
+      const config = await configLoader({
+        cwd: join(fixturesDir, 'priority-4'),
+        defaultConfigObject: {},
+      });
+
+      deepStrictEqual(config, { c: 3 });
+    });
+
+    it('should load `bananass.config.ts` with priority 4', async () => {
+      const config = await configLoader({
+        cwd: join(fixturesDir, 'priority-3'),
+        defaultConfigObject: {},
+      });
+
+      deepStrictEqual(config, { d: 4 });
+    });
+
+    it('should load `bananass.config.mts` with priority 5', async () => {
+      const config = await configLoader({
+        cwd: join(fixturesDir, 'priority-2'),
+        defaultConfigObject: {},
+      });
+
+      deepStrictEqual(config, { e: 5 });
+    });
+
+    it('should load `bananass.config.cts` with priority 6', async () => {
+      const config = await configLoader({
+        cwd: join(fixturesDir, 'priority-1'),
+        defaultConfigObject: {},
+      });
+
+      deepStrictEqual(config, { f: 6 });
     });
   });
 });

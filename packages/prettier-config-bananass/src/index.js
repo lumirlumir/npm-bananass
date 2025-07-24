@@ -1,13 +1,21 @@
 /**
  * @fileoverview Entry file for the `prettier-config-bananass` package.
- * All default values are based on `prettier@3`. {@link https://prettier.io/docs/en/options}
+ * All default values are based on `prettier@3`. (https://prettier.io/docs/en/options)
+ */
+
+// --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
+/**
+ * @import { Config } from 'prettier';
  */
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {import("prettier").Config} */
+/** @type {Config} */
 export default {
   printWidth: 90,
   tabWidth: 2, // Default.

@@ -28,12 +28,14 @@
 
 바나나 프레임워크 설정 파일의 이름으로는 항상 `bananass.config`를 사용해야 하며, 확장자로는 `.js`, `.mjs`, `.cjs`, `.ts`, `.mts`, `.cts`를 사용할 수 있습니다. 즉, 바나나 프레임워크의 설정 파일로 유효한 이름은 아래와 같은 6가지입니다!
 
-- `bananass.config.js`
+- `bananass.config.js` (가장 높은 우선순위)
 - `bananass.config.mjs`
 - `bananass.config.cjs`
 - `bananass.config.ts`
 - `bananass.config.mts`
-- `bananass.config.cts`
+- `bananass.config.cts` (가장 낮은 우선순위)
+
+만약, 여러개의 `bananass.config.*` 파일이 동시에 존재한다면, 바나나 프레임워크는 **가장 높은 우선순위**를 가진 설정 파일을 우선적으로 읽어들입니다. 즉, `bananass.config.js` 파일이 존재한다면, `bananass.config.mjs`, `bananass.config.cjs`, `bananass.config.ts`, `bananass.config.mts`, `bananass.config.cts` 파일들은 무시됩니다.
 
 ::: warning `.json`, `.yaml` 등의 확장자는 지원하지 않습니다!
 
@@ -121,7 +123,7 @@ export default {
   outDir: '.bananass', // 빌드 결과물들을 저장할 출력 디렉토리를 설정합니다.
 
   browser: {
-    browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
+    browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'brave'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
     secret: false, // 브라우저의 시크릿 모드를 활성화합니다.
   },
   console: {
@@ -154,7 +156,7 @@ module.exports = {
   outDir: '.bananass', // 빌드 결과물들을 저장할 출력 디렉토리를 설정합니다.
 
   browser: {
-    browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
+    browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'brave'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
     secret: false, // 브라우저의 시크릿 모드를 활성화합니다.
   },
   console: {
@@ -188,7 +190,7 @@ export default {
   outDir: '.bananass', // 빌드 결과물들을 저장할 출력 디렉토리를 설정합니다.
 
   browser: {
-    browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
+    browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'brave'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
     secret: false, // 브라우저의 시크릿 모드를 활성화합니다.
   },
   console: {
@@ -222,7 +224,7 @@ module.exports = {
   outDir: '.bananass', // 빌드 결과물들을 저장할 출력 디렉토리를 설정합니다.
 
   browser: {
-    browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
+    browser: 'default', // 브라우저를 설정합니다. `'chrome'`, `'edge'`, `'firefox'`, `'brave'`, `'default'` 중 하나를 인자로 전달할 수 있습니다.
     secret: false, // 브라우저의 시크릿 모드를 활성화합니다.
   },
   console: {

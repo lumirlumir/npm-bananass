@@ -1,27 +1,27 @@
 /**
  * @fileoverview Config loader.
- * @see https://github.com/unjs/c12?tab=readme-ov-file#%EF%B8%8F-c12
  */
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-import { extname, basename } from 'node:path';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 
-import { error } from 'bananass-utils-console/theme';
-import { loadConfig } from 'c12';
+import { createJiti } from 'jiti';
+import { defu } from 'defu';
 
 import dco from '../default-config-object/index.js';
 import { findRootDir } from '../../fs/index.js';
-import { PKG_NAME, SUPPORTED_CONFIG_FILE_EXTENSIONS as SCFE } from '../../constants.js';
+import { SUPPORTED_CONFIG_FILE_NAMES } from '../../constants.js';
 
 // --------------------------------------------------------------------------------
 // Typedefs
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').ConfigObject} ConfigObject
+ * @import { ConfigObject } from '../../types.js';
  */
 
 // --------------------------------------------------------------------------------
@@ -37,7 +37,7 @@ import { PKG_NAME, SUPPORTED_CONFIG_FILE_EXTENSIONS as SCFE } from '../../consta
  * @param {string} [configLoaderOptions.cwd] Current working directory. (default: `findRootDir()`)
  * @param {ConfigObject} [configLoaderOptions.cliConfigObject] CLI config object. (default: `{}`)
  * @param {ConfigObject} [configLoaderOptions.defaultConfigObject] Default config object. (default: `defaultConfigObject`)
- * @returns {Promise<ConfigObject>} Merged configuration object.
+ * @returns {Promise<ConfigObject>} Merged config object.
  * @async
  */
 export default async function configLoader({
@@ -45,27 +45,32 @@ export default async function configLoader({
   cliConfigObject = {},
   defaultConfigObject = dco,
 } = {}) {
-  const { config, configFile } = await loadConfig({
-    cwd,
-    name: PKG_NAME,
-    rcFile: false,
-    globalRc: false,
-    dotenv: false,
-    packageJson: false,
-    defaultConfig: defaultConfigObject,
-    overrides: cliConfigObject,
-  });
+  const jiti = createJiti(import.meta.url);
 
-  if (!SCFE.includes(extname(configFile))) {
-    throw new Error(
-      error(
-        `${basename(configFile)} is not supported. Please use one of the following extensions: ${SCFE.filter(
-          ext => ext !== '.config',
-        ).join(', ')}`,
-        true,
-      ),
-    );
+  /** @type {string | null} */
+  let configFilePath = null;
+
+  for (const supportedConfigFileName of SUPPORTED_CONFIG_FILE_NAMES) {
+    const potentialConfigFilePath = resolve(cwd, supportedConfigFileName);
+
+    if (existsSync(potentialConfigFilePath)) {
+      configFilePath = potentialConfigFilePath;
+      break;
+    }
   }
 
-  return config;
+  const configFileConfigObject =
+    configFilePath === null
+      ? {}
+      : /** @type {ConfigObject} */ (
+          await jiti.import(configFilePath, { default: true })
+        );
+
+  const mergedConfigObject = defu(
+    cliConfigObject,
+    configFileConfigObject,
+    defaultConfigObject,
+  );
+
+  return mergedConfigObject;
 }

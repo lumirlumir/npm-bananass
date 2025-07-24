@@ -22,7 +22,10 @@ import { createJiti } from 'jiti';
 
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
 import { webpackResolve } from '../../core/fs/index.js';
-import { Problems, ConfigObject } from '../../core/structs/index.js';
+import {
+  Problems as ProblemsStruct,
+  ConfigObject as ConfigObjectStruct,
+} from '../../core/structs/index.js';
 
 import testRunner from './test-runner.js';
 
@@ -31,9 +34,7 @@ import testRunner from './test-runner.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../core/types.js').Problems} Problems
- * @typedef {import('../../core/types.js').ConfigObject} ConfigObject
- * @typedef {import('../../core/types.js').SolutionWithTestcases} SolutionWithTestcases
+ * @import { Problems, ConfigObject, SolutionWithTestcases } from '../../core/types.js';
  */
 
 // --------------------------------------------------------------------------------
@@ -51,8 +52,8 @@ export default async function run(problems, configObject = dco) {
   // Runtime Validation
   // ------------------------------------------------------------------------------
 
-  Problems.assert(problems);
-  ConfigObject.assert(configObject);
+  ProblemsStruct.assert(problems);
+  ConfigObjectStruct.assert(configObject);
 
   // ------------------------------------------------------------------------------
   // Declarations

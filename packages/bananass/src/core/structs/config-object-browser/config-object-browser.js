@@ -13,8 +13,8 @@ import { boolean, enums, object, optional } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {import('../../types.js').ConfigObjectBrowser} ConfigObjectBrowser
- * @typedef {import('superstruct').Struct<ConfigObjectBrowser>} ConfigObjectBrowserStruct
+ * @import { ConfigObjectBrowser } from '../../types.js';
+ * @import { Struct } from 'superstruct';
  */
 
 // --------------------------------------------------------------------------------
@@ -23,11 +23,10 @@ import { boolean, enums, object, optional } from 'superstruct';
 
 /**
  * `ConfigObjectBrowser` type struct.
- *
- * @type {ConfigObjectBrowserStruct}
+ * @type {Struct<ConfigObjectBrowser>}
  */
 const ConfigObjectBrowser = object({
-  browser: optional(enums(['chrome', 'edge', 'firefox', 'default'])),
+  browser: optional(enums(['chrome', 'edge', 'firefox', 'brave', 'default'])),
   secret: optional(boolean()),
 });
 
