@@ -92,7 +92,7 @@ Ok to proceed? (y)
 
 ```sh {2-3,7-8,20}
 bananass-project/
-├── .bananass/ # [!code focus] `build` 명령어 실행시 생성됩니다!
+├── .bananass/ # [!code focus] `build` 명령어 실행시 자동 생성됩니다!
 │   ├── 1000.cjs # [!code focus] `npx bananass build 1000` 명령어를 실행하면 생성됩니다!
 │   ├── 1001.cjs # `npx bananass build 1001` 명령어를 실행하면 생성됩니다!
 │   ├── 2558.cjs # `npx bananass build 2558` 명령어를 실행하면 생성됩니다!
@@ -119,7 +119,7 @@ bananass-project/
 
 ### `package.json` {#package-json}
 
-`package.json`은 바나나 프레임워크의 설정을 담고 있는 파일입니다!
+`package.json`은 바나나 프레임워크가 [Node.js](https://nodejs.org/) 환경에서 동작하기 위한 설정들을 담고 있는 파일입니다!
 
 `package.json`의 `scripts` 항목에는 여러 명령어가 추가되어 있습니다. `scripts`에 추가되어 있는 명령어들은 [`npm run build 1000`](../learn/building-a-solution-file.md), [`npm run run 1000`](../learn/running-a-solution-file.md), [`npm run open 1000`](../learn/submitting-a-solution-file.md) 등의 터미널(CLI) 명령어를 통해 실행할 수 있습니다.
 
@@ -259,7 +259,7 @@ $ npx b build 1000
 
 ## 빠르게 제출하기 {#quick-submit}
 
-이제, 마지막으로 문제 풀이 파일을 제출할 시간입니다! 아래 명령어 중 하나를 터미널(CLI)에 입력하여 백준 홈페이지를 열어주세요.
+이제, 마지막으로 문제 풀이 파일을 제출할 시간입니다! 아래 [`open`](../learn/other-useful-cli-commands#open)을 이용한 명령어 중 하나를 터미널(CLI)에 입력하여 백준 홈페이지를 열어주세요.
 
 ```sh
 npm run open 1000
