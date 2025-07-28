@@ -11,6 +11,7 @@
 
 const { readFileSync } = require('node:fs');
 
+// @ts-expect-error -- Webpack will replace this with the actual path.
 const solutionModule = require(globalThis.BAEKJOON_PROBLEM_NUMBER_WITH_PATH); // dynamic require
 
 // --------------------------------------------------------------------------------

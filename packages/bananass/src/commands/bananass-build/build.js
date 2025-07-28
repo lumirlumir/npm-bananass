@@ -223,9 +223,10 @@ export default async function build(problems, configObject = dco) {
     // Secondly, even if we use `webpackConfigs.output.clean` only once with the `map()` method's `index` parameter,
     // it cannot guarantee the build order and may lead to race conditions where files get deleted unpredictably.
     if (clean) await fsPromises.rm(resolvedOutDir, { recursive: true, force: true });
-  } catch ({ message }) {
+  } catch (err) {
     logger.log(() => spinner.error(error('Failed to clean output directory')));
 
+    const message = err instanceof Error ? err.message : String(err);
     throw new Error(error(message, true));
   }
 
@@ -246,7 +247,7 @@ export default async function build(problems, configObject = dco) {
   } catch (err) {
     logger.log(() => spinner.error(error('Failed to run webpack')));
 
-    const message = err.message || String(err);
+    const message = err instanceof Error ? err.message : String(err);
     throw new Error(error(message, true));
   }
 

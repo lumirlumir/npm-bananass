@@ -26,7 +26,7 @@ import Testcases from '../testcases/index.js';
 /**
  * `SolutionWithTestcases` type struct.
  * @type {Struct<SolutionWithTestcases>}
- */
+ */ // @ts-expect-error -- TODO: migrate to `zod`
 const SolutionWithTestcases = object({
   solution: Solution,
   testcases: optional(Testcases),
