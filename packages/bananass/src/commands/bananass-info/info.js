@@ -86,6 +86,7 @@ export default async function info(configObject = dco) {
         'Edge',
         'Internet Explorer',
       ],
+      // @ts-expect-error -- TODO: Ain't yet supported by `@types/envinfo`.
       Monorepos: ['Lerna', 'Yarn Workspaces'],
       npmPackages: BANANASS_PKG_NAMES,
       npmGlobalPackages: BANANASS_PKG_NAMES,

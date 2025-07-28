@@ -231,9 +231,10 @@ program
         );
 
         await rename(resolve(directory, 'gitignore'), resolve(directory, '.gitignore'));
-      } catch ({ message }) {
+      } catch (err) {
         logger.log(() => spinner.error(error('Failed to copy files')));
 
+        const message = err instanceof Error ? err.message : String(err);
         throw new Error(error(message, true));
       }
 
@@ -280,11 +281,12 @@ program
                 }),
             ),
           );
-        } catch ({ message }) {
+        } catch (err) {
           logger.log(() =>
             spinner.error(error('Failed to install Visual Studio Code extensions')),
           );
 
+          const message = err instanceof Error ? err.message : String(err);
           throw new Error(error(message, true));
         }
       }
@@ -315,9 +317,10 @@ program
               rej(err);
             });
           });
-        } catch ({ message }) {
+        } catch (err) {
           logger.log(() => spinner.error(error('Failed to initialize git')));
 
+          const message = err instanceof Error ? err.message : String(err);
           throw new Error(error(message, true));
         }
       }
@@ -348,9 +351,10 @@ program
               rej(err);
             });
           });
-        } catch ({ message }) {
+        } catch (err) {
           logger.log(() => spinner.error(error('Failed to install packages')));
 
+          const message = err instanceof Error ? err.message : String(err);
           throw new Error(error(message, true));
         }
       }

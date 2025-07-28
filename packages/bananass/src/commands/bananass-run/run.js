@@ -100,9 +100,10 @@ export default async function run(problems, configObject = dco) {
           }),
       ),
     );
-  } catch ({ message }) {
+  } catch (err) {
     logger.log(() => spinner.error(error('Failed to resolve entry files')));
 
+    const message = err instanceof Error ? err.message : String(err);
     throw new Error(error(message, true));
   }
 
@@ -117,9 +118,10 @@ export default async function run(problems, configObject = dco) {
         jiti.import(resolvedEntryFile, { default: true }),
       ),
     );
-  } catch ({ message }) {
+  } catch (err) {
     logger.log(() => spinner.error(error('Failed to import modules')));
 
+    const message = err instanceof Error ? err.message : String(err);
     throw new Error(error(message, true));
   }
 
@@ -129,9 +131,10 @@ export default async function run(problems, configObject = dco) {
 
   try {
     testResults = importedModules.map(importedModule => testRunner(importedModule));
-  } catch ({ message }) {
+  } catch (err) {
     logger.log(() => spinner.error(error('Failed to run tests')));
 
+    const message = err instanceof Error ? err.message : String(err);
     throw new Error(error(message, true));
   }
 

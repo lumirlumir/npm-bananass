@@ -13,6 +13,7 @@ const { createInterface } = require('node:readline');
 const { stdin: input, stdout: output } = require('node:process');
 const { EOL } = require('node:os');
 
+// @ts-expect-error -- Webpack will replace this with the actual path.
 const solutionModule = require(globalThis.BAEKJOON_PROBLEM_NUMBER_WITH_PATH); // dynamic require
 
 // --------------------------------------------------------------------------------
