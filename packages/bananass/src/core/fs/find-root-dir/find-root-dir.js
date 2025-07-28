@@ -39,7 +39,9 @@ export default function findRootDir() {
     pathFallback = resolve(
       cp.execSync('git rev-parse --show-toplevel').toString().trim(),
     );
-  } catch ({ message }) {
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+
     throw new Error(
       error(
         `Git command failed. Ensure Git is installed and you are inside a Git repository\n${message}`,
