@@ -106,7 +106,7 @@
     "jiti": "^2.5.1",
     "open": "^10.2.0",
     "superstruct": "^2.0.2",
-    "webpack": "^5.100.2"
+    "webpack": "^5.101.0"
   },
   "devDependencies": {
     "@types/babel__core": "^7.20.5",
