@@ -15,12 +15,12 @@ import { createRequire } from 'node:module';
 import { spawn } from 'node:child_process';
 import { resolve } from 'node:path';
 
+import isInteractive from 'bananass-utils-console/is-interactive';
 import createLogger from 'bananass-utils-console/logger';
 import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, error, success } from 'bananass-utils-console/theme';
 import { program } from 'commander';
 import { consola } from 'consola';
-import isInteractive from 'is-interactive';
 
 // --------------------------------------------------------------------------------
 // Typedefs
