@@ -1,5 +1,5 @@
 /**
- * @fileoverview Check if the console is interactive.
+ * @fileoverview Check if stdout or stderr is interactive.
  * @module bananass-utils-console/is-interactive
  * @license MIT Portions of this code were borrowed from [`is-interactive`](https://github.com/sindresorhus/is-interactive).
  */
