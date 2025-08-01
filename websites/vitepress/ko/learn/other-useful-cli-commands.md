@@ -81,7 +81,7 @@ npx bananass bug [options]
 
 > 별칭: 없음
 
-[웹팩<sup>Webpack</sup>](https://webpack.js.org/), [바벨<sup>Babel</sup>](https://babeljs.io/)을 사용하여, `bananass` 폴더에 존재하는 문제 풀이 파일들을 `.bananass` 폴더에 번들링하여 빌드합니다.
+[웹팩<sup>Webpack</sup>](https://webpack.js.org/) 및 [바벨<sup>Babel</sup>](https://babeljs.io/)을 사용하여, `bananass` 폴더에 존재하는 문제 풀이 파일들을 `.bananass` 폴더에 번들링하여 빌드합니다.
 
 ### 사용 예시 {#build-example}
 
