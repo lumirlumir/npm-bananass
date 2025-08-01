@@ -10,7 +10,7 @@ import { ok } from 'node:assert';
 import { describe, it } from 'node:test';
 import { PassThrough } from 'node:stream';
 
-import isInteractive from './index.js';
+import isInteractive from './is-interactive.js';
 
 // --------------------------------------------------------------------------------
 // Test
