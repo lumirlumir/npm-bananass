@@ -93,8 +93,9 @@
   },
   "dependencies": {
     "@babel/core": "^7.28.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.27.1",
+    "@babel/plugin-transform-typescript": "^7.28.0",
     "@babel/preset-env": "^7.28.0",
-    "@babel/preset-typescript": "^7.27.1",
     "babel-loader": "^10.0.0",
     "bananass-utils-console": "^0.3.0",
     "chalk": "^5.4.1",
@@ -102,7 +103,6 @@
     "defu": "^6.1.4",
     "enhanced-resolve": "^5.18.2",
     "envinfo": "^7.14.0",
-    "esbuild-loader": "^4.3.0",
     "jiti": "^2.5.1",
     "open": "^10.2.0",
     "superstruct": "^2.0.2",

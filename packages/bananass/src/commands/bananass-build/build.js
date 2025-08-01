@@ -1,5 +1,5 @@
 /**
- * @fileoverview Asynchronously build and create bundled files using webpack, babel and esbuild.
+ * @fileoverview Asynchronously build and create bundled files using webpack and babel.
  */
 
 // --------------------------------------------------------------------------------
@@ -46,8 +46,11 @@ import {
 // Helpers
 // --------------------------------------------------------------------------------
 
-/** @param {BabelPluginItem[]} [babelPresets] */
-function babelLoaderConfig(babelPresets = []) {
+/**
+ * @param {BabelPluginItem[]} [babelPlugins]
+ * @param {'module' | 'unambiguous'} [sourceType]
+ */
+function babelLoaderConfig(babelPlugins = [], sourceType = 'module') {
   return {
     loader: 'babel-loader',
     options: {
@@ -61,23 +64,27 @@ function babelLoaderConfig(babelPresets = []) {
             targets: { node: NODE_VERSION_BAEKJOON },
           },
         ],
-        ...babelPresets,
       ],
       plugins: [
+        // Plugin ordering: https://babeljs.io/docs/plugins#plugin-ordering
+        ...babelPlugins,
         transformArrayPrototypeToReversed,
         transformArrayPrototypeToSorted,
         transformObjectHasOwn,
       ],
+      sourceType, // 'module' or 'unambiguous'
     },
   };
 }
+
+// TODO: https://github.com/babel/babel/blob/main/packages/babel-preset-typescript/src/index.ts
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
 /**
- * Asynchronously build and create bundled files using webpack, babel and esbuild.
+ * Asynchronously build and create bundled files using webpack and babel.
  * @param {Problems} problems
  * @param {ConfigObject} [configObject = dco]
  * @async
@@ -176,11 +183,11 @@ export default async function build(problems, configObject = dco) {
               use: [babelLoaderConfig()],
             },
             {
-              test: /\.(?:mts|cts)$/i, // TypeScript: `mts`, `cts`
+              test: /\.mts$/i, // TypeScript: `mts`
               use: [
                 babelLoaderConfig([
                   [
-                    '@babel/preset-typescript',
+                    '@babel/plugin-transform-typescript',
                     {
                       allowDeclareFields: true,
                     },
@@ -189,21 +196,48 @@ export default async function build(problems, configObject = dco) {
               ],
             },
             {
+              test: /\.cts$/i, // TypeScript: `cts`
+              use: [
+                babelLoaderConfig(
+                  [
+                    [
+                      '@babel/plugin-transform-modules-commonjs',
+                      { allowTopLevelThis: true },
+                    ],
+                    [
+                      '@babel/plugin-transform-typescript',
+                      {
+                        allowDeclareFields: true,
+                      },
+                    ],
+                  ],
+                  'unambiguous',
+                ),
+              ],
+            },
+            {
+              // TODO: `ts` files can contain both ESM and CommonJS modules, so we need to convert them to CommonJS first in case of CommonJS modules.
               test: /\.ts$/i, // TypeScript: `ts`
               use: [
-                babelLoaderConfig(),
+                babelLoaderConfig(
+                  [
+                    [
+                      '@babel/plugin-transform-modules-commonjs',
+                      { allowTopLevelThis: true },
+                    ],
+                    [
+                      '@babel/plugin-transform-typescript',
+                      {
+                        allowDeclareFields: true,
+                      },
+                    ],
+                  ],
+                  'unambiguous',
+                ),
                 // NOTE: `@babel/preset-typescript` treats `.ts` files as ESM by default,
                 // and this behavior is not configurable.
                 // This can cause issues when using CommonJS modules with `.ts` files.
-                // To avoid this, we use `esbuild-loader` to transpile CommonJS format `.ts` files.
-                {
-                  loader: 'esbuild-loader',
-                  options: {
-                    loader: 'ts',
-                    target: `node${NODE_VERSION_BAEKJOON}`, // https://esbuild.github.io/api/#target
-                    format: 'cjs',
-                  },
-                },
+                // To avoid this, we use `@babel/plugin-transform-modules-commonjs` and `@babel/plugin-transform-typescript` to transpile CommonJS format `.ts` files.
               ],
             },
           ],
