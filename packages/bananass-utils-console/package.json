@@ -8,6 +8,10 @@
       "types": "./build/icons/index.d.ts",
       "default": "./src/icons/index.js"
     },
+    "./is-interactive": {
+      "types": "./build/is-interactive/index.d.ts",
+      "default": "./src/is-interactive/index.js"
+    },
     "./logger": {
       "types": "./build/logger/index.d.ts",
       "default": "./src/logger/index.js"
@@ -29,6 +33,9 @@
       ],
       "icons": [
         "./build/icons/index.d.ts"
+      ],
+      "is-interactive": [
+        "./build/is-interactive/index.d.ts"
       ],
       "logger": [
         "./build/logger/index.d.ts"
@@ -86,7 +93,6 @@
   },
   "dependencies": {
     "chalk": "^5.4.1",
-    "is-interactive": "^2.0.0",
     "is-unicode-supported": "^2.1.0"
   }
 }

@@ -1,7 +1,7 @@
 /**
  * @fileoverview Console spinner.
  * @module bananass-utils-console/spinner
- * @see https://github.com/sindresorhus/yocto-spinner/tree/v0.1.2 `yocto-spinner` package `v0.1.2`.
+ * @license MIT Portions of this code were borrowed from [`yocto-spinner`](https://github.com/sindresorhus/yocto-spinner).
  */
 
 // --------------------------------------------------------------------------------
@@ -9,7 +9,7 @@
 // --------------------------------------------------------------------------------
 
 import c from 'chalk';
-import isInteractive from 'is-interactive';
+import isInteractive from '../is-interactive/index.js';
 
 import {
   successIcon,
@@ -93,8 +93,7 @@ class Spinner {
     this.#text = options.text ?? '';
     this.#stream = options.stream ?? process.stderr;
     this.#color = options.color ?? 'yellow';
-    this.#isInteractive =
-      options.isInteractive ?? isInteractive({ stream: this.#stream });
+    this.#isInteractive = options.isInteractive ?? isInteractive(this.#stream);
     this.#exitHandlerBound = this.#exitHandler.bind(this);
   }
 
