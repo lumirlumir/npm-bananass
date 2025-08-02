@@ -66,18 +66,17 @@ function babelLoaderConfig(babelPlugins = [], sourceType = 'module') {
         ],
       ],
       plugins: [
-        // Plugin ordering: https://babeljs.io/docs/plugins#plugin-ordering
+        // Plugin ordering is first to last.
+        // https://babeljs.io/docs/plugins#plugin-ordering
         ...babelPlugins,
         transformArrayPrototypeToReversed,
         transformArrayPrototypeToSorted,
         transformObjectHasOwn,
       ],
-      sourceType, // 'module' or 'unambiguous'
+      sourceType,
     },
   };
 }
-
-// TODO: https://github.com/babel/babel/blob/main/packages/babel-preset-typescript/src/index.ts
 
 // --------------------------------------------------------------------------------
 // Export
@@ -182,6 +181,10 @@ export default async function build(problems, configObject = dco) {
               test: /\.(?:js|mjs|cjs)$/i, // JavaScript: `js`, `mjs`, `cjs`
               use: [babelLoaderConfig()],
             },
+            /*
+             * You can find the motivation for these TypeScript setups here:
+             * https://github.com/babel/babel/blob/v7.28.2/packages/babel-preset-typescript/src/index.ts#L44-L102
+             */
             {
               test: /\.mts$/i, // TypeScript: `mts`
               use: [
@@ -195,8 +198,18 @@ export default async function build(problems, configObject = dco) {
                 ]),
               ],
             },
+            /*
+             * `.ts` files can include both ESM and CommonJS modules,
+             * so we need to convert them to CommonJS first when dealing with CommonJS modules.
+             *
+             * NOTE: `@babel/preset-typescript` treats `.ts` files as ESM by default,
+             * and this behavior is not configurable.
+             * This can cause issues when using CommonJS modules with `.ts` files.
+             * To avoid this, we use `@babel/plugin-transform-modules-commonjs` and `@babel/plugin-transform-typescript`
+             * directly to transpile `.ts` files to CommonJS format.
+             */
             {
-              test: /\.cts$/i, // TypeScript: `cts`
+              test: /\.(?:ts|cts)$/i, // TypeScript: `ts`, `cts`
               use: [
                 babelLoaderConfig(
                   [
@@ -213,31 +226,6 @@ export default async function build(problems, configObject = dco) {
                   ],
                   'unambiguous',
                 ),
-              ],
-            },
-            {
-              // TODO: `ts` files can contain both ESM and CommonJS modules, so we need to convert them to CommonJS first in case of CommonJS modules.
-              test: /\.ts$/i, // TypeScript: `ts`
-              use: [
-                babelLoaderConfig(
-                  [
-                    [
-                      '@babel/plugin-transform-modules-commonjs',
-                      { allowTopLevelThis: true },
-                    ],
-                    [
-                      '@babel/plugin-transform-typescript',
-                      {
-                        allowDeclareFields: true,
-                      },
-                    ],
-                  ],
-                  'unambiguous',
-                ),
-                // NOTE: `@babel/preset-typescript` treats `.ts` files as ESM by default,
-                // and this behavior is not configurable.
-                // This can cause issues when using CommonJS modules with `.ts` files.
-                // To avoid this, we use `@babel/plugin-transform-modules-commonjs` and `@babel/plugin-transform-typescript` to transpile CommonJS format `.ts` files.
               ],
             },
           ],
