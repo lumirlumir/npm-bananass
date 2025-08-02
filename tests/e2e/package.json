@@ -1,12 +1,12 @@
 {
   "private": true,
   "name": "tests-e2e",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "type": "module",
   "scripts": {
     "test": "node --test"
   },
   "devDependencies": {
-    "bananass": "^0.3.0"
+    "bananass": "^0.3.1"
   }
 }
