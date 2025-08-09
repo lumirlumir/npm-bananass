@@ -101,7 +101,7 @@
     "chalk": "^5.5.0",
     "commander": "^14.0.0",
     "defu": "^6.1.4",
-    "enhanced-resolve": "^5.18.2",
+    "enhanced-resolve": "^5.18.3",
     "envinfo": "^7.14.0",
     "jiti": "^2.5.1",
     "open": "^10.2.0",
