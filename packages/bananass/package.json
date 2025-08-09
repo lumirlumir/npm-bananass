@@ -88,7 +88,9 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "npx tsc && node ../../scripts/cp.mjs ../../LICENSE.md LICENSE.md ../../README.md README.md",
-    "test": "node --experimental-test-module-mocks --test && tsc -p tsconfig.test.json",
+    "test": "npm run test:unit && npm run test:types",
+    "test:unit": "node --experimental-test-module-mocks --test",
+    "test:types": "tsc -p ./tsconfig.test.json",
     "dev": "node src/cli.js"
   },
   "dependencies": {
