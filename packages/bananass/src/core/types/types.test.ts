@@ -1,0 +1,148 @@
+/**
+ * @fileoverview Type test for `types.js`.
+ */
+
+/* eslint-disable no-useless-assignment -- Test */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
+import type {
+  // ConfigObjectBrowser,
+  // ConfigObjectConsole,
+  // ConfigObjectAdd,
+  // ConfigObjectBug,
+  // ConfigObjectBuild,
+  // ConfigObjectDiscussion,
+  // ConfigObjectHome,
+  // ConfigObjectInfo,
+  // ConfigObjectOpen,
+  // ConfigObjectRepo,
+  // ConfigObjectRun,
+  // Problem,
+  // Problems,
+  Input,
+  Output,
+  Testcase,
+  Solution,
+} from './types.js';
+
+// --------------------------------------------------------------------------------
+// Test: Solution
+// --------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------
+// #region Input
+
+declare let input: Input;
+
+input satisfies string | undefined;
+input = 'string';
+input = undefined;
+
+// @ts-expect-error -- Type `number` is not assignable to type `Input`.
+input = 1;
+// @ts-expect-error -- Type `boolean` is not assignable to type `Input`.
+input = true;
+// @ts-expect-error -- Type `null` is not assignable to type `Input`.
+input = null;
+// @ts-expect-error -- Type `symbol` is not assignable to type `Input`.
+input = Symbol('symbol');
+// @ts-expect-error -- Type `bigint` is not assignable to type `Input`.
+input = BigInt(1);
+// @ts-expect-error -- Type `object` is not assignable to type `Input`.
+input = { key: 'value' };
+// @ts-expect-error -- Type `Function` is not assignable to type `Input`.
+input = () => 'function';
+
+// #endregion Input
+// --------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------
+// #region Output
+
+declare let output: Output;
+
+output satisfies string | number | boolean;
+output = 'string';
+output = 1;
+output = true;
+
+// @ts-expect-error -- Type `undefined` is not assignable to type `Output`.
+output = undefined;
+// @ts-expect-error -- Type `null` is not assignable to type `Output`.
+output = null;
+// @ts-expect-error -- Type `symbol` is not assignable to type `Output`.
+output = Symbol('symbol');
+// @ts-expect-error -- Type `bigint` is not assignable to type `Output`.
+output = BigInt(1);
+// @ts-expect-error -- Type `object` is not assignable to type `Output`.
+output = { key: 'value' };
+// @ts-expect-error -- Type `Function` is not assignable to type `Output`.
+output = () => 'function';
+
+// #endregion Output
+// --------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------
+// #region Testcase
+
+declare let testcase: Testcase;
+
+testcase satisfies {
+  input?: Input;
+  output: Output;
+};
+testcase satisfies {
+  output: Output;
+};
+testcase = {
+  output: 'string',
+};
+testcase = {
+  input: undefined,
+  output: 'string',
+};
+testcase = {
+  input: 'string',
+  output: 'string',
+};
+testcase = {
+  input: 'string',
+  output: 123,
+};
+testcase = {
+  input: 'string',
+  output: true,
+};
+
+// @ts-expect-error -- `input` is optional.
+testcase satisfies {
+  input: Input;
+  output: Output;
+};
+// @ts-expect-error -- `output` is required.
+testcase = {
+  input: 'string',
+};
+
+// #endregion Testcase
+// --------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------
+// #region Solution
+
+declare const solution: Solution;
+
+solution() satisfies Output;
+solution(undefined) satisfies Output;
+solution('string') satisfies Output;
+
+// @ts-expect-error -- Expected 0-1 arguments, but got 2.
+solution('string', 'extra');
+// @ts-expect-error -- Expected 0-1 arguments, but got 3.
+solution('string', 'extra1', 'extra2');
+
+// #endregion Testcase
+// --------------------------------------------------------------------------------
