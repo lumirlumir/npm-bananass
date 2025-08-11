@@ -30,13 +30,26 @@ import type {
 } from './types.js';
 
 // --------------------------------------------------------------------------------
-// Test: Config Object
+// Test
 // --------------------------------------------------------------------------------
 
 // --------------------------------------------------------------------------------
 // #region ConfigObject
 
-declare let configObject: ConfigObject;
+({}) as ConfigObject satisfies object;
+
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+({}) as ConfigObject satisfies boolean;
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
+({}) as ConfigObject satisfies string;
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+({}) as ConfigObject satisfies number;
+// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObject`.
+({}) as ConfigObject satisfies undefined;
+// @ts-expect-error -- Type `null` is not assignable to type `ConfigObject`.
+({}) as ConfigObject satisfies null;
+
+let configObject: ConfigObject;
 
 configObject = {};
 configObject = {
@@ -52,25 +65,30 @@ configObject = {
   // @ts-expect-error -- `unknownProperty` does not exist in type `ConfigObject`.
   unknownProperty: 'unknown',
 };
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
+configObject = 'string';
 // @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
 configObject = 1;
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+configObject = true;
 
 // #endregion ConfigObject
 // --------------------------------------------------------------------------------
 
 // --------------------------------------------------------------------------------
-// Test: Solution
-// --------------------------------------------------------------------------------
-
-// --------------------------------------------------------------------------------
 // #region Input
 
-declare let input: Input;
+null as unknown as Input satisfies string | undefined;
+
+// @ts-expect-error -- Type `string | undefined` does not satisfy the expected type `undefined`.
+null as unknown as Input satisfies string;
+// @ts-expect-error -- Type `string | undefined` does not satisfy the expected type `undefined`.
+null as unknown as Input satisfies undefined;
+
+let input: Input;
 
 input = 'string';
 input = undefined;
-
-input satisfies string | undefined;
 
 // @ts-expect-error -- Type `number` is not assignable to type `Input`.
 input = 1;
@@ -93,13 +111,20 @@ input = () => 'function';
 // --------------------------------------------------------------------------------
 // #region Output
 
-declare let output: Output;
+null as unknown as Output satisfies string | number | boolean;
+
+// @ts-expect-error -- Type 'string | number | boolean' does not satisfy the expected type 'string'.
+null as unknown as Output satisfies string;
+// @ts-expect-error -- Type 'string | number | boolean' does not satisfy the expected type 'string'.
+null as unknown as Output satisfies number;
+// @ts-expect-error -- Type 'string | number | boolean' does not satisfy the expected type 'string'.
+null as unknown as Output satisfies boolean;
+
+let output: Output;
 
 output = 'string';
 output = 1;
 output = true;
-
-output satisfies string | number | boolean;
 
 // @ts-expect-error -- Type `undefined` is not assignable to type `Output`.
 output = undefined;
@@ -120,7 +145,21 @@ output = () => 'function';
 // --------------------------------------------------------------------------------
 // #region Testcase
 
-declare let testcase: Testcase;
+({}) as Testcase satisfies {
+  input?: Input;
+  output: Output;
+};
+({}) as Testcase satisfies {
+  output: Output;
+};
+
+// @ts-expect-error -- `input` is optional.
+({}) as Testcase satisfies {
+  input: Input;
+  output: Output;
+};
+
+let testcase: Testcase;
 
 testcase = {
   output: 'string',
@@ -142,23 +181,9 @@ testcase = {
   output: true,
 };
 
-testcase satisfies {
-  input?: Input;
-  output: Output;
-};
-testcase satisfies {
-  output: Output;
-};
-
 // @ts-expect-error -- `output` is required.
 testcase = {
   input: 'string',
-};
-
-// @ts-expect-error -- `input` is optional.
-testcase satisfies {
-  input: Input;
-  output: Output;
 };
 
 // #endregion Testcase
@@ -173,6 +198,8 @@ solution() satisfies Output;
 solution(undefined) satisfies Output;
 solution('string') satisfies Output;
 
+// @ts-expect-error -- Argument of type 'number' is not assignable to parameter of type 'string'.
+solution(1);
 // @ts-expect-error -- Expected 0-1 arguments, but got 2.
 solution('string', 'extra');
 // @ts-expect-error -- Expected 0-1 arguments, but got 3.
