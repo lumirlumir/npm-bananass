@@ -70,7 +70,7 @@ import * as z from 'zod';
 /**
  * Global browser options.
  */
-export const configObjectBrowser = z.object({
+export const configObjectBrowser = z.strictObject({
   /**
    * Browser name. Select from `'chrome'`, `'edge'`, `'firefox'`, `'brave'`, or `'default'`.
    * @default 'default'
@@ -87,7 +87,7 @@ export const configObjectBrowser = z.object({
 /**
  * Global console options.
  */
-export const configObjectConsole = z.object({
+export const configObjectConsole = z.strictObject({
   /**
    * Enable debug mode.
    * @default false
@@ -104,17 +104,17 @@ export const configObjectConsole = z.object({
 /**
  * Options exclusive to the `bananass add` command.
  */
-export const configObjectAdd = z.object({});
+export const configObjectAdd = z.strictObject({});
 
 /**
  * Options exclusive to the `bananass bug` command.
  */
-export const configObjectBug = z.object({});
+export const configObjectBug = z.strictObject({});
 
 /**
  * Options exclusive to the `bananass build` command.
  */
-export const configObjectBuild = z.object({
+export const configObjectBuild = z.strictObject({
   /**
    * Clean the output directory before emit.
    * @default false
@@ -131,17 +131,17 @@ export const configObjectBuild = z.object({
 /**
  * Options exclusive to the `bananass discussion` command.
  */
-export const configObjectDiscussion = z.object({});
+export const configObjectDiscussion = z.strictObject({});
 
 /**
  * Options exclusive to the `bananass home` command.
  */
-export const configObjectHome = z.object({});
+export const configObjectHome = z.strictObject({});
 
 /**
  * Options exclusive to the `bananass info` command.
  */
-export const configObjectInfo = z.object({
+export const configObjectInfo = z.strictObject({
   /**
    * Show all information including Not Found.
    * @default false
@@ -152,22 +152,22 @@ export const configObjectInfo = z.object({
 /**
  * Options exclusive to the `bananass open` command.
  */
-export const configObjectOpen = z.object({});
+export const configObjectOpen = z.strictObject({});
 
 /**
  * Options exclusive to the `bananass repo` command.
  */
-export const configObjectRepo = z.object({});
+export const configObjectRepo = z.strictObject({});
 
 /**
  * Options exclusive to the `bananass run` command.
  */
-export const configObjectRun = z.object({});
+export const configObjectRun = z.strictObject({});
 
 /**
  * Bananass configuration object.
  */
-export const configObject = z.object({
+export const configObject = z.strictObject({
   /**
    * Current working directory.
    * @default findRootDir()
@@ -283,7 +283,7 @@ export const output = z.union([z.string(), z.number(), z.boolean()]);
 /**
  * Testcase object.
  */
-export const testcase = z.object({
+export const testcase = z.strictObject({
   /**
    * Input value. Must be a `string` or `undefined`.
    */
