@@ -192,18 +192,65 @@ testcase = {
 // --------------------------------------------------------------------------------
 // #region Solution
 
-declare const solution: Solution;
+null as unknown as Solution satisfies (input: Input) => Output;
+null as unknown as Solution satisfies (input: string) => Output;
+null as unknown as Solution satisfies (input?: Input) => Output;
+null as unknown as Solution satisfies (input: undefined) => Output;
+null as unknown as Solution satisfies (input: string | undefined) => Output;
+null as unknown as Solution satisfies () => Output;
+null as unknown as ReturnType<Solution> satisfies Output;
+null as unknown as Parameters<Solution> satisfies [(string | undefined)?];
 
-solution() satisfies Output;
-solution(undefined) satisfies Output;
-solution('string') satisfies Output;
+// @ts-expect-error -- Type '(args_0?: string | undefined) => string | number | boolean' does not satisfy the expected type '(input: boolean) => string | number | boolean'.
+null as unknown as Solution satisfies (input: boolean) => Output;
+// @ts-expect-error -- Type 'string | number | boolean' does not satisfy the expected type 'string'.
+null as unknown as ReturnType<Solution> satisfies string;
+// @ts-expect-error -- Type '[(string | undefined)?]' does not satisfy the expected type '[string]'.
+null as unknown as Parameters<Solution> satisfies [string];
 
+let solution: Solution;
+
+solution = function solution(input: Input): Output {
+  return null as unknown as Output;
+};
+solution = function solution(input: Input) {
+  return null as unknown as string;
+};
+solution = function solution(input: Input) {
+  return null as unknown as number;
+};
+solution = function solution(input: Input) {
+  return null as unknown as boolean;
+};
+solution = function solution(input?: string): Output {
+  return null as unknown as string;
+};
+solution = function solution(input?: string) {
+  return input!;
+};
+solution = function solution(input: string | undefined) {
+  return input!;
+};
+solution = function solution() {
+  return 'abc';
+};
+
+// @ts-expect-error -- Type '(input: string) => string | number | boolean' is not assignable to type '(args_0?: string | undefined) => string | number | boolean'.
+solution = function solution(input: string): Output {
+  return null as unknown as Output;
+};
 // @ts-expect-error -- Argument of type 'number' is not assignable to parameter of type 'string'.
-solution(1);
-// @ts-expect-error -- Expected 0-1 arguments, but got 2.
-solution('string', 'extra');
-// @ts-expect-error -- Expected 0-1 arguments, but got 3.
-solution('string', 'extra1', 'extra2');
+solution = function solution(input?: number): Output {
+  return null as unknown as Output;
+};
+// @ts-expect-error -- Expected 2 or more arguments, but got 1.
+solution = function solution(input1: Input, input2: Input): Output {
+  return null as unknown as Output;
+};
+// @ts-expect-error -- Expected 3 or more arguments, but got 1.
+solution = function solution(input1: Input, input2: Input, input3: Input): Output {
+  return null as unknown as Output;
+};
 
 // #endregion Testcase
 // --------------------------------------------------------------------------------
