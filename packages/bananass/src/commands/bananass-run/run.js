@@ -34,7 +34,7 @@ import testRunner from './test-runner.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { Problems, ConfigObject, SolutionWithTestcases } from '../../core/types.js';
+ * @import { Problems, ConfigObject, SolutionWithTestcases } from '../../core/types/index.js';
  */
 
 // --------------------------------------------------------------------------------

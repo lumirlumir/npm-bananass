@@ -13,7 +13,7 @@ import { string } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { Input } from '../../types.js';
+ * @import { Input } from '../../types/index.js';
  * @import { Struct } from 'superstruct';
  */
 

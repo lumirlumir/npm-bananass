@@ -21,7 +21,7 @@ import { SUPPORTED_CONFIG_FILE_NAMES } from '../../constants.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { ConfigObject } from '../../types.js';
+ * @import { ConfigObject } from '../../types/index.js';
  */
 
 // --------------------------------------------------------------------------------
@@ -61,7 +61,7 @@ export default async function configLoader({
 
   const configFileConfigObject =
     configFilePath === null
-      ? {}
+      ? /** @type {ConfigObject} */ ({})
       : /** @type {ConfigObject} */ (
           await jiti.import(configFilePath, { default: true })
         );

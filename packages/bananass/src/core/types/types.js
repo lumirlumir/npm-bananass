@@ -59,8 +59,17 @@ import * as z from 'zod';
  * whereas `console.log(String(BigInt(1)))` outputs `1`, which have different representations.
  * @typedef {z.infer<typeof testcase>} Testcase
  * Testcase object.
+ * @typedef {z.infer<typeof testcases>} Testcases
+ * Testcases array.
  * @typedef {ReturnType<typeof solution.implement>} Solution
  * Solution function.
+ */
+
+// TODO: Remove
+/**
+ * @typedef {object} SolutionWithTestcases Wrapper object containing `solution` function and `testcases`.
+ * @property {Solution} solution Solution function.
+ * @property {Testcases} [testcases] Testcases array.
  */
 
 // --------------------------------------------------------------------------------

@@ -13,7 +13,7 @@ import { boolean, number, string, union } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { Output } from '../../types.js';
+ * @import { Output } from '../../types/index.js';
  * @import { Struct } from 'superstruct';
  */
 

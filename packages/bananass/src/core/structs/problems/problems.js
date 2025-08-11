@@ -15,7 +15,7 @@ import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../constants.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { Problems } from '../../types.js';
+ * @import { Problems } from '../../types/index.js';
  * @import { Struct } from 'superstruct';
  */
 
