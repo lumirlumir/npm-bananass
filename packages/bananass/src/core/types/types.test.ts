@@ -2,13 +2,14 @@
  * @fileoverview Type test for `types.js`.
  */
 
-/* eslint-disable no-useless-assignment -- Test */
+/* eslint-disable -- Test */
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
 import type {
+  ConfigObject,
   // ConfigObjectBrowser,
   // ConfigObjectConsole,
   // ConfigObjectAdd,
@@ -27,6 +28,35 @@ import type {
   Testcase,
   Solution,
 } from './types.js';
+
+// --------------------------------------------------------------------------------
+// Test: Config Object
+// --------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------
+// #region ConfigObject
+
+declare let configObject: ConfigObject;
+
+configObject = {};
+configObject = {
+  entryDir: 'src',
+};
+configObject = {
+  build: {
+    templateType: 'fs',
+  },
+};
+
+configObject = {
+  // @ts-expect-error -- `unknownProperty` does not exist in type `ConfigObject`.
+  unknownProperty: 'unknown',
+};
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+configObject = 1;
+
+// #endregion ConfigObject
+// --------------------------------------------------------------------------------
 
 // --------------------------------------------------------------------------------
 // Test: Solution
