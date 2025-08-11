@@ -2,7 +2,7 @@
  * @fileoverview Type test for `types.js`.
  */
 
-/* eslint-disable -- Test */
+/* eslint-disable -- Type test */
 
 // --------------------------------------------------------------------------------
 // Import
@@ -67,9 +67,10 @@ configObject = 1;
 
 declare let input: Input;
 
-input satisfies string | undefined;
 input = 'string';
 input = undefined;
+
+input satisfies string | undefined;
 
 // @ts-expect-error -- Type `number` is not assignable to type `Input`.
 input = 1;
@@ -94,10 +95,11 @@ input = () => 'function';
 
 declare let output: Output;
 
-output satisfies string | number | boolean;
 output = 'string';
 output = 1;
 output = true;
+
+output satisfies string | number | boolean;
 
 // @ts-expect-error -- Type `undefined` is not assignable to type `Output`.
 output = undefined;
@@ -120,13 +122,6 @@ output = () => 'function';
 
 declare let testcase: Testcase;
 
-testcase satisfies {
-  input?: Input;
-  output: Output;
-};
-testcase satisfies {
-  output: Output;
-};
 testcase = {
   output: 'string',
 };
@@ -147,14 +142,23 @@ testcase = {
   output: true,
 };
 
+testcase satisfies {
+  input?: Input;
+  output: Output;
+};
+testcase satisfies {
+  output: Output;
+};
+
+// @ts-expect-error -- `output` is required.
+testcase = {
+  input: 'string',
+};
+
 // @ts-expect-error -- `input` is optional.
 testcase satisfies {
   input: Input;
   output: Output;
-};
-// @ts-expect-error -- `output` is required.
-testcase = {
-  input: 'string',
 };
 
 // #endregion Testcase
