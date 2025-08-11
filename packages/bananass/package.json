@@ -5,7 +5,7 @@
   "description": "Baekjoon Framework for JavaScript.🍌",
   "exports": {
     ".": {
-      "types": "./build/core/types.d.ts"
+      "types": "./build/core/types/index.d.ts"
     },
     "./commands": {
       "types": "./build/commands/index.d.ts",
@@ -31,7 +31,7 @@
         "./build/*"
       ],
       ".": [
-        "./build/core/types.d.ts"
+        "./build/core/types/index.d.ts"
       ],
       "./commands": [
         "./build/commands/index.d.ts"
