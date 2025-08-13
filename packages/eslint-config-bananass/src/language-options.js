@@ -21,6 +21,21 @@ export const globals = {
   ...globalsModule.jest,
   ...globalsModule.vitest,
   ...globalsModule.mocha,
+  // Browser Web Speech APIs: https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API
+  SpeechGrammar: false,
+  SpeechGrammarList: false,
+  SpeechRecognition: false,
+  SpeechRecognitionAlternative: false,
+  SpeechRecognitionErrorEvent: false,
+  SpeechRecognitionEvent: false,
+  SpeechRecognitionResult: false,
+  SpeechRecognitionResultList: false,
+  speechSynthesis: false,
+  SpeechSynthesis: false,
+  SpeechSynthesisErrorEvent: false,
+  SpeechSynthesisEvent: false,
+  SpeechSynthesisUtterance: false,
+  SpeechSynthesisVoice: false,
 };
 
 export const parser = typescriptParser;
