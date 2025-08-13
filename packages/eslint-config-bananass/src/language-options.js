@@ -24,6 +24,7 @@ export const globals = {
   // Browser Web Speech APIs: https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API
   SpeechGrammar: false,
   SpeechGrammarList: false,
+  webkitSpeechRecognition: false,
   SpeechRecognition: false,
   SpeechRecognitionAlternative: false,
   SpeechRecognitionErrorEvent: false,
