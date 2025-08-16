@@ -14,7 +14,7 @@ import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../constants.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { Problem } from '../../types.js';
+ * @import { Problem } from '../../types/index.js';
  * @import { Struct } from 'superstruct';
  */
 
@@ -25,7 +25,7 @@ import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../constants.js';
 /**
  * `Problem` type struct.
  * @type {Struct<Problem>}
- */
+ */ // @ts-expect-error -- TODO: migrate to Zod
 const Problem = refine(string(), 'Problem', problem =>
   Number(problem) >= BAEKJOON_PROBLEM_NUMBER_MIN
     ? true

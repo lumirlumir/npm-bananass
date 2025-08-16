@@ -15,7 +15,7 @@ import Testcases from '../testcases/index.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { SolutionWithTestcases } from '../../types.js';
+ * @import { SolutionWithTestcases } from '../../types/index.js';
  * @import { Struct } from 'superstruct';
  */
 

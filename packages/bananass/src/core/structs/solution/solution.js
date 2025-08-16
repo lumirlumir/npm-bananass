@@ -13,7 +13,7 @@ import { func, refine } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { Solution } from '../../types.js';
+ * @import { Solution } from '../../types/index.js';
  * @import { Struct } from 'superstruct';
  */
 
