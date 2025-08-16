@@ -12,16 +12,16 @@ import { describe, it } from 'node:test';
 import {
   configObject,
   configObjectBrowser,
-  // configObjectConsole,
-  // configObjectAdd,
-  // configObjectBug,
-  // configObjectBuild,
-  // configObjectDiscussion,
-  // configObjectHome,
-  // configObjectInfo,
-  // configObjectOpen,
-  // configObjectRepo,
-  // configObjectRun,
+  configObjectConsole,
+  configObjectAdd,
+  configObjectBug,
+  configObjectBuild,
+  configObjectDiscussion,
+  configObjectHome,
+  configObjectInfo,
+  configObjectOpen,
+  configObjectRepo,
+  configObjectRun,
   // problem,
   // problems,
   // input,
@@ -150,6 +150,265 @@ describe('types', () => {
       };
 
       strictEqual(configObjectBrowser.safeParse(object).success, false);
+    });
+  });
+
+  describe('config-object-console', () => {
+    // true
+    it('should return true for an empty object', () => {
+      const object = {};
+
+      strictEqual(configObjectConsole.safeParse(object).success, true);
+    });
+    it('should return true for a valid `debug` property', () => {
+      const object = {
+        debug: true,
+      };
+
+      strictEqual(configObjectConsole.safeParse(object).success, true);
+    });
+    it('should return true for a valid `quiet` property', () => {
+      const object = {
+        quiet: true,
+      };
+
+      strictEqual(configObjectConsole.safeParse(object).success, true);
+    });
+    it('should return true for a valid `debug` and `quiet` property', () => {
+      const object = {
+        debug: true,
+        quiet: true,
+      };
+
+      strictEqual(configObjectConsole.safeParse(object).success, true);
+    });
+
+    // false
+    it('should return false for an unknown property', () => {
+      const object = {
+        unknownProperty: 'Hello, World!',
+      };
+
+      strictEqual(configObjectConsole.safeParse(object).success, false);
+    });
+    it('should return false for an invalid `debug` property', () => {
+      const object = {
+        debug: 'Hello, World!',
+      };
+
+      strictEqual(configObjectConsole.safeParse(object).success, false);
+    });
+  });
+
+  describe('config-object-add', () => {
+    // true
+    it('should return true for an empty object', () => {
+      const object = {};
+
+      strictEqual(configObjectAdd.safeParse(object).success, true);
+    });
+
+    // false
+    it('should return false for an unknown property', () => {
+      const object = {
+        unknownProperty: 'Hello, World!',
+      };
+
+      strictEqual(configObjectAdd.safeParse(object).success, false);
+    });
+  });
+
+  describe('config-object-bug', () => {
+    // true
+    it('should return true for an empty object', () => {
+      const object = {};
+
+      strictEqual(configObjectBug.safeParse(object).success, true);
+    });
+
+    // false
+    it('should return false for an unknown property', () => {
+      const object = {
+        unknownProperty: 'Hello, World!',
+      };
+
+      strictEqual(configObjectBug.safeParse(object).success, false);
+    });
+  });
+
+  describe('config-object-build', () => {
+    // true
+    it('should return true for an empty object', () => {
+      const object = {};
+
+      strictEqual(configObjectBuild.safeParse(object).success, true);
+    });
+    it('should return true for a valid `clean` property', () => {
+      const object = {
+        clean: true,
+      };
+
+      strictEqual(configObjectBuild.safeParse(object).success, true);
+    });
+    it('should return true for a valid `templateType` property (`fs`)', () => {
+      const object = {
+        templateType: 'fs',
+      };
+
+      strictEqual(configObjectBuild.safeParse(object).success, true);
+    });
+    it('should return true for a valid `templateType` property (`rl`)', () => {
+      const object = {
+        templateType: 'rl',
+      };
+
+      strictEqual(configObjectBuild.safeParse(object).success, true);
+    });
+    it('should return true for a valid `clean` and `templateType` property', () => {
+      const object = {
+        clean: true,
+        templateType: 'fs',
+      };
+
+      strictEqual(configObjectBuild.safeParse(object).success, true);
+    });
+
+    // false
+    it('should return false for an unknown property', () => {
+      const object = {
+        unknownProperty: 'Hello, World!',
+      };
+
+      strictEqual(configObjectBuild.safeParse(object).success, false);
+    });
+    it('should return false for an invalid `templateType` property', () => {
+      const object = {
+        templateType: 'fe',
+      };
+
+      strictEqual(configObjectBuild.safeParse(object).success, false);
+    });
+  });
+
+  describe('config-object-discussion', () => {
+    // true
+    it('should return true for an empty object', () => {
+      const object = {};
+
+      strictEqual(configObjectDiscussion.safeParse(object).success, true);
+    });
+
+    // false
+    it('should return false for an unknown property', () => {
+      const object = {
+        unknownProperty: 'Hello, World!',
+      };
+
+      strictEqual(configObjectDiscussion.safeParse(object).success, false);
+    });
+  });
+
+  describe('config-object-home', () => {
+    // true
+    it('should return true for an empty object', () => {
+      const object = {};
+
+      strictEqual(configObjectHome.safeParse(object).success, true);
+    });
+
+    // false
+    it('should return false for an unknown property', () => {
+      const object = {
+        unknownProperty: 'Hello, World!',
+      };
+
+      strictEqual(configObjectHome.safeParse(object).success, false);
+    });
+  });
+
+  describe('config-object-info', () => {
+    // true
+    it('should return true for an empty object', () => {
+      const object = {};
+
+      strictEqual(configObjectInfo.safeParse(object).success, true);
+    });
+    it('should return true for a valid `all` property', () => {
+      const object = {
+        all: true,
+      };
+
+      strictEqual(configObjectInfo.safeParse(object).success, true);
+    });
+
+    // false
+    it('should return false for an unknown property', () => {
+      const object = {
+        unknownProperty: 'Hello, World!',
+      };
+
+      strictEqual(configObjectInfo.safeParse(object).success, false);
+    });
+    it('should return false for an invalid `all` property', () => {
+      const object = {
+        all: 'Hello, World!',
+      };
+
+      strictEqual(configObjectInfo.safeParse(object).success, false);
+    });
+  });
+
+  describe('config-object-open', () => {
+    // true
+    it('should return true for an empty object', () => {
+      const object = {};
+
+      strictEqual(configObjectOpen.safeParse(object).success, true);
+    });
+
+    // false
+    it('should return false for an unknown property', () => {
+      const object = {
+        unknownProperty: 'Hello, World!',
+      };
+
+      strictEqual(configObjectOpen.safeParse(object).success, false);
+    });
+  });
+
+  describe('config-object-repo', () => {
+    // true
+    it('should return true for an empty object', () => {
+      const object = {};
+
+      strictEqual(configObjectRepo.safeParse(object).success, true);
+    });
+
+    // false
+    it('should return false for an unknown property', () => {
+      const object = {
+        unknownProperty: 'Hello, World!',
+      };
+
+      strictEqual(configObjectRepo.safeParse(object).success, false);
+    });
+  });
+
+  describe('config-object-run', () => {
+    // true
+    it('should return true for an empty object', () => {
+      const object = {};
+
+      strictEqual(configObjectRun.safeParse(object).success, true);
+    });
+
+    // false
+    it('should return false for an unknown property', () => {
+      const object = {
+        unknownProperty: 'Hello, World!',
+      };
+
+      strictEqual(configObjectRun.safeParse(object).success, false);
     });
   });
 });
