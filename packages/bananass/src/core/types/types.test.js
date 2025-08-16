@@ -25,8 +25,8 @@ import {
   // problem,
   // problems,
   // input,
-  // output,
-  // testcase,
+  output,
+  testcase,
   // testcases,
   // solution,
 } from './types.js';
@@ -409,6 +409,78 @@ describe('types', () => {
       };
 
       strictEqual(configObjectRun.safeParse(object).success, false);
+    });
+  });
+
+  describe('output', () => {
+    // true
+    it('should return true for string', () => {
+      const out = 'Hello, World!';
+
+      strictEqual(output.safeParse(out).success, true);
+    });
+
+    it('should return true for number', () => {
+      const out = 1000;
+
+      strictEqual(output.safeParse(out).success, true);
+    });
+
+    it('should return true for boolean', () => {
+      const out = true;
+
+      strictEqual(output.safeParse(out).success, true);
+    });
+
+    // false
+    it('should return false for other primitive types', () => {
+      strictEqual(output.safeParse(null).success, false);
+      strictEqual(output.safeParse(undefined).success, false);
+      strictEqual(output.safeParse(Symbol('Hello, World!')).success, false);
+      strictEqual(output.safeParse(BigInt(1000)).success, false);
+      strictEqual(output.safeParse({}).success, false);
+      strictEqual(output.safeParse([]).success, false);
+      strictEqual(output.safeParse(() => {}).success, false);
+    });
+  });
+
+  describe('testcase', () => {
+    // true
+    it('should return true for a valid object without input', () => {
+      const object = {
+        output: 'result',
+      };
+
+      strictEqual(testcase.safeParse(object).success, true);
+    });
+    it('should return true for a valid object with input', () => {
+      const object = {
+        input: 'Hello, World!',
+        output: 'Hello, World! processed',
+      };
+
+      strictEqual(testcase.safeParse(object).success, true);
+    });
+
+    // false
+    it('should return false for an empty object', () => {
+      const object = {};
+
+      strictEqual(testcase.safeParse(object).success, false);
+    });
+    it('should return false for a object without output', () => {
+      const object = {
+        input: 'Hello, World!',
+      };
+
+      strictEqual(testcase.safeParse(object).success, false);
+    });
+    it('should return false for an unknown property', () => {
+      const object = {
+        unknownProperty: 'Hello, World!',
+      };
+
+      strictEqual(testcase.safeParse(object).success, false);
     });
   });
 });
