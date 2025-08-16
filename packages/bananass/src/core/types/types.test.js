@@ -22,7 +22,7 @@ import {
   configObjectOpen,
   configObjectRepo,
   configObjectRun,
-  // problem,
+  problem,
   // problems,
   // input,
   output,
@@ -409,6 +409,43 @@ describe('types', () => {
       };
 
       strictEqual(configObjectRun.safeParse(object).success, false);
+    });
+  });
+
+  describe('problem', () => {
+    // true
+    it('should return true for a valid problem string', () => {
+      const problem1 = '1234';
+      const problem2 = '30002';
+
+      strictEqual(problem.safeParse(problem1).success, true);
+      strictEqual(problem.safeParse(problem2).success, true);
+    });
+    it('should return true if the value is non-string', () => {
+      const problem1 = 1500;
+
+      strictEqual(problem.safeParse(problem1).success, true);
+    });
+
+    // false
+    it('should return false if any problem number is below minimum', () => {
+      const problem1 = '999';
+      const problem2 = '0';
+      const problem3 = '-999';
+
+      strictEqual(problem.safeParse(problem1).success, false);
+      strictEqual(problem.safeParse(problem2).success, false);
+      strictEqual(problem.safeParse(problem3).success, false);
+    });
+    it('should return false if the value is an empty string', () => {
+      const problem1 = '';
+
+      strictEqual(problem.safeParse(problem1).success, false);
+    });
+    it('should return false for non-string inputs', () => {
+      strictEqual(problem.safeParse(null).success, false);
+      strictEqual(problem.safeParse(undefined).success, false);
+      strictEqual(problem.safeParse({}).success, false);
     });
   });
 
