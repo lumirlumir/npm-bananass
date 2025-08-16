@@ -23,7 +23,7 @@ import {
   configObjectRepo,
   configObjectRun,
   problem,
-  // problems,
+  problems,
   // input,
   output,
   testcase,
@@ -446,6 +446,52 @@ describe('types', () => {
       strictEqual(problem.safeParse(null).success, false);
       strictEqual(problem.safeParse(undefined).success, false);
       strictEqual(problem.safeParse({}).success, false);
+    });
+  });
+
+  describe('problems', () => {
+    // true
+    it('should return true for a single valid problem string', () => {
+      const array = ['1234'];
+
+      strictEqual(problems.safeParse(array).success, true);
+    });
+
+    it('should return true for valid problems array', () => {
+      const array = ['1000', '1500', '2000'];
+
+      strictEqual(problems.safeParse(array).success, true);
+    });
+
+    it('should return true if the array contains non-string values', () => {
+      const array = ['1000', 1500, '2000'];
+
+      strictEqual(problems.safeParse(array).success, true);
+    });
+
+    // false
+    it('should return false for an empty array', () => {
+      const array = [];
+
+      strictEqual(problems.safeParse(array).success, false);
+    });
+
+    it('should return false if any problem number is below minimum', () => {
+      const array = ['1000', '999', '1500'];
+
+      strictEqual(problems.safeParse(array).success, false);
+    });
+
+    it('should return false if the array includes an empty string', () => {
+      const array = ['1000', '', '2000'];
+
+      strictEqual(problems.safeParse(array).success, false);
+    });
+
+    it('should return false for non-array inputs', () => {
+      strictEqual(problems.safeParse(null).success, false);
+      strictEqual(problems.safeParse('1000').success, false);
+      strictEqual(problems.safeParse({}).success, false);
     });
   });
 
