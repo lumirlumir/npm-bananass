@@ -92,7 +92,6 @@
     "test": "node --test"
   },
   "dependencies": {
-    "chalk": "^5.5.0",
     "is-unicode-supported": "^2.1.0"
   }
 }

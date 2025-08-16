@@ -8,9 +8,8 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import c from 'chalk';
+import { styleText } from 'node:util';
 import isInteractive from '../is-interactive/index.js';
-
 import {
   successIcon,
   errorIcon,
@@ -24,7 +23,7 @@ import {
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {'black'|'red'|'green'|'yellow'|'blue'|'cyan'|'magenta'|'white'|'gray'|'grey'|'blackBright'|'redBright'|'greenBright'|'yellowBright'|'blueBright'|'cyanBright'|'magentaBright'|'whiteBright'} ForegroundColorName
+ * @typedef {"black"|"blackBright"|"blue"|"blueBright"|"cyan"|"cyanBright"|"gray"|"green"|"greenBright"|"grey"|"magenta"|"magentaBright"|"red"|"redBright"|"white"|"whiteBright"|"yellow"|"yellowBright"} ForegroundColors
  */
 
 /**
@@ -36,7 +35,7 @@ import {
 /**
  * @typedef {object} Options Spinner options.
  * @property {string} [text] Text to display next to the spinner. (default: `''`)
- * @property {ForegroundColorName} [color] The color of the spinner. (default: `'yellow'`)
+ * @property {ForegroundColors} [color] The color of the spinner. (default: `'yellow'`)
  * @property {NodeJS.WriteStream} [stream] The stream to which the spinner is written. (default: `process.stderr`)
  * @property {boolean} [isInteractive] Whether the spinner should be interactive. (default: Auto-detected)
  * @property {SpinnerStyle} [spinner]
@@ -73,7 +72,7 @@ class Spinner {
   #text;
   /** @type {NodeJS.WriteStream} */
   #stream;
-  /** @type {ForegroundColorName} */
+  /** @type {ForegroundColors} */
   #color;
   /** @type {number} */
   #lines = 0;
@@ -118,9 +117,9 @@ class Spinner {
       this.#lastSpinnerFrameTime = currentTime;
     }
 
-    const applyColor = c[this.#color] ?? c.yellow;
+    const color = this.#color ?? 'yellow';
     const frame = this.#frames[this.#currentFrame];
-    let string = `${applyColor(frame)} ${this.#text}`;
+    let string = `${styleText(color, frame)} ${this.#text}`;
 
     if (!this.#isInteractive) {
       string += '\n';
