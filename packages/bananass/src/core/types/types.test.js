@@ -24,11 +24,11 @@ import {
   configObjectRun,
   problem,
   problems,
-  // input,
+  input,
   output,
   testcase,
   testcases,
-  // solution,
+  solution,
 } from './types.js';
 
 // --------------------------------------------------------------------------------
@@ -447,6 +447,10 @@ describe('types', () => {
       strictEqual(problem.safeParse(undefined).success, false);
       strictEqual(problem.safeParse({}).success, false);
     });
+    it('should return false for non-integer inputs', () => {
+      strictEqual(problem.safeParse(1000.5).success, false);
+      strictEqual(problem.safeParse('1000.5').success, false);
+    });
   });
 
   describe('problems', () => {
@@ -492,6 +496,49 @@ describe('types', () => {
       strictEqual(problems.safeParse(null).success, false);
       strictEqual(problems.safeParse('1000').success, false);
       strictEqual(problems.safeParse({}).success, false);
+    });
+  });
+
+  describe('input', () => {
+    // true
+    it('should return true for a single valid input string', () => {
+      const input1 = 'Hello, World!';
+
+      strictEqual(input.safeParse(input1).success, true);
+    });
+
+    it('should return true for a single valid input string with a newline character', () => {
+      const input1 = 'Hello\nBaekjoon\nOnline Judge\n';
+
+      strictEqual(input.safeParse(input1).success, true);
+    });
+
+    it('should return true for a single valid input string with template literals', () => {
+      const input1 = `1
+2
+3
+4
+5`;
+
+      strictEqual(input.safeParse(input1).success, true);
+    });
+
+    it('should return true for undefined', () => {
+      const input1 = undefined;
+
+      strictEqual(input.safeParse(input1).success, true);
+    });
+
+    // false
+    it('should return false for other primitive types', () => {
+      strictEqual(input.safeParse(1000).success, false);
+      strictEqual(input.safeParse(true).success, false);
+      strictEqual(input.safeParse(null).success, false);
+      strictEqual(input.safeParse(Symbol('Hello, World!')).success, false);
+      strictEqual(input.safeParse(BigInt(1000)).success, false);
+      strictEqual(input.safeParse({}).success, false);
+      strictEqual(input.safeParse([]).success, false);
+      strictEqual(input.safeParse(() => {}).success, false);
     });
   });
 
@@ -595,5 +642,68 @@ describe('types', () => {
       strictEqual(testcases.safeParse('1000').success, false);
       strictEqual(testcases.safeParse({}).success, false);
     });
+  });
+
+  describe('solution', () => {
+    // true
+
+    // TODO: arror function, func declaration ...
+
+    it('should return true for a function with 0 parameter (arrow func)', () => {
+      const stringFunc = solution.implement(() => 'result');
+      const numberFunc = solution.implement(() => 1);
+
+      /*
+       * NOTE: Zod expects an argument to always be present,
+       * so calling a function without an argument, like `numberFunc()`, will fail.
+       * https://github.com/colinhacks/zod/issues/2990#issuecomment-3100312904
+       */
+
+      strictEqual(stringFunc(undefined), 'result');
+      strictEqual(stringFunc('1'), 'result');
+      strictEqual(numberFunc(undefined), 1);
+    });
+
+    /*
+
+    it('should return true for a function with 0 parameter (arrow func)', () => {
+      const solution = () => 'result';
+
+      strictEqual(Solution.is(solution), true);
+    });
+    it('should return true for a function with 1 parameter (arrow func)', () => {
+      const solution = input => `${input} processed`;
+
+      strictEqual(Solution.is(solution), true);
+    });
+    it('should return true for a function with 1 parameter (func declaration)', () => {
+      function solution(input) {
+        return `Result: ${input}`;
+      }
+
+      strictEqual(Solution.is(solution), true);
+    });
+
+    // false
+    it('should return false for a function with 2 parameters', () => {
+      const solution = (input, extra) => input + extra;
+
+      strictEqual(Solution.is(solution), false);
+    });
+    it('should return false for a function with 3 parameters', () => {
+      const solution = (a, b, c) => a + b + c;
+
+      strictEqual(Solution.is(solution), false);
+    });
+    it('should return false for non-function values', () => {
+      strictEqual(Solution.is('string'), false);
+      strictEqual(Solution.is(123), false);
+      strictEqual(Solution.is({}), false);
+      strictEqual(Solution.is([]), false);
+      strictEqual(Solution.is(null), false);
+      strictEqual(Solution.is(undefined), false);
+    });
+
+    */
   });
 });
