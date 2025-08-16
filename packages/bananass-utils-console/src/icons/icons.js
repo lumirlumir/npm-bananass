@@ -7,7 +7,7 @@
 // --------------------------------------------------------------------------------
 
 import c from 'chalk';
-import isUnicodeSupported from 'is-unicode-supported';
+import isUnicodeSupported from '../is-unicode-supported/index.js';
 
 // --------------------------------------------------------------------------------
 // Typedef
