@@ -315,7 +315,7 @@ export const testcase = z.strictObject({
 /**
  * Testcases array.
  */
-export const testcases = z.array(testcase);
+export const testcases = z.array(testcase).nonempty();
 
 /**
  * Solution function.

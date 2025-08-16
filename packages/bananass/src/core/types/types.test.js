@@ -27,7 +27,7 @@ import {
   // input,
   output,
   testcase,
-  // testcases,
+  testcases,
   // solution,
 } from './types.js';
 
@@ -481,6 +481,36 @@ describe('types', () => {
       };
 
       strictEqual(testcase.safeParse(object).success, false);
+    });
+  });
+
+  describe('testcases', () => {
+    // true
+    it('should return true for valid testcases', () => {
+      const array = [
+        {
+          input: '1\n2',
+          output: '3',
+        },
+        {
+          input: '2\n3',
+          output: '5',
+        },
+      ];
+
+      strictEqual(testcases.safeParse(array).success, true);
+    });
+
+    // false
+    it('should return false for an empty array', () => {
+      const array = [];
+
+      strictEqual(testcases.safeParse(array).success, false);
+    });
+    it('should return false for non-array inputs', () => {
+      strictEqual(testcases.safeParse(null).success, false);
+      strictEqual(testcases.safeParse('1000').success, false);
+      strictEqual(testcases.safeParse({}).success, false);
     });
   });
 });
