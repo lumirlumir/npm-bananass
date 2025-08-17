@@ -12,6 +12,10 @@
       "types": "./build/is-interactive/index.d.ts",
       "default": "./src/is-interactive/index.js"
     },
+    "./is-unicode-supported": {
+      "types": "./build/is-unicode-supported/index.d.ts",
+      "default": "./src/is-unicode-supported/index.js"
+    },
     "./logger": {
       "types": "./build/logger/index.d.ts",
       "default": "./src/logger/index.js"
@@ -36,6 +40,9 @@
       ],
       "is-interactive": [
         "./build/is-interactive/index.d.ts"
+      ],
+      "is-unicode-supported": [
+        "./build/is-unicode-supported/index.d.ts"
       ],
       "logger": [
         "./build/logger/index.d.ts"
@@ -90,8 +97,5 @@
     "prepublishOnly": "npm run build",
     "build": "npx tsc && node ../../scripts/cp.mjs ../../LICENSE.md LICENSE.md ../../README.md README.md",
     "test": "node --test"
-  },
-  "dependencies": {
-    "is-unicode-supported": "^2.1.0"
   }
 }

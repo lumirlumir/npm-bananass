@@ -7,7 +7,7 @@
 // --------------------------------------------------------------------------------
 
 import { styleText } from 'node:util';
-import isUnicodeSupported from 'is-unicode-supported';
+import isUnicodeSupported from '../is-unicode-supported/index.js';
 
 // --------------------------------------------------------------------------------
 // Typedef
