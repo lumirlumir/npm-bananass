@@ -192,7 +192,9 @@ export default async function run(problems, configObject = dco) {
         BIcon,
         styleText(['cyan', 'bold'], `TESTCASE`),
         styleText(['cyan', 'bold', 'underline'], `#${index + 1}`),
-        styleText(['green', 'bold'], isTestPassed ? 'PASSED' : 'FAILED'),
+        isTestPassed
+          ? styleText(['green', 'bold'], 'PASSED')
+          : styleText(['red', 'bold'], 'FAILED'),
       );
     });
   });
