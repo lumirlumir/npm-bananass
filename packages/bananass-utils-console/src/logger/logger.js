@@ -7,7 +7,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import c from 'chalk';
+import { styleText } from 'node:util';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -135,7 +135,7 @@ class Logger {
       console.log(
         ...[this.#textPrefix, textOrCallback, ...args]
           .filter(arg => arg !== this.#undeclaredValue)
-          .map(arg => (typeof arg === 'string' ? c.gray(arg) : arg)),
+          .map(arg => (typeof arg === 'string' ? styleText('gray', arg) : arg)),
       );
     }
 
