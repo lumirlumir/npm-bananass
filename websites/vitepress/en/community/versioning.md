@@ -1,7 +1,7 @@
 ---
-description: "This project adheres to Semantic Versioning."
+description: "The Bananass Framework follows Semantic Versioning. All release versions adhere to the `MAJOR.MINOR.PATCH` format."
 ---
 
 # Versioning {#versioning}
 
-This project adheres to [Semantic Versioning](https://semver.org/).
+The Bananass Framework follows [Semantic Versioning](https://semver.org/). All release versions adhere to the `MAJOR.MINOR.PATCH` format.
