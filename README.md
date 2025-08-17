@@ -142,7 +142,7 @@ npm create bananass@latest
 
 ## 버전 정책<sup>Versioning</sup>
 
-바나나 프레임워크는 [유의적 버전 정책<sup>Sementic Versioning</sup>](https://semver.org/lang/ko/)을 따릅니다. 모든 릴리즈 버전은 `주(MAJOR).부(MINOR).수(PATCH)` 형식을 따릅니다.
+바나나 프레임워크는 [유의적 버전 정책<sup>Semantic Versioning</sup>](https://semver.org/lang/ko/)을 따릅니다. 모든 릴리즈 버전은 `주(MAJOR).부(MINOR).수(PATCH)` 형식을 따릅니다.
 
 ## 기여자 행동 강령 규약<sup>Code of Conduct</sup>
 
