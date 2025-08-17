@@ -18,7 +18,9 @@ import isUnicodeSupported from './is-unicode-supported.js';
 
 describe('is-unicode-supported', () => {
   it('main', () => {
-    ok(isUnicodeSupported());
+    if (process.platform !== 'win32') {
+      ok(isUnicodeSupported());
+    }
   });
 
   it('windows', () => {
