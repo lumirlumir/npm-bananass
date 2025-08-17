@@ -17,14 +17,6 @@ import {
 } from '../icons/index.js';
 
 // --------------------------------------------------------------------------------
-// Typedefs
-// --------------------------------------------------------------------------------
-
-/**
- * @typedef {"black"|"blackBright"|"blue"|"blueBright"|"cyan"|"cyanBright"|"gray"|"green"|"greenBright"|"grey"|"magenta"|"magentaBright"|"red"|"redBright"|"white"|"whiteBright"|"yellow"|"yellowBright"} ForegroundColors
- */
-
-// --------------------------------------------------------------------------------
 // Helpers
 // --------------------------------------------------------------------------------
 
@@ -32,7 +24,7 @@ import {
  * Formats a string with an optional color and icon.
  * @param {string} str The string to format.
  * @param {boolean} showIcon Whether to show the icon.
- * @param {ForegroundColors} color The color to apply to the string.
+ * @param {'green'|'red'|'yellow'|'blue'} color The color to apply to the string.
  * @param {string} icon The icon to prepend to the string if `showIcon` is true.
  * @returns {string} The formatted string with the optional icon and color applied.
  * @private
