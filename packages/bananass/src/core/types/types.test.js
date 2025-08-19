@@ -243,9 +243,16 @@ describe('types', () => {
 
       strictEqual(configObjectBuild.safeParse(object).success, true);
     });
-    it('should return true for a valid `clean` property', () => {
+    it('should return true for a valid `clean` property (`true`)', () => {
       const object = {
         clean: true,
+      };
+
+      strictEqual(configObjectBuild.safeParse(object).success, true);
+    });
+    it('should return true for a valid `clean` property (`false`)', () => {
+      const object = {
+        clean: false,
       };
 
       strictEqual(configObjectBuild.safeParse(object).success, true);
@@ -333,9 +340,16 @@ describe('types', () => {
 
       strictEqual(configObjectInfo.safeParse(object).success, true);
     });
-    it('should return true for a valid `all` property', () => {
+    it('should return true for a valid `all` property (`true`)', () => {
       const object = {
         all: true,
+      };
+
+      strictEqual(configObjectInfo.safeParse(object).success, true);
+    });
+    it('should return true for a valid `all` property (`false`)', () => {
+      const object = {
+        all: false,
       };
 
       strictEqual(configObjectInfo.safeParse(object).success, true);
@@ -442,14 +456,14 @@ describe('types', () => {
 
       strictEqual(problem.safeParse(problem1).success, false);
     });
+    it('should return false for non-integer inputs', () => {
+      strictEqual(problem.safeParse(1000.5).success, false);
+      strictEqual(problem.safeParse('1000.5').success, false);
+    });
     it('should return false for non-string inputs', () => {
       strictEqual(problem.safeParse(null).success, false);
       strictEqual(problem.safeParse(undefined).success, false);
       strictEqual(problem.safeParse({}).success, false);
-    });
-    it('should return false for non-integer inputs', () => {
-      strictEqual(problem.safeParse(1000.5).success, false);
-      strictEqual(problem.safeParse('1000.5').success, false);
     });
   });
 
@@ -484,6 +498,11 @@ describe('types', () => {
     });
     it('should return false if the array includes an empty string', () => {
       const array = ['1000', '', '2000'];
+
+      strictEqual(problems.safeParse(array).success, false);
+    });
+    it('should return false for non-integer inputs', () => {
+      const array = ['1000', '1500.5'];
 
       strictEqual(problems.safeParse(array).success, false);
     });
@@ -537,19 +556,19 @@ describe('types', () => {
   describe('output', () => {
     // true
     it('should return true for string', () => {
-      const out = 'Hello, World!';
+      const output1 = 'Hello, World!';
 
-      strictEqual(output.safeParse(out).success, true);
+      strictEqual(output.safeParse(output1).success, true);
     });
     it('should return true for number', () => {
-      const out = 1000;
+      const output1 = 1000;
 
-      strictEqual(output.safeParse(out).success, true);
+      strictEqual(output.safeParse(output1).success, true);
     });
     it('should return true for boolean', () => {
-      const out = true;
+      const output1 = true;
 
-      strictEqual(output.safeParse(out).success, true);
+      strictEqual(output.safeParse(output1).success, true);
     });
 
     // false
