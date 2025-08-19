@@ -80,177 +80,186 @@ import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../constants.js';
 /**
  * Global browser options.
  */
-export const configObjectBrowser = z.strictObject({
-  /**
-   * Browser name. Select from `'chrome'`, `'edge'`, `'firefox'`, `'brave'`, or `'default'`.
-   * @default 'default'
-   */
-  browser: z.enum(['chrome', 'edge', 'firefox', 'brave', 'default']).optional(),
-
-  /**
-   * Open browser in secret (private or incognito) mode.
-   * @default false
-   */
-  secret: z.boolean().optional(),
-});
+export const configObjectBrowser = z
+  .strictObject({
+    /**
+     * Browser name. Select from `'chrome'`, `'edge'`, `'firefox'`, `'brave'`, or `'default'`.
+     * @default 'default'
+     */
+    browser: z.enum(['chrome', 'edge', 'firefox', 'brave', 'default']).optional(),
+    /**
+     * Open browser in secret (private or incognito) mode.
+     * @default false
+     */
+    secret: z.boolean().optional(),
+  })
+  .readonly();
 
 /**
  * Global console options.
  */
-export const configObjectConsole = z.strictObject({
-  /**
-   * Enable debug mode.
-   * @default false
-   */
-  debug: z.boolean().optional(),
+export const configObjectConsole = z
+  .strictObject({
+    /**
+     * Enable debug mode.
+     * @default false
+     */
+    debug: z.boolean().optional(),
 
-  /**
-   * Enable quiet mode.
-   * @default false
-   */
-  quiet: z.boolean().optional(),
-});
+    /**
+     * Enable quiet mode.
+     * @default false
+     */
+    quiet: z.boolean().optional(),
+  })
+  .readonly();
 
 /**
  * Options exclusive to the `bananass add` command.
  */
-export const configObjectAdd = z.strictObject({});
+export const configObjectAdd = z.strictObject({}).readonly();
 
 /**
  * Options exclusive to the `bananass bug` command.
  */
-export const configObjectBug = z.strictObject({});
+export const configObjectBug = z.strictObject({}).readonly();
 
 /**
  * Options exclusive to the `bananass build` command.
  */
-export const configObjectBuild = z.strictObject({
-  /**
-   * Clean the output directory before emit.
-   * @default false
-   */
-  clean: z.boolean().optional(),
+export const configObjectBuild = z
+  .strictObject({
+    /**
+     * Clean the output directory before emit.
+     * @default false
+     */
+    clean: z.boolean().optional(),
 
-  /**
-   * Webpack entry file template type. Select from `'fs'` (File System) or `'rl'` (Read Line).
-   * @default 'fs'
-   */
-  templateType: z.enum(['fs', 'rl']).optional(),
-});
+    /**
+     * Webpack entry file template type. Select from `'fs'` (File System) or `'rl'` (Read Line).
+     * @default 'fs'
+     */
+    templateType: z.enum(['fs', 'rl']).optional(),
+  })
+  .readonly();
 
 /**
  * Options exclusive to the `bananass discussion` command.
  */
-export const configObjectDiscussion = z.strictObject({});
+export const configObjectDiscussion = z.strictObject({}).readonly();
 
 /**
  * Options exclusive to the `bananass home` command.
  */
-export const configObjectHome = z.strictObject({});
+export const configObjectHome = z.strictObject({}).readonly();
 
 /**
  * Options exclusive to the `bananass info` command.
  */
-export const configObjectInfo = z.strictObject({
-  /**
-   * Show all information including Not Found.
-   * @default false
-   */
-  all: z.boolean().optional(),
-});
+export const configObjectInfo = z
+  .strictObject({
+    /**
+     * Show all information including Not Found.
+     * @default false
+     */
+    all: z.boolean().optional(),
+  })
+  .readonly();
 
 /**
  * Options exclusive to the `bananass open` command.
  */
-export const configObjectOpen = z.strictObject({});
+export const configObjectOpen = z.strictObject({}).readonly();
 
 /**
  * Options exclusive to the `bananass repo` command.
  */
-export const configObjectRepo = z.strictObject({});
+export const configObjectRepo = z.strictObject({}).readonly();
 
 /**
  * Options exclusive to the `bananass run` command.
  */
-export const configObjectRun = z.strictObject({});
+export const configObjectRun = z.strictObject({}).readonly();
 
 /**
  * Bananass configuration object.
  */
-export const configObject = z.strictObject({
-  /**
-   * Current working directory.
-   * @default findRootDir()
-   */
-  cwd: z.string().optional(),
+export const configObject = z
+  .strictObject({
+    /**
+     * Current working directory.
+     * @default findRootDir()
+     */
+    cwd: z.string().optional(),
 
-  /**
-   * Entry directory name.
-   * @default 'bananass'
-   */
-  entryDir: z.string().optional(),
+    /**
+     * Entry directory name.
+     * @default 'bananass'
+     */
+    entryDir: z.string().optional(),
 
-  /**
-   * Output directory name.
-   * @default '.bananass'
-   */
-  outDir: z.string().optional(),
+    /**
+     * Output directory name.
+     * @default '.bananass'
+     */
+    outDir: z.string().optional(),
 
-  /**
-   * Global browser options.
-   */
-  browser: configObjectBrowser.optional(),
+    /**
+     * Global browser options.
+     */
+    browser: configObjectBrowser.optional(),
 
-  /**
-   * Global console options.
-   */
-  console: configObjectConsole.optional(),
+    /**
+     * Global console options.
+     */
+    console: configObjectConsole.optional(),
 
-  /**
-   * Options exclusive to the `bananass add` command.
-   */
-  add: configObjectAdd.optional(),
+    /**
+     * Options exclusive to the `bananass add` command.
+     */
+    add: configObjectAdd.optional(),
 
-  /**
-   * Options exclusive to the `bananass bug` command.
-   */
-  bug: configObjectBug.optional(),
+    /**
+     * Options exclusive to the `bananass bug` command.
+     */
+    bug: configObjectBug.optional(),
 
-  /**
-   * Options exclusive to the `bananass build` command.
-   */
-  build: configObjectBuild.optional(),
+    /**
+     * Options exclusive to the `bananass build` command.
+     */
+    build: configObjectBuild.optional(),
 
-  /**
-   * Options exclusive to the `bananass discussion` command.
-   */
-  discussion: configObjectDiscussion.optional(),
+    /**
+     * Options exclusive to the `bananass discussion` command.
+     */
+    discussion: configObjectDiscussion.optional(),
 
-  /**
-   * Options exclusive to the `bananass home` command.
-   */
-  home: configObjectHome.optional(),
+    /**
+     * Options exclusive to the `bananass home` command.
+     */
+    home: configObjectHome.optional(),
 
-  /**
-   * Options exclusive to the `bananass info` command.
-   */
-  info: configObjectInfo.optional(),
+    /**
+     * Options exclusive to the `bananass info` command.
+     */
+    info: configObjectInfo.optional(),
 
-  /**
-   * Options exclusive to the `bananass open` command.
-   */
-  open: configObjectOpen.optional(),
+    /**
+     * Options exclusive to the `bananass open` command.
+     */
+    open: configObjectOpen.optional(),
 
-  /**
-   * Options exclusive to the `bananass repo` command.
-   */
-  repo: configObjectRepo.optional(),
+    /**
+     * Options exclusive to the `bananass repo` command.
+     */
+    repo: configObjectRepo.optional(),
 
-  /**
-   * Options exclusive to the `bananass run` command.
-   */
-  run: configObjectRun.optional(),
-});
+    /**
+     * Options exclusive to the `bananass run` command.
+     */
+    run: configObjectRun.optional(),
+  })
+  .readonly();
 
 // --------------------------------------------------------------------------------
 // Export: Problem
@@ -270,7 +279,7 @@ export const problem = z
  * Baekjoon problem numbers as a nonempty string array.
  * Each problem number must be greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
  */
-export const problems = z.array(problem).nonempty();
+export const problems = z.array(problem).nonempty().readonly();
 
 // --------------------------------------------------------------------------------
 // Export: Solution
@@ -297,30 +306,32 @@ export const output = z.union([z.string(), z.number(), z.boolean()]);
 /**
  * Testcase object.
  */
-export const testcase = z.strictObject({
-  /**
-   * Input value. Must be a `string` or `undefined`.
-   */
-  input: input.optional(),
+export const testcase = z
+  .strictObject({
+    /**
+     * Input value. Must be a `string` or `undefined`.
+     */
+    input: input.optional(),
 
-  /**
-   * Output value. Must be a `string`, `number`, or `boolean`.
-   * (It can be a primitive type except for `bigint`, `symbol`, `undefined`, and `null`).
-   *
-   * Output values will be **coerced to a `string` and any trailing whitespace
-   * will be removed using `trimEnd()`** when running the `bananass run` command.
-   * (This behavior mimics how `console.log` converts values to a `string` before displaying them.)
-   *
-   * Note that `bigint` is not allowed, as `console.log(BigInt(1))` outputs `1n`,
-   * whereas `console.log(String(BigInt(1)))` outputs `1`, which have different representations.
-   */
-  output,
-});
+    /**
+     * Output value. Must be a `string`, `number`, or `boolean`.
+     * (It can be a primitive type except for `bigint`, `symbol`, `undefined`, and `null`).
+     *
+     * Output values will be **coerced to a `string` and any trailing whitespace
+     * will be removed using `trimEnd()`** when running the `bananass run` command.
+     * (This behavior mimics how `console.log` converts values to a `string` before displaying them.)
+     *
+     * Note that `bigint` is not allowed, as `console.log(BigInt(1))` outputs `1n`,
+     * whereas `console.log(String(BigInt(1)))` outputs `1`, which have different representations.
+     */
+    output,
+  })
+  .readonly();
 
 /**
  * Testcases array.
  */
-export const testcases = z.array(testcase).nonempty();
+export const testcases = z.array(testcase).nonempty().readonly();
 
 /**
  * Solution function.
