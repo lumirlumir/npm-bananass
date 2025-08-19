@@ -260,7 +260,11 @@ export const configObject = z.strictObject({
  * Baekjoon problem number as a string.
  * Problem number must be greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
  */
-export const problem = z.coerce.number().int().gte(BAEKJOON_PROBLEM_NUMBER_MIN);
+export const problem = z
+  .string()
+  .refine(
+    val => Number(val) >= BAEKJOON_PROBLEM_NUMBER_MIN && Number.isInteger(Number(val)),
+  );
 
 /**
  * Baekjoon problem numbers as a nonempty string array.

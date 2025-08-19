@@ -421,11 +421,6 @@ describe('types', () => {
       strictEqual(problem.safeParse(problem1).success, true);
       strictEqual(problem.safeParse(problem2).success, true);
     });
-    it('should return true if the value is non-string', () => {
-      const problem1 = 1500;
-
-      strictEqual(problem.safeParse(problem1).success, true);
-    });
 
     // false
     it('should return false if any problem number is below minimum', () => {
@@ -436,6 +431,11 @@ describe('types', () => {
       strictEqual(problem.safeParse(problem1).success, false);
       strictEqual(problem.safeParse(problem2).success, false);
       strictEqual(problem.safeParse(problem3).success, false);
+    });
+    it('should return false if the value is non-string', () => {
+      const problem1 = 1500;
+
+      strictEqual(problem.safeParse(problem1).success, false);
     });
     it('should return false if the value is an empty string', () => {
       const problem1 = '';
@@ -467,12 +467,6 @@ describe('types', () => {
       strictEqual(problems.safeParse(array).success, true);
     });
 
-    it('should return true if the array contains non-string values', () => {
-      const array = ['1000', 1500, '2000'];
-
-      strictEqual(problems.safeParse(array).success, true);
-    });
-
     // false
     it('should return false for an empty array', () => {
       const array = [];
@@ -482,6 +476,12 @@ describe('types', () => {
 
     it('should return false if any problem number is below minimum', () => {
       const array = ['1000', '999', '1500'];
+
+      strictEqual(problems.safeParse(array).success, false);
+    });
+
+    it('should return false if the array contains non-string values', () => {
+      const array = ['1000', 1500, '2000'];
 
       strictEqual(problems.safeParse(array).success, false);
     });

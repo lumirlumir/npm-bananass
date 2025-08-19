@@ -25,7 +25,7 @@ import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../../constants.js';
 /**
  * `Problem` type struct.
  * @type {Struct<Problem>}
- */ // @ts-expect-error -- TODO: migrate to Zod
+ */
 const Problem = refine(string(), 'Problem', problem =>
   Number(problem) >= BAEKJOON_PROBLEM_NUMBER_MIN
     ? true
