@@ -41,10 +41,10 @@ import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../constants.js';
  *
  * @typedef {z.infer<typeof problem>} Problem
  * Baekjoon problem number as a string.
- * Problem number must be greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
+ * Problem number must be an integer greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
  * @typedef {z.infer<typeof problems>} Problems
  * Baekjoon problem numbers as a nonempty string array.
- * Each problem number must be greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
+ * Each problem number must be an integer greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
  *
  * @typedef {z.infer<typeof input>} Input
  * Input value. Must be a `string` or `undefined`.
@@ -87,6 +87,7 @@ export const configObjectBrowser = z
      * @default 'default'
      */
     browser: z.enum(['chrome', 'edge', 'firefox', 'brave', 'default']).optional(),
+
     /**
      * Open browser in secret (private or incognito) mode.
      * @default false
@@ -267,7 +268,7 @@ export const configObject = z
 
 /**
  * Baekjoon problem number as a string.
- * Problem number must be greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
+ * Problem number must be an integer greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
  */
 export const problem = z
   .string()
@@ -277,7 +278,7 @@ export const problem = z
 
 /**
  * Baekjoon problem numbers as a nonempty string array.
- * Each problem number must be greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
+ * Each problem number must be an integer greater than or equal to `1000`(`BAEKJOON_PROBLEM_NUMBER_MIN`).
  */
 export const problems = z.array(problem).nonempty().readonly();
 
