@@ -20,6 +20,7 @@ import { createRequire } from 'node:module';
 // Declaration
 // --------------------------------------------------------------------------------
 
+/** @type {Record<string, string>} */
 const { description, homepage, name, version } = createRequire(import.meta.url)(
   '../../package.json',
 );
