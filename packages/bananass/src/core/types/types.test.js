@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { strictEqual } from 'node:assert';
+import { strictEqual, throws } from 'node:assert';
 import { describe, it } from 'node:test';
 
 import {
@@ -654,13 +654,61 @@ describe('types', () => {
   });
 
   describe('solution', () => {
-    // true
+    it('should throw for non-function values', () => {
+      throws(
+        () => {
+          solution.implement('string');
+        },
+        {
+          message: 'implement() must be called with a function',
+        },
+      );
+      throws(
+        () => {
+          solution.implement(123);
+        },
+        {
+          message: 'implement() must be called with a function',
+        },
+      );
+      throws(
+        () => {
+          solution.implement({});
+        },
+        {
+          message: 'implement() must be called with a function',
+        },
+      );
+      throws(
+        () => {
+          solution.implement([]);
+        },
+        {
+          message: 'implement() must be called with a function',
+        },
+      );
+      throws(
+        () => {
+          solution.implement(null);
+        },
+        {
+          message: 'implement() must be called with a function',
+        },
+      );
+      throws(
+        () => {
+          solution.implement(undefined);
+        },
+        {
+          message: 'implement() must be called with a function',
+        },
+      );
+    });
 
-    // TODO: arror function, func declaration ...
-
-    it('should return true for a function with 0 parameter (arrow func)', () => {
-      const stringFunc = solution.implement(() => 'result');
+    it('function with 0 parameter (arrow function)', () => {
+      const stringFunc = solution.implement(() => 'string');
       const numberFunc = solution.implement(() => 1);
+      const booleanFunc = solution.implement(() => true);
 
       /*
        * NOTE: Zod expects an argument to always be present,
@@ -668,18 +716,158 @@ describe('types', () => {
        * https://github.com/colinhacks/zod/issues/2990#issuecomment-3100312904
        */
 
-      strictEqual(stringFunc(undefined), 'result');
-      strictEqual(stringFunc('1'), 'result');
+      // true
+      strictEqual(stringFunc(undefined), 'string');
       strictEqual(numberFunc(undefined), 1);
+      strictEqual(booleanFunc(undefined), true);
+      strictEqual(stringFunc('1'), 'string');
+      strictEqual(numberFunc('1'), 1);
+      strictEqual(booleanFunc('1'), true);
+
+      // false
+      throws(
+        () => {
+          stringFunc('1', '2');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
+      throws(
+        () => {
+          numberFunc('1', '2');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
+      throws(
+        () => {
+          booleanFunc('1', '2');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
+      throws(
+        () => {
+          stringFunc('1', '2', '3');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
+      throws(
+        () => {
+          numberFunc('1', '2', '3');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
+      throws(
+        () => {
+          booleanFunc('1', '2', '3');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
+    });
+
+    it('function with 0 parameter (function declaration)', () => {
+      /* eslint-disable-next-line prefer-arrow-callback -- Test */
+      const stringFunc = solution.implement(function stringFunc() {
+        return 'string';
+      });
+      /* eslint-disable-next-line prefer-arrow-callback -- Test */
+      const numberFunc = solution.implement(function numberFunc() {
+        return 1;
+      });
+      /* eslint-disable-next-line prefer-arrow-callback -- Test */
+      const booleanFunc = solution.implement(function booleanFunc() {
+        return true;
+      });
+
+      /*
+       * NOTE: Zod expects an argument to always be present,
+       * so calling a function without an argument, like `numberFunc()`, will fail.
+       * https://github.com/colinhacks/zod/issues/2990#issuecomment-3100312904
+       */
+
+      // true
+      strictEqual(stringFunc(undefined), 'string');
+      strictEqual(numberFunc(undefined), 1);
+      strictEqual(booleanFunc(undefined), true);
+      strictEqual(stringFunc('1'), 'string');
+      strictEqual(numberFunc('1'), 1);
+      strictEqual(booleanFunc('1'), true);
+
+      // false
+      throws(
+        () => {
+          stringFunc('1', '2');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
+      throws(
+        () => {
+          numberFunc('1', '2');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
+      throws(
+        () => {
+          booleanFunc('1', '2');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
+      throws(
+        () => {
+          stringFunc('1', '2', '3');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
+      throws(
+        () => {
+          numberFunc('1', '2', '3');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
+      throws(
+        () => {
+          booleanFunc('1', '2', '3');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
     });
 
     /*
 
-    it('should return true for a function with 0 parameter (arrow func)', () => {
-      const solution = () => 'result';
-
-      strictEqual(Solution.is(solution), true);
-    });
     it('should return true for a function with 1 parameter (arrow func)', () => {
       const solution = input => `${input} processed`;
 
@@ -703,14 +891,6 @@ describe('types', () => {
       const solution = (a, b, c) => a + b + c;
 
       strictEqual(Solution.is(solution), false);
-    });
-    it('should return false for non-function values', () => {
-      strictEqual(Solution.is('string'), false);
-      strictEqual(Solution.is(123), false);
-      strictEqual(Solution.is({}), false);
-      strictEqual(Solution.is([]), false);
-      strictEqual(Solution.is(null), false);
-      strictEqual(Solution.is(undefined), false);
     });
 
     */
