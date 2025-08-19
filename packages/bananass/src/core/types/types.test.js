@@ -160,9 +160,16 @@ describe('types', () => {
 
       strictEqual(configObjectConsole.safeParse(object).success, true);
     });
-    it('should return true for a valid `debug` property', () => {
+    it('should return true for a valid `debug` property (`true`)', () => {
       const object = {
         debug: true,
+      };
+
+      strictEqual(configObjectConsole.safeParse(object).success, true);
+    });
+    it('should return true for a valid `debug` property (`false`)', () => {
+      const object = {
+        debug: false,
       };
 
       strictEqual(configObjectConsole.safeParse(object).success, true);
@@ -727,6 +734,34 @@ describe('types', () => {
       // false
       throws(
         () => {
+          stringFunc(1);
+        },
+        {
+          name: '$ZodError',
+          message: /Invalid input/u,
+        },
+      );
+      throws(
+        () => {
+          numberFunc(1);
+        },
+        {
+          name: '$ZodError',
+          message: /Invalid input/u,
+        },
+      );
+      throws(
+        () => {
+          booleanFunc(1);
+        },
+        {
+          name: '$ZodError',
+          message: /Invalid input/u,
+        },
+      );
+
+      throws(
+        () => {
           stringFunc('1', '2');
         },
         {
@@ -752,6 +787,109 @@ describe('types', () => {
           message: /"code": "too_big"/u,
         },
       );
+
+      throws(
+        () => {
+          stringFunc('1', '2', '3');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
+      throws(
+        () => {
+          numberFunc('1', '2', '3');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
+      throws(
+        () => {
+          booleanFunc('1', '2', '3');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
+    });
+
+    it('function with 1 parameter (arrow function)', () => {
+      const stringFunc = solution.implement(input1 => String(input1));
+      const numberFunc = solution.implement(input1 => Number(input1));
+      const booleanFunc = solution.implement(input1 => Boolean(input1));
+
+      /*
+       * NOTE: Zod expects an argument to always be present,
+       * so calling a function without an argument, like `numberFunc()`, will fail.
+       * https://github.com/colinhacks/zod/issues/2990#issuecomment-3100312904
+       */
+
+      // true
+      strictEqual(stringFunc('1'), '1');
+      strictEqual(numberFunc('1'), 1);
+      strictEqual(booleanFunc('1'), true);
+
+      // false
+      throws(
+        () => {
+          stringFunc(1);
+        },
+        {
+          name: '$ZodError',
+          message: /Invalid input/u,
+        },
+      );
+      throws(
+        () => {
+          numberFunc(1);
+        },
+        {
+          name: '$ZodError',
+          message: /Invalid input/u,
+        },
+      );
+      throws(
+        () => {
+          booleanFunc(1);
+        },
+        {
+          name: '$ZodError',
+          message: /Invalid input/u,
+        },
+      );
+
+      throws(
+        () => {
+          stringFunc('1', '2');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
+      throws(
+        () => {
+          numberFunc('1', '2');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
+      throws(
+        () => {
+          booleanFunc('1', '2');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "too_big"/u,
+        },
+      );
+
       throws(
         () => {
           stringFunc('1', '2', '3');
@@ -812,6 +950,34 @@ describe('types', () => {
       // false
       throws(
         () => {
+          stringFunc(1);
+        },
+        {
+          name: '$ZodError',
+          message: /Invalid input/u,
+        },
+      );
+      throws(
+        () => {
+          numberFunc(1);
+        },
+        {
+          name: '$ZodError',
+          message: /Invalid input/u,
+        },
+      );
+      throws(
+        () => {
+          booleanFunc(1);
+        },
+        {
+          name: '$ZodError',
+          message: /Invalid input/u,
+        },
+      );
+
+      throws(
+        () => {
           stringFunc('1', '2');
         },
         {
@@ -837,6 +1003,7 @@ describe('types', () => {
           message: /"code": "too_big"/u,
         },
       );
+
       throws(
         () => {
           stringFunc('1', '2', '3');
@@ -865,34 +1032,5 @@ describe('types', () => {
         },
       );
     });
-
-    /*
-
-    it('should return true for a function with 1 parameter (arrow func)', () => {
-      const solution = input => `${input} processed`;
-
-      strictEqual(Solution.is(solution), true);
-    });
-    it('should return true for a function with 1 parameter (func declaration)', () => {
-      function solution(input) {
-        return `Result: ${input}`;
-      }
-
-      strictEqual(Solution.is(solution), true);
-    });
-
-    // false
-    it('should return false for a function with 2 parameters', () => {
-      const solution = (input, extra) => input + extra;
-
-      strictEqual(Solution.is(solution), false);
-    });
-    it('should return false for a function with 3 parameters', () => {
-      const solution = (a, b, c) => a + b + c;
-
-      strictEqual(Solution.is(solution), false);
-    });
-
-    */
   });
 });
