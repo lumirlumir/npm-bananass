@@ -6,8 +6,8 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import c from 'chalk';
-import isUnicodeSupported from 'is-unicode-supported';
+import { styleText } from 'node:util';
+import isUnicodeSupported from '../is-unicode-supported/index.js';
 
 // --------------------------------------------------------------------------------
 // Typedef
@@ -35,13 +35,13 @@ const choose = (unicode, ascii) => (isUnicodeSupported() ? unicode : ascii);
 // --------------------------------------------------------------------------------
 
 /** @type {string} */
-export const successIcon = c.green.bold(choose('✓', 'V'));
+export const successIcon = styleText(['green', 'bold'], choose('✓', 'V'));
 /** @type {string} */
-export const errorIcon = c.red.bold(choose('✕', 'X'));
+export const errorIcon = styleText(['red', 'bold'], choose('✕', 'X'));
 /** @type {string} */
-export const warningIcon = c.yellow.bold(choose('⚠', '!'));
+export const warningIcon = styleText(['yellow', 'bold'], choose('⚠', '!'));
 /** @type {string} */
-export const infoIcon = c.blue.bold(choose('✦', 'i'));
+export const infoIcon = styleText(['blue', 'bold'], choose('✦', 'i'));
 /** @type {string} */
 export const bananassIcon = choose('🍌', '');
 /** @type {string} U+2022: "Bullet" (•) */
@@ -52,13 +52,19 @@ export const boxDrawingsLightHorizontalIcon = choose('\u2500', '-');
 // --------------------------------------------------------------------------------
 
 /** @type {string} */
-export const successText = c.white.bgGreen.bold(` ${successIcon} SUCCESS `);
+export const successText = styleText(
+  ['white', 'bgGreen', 'bold'],
+  ` ${successIcon} SUCCESS `,
+);
 /** @type {string} */
-export const errorText = c.white.bgRed.bold(` ${errorIcon} ERROR `);
+export const errorText = styleText(['white', 'bgRed', 'bold'], ` ${errorIcon} ERROR `);
 /** @type {string} */
-export const warningText = c.white.bgYellow.bold(` ${warningIcon} WARN `);
+export const warningText = styleText(
+  ['white', 'bgYellow', 'bold'],
+  ` ${warningIcon} WARN `,
+);
 /** @type {string} */
-export const infoText = c.white.bgBlue.bold(` ${infoIcon} INFO `);
+export const infoText = styleText(['white', 'bgBlue', 'bold'], ` ${infoIcon} INFO `);
 
 // --------------------------------------------------------------------------------
 
