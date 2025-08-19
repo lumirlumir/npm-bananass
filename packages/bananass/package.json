@@ -92,10 +92,10 @@
     "dev": "node src/cli.js"
   },
   "dependencies": {
-    "@babel/core": "^7.28.0",
+    "@babel/core": "^7.28.3",
     "@babel/plugin-transform-modules-commonjs": "^7.27.1",
     "@babel/plugin-transform-typescript": "^7.28.0",
-    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-env": "^7.28.3",
     "babel-loader": "^10.0.0",
     "bananass-utils-console": "^0.4.0",
     "commander": "^14.0.0",
@@ -105,7 +105,7 @@
     "jiti": "^2.5.1",
     "open": "^10.2.0",
     "superstruct": "^2.0.2",
-    "webpack": "^5.101.0"
+    "webpack": "^5.101.3"
   },
   "devDependencies": {
     "@types/babel__core": "^7.20.5",
