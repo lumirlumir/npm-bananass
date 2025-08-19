@@ -460,7 +460,6 @@ describe('types', () => {
 
       strictEqual(problems.safeParse(array).success, true);
     });
-
     it('should return true for valid problems array', () => {
       const array = ['1000', '1500', '2000'];
 
@@ -473,25 +472,21 @@ describe('types', () => {
 
       strictEqual(problems.safeParse(array).success, false);
     });
-
     it('should return false if any problem number is below minimum', () => {
       const array = ['1000', '999', '1500'];
 
       strictEqual(problems.safeParse(array).success, false);
     });
-
     it('should return false if the array contains non-string values', () => {
       const array = ['1000', 1500, '2000'];
 
       strictEqual(problems.safeParse(array).success, false);
     });
-
     it('should return false if the array includes an empty string', () => {
       const array = ['1000', '', '2000'];
 
       strictEqual(problems.safeParse(array).success, false);
     });
-
     it('should return false for non-array inputs', () => {
       strictEqual(problems.safeParse(null).success, false);
       strictEqual(problems.safeParse('1000').success, false);
@@ -506,13 +501,11 @@ describe('types', () => {
 
       strictEqual(input.safeParse(input1).success, true);
     });
-
     it('should return true for a single valid input string with a newline character', () => {
       const input1 = 'Hello\nBaekjoon\nOnline Judge\n';
 
       strictEqual(input.safeParse(input1).success, true);
     });
-
     it('should return true for a single valid input string with template literals', () => {
       const input1 = `1
 2
@@ -522,7 +515,6 @@ describe('types', () => {
 
       strictEqual(input.safeParse(input1).success, true);
     });
-
     it('should return true for undefined', () => {
       const input1 = undefined;
 
@@ -549,13 +541,11 @@ describe('types', () => {
 
       strictEqual(output.safeParse(out).success, true);
     });
-
     it('should return true for number', () => {
       const out = 1000;
 
       strictEqual(output.safeParse(out).success, true);
     });
-
     it('should return true for boolean', () => {
       const out = true;
 
