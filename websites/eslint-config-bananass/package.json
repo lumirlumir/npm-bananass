@@ -8,7 +8,7 @@
     "dev": "npx @eslint/config-inspector --config ./config.js"
   },
   "devDependencies": {
-    "@eslint/config-inspector": "^1.1.0",
+    "@eslint/config-inspector": "^1.2.0",
     "eslint-config-bananass": "^0.4.0"
   }
 }
