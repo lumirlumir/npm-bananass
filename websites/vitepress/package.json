@@ -13,7 +13,7 @@
     "bananass": "^0.4.0",
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-mathjax3": "^4.3.2",
-    "vitepress": "^2.0.0-alpha.11",
+    "vitepress": "^2.0.0-alpha.12",
     "vitepress-plugin-group-icons": "^1.6.3"
   }
 }
