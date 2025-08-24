@@ -15,7 +15,7 @@ import Output from '../output/index.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { Testcase } from '../../types.js';
+ * @import { Testcase } from '../../types/index.js';
  * @import { Struct } from 'superstruct';
  */
 
