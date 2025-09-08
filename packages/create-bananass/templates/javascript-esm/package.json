@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "bananass": "^0.4.0",
-    "eslint": "^9.34.0",
+    "eslint": "^9.35.0",
     "eslint-config-bananass": "^0.4.0",
     "prettier": "^3.6.2",
     "prettier-config-bananass": "^0.4.0"
