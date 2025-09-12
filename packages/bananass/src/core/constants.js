@@ -67,7 +67,7 @@ export const URL_BOJ_PROBLEM = problem => `${URL_BOJ_MAIN}/problem/${problem}`;
 
 /** @satisfies {string} */
 export const DEFAULT_ENTRY_DIR_NAME = name;
-/** @satisfies {string} */
+/** @satisfies {`.${name}`} */
 export const DEFAULT_OUT_DIR_NAME = `.${name}`;
 /** @satisfies {string} */
 export const DEFAULT_OUT_FILE_EXTENSION = '.cjs';
