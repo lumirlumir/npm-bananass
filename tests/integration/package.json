@@ -1,14 +1,14 @@
 {
   "private": true,
   "name": "tests-integration",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "type": "module",
   "scripts": {
     "test": "node --test"
   },
   "devDependencies": {
-    "bananass": "^0.4.0",
-    "bananass-utils-console": "^0.4.0",
-    "create-bananass": "^0.4.0"
+    "bananass": "^0.4.1",
+    "bananass-utils-console": "^0.4.1",
+    "create-bananass": "^0.4.1"
   }
 }

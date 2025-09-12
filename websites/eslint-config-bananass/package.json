@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "websites-eslint-config-bananass",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "type": "module",
   "scripts": {
     "build": "npx @eslint/config-inspector build --config ./config.js --outDir ./build",
@@ -9,6 +9,6 @@
   },
   "devDependencies": {
     "@eslint/config-inspector": "^1.2.0",
-    "eslint-config-bananass": "^0.4.0"
+    "eslint-config-bananass": "^0.4.1"
   }
 }
