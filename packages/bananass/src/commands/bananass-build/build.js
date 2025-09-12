@@ -147,7 +147,7 @@ export default async function build(problems, configObject = dco) {
 
         /** @see https://webpack.js.org/configuration/resolve/#resolveextensions */
         resolve: {
-          extensions: SUPPORTED_SOLUTION_FILE_EXTENSIONS,
+          extensions: [...SUPPORTED_SOLUTION_FILE_EXTENSIONS],
         },
 
         /** @see https://webpack.js.org/concepts/#entry */

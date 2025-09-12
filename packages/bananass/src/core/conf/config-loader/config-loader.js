@@ -61,7 +61,7 @@ export default async function configLoader({
 
   const configFileConfigObject =
     configFilePath === null
-      ? {}
+      ? /** @type {ConfigObject} */ ({})
       : /** @type {ConfigObject} */ (
           await jiti.import(configFilePath, { default: true })
         );
