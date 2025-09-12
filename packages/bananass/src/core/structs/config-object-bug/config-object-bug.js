@@ -13,7 +13,7 @@ import { object } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { ConfigObjectBug } from '../../types.js';
+ * @import { ConfigObjectBug } from '../../types/index.js';
  * @import { Struct } from 'superstruct';
  */
 

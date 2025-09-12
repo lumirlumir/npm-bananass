@@ -20,7 +20,7 @@ import { URL_HOMEPAGE } from '../../core/constants.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { ConfigObject } from '../../core/types.js';
+ * @import { ConfigObject } from '../../core/types/index.js';
  */
 
 // --------------------------------------------------------------------------------
