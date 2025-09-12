@@ -34,6 +34,7 @@ export default function findRootDir() {
   const path = process.cwd();
   if (fs.existsSync(join(path, PACKAGE_JSON))) return path;
 
+  /** @type {string} */
   let pathFallback;
   try {
     pathFallback = resolve(
