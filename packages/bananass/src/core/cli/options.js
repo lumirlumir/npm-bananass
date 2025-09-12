@@ -23,65 +23,65 @@ function formatDefaultValue(defaultValue) {
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {[string, string]} */
-export const cwd = [
+/** @satisfies {[string, string]} */
+export const cwd = /** @type {const} */ ([
   '-c, --cwd <dir>',
   `current working directory ${formatDefaultValue(dco.cwd)}`,
-];
-/** @type {[string, string]} */
-export const entryDir = [
+]);
+/** @satisfies {[string, string]} */
+export const entryDir = /** @type {const} */ ([
   '-e, --entry-dir <dir>',
   `entry directory name ${formatDefaultValue(dco.entryDir)}`,
-];
-/** @type {[string, string]} */
-export const outDir = [
+]);
+/** @satisfies {[string, string]} */
+export const outDir = /** @type {const} */ ([
   '-o, --out-dir <dir>',
   `output directory name ${formatDefaultValue(dco.outDir)}`,
-];
+]);
 
 /* Global */
 
 // browser
-/** @type {[string, string]} */
-export const browser = [
+/** @satisfies {[string, string]} */
+export const browser = /** @type {const} */ ([
   '-b, --browser <browser>',
   `browser name. select from \`chrome\`, \`edge\`, \`firefox\`, \`brave\`, or \`default\` ${formatDefaultValue(dco.browser.browser)}`,
-];
-/** @type {[string, string]} */
-export const secret = [
+]);
+/** @satisfies {[string, string]} */
+export const secret = /** @type {const} */ ([
   '-s, --secret',
   `open browser in secret (private or incognito) mode ${formatDefaultValue(dco.browser.secret)}`,
-];
+]);
 
 // console
-/** @type {[string, string]} */
-export const debug = [
+/** @satisfies {[string, string]} */
+export const debug = /** @type {const} */ ([
   '-d, --debug',
   `enable debug mode ${formatDefaultValue(dco.console.debug)}`,
-];
-/** @type {[string, string]} */
-export const quiet = [
+]);
+/** @satisfies {[string, string]} */
+export const quiet = /** @type {const} */ ([
   '-q, --quiet',
   `enable quiet mode ${formatDefaultValue(dco.console.quiet)}`,
-];
+]);
 
 /* Exclusive */
 
 // build
-/** @type {[string, string]} */
-export const clean = [
+/** @satisfies {[string, string]} */
+export const clean = /** @type {const} */ ([
   '-C, --clean',
   `clean the output directory before emit ${formatDefaultValue(dco.build.clean)}`,
-];
-/** @type {[string, string]} */
-export const templateType = [
+]);
+/** @satisfies {[string, string]} */
+export const templateType = /** @type {const} */ ([
   '-t, --template-type <type>',
   `webpack entry file template type. select from \`fs\` (file system) or \`rl\` (read line) ${formatDefaultValue(dco.build.templateType)}`,
-];
+]);
 
 // info
-/** @type {[string, string]} */
-export const all = [
+/** @satisfies {[string, string]} */
+export const all = /** @type {const} */ ([
   '-a, --all',
   `show all information including not found ${formatDefaultValue(dco.info.all)}`,
-];
+]);
