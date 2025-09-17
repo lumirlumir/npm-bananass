@@ -29,7 +29,7 @@ import {
 /**
  * @typedef {object} SpinnerStyle
  * @property {string[]} frames
- * @property {number} [interval]
+ * @property {number} interval
  */
 
 /**
@@ -66,8 +66,8 @@ class Spinner {
   #interval;
   /** @type {number} */
   #currentFrame = -1;
-  /** @type {NodeJS.Timeout} */
-  #timer;
+  /** @type {NodeJS.Timeout | undefined} */
+  #timer = undefined;
   /** @type {string} */
   #text;
   /** @type {NodeJS.WriteStream} */
@@ -100,7 +100,7 @@ class Spinner {
   // Private Methods
   // ------------------------------------------------------------------------------
 
-  /** @param {string} symbol @param {string} text */
+  /** @param {string} symbol @param {string} [text] */
   #symbolStop(symbol, text) {
     return this.stop(`${symbol} ${text ?? this.#text}`);
   }
