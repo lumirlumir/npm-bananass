@@ -15,7 +15,7 @@ import createBananass from 'create-bananass/package.json' with { type: 'json' };
 import createBananassJsCjs from 'create-bananass/templates/javascript-cjs/package.json' with { type: 'json' };
 import createBananassJsEsm from 'create-bananass/templates/javascript-esm/package.json' with { type: 'json' };
 import createBananassTsCjs from 'create-bananass/templates/typescript-cjs/package.json' with { type: 'json' };
-import createBananassTSEsm from 'create-bananass/templates/typescript-esm/package.json' with { type: 'json' };
+import createBananassTsEsm from 'create-bananass/templates/typescript-esm/package.json' with { type: 'json' };
 import npmBananass from '../../package.json' with { type: 'json' }; // eslint-disable-line import/no-relative-packages
 
 // --------------------------------------------------------------------------------
@@ -33,7 +33,7 @@ describe('package-json', () => {
         createBananassJsCjs.engines.node,
         createBananassJsEsm.engines.node,
         createBananassTsCjs.engines.node,
-        createBananassTSEsm.engines.node,
+        createBananassTsEsm.engines.node,
       ]).size,
       1,
     );
