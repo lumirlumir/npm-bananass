@@ -54,6 +54,7 @@ export default function testRunner(solutionWithTestcases) {
   // Test Runner
   // ------------------------------------------------------------------------------
 
+  // @ts-expect-error -- TODO: `SolutionWithTestcases` type will be removed in the near future.
   const results = testcases.map(({ input, output: outputExpected }) => {
     const outputActual = solution(input);
 
@@ -74,6 +75,7 @@ export default function testRunner(solutionWithTestcases) {
     };
   });
 
+  // @ts-expect-error -- TODO: `SolutionWithTestcases` type will be removed in the near future.
   const numberOfTests = testcases.length;
   const numberOfTestsPassed = results.filter(({ isTestPassed }) => isTestPassed).length;
   const numberOfTestsFailed = numberOfTests - numberOfTestsPassed;

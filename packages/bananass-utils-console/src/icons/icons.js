@@ -16,7 +16,7 @@ import isUnicodeSupported from '../is-unicode-supported/index.js';
 /**
  * @typedef {object} SpinnerStyle
  * @property {string[]} frames
- * @property {number} [interval]
+ * @property {number} interval
  */
 
 // --------------------------------------------------------------------------------

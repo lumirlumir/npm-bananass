@@ -71,7 +71,10 @@ program
   .option('--skip-git', 'skip initializing git', false)
   .option('--skip-install', 'skip installing packages with npm', false)
   .action(
-    async (/** @type {string} */ cliDirectory, /** @type {cliOptions} */ cliOptions) => {
+    async (
+      /** @type {string} */ cliDirectory,
+      /** @type {Required<cliOptions>} */ cliOptions,
+    ) => {
       // --------------------------------------------------------------------------
       // CLI
       // --------------------------------------------------------------------------
@@ -266,7 +269,7 @@ program
 
                   installExtension.on('close', code => {
                     if (code === 0) {
-                      res();
+                      res(undefined);
                     } else {
                       rej(
                         new Error(
@@ -308,7 +311,7 @@ program
 
             gitInit.on('close', code => {
               if (code === 0) {
-                res();
+                res(undefined);
               } else {
                 rej(new Error(`git init failed with exit code ${code}`));
               }
@@ -342,7 +345,7 @@ program
 
             npmInstall.on('close', code => {
               if (code === 0) {
-                res();
+                res(undefined);
               } else {
                 rej(new Error(`npm install failed with exit code ${code}`));
               }
