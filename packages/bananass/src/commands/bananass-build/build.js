@@ -259,8 +259,8 @@ export default async function build(problems, configObject = dco) {
   try {
     await new Promise((res, rej) => {
       webpack(webpackConfigs, (err, stats) => {
-        if (err || stats.hasErrors()) {
-          rej(err || new Error(stats.toString()));
+        if (err || stats?.hasErrors()) {
+          rej(err || new Error(stats?.toString()));
         } else {
           res(stats);
         }
