@@ -5,7 +5,7 @@
   "description": "Baekjoon Framework for JavaScript.🍌",
   "exports": {
     ".": {
-      "types": "./build/core/types.d.ts"
+      "types": "./build/core/types/index.d.ts"
     },
     "./commands": {
       "types": "./build/commands/index.d.ts",
@@ -31,7 +31,7 @@
         "./build/*"
       ],
       ".": [
-        "./build/core/types.d.ts"
+        "./build/core/types/index.d.ts"
       ],
       "./commands": [
         "./build/commands/index.d.ts"
@@ -56,7 +56,7 @@
     "build",
     "LICENSE.md",
     "README.md",
-    "!src/**/*.test.js",
+    "!src/**/*.test.{js,ts}",
     "!**/fixtures/**"
   ],
   "keywords": [
@@ -88,7 +88,9 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "npx tsc && node ../../scripts/cp.mjs ../../LICENSE.md LICENSE.md ../../README.md README.md",
-    "test": "node --experimental-test-module-mocks --test",
+    "test": "npm run test:unit && npm run test:types",
+    "test:unit": "node --experimental-test-module-mocks --test",
+    "test:types": "tsc -p ./tsconfig.test.json",
     "dev": "node src/cli.js"
   },
   "dependencies": {
@@ -105,7 +107,8 @@
     "jiti": "^2.5.1",
     "open": "^10.2.0",
     "superstruct": "^2.0.2",
-    "webpack": "^5.101.3"
+    "webpack": "^5.101.3",
+    "zod": "^4.0.17"
   },
   "devDependencies": {
     "@types/babel__core": "^7.20.5",

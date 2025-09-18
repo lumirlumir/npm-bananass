@@ -14,7 +14,7 @@ import Testcase from '../testcase/index.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { Testcases } from '../../types.js';
+ * @import { Testcases } from '../../types/index.js';
  * @import { Struct } from 'superstruct';
  */
 
@@ -25,7 +25,7 @@ import Testcase from '../testcase/index.js';
 /**
  * `Testcases` type struct.
  * @type {Struct<Testcases>}
- */
+ */ // @ts-expect-error -- TODO: migrate to Zod.
 const Testcases = nonempty(array(Testcase));
 
 // --------------------------------------------------------------------------------

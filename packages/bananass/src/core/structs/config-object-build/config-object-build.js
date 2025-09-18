@@ -13,7 +13,7 @@ import { boolean, enums, object, optional } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { ConfigObjectBuild } from '../../types.js';
+ * @import { ConfigObjectBuild } from '../../types/index.js';
  * @import { Struct } from 'superstruct';
  */
 

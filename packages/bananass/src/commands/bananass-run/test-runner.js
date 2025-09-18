@@ -17,7 +17,7 @@ import {
 // --------------------------------------------------------------------------------
 
 /**
- * @import { SolutionWithTestcases, Output } from '../../core/types.js';
+ * @import { SolutionWithTestcases, Output } from '../../core/types/index.js';
  */
 
 // --------------------------------------------------------------------------------

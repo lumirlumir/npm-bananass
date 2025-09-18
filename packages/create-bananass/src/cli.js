@@ -43,7 +43,7 @@ import { consola } from 'consola';
 // Declarations
 // --------------------------------------------------------------------------------
 
-/** @type {Record<string, string>} */
+/** @type {{ description: string, homepage: string, name: string, version: string }} */
 const {
   description: pkgDescription,
   homepage: pkgHomepage,

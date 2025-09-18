@@ -19,7 +19,7 @@ import tsxNext from './configs/tsx-next.js';
 // Helpers
 // --------------------------------------------------------------------------------
 
-/** @type {Record<string, string>} */
+/** @type {{ name: string, version: string }} */
 const { name, version } = createRequire(import.meta.url)('../package.json');
 
 // --------------------------------------------------------------------------------

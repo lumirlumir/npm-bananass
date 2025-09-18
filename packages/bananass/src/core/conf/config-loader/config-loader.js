@@ -21,7 +21,7 @@ import { SUPPORTED_CONFIG_FILE_NAMES } from '../../constants.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { ConfigObject } from '../../types.js';
+ * @import { ConfigObject } from '../../types/index.js';
  */
 
 // --------------------------------------------------------------------------------
