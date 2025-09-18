@@ -101,8 +101,8 @@ class Spinner {
   // ------------------------------------------------------------------------------
 
   /** @param {string} symbol @param {string} [text] */
-  #symbolStop(symbol, text) {
-    return this.stop(`${symbol} ${text ?? this.#text}`);
+  #symbolStop(symbol, text = this.#text) {
+    return this.stop(`${symbol} ${text}`);
   }
 
   #render() {
