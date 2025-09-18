@@ -69,7 +69,7 @@ class Logger {
    * - `quiet === true`: output X
    * - `quiet === false`: output O
    *
-   * @param {...any} params
+   * @param {...unknown} params
    * @returns {Logger}
    */
   log(...params) {
@@ -111,7 +111,7 @@ class Logger {
    * - `quiet === false && debug === true`: output O
    * - `quiet === false && debug === false`: output X
    *
-   * @param {...any} params
+   * @param {...unknown} params
    * @returns {Logger}
    */
   debug(...params) {
@@ -172,7 +172,6 @@ class Logger {
 
   /**
    * Get the last method called.
-   *
    * @returns {'log' | 'debug'}
    */
   get lastMethodCalled() {

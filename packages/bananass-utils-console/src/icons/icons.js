@@ -24,9 +24,10 @@ import isUnicodeSupported from '../is-unicode-supported/index.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @param {string | string[]} unicode Used when Unicode is supported.
- * @param {string | string[]} ascii Used when Unicode is not supported.
- * @returns {any}
+ * @template {string | string[]} T
+ * @param {T} unicode Used when Unicode is supported.
+ * @param {T} ascii Used when Unicode is not supported.
+ * @returns {T}
  */
 const choose = (unicode, ascii) => (isUnicodeSupported() ? unicode : ascii);
 

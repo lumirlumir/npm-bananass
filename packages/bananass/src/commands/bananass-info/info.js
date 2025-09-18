@@ -88,8 +88,8 @@ export default async function info(configObject = dco) {
       ],
       // @ts-expect-error -- TODO: Ain't yet supported by `@types/envinfo`.
       Monorepos: ['Lerna', 'Yarn Workspaces'],
-      npmPackages: BANANASS_PKG_NAMES,
-      npmGlobalPackages: BANANASS_PKG_NAMES,
+      npmPackages: [...BANANASS_PKG_NAMES],
+      npmGlobalPackages: [...BANANASS_PKG_NAMES],
     },
     { showNotFound: all },
   );

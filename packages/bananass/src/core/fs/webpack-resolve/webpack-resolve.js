@@ -17,7 +17,7 @@ import { SUPPORTED_SOLUTION_FILE_EXTENSIONS } from '../../constants.js';
  * Webpack resolve using `enhanced-resolve` to resolve module paths.
  */
 const webpackResolve = enhancedResolve.create({
-  extensions: SUPPORTED_SOLUTION_FILE_EXTENSIONS,
+  extensions: [...SUPPORTED_SOLUTION_FILE_EXTENSIONS],
 });
 
 // --------------------------------------------------------------------------------
