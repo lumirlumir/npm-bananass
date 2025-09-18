@@ -186,7 +186,7 @@ class Logger {
 /**
  * Create a new `Logger` instance.
  *
- * @param {Options} options
+ * @param {Options} [options]
  * @returns {Logger} A new `Logger` instance.
  *
  * @example
