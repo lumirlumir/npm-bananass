@@ -45,7 +45,10 @@
     "js",
     "ts",
     "jsx",
-    "tsx"
+    "tsx",
+    "json",
+    "jsonc",
+    "json5"
   ],
   "author": "루밀LuMir <rpfos@naver.com> (https://github.com/lumirlumir)",
   "license": "MIT",
@@ -67,9 +70,10 @@
     "test": "node --test"
   },
   "peerDependencies": {
-    "eslint": "^9.0.0"
+    "eslint": "^9.15.0"
   },
   "dependencies": {
+    "@eslint/json": "^0.13.2",
     "@next/eslint-plugin-next": "^15.5.3",
     "@stylistic/eslint-plugin-js": "^4.4.1",
     "@typescript-eslint/eslint-plugin": "^8.43.0",
