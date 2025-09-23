@@ -6,10 +6,10 @@
 // Export
 // --------------------------------------------------------------------------------
 
-export const js = ['**/*.js', '**/*.cjs', '**/*.mjs'];
+export const js = /** @type {const} */ (['**/*.js', '**/*.cjs', '**/*.mjs']);
 
-export const jsx = ['**/*.jsx'];
+export const jsx = /** @type {const} */ (['**/*.jsx']);
 
-export const ts = ['**/*.ts', '**/*.cts', '**/*.mts'];
+export const ts = /** @type {const} */ (['**/*.ts', '**/*.cts', '**/*.mts']);
 
-export const tsx = ['**/*.tsx'];
+export const tsx = /** @type {const} */ (['**/*.tsx']);
