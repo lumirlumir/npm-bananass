@@ -52,7 +52,7 @@ import bananass from 'eslint-config-bananass';
 import type bananass from 'eslint-config-bananass';
 
 // JSON import only supports default export
-import pkg from 'eslint-config-bananass/package.json' assert { type: 'json' };
+import pkg from 'eslint-config-bananass/package.json' with { type: 'json' };
 ```
 
 ---
@@ -71,7 +71,7 @@ import pkg from 'eslint-config-bananass/package.json' assert { type: 'json' };
 
 ## ESLint Config 설정 방법 {#eslint-config-setting}
 
-`eslint-config-bananass`는 아래와 같은 6가지 설정<sup>Config</sup>을 지원합니다. 필요에 따라 아래 설정 중 하나 혹은 여러개를 선택하여 사용해주세요.
+`eslint-config-bananass`는 아래와 같은 9가지 설정<sup>Config</sup>을 지원합니다. 필요에 따라 아래 설정 중 하나 혹은 여러개를 선택하여 사용해주세요.
 
 각각의 구성에 포함된 정확한 규칙들은 [ESLint Config Inspector](https://eslint-config-bananass.lumir.page)를 참고해주세요.
 
@@ -81,6 +81,9 @@ import pkg from 'eslint-config-bananass/package.json' assert { type: 'json' };
 - `ts`: 타입스크립트
 - `tsxReact`: 타입스크립트 + React
 - `tsxNext`: 타입스크립트 + React + Next.js
+- `json`: JSON
+- `jsonc`: JSONC
+- `json5`: JSON5
 
 ```js [eslint.config.mjs]
 import { defineConfig } from 'eslint/config';
@@ -93,6 +96,9 @@ export default defineConfig([
   bananass.configs.ts, // TypeScript
   bananass.configs.tsxReact, // TypeScript + React
   bananass.configs.tsxNext, // TypeScript + React + Next.js
+  bananass.configs.json, // JSON
+  bananass.configs.jsonc, // JSONC
+  bananass.configs.json5, // JSON5
 ]);
 ```
 

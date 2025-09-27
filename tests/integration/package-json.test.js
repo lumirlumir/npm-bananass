@@ -6,32 +6,17 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { createRequire } from 'node:module';
 import { strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
-// --------------------------------------------------------------------------------
-// Helpers
-// --------------------------------------------------------------------------------
-
-const npmBananass = createRequire(import.meta.url)('../../package.json');
-const bananass = createRequire(import.meta.url)('bananass/package.json');
-const bananassUtilsConsole = createRequire(import.meta.url)(
-  'bananass-utils-console/package.json',
-);
-const createBananass = createRequire(import.meta.url)('create-bananass/package.json');
-const createBananassJsCjs = createRequire(import.meta.url)(
-  'create-bananass/templates/javascript-cjs/package.json',
-);
-const createBananassJsEsm = createRequire(import.meta.url)(
-  'create-bananass/templates/javascript-esm/package.json',
-);
-const createBananassTsCjs = createRequire(import.meta.url)(
-  'create-bananass/templates/typescript-cjs/package.json',
-);
-const createBananassTSEsm = createRequire(import.meta.url)(
-  'create-bananass/templates/typescript-esm/package.json',
-);
+import bananass from 'bananass/package.json' with { type: 'json' };
+import bananassUtilsConsole from 'bananass-utils-console/package.json' with { type: 'json' };
+import createBananass from 'create-bananass/package.json' with { type: 'json' };
+import createBananassJsCjs from 'create-bananass/templates/javascript-cjs/package.json' with { type: 'json' };
+import createBananassJsEsm from 'create-bananass/templates/javascript-esm/package.json' with { type: 'json' };
+import createBananassTsCjs from 'create-bananass/templates/typescript-cjs/package.json' with { type: 'json' };
+import createBananassTsEsm from 'create-bananass/templates/typescript-esm/package.json' with { type: 'json' };
+import npmBananass from '../../package.json' with { type: 'json' }; // eslint-disable-line import/no-relative-packages
 
 // --------------------------------------------------------------------------------
 // Test
@@ -48,7 +33,7 @@ describe('package-json', () => {
         createBananassJsCjs.engines.node,
         createBananassJsEsm.engines.node,
         createBananassTsCjs.engines.node,
-        createBananassTSEsm.engines.node,
+        createBananassTsEsm.engines.node,
       ]).size,
       1,
     );

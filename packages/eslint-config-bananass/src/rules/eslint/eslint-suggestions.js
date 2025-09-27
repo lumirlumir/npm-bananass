@@ -12,11 +12,20 @@
  */
 
 // --------------------------------------------------------------------------------
+// Typedef
+// --------------------------------------------------------------------------------
+
+/**
+ * @import { Linter } from "eslint"
+ * @import { ESLintRules } from "eslint/rules"
+ */
+
+// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {import("eslint").Linter.RulesRecord} */
-export default {
+/** @type {Linter.RulesRecord} */
+export default /** @satisfies {Partial<ESLintRules>} */ ({
   /**
    * Enforce getter and setter pairs in objects and classes.
    *
@@ -1292,4 +1301,4 @@ export default {
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L411}
    */
   yoda: 'error',
-};
+});

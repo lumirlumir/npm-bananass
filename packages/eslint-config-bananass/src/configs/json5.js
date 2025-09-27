@@ -1,5 +1,5 @@
 /**
- * @fileoverview Configuration applied when a user configuration extends from `js`.
+ * @fileoverview Configuration applied when a user configuration extends from `json5`.
  *
  * - Values not explicitly defined on the object will use their default values.
  * - Use the config inspector (`--inspect-config` in the CLI) to test which config objects apply to a specific file.
@@ -9,11 +9,9 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { js } from '../files.js';
-import { globals } from '../language-options.js';
-import { importPlugin, nodePlugin, stylisticJsPlugin } from '../plugins.js';
-import { eslintRules, importRules, nodeRules, stylisticJsRules } from '../rules/index.js';
-import { node } from '../settings.js';
+import { json5 } from '../files.js';
+import { jsonPlugin } from '../plugins.js';
+import { jsonRules } from '../rules/index.js';
 
 // --------------------------------------------------------------------------------
 // Export
@@ -21,23 +19,13 @@ import { node } from '../settings.js';
 
 /** @type {import("eslint").Linter.Config} */
 export default {
-  name: 'bananass/js',
-  files: [...js],
-  languageOptions: {
-    globals,
-  },
+  name: 'bananass/json5',
+  files: [...json5],
+  language: 'json/json5',
   plugins: {
-    ...importPlugin,
-    ...nodePlugin,
-    ...stylisticJsPlugin,
+    ...jsonPlugin,
   },
   rules: {
-    ...eslintRules,
-    ...importRules,
-    ...nodeRules,
-    ...stylisticJsRules,
-  },
-  settings: {
-    node,
+    ...jsonRules,
   },
 };

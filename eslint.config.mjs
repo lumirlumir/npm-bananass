@@ -8,9 +8,14 @@ export default defineConfig([
     ['**/build/', '**/coverage/', '**/.vitepress/cache/', '**/.bananass/'],
     'global/ignores',
   ),
+
   bananass.configs.js,
   bananass.configs.ts,
+  bananass.configs.json,
+  bananass.configs.jsonc,
+  bananass.configs.json5,
   mark.configs.recommendedGfm,
+
   {
     name: 'websites-vitepress/global',
     files: ['websites/vitepress/**/*.md'],

@@ -14,9 +14,20 @@ import jsxNext from './configs/jsx-next.js';
 import ts from './configs/ts.js';
 import tsxReact from './configs/tsx-react.js';
 import tsxNext from './configs/tsx-next.js';
+import json from './configs/json.js';
+import jsonc from './configs/jsonc.js';
+import json5 from './configs/json5.js';
 
 // --------------------------------------------------------------------------------
-// Helpers
+// Typedef
+// --------------------------------------------------------------------------------
+
+/**
+ * @import { ESLint } from 'eslint'
+ */
+
+// --------------------------------------------------------------------------------
+// Helper
 // --------------------------------------------------------------------------------
 
 /** @type {{ name: string, version: string }} */
@@ -26,7 +37,7 @@ const { name, version } = createRequire(import.meta.url)('../package.json');
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {import("eslint").ESLint.Plugin} */
+/** @type {ESLint.Plugin} */
 export default {
   meta: {
     name,
@@ -40,5 +51,8 @@ export default {
     jsxNext,
     tsxReact,
     tsxNext,
+    json,
+    jsonc,
+    json5,
   },
 };
