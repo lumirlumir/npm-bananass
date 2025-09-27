@@ -34,11 +34,11 @@ import {
 
 /**
  * @typedef {object} Options Spinner options.
- * @property {string} [text] Text to display next to the spinner. (default: `''`)
- * @property {ForegroundColors} [color] The color of the spinner. (default: `'yellow'`)
- * @property {NodeJS.WriteStream} [stream] The stream to which the spinner is written. (default: `process.stderr`)
- * @property {boolean} [isInteractive] Whether the spinner should be interactive. (default: Auto-detected)
- * @property {SpinnerStyle} [spinner]
+ * @property {string | undefined} [text] Text to display next to the spinner. (default: `''`)
+ * @property {ForegroundColors | undefined} [color] The color of the spinner. (default: `'yellow'`)
+ * @property {NodeJS.WriteStream | undefined} [stream] The stream to which the spinner is written. (default: `process.stderr`)
+ * @property {boolean | undefined} [isInteractive] Whether the spinner should be interactive. (default: Auto-detected)
+ * @property {SpinnerStyle | undefined} [spinner]
  * Customize the spinner animation with a custom set of frames and interval.
  *
  * ```

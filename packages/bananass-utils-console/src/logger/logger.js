@@ -15,9 +15,9 @@ import { styleText } from 'node:util';
 
 /**
  * @typedef {object} Options Logger options.
- * @property {boolean} [debug] Enable debug mode.
- * @property {boolean} [quiet] Enable quiet mode.
- * @property {string | boolean} [textPrefix] Text prefix.
+ * @property {boolean | undefined} [debug] Enable debug mode.
+ * @property {boolean | undefined} [quiet] Enable quiet mode.
+ * @property {string | boolean | undefined} [textPrefix] Text prefix.
  */
 
 // --------------------------------------------------------------------------------
