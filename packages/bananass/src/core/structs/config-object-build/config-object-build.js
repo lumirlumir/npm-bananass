@@ -24,7 +24,7 @@ import { boolean, enums, object, optional } from 'superstruct';
 /**
  * `ConfigObjectBuild` type struct.
  * @type {Struct<ConfigObjectBuild>}
- */ // @ts-expect-error -- TODO: migrate to `zod`
+ */
 const ConfigObjectBuild = object({
   clean: optional(boolean()),
   templateType: optional(enums(['fs', 'rl'])),

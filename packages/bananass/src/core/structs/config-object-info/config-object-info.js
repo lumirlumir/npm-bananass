@@ -24,7 +24,7 @@ import { boolean, object, optional } from 'superstruct';
 /**
  * `ConfigObjectInfo` type struct.
  * @type {Struct<ConfigObjectInfo>}
- */ // @ts-expect-error -- TODO: migrate to `zod`
+ */
 const ConfigObjectInfo = object({
   all: optional(boolean()),
 });

@@ -24,7 +24,7 @@ import { string } from 'superstruct';
 /**
  * `Input` type struct.
  * @type {Struct<Input>}
- */
+ */ // @ts-expect-error -- TODO: migrate to `zod`
 const Input = string();
 
 // --------------------------------------------------------------------------------
