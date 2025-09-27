@@ -108,7 +108,7 @@
     "open": "^10.2.0",
     "superstruct": "^2.0.2",
     "webpack": "^5.101.3",
-    "zod": "^4.0.17"
+    "zod": "^4.1.11"
   },
   "devDependencies": {
     "@types/babel__core": "^7.20.5",
