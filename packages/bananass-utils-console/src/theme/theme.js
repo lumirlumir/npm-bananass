@@ -40,7 +40,7 @@ const format = (str, showIcon, color, icon) =>
  * Returns a green-colored success message prefixed with an icon.
  *
  * @param {string} str The success message to format.
- * @param {boolean} showIcon Whether to show the icon. Defaults to `false`.
+ * @param {boolean} [showIcon] Whether to show the icon. Defaults to `false`.
  * @returns {string} Returns a green-colored success message prefixed with an icon.
  *
  * @example
@@ -55,7 +55,7 @@ export function success(str, showIcon = false) {
  * Returns a red-colored error message prefixed with an icon.
  *
  * @param {string} str The error message to format.
- * @param {boolean} showIcon Whether to show the icon. Defaults to `false`.
+ * @param {boolean} [showIcon] Whether to show the icon. Defaults to `false`.
  * @returns {string} Returns a red-colored error message prefixed with an icon.
  *
  * @example
@@ -70,7 +70,7 @@ export function error(str, showIcon = false) {
  * Returns a yellow-colored warning message prefixed with an icon.
  *
  * @param {string} str The warning message to format.
- * @param {boolean} showIcon Whether to show the icon. Defaults to `false`.
+ * @param {boolean} [showIcon] Whether to show the icon. Defaults to `false`.
  * @returns {string} Returns a yellow-colored warning message prefixed with an icon.
  *
  * @example
@@ -85,7 +85,7 @@ export function warning(str, showIcon = false) {
  * Returns a blue-colored info message prefixed with an icon.
  *
  * @param {string} str The info message to format.
- * @param {boolean} showIcon Whether to show the icon. Defaults to `false`.
+ * @param {boolean} [showIcon] Whether to show the icon. Defaults to `false`.
  * @returns {string} Returns a blue-colored info message prefixed with an icon.
  *
  * @example
@@ -100,7 +100,7 @@ export function info(str, showIcon = false) {
  * Returns a yellow-colored error message prefixed with an icon.
  *
  * @param {string} str The bananass message to format.
- * @param {boolean} showIcon Whether to show the icon. Defaults to `false`.
+ * @param {boolean} [showIcon] Whether to show the icon. Defaults to `false`.
  * @returns Returns a yellow-colored error message prefixed with an icon.
  *
  * @example
