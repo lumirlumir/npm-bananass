@@ -628,8 +628,6 @@ configObjectRun = true;
 // #endregion ConfigObjectRun
 // --------------------------------------------------------------------------------
 
-/*
-
 // --------------------------------------------------------------------------------
 // #region Problem
 
@@ -655,9 +653,17 @@ configObjectRun = true;
 let problem: Problem;
 
 problem = '1000';
+problem = '2000';
+
+// @ts-expect-error -- Type `number` is not assignable to type `Problem`.
+problem = 0;
+// @ts-expect-error -- Type `boolean` is not assignable to type `Problem`.
+problem = true;
 
 // #endregion Problem
 // --------------------------------------------------------------------------------
+
+/*
 
 // --------------------------------------------------------------------------------
 // #region Problems
