@@ -10,7 +10,7 @@
 
 import type {
   ConfigObject,
-  // ConfigObjectBrowser,
+  ConfigObjectBrowser,
   // ConfigObjectConsole,
   // ConfigObjectAdd,
   // ConfigObjectBug,
@@ -121,8 +121,6 @@ configObject = true;
 // #endregion ConfigObject
 // --------------------------------------------------------------------------------
 
-/*
-
 // --------------------------------------------------------------------------------
 // #region ConfigObjectBrowser
 
@@ -163,19 +161,25 @@ configObjectBrowser = {
   // @ts-expect-error -- `unknownProperty` does not exist in type `ConfigObject`.
   unknownProperty: 'Hello, World!',
 };
+configObjectBrowser = {
+  // @ts-expect-error -- Type '"abc"' is not assignable.
+  browser: 'abc',
+};
+// @ts-expect-error -- Cannot assign to 'browser' because it is a read-only property.
+configObjectBrowser.browser = 'chrome';
+// @ts-expect-error -- Cannot assign to 'secret' because it is a read-only property.
+configObjectBrowser.secret = true;
 // @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
 configObjectBrowser = 0;
 // @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
 configObjectBrowser = 'string';
 // @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
 configObjectBrowser = true;
-// @ts-expect-error -- Cannot assign to 'browser' because it is a read-only property.
-configObjectBrowser.browser = 'chrome';
-// @ts-expect-error -- Cannot assign to 'secret' because it is a read-only property.
-configObjectBrowser.secret = true;
 
 // #endregion ConfigObjectBrowser
 // --------------------------------------------------------------------------------
+
+/*
 
 // --------------------------------------------------------------------------------
 // #region ConfigObjectConsole
