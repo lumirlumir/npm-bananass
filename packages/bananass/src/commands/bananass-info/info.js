@@ -12,7 +12,7 @@ import createLogger from 'bananass-utils-console/logger';
 import envinfo from 'envinfo';
 
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
-import { ConfigObject as ConfigObjectStruct } from '../../core/structs/index.js';
+import { configObject as configObjectSchema } from '../../core/types/index.js';
 import { BANANASS_PKG_NAMES } from '../../core/constants.js';
 
 // --------------------------------------------------------------------------------
@@ -34,14 +34,10 @@ import { BANANASS_PKG_NAMES } from '../../core/constants.js';
  */
 export default async function info(configObject = dco) {
   // ------------------------------------------------------------------------------
-  // Runtime Validation
-  // ------------------------------------------------------------------------------
-
-  ConfigObjectStruct.assert(configObject);
-
-  // ------------------------------------------------------------------------------
   // Declarations
   // ------------------------------------------------------------------------------
+
+  const sanitizedConfigObject = configObjectSchema.parse(configObject);
 
   const {
     console: {
@@ -51,7 +47,7 @@ export default async function info(configObject = dco) {
     info: {
       all = dco.info.all, // (This comment was used for code formatting.)
     } = dco.info,
-  } = configObject;
+  } = sanitizedConfigObject;
 
   const logger = createLogger({ debug, quiet, textPrefix: false });
 

@@ -72,6 +72,7 @@ describe('home', () => {
   describe('should work as expected', () => {
     it('should reject when invalid values are provided', async () => {
       await rejects(() => home({ invalid: 'invalid' }));
+      await rejects(() => home({ console: { debug: 'true' } }));
     });
 
     it('should open the homepage in a browser', async () => {

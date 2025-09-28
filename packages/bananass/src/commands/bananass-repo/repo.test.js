@@ -72,6 +72,7 @@ describe('repo', () => {
   describe('should work as expected', () => {
     it('should reject when invalid values are provided', async () => {
       await rejects(() => repo({ invalid: 'invalid' }));
+      await rejects(() => repo({ console: { debug: 'true' } }));
     });
 
     it('should open the github repository in a browser', async () => {
