@@ -380,26 +380,37 @@ configObjectBuild = true;
 
 ({}) as ConfigObjectDiscussion satisfies object;
 
-// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectDiscussion`.
 ({}) as ConfigObjectDiscussion satisfies number;
-// @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectDiscussion`.
 ({}) as ConfigObjectDiscussion satisfies string;
-// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectDiscussion`.
 ({}) as ConfigObjectDiscussion satisfies boolean;
-// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObjectDiscussion`.
 ({}) as ConfigObjectDiscussion satisfies undefined;
-// @ts-expect-error -- Type `null` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `null` is not assignable to type `ConfigObjectDiscussion`.
 ({}) as ConfigObjectDiscussion satisfies null;
-// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObjectDiscussion`.
 ({}) as ConfigObjectDiscussion satisfies symbol;
-// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObjectDiscussion`.
 ({}) as ConfigObjectDiscussion satisfies bigint;
-// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObjectDiscussion`.
 ({}) as ConfigObjectDiscussion satisfies Function;
 
 let configObjectDiscussion: ConfigObjectDiscussion;
 
 configObjectDiscussion = {};
+
+configObjectDiscussion = {
+  // @ts-expect-error -- `unknownProperty` does not exist in type `ConfigObjectDiscussion`.
+  unknownProperty: 'Hello, World!',
+};
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectDiscussion`.
+configObjectDiscussion = 0;
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectDiscussion`.
+configObjectDiscussion = 'string';
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectDiscussion`.
+configObjectDiscussion = true;
 
 // #endregion ConfigObjectDiscussion
 // --------------------------------------------------------------------------------
