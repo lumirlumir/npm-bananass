@@ -10,6 +10,7 @@
 
 import type {
   ConfigObject,
+  /*
   ConfigObjectBrowser,
   ConfigObjectConsole,
   ConfigObjectAdd,
@@ -28,6 +29,7 @@ import type {
   Testcase,
   Testcases,
   Solution,
+  */
 } from './types.js';
 
 // --------------------------------------------------------------------------------
@@ -120,6 +122,8 @@ configObject.build = undefined;
 
 // #endregion ConfigObject
 // --------------------------------------------------------------------------------
+
+/*
 
 // --------------------------------------------------------------------------------
 // #region ConfigObjectBrowser
@@ -716,3 +720,5 @@ solution = function solution(input1: Input, input2: Input, input3: Input): Outpu
 
 // #endregion Testcase
 // --------------------------------------------------------------------------------
+
+*/
