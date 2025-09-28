@@ -11,7 +11,7 @@
 import type {
   ConfigObject,
   ConfigObjectBrowser,
-  // ConfigObjectConsole,
+  ConfigObjectConsole,
   // ConfigObjectAdd,
   // ConfigObjectBug,
   // ConfigObjectBuild,
@@ -179,8 +179,6 @@ configObjectBrowser = true;
 // #endregion ConfigObjectBrowser
 // --------------------------------------------------------------------------------
 
-/*
-
 // --------------------------------------------------------------------------------
 // #region ConfigObjectConsole
 
@@ -208,9 +206,38 @@ configObjectBrowser = true;
 let configObjectConsole: ConfigObjectConsole;
 
 configObjectConsole = {};
+configObjectConsole = {
+  debug: true,
+  quiet: false,
+};
+configObjectConsole = {
+  debug: undefined,
+  quiet: undefined,
+};
+
+configObjectConsole = {
+  // @ts-expect-error -- `unknownProperty` does not exist in type `ConfigObject`.
+  unknownProperty: 'Hello, World!',
+};
+configObjectConsole = {
+  // @ts-expect-error -- Type 'string' is not assignable.
+  debug: 'true',
+};
+// @ts-expect-error -- Cannot assign to 'debug' because it is a read-only property.
+configObjectConsole.debug = true;
+// @ts-expect-error -- Cannot assign to 'quiet' because it is a read-only property.
+configObjectConsole.quiet = false;
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+configObjectConsole = 0;
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
+configObjectConsole = 'string';
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+configObjectConsole = true;
 
 // #endregion ConfigObjectConsole
 // --------------------------------------------------------------------------------
+
+/*
 
 // --------------------------------------------------------------------------------
 // #region ConfigObjectAdd

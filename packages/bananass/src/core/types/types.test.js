@@ -220,9 +220,30 @@ describe('types', () => {
 
       strictEqual(configObjectConsole.safeParse(object).success, true);
     });
-    it('should return true for a valid `quiet` property', () => {
+    it('should return true for a valid `debug` property (`undefined`)', () => {
+      const object = {
+        debug: undefined,
+      };
+
+      strictEqual(configObjectConsole.safeParse(object).success, true);
+    });
+    it('should return true for a valid `quiet` property (`true`)', () => {
       const object = {
         quiet: true,
+      };
+
+      strictEqual(configObjectConsole.safeParse(object).success, true);
+    });
+    it('should return true for a valid `quiet` property (`false`)', () => {
+      const object = {
+        quiet: false,
+      };
+
+      strictEqual(configObjectConsole.safeParse(object).success, true);
+    });
+    it('should return true for a valid `quiet` property (`undefined`)', () => {
+      const object = {
+        quiet: undefined,
       };
 
       strictEqual(configObjectConsole.safeParse(object).success, true);
