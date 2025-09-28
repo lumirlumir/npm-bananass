@@ -442,6 +442,13 @@ describe('types', () => {
 
       strictEqual(configObjectInfo.safeParse(object).success, true);
     });
+    it('should return true for a valid `all` property (`undefined`)', () => {
+      const object = {
+        all: undefined,
+      };
+
+      strictEqual(configObjectInfo.safeParse(object).success, true);
+    });
 
     // false
     it('should return false for an unknown property', () => {

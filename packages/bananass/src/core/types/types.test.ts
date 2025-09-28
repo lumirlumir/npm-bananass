@@ -455,36 +455,60 @@ configObjectHome = true;
 // #endregion ConfigObjectHome
 // --------------------------------------------------------------------------------
 
-/*
-
 // --------------------------------------------------------------------------------
 // #region ConfigObjectInfo
 
 ({}) as ConfigObjectInfo satisfies object;
+({}) as ConfigObjectInfo['all'] satisfies boolean | undefined;
 
-// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectInfo`.
 ({}) as ConfigObjectInfo satisfies number;
-// @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectInfo`.
 ({}) as ConfigObjectInfo satisfies string;
-// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectInfo`.
 ({}) as ConfigObjectInfo satisfies boolean;
-// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObjectInfo`.
 ({}) as ConfigObjectInfo satisfies undefined;
-// @ts-expect-error -- Type `null` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `null` is not assignable to type `ConfigObjectInfo`.
 ({}) as ConfigObjectInfo satisfies null;
-// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObjectInfo`.
 ({}) as ConfigObjectInfo satisfies symbol;
-// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObjectInfo`.
 ({}) as ConfigObjectInfo satisfies bigint;
-// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObjectInfo`.
 ({}) as ConfigObjectInfo satisfies Function;
 
 let configObjectInfo: ConfigObjectInfo;
 
 configObjectInfo = {};
+configObjectInfo = {
+  all: true,
+};
+configObjectInfo = {
+  all: undefined,
+};
+
+configObjectInfo = {
+  // @ts-expect-error -- `unknownProperty` does not exist in type `ConfigObjectInfo`.
+  unknownProperty: 'Hello, World!',
+};
+configObjectInfo = {
+  // @ts-expect-error -- Type 'string' is not assignable.
+  all: 'abc',
+};
+// @ts-expect-error -- Cannot assign to 'all' because it is a read-only property.
+configObjectInfo.all = true;
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectInfo`.
+configObjectInfo = 0;
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectInfo`.
+configObjectInfo = 'string';
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectInfo`.
+configObjectInfo = true;
 
 // #endregion ConfigObjectInfo
 // --------------------------------------------------------------------------------
+
+/*
 
 // --------------------------------------------------------------------------------
 // #region ConfigObjectOpen
