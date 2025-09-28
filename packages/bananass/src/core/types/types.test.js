@@ -808,6 +808,53 @@ describe('types', () => {
       );
     });
 
+    it('should throw for a non-`Output` return type.', () => {
+      throws(
+        () => {
+          const func = solution.implement(() => null);
+
+          func('input');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "invalid_type"/u,
+        },
+      );
+      throws(
+        () => {
+          const func = solution.implement(() => undefined);
+
+          func('input');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "invalid_type"/u,
+        },
+      );
+      throws(
+        () => {
+          const func = solution.implement(() => {});
+
+          func('input');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "invalid_type"/u,
+        },
+      );
+      throws(
+        () => {
+          const func = solution.implement(() => []);
+
+          func('input');
+        },
+        {
+          name: '$ZodError',
+          message: /"code": "invalid_type"/u,
+        },
+      );
+    });
+
     it('function with 0 parameter (arrow function)', () => {
       const stringFunc = solution.implement(() => 'string');
       const numberFunc = solution.implement(() => 1);

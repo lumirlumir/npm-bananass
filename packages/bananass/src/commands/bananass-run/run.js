@@ -33,7 +33,7 @@ import testRunner from './test-runner.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { Problems, ConfigObject, SolutionWithTestcases } from '../../core/types/index.js';
+ * @import { ConfigObject, Problems, Testcases, Solution } from '../../core/types/index.js';
  */
 
 // --------------------------------------------------------------------------------
@@ -68,7 +68,7 @@ export default async function run(problems, configObject = dco) {
 
   const resolvedEntryDir = resolve(cwd, entryDir);
   let /** @type {string[]} */ resolvedEntryFiles;
-  let /** @type {SolutionWithTestcases[]} */ importedModules;
+  let /** @type {Array<{ testcases?: Testcases, solution: Solution }> } */ importedModules;
   let /** @type {ReturnType<testRunner>[]} */ testResults;
 
   const logger = createLogger({ debug, quiet, textPrefix: false });
@@ -107,10 +107,12 @@ export default async function run(problems, configObject = dco) {
   // ------------------------------------------------------------------------------
 
   try {
-    // @ts-expect-error Types cannot be matched in JavaScript.
     importedModules = await Promise.all(
-      resolvedEntryFiles.map(resolvedEntryFile =>
-        jiti.import(resolvedEntryFile, { default: true }),
+      resolvedEntryFiles.map(
+        resolvedEntryFile =>
+          /** @type {Promise<{ testcases?: Testcases, solution: Solution }>} */ (
+            jiti.import(resolvedEntryFile, { default: true })
+          ),
       ),
     );
   } catch (err) {

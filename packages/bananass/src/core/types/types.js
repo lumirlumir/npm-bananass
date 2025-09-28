@@ -66,13 +66,6 @@ import { BAEKJOON_PROBLEM_NUMBER_MIN } from '../constants.js';
  * Solution function.
  */
 
-// TODO: Remove
-/**
- * @typedef {object} SolutionWithTestcases Wrapper object containing `solution` function and `testcases`.
- * @property {Solution} solution Solution function.
- * @property {Testcases} [testcases] Testcases array.
- */
-
 // --------------------------------------------------------------------------------
 // Export: Config Object
 // --------------------------------------------------------------------------------
