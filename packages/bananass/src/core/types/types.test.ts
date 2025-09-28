@@ -128,21 +128,21 @@ configObject = true;
 ({}) as ConfigObjectBrowser['browser'] satisfies string | undefined;
 ({}) as ConfigObjectBrowser['secret'] satisfies boolean | undefined;
 
-// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectBrowser`.
 ({}) as ConfigObjectBrowser satisfies number;
-// @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectBrowser`.
 ({}) as ConfigObjectBrowser satisfies string;
-// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectBrowser`.
 ({}) as ConfigObjectBrowser satisfies boolean;
-// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObjectBrowser`.
 ({}) as ConfigObjectBrowser satisfies undefined;
-// @ts-expect-error -- Type `null` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `null` is not assignable to type `ConfigObjectBrowser`.
 ({}) as ConfigObjectBrowser satisfies null;
-// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObjectBrowser`.
 ({}) as ConfigObjectBrowser satisfies symbol;
-// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObjectBrowser`.
 ({}) as ConfigObjectBrowser satisfies bigint;
-// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObjectBrowser`.
 ({}) as ConfigObjectBrowser satisfies Function;
 
 let configObjectBrowser: ConfigObjectBrowser;
@@ -158,7 +158,7 @@ configObjectBrowser = {
 };
 
 configObjectBrowser = {
-  // @ts-expect-error -- `unknownProperty` does not exist in type `ConfigObject`.
+  // @ts-expect-error -- `unknownProperty` does not exist in type `ConfigObjectBrowser`.
   unknownProperty: 'Hello, World!',
 };
 configObjectBrowser = {
@@ -169,11 +169,11 @@ configObjectBrowser = {
 configObjectBrowser.browser = 'chrome';
 // @ts-expect-error -- Cannot assign to 'secret' because it is a read-only property.
 configObjectBrowser.secret = true;
-// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectBrowser`.
 configObjectBrowser = 0;
-// @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectBrowser`.
 configObjectBrowser = 'string';
-// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectBrowser`.
 configObjectBrowser = true;
 
 // #endregion ConfigObjectBrowser
@@ -186,21 +186,21 @@ configObjectBrowser = true;
 ({}) as ConfigObjectConsole['debug'] satisfies boolean | undefined;
 ({}) as ConfigObjectConsole['quiet'] satisfies boolean | undefined;
 
-// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectConsole`.
 ({}) as ConfigObjectConsole satisfies number;
-// @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectConsole`.
 ({}) as ConfigObjectConsole satisfies string;
-// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectConsole`.
 ({}) as ConfigObjectConsole satisfies boolean;
-// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObjectConsole`.
 ({}) as ConfigObjectConsole satisfies undefined;
-// @ts-expect-error -- Type `null` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `null` is not assignable to type `ConfigObjectConsole`.
 ({}) as ConfigObjectConsole satisfies null;
-// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObjectConsole`.
 ({}) as ConfigObjectConsole satisfies symbol;
-// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObjectConsole`.
 ({}) as ConfigObjectConsole satisfies bigint;
-// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObjectConsole`.
 ({}) as ConfigObjectConsole satisfies Function;
 
 let configObjectConsole: ConfigObjectConsole;
@@ -216,7 +216,7 @@ configObjectConsole = {
 };
 
 configObjectConsole = {
-  // @ts-expect-error -- `unknownProperty` does not exist in type `ConfigObject`.
+  // @ts-expect-error -- `unknownProperty` does not exist in type `ConfigObjectConsole`.
   unknownProperty: 'Hello, World!',
 };
 configObjectConsole = {
@@ -227,46 +227,57 @@ configObjectConsole = {
 configObjectConsole.debug = true;
 // @ts-expect-error -- Cannot assign to 'quiet' because it is a read-only property.
 configObjectConsole.quiet = false;
-// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectConsole`.
 configObjectConsole = 0;
-// @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectConsole`.
 configObjectConsole = 'string';
-// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectConsole`.
 configObjectConsole = true;
 
 // #endregion ConfigObjectConsole
 // --------------------------------------------------------------------------------
-
-/*
 
 // --------------------------------------------------------------------------------
 // #region ConfigObjectAdd
 
 ({}) as ConfigObjectAdd satisfies object;
 
-// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectAdd`.
 ({}) as ConfigObjectAdd satisfies number;
-// @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectAdd`.
 ({}) as ConfigObjectAdd satisfies string;
-// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectAdd`.
 ({}) as ConfigObjectAdd satisfies boolean;
-// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObjectAdd`.
 ({}) as ConfigObjectAdd satisfies undefined;
-// @ts-expect-error -- Type `null` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `null` is not assignable to type `ConfigObjectAdd`.
 ({}) as ConfigObjectAdd satisfies null;
-// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObjectAdd`.
 ({}) as ConfigObjectAdd satisfies symbol;
-// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObjectAdd`.
 ({}) as ConfigObjectAdd satisfies bigint;
-// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObjectAdd`.
 ({}) as ConfigObjectAdd satisfies Function;
 
 let configObjectAdd: ConfigObjectAdd;
 
 configObjectAdd = {};
 
+configObjectAdd = {
+  // @ts-expect-error -- `unknownProperty` does not exist in type `ConfigObjectAdd`.
+  unknownProperty: 'Hello, World!',
+};
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectAdd`.
+configObjectAdd = 0;
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectAdd`.
+configObjectAdd = 'string';
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectAdd`.
+configObjectAdd = true;
+
 // #endregion ConfigObjectAdd
 // --------------------------------------------------------------------------------
+
+/*
 
 // --------------------------------------------------------------------------------
 // #region ConfigObjectBug
