@@ -46,6 +46,7 @@ describe('info', () => {
   describe('should work as expected', () => {
     it('should reject when invalid values are provided', async () => {
       await rejects(() => info({ invalid: 'invalid' }));
+      await rejects(() => info({ console: { debug: 'true' } }));
     });
 
     it('should run correctly', async () => {

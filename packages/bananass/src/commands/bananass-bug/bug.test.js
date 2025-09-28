@@ -72,6 +72,7 @@ describe('bug', () => {
   describe('should work as expected', () => {
     it('should reject when invalid values are provided', async () => {
       await rejects(() => bug({ invalid: 'invalid' }));
+      await rejects(() => bug({ console: { debug: 'true' } }));
     });
 
     it('should open the github issues in a browser', async () => {

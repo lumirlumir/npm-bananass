@@ -22,9 +22,9 @@ import { createJiti } from 'jiti';
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
 import { webpackResolve } from '../../core/fs/index.js';
 import {
-  Problems as ProblemsStruct,
-  ConfigObject as ConfigObjectStruct,
-} from '../../core/structs/index.js';
+  problems as problemsSchema,
+  configObject as configObjectSchema,
+} from '../../core/types/index.js';
 
 import testRunner from './test-runner.js';
 
@@ -48,15 +48,11 @@ import testRunner from './test-runner.js';
  */
 export default async function run(problems, configObject = dco) {
   // ------------------------------------------------------------------------------
-  // Runtime Validation
-  // ------------------------------------------------------------------------------
-
-  ProblemsStruct.assert(problems);
-  ConfigObjectStruct.assert(configObject);
-
-  // ------------------------------------------------------------------------------
   // Declarations
   // ------------------------------------------------------------------------------
+
+  const sanitizedProblems = problemsSchema.parse(problems);
+  const sanitizedConfigObject = configObjectSchema.parse(configObject);
 
   const jiti = createJiti(import.meta.url);
 
@@ -67,7 +63,7 @@ export default async function run(problems, configObject = dco) {
       debug = dco.console.debug, // (This comment was used for code formatting.)
       quiet = dco.console.quiet,
     } = dco.console,
-  } = configObject;
+  } = sanitizedConfigObject;
   const { columns } = process.stdout;
 
   const resolvedEntryDir = resolve(cwd, entryDir);
@@ -90,7 +86,7 @@ export default async function run(problems, configObject = dco) {
 
   try {
     resolvedEntryFiles = await Promise.all(
-      problems.map(
+      sanitizedProblems.map(
         problem =>
           new Promise((res, rej) => {
             webpackResolve(resolvedEntryDir, `./${problem}`, (err, result) =>
@@ -154,7 +150,7 @@ export default async function run(problems, configObject = dco) {
   testResults.forEach(({ results }, idx) => {
     logger.log(
       styleText(['cyan', 'bold'], `PROBLEM:`),
-      styleText(['green', 'bold'], problems[idx]),
+      styleText(['green', 'bold'], sanitizedProblems[idx]),
     );
 
     results.forEach(({ input, outputExpected, outputActual }, index, thisArg) => {

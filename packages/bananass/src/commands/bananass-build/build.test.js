@@ -32,10 +32,6 @@ afterEach(() => {
 });
 
 describe('build', () => {
-  // ------------------------------------------------------------------------------
-  // Test
-  // ------------------------------------------------------------------------------
-
   describe('should use default parameters correctly', () => {
     it('should use default parameters when only `cwd` is provided', async () => {
       await build(['1000'], { cwd });
@@ -53,7 +49,9 @@ describe('build', () => {
   describe('should work as expected', () => {
     it('should reject when invalid values are provided', async () => {
       await rejects(() => build(['999']));
+      await rejects(() => build(['1000', 1001]));
       await rejects(() => build(['1000'], { invalid: 'invalid' }));
+      await rejects(() => build(['1000'], { build: { clean: 'true' } }));
     });
 
     it('should create output directory and file', async () => {

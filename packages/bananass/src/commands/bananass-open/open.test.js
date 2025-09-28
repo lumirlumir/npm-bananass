@@ -74,6 +74,7 @@ describe('open', () => {
   describe('should work as expected', () => {
     it('should reject when invalid values are provided', async () => {
       await rejects(() => open(['999']));
+      await rejects(() => open(['1000', 1001]));
       await rejects(() => open(['1000'], { invalid: 'invalid' }));
       await rejects(() => open(['999'], { invalid: 'invalid' }));
     });

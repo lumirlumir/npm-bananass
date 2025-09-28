@@ -12,7 +12,7 @@ import { bananass, error, success } from 'bananass-utils-console/theme';
 import open, { apps } from 'open';
 
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
-import { ConfigObject as ConfigObjectStruct } from '../../core/structs/index.js';
+import { configObject as configObjectSchema } from '../../core/types/index.js';
 import { URL_GITHUB_DISCUSSIONS } from '../../core/constants.js';
 
 // --------------------------------------------------------------------------------
@@ -34,19 +34,15 @@ import { URL_GITHUB_DISCUSSIONS } from '../../core/constants.js';
  */
 export default async function discussion(configObject = dco) {
   // ------------------------------------------------------------------------------
-  // Runtime Validation
-  // ------------------------------------------------------------------------------
-
-  ConfigObjectStruct.assert(configObject);
-
-  // ------------------------------------------------------------------------------
   // Declarations
   // ------------------------------------------------------------------------------
+
+  const sanitizedConfigObject = configObjectSchema.parse(configObject);
 
   const {
     browser: { browser = dco.browser.browser, secret = dco.browser.secret } = dco.browser,
     console: { debug = dco.console.debug, quiet = dco.console.quiet } = dco.console,
-  } = configObject;
+  } = sanitizedConfigObject;
 
   const logger = createLogger({ debug, quiet });
   const spinner = createSpinner();
