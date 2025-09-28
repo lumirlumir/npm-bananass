@@ -317,33 +317,60 @@ configObjectBug = true;
 // #endregion ConfigObjectBug
 // --------------------------------------------------------------------------------
 
-/*
-
 // --------------------------------------------------------------------------------
 // #region ConfigObjectBuild
 
 ({}) as ConfigObjectBuild satisfies object;
+({}) as ConfigObjectBuild['clean'] satisfies boolean | undefined;
+({}) as ConfigObjectBuild['templateType'] satisfies string | undefined;
 
-// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectBuild`.
 ({}) as ConfigObjectBuild satisfies number;
-// @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectBuild`.
 ({}) as ConfigObjectBuild satisfies string;
-// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectBuild`.
 ({}) as ConfigObjectBuild satisfies boolean;
-// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObjectBuild`.
 ({}) as ConfigObjectBuild satisfies undefined;
-// @ts-expect-error -- Type `null` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `null` is not assignable to type `ConfigObjectBuild`.
 ({}) as ConfigObjectBuild satisfies null;
-// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObjectBuild`.
 ({}) as ConfigObjectBuild satisfies symbol;
-// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObjectBuild`.
 ({}) as ConfigObjectBuild satisfies bigint;
-// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObjectBuild`.
 ({}) as ConfigObjectBuild satisfies Function;
 
 let configObjectBuild: ConfigObjectBuild;
 
 configObjectBuild = {};
+configObjectBuild = {
+  clean: true,
+  templateType: 'fs',
+};
+configObjectBuild = {
+  clean: undefined,
+  templateType: undefined,
+};
+
+configObjectBuild = {
+  // @ts-expect-error -- `unknownProperty` does not exist in type `ConfigObjectBuild`.
+  unknownProperty: 'Hello, World!',
+};
+configObjectBuild = {
+  // @ts-expect-error -- Type 'string' is not assignable.
+  clean: 'true',
+};
+// @ts-expect-error -- Cannot assign to 'clean' because it is a read-only property.
+configObjectBuild.clean = true;
+// @ts-expect-error -- Cannot assign to 'templateType' because it is a read-only property.
+configObjectBuild.templateType = 'fs';
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectBuild`.
+configObjectBuild = 0;
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectBuild`.
+configObjectBuild = 'string';
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectBuild`.
+configObjectBuild = true;
 
 // #endregion ConfigObjectBuild
 // --------------------------------------------------------------------------------
@@ -376,6 +403,8 @@ configObjectDiscussion = {};
 
 // #endregion ConfigObjectDiscussion
 // --------------------------------------------------------------------------------
+
+/*
 
 // --------------------------------------------------------------------------------
 // #region ConfigObjectHome

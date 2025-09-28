@@ -331,6 +331,13 @@ describe('types', () => {
 
       strictEqual(configObjectBuild.safeParse(object).success, true);
     });
+    it('should return true for a valid `clean` property (`undefined`)', () => {
+      const object = {
+        clean: undefined,
+      };
+
+      strictEqual(configObjectBuild.safeParse(object).success, true);
+    });
     it('should return true for a valid `templateType` property (`fs`)', () => {
       const object = {
         templateType: 'fs',
@@ -341,6 +348,13 @@ describe('types', () => {
     it('should return true for a valid `templateType` property (`rl`)', () => {
       const object = {
         templateType: 'rl',
+      };
+
+      strictEqual(configObjectBuild.safeParse(object).success, true);
+    });
+    it('should return true for a valid `templateType` property (`undefined`)', () => {
+      const object = {
+        templateType: undefined,
       };
 
       strictEqual(configObjectBuild.safeParse(object).success, true);
