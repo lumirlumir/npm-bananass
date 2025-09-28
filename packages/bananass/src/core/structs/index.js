@@ -23,9 +23,6 @@ import ConfigObjectOpen from './config-object-open/index.js';
 import ConfigObjectRepo from './config-object-repo/index.js';
 import ConfigObjectRun from './config-object-run/index.js';
 
-import Problem from './problem/index.js';
-import Problems from './problems/index.js';
-
 import Input from './input/index.js';
 import Output from './output/index.js';
 import Testcase from './testcase/index.js';
@@ -50,8 +47,6 @@ export {
   ConfigObjectOpen,
   ConfigObjectRepo,
   ConfigObjectRun,
-  Problem,
-  Problems,
   Input,
   Output,
   Testcase,
