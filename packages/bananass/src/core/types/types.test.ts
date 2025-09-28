@@ -749,19 +749,29 @@ input = () => 'function';
 // #endregion Input
 // --------------------------------------------------------------------------------
 
-/*
-
 // --------------------------------------------------------------------------------
 // #region Output
 
-null as unknown as Output satisfies string | number | boolean;
+({}) as Output satisfies string | number | boolean;
 
-// @ts-expect-error -- Type 'string | number | boolean' does not satisfy the expected type 'string'.
-null as unknown as Output satisfies string;
-// @ts-expect-error -- Type 'string | number | boolean' does not satisfy the expected type 'string'.
-null as unknown as Output satisfies number;
-// @ts-expect-error -- Type 'string | number | boolean' does not satisfy the expected type 'string'.
-null as unknown as Output satisfies boolean;
+// @ts-expect-error -- Type `number` is not assignable to type `Output`.
+({}) as Output satisfies number;
+// @ts-expect-error -- Type `string` is not assignable to type `Output`.
+({}) as Output satisfies string;
+// @ts-expect-error -- Type `boolean` is not assignable to type `Output`.
+({}) as Output satisfies boolean;
+// @ts-expect-error -- Type `undefined` is not assignable to type `Output`.
+({}) as Output satisfies undefined;
+// @ts-expect-error -- Type `null` is not assignable to type `Output`.
+({}) as Output satisfies null;
+// @ts-expect-error -- Type `symbol` is not assignable to type `Output`.
+({}) as Output satisfies symbol;
+// @ts-expect-error -- Type `bigint` is not assignable to type `Output`.
+({}) as Output satisfies bigint;
+// @ts-expect-error -- Type `object` is not assignable to type `Output`.
+({}) as Output satisfies object;
+// @ts-expect-error -- Type `Function` is not assignable to type `Output`.
+({}) as Output satisfies Function;
 
 let output: Output;
 
@@ -784,6 +794,8 @@ output = () => 'function';
 
 // #endregion Output
 // --------------------------------------------------------------------------------
+
+/*
 
 // --------------------------------------------------------------------------------
 // #region Testcase
