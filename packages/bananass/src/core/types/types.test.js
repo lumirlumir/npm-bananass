@@ -47,6 +47,7 @@ describe('types', () => {
       const object = {
         cwd: '/path/to/directory',
         entryDir: 'entry',
+        outDir: 'out',
 
         browser: {
           browser: 'default',
@@ -55,6 +56,22 @@ describe('types', () => {
         console: {
           debug: false,
         },
+
+        build: {
+          templateType: 'fs',
+        },
+      };
+
+      strictEqual(configObject.safeParse(object).success, true);
+    });
+    it('should return true for a valid object with `undefined` properties', () => {
+      const object = {
+        cwd: undefined,
+        entryDir: undefined,
+        outDir: undefined,
+
+        browser: undefined,
+        console: undefined,
       };
 
       strictEqual(configObject.safeParse(object).success, true);
@@ -120,9 +137,30 @@ describe('types', () => {
 
       strictEqual(configObjectBrowser.safeParse(object).success, true);
     });
-    it('should return true for a valid `secret` property', () => {
+    it('should return true for a valid `browser` property (`undefined`)', () => {
+      const object = {
+        browser: undefined,
+      };
+
+      strictEqual(configObjectBrowser.safeParse(object).success, true);
+    });
+    it('should return true for a valid `secret` property (`true`)', () => {
       const object = {
         secret: true,
+      };
+
+      strictEqual(configObjectBrowser.safeParse(object).success, true);
+    });
+    it('should return true for a valid `secret` property (`false`)', () => {
+      const object = {
+        secret: false,
+      };
+
+      strictEqual(configObjectBrowser.safeParse(object).success, true);
+    });
+    it('should return true for a valid `secret` property (`undefined`)', () => {
+      const object = {
+        secret: undefined,
       };
 
       strictEqual(configObjectBrowser.safeParse(object).success, true);
@@ -131,6 +169,14 @@ describe('types', () => {
       const object = {
         browser: 'default',
         secret: false,
+      };
+
+      strictEqual(configObjectBrowser.safeParse(object).success, true);
+    });
+    it('should return true for a valid `browser` and `secret` property (`undefined`)', () => {
+      const object = {
+        browser: undefined,
+        secret: undefined,
       };
 
       strictEqual(configObjectBrowser.safeParse(object).success, true);
