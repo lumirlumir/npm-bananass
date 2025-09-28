@@ -2,39 +2,37 @@
  * @fileoverview Type test for `types.js`.
  */
 
+/* eslint-disable -- Type test */
+
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-/*
 import type {
   ConfigObject,
-  ConfigObjectBrowser,
-  ConfigObjectConsole,
-  ConfigObjectAdd,
-  ConfigObjectBug,
-  ConfigObjectBuild,
-  ConfigObjectDiscussion,
-  ConfigObjectHome,
-  ConfigObjectInfo,
-  ConfigObjectOpen,
-  ConfigObjectRepo,
-  ConfigObjectRun,
-  Problem,
-  Problems,
-  Input,
-  Output,
-  Testcase,
-  Testcases,
-  Solution,
+  // ConfigObjectBrowser,
+  // ConfigObjectConsole,
+  // ConfigObjectAdd,
+  // ConfigObjectBug,
+  // ConfigObjectBuild,
+  // ConfigObjectDiscussion,
+  // ConfigObjectHome,
+  // ConfigObjectInfo,
+  // ConfigObjectOpen,
+  // ConfigObjectRepo,
+  // ConfigObjectRun,
+  // Problem,
+  // Problems,
+  // Input,
+  // Output,
+  // Testcase,
+  // Testcases,
+  // Solution,
 } from './types.js';
-*/
 
 // --------------------------------------------------------------------------------
 // Test
 // --------------------------------------------------------------------------------
-
-/*
 
 // --------------------------------------------------------------------------------
 // #region ConfigObject
@@ -71,6 +69,8 @@ import type {
 ({}) as ConfigObject satisfies bigint;
 // @ts-expect-error -- Type `Function` is not assignable to type `ConfigObject`.
 ({}) as ConfigObject satisfies Function;
+
+/*
 
 let configObject: ConfigObject;
 
