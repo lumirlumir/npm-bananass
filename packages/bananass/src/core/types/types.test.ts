@@ -70,8 +70,6 @@ import type {
 // @ts-expect-error -- Type `Function` is not assignable to type `ConfigObject`.
 ({}) as ConfigObject satisfies Function;
 
-/*
-
 let configObject: ConfigObject;
 
 configObject = {};
@@ -105,12 +103,6 @@ configObject = {
   // @ts-expect-error -- `unknownProperty` does not exist in type `ConfigObject`.
   unknownProperty: 'Hello, World!',
 };
-// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
-configObject = 0;
-// @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
-configObject = 'string';
-// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
-configObject = true;
 // @ts-expect-error -- Cannot assign to 'cwd' because it is a read-only property.
 configObject.cwd = 'foo';
 // @ts-expect-error -- Cannot assign to 'entryDir' because it is a read-only property.
@@ -119,9 +111,17 @@ configObject.entryDir = 'foo';
 configObject.outDir = 'foo';
 // @ts-expect-error -- Cannot assign to 'build' because it is a read-only property.
 configObject.build = undefined;
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+configObject = 0;
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
+configObject = 'string';
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+configObject = true;
 
 // #endregion ConfigObject
 // --------------------------------------------------------------------------------
+
+/*
 
 // --------------------------------------------------------------------------------
 // #region ConfigObjectBrowser
