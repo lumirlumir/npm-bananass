@@ -32,10 +32,6 @@ afterEach(() => {
 });
 
 describe('build', () => {
-  // ------------------------------------------------------------------------------
-  // Test
-  // ------------------------------------------------------------------------------
-
   describe('should use default parameters correctly', () => {
     it('should use default parameters when only `cwd` is provided', async () => {
       await build(['1000'], { cwd });

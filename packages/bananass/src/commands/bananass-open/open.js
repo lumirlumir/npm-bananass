@@ -13,9 +13,9 @@ import open, { apps } from 'open';
 
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
 import {
-  Problems as ProblemsStruct,
-  ConfigObject as ConfigObjectStruct,
-} from '../../core/structs/index.js';
+  problems as problemsSchema,
+  configObject as configObjectSchema,
+} from '../../core/types/index.js';
 import { URL_BOJ_PROBLEM } from '../../core/constants.js';
 
 // --------------------------------------------------------------------------------
@@ -38,20 +38,16 @@ import { URL_BOJ_PROBLEM } from '../../core/constants.js';
  */
 export default async function home(problems, configObject = dco) {
   // ------------------------------------------------------------------------------
-  // Runtime Validation
-  // ------------------------------------------------------------------------------
-
-  ProblemsStruct.assert(problems);
-  ConfigObjectStruct.assert(configObject);
-
-  // ------------------------------------------------------------------------------
   // Declarations
   // ------------------------------------------------------------------------------
+
+  const sanitizedProblems = problemsSchema.parse(problems);
+  const sanitizedConfigObject = configObjectSchema.parse(configObject);
 
   const {
     browser: { browser = dco.browser.browser, secret = dco.browser.secret } = dco.browser,
     console: { debug = dco.console.debug, quiet = dco.console.quiet } = dco.console,
-  } = configObject;
+  } = sanitizedConfigObject;
 
   const logger = createLogger({ debug, quiet });
   const spinner = createSpinner();
@@ -68,7 +64,7 @@ export default async function home(problems, configObject = dco) {
 
   try {
     await Promise.all(
-      problems.map(problem =>
+      sanitizedProblems.map(problem =>
         open(URL_BOJ_PROBLEM(problem), {
           app: {
             name: apps[browser === 'default' ? 'browser' : browser], // TODO: Reduce redundancy
