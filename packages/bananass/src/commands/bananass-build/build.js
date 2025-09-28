@@ -22,9 +22,9 @@ import {
 
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
 import {
-  Problems as ProblemsStruct,
-  ConfigObject as ConfigObjectStruct,
-} from '../../core/structs/index.js';
+  problems as problemsSchema,
+  configObject as configObjectSchema,
+} from '../../core/types/index.js';
 import {
   DEFAULT_OUT_FILE_EXTENSION,
   NODE_VERSION_BAEKJOON,
@@ -90,15 +90,11 @@ function babelLoaderConfig(babelPlugins = [], sourceType = 'module') {
  */
 export default async function build(problems, configObject = dco) {
   // ------------------------------------------------------------------------------
-  // Runtime Validation
-  // ------------------------------------------------------------------------------
-
-  ProblemsStruct.assert(problems);
-  ConfigObjectStruct.assert(configObject);
-
-  // ------------------------------------------------------------------------------
   // Declarations
   // ------------------------------------------------------------------------------
+
+  const sanitizedProblems = problemsSchema.parse(problems);
+  const sanitizedConfigObject = configObjectSchema.parse(configObject);
 
   const {
     cwd = dco.cwd,
@@ -112,7 +108,7 @@ export default async function build(problems, configObject = dco) {
       clean = dco.build.clean, // (This comment was used for code formatting.)
       templateType = dco.build.templateType,
     } = dco.build,
-  } = configObject;
+  } = sanitizedConfigObject;
 
   const resolvedEntryDir = resolve(cwd, entryDir);
   const resolvedOutDir = resolve(cwd, outDir);
@@ -136,7 +132,7 @@ export default async function build(problems, configObject = dco) {
   // ------------------------------------------------------------------------------
 
   /** @type {WebpackConfig[]} */
-  const webpackConfigs = problems.map(
+  const webpackConfigs = sanitizedProblems.map(
     problem =>
       /** @type {WebpackConfig} */ ({
         /** @see https://webpack.js.org/configuration/target/ */
@@ -283,6 +279,8 @@ export default async function build(problems, configObject = dco) {
     .log('Output Directory:', resolvedOutDir)
     .log(
       'Created:',
-      problems.map(problem => `${problem}${DEFAULT_OUT_FILE_EXTENSION}`).join(', '),
+      sanitizedProblems
+        .map(problem => `${problem}${DEFAULT_OUT_FILE_EXTENSION}`)
+        .join(', '),
     );
 }
