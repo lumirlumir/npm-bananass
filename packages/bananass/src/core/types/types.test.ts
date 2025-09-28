@@ -508,36 +508,47 @@ configObjectInfo = true;
 // #endregion ConfigObjectInfo
 // --------------------------------------------------------------------------------
 
-/*
-
 // --------------------------------------------------------------------------------
 // #region ConfigObjectOpen
 
 ({}) as ConfigObjectOpen satisfies object;
 
-// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectOpen`.
 ({}) as ConfigObjectOpen satisfies number;
-// @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectOpen`.
 ({}) as ConfigObjectOpen satisfies string;
-// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectOpen`.
 ({}) as ConfigObjectOpen satisfies boolean;
-// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObjectOpen`.
 ({}) as ConfigObjectOpen satisfies undefined;
-// @ts-expect-error -- Type `null` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `null` is not assignable to type `ConfigObjectOpen`.
 ({}) as ConfigObjectOpen satisfies null;
-// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObjectOpen`.
 ({}) as ConfigObjectOpen satisfies symbol;
-// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObjectOpen`.
 ({}) as ConfigObjectOpen satisfies bigint;
-// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObjectOpen`.
 ({}) as ConfigObjectOpen satisfies Function;
 
 let configObjectOpen: ConfigObjectOpen;
 
 configObjectOpen = {};
 
+configObjectOpen = {
+  // @ts-expect-error -- `unknownProperty` does not exist in type `ConfigObjectOpen`.
+  unknownProperty: 'Hello, World!',
+};
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectOpen`.
+configObjectOpen = 0;
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectOpen`.
+configObjectOpen = 'string';
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectOpen`.
+configObjectOpen = true;
+
 // #endregion ConfigObjectOpen
 // --------------------------------------------------------------------------------
+
+/*
 
 // --------------------------------------------------------------------------------
 // #region ConfigObjectRepo
