@@ -588,36 +588,47 @@ configObjectRepo = true;
 // #endregion ConfigObjectRepo
 // --------------------------------------------------------------------------------
 
-/*
-
 // --------------------------------------------------------------------------------
 // #region ConfigObjectRun
 
 ({}) as ConfigObjectRun satisfies object;
 
-// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectRun`.
 ({}) as ConfigObjectRun satisfies number;
-// @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectRun`.
 ({}) as ConfigObjectRun satisfies string;
-// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectRun`.
 ({}) as ConfigObjectRun satisfies boolean;
-// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObjectRun`.
 ({}) as ConfigObjectRun satisfies undefined;
-// @ts-expect-error -- Type `null` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `null` is not assignable to type `ConfigObjectRun`.
 ({}) as ConfigObjectRun satisfies null;
-// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObjectRun`.
 ({}) as ConfigObjectRun satisfies symbol;
-// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObjectRun`.
 ({}) as ConfigObjectRun satisfies bigint;
-// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObjectRun`.
 ({}) as ConfigObjectRun satisfies Function;
 
 let configObjectRun: ConfigObjectRun;
 
 configObjectRun = {};
 
+configObjectRun = {
+  // @ts-expect-error -- `unknownProperty` does not exist in type `ConfigObjectRun`.
+  unknownProperty: 'Hello, World!',
+};
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectRun`.
+configObjectRun = 0;
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectRun`.
+configObjectRun = 'string';
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectRun`.
+configObjectRun = true;
+
 // #endregion ConfigObjectRun
 // --------------------------------------------------------------------------------
+
+/*
 
 // --------------------------------------------------------------------------------
 // #region Problem
