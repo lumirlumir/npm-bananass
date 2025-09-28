@@ -72,6 +72,7 @@ describe('discussion', () => {
   describe('should work as expected', () => {
     it('should reject when invalid values are provided', async () => {
       await rejects(() => discussion({ invalid: 'invalid' }));
+      await rejects(() => discussion({ console: { debug: 'true' } }));
     });
 
     it('should open the github discussions in a browser', async () => {
