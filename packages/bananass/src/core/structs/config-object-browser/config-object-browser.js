@@ -13,7 +13,7 @@ import { boolean, enums, object, optional } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { ConfigObjectBrowser } from '../../types.js';
+ * @import { ConfigObjectBrowser } from '../../types/index.js';
  * @import { Struct } from 'superstruct';
  */
 
@@ -24,7 +24,7 @@ import { boolean, enums, object, optional } from 'superstruct';
 /**
  * `ConfigObjectBrowser` type struct.
  * @type {Struct<ConfigObjectBrowser>}
- */ // @ts-expect-error -- TODO: migrate to `zod`
+ */
 const ConfigObjectBrowser = object({
   browser: optional(enums(['chrome', 'edge', 'firefox', 'brave', 'default'])),
   secret: optional(boolean()),

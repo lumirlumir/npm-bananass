@@ -23,7 +23,7 @@ import { URL_BOJ_PROBLEM } from '../../core/constants.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { Problems, ConfigObject } from '../../core/types.js';
+ * @import { Problems, ConfigObject } from '../../core/types/index.js';
  */
 
 // --------------------------------------------------------------------------------

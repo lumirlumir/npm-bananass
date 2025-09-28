@@ -13,7 +13,7 @@ import { boolean, object, optional } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { ConfigObjectConsole } from '../../types.js';
+ * @import { ConfigObjectConsole } from '../../types/index.js';
  * @import { Struct } from 'superstruct';
  */
 
@@ -24,7 +24,7 @@ import { boolean, object, optional } from 'superstruct';
 /**
  * `ConfigObjectConsole` type struct.
  * @type {Struct<ConfigObjectConsole>}
- */ // @ts-expect-error -- TODO: migrate to `zod`
+ */
 const ConfigObjectConsole = object({
   debug: optional(boolean()),
   quiet: optional(boolean()),

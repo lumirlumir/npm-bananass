@@ -13,7 +13,7 @@ import { string } from 'superstruct';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { Input } from '../../types.js';
+ * @import { Input } from '../../types/index.js';
  * @import { Struct } from 'superstruct';
  */
 
@@ -24,7 +24,7 @@ import { string } from 'superstruct';
 /**
  * `Input` type struct.
  * @type {Struct<Input>}
- */
+ */ // @ts-expect-error -- TODO: migrate to `zod`
 const Input = string();
 
 // --------------------------------------------------------------------------------

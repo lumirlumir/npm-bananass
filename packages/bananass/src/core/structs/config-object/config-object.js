@@ -26,7 +26,7 @@ import ConfigObjectRun from '../config-object-run/index.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { ConfigObject } from '../../types.js';
+ * @import { ConfigObject } from '../../types/index.js';
  * @import { Struct } from 'superstruct';
  */
 
@@ -37,7 +37,7 @@ import ConfigObjectRun from '../config-object-run/index.js';
 /**
  * `ConfigObject` type struct.
  * @type {Struct<ConfigObject>}
- */ // @ts-expect-error -- TODO: migrate to `zod`
+ */
 const ConfigObject = object({
   cwd: optional(string()),
   entryDir: optional(string()),

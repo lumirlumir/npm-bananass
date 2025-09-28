@@ -15,7 +15,7 @@ import Output from '../output/index.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { Testcase } from '../../types.js';
+ * @import { Testcase } from '../../types/index.js';
  * @import { Struct } from 'superstruct';
  */
 
@@ -26,7 +26,7 @@ import Output from '../output/index.js';
 /**
  * `Testcase` type struct.
  * @type {Struct<Testcase>}
- */ // @ts-expect-error -- TODO: migrate to `zod`
+ */
 const Testcase = object({
   input: optional(Input),
   output: Output,

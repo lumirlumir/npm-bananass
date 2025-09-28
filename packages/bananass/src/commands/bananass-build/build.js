@@ -39,7 +39,7 @@ import {
 /**
  * @import { Configuration as WebpackConfig } from 'webpack';
  * @import { PluginItem as BabelPluginItem } from '@babel/core';
- * @import { Problems, ConfigObject } from '../../core/types.js';
+ * @import { Problems, ConfigObject } from '../../core/types/index.js';
  */
 
 // --------------------------------------------------------------------------------
