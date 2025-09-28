@@ -20,8 +20,8 @@
       "default": "./src/core/constants.js"
     },
     "./core/types": {
-      "types": "./build/core/types.d.ts",
-      "default": "./src/core/types.js"
+      "types": "./build/core/types/index.d.ts",
+      "default": "./src/core/types/index.js"
     },
     "./package.json": "./package.json"
   },
@@ -43,7 +43,7 @@
         "./build/core/constants.d.ts"
       ],
       "./core/types": [
-        "./build/core/types.d.ts"
+        "./build/core/types/index.d.ts"
       ]
     }
   },
