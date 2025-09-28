@@ -11,10 +11,6 @@
       "types": "./build/commands/index.d.ts",
       "default": "./src/commands/index.js"
     },
-    "./core/structs": {
-      "types": "./build/core/structs/index.d.ts",
-      "default": "./src/core/structs/index.js"
-    },
     "./core/constants": {
       "types": "./build/core/constants.d.ts",
       "default": "./src/core/constants.js"
@@ -35,9 +31,6 @@
       ],
       "./commands": [
         "./build/commands/index.d.ts"
-      ],
-      "./core/structs": [
-        "./build/core/structs/index.d.ts"
       ],
       "./core/constants": [
         "./build/core/constants.d.ts"
