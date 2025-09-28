@@ -137,7 +137,7 @@ npm create bananass@latest
 
 다만, 올바른 커뮤니티 환경을 준수하고 더 나은 오픈 소스를 만들기 위해, 바나나 프레임워크에 기여하기 전 반드시 아래 내용들을 확인해주세요.
 
-- [기여자 행동 강령 규약](CODE_OF_CONDUCT.md)
+- [기여자 행동 강령 규약](https://github.com/lumirlumir/.github/blob/main/CODE_OF_CONDUCT_KO.md#%EA%B8%B0%EC%97%AC%EC%9E%90-%ED%96%89%EB%8F%99-%EA%B0%95%EB%A0%B9-%EA%B7%9C%EC%95%BD)
 - [기여하기](CONTRIBUTING.md)
 
 ## 버전 정책<sup>Versioning</sup>
@@ -146,7 +146,7 @@ npm create bananass@latest
 
 ## 기여자 행동 강령 규약<sup>Code of Conduct</sup>
 
-커뮤니티에 기여하기 전, [기여자 행동 강령 규약](CODE_OF_CONDUCT.md)을 참고해주세요.
+커뮤니티에 기여하기 전, [기여자 행동 강령 규약](https://github.com/lumirlumir/.github/blob/main/CODE_OF_CONDUCT_KO.md#%EA%B8%B0%EC%97%AC%EC%9E%90-%ED%96%89%EB%8F%99-%EA%B0%95%EB%A0%B9-%EA%B7%9C%EC%95%BD)을 참고해주세요.
 
 ## 변경 사항<sup>Change Log</sup>
 

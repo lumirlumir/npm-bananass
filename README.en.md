@@ -137,7 +137,7 @@ We welcome issues, pull requests, and discussions on various topics, including b
 
 However, to maintain a proper community environment and create better open-source software, please make sure to review the following before contributing to the Bananass Framework:
 
-- [Code of Conduct](CODE_OF_CONDUCT.en.md)
+- [Code of Conduct](https://github.com/lumirlumir/.github/blob/main/CODE_OF_CONDUCT.md#contributor-covenant-code-of-conduct)
 - [Contributing](CONTRIBUTING.en.md)
 
 ## Versioning
@@ -146,7 +146,7 @@ The Bananass Framework follows [Semantic Versioning](https://semver.org/). All r
 
 ## Code of Conduct
 
-Before contributing to the community, please refer to the [Code of Conduct](CODE_OF_CONDUCT.en.md).
+Before contributing to the community, please refer to the [Code of Conduct](https://github.com/lumirlumir/.github/blob/main/CODE_OF_CONDUCT.md#contributor-covenant-code-of-conduct).
 
 ## Change Log
 
