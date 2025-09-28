@@ -667,7 +667,7 @@ problem = true;
 // #region Problems
 
 ({}) as Problems satisfies object;
-({}) as Problems satisfies readonly string[];
+({}) as Problems satisfies readonly Problem[];
 
 // @ts-expect-error -- Type `number` is not assignable to type `Problems`.
 ({}) as Problems satisfies number;
@@ -685,8 +685,8 @@ problem = true;
 ({}) as Problems satisfies bigint;
 // @ts-expect-error -- Type `Function` is not assignable to type `Problems`.
 ({}) as Problems satisfies Function;
-// @ts-expect-error -- Type 'readonly string[]' does not satisfy the expected type 'string[]'.
-({}) as Problems satisfies string[];
+// @ts-expect-error -- Type 'readonly Problem[]' does not satisfy the expected type 'Problem[]'.
+({}) as Problems satisfies Problem[];
 
 let problems: Problems;
 
@@ -859,18 +859,74 @@ testcase = true;
 // #endregion Testcase
 // --------------------------------------------------------------------------------
 
-/*
-
 // --------------------------------------------------------------------------------
 // #region Testcases
 
+({}) as Testcases satisfies object;
 ({}) as Testcases satisfies readonly Testcase[];
 
+// @ts-expect-error -- Type `number` is not assignable to type `Testcases`.
+({}) as Testcases satisfies number;
+// @ts-expect-error -- Type `string` is not assignable to type `Testcases`.
+({}) as Testcases satisfies string;
+// @ts-expect-error -- Type `boolean` is not assignable to type `Testcases`.
+({}) as Testcases satisfies boolean;
+// @ts-expect-error -- Type `undefined` is not assignable to type `Testcases`.
+({}) as Testcases satisfies undefined;
+// @ts-expect-error -- Type `null` is not assignable to type `Testcases`.
+({}) as Testcases satisfies null;
+// @ts-expect-error -- Type `symbol` is not assignable to type `Testcases`.
+({}) as Testcases satisfies symbol;
+// @ts-expect-error -- Type `bigint` is not assignable to type `Testcases`.
+({}) as Testcases satisfies bigint;
+// @ts-expect-error -- Type `Function` is not assignable to type `Testcases`.
+({}) as Testcases satisfies Function;
 // @ts-expect-error -- Type 'readonly Testcase[]' does not satisfy the expected type 'Testcase[]'.
 ({}) as Testcases satisfies Testcase[];
 
+let testcases: Testcases;
+
+testcases = [
+  {
+    output: 'string',
+  },
+  {
+    input: undefined,
+    output: 'string',
+  },
+  {
+    input: 'string',
+    output: 'string',
+  },
+  {
+    input: 'string',
+    output: 123,
+  },
+  {
+    input: 'string',
+    output: true,
+  },
+];
+
+// @ts-expect-error -- Property 'output' is missing in type '{}'.
+testcases = [{}];
+testcases = [
+  // @ts-expect-error -- Property 'output' is missing in type '{ input: string; }'
+  {
+    input: 'string',
+  },
+];
+// @ts-expect-error -- Type `number` is not assignable to type `Testcases`.
+testcase = 0;
+// @ts-expect-error -- Type `string` is not assignable to type `Testcases`.
+testcase = 'string';
+// @ts-expect-error -- Type `boolean` is not assignable to type `Testcases`.
+testcase = true;
+
 // #endregion Testcases
 // --------------------------------------------------------------------------------
+
+/*
 
 // --------------------------------------------------------------------------------
 // #region Solution
