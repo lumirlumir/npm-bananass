@@ -415,36 +415,47 @@ configObjectDiscussion = true;
 // #endregion ConfigObjectDiscussion
 // --------------------------------------------------------------------------------
 
-/*
-
 // --------------------------------------------------------------------------------
 // #region ConfigObjectHome
 
 ({}) as ConfigObjectHome satisfies object;
 
-// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectHome`.
 ({}) as ConfigObjectHome satisfies number;
-// @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectHome`.
 ({}) as ConfigObjectHome satisfies string;
-// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectHome`.
 ({}) as ConfigObjectHome satisfies boolean;
-// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObjectHome`.
 ({}) as ConfigObjectHome satisfies undefined;
-// @ts-expect-error -- Type `null` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `null` is not assignable to type `ConfigObjectHome`.
 ({}) as ConfigObjectHome satisfies null;
-// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObjectHome`.
 ({}) as ConfigObjectHome satisfies symbol;
-// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObjectHome`.
 ({}) as ConfigObjectHome satisfies bigint;
-// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObjectHome`.
 ({}) as ConfigObjectHome satisfies Function;
 
 let configObjectHome: ConfigObjectHome;
 
 configObjectHome = {};
 
+configObjectHome = {
+  // @ts-expect-error -- `unknownProperty` does not exist in type `ConfigObjectHome`.
+  unknownProperty: 'Hello, World!',
+};
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectHome`.
+configObjectHome = 0;
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectHome`.
+configObjectHome = 'string';
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectHome`.
+configObjectHome = true;
+
 // #endregion ConfigObjectHome
 // --------------------------------------------------------------------------------
+
+/*
 
 // --------------------------------------------------------------------------------
 // #region ConfigObjectInfo
