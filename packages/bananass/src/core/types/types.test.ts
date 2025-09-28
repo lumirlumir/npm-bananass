@@ -702,17 +702,29 @@ problems = true;
 // #endregion Problems
 // --------------------------------------------------------------------------------
 
-/*
-
 // --------------------------------------------------------------------------------
 // #region Input
 
-null as unknown as Input satisfies string | undefined;
+({}) as Input satisfies string | undefined;
 
-// @ts-expect-error -- Type `string | undefined` does not satisfy the expected type `undefined`.
-null as unknown as Input satisfies string;
-// @ts-expect-error -- Type `string | undefined` does not satisfy the expected type `undefined`.
-null as unknown as Input satisfies undefined;
+// @ts-expect-error -- Type `number` is not assignable to type `Input`.
+({}) as Input satisfies number;
+// @ts-expect-error -- Type `string` is not assignable to type `Input`.
+({}) as Input satisfies string;
+// @ts-expect-error -- Type `boolean` is not assignable to type `Input`.
+({}) as Input satisfies boolean;
+// @ts-expect-error -- Type `undefined` is not assignable to type `Input`.
+({}) as Input satisfies undefined;
+// @ts-expect-error -- Type `null` is not assignable to type `Input`.
+({}) as Input satisfies null;
+// @ts-expect-error -- Type `symbol` is not assignable to type `Input`.
+({}) as Input satisfies symbol;
+// @ts-expect-error -- Type `bigint` is not assignable to type `Input`.
+({}) as Input satisfies bigint;
+// @ts-expect-error -- Type `object` is not assignable to type `Input`.
+({}) as Input satisfies object;
+// @ts-expect-error -- Type `Function` is not assignable to type `Input`.
+({}) as Input satisfies Function;
 
 let input: Input;
 
@@ -736,6 +748,8 @@ input = () => 'function';
 
 // #endregion Input
 // --------------------------------------------------------------------------------
+
+/*
 
 // --------------------------------------------------------------------------------
 // #region Output

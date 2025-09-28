@@ -629,7 +629,7 @@ describe('types', () => {
 
       strictEqual(input.safeParse(input1).success, true);
     });
-    it('should return true for undefined', () => {
+    it('should return true for `undefined`', () => {
       const input1 = undefined;
 
       strictEqual(input.safeParse(input1).success, true);
