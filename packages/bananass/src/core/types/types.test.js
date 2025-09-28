@@ -687,7 +687,15 @@ describe('types', () => {
 
       strictEqual(testcase.safeParse(object).success, true);
     });
-    it('should return true for a valid object with input', () => {
+    it('should return true for a valid object with input undefined', () => {
+      const object = {
+        input: undefined,
+        output: 'Hello, World! processed',
+      };
+
+      strictEqual(testcase.safeParse(object).success, true);
+    });
+    it('should return true for a valid object with input string', () => {
       const object = {
         input: 'Hello, World!',
         output: 'Hello, World! processed',

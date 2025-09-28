@@ -795,11 +795,10 @@ output = () => 'function';
 // #endregion Output
 // --------------------------------------------------------------------------------
 
-/*
-
 // --------------------------------------------------------------------------------
 // #region Testcase
 
+({}) as Testcase satisfies object;
 ({}) as Testcase satisfies {
   input?: Input;
   output: Output;
@@ -837,12 +836,30 @@ testcase = {
 };
 
 // @ts-expect-error -- `output` is required.
+testcase = {};
+// @ts-expect-error -- `output` is required.
 testcase = {
   input: 'string',
 };
+testcase = {
+  // @ts-expect-error -- `unknownProperty` does not exist in type `Testcase`.
+  unknownProperty: 'Hello, World!',
+};
+// @ts-expect-error -- Cannot assign to 'input' because it is a read-only property.
+testcase.input = 'input';
+// @ts-expect-error -- Cannot assign to 'output' because it is a read-only property.
+testcase.output = 'output';
+// @ts-expect-error -- Type `number` is not assignable to type `Testcase`.
+testcase = 0;
+// @ts-expect-error -- Type `string` is not assignable to type `Testcase`.
+testcase = 'string';
+// @ts-expect-error -- Type `boolean` is not assignable to type `Testcase`.
+testcase = true;
 
 // #endregion Testcase
 // --------------------------------------------------------------------------------
+
+/*
 
 // --------------------------------------------------------------------------------
 // #region Testcases
