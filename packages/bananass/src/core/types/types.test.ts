@@ -548,36 +548,47 @@ configObjectOpen = true;
 // #endregion ConfigObjectOpen
 // --------------------------------------------------------------------------------
 
-/*
-
 // --------------------------------------------------------------------------------
 // #region ConfigObjectRepo
 
 ({}) as ConfigObjectRepo satisfies object;
 
-// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectRepo`.
 ({}) as ConfigObjectRepo satisfies number;
-// @ts-expect-error -- Type `string` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectRepo`.
 ({}) as ConfigObjectRepo satisfies string;
-// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectRepo`.
 ({}) as ConfigObjectRepo satisfies boolean;
-// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObjectRepo`.
 ({}) as ConfigObjectRepo satisfies undefined;
-// @ts-expect-error -- Type `null` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `null` is not assignable to type `ConfigObjectRepo`.
 ({}) as ConfigObjectRepo satisfies null;
-// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObjectRepo`.
 ({}) as ConfigObjectRepo satisfies symbol;
-// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObjectRepo`.
 ({}) as ConfigObjectRepo satisfies bigint;
-// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObjectRepo`.
 ({}) as ConfigObjectRepo satisfies Function;
 
 let configObjectRepo: ConfigObjectRepo;
 
 configObjectRepo = {};
 
+configObjectRepo = {
+  // @ts-expect-error -- `unknownProperty` does not exist in type `ConfigObjectRepo`.
+  unknownProperty: 'Hello, World!',
+};
+// @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectRepo`.
+configObjectRepo = 0;
+// @ts-expect-error -- Type `string` is not assignable to type `ConfigObjectRepo`.
+configObjectRepo = 'string';
+// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObjectRepo`.
+configObjectRepo = true;
+
 // #endregion ConfigObjectRepo
 // --------------------------------------------------------------------------------
+
+/*
 
 // --------------------------------------------------------------------------------
 // #region ConfigObjectRun
