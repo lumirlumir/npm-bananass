@@ -34,64 +34,68 @@ import { DEFAULT_ENTRY_DIR_NAME, DEFAULT_OUT_DIR_NAME } from '../../constants.js
 // Declarations
 // --------------------------------------------------------------------------------
 
+// --------------------------------------------------------------------------------
 // #region Global
 
-/** @type {ConfigObjectBrowser} */
-const browser = {
+/** @satisfies {ConfigObjectBrowser} */
+const browser = /** @type {const} */ ({
   browser: 'default',
   secret: false,
-};
+});
 
-/** @type {ConfigObjectConsole} */
-const console = {
+/** @satisfies {ConfigObjectConsole} */
+const console = /** @type {const} */ ({
   debug: false,
   quiet: false,
-};
+});
 
 // #endregion Global
+// --------------------------------------------------------------------------------
 
+// --------------------------------------------------------------------------------
 // #region Exclusive
 
-/** @type {ConfigObjectAdd} */
-const add = {};
+/** @satisfies {ConfigObjectAdd} */
+const add = /** @type {const} */ ({});
 
-/** @type {ConfigObjectBug} */
-const bug = {};
+/** @satisfies {ConfigObjectBug} */
+const bug = /** @type {const} */ ({});
 
-/** @type {ConfigObjectBuild} */
-const build = {
+/** @satisfies {ConfigObjectBuild} */
+const build = /** @type {const} */ ({
   clean: false,
   templateType: 'fs',
-};
+});
 
-/** @type {ConfigObjectDiscussion} */
-const discussion = {};
+/** @satisfies {ConfigObjectDiscussion} */
+const discussion = /** @type {const} */ ({});
 
-/** @type {ConfigObjectHome} */
-const home = {};
+/** @satisfies {ConfigObjectHome} */
+const home = /** @type {const} */ ({});
 
-/** @type {ConfigObjectInfo} */
-const info = {
+/** @satisfies {ConfigObjectInfo} */
+const info = /** @type {const} */ ({
   all: false,
-};
+});
 
-/** @type {ConfigObjectOpen} */
-const open = {};
+/** @satisfies {ConfigObjectOpen} */
+const open = /** @type {const} */ ({});
 
-/** @type {ConfigObjectRepo} */
-const repo = {};
+/** @satisfies {ConfigObjectRepo} */
+const repo = /** @type {const} */ ({});
 
-/** @type {ConfigObjectRun} */
-const run = {};
+/** @satisfies {ConfigObjectRun} */
+const run = /** @type {const} */ ({});
 
 // #endregion Exclusive
+// --------------------------------------------------------------------------------
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {ConfigObject} */
-export default {
+/** @satisfies {ConfigObject} */
+export default /** @type {const} */ ({
   cwd: findRootDir(),
   entryDir: DEFAULT_ENTRY_DIR_NAME,
   outDir: DEFAULT_OUT_DIR_NAME,
@@ -108,4 +112,4 @@ export default {
   open,
   repo,
   run,
-};
+});

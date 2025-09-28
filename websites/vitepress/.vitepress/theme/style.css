@@ -70,6 +70,15 @@
   --vp-home-hero-image-filter: blur(44px);
 }
 
+.DocSearch-Button {
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.DocSearch-Button:hover {
+  border-color: var(--vp-c-brand-1);
+}
+
 @media (min-width: 640px) {
   :root {
     --vp-home-hero-image-filter: blur(56px);

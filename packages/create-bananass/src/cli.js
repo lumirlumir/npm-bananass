@@ -15,12 +15,12 @@ import { createRequire } from 'node:module';
 import { spawn } from 'node:child_process';
 import { resolve } from 'node:path';
 
+import isInteractive from 'bananass-utils-console/is-interactive';
 import createLogger from 'bananass-utils-console/logger';
 import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, error, success } from 'bananass-utils-console/theme';
 import { program } from 'commander';
 import { consola } from 'consola';
-import isInteractive from 'is-interactive';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -43,6 +43,7 @@ import isInteractive from 'is-interactive';
 // Declarations
 // --------------------------------------------------------------------------------
 
+/** @type {Record<string, string>} */
 const {
   description: pkgDescription,
   homepage: pkgHomepage,
@@ -70,7 +71,10 @@ program
   .option('--skip-git', 'skip initializing git', false)
   .option('--skip-install', 'skip installing packages with npm', false)
   .action(
-    async (/** @type {string} */ cliDirectory, /** @type {cliOptions} */ cliOptions) => {
+    async (
+      /** @type {string} */ cliDirectory,
+      /** @type {Required<cliOptions>} */ cliOptions,
+    ) => {
       // --------------------------------------------------------------------------
       // CLI
       // --------------------------------------------------------------------------
@@ -231,9 +235,10 @@ program
         );
 
         await rename(resolve(directory, 'gitignore'), resolve(directory, '.gitignore'));
-      } catch ({ message }) {
+      } catch (err) {
         logger.log(() => spinner.error(error('Failed to copy files')));
 
+        const message = err instanceof Error ? err.message : String(err);
         throw new Error(error(message, true));
       }
 
@@ -264,7 +269,7 @@ program
 
                   installExtension.on('close', code => {
                     if (code === 0) {
-                      res();
+                      res(undefined);
                     } else {
                       rej(
                         new Error(
@@ -280,11 +285,12 @@ program
                 }),
             ),
           );
-        } catch ({ message }) {
+        } catch (err) {
           logger.log(() =>
             spinner.error(error('Failed to install Visual Studio Code extensions')),
           );
 
+          const message = err instanceof Error ? err.message : String(err);
           throw new Error(error(message, true));
         }
       }
@@ -305,7 +311,7 @@ program
 
             gitInit.on('close', code => {
               if (code === 0) {
-                res();
+                res(undefined);
               } else {
                 rej(new Error(`git init failed with exit code ${code}`));
               }
@@ -315,9 +321,10 @@ program
               rej(err);
             });
           });
-        } catch ({ message }) {
+        } catch (err) {
           logger.log(() => spinner.error(error('Failed to initialize git')));
 
+          const message = err instanceof Error ? err.message : String(err);
           throw new Error(error(message, true));
         }
       }
@@ -338,7 +345,7 @@ program
 
             npmInstall.on('close', code => {
               if (code === 0) {
-                res();
+                res(undefined);
               } else {
                 rej(new Error(`npm install failed with exit code ${code}`));
               }
@@ -348,9 +355,10 @@ program
               rej(err);
             });
           });
-        } catch ({ message }) {
+        } catch (err) {
           logger.log(() => spinner.error(error('Failed to install packages')));
 
+          const message = err instanceof Error ? err.message : String(err);
           throw new Error(error(message, true));
         }
       }

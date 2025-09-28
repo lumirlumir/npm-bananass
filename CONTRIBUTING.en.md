@@ -1,6 +1,6 @@
 # Contributing
 
-<kbd>[한국어](CONTRIBUTING.md)</kbd> | <kbd>English</kbd>
+<kbd>[한국어](https://github.com/lumirlumir/npm-bananass/blob/main/CONTRIBUTING.md)</kbd> | <kbd>English</kbd>
 
 Hello! Thank you for your interest in contributing.
 

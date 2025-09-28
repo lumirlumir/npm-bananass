@@ -1,16 +1,15 @@
 /**
  * @fileoverview Console spinner.
  * @module bananass-utils-console/spinner
- * @see https://github.com/sindresorhus/yocto-spinner/tree/v0.1.2 `yocto-spinner` package `v0.1.2`.
+ * @license MIT Portions of this code were borrowed from [`yocto-spinner`](https://github.com/sindresorhus/yocto-spinner).
  */
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-import c from 'chalk';
-import isInteractive from 'is-interactive';
-
+import { styleText } from 'node:util';
+import isInteractive from '../is-interactive/index.js';
 import {
   successIcon,
   errorIcon,
@@ -24,22 +23,22 @@ import {
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {'black'|'red'|'green'|'yellow'|'blue'|'cyan'|'magenta'|'white'|'gray'|'grey'|'blackBright'|'redBright'|'greenBright'|'yellowBright'|'blueBright'|'cyanBright'|'magentaBright'|'whiteBright'} ForegroundColorName
+ * @typedef {"black"|"blackBright"|"blue"|"blueBright"|"cyan"|"cyanBright"|"gray"|"green"|"greenBright"|"grey"|"magenta"|"magentaBright"|"red"|"redBright"|"white"|"whiteBright"|"yellow"|"yellowBright"} ForegroundColors
  */
 
 /**
  * @typedef {object} SpinnerStyle
  * @property {string[]} frames
- * @property {number} [interval]
+ * @property {number} interval
  */
 
 /**
  * @typedef {object} Options Spinner options.
- * @property {string} [text] Text to display next to the spinner. (default: `''`)
- * @property {ForegroundColorName} [color] The color of the spinner. (default: `'yellow'`)
- * @property {NodeJS.WriteStream} [stream] The stream to which the spinner is written. (default: `process.stderr`)
- * @property {boolean} [isInteractive] Whether the spinner should be interactive. (default: Auto-detected)
- * @property {SpinnerStyle} [spinner]
+ * @property {string | undefined} [text] Text to display next to the spinner. (default: `''`)
+ * @property {ForegroundColors | undefined} [color] The color of the spinner. (default: `'yellow'`)
+ * @property {NodeJS.WriteStream | undefined} [stream] The stream to which the spinner is written. (default: `process.stderr`)
+ * @property {boolean | undefined} [isInteractive] Whether the spinner should be interactive. (default: Auto-detected)
+ * @property {SpinnerStyle | undefined} [spinner]
  * Customize the spinner animation with a custom set of frames and interval.
  *
  * ```
@@ -67,13 +66,13 @@ class Spinner {
   #interval;
   /** @type {number} */
   #currentFrame = -1;
-  /** @type {NodeJS.Timeout} */
-  #timer;
+  /** @type {NodeJS.Timeout | undefined} */
+  #timer = undefined;
   /** @type {string} */
   #text;
   /** @type {NodeJS.WriteStream} */
   #stream;
-  /** @type {ForegroundColorName} */
+  /** @type {ForegroundColors} */
   #color;
   /** @type {number} */
   #lines = 0;
@@ -93,8 +92,7 @@ class Spinner {
     this.#text = options.text ?? '';
     this.#stream = options.stream ?? process.stderr;
     this.#color = options.color ?? 'yellow';
-    this.#isInteractive =
-      options.isInteractive ?? isInteractive({ stream: this.#stream });
+    this.#isInteractive = options.isInteractive ?? isInteractive(this.#stream);
     this.#exitHandlerBound = this.#exitHandler.bind(this);
   }
 
@@ -102,9 +100,9 @@ class Spinner {
   // Private Methods
   // ------------------------------------------------------------------------------
 
-  /** @param {string} symbol @param {string} text */
-  #symbolStop(symbol, text) {
-    return this.stop(`${symbol} ${text ?? this.#text}`);
+  /** @param {string} symbol @param {string} [text] */
+  #symbolStop(symbol, text = this.#text) {
+    return this.stop(`${symbol} ${text}`);
   }
 
   #render() {
@@ -119,9 +117,9 @@ class Spinner {
       this.#lastSpinnerFrameTime = currentTime;
     }
 
-    const applyColor = c[this.#color] ?? c.yellow;
+    const color = this.#color ?? 'yellow';
     const frame = this.#frames[this.#currentFrame];
-    let string = `${applyColor(frame)} ${this.#text}`;
+    let string = `${styleText(color, frame)} ${this.#text}`;
 
     if (!this.#isInteractive) {
       string += '\n';

@@ -8,4 +8,7 @@ export default [
   bananass.configs.ts,
   bananass.configs.tsxReact,
   bananass.configs.tsxNext,
+  bananass.configs.json,
+  bananass.configs.jsonc,
+  bananass.configs.json5,
 ];

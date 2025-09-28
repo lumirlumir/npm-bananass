@@ -1,13 +1,6 @@
 lumirlumir/lumirlumir-configs:
   - source: ./.github/sync-client.yml
     dest: ./clients/npm-bananass.yml
-  # ./.github/ISSUE_TEMPLATE
-  - source: ./.github/ISSUE_TEMPLATE/1-bug.md
-    dest: ./configs/.github/ISSUE_TEMPLATE/1-bug.md
-  - source: ./.github/ISSUE_TEMPLATE/2-suggestion.md
-    dest: ./configs/.github/ISSUE_TEMPLATE/2-suggestion.md
-  - source: ./.github/ISSUE_TEMPLATE/3-others.md
-    dest: ./configs/.github/ISSUE_TEMPLATE/3-others.md
   # ./.github/workflows
   - source: ./.github/workflows/lint.yml
     dest: ./configs/.github/workflows/lint.yml
@@ -60,10 +53,6 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.prettierignore
   - source: ./.textlintrc.cjs
     dest: ./configs/.textlintrc.cjs
-  - source: ./CODE_OF_CONDUCT.en.md
-    dest: ./configs/CODE_OF_CONDUCT.en.md
-  - source: ./CODE_OF_CONDUCT.md
-    dest: ./configs/CODE_OF_CONDUCT.ko.md
   - source: ./LICENSE.md
     dest: ./configs/LICENSE.md
   - source: ./VScode.code-workspace

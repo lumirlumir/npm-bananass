@@ -1,10 +1,10 @@
 {
   "private": true,
   "name": "create-bananass-javascript-esm",
-  "version": "0.3.0",
+  "version": "0.4.1",
   "type": "module",
   "engines": {
-    "node": "^20.18.0 || ^22.3.0 || >= 24.0.0"
+    "node": "^20.18.0 || ^22.3.0 || >=24.0.0"
   },
   "scripts": {
     "add": "echo `add` command is still working in progress!",
@@ -22,10 +22,10 @@
     "prettier:fix": "prettier . --write --ignore-unknown"
   },
   "devDependencies": {
-    "bananass": "^0.3.0",
-    "eslint": "^9.32.0",
-    "eslint-config-bananass": "^0.3.0",
+    "bananass": "^0.4.1",
+    "eslint": "^9.35.0",
+    "eslint-config-bananass": "^0.4.1",
     "prettier": "^3.6.2",
-    "prettier-config-bananass": "^0.3.0"
+    "prettier-config-bananass": "^0.4.1"
   }
 }

@@ -6,5 +6,8 @@
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {[string, string]} */
-export const problems = ['<problems...>', 'baekjoon problem numbers'];
+/** @satisfies {[string, string]} */
+export const problems = /** @type {const} */ ([
+  '<problems...>',
+  'baekjoon problem numbers',
+]);

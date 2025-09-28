@@ -68,9 +68,10 @@ export default async function home(configObject = dco) {
         arguments: secret ? ['--incognito', '--private-window', '--inPrivate'] : [],
       },
     });
-  } catch ({ message }) {
+  } catch (err) {
     logger.log(() => spinner.error(error('Failed to open homepage')));
 
+    const message = err instanceof Error ? err.message : String(err);
     throw new Error(error(message, true));
   }
 

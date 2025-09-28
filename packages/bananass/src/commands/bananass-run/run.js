@@ -8,6 +8,7 @@
 // --------------------------------------------------------------------------------
 
 import { resolve } from 'node:path';
+import { styleText } from 'node:util';
 
 import createLogger from 'bananass-utils-console/logger';
 import createSpinner from 'bananass-utils-console/spinner';
@@ -16,8 +17,6 @@ import {
   bulletIcon as BIcon,
   boxDrawingsLightHorizontalIcon as BDLHIcon,
 } from 'bananass-utils-console/icons';
-
-import chalk from 'chalk';
 import { createJiti } from 'jiti';
 
 import { defaultConfigObject as dco } from '../../core/conf/index.js';
@@ -100,9 +99,10 @@ export default async function run(problems, configObject = dco) {
           }),
       ),
     );
-  } catch ({ message }) {
+  } catch (err) {
     logger.log(() => spinner.error(error('Failed to resolve entry files')));
 
+    const message = err instanceof Error ? err.message : String(err);
     throw new Error(error(message, true));
   }
 
@@ -117,9 +117,10 @@ export default async function run(problems, configObject = dco) {
         jiti.import(resolvedEntryFile, { default: true }),
       ),
     );
-  } catch ({ message }) {
+  } catch (err) {
     logger.log(() => spinner.error(error('Failed to import modules')));
 
+    const message = err instanceof Error ? err.message : String(err);
     throw new Error(error(message, true));
   }
 
@@ -129,9 +130,10 @@ export default async function run(problems, configObject = dco) {
 
   try {
     testResults = importedModules.map(importedModule => testRunner(importedModule));
-  } catch ({ message }) {
+  } catch (err) {
     logger.log(() => spinner.error(error('Failed to run tests')));
 
+    const message = err instanceof Error ? err.message : String(err);
     throw new Error(error(message, true));
   }
 
@@ -150,29 +152,34 @@ export default async function run(problems, configObject = dco) {
     .eol();
 
   testResults.forEach(({ results }, idx) => {
-    logger.log(chalk.cyan.bold(`PROBLEM:`, chalk.green.bold(problems[idx])));
+    logger.log(
+      styleText(['cyan', 'bold'], `PROBLEM:`),
+      styleText(['green', 'bold'], problems[idx]),
+    );
 
     results.forEach(({ input, outputExpected, outputActual }, index, thisArg) => {
       logger
         .log(BDLHIcon.repeat(columns))
         .log(
           BIcon,
-          chalk.cyan.bold(`TESTCASE`, chalk.underline(`#${index + 1}`)),
-          chalk.green.bold('INPUT'),
+          styleText(['cyan', 'bold'], `TESTCASE`),
+          styleText(['cyan', 'bold', 'underline'], `#${index + 1}`),
+          styleText(['green', 'bold'], 'INPUT'),
         )
-        .log(chalk.gray.dim('-'.repeat(columns)))
-        .log(chalk.magenta.bold('Your Input:'))
+        .log(styleText(['gray', 'dim'], '-'.repeat(columns)))
+        .log(styleText(['magenta', 'bold'], 'Your Input:'))
         .log(input)
-        .log(chalk.gray.dim(BDLHIcon.repeat(columns)))
+        .log(styleText(['gray', 'dim'], BDLHIcon.repeat(columns)))
         .log(
           BIcon,
-          chalk.cyan.bold(`TESTCASE`, chalk.underline(`#${index + 1}`)),
-          chalk.greenBright.bold('OUTPUT'),
+          styleText(['cyan', 'bold'], `TESTCASE`),
+          styleText(['cyan', 'bold', 'underline'], `#${index + 1}`),
+          styleText(['green', 'bold'], 'OUTPUT'),
         )
-        .log(chalk.gray.dim('-'.repeat(columns)))
-        .log(chalk.magenta.bold('Expected Output:'))
+        .log(styleText(['gray', 'dim'], '-'.repeat(columns)))
+        .log(styleText(['magenta', 'bold'], 'Expected Output:'))
         .log(outputExpected)
-        .log(chalk.magenta.bold('Your Output:'))
+        .log(styleText(['magenta', 'bold'], 'Your Output:'))
         .log(outputActual);
 
       if (thisArg.length === index + 1) {
@@ -183,8 +190,11 @@ export default async function run(problems, configObject = dco) {
     results.forEach(({ isTestPassed }, index) => {
       logger.log(
         BIcon,
-        chalk.cyan.bold(`TESTCASE`, chalk.underline(`#${index + 1}`)),
-        isTestPassed ? chalk.green.bold('PASSED') : chalk.red.bold('FAILED'),
+        styleText(['cyan', 'bold'], `TESTCASE`),
+        styleText(['cyan', 'bold', 'underline'], `#${index + 1}`),
+        isTestPassed
+          ? styleText(['green', 'bold'], 'PASSED')
+          : styleText(['red', 'bold'], 'FAILED'),
       );
     });
   });

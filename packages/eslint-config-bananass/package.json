@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-bananass",
-  "version": "0.3.0",
+  "version": "0.4.1",
   "type": "module",
   "description": "ESLint Config for Bananass Framework.🍌",
   "exports": {
@@ -45,7 +45,10 @@
     "js",
     "ts",
     "jsx",
-    "tsx"
+    "tsx",
+    "json",
+    "jsonc",
+    "json5"
   ],
   "author": "루밀LuMir <rpfos@naver.com> (https://github.com/lumirlumir)",
   "license": "MIT",
@@ -67,18 +70,22 @@
     "test": "node --test"
   },
   "peerDependencies": {
-    "eslint": "^9.0.0"
+    "eslint": "^9.15.0"
   },
   "dependencies": {
-    "@next/eslint-plugin-next": "^15.4.4",
-    "@stylistic/eslint-plugin-js": "^4.2.0",
-    "@typescript-eslint/eslint-plugin": "^8.32.1",
-    "@typescript-eslint/parser": "^8.32.1",
+    "@eslint/json": "^0.13.2",
+    "@next/eslint-plugin-next": "^15.5.3",
+    "@stylistic/eslint-plugin-js": "^4.4.1",
+    "@typescript-eslint/eslint-plugin": "^8.43.0",
+    "@typescript-eslint/parser": "^8.43.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-n": "^17.21.0",
+    "eslint-plugin-n": "^17.23.1",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^6.0.0-rc.1",
-    "globals": "^16.3.0"
+    "eslint-plugin-react-hooks": "^6.0.0-rc.2",
+    "globals": "^16.4.0"
+  },
+  "devDependencies": {
+    "@types/eslint-plugin-jsx-a11y": "^6.10.0"
   }
 }

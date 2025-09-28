@@ -283,6 +283,37 @@ export default defineConfig({
             },
           ],
         },
+        {
+          base: '/community',
+          text: '커뮤니티',
+          collapsed: true,
+          items: [
+            {
+              text: '기여자 행동 강령 규약',
+              link: '/code-of-conduct',
+            },
+            {
+              text: '기여하기',
+              link: '/contributing',
+            },
+            {
+              text: '변경 사항',
+              link: '/change-log',
+            },
+            {
+              text: '버전 정책',
+              link: '/versioning',
+            },
+            {
+              text: '보안',
+              link: '/security',
+            },
+            {
+              text: '라이선스',
+              link: '/license',
+            },
+          ],
+        },
       ],
     },
 

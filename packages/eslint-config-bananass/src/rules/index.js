@@ -7,6 +7,7 @@ import reactRules from './react/index.js';
 import reactHooksRules from './react-hooks/index.js';
 import nextRules from './next/index.js';
 import typescriptRules from './typescript/index.js';
+import jsonRules from './json/index.js';
 
 export {
   eslintRules,
@@ -18,4 +19,5 @@ export {
   reactHooksRules,
   nextRules,
   typescriptRules,
+  jsonRules,
 };

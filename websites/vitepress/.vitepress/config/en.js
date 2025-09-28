@@ -283,6 +283,37 @@ export default defineConfig({
             },
           ],
         },
+        {
+          base: '/en/community',
+          text: 'Community',
+          collapsed: true,
+          items: [
+            {
+              text: 'Code of Conduct',
+              link: '/code-of-conduct',
+            },
+            {
+              text: 'Contributing',
+              link: '/contributing',
+            },
+            {
+              text: 'Change Log',
+              link: '/change-log',
+            },
+            {
+              text: 'Versioning',
+              link: '/versioning',
+            },
+            {
+              text: 'Security',
+              link: '/security',
+            },
+            {
+              text: 'License',
+              link: '/license',
+            },
+          ],
+        },
       ],
     },
 

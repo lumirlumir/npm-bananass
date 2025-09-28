@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "websites-vitepress",
-  "version": "0.3.0",
+  "version": "0.4.1",
   "type": "module",
   "scripts": {
     "dev": "npx vitepress --open --host",
@@ -10,10 +10,10 @@
   },
   "devDependencies": {
     "@codecov/vite-plugin": "^1.9.1",
-    "bananass": "^0.3.0",
+    "bananass": "^0.4.1",
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-mathjax3": "^4.3.2",
-    "vitepress": "^1.6.3",
-    "vitepress-plugin-group-icons": "^1.6.1"
+    "vitepress": "^2.0.0-alpha.11",
+    "vitepress-plugin-group-icons": "^1.6.3"
   }
 }

@@ -1,12 +1,20 @@
 {
   "name": "bananass-utils-console",
-  "version": "0.3.0",
+  "version": "0.4.1",
   "type": "module",
   "description": "Console Utilities for Bananass Framework.🍌",
   "exports": {
     "./icons": {
       "types": "./build/icons/index.d.ts",
       "default": "./src/icons/index.js"
+    },
+    "./is-interactive": {
+      "types": "./build/is-interactive/index.d.ts",
+      "default": "./src/is-interactive/index.js"
+    },
+    "./is-unicode-supported": {
+      "types": "./build/is-unicode-supported/index.d.ts",
+      "default": "./src/is-unicode-supported/index.js"
     },
     "./logger": {
       "types": "./build/logger/index.d.ts",
@@ -29,6 +37,12 @@
       ],
       "icons": [
         "./build/icons/index.d.ts"
+      ],
+      "is-interactive": [
+        "./build/is-interactive/index.d.ts"
+      ],
+      "is-unicode-supported": [
+        "./build/is-unicode-supported/index.d.ts"
       ],
       "logger": [
         "./build/logger/index.d.ts"
@@ -74,7 +88,7 @@
     "url": "https://github.com/lumirlumir/npm-bananass/issues"
   },
   "engines": {
-    "node": "^20.18.0 || ^22.3.0 || >= 24.0.0"
+    "node": "^20.18.0 || ^22.3.0 || >=24.0.0"
   },
   "publishConfig": {
     "provenance": true
@@ -83,10 +97,5 @@
     "prepublishOnly": "npm run build",
     "build": "npx tsc && node ../../scripts/cp.mjs ../../LICENSE.md LICENSE.md ../../README.md README.md",
     "test": "node --test"
-  },
-  "dependencies": {
-    "chalk": "^5.4.1",
-    "is-interactive": "^2.0.0",
-    "is-unicode-supported": "^2.1.0"
   }
 }

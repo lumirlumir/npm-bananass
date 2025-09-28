@@ -22,7 +22,7 @@ import { node } from '../settings.js';
 /** @type {import("eslint").Linter.Config} */
 export default {
   name: 'bananass/js',
-  files: js,
+  files: [...js],
   languageOptions: {
     globals,
   },

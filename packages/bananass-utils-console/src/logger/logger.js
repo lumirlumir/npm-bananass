@@ -7,7 +7,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import c from 'chalk';
+import { styleText } from 'node:util';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -15,9 +15,9 @@ import c from 'chalk';
 
 /**
  * @typedef {object} Options Logger options.
- * @property {boolean} [debug] Enable debug mode.
- * @property {boolean} [quiet] Enable quiet mode.
- * @property {string | boolean} [textPrefix] Text prefix.
+ * @property {boolean | undefined} [debug] Enable debug mode.
+ * @property {boolean | undefined} [quiet] Enable quiet mode.
+ * @property {string | boolean | undefined} [textPrefix] Text prefix.
  */
 
 // --------------------------------------------------------------------------------
@@ -69,7 +69,7 @@ class Logger {
    * - `quiet === true`: output X
    * - `quiet === false`: output O
    *
-   * @param {...any} params
+   * @param {...unknown} params
    * @returns {Logger}
    */
   log(...params) {
@@ -111,7 +111,7 @@ class Logger {
    * - `quiet === false && debug === true`: output O
    * - `quiet === false && debug === false`: output X
    *
-   * @param {...any} params
+   * @param {...unknown} params
    * @returns {Logger}
    */
   debug(...params) {
@@ -135,7 +135,7 @@ class Logger {
       console.log(
         ...[this.#textPrefix, textOrCallback, ...args]
           .filter(arg => arg !== this.#undeclaredValue)
-          .map(arg => (typeof arg === 'string' ? c.gray(arg) : arg)),
+          .map(arg => (typeof arg === 'string' ? styleText('gray', arg) : arg)),
       );
     }
 
@@ -172,7 +172,6 @@ class Logger {
 
   /**
    * Get the last method called.
-   *
    * @returns {'log' | 'debug'}
    */
   get lastMethodCalled() {
@@ -187,7 +186,7 @@ class Logger {
 /**
  * Create a new `Logger` instance.
  *
- * @param {Options} options
+ * @param {Options} [options]
  * @returns {Logger} A new `Logger` instance.
  *
  * @example
