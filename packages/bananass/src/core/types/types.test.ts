@@ -633,21 +633,21 @@ configObjectRun = true;
 
 ({}) as Problem satisfies string;
 
-// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `number` is not assignable to type `Problem`.
 ({}) as Problem satisfies number;
-// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `boolean` is not assignable to type `Problem`.
 ({}) as Problem satisfies boolean;
-// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `undefined` is not assignable to type `Problem`.
 ({}) as Problem satisfies undefined;
-// @ts-expect-error -- Type `null` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `null` is not assignable to type `Problem`.
 ({}) as Problem satisfies null;
-// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `symbol` is not assignable to type `Problem`.
 ({}) as Problem satisfies symbol;
-// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `bigint` is not assignable to type `Problem`.
 ({}) as Problem satisfies bigint;
-// @ts-expect-error -- Type `object` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `object` is not assignable to type `Problem`.
 ({}) as Problem satisfies object;
-// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `Function` is not assignable to type `Problem`.
 ({}) as Problem satisfies Function;
 
 let problem: Problem;
@@ -663,27 +663,27 @@ problem = true;
 // #endregion Problem
 // --------------------------------------------------------------------------------
 
-/*
-
 // --------------------------------------------------------------------------------
 // #region Problems
 
 ({}) as Problems satisfies object;
 ({}) as Problems satisfies readonly string[];
 
-// @ts-expect-error -- Type `number` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `number` is not assignable to type `Problems`.
 ({}) as Problems satisfies number;
-// @ts-expect-error -- Type `boolean` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `string` is not assignable to type `Problems`.
+({}) as Problems satisfies string;
+// @ts-expect-error -- Type `boolean` is not assignable to type `Problems`.
 ({}) as Problems satisfies boolean;
-// @ts-expect-error -- Type `undefined` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `undefined` is not assignable to type `Problems`.
 ({}) as Problems satisfies undefined;
-// @ts-expect-error -- Type `null` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `null` is not assignable to type `Problems`.
 ({}) as Problems satisfies null;
-// @ts-expect-error -- Type `symbol` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `symbol` is not assignable to type `Problems`.
 ({}) as Problems satisfies symbol;
-// @ts-expect-error -- Type `bigint` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `bigint` is not assignable to type `Problems`.
 ({}) as Problems satisfies bigint;
-// @ts-expect-error -- Type `Function` is not assignable to type `ConfigObject`.
+// @ts-expect-error -- Type `Function` is not assignable to type `Problems`.
 ({}) as Problems satisfies Function;
 // @ts-expect-error -- Type 'readonly string[]' does not satisfy the expected type 'string[]'.
 ({}) as Problems satisfies string[];
@@ -692,8 +692,17 @@ let problems: Problems;
 
 problems = ['1000', '2000'];
 
+// @ts-expect-error -- Type `number` is not assignable to type `Problems`.
+problems = 0;
+// @ts-expect-error -- Type `string` is not assignable to type `Problems`.
+problems = 'string';
+// @ts-expect-error -- Type `boolean` is not assignable to type `Problems`.
+problems = true;
+
 // #endregion Problems
 // --------------------------------------------------------------------------------
+
+/*
 
 // --------------------------------------------------------------------------------
 // #region Input
