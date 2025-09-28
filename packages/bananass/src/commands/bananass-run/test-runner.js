@@ -7,25 +7,24 @@
 // --------------------------------------------------------------------------------
 
 import {
-  SolutionWithTestcases as SolutionWithTestcasesStruct,
-  Input as InputStruct,
-  Output as OutputStruct,
-} from '../../core/structs/index.js';
+  testcases as testcasesSchema,
+  solution as solutionSchema,
+} from '../../core/types/index.js';
 
 // --------------------------------------------------------------------------------
-// Typedefs
+// Typedef
 // --------------------------------------------------------------------------------
 
 /**
- * @import { SolutionWithTestcases, Output } from '../../core/types/index.js';
+ * @import { Output, Testcases, Solution } from '../../core/types/index.js';
  */
 
 // --------------------------------------------------------------------------------
-// Helpers
+// Helper
 // --------------------------------------------------------------------------------
 
 /** @param {Output} output */
-function transformOutput(output) {
+function normalizeOutput(output) {
   return String(output).trimEnd();
 }
 
@@ -35,48 +34,36 @@ function transformOutput(output) {
 
 /**
  * Test runner. Return an object with test results.
- * @param {SolutionWithTestcases} solutionWithTestcases
+ * @param {{testcases?: Testcases, solution: Solution}} solutionWithTestcases
  */
-export default function testRunner(solutionWithTestcases) {
+export default function testRunner({ testcases, solution }) {
   // ------------------------------------------------------------------------------
-  // Runtime Validation
-  // ------------------------------------------------------------------------------
-
-  SolutionWithTestcasesStruct.assert(solutionWithTestcases);
-
-  // ------------------------------------------------------------------------------
-  // Declarations
+  // Declaration
   // ------------------------------------------------------------------------------
 
-  const { solution, testcases } = solutionWithTestcases;
+  const sanitizedTestcases = testcasesSchema.parse(testcases);
+  const sanitizedSolution = solutionSchema.implement(solution);
 
   // ------------------------------------------------------------------------------
   // Test Runner
   // ------------------------------------------------------------------------------
 
-  // @ts-expect-error -- TODO: `SolutionWithTestcases` type will be removed in the near future.
-  const results = testcases.map(({ input, output: outputExpected }) => {
-    const outputActual = solution(input);
-
-    InputStruct.assert(input);
-    OutputStruct.assert(outputExpected);
-    OutputStruct.assert(outputActual);
-
-    const outputExpectedTransformed = transformOutput(outputExpected);
-    const outputActualTransformed = transformOutput(outputActual);
+  const results = sanitizedTestcases.map(({ input, output: outputExpected }) => {
+    const outputActual = sanitizedSolution(input);
+    const normalizedOutputExpected = normalizeOutput(outputExpected);
+    const normalizedOutputActual = normalizeOutput(outputActual);
 
     return {
       input,
       outputExpected,
       outputActual,
-      outputExpectedTransformed,
-      outputActualTransformed,
-      isTestPassed: Object.is(outputExpectedTransformed, outputActualTransformed),
+      normalizedOutputExpected,
+      normalizedOutputActual,
+      isTestPassed: Object.is(normalizedOutputExpected, normalizedOutputActual),
     };
   });
 
-  // @ts-expect-error -- TODO: `SolutionWithTestcases` type will be removed in the near future.
-  const numberOfTests = testcases.length;
+  const numberOfTests = sanitizedTestcases.length;
   const numberOfTestsPassed = results.filter(({ isTestPassed }) => isTestPassed).length;
   const numberOfTestsFailed = numberOfTests - numberOfTestsPassed;
   const isAllTestsPassed = Object.is(numberOfTests, numberOfTestsPassed);
