@@ -74,7 +74,7 @@
   },
   "dependencies": {
     "@eslint/json": "^0.13.2",
-    "@next/eslint-plugin-next": "^15.5.3",
+    "@next/eslint-plugin-next": "^15.5.4",
     "@stylistic/eslint-plugin-js": "^4.4.1",
     "@typescript-eslint/eslint-plugin": "^8.43.0",
     "@typescript-eslint/parser": "^8.43.0",
