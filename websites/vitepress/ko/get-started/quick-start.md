@@ -24,7 +24,7 @@
 
 ### 선행 설치 사항 {#prerequisites}
 
-`create-bananass` 명령어를 실행하기 전, `^20.18.0 || ^22.3.0 || >= 24.0.0` 범위에 해당하는 최신 버전의 [Node.js](https://nodejs.org/) 및 [Git](https://git-scm.com/)을 설치해주세요.
+`create-bananass` 명령어를 실행하기 전, `^20.19.0 || ^22.13.0 || >=24.0.0` 범위에 해당하는 최신 버전의 [Node.js](https://nodejs.org/) 및 [Git](https://git-scm.com/)을 설치해주세요.
 
 ### `create-bananass`로 설치하기 {#install-with-create-bananass}
 
