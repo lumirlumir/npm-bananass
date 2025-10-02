@@ -88,7 +88,7 @@
     "url": "https://github.com/lumirlumir/npm-bananass/issues"
   },
   "engines": {
-    "node": "^20.18.0 || ^22.3.0 || >=24.0.0"
+    "node": "^20.19.0 || ^22.13.0 || >=24.0.0"
   },
   "publishConfig": {
     "provenance": true
