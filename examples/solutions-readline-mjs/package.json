@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "examples-solutions-readline-mjs",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "type": "module",
   "scripts": {
     "start:1000": "node src/1000"
