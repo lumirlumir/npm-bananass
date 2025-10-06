@@ -20,7 +20,9 @@ export const jsonc = /** @type {const} */ ([
   '**/*.jsonc',
   '**/.vscode/*.json',
   '**/jsconfig.json',
+  '**/jsconfig.*.json',
   '**/tsconfig.json',
+  '**/tsconfig.*.json',
 ]);
 
 export const json5 = /** @type {const} */ (['**/*.json5']);
