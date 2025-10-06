@@ -86,6 +86,6 @@
     "globals": "^16.4.0"
   },
   "devDependencies": {
-    "@types/eslint-plugin-jsx-a11y": "^6.10.0"
+    "@types/eslint-plugin-jsx-a11y": "^6.10.1"
   }
 }
