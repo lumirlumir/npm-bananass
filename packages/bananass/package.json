@@ -100,7 +100,7 @@
     "jiti": "^2.6.1",
     "open": "^10.2.0",
     "webpack": "^5.101.3",
-    "zod": "^4.1.11"
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@types/babel__core": "^7.20.5",
