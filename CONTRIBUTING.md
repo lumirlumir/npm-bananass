@@ -25,7 +25,7 @@
 
 ## 프로젝트 구조
 
-바나나 프레임워크는 [`npm workspaces`](https://docs.npmjs.com/cli/using-npm/workspaces)와 [`lerna`](https://lerna.js.org/)를 이용한 **모노레포<sup>monorepo</sup>** 구조로 구성되어 있습니다.
+바나나 프레임워크는 [`npm workspaces`](https://docs.npmjs.com/cli/using-npm/workspaces)를 이용한 **모노레포<sup>monorepo</sup>** 구조로 구성되어 있습니다.
 
 - 핵심 패키지인 `bananass` 패키지는 `packages/bananass` 폴더에 위치합니다.
 - 그 외 패키지들도 `packages` 폴더 하위에 위치하고 있습니다.

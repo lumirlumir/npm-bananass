@@ -25,7 +25,7 @@ You can also help by translating any untranslated documents. Since Bananass Fram
 
 ## Project Structure
 
-The Bananass Framework uses a **monorepo** structure with [`npm workspaces`](https://docs.npmjs.com/cli/using-npm/workspaces) and [`lerna`](https://lerna.js.org/).
+The Bananass Framework uses a **monorepo** structure with [`npm workspaces`](https://docs.npmjs.com/cli/using-npm/workspaces).
 
 - Core package `bananass` is in `packages/bananass`.  
 - Other packages are under `packages`.  
