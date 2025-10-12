@@ -1,7 +1,6 @@
 {
   "private": true,
   "name": "create-bananass-javascript-cjs",
-  "version": "0.5.0",
   "type": "commonjs",
   "engines": {
     "node": "^20.19.0 || ^22.13.0 || >=24.0.0"
@@ -22,10 +21,10 @@
     "prettier:fix": "prettier . --write --ignore-unknown"
   },
   "devDependencies": {
-    "bananass": "^0.5.0",
+    "bananass": "^0.5.1",
     "eslint": "^9.35.0",
-    "eslint-config-bananass": "^0.5.0",
+    "eslint-config-bananass": "^0.5.1",
     "prettier": "^3.6.2",
-    "prettier-config-bananass": "^0.5.0"
+    "prettier-config-bananass": "^0.5.1"
   }
 }

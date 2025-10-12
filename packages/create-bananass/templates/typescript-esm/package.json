@@ -1,7 +1,6 @@
 {
   "private": true,
   "name": "create-bananass-typescript-esm",
-  "version": "0.5.0",
   "type": "module",
   "engines": {
     "node": "^20.19.0 || ^22.13.0 || >=24.0.0"
@@ -23,12 +22,12 @@
     "tsc": "tsc"
   },
   "devDependencies": {
-    "bananass": "^0.5.0",
+    "bananass": "^0.5.1",
     "eslint": "^9.35.0",
-    "eslint-config-bananass": "^0.5.0",
+    "eslint-config-bananass": "^0.5.1",
     "jiti": "^2.5.1",
     "prettier": "^3.6.2",
-    "prettier-config-bananass": "^0.5.0",
+    "prettier-config-bananass": "^0.5.1",
     "typescript": "^5.9.2"
   }
 }
