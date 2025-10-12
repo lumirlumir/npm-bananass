@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "prepare": "husky",
-    "release:publish": "npx lerna publish from-package --pre-dist-tag next --yes",
+    "release:publish": "node -e \"require('child_process').execSync('npm publish -w packages ' + (require('./package.json').version.includes('-') ? '--tag next' : ''), { stdio: 'inherit' })\"",
     "release:version": "node ./scripts/version.mjs",
     "coverage": "npx c8 --reporter=lcov npm run test",
     "test": "npx lerna run test --ignore npm-bananass",
