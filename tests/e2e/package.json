@@ -1,7 +1,6 @@
 {
   "private": true,
   "name": "tests-e2e",
-  "version": "0.5.0",
   "type": "module",
   "scripts": {
     "test": "node --test"

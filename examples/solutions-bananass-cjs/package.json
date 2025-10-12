@@ -1,7 +1,6 @@
 {
   "private": true,
   "name": "examples-solutions-bananass-cjs",
-  "version": "0.5.0",
   "scripts": {
     "build": "bananass build",
     "run": "bananass run",
