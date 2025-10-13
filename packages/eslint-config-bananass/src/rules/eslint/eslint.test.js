@@ -23,7 +23,7 @@ const prefix = '/';
 
 describe('eslint', () => {
   describe(`All key values must not include \`${prefix}\`.`, () => {
-    it('eslint-layout-formatting.js', () => {
+    it('eslint.js', () => {
       Object.keys(eslint).forEach(key => {
         strictEqual(key.includes(prefix), false);
       });
