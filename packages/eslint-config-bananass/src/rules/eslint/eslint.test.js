@@ -11,7 +11,6 @@ import { describe, it } from 'node:test';
 
 import eslintLayoutFormatting from './eslint-layout-formatting.js';
 import eslintPossibleProblems from './eslint-possible-problems.js';
-import eslintSuggestions from './eslint-suggestions.js';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -33,12 +32,6 @@ describe('eslint', () => {
 
     it('eslint-possible-problems.js', () => {
       Object.keys(eslintPossibleProblems).forEach(key => {
-        strictEqual(key.includes(prefix), false);
-      });
-    });
-
-    it('eslint-suggestions.js', () => {
-      Object.keys(eslintSuggestions).forEach(key => {
         strictEqual(key.includes(prefix), false);
       });
     });
