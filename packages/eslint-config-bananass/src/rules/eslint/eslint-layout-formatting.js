@@ -1300,8 +1300,9 @@ export default /** @satisfies {Partial<ESLintRules>} */ ({
 
   /**
    * Require or disallow Unicode byte order mark (BOM).
-   * @see https://eslint.org/docs/latest/rules/unicode-bom
-   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L521
+   *
+   * @link eslint: {@link https://eslint.org/docs/latest/rules/unicode-bom}
+   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L521}
    */
   'unicode-bom': ['error', 'never'],
 
