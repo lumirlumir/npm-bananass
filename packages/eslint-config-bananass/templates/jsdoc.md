@@ -21,10 +21,9 @@ Every file under `eslint-config-bananass/src/rules` directory should follow the 
 export default {
   /**
    * Descriptions from the official documentation.
-   *
    * @description Additional descriptions provided by the maintainers if needed.
-   * @link eslint: {@link link-to-the-website}
-   * @link airbnb-base: {@link link-to-the-website}
+   * @see link-to-the-eslint-website (eslint)
+   * @see link-to-the-airbnb-base-website (eslint-config-airbnb-base)
    */
   'rule-name': 'value',
 };
