@@ -1,6 +1,3 @@
-import eslintLayoutFormatting from './eslint-layout-formatting.js';
+import eslint from './eslint.js';
 
-/** @type {import("eslint").Linter.RulesRecord} */
-export default {
-  ...eslintLayoutFormatting,
-};
+export default eslint;
