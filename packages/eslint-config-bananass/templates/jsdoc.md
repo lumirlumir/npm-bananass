@@ -6,11 +6,11 @@ Every file under `eslint-config-bananass/src/rules` directory should follow the 
 /**
  * @fileoverview This file follows:
  *
- * - The order of the rules listed in the 'XXX' section on XXX.
- *   - See, {@link link-to-the-website}.
+ * - The order of the rules listed on XXX.
+ *   - @see link-to-the-website
  *
  * - The best practices outlined in `XXX`.
- *   - See, {@link link-to-the-website}.
+ *   - @see link-to-the-website
  */
 
 // --------------------------------------------------------------------------------
@@ -21,10 +21,9 @@ Every file under `eslint-config-bananass/src/rules` directory should follow the 
 export default {
   /**
    * Descriptions from the official documentation.
-   *
    * @description Additional descriptions provided by the maintainers if needed.
-   * @link eslint: {@link link-to-the-website}
-   * @link airbnb-base: {@link link-to-the-website}
+   * @see link-to-the-website (other references, e.g., airbnb, prettier, etc.)
+   * @see link-to-the-website (other references, e.g., airbnb, prettier, etc.)
    */
   'rule-name': 'value',
 };
