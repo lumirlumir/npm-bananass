@@ -336,7 +336,7 @@ export default /** @satisfies {Partial<ESLintRules>} */ ({
    * Disallow confusing multiline expressions.
    * @see https://eslint.org/docs/latest/rules/no-unexpected-multiline (eslint)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/errors.js#L127 (airbnb-base)
-   * @link prettier: {@link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L14}
+   * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L14 (prettier)
    */
   'no-unexpected-multiline': 'off',
 
@@ -538,7 +538,7 @@ export default /** @satisfies {Partial<ESLintRules>} */ ({
    * Enforce consistent brace style for all control statements.
    * @see https://eslint.org/docs/latest/rules/curly (eslint)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L31 (airbnb-base)
-   * @link prettier: {@link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L13}
+   * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L13 (prettier)
    */
   curly: 'off',
 

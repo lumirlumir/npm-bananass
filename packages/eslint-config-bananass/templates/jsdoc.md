@@ -6,37 +6,25 @@ Every file under `eslint-config-bananass/src/rules` directory should follow the 
 /**
  * @fileoverview This file follows:
  *
- * - The order of the rules listed on eslint.org.
- *   - @see https://eslint.org/docs/latest/rules
+ * - The order of the rules listed on XXX.
+ *   - @see link-to-the-website
  *
- * - The best practices outlined in `eslint-config-airbnb-base@19.0.4`.
- *   - @see https://github.com/airbnb/javascript/tree/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules
- *
- * - The rules disabled by `eslint-config-prettier@9.1.0`.
- *   - @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js
- */
-
-// --------------------------------------------------------------------------------
-// Typedef
-// --------------------------------------------------------------------------------
-
-/**
- * @import { Linter } from "eslint"
- * @import { ESLintRules } from "eslint/rules"
+ * - The best practices outlined in `XXX`.
+ *   - @see link-to-the-website
  */
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {Linter.RulesRecord} */
-export default /** @satisfies {Partial<ESLintRules>} */ ({
+/** @type {import("eslint").Linter.RulesRecord} */
+export default {
   /**
    * Descriptions from the official documentation.
    * @description Additional descriptions provided by the maintainers if needed.
-   * @see link-to-the-eslint-website (eslint)
-   * @see link-to-the-airbnb-base-website (airbnb-base)
+   * @see link-to-the-website (other references, e.g., airbnb, prettier, etc.)
+   * @see link-to-the-website (other references, e.g., airbnb, prettier, etc.)
    */
   'rule-name': 'value',
-});
+};
 ```
