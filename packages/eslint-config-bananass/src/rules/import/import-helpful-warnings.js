@@ -1,46 +1,53 @@
 /**
  * @fileoverview This file follows:
  *
- * - The order of the rules listed in the 'Helpful Warnings' section on `eslint-plugin-import`.
- *   - See, {@link https://github.com/import-js/eslint-plugin-import?tab=readme-ov-file#helpful-warnings}.
+ * - The order of the rules listed on `eslint-plugin-import`.
+ *   - @see https://github.com/import-js/eslint-plugin-import?tab=readme-ov-file#rules
  *
  * - The best practices outlined in `eslint-config-airbnb-base@19.0.4`.
- *   - See, {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js}.
+ *   - @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js
+ */
+
+// --------------------------------------------------------------------------------
+// Typedef
+// --------------------------------------------------------------------------------
+
+/**
+ * @import { Linter } from "eslint";
  */
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {import("eslint").Linter.RulesRecord} */
+/** @type {Linter.RulesRecord} */
 export default {
+  // ------------------------------------------------------------------------------
+  // #region Helpful Warnings
+
   /**
    * Forbid any invalid exports, i.e. re-export of the same name.
-   *
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/export.md}
-   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L54}
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/export.md (import)
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L54 (airbnb-base)
    */
   'import/export': 'error',
 
   /**
    * Forbid imported names marked with `@deprecated` documentation tag.
-   *
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-deprecated.md}
-   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L66}
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-deprecated.md (import)
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L66 (airbnb-base)
    */
   'import/no-deprecated': 'off',
 
   /**
    * Forbid empty named import blocks.
-   *
    * @description This rule is not included in `airbnb-base`.
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-empty-named-blocks.md}
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-empty-named-blocks.md (import)
    */
   'import/no-empty-named-blocks': 'error',
 
   /**
    * Forbid the use of extraneous packages.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-extraneous-dependencies.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L71-L97}
    */
@@ -79,7 +86,6 @@ export default {
 
   /**
    * Forbid the use of mutable exports with `var` or `let`.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-mutable-exports.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L101}
    */
@@ -87,7 +93,6 @@ export default {
 
   /**
    * Forbid use of exported name as identifier of default export.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-named-as-default.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L58}
    */
@@ -95,7 +100,6 @@ export default {
 
   /**
    * Forbid use of exported name as property of default export.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-named-as-default-member.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L62}
    */
@@ -103,9 +107,11 @@ export default {
 
   /**
    * Forbid modules without exports, or exports without matching import in another module.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-unused-modules.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L257-L261}
    */
   'import/no-unused-modules': 'off',
+
+  // #endregion Helpful Warnings
+  // ------------------------------------------------------------------------------
 };
