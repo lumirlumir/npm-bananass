@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `import-helpful-warnings.js`, `import-module-systems.js`, `import-static-analysis.js`, `import-style-guide.js`.
+ * @fileoverview Test for `import.js`.
  */
 
 // --------------------------------------------------------------------------------
@@ -9,7 +9,7 @@
 import { strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
-import importHelpfulWarnings from './import-helpful-warnings.js';
+import importRule from './import.js';
 import importStaticAnalysis from './import-static-analysis.js';
 import importStyleGuide from './import-style-guide.js';
 
@@ -25,8 +25,8 @@ const prefix = 'import/';
 
 describe('import', () => {
   describe(`All key values must start with \`${prefix}\`.`, () => {
-    it('import-helpful-warnings.js', () => {
-      Object.keys(importHelpfulWarnings).forEach(key => {
+    it('import.js', () => {
+      Object.keys(importRule).forEach(key => {
         strictEqual(key.startsWith(prefix), true);
       });
     });
