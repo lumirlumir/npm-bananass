@@ -16,8 +16,8 @@
 // --------------------------------------------------------------------------------
 
 /**
- * @import { Linter } from "eslint"
- * @import { ESLintRules } from "eslint/rules"
+ * @import { Linter } from "eslint";
+ * @import { ESLintRules } from "eslint/rules";
  */
 
 // --------------------------------------------------------------------------------
