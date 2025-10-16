@@ -167,7 +167,6 @@ export default {
 
   /**
    * Ensure a default export is present, given a default import.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/default.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L45}
    */
@@ -175,7 +174,6 @@ export default {
 
   /**
    * Enforce either using, or omitting, the `node:` protocol when importing Node.js builtin modules.
-   *
    * @description This rule is not included in `airbnb-base` and not implemented yet in `v2.31.0`. I've replaced it with `'n/prefer-node-protocol'`.
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/enforce-node-protocol-usage.md}
    */
@@ -183,7 +181,6 @@ export default {
 
   /**
    * Ensure named imports correspond to a named export in the remote file.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/named.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L41}
    */
@@ -191,7 +188,6 @@ export default {
 
   /**
    * Ensure imported namespaces contain dereferenced properties as they are dereferenced.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/namespace.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L48}
    */
@@ -199,7 +195,6 @@ export default {
 
   /**
    * Forbid import of modules using absolute paths.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-absolute-path.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L169}
    */
@@ -207,7 +202,6 @@ export default {
 
   /**
    * Forbid a module from importing a module with a dependency path back to itself.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L237}
    */
@@ -215,7 +209,6 @@ export default {
 
   /**
    * Forbid `require()` calls with expressions.
-   *
    * @description I've disabled this rule.
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-dynamic-require.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L173}
@@ -224,7 +217,6 @@ export default {
 
   /**
    * Forbid importing the submodules of other modules.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-internal-modules.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L177-L179}
    */
@@ -232,7 +224,6 @@ export default {
 
   /**
    * Forbid importing packages through relative paths.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-relative-packages.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L271}
    */
@@ -240,7 +231,6 @@ export default {
 
   /**
    * Forbid importing modules from parent directories.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-relative-parent-imports.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L252}
    */
@@ -248,7 +238,6 @@ export default {
 
   /**
    * Enforce which files can be imported in a given folder.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-restricted-paths.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L161}
    */
@@ -256,7 +245,6 @@ export default {
 
   /**
    * Forbid a module from importing itself.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-self-import.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L233}
    */
@@ -264,7 +252,6 @@ export default {
 
   /**
    * Ensure imports point to a file/module that can be resolved.
-   *
    * @description This rule doesn't support the `exports` field of `package.json`, which has been the standard since Node.js v12. As it causes false positives, I've disabled it.
    * @link issue: {@link https://github.com/import-js/eslint-plugin-import/issues/1810}
    * @link issue: {@link https://github.com/import-js/eslint-plugin-import/issues/3088}
@@ -275,7 +262,6 @@ export default {
 
   /**
    * Forbid unnecessary path segments in import and require statements.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-useless-path-segments.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L241}
    */
@@ -283,7 +269,6 @@ export default {
 
   /**
    * Forbid webpack loader syntax in imports.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-webpack-loader-syntax.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L190}
    */
