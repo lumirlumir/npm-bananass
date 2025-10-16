@@ -28,6 +28,6 @@
     "jiti": "^2.5.1",
     "prettier": "^3.6.2",
     "prettier-config-bananass": "^0.5.1",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   }
 }
