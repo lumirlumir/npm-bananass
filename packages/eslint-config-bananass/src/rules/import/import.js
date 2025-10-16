@@ -282,15 +282,13 @@ export default {
 
   /**
    * Enforce or ban the use of inline type-only markers for named imports.
-   *
    * @description This rule is not included in `airbnb-base`. It's for TypeScript only.
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/consistent-type-specifier-style.md}
    */
   'import/consistent-type-specifier-style': 'off',
 
   /**
-   * Enforce a leading comment with the webpackChunkName for dynamic imports.
-   *
+   * Enforce a leading comment with the `webpackChunkName` for dynamic imports.
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/dynamic-import-chunkname.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L245-L248}
    */
@@ -298,7 +296,6 @@ export default {
 
   /**
    * Ensure all exports appear after other statements.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/exports-last.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L215}
    */
@@ -306,7 +303,6 @@ export default {
 
   /**
    * Ensure consistent use of file extension within the import path.
-   *
    * @description I've disabled this rule because ESM requires explicit file extensions, but web development with ESM doesn't. This creates conflicts.
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/extensions.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L140-L144}
@@ -315,7 +311,6 @@ export default {
 
   /**
    * Ensure all imports appear before other statements.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/first.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L122}
    */
@@ -323,7 +318,6 @@ export default {
 
   /**
    * Prefer named exports to be grouped together in a single export declaration
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/group-exports.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L221}
    */
@@ -331,7 +325,6 @@ export default {
 
   /**
    * Enforce the maximum number of dependencies a module can have.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/max-dependencies.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L165}
    */
@@ -339,7 +332,6 @@ export default {
 
   /**
    * Enforce a newline after import statements.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/newline-after-import.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L153}
    */
@@ -347,7 +339,6 @@ export default {
 
   /**
    * Forbid anonymous values as default exports.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-anonymous-default-export.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L203-L210}
    */
@@ -355,7 +346,6 @@ export default {
 
   /**
    * Forbid default exports.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-default-export.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L225}
    */
@@ -363,7 +353,6 @@ export default {
 
   /**
    * Forbid repeated import of the same module in multiple places.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L131}
    */
@@ -371,7 +360,6 @@ export default {
 
   /**
    * Forbid named default exports.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-named-default.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L199}
    */
@@ -379,7 +367,6 @@ export default {
 
   /**
    * Forbid named exports.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-named-export.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L229}
    */
@@ -387,7 +374,6 @@ export default {
 
   /**
    * Forbid namespace (a.k.a. "wildcard" `*`) imports.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-namespace.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L136}
    */
@@ -395,7 +381,6 @@ export default {
 
   /**
    * Forbid unassigned imports
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-unassigned-import.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L195}
    */
@@ -403,7 +388,6 @@ export default {
 
   /**
    * Enforce a convention in module import order.
-   *
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L149}
    */
@@ -411,7 +395,6 @@ export default {
 
   /**
    * Prefer a default export if module exports a single name or multiple names.
-   *
    * @description I've set this rule to `'warn'` because I don't want to enforce default exports.
    * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/prefer-default-export.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L157}
