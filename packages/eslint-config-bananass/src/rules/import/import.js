@@ -167,110 +167,110 @@ export default {
 
   /**
    * Ensure a default export is present, given a default import.
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/default.md}
-   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L45}
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/default.md (import)
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L45 (airbnb-base)
    */
   'import/default': 'off',
 
   /**
    * Enforce either using, or omitting, the `node:` protocol when importing Node.js builtin modules.
    * @description This rule is not included in `airbnb-base` and not implemented yet in `v2.31.0`. I've replaced it with `'n/prefer-node-protocol'`.
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/enforce-node-protocol-usage.md}
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/enforce-node-protocol-usage.md (import)
    */
   'import/enforce-node-protocol-usage': 'off',
 
   /**
    * Ensure named imports correspond to a named export in the remote file.
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/named.md}
-   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L41}
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/named.md (import)
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L41 (airbnb-base)
    */
   'import/named': 'error',
 
   /**
    * Ensure imported namespaces contain dereferenced properties as they are dereferenced.
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/namespace.md}
-   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L48}
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/namespace.md (import)
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L48 (airbnb-base)
    */
   'import/namespace': 'off',
 
   /**
    * Forbid import of modules using absolute paths.
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-absolute-path.md}
-   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L169}
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-absolute-path.md (import)
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L169 (airbnb-base)
    */
   'import/no-absolute-path': 'error',
 
   /**
    * Forbid a module from importing a module with a dependency path back to itself.
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md}
-   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L237}
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md (import)
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L237 (airbnb-base)
    */
   'import/no-cycle': ['error', { maxDepth: Infinity }],
 
   /**
    * Forbid `require()` calls with expressions.
    * @description I've disabled this rule.
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-dynamic-require.md}
-   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L173}
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-dynamic-require.md (import)
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L173 (airbnb-base)
    */
   'import/no-dynamic-require': 'off',
 
   /**
    * Forbid importing the submodules of other modules.
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-internal-modules.md}
-   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L177-L179}
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-internal-modules.md (import)
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L177-L179 (airbnb-base)
    */
   'import/no-internal-modules': 'off',
 
   /**
    * Forbid importing packages through relative paths.
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-relative-packages.md}
-   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L271}
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-relative-packages.md (import)
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L271 (airbnb-base)
    */
   'import/no-relative-packages': 'error',
 
   /**
    * Forbid importing modules from parent directories.
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-relative-parent-imports.md}
-   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L252}
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-relative-parent-imports.md (import)
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L252 (airbnb-base)
    */
   'import/no-relative-parent-imports': 'off',
 
   /**
    * Enforce which files can be imported in a given folder.
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-restricted-paths.md}
-   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L161}
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-restricted-paths.md (import)
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L161 (airbnb-base)
    */
   'import/no-restricted-paths': 'off',
 
   /**
    * Forbid a module from importing itself.
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-self-import.md}
-   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L233}
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-self-import.md (import)
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L233 (airbnb-base)
    */
   'import/no-self-import': 'error',
 
   /**
    * Ensure imports point to a file/module that can be resolved.
    * @description This rule doesn't support the `exports` field of `package.json`, which has been the standard since Node.js v12. As it causes false positives, I've disabled it.
-   * @link issue: {@link https://github.com/import-js/eslint-plugin-import/issues/1810}
-   * @link issue: {@link https://github.com/import-js/eslint-plugin-import/issues/3088}
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-unresolved.md}
-   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L37}
+   * @see https://github.com/import-js/eslint-plugin-import/issues/1810 (issue)
+   * @see https://github.com/import-js/eslint-plugin-import/issues/3088 (issue)
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-unresolved.md (import)
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L37 (airbnb-base)
    */
   'import/no-unresolved': 'off',
 
   /**
    * Forbid unnecessary path segments in import and require statements.
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-useless-path-segments.md}
-   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L241}
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-useless-path-segments.md (import)
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L241 (airbnb-base)
    */
   'import/no-useless-path-segments': ['error', { commonjs: true }],
 
   /**
    * Forbid webpack loader syntax in imports.
-   * @link import: {@link https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-webpack-loader-syntax.md}
-   * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L190}
+   * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-webpack-loader-syntax.md (import)
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L190 (airbnb-base)
    */
   'import/no-webpack-loader-syntax': 'error',
 
