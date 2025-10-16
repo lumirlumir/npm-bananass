@@ -14,10 +14,18 @@ Every file under `eslint-config-bananass/src/rules` directory should follow the 
  */
 
 // --------------------------------------------------------------------------------
+// Typedef
+// --------------------------------------------------------------------------------
+
+/**
+ * @import { Linter } from "eslint";
+ */
+
+// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {import("eslint").Linter.RulesRecord} */
+/** @type {Linter.RulesRecord} */
 export default {
   /**
    * Descriptions from the official documentation.
