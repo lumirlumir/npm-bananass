@@ -154,7 +154,7 @@ For detailed information on changes, please refer to the [Change Log](CHANGELOG.
 
 ## Security
 
-Have you discovered a security issue? Please refer to the [Security](SECURITY.en.md).
+Have you discovered a security issue? Please refer to the [Security](https://github.com/lumirlumir/.github/blob/main/SECURITY.md#security).
 
 ## License
 
