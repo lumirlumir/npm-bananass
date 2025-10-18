@@ -154,7 +154,7 @@ npm create bananass@latest
 
 ## 보안<sup>Security</sup>
 
-보안 문제를 발견하셨나요? [보안](SECURITY.md) 문서를 참고해주세요.
+보안 문제를 발견하셨나요? [보안](https://github.com/lumirlumir/.github/blob/main/SECURITY_KO.md#%EB%B3%B4%EC%95%88) 문서를 참고해주세요.
 
 ## 라이선스<sup>License</sup>
 
