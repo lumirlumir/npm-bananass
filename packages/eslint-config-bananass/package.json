@@ -73,7 +73,7 @@
     "eslint": "^9.15.0"
   },
   "dependencies": {
-    "@eslint/json": "^0.13.2",
+    "@eslint/json": "^0.14.0",
     "@next/eslint-plugin-next": "^16.0.1",
     "@stylistic/eslint-plugin-js": "^4.4.1",
     "@typescript-eslint/eslint-plugin": "^8.45.0",
