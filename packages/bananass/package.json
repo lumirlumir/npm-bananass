@@ -1,6 +1,6 @@
 {
   "name": "bananass",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "type": "module",
   "description": "Baekjoon Framework for JavaScript.🍌",
   "exports": {
@@ -92,7 +92,7 @@
     "@babel/plugin-transform-typescript": "^7.28.5",
     "@babel/preset-env": "^7.28.5",
     "babel-loader": "^10.0.0",
-    "bananass-utils-console": "^0.5.1",
+    "bananass-utils-console": "^0.5.2",
     "commander": "^14.0.1",
     "defu": "^6.1.4",
     "enhanced-resolve": "^5.18.3",
