@@ -1,6 +1,6 @@
 {
   "name": "prettier-config-bananass",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "type": "module",
   "description": "Prettier Config for Bananass Framework.🍌",
   "exports": {

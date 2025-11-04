@@ -8,6 +8,6 @@
     "test": "npx tsc --noEmit && bash ../../scripts/examples-solutions-bananass-test.sh"
   },
   "devDependencies": {
-    "bananass": "^0.5.1"
+    "bananass": "^0.5.2"
   }
 }
