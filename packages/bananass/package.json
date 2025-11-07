@@ -96,7 +96,7 @@
     "commander": "^14.0.1",
     "defu": "^6.1.4",
     "enhanced-resolve": "^5.18.3",
-    "envinfo": "^7.18.0",
+    "envinfo": "^7.20.0",
     "jiti": "^2.6.1",
     "open": "^10.2.0",
     "webpack": "^5.101.3",
