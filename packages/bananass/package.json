@@ -93,7 +93,7 @@
     "@babel/preset-env": "^7.28.5",
     "babel-loader": "^10.0.0",
     "bananass-utils-console": "^0.5.2",
-    "commander": "^14.0.1",
+    "commander": "^14.0.2",
     "defu": "^6.1.4",
     "enhanced-resolve": "^5.18.3",
     "envinfo": "^7.20.0",
