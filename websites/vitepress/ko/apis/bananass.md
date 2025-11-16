@@ -16,19 +16,19 @@
 ::: code-group
 
 ```sh [npm]
-npm install -D bananass
+npm install -D bananass@latest
 ```
 
 ```sh [pnpm]
-pnpm add -D bananass
+pnpm add -D bananass@latest
 ```
 
 ```sh [yarn]
-yarn add --dev bananass
+yarn add --dev bananass@latest
 ```
 
 ```sh [bun]
-bun add -d bananass
+bun add -d bananass@latest
 ```
 
 :::

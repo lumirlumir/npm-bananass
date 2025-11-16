@@ -16,19 +16,19 @@
 ::: code-group
 
 ```sh [npm]
-npm install -D prettier prettier-config-bananass
+npm install -D prettier@latest prettier-config-bananass@latest
 ```
 
 ```sh [pnpm]
-pnpm add -D prettier prettier-config-bananass
+pnpm add -D prettier@latest prettier-config-bananass@latest
 ```
 
 ```sh [yarn]
-yarn add --dev prettier prettier-config-bananass
+yarn add --dev prettier@latest prettier-config-bananass@latest
 ```
 
 ```sh [bun]
-bun add -d prettier prettier-config-bananass
+bun add -d prettier@latest prettier-config-bananass@latest
 ```
 
 :::

@@ -72,6 +72,11 @@
   "peerDependencies": {
     "eslint": "^9.15.0"
   },
+  "peerDependenciesMeta": {
+    "eslint": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "@eslint/json": "^0.14.0",
     "@next/eslint-plugin-next": "^16.0.3",
