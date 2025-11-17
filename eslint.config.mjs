@@ -14,10 +14,23 @@ export default defineConfig([
   bananass.configs.json,
   bananass.configs.jsonc,
   bananass.configs.json5,
-  mark.configs.recommendedGfm,
+  mark.configs.recommended,
+  mark.configs.stylistic,
 
   {
-    name: 'websites-vitepress/global',
+    name: 'md/global',
+    files: ['**/*.md'],
+    rules: {
+      'mark/allow-link-url': [
+        'error',
+        {
+          disallowUrls: [/^\.\//],
+        },
+      ],
+    },
+  },
+  {
+    name: 'md/websites-vitepress/global',
     files: ['websites/vitepress/**/*.md'],
     rules: {
       'mark/heading-id': 'error',
@@ -25,7 +38,7 @@ export default defineConfig([
     },
   },
   {
-    name: 'websites-vitepress/solutions/ko',
+    name: 'md/websites-vitepress/solutions/ko',
     files: ['websites/vitepress/ko/solutions/**/*.md'],
     rules: {
       'mark/allow-heading': [
@@ -37,7 +50,7 @@ export default defineConfig([
     },
   },
   {
-    name: 'websites-vitepress/solutions/en',
+    name: 'md/websites-vitepress/solutions/en',
     files: ['websites/vitepress/en/solutions/**/*.md'],
     rules: {
       'mark/allow-heading': [
