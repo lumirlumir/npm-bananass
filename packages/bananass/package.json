@@ -93,14 +93,14 @@
     "@babel/preset-env": "^7.28.5",
     "babel-loader": "^10.0.0",
     "bananass-utils-console": "^0.5.2",
-    "commander": "^14.0.1",
+    "commander": "^14.0.2",
     "defu": "^6.1.4",
     "enhanced-resolve": "^5.18.3",
-    "envinfo": "^7.20.0",
+    "envinfo": "^7.21.0",
     "jiti": "^2.6.1",
     "open": "^10.2.0",
     "webpack": "^5.103.0",
-    "zod": "^4.1.12"
+    "zod": "^4.1.13"
   },
   "devDependencies": {
     "@types/babel__core": "^7.20.5",

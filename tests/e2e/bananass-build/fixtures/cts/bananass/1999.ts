@@ -1,8 +1,6 @@
-import type {
-  Testcase,
-  Input,
-  Output,
-} from '../types' with { 'resolution-mode': 'require' };
+import type { Testcase, Input, Output } from '../types' with {
+  'resolution-mode': 'require',
+};
 
 const testcases = [
   {
