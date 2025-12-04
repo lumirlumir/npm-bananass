@@ -495,11 +495,11 @@ export default {
 
   /**
    * Disallow React to be incorrectly marked as unused.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L161
+   * @description With the new JSX Transform in React 17, importing React is no longer necessary when using JSX.
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L161
    */
-  'react/jsx-uses-react': 'error',
+  'react/jsx-uses-react': 'off',
 
   /**
    * Disallow variables used in JSX to be incorrectly marked as unused.
@@ -813,12 +813,12 @@ export default {
 
   /**
    * Disallow missing React when using JSX.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L230
-   * @link https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L65
+   * @description With the new JSX Transform in React 17, importing React is no longer necessary when using JSX.
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L230
+   * @see https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L65
    */
-  'react/react-in-jsx-scope': 'error',
+  'react/react-in-jsx-scope': 'off',
 
   /**
    * Enforce a `defaultProps` definition for every prop that is not a required prop.
