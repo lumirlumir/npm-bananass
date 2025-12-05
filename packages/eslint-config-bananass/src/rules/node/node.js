@@ -16,7 +16,6 @@
 export default {
   /**
    * Require `return` statements after callbacks.
-   *
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/callback-return.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/node.js#L8}
    */
@@ -24,7 +23,6 @@ export default {
 
   /**
    * Enforce either `module.exports` or `exports`.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/exports-style.md}
    */
@@ -32,7 +30,6 @@ export default {
 
   /**
    * Enforce the style of file extensions in import declarations.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/file-extension-in-import.md}
    */
@@ -40,7 +37,6 @@ export default {
 
   /**
    * Require `require()` calls to be placed at top-level module scope.
-   *
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/global-require.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/node.js#L12}
    */
@@ -48,7 +44,6 @@ export default {
 
   /**
    * Require error handling in callbacks.
-   *
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/handle-callback-err.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/node.js#L15}
    */
@@ -56,7 +51,6 @@ export default {
 
   /**
    * Require correct usage of hashbang.
-   *
    * @description This rule is not included in `airbnb-base`. This rule makes false positive to the files in `src` directory which is built into the `build` directory.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/hashbang.md}
    */
@@ -64,7 +58,6 @@ export default {
 
   /**
    * Enforce Node.js-style error-first callback pattern is followed.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-callback-literal.md}
    */
@@ -72,7 +65,6 @@ export default {
 
   /**
    * Disallow deprecated APIs.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-deprecated-api.md}
    */
@@ -80,7 +72,6 @@ export default {
 
   /**
    * Disallow the assignment to `exports`.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-exports-assign.md}
    */
@@ -88,7 +79,6 @@ export default {
 
   /**
    * Disallow `import` declarations which import extraneous modules.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-extraneous-import.md}
    */
@@ -96,7 +86,6 @@ export default {
 
   /**
    * Disallow `require()` expressions which import extraneous modules.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-extraneous-require.md}
    */
@@ -104,7 +93,6 @@ export default {
 
   /**
    * Disallow `import` declarations which import non-existence modules.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-missing-import.md}
    */
@@ -117,7 +105,6 @@ export default {
 
   /**
    * Disallow `require()` expressions which import non-existence modules.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-missing-require.md}
    */
@@ -125,7 +112,6 @@ export default {
 
   /**
    * Disallow `require` calls to be mixed with regular variable declarations.
-   *
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-mixed-requires.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/node.js#L22}
    */
@@ -133,7 +119,6 @@ export default {
 
   /**
    * Disallow `new` operators with calls to `require`.
-   *
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-new-require.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/node.js#L25}
    */
@@ -141,7 +126,6 @@ export default {
 
   /**
    * Disallow string concatenation with `__dirname` and `__filename`.
-   *
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-path-concat.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/node.js#L29}
    */
@@ -149,7 +133,6 @@ export default {
 
   /**
    * Disallow the use of `process.env`.
-   *
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-process-env.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/node.js#L32}
    */
@@ -157,7 +140,6 @@ export default {
 
   /**
    * Disallow the use of `process.exit()`.
-   *
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-process-exit.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/node.js#L35}
    */
@@ -165,7 +147,6 @@ export default {
 
   /**
    * Disallow specified modules when loaded by `import` declarations.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-restricted-import.md}
    */
@@ -173,7 +154,6 @@ export default {
 
   /**
    * Disallow specified modules when loaded by `require`.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-restricted-require.md}
    */
@@ -181,7 +161,6 @@ export default {
 
   /**
    * Disallow synchronous methods.
-   *
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-sync.md}
    * @link airbnb-base: {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/node.js#L41}
    */
@@ -189,7 +168,6 @@ export default {
 
   /**
    * Disallow `bin` files that npm ignores.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-unpublished-bin.md}
    */
@@ -197,7 +175,6 @@ export default {
 
   /**
    * Disallow `import` declarations which import private modules.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-unpublished-import.md}
    */
@@ -205,7 +182,6 @@ export default {
 
   /**
    * Disallow `require()` expressions which import private modules.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-unpublished-require.md}
    */
@@ -213,7 +189,6 @@ export default {
 
   /**
    * Disallow unsupported ECMAScript built-ins on the specified version.
-   *
    * @description This rule is not included in `airbnb-base`. This rule does not include latest ECMAScript built-ins.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-unsupported-features/es-builtins.md}
    */
@@ -221,7 +196,6 @@ export default {
 
   /**
    * Disallow unsupported ECMAScript syntax on the specified version.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-unsupported-features/es-syntax.md}
    */
@@ -229,7 +203,6 @@ export default {
 
   /**
    * Disallow unsupported Node.js built-in APIs on the specified version.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-unsupported-features/node-builtins.md}
    */
@@ -237,7 +210,6 @@ export default {
 
   /**
    * Enforce either `Buffer` or `require("buffer").Buffer`.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-global/buffer.md}
    */
@@ -245,7 +217,6 @@ export default {
 
   /**
    * Enforce either `console` or `require("console")`.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-global/console.md}
    */
@@ -253,7 +224,6 @@ export default {
 
   /**
    * Enforce either `process` or `require("process")`.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-global/process.md}
    */
@@ -261,7 +231,6 @@ export default {
 
   /**
    * Enforce either `TextDecoder` or `require("util").TextDecoder`.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-global/text-decoder.md}
    */
@@ -269,7 +238,6 @@ export default {
 
   /**
    * Enforce either `TextEncoder` or `require("util").TextEncoder`.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-global/text-encoder.md}
    */
@@ -277,7 +245,6 @@ export default {
 
   /**
    * Enforce either `URL` or `require("url").URL`.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-global/url.md}
    */
@@ -285,7 +252,6 @@ export default {
 
   /**
    * Enforce either `URLSearchParams` or `require("url").URLSearchParams`.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-global/url-search-params.md}
    */
@@ -293,7 +259,6 @@ export default {
 
   /**
    * Enforce using the `node:` protocol when importing Node.js builtin modules.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-node-protocol.md}
    */
@@ -301,7 +266,6 @@ export default {
 
   /**
    * Enforce `require("dns").promises`.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-promises/dns.md}
    */
@@ -309,7 +273,6 @@ export default {
 
   /**
    * Enforce `require("fs").promises`.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-promises/fs.md}
    */
@@ -317,7 +280,6 @@ export default {
 
   /**
    * Require that `process.exit()` expressions use the same code path as `throw`.
-   *
    * @description This rule is not included in `airbnb-base`.
    * @link n: {@link https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/process-exit-as-throw.md}
    */

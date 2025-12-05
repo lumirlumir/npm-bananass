@@ -2,16 +2,16 @@
  * @fileoverview This file follows:
  *
  * - The order of the rules listed on `eslint-plugin-react`.
- *   - See, {@link https://github.com/jsx-eslint/eslint-plugin-react?tab=readme-ov-file#list-of-supported-rules}.
+ *   - @see https://github.com/jsx-eslint/eslint-plugin-react?tab=readme-ov-file#list-of-supported-rules
  *
  * - The best practices outlined in `eslint-config-next@15.1.4`.
- *   - See, {@link https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L57}.
+ *   - @see https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L57
  *
  * - The best practices outlined in `eslint-config-airbnb@19.0.4`.
- *   - See, {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js}.
+ *   - @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js
  *
  * - The rules disabled by `eslint-config-prettier@9.1.0`.
- *   - See, {@link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L55-L69}.
+ *   - @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L55-L69
  */
 
 // --------------------------------------------------------------------------------
@@ -22,17 +22,15 @@
 export default {
   /**
    * Enforces consistent naming for boolean props.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/boolean-prop-naming.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L420-L424
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/boolean-prop-naming.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L420-L424
    */
   'react/boolean-prop-naming': 'off',
 
   /**
    * Disallow usage of `button` elements without an explicit `type` attribute.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/button-has-type.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L448-L452
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/button-has-type.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L448-L452
    */
   'react/button-has-type': [
     'error',
@@ -45,48 +43,42 @@ export default {
 
   /**
    * Enforce using `onChange` or `readonly` attribute when checked is used.
-   *
    * @description This rule does not exist in `eslint-config-airbnb@19.0.4`.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/checked-requires-onchange-or-readonly.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/checked-requires-onchange-or-readonly.md
    */
   'react/checked-requires-onchange-or-readonly': 'error',
 
   /**
-   * Enforce all defaultProps have a corresponding non-required PropType.
-   *
+   * Enforce all `defaultProps` have a corresponding non-required PropType.
    * @description `prop-types` is now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/default-props-match-prop-types.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/default-props-match-prop-types.md
    */
   'react/default-props-match-prop-types': 'off',
 
   /**
    * Enforce consistent usage of destructuring assignment of props, state, and context.
-   *
    * @description There are some cases that destructuring assignment is not necessary.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L440
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L440
    */
   'react/destructuring-assignment': 'off',
 
   /**
    * Disallow missing displayName in a React component definition.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/display-name.md
-   * @link https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L57
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/display-name.md
+   * @see https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L57
    */
   'react/display-name': 'error',
 
   /**
    * Disallow certain props on components.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-component-props.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L342
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-component-props.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L342
    */
   'react/forbid-component-props': 'off',
 
   /**
    * Disallow certain props on DOM Nodes.
-   *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-dom-props.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L63
    */
@@ -94,7 +86,6 @@ export default {
 
   /**
    * Disallow certain elements.
-   *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-elements.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L346
    */
@@ -102,23 +93,20 @@ export default {
 
   /**
    * Disallow using another component's propTypes.
-   *
    * @description `prop-types` is now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
    */
   'react/forbid-foreign-prop-types': 'off',
 
   /**
    * Disallow certain propTypes.
-   *
    * @description `prop-types` is now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md
    */
   'react/forbid-prop-types': 'off',
 
   /**
    * Require all `forwardRef` components include a `ref` parameter.
-   *
    * @description `forwardRef` is now deprecated since `react@19`.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forward-ref-uses-ref.md
    */
@@ -126,7 +114,6 @@ export default {
 
   /**
    * Enforce a specific function type for function components.
-   *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L527-L530
    */
@@ -140,7 +127,6 @@ export default {
 
   /**
    * Ensure destructuring and symmetric naming of `useState` hook value and setter variables.
-   *
    * @description This rule does not exist in `eslint-config-airbnb@19.0.4`.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/hook-use-state.md
    */
@@ -148,7 +134,6 @@ export default {
 
   /**
    * Enforce sandbox attribute on iframe elements.
-   *
    * @description This rule does not exist in `eslint-config-airbnb@19.0.4`.
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/iframe-missing-sandbox.md
    */
@@ -156,7 +141,6 @@ export default {
 
   /**
    * Enforce boolean attributes notation in JSX.
-   *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L67
    */
@@ -164,7 +148,6 @@ export default {
 
   /**
    * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions.
-   *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-child-element-spacing.md
    * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L55
    */
@@ -172,7 +155,6 @@ export default {
 
   /**
    * Enforce closing bracket location in JSX.
-   *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md
    * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L56
    */
@@ -180,7 +162,6 @@ export default {
 
   /**
    * Enforce closing tag location for multiline JSX.
-   *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
    * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L57
    */
@@ -188,7 +169,6 @@ export default {
 
   /**
    * Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes.
-   *
    * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
    * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L432
    */
@@ -755,59 +735,52 @@ export default {
 
   /**
    * Disallow definitions of unused state.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unused-state.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unused-state.md
    */
   'react/no-unused-state': 'off',
 
   /**
    * Disallow usage of `setState` in `componentWillUpdate`.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-will-update-set-state.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-will-update-set-state.md
    */
   'react/no-will-update-set-state': 'off',
 
   /**
    * Enforce ES5 or ES6 class for React Components.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md
    */
   'react/prefer-es6-class': 'off',
 
   /**
    * Prefer exact proptype definitions.
-   *
    * @description `prop-types` is now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-exact-props.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-exact-props.md
    */
   'react/prefer-exact-props': 'off',
 
   /**
    * Enforce that props are read-only.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-read-only-props.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L505
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-read-only-props.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L505
    */
-  'react/prefer-read-only-props': 'off',
+  'react/prefer-read-only-props': 'off', // TODO: Can be turned on. Seems like not realted to class components.
 
   /**
    * Enforce stateless components to be written as a pure function.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L218
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L218
    */
   'react/prefer-stateless-function': 'error',
 
   /**
    * Disallow missing props validation in a React component definition.
-   *
    * @description `prop-types` is now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prop-types.md
-   * @link https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L66
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prop-types.md
+   * @see https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L66
    */
   'react/prop-types': 'off',
 
@@ -822,33 +795,29 @@ export default {
 
   /**
    * Enforce a `defaultProps` definition for every prop that is not a required prop.
-   *
    * @description `prop-types` is now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-default-props.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-default-props.md
    */
   'react/require-default-props': 'off',
 
   /**
    * Enforce React components to have a `shouldComponentUpdate` method.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-optimization.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-optimization.md
    */
   'react/require-optimization': 'off',
 
   /**
    * Enforce ES5 or ES6 class for returning value in `render` function.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-render-return.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L234
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-render-return.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L234
    */
-  'react/require-render-return': 'error',
+  'react/require-render-return': 'error', // TODO: Verify if this rule is still relevant with functional components.
 
   /**
    * Disallow extra closing tags for components without children.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L238
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L238
    */
   'react/self-closing-comp': [
     'error',
@@ -860,57 +829,50 @@ export default {
 
   /**
    * Enforce component methods order.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
    */
   'react/sort-comp': 'off',
 
   /**
    * Enforce `defaultProps` declarations alphabetical sorting.
-   *
    * @description `prop-types` is now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/sort-default-props.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/sort-default-props.md
    */
   'react/sort-default-props': 'off',
 
   /**
-   * Enforce propTypes declarations alphabetical sorting.
-   *
+   * Enforce `propTypes` declarations alphabetical sorting.
    * @description `prop-types` is now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/sort-prop-types.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/sort-prop-types.md
    */
   'react/sort-prop-types': 'off',
 
   /**
    * Enforce class component state initialization style.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md
    */
   'react/state-in-constructor': 'off',
 
   /**
    * Enforces where React component static properties should be positioned.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/static-property-placement.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/static-property-placement.md
    */
   'react/static-property-placement': 'off',
 
   /**
    * Enforce style prop value is an object.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/style-prop-object.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L362
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/style-prop-object.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L362
    */
   'react/style-prop-object': 'error',
 
   /**
-   * Disallow void DOM elements (e.g. <img />, <br />) from receiving children.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L404
+   * Disallow void DOM elements (e.g. `<img />`, `<br />`) from receiving children.
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L404
    */
   'react/void-dom-elements-no-children': 'error',
 };
