@@ -69,8 +69,6 @@ export default {
     ...reactHooksRules,
     ...nextRules,
     ...typescriptRules,
-
-    'react/react-in-jsx-scope': 'off',
   },
   settings: {
     node,
