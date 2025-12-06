@@ -49,7 +49,7 @@ export default {
   'react/checked-requires-onchange-or-readonly': 'error',
 
   /**
-   * Enforce all `defaultProps` have a corresponding non-required PropType.
+   * Enforce all `defaultProps` have a corresponding non-required `PropType`.
    * @description `prop-types` is now deprecated.
    * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/default-props-match-prop-types.md
    */
@@ -64,11 +64,13 @@ export default {
   'react/destructuring-assignment': 'off',
 
   /**
-   * Disallow missing displayName in a React component definition.
+   * Disallow missing `displayName` in a React component definition.
    * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/display-name.md
    * @see https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L57
    */
   'react/display-name': 'error',
+
+  // TODO: --------------------------------------------------------------------------------
 
   /**
    * Disallow certain props on components.
@@ -674,62 +676,57 @@ export default {
    */
   'react/no-this-in-sfc': 'error',
 
+  // TODO: --------------------------------------------------------------------------------
+
   /**
    * Disallow common typos.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-typos.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-typos.md
    */
   'react/no-typos': 'off',
 
   /**
    * Disallow unescaped HTML entities from appearing in markup.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unescaped-entities.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L366
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unescaped-entities.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L366
    */
   'react/no-unescaped-entities': 'error',
 
   /**
    * Disallow usage of unknown DOM property.
-   *
    * @description I've set this rule to `'warn'`.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L210
-   * @link https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L64
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L210
+   * @see https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L64
    */
-  'react/no-unknown-property': 'warn',
+  'react/no-unknown-property': 'warn', // TODO: 'error'?
 
   /**
    * Disallow usage of unsafe lifecycle methods.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unsafe.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L471
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unsafe.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L471
    */
   'react/no-unsafe': 'off',
 
   /**
    * Disallow creating unstable components inside components.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unstable-nested-components.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L542
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unstable-nested-components.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L542
    */
   'react/no-unstable-nested-components': 'error',
 
   /**
    * Disallow declaring unused methods of component class.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unused-class-component-methods.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unused-class-component-methods.md
    */
   'react/no-unused-class-component-methods': 'off',
 
   /**
    * Disallow definitions of unused `propTypes`.
-   *
    * @description `prop-types` is now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unused-prop-types.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unused-prop-types.md
    */
   'react/no-unused-prop-types': 'off',
 
