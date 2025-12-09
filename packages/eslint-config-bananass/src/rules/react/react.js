@@ -81,15 +81,15 @@ export default {
 
   /**
    * Disallow certain props on DOM Nodes.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-dom-props.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L63
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-dom-props.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L63
    */
   'react/forbid-dom-props': 'off',
 
   /**
    * Disallow certain elements.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-elements.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L346
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-elements.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L346
    */
   'react/forbid-elements': 'off',
 
@@ -110,14 +110,14 @@ export default {
   /**
    * Require all `forwardRef` components include a `ref` parameter.
    * @description `forwardRef` is now deprecated since `react@19`.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forward-ref-uses-ref.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forward-ref-uses-ref.md
    */
   'react/forward-ref-uses-ref': 'off',
 
   /**
    * Enforce a specific function type for function components.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L527-L530
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L527-L530
    */
   'react/function-component-definition': [
     'error',
@@ -130,49 +130,49 @@ export default {
   /**
    * Ensure destructuring and symmetric naming of `useState` hook value and setter variables.
    * @description This rule does not exist in `eslint-config-airbnb@19.0.4`.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/hook-use-state.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/hook-use-state.md
    */
   'react/hook-use-state': ['error', { allowDestructuredState: true }],
 
   /**
    * Enforce sandbox attribute on iframe elements.
    * @description This rule does not exist in `eslint-config-airbnb@19.0.4`.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/iframe-missing-sandbox.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/iframe-missing-sandbox.md
    */
   'react/iframe-missing-sandbox': 'warn',
 
   /**
    * Enforce boolean attributes notation in JSX.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L67
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L67
    */
   'react/jsx-boolean-value': ['error', 'never', { always: [] }],
 
   /**
    * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-child-element-spacing.md
-   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L55
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-child-element-spacing.md
+   * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L55
    */
   'react/jsx-child-element-spacing': 'off',
 
   /**
    * Enforce closing bracket location in JSX.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md
-   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L56
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md
+   * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L56
    */
   'react/jsx-closing-bracket-location': 'off',
 
   /**
    * Enforce closing tag location for multiline JSX.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
-   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L57
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
+   * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L57
    */
   'react/jsx-closing-tag-location': 'off',
 
   /**
    * Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L432
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L432
    */
   'react/jsx-curly-brace-presence': [
     'error',
@@ -185,33 +185,29 @@ export default {
 
   /**
    * Enforce consistent linebreaks in curly braces in JSX attributes and expressions.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-newline.md
-   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L58
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-newline.md
+   * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L58
    */
   'react/jsx-curly-newline': 'off',
 
   /**
    * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md
-   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L59
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md
+   * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L59
    */
   'react/jsx-curly-spacing': 'off',
 
   /**
    * Enforce or disallow spaces around equal signs in JSX attributes.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-equals-spacing.md
-   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L60
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-equals-spacing.md
+   * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L60
    */
   'react/jsx-equals-spacing': 'off',
 
   /**
    * Disallow file extensions that may contain JSX.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L322
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L322
    */
   'react/jsx-filename-extension': [
     'error',
@@ -224,49 +220,43 @@ export default {
 
   /**
    * Enforce proper position of the first property in JSX.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-first-prop-new-line.md
-   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L61
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-first-prop-new-line.md
+   * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L61
    */
   'react/jsx-first-prop-new-line': 'off',
 
   /**
    * Enforce shorthand or standard form for React fragments.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-fragments.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L475
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-fragments.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L475
    */
   'react/jsx-fragments': ['error', 'syntax'],
 
   /**
    * Enforce event handler naming conventions in JSX.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-handler-names.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L83-L86
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-handler-names.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L83-L86
    */
   'react/jsx-handler-names': 'off',
 
   /**
    * Enforce JSX indentation.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
-   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L61
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
+   * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L61
    */
   'react/jsx-indent': 'off',
 
   /**
    * Enforce props indentation in JSX.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-indent-props.md
-   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L63
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-indent-props.md
+   * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L63
    */
   'react/jsx-indent-props': 'off',
 
   /**
    * Disallow missing `key` props in iterators/collection literals.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-key.md
-   * @link https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L57
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-key.md
+   * @see https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L57
    */
   'react/jsx-key': [
     'error',
@@ -279,33 +269,29 @@ export default {
 
   /**
    * Enforce JSX maximum depth.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-max-depth.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L463
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-max-depth.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L463
    */
   'react/jsx-max-depth': 'off',
 
   /**
    * Enforce maximum of props on a single line in JSX.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
-   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L63
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
+   * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L63
    */
   'react/jsx-max-props-per-line': 'off',
 
   /**
    * Require or prevent a new line after jsx elements and expressions.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-newline.md
-   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L65
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-newline.md
+   * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L65
    */
   'react/jsx-newline': 'off',
 
   /**
    * Disallow `.bind()` or arrow functions in JSX props.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L103-L109
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L103-L109
    */
   'react/jsx-no-bind': [
     'error',
@@ -320,50 +306,44 @@ export default {
 
   /**
    * Disallow comments from being inserted as text nodes.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L326
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L326
    */
   'react/jsx-no-comment-textnodes': 'error',
 
   /**
    * Disallows JSX context provider values from taking values that will cause needless rerenders.
-   *
    * @description Importance of this rule became less significant after the introduction of React Compiler.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-constructed-context-values.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L538
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-constructed-context-values.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L538
    */
   'react/jsx-no-constructed-context-values': 'warn',
 
   /**
    * Disallow duplicate properties in JSX.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-duplicate-props.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L113
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-duplicate-props.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L113
    */
   'react/jsx-no-duplicate-props': ['error', { ignoreCase: true }],
 
   /**
    * Disallow problematic leaked values from being rendered.
-   *
    * @description This rule does not exist in `eslint-config-airbnb@19.0.4`.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-leaked-render.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-leaked-render.md
    */
   'react/jsx-no-leaked-render': 'warn',
 
   /**
    * Disallow usage of string literals in JSX.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-literals.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L117
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-literals.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L117
    */
   'react/jsx-no-literals': 'off',
 
   /**
    * Disallow usage of `javascript:` URLs.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-script-url.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L509-L514
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-script-url.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L509-L514
    */
   'react/jsx-no-script-url': [
     'error',
@@ -377,11 +357,10 @@ export default {
 
   /**
    * Disallow `target="_blank"` attribute without `rel="noreferrer"`.
-   *
    * @description I've set this rule to `'warn'`.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L318
-   * @link https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L79
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L318
+   * @see https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L79
    */
   'react/jsx-no-target-blank': [
     'warn',
@@ -396,33 +375,29 @@ export default {
 
   /**
    * Disallow undeclared variables in JSX.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-undef.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L121
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-undef.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L121
    */
   'react/jsx-no-undef': 'error',
 
   /**
    * Disallow unnecessary fragments.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L518
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L518
    */
   'react/jsx-no-useless-fragment': 'error',
 
   /**
    * Require one JSX element per line.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-one-expression-per-line.md
-   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L66
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-one-expression-per-line.md
+   * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L66
    */
   'react/jsx-one-expression-per-line': 'off',
 
   /**
    * Enforce PascalCase for user-defined JSX components.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L125-L128
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L125-L128
    */
   'react/jsx-pascal-case': [
     'error',
@@ -436,42 +411,37 @@ export default {
 
   /**
    * Disallow multiple spaces between inline JSX props.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-multi-spaces.md
-   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L67
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-multi-spaces.md
+   * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L67
    */
   'react/jsx-props-no-multi-spaces': 'off',
 
   /**
    * Disallow JSX prop spreading the same identifier multiple times.
-   *
    * @description This rule does not exist in `eslint-config-airbnb@19.0.4`.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spread-multi.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spread-multi.md
    */
   'react/jsx-props-no-spread-multi': 'error',
 
   /**
    * Disallow JSX prop spreading.
-   *
    * @description I've disabled this rule.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L496-L501
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L496-L501
    */
   'react/jsx-props-no-spreading': 'off',
 
   /**
    * Enforce props alphabetical sorting.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L144-L151
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L144-L151
    */
   'react/jsx-sort-props': 'off',
 
   /**
    * Enforce whitespace in and around the JSX opening and closing brackets.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-tag-spacing.md
-   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L68
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-tag-spacing.md
+   * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L68
    */
   'react/jsx-tag-spacing': 'off',
 
@@ -485,198 +455,174 @@ export default {
 
   /**
    * Disallow variables used in JSX to be incorrectly marked as unused.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L165
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L165
    */
   'react/jsx-uses-vars': 'error',
 
   /**
    * Disallow missing parentheses around multiline JSX.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md
-   * @link https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L69
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md
+   * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L69
    */
   'react/jsx-wrap-multilines': 'off',
 
   /**
    * Disallow when `this.state` is accessed within `setState`.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-access-state-in-setstate.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L444
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-access-state-in-setstate.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L444
    */
   'react/no-access-state-in-setstate': 'error',
 
   /**
    * Disallow adjacent inline elements not separated by whitespace.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-adjacent-inline-elements.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L523
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-adjacent-inline-elements.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L523
    */
   'react/no-adjacent-inline-elements': 'off',
 
   /**
    * Disallow usage of Array index in keys.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L388
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L388
    */
   'react/no-array-index-key': 'error',
 
   /**
    * Lifecycle methods should be methods on the prototype, not class fields.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-arrow-function-lifecycle.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-arrow-function-lifecycle.md
    */
   'react/no-arrow-function-lifecycle': 'off',
 
   /**
    * Disallow passing of children as props.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-children-prop.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L370
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-children-prop.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L370
    */
   'react/no-children-prop': 'error',
 
   /**
    * Disallow usage of dangerous JSX properties.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-danger.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L169
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-danger.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L169
    */
   'react/no-danger': 'warn',
 
   /**
    * Disallow when a DOM element is using both `children` and `dangerouslySetInnerHTML`.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-danger-with-children.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L350
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-danger-with-children.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L350
    */
   'react/no-danger-with-children': 'error',
 
   /**
    * Disallow usage of deprecated methods.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-deprecated.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L173
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-deprecated.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L173
    */
   'react/no-deprecated': 'error',
 
   /**
    * Disallow usage of `setState` in `componentDidMount`.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
    */
   'react/no-did-mount-set-state': 'off',
 
   /**
    * Disallow usage of `setState` in `componentDidUpdate`.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-did-update-set-state.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-did-update-set-state.md
    */
   'react/no-did-update-set-state': 'off',
 
   /**
    * Disallow direct mutation of `this.state`.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-direct-mutation-state.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-direct-mutation-state.md
    */
   'react/no-direct-mutation-state': 'off',
 
   /**
    * Disallow usage of `findDOMNode`.
-   *
    * @description `findDOMNode` is now fully removed(deprecated) since `react@19`.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md
    */
   'react/no-find-dom-node': 'off',
 
   /**
    * Disallow usage of invalid attributes.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-invalid-html-attribute.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L558
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-invalid-html-attribute.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L558
    */
   'react/no-invalid-html-attribute': 'error',
 
   /**
    * Disallow usage of `isMounted`.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md
    */
   'react/no-is-mounted': 'off',
 
   /**
    * Disallow multiple component definition per file.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L198
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L198
    */
   'react/no-multi-comp': 'off',
 
   /**
    * Enforce that namespaces are not used in React elements.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-namespace.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L546
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-namespace.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L546
    */
   'react/no-namespace': 'error',
 
   /**
    * Disallow usage of referential-type variables as default param in functional component.
-   *
    * @description This rule does not exist in `eslint-config-airbnb@19.0.4`.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-object-type-as-default-prop.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-object-type-as-default-prop.md
    */
   'react/no-object-type-as-default-prop': 'off',
 
+  // TODO: --------------------------------------------------------------------------------
+
   /**
    * Disallow usage of `shouldComponentUpdate` when extending `React.PureComponent`.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-redundant-should-component-update.md
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-redundant-should-component-update.md
    */
   'react/no-redundant-should-component-update': 'off',
 
   /**
    * Disallow usage of the return value of `ReactDOM.render`.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-render-return-value.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L330
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-render-return-value.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L330
    */
   'react/no-render-return-value': 'error',
 
   /**
    * Disallow usage of `setState`.
-   *
    * @description Class compoenents are now deprecated.
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-set-state.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L202
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-set-state.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L202
    */
   'react/no-set-state': 'off',
 
   /**
    * Disallow using string references.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L206
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L206
    */
   'react/no-string-refs': 'error',
 
   /**
    * Disallow `this` from being used in stateless functional components.
-   *
-   * @link https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-this-in-sfc.md
-   * @link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L459
+   * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-this-in-sfc.md
+   * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L459
    */
   'react/no-this-in-sfc': 'error',
-
-  // TODO: --------------------------------------------------------------------------------
 
   /**
    * Disallow common typos.
