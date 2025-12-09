@@ -2,10 +2,10 @@
  * @fileoverview This file follows:
  *
  * - The order of the rules listed `eslint-plugin-n`.
- *   - See, {@link https://github.com/eslint-community/eslint-plugin-n?tab=readme-ov-file#-rules}.
+ *   - @see https://github.com/eslint-community/eslint-plugin-n?tab=readme-ov-file#-rules
  *
  * - The best practices outlined in `eslint-config-airbnb-base@19.0.4`.
- *   - See, {@link https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules}.
+ *   - @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules
  */
 
 // --------------------------------------------------------------------------------
