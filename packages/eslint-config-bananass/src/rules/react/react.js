@@ -70,8 +70,6 @@ export default {
    */
   'react/display-name': 'error',
 
-  // TODO: --------------------------------------------------------------------------------
-
   /**
    * Disallow certain props on components.
    * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-component-props.md
@@ -585,8 +583,6 @@ export default {
    * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-object-type-as-default-prop.md
    */
   'react/no-object-type-as-default-prop': 'off',
-
-  // TODO: --------------------------------------------------------------------------------
 
   /**
    * Disallow usage of `shouldComponentUpdate` when extending `React.PureComponent`.
