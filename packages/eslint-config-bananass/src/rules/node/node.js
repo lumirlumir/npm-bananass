@@ -213,7 +213,7 @@ export default {
    * @description This rule is not included in `airbnb-base`.
    * @see https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-global/buffer.md (n)
    */
-  'n/prefer-global/buffer': 'off', // TODO: enable?
+  'n/prefer-global/buffer': 'off',
 
   /**
    * Enforce either `console` or `require("console")`.
@@ -234,35 +234,35 @@ export default {
    * @description This rule is not included in `airbnb-base`.
    * @see https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-global/text-decoder.md (n)
    */
-  'n/prefer-global/text-decoder': 'off', // TODO: enable?
+  'n/prefer-global/text-decoder': ['error', 'always'],
 
   /**
    * Enforce either `TextEncoder` or `require("util").TextEncoder`.
    * @description This rule is not included in `airbnb-base`.
    * @see https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-global/text-encoder.md (n)
    */
-  'n/prefer-global/text-encoder': 'off', // TODO: enable?
+  'n/prefer-global/text-encoder': ['error', 'always'],
 
   /**
    * Enforce either `URL` or `require("url").URL`.
    * @description This rule is not included in `airbnb-base`.
    * @see https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-global/url.md (n)
    */
-  'n/prefer-global/url': 'off', // TODO: enable?
+  'n/prefer-global/url': ['error', 'always'],
 
   /**
    * Enforce either `URLSearchParams` or `require("url").URLSearchParams`.
    * @description This rule is not included in `airbnb-base`.
    * @see https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-global/url-search-params.md (n)
    */
-  'n/prefer-global/url-search-params': 'off', // TODO: enable?
+  'n/prefer-global/url-search-params': ['error', 'always'],
 
   /**
    * Enforce using the `node:` protocol when importing Node.js builtin modules.
    * @description This rule is not included in `airbnb-base`.
    * @see https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-node-protocol.md (n)
    */
-  'n/prefer-node-protocol': 'warn', // TODO: make it 'error'
+  'n/prefer-node-protocol': 'error',
 
   /**
    * Enforce `require("dns").promises`.

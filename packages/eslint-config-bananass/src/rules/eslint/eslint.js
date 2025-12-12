@@ -386,7 +386,6 @@ export default /** @satisfies {Partial<ESLintRules>} */ ({
 
   /**
    * Disallow unused private class members.
-   * @description See `todo` comments in airbnb-base. original: `'off'`.
    * @see https://eslint.org/docs/latest/rules/no-unused-private-class-members (eslint)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/errors.js#L153 (airbnb-base)
    */
