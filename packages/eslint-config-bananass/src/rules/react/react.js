@@ -641,7 +641,7 @@ export default {
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L210
    * @see https://github.com/vercel/next.js/blob/v15.1.4/packages/eslint-config-next/index.js#L64
    */
-  'react/no-unknown-property': 'warn', // TODO: 'error'?
+  'react/no-unknown-property': 'warn',
 
   /**
    * Disallow usage of unsafe lifecycle methods.
@@ -706,7 +706,7 @@ export default {
    * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-read-only-props.md
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L505
    */
-  'react/prefer-read-only-props': 'off', // TODO: Can be turned on. Seems like not realted to class components.
+  'react/prefer-read-only-props': 'off',
 
   /**
    * Enforce stateless components to be written as a pure function.
@@ -751,7 +751,7 @@ export default {
    * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-render-return.md
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L234
    */
-  'react/require-render-return': 'error', // TODO: Verify if this rule is still relevant with functional components.
+  'react/require-render-return': 'error',
 
   /**
    * Disallow extra closing tags for components without children.
