@@ -3,6 +3,7 @@ node_modules
 
 # production
 build
+.bananass
 .next
 **/.vitepress/cache/
 
