@@ -103,7 +103,6 @@ export const BANANASS_PKG_NAMES = /** @type {const} */ ([
   'bananass-utils-console',
   'create-bananass',
   'eslint-config-bananass',
-  'prettier-config-bananass',
 ]);
 
 export const SUPPORTED_SOLUTION_FILE_EXTENSIONS = /** @type {const} */ ([

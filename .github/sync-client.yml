@@ -70,5 +70,3 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/tsconfig.json
   - source: ./packages/eslint-config-bananass/tsconfig.json
     dest: ./configs/tsconfig.json
-  - source: ./packages/prettier-config-bananass/tsconfig.json
-    dest: ./configs/tsconfig.json
