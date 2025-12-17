@@ -20,7 +20,6 @@ import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
 
 const outDir = mkdtempSync(join(tmpdir(), 'create-bananass-'));
 const successMessage = /Successfully created a new Bananass framework project!/;
-const skipArgs = ['--skip-vsc', '--skip-git', '--skip-install'];
 
 /**
  * @param {string[]} [paths] Paths to check.
@@ -68,7 +67,7 @@ describe('cli', () => {
 
     describe('should create a JavaScript ESM project', () => {
       it('when `--skip-vsc`, `--skip-git`, `--skip-install` are used', () => {
-        const result = runCreateBananass(...skipArgs);
+        const result = runCreateBananass('--skip-vsc', '--skip-git', '--skip-install');
         const packageJson = JSON.parse(
           readFileSync(join(outDir, 'package.json'), 'utf-8'),
         );
@@ -100,7 +99,12 @@ describe('cli', () => {
 
     describe('should create a JavaScript CJS project', () => {
       it('when `--skip-vsc`, `--skip-git`, `--skip-install` are used', () => {
-        const result = runCreateBananass(...skipArgs, '--cjs');
+        const result = runCreateBananass(
+          '--skip-vsc',
+          '--skip-git',
+          '--skip-install',
+          '--cjs',
+        );
         const packageJson = JSON.parse(
           readFileSync(join(outDir, 'package.json'), 'utf-8'),
         );
@@ -132,7 +136,12 @@ describe('cli', () => {
 
     describe('should create a TypeScript ESM project', () => {
       it('when `--skip-vsc`, `--skip-git`, `--skip-install` are used', () => {
-        const result = runCreateBananass(...skipArgs, '--typescript');
+        const result = runCreateBananass(
+          '--skip-vsc',
+          '--skip-git',
+          '--skip-install',
+          '--typescript',
+        );
         const packageJson = JSON.parse(
           readFileSync(join(outDir, 'package.json'), 'utf-8'),
         );
@@ -164,7 +173,13 @@ describe('cli', () => {
 
     describe('should create a TypeScript CJS project', () => {
       it('when `--skip-vsc`, `--skip-git`, `--skip-install` are used', () => {
-        const result = runCreateBananass(...skipArgs, '--typescript', '--cjs');
+        const result = runCreateBananass(
+          '--skip-vsc',
+          '--skip-git',
+          '--skip-install',
+          '--typescript',
+          '--cjs',
+        );
         const packageJson = JSON.parse(
           readFileSync(join(outDir, 'package.json'), 'utf-8'),
         );
