@@ -7,9 +7,9 @@
 // --------------------------------------------------------------------------------
 
 import { ok, strictEqual, match } from 'node:assert';
-import { describe, it, mock, afterEach, beforeEach } from 'node:test';
+import { describe, it, afterEach } from 'node:test';
 import { stripVTControlCharacters } from 'node:util';
-import cp, { spawnSync } from 'node:child_process';
+import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
@@ -54,17 +54,7 @@ function runCreateBananass(...args) {
 
 describe('cli', () => {
   describe('e2e', () => {
-    // Note: These tests rely on mocks and therefore do not spawn child processes.
-    // Spawning real child processes in CI or on developer machines can produce
-    // nondeterministic failures or environment-dependent behavior, so we mock them.
-
-    beforeEach(() => {
-      mock.method(cp, 'spawn', () => {});
-    });
-
     afterEach(() => {
-      mock.reset();
-
       // Clean up the output directory after each test.
       if (exists()) rmSync(outDir, { recursive: true, force: true });
     });
@@ -79,9 +69,6 @@ describe('cli', () => {
         // Result
         strictEqual(result.status, 0);
         match(result.stderr, successMessage);
-
-        // Mock calls
-        strictEqual(cp.spawn.mock.callCount(), 0);
 
         // `package.json`
         strictEqual(packageJson.private, true);
@@ -117,9 +104,6 @@ describe('cli', () => {
         strictEqual(result.status, 0);
         match(result.stderr, successMessage);
 
-        // Mock calls
-        strictEqual(cp.spawn.mock.callCount(), 0);
-
         // `package.json`
         strictEqual(packageJson.private, true);
         strictEqual(packageJson.name, 'create-bananass-javascript-cjs');
@@ -153,9 +137,6 @@ describe('cli', () => {
         // Result
         strictEqual(result.status, 0);
         match(result.stderr, successMessage);
-
-        // Mock calls
-        strictEqual(cp.spawn.mock.callCount(), 0);
 
         // `package.json`
         strictEqual(packageJson.private, true);
@@ -191,9 +172,6 @@ describe('cli', () => {
         // Result
         strictEqual(result.status, 0);
         match(result.stderr, successMessage);
-
-        // Mock calls
-        strictEqual(cp.spawn.mock.callCount(), 0);
 
         // `package.json`
         strictEqual(packageJson.private, true);
