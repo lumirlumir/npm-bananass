@@ -10,9 +10,9 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import cp from 'node:child_process';
-import fs from 'node:fs/promises';
+import { cp, rename } from 'node:fs/promises';
 import { createRequire } from 'node:module';
+import { spawn } from 'node:child_process';
 import { resolve } from 'node:path';
 
 import isInteractive from 'bananass-utils-console/is-interactive';
@@ -218,7 +218,7 @@ program
       logger.log(() => spinner.start(bananass('Copying files...', true)));
 
       try {
-        await fs.cp(
+        await cp(
           new URL(
             `../templates/${typescript ? 'typescript' : 'javascript'}-${
               cjs ? 'cjs' : 'esm'
@@ -234,10 +234,7 @@ program
           },
         );
 
-        await fs.rename(
-          resolve(directory, 'gitignore'),
-          resolve(directory, '.gitignore'),
-        );
+        await rename(resolve(directory, 'gitignore'), resolve(directory, '.gitignore'));
       } catch (err) {
         logger.log(() => spinner.error(error('Failed to copy files')));
 
@@ -261,7 +258,7 @@ program
             extensions.map(
               extension =>
                 new Promise((res, rej) => {
-                  const installExtension = cp.spawn(
+                  const installExtension = spawn(
                     'code',
                     ['--install-extension', extension],
                     {
@@ -307,7 +304,7 @@ program
 
         try {
           await new Promise((res, rej) => {
-            const gitInit = cp.spawn('git', ['init'], {
+            const gitInit = spawn('git', ['init'], {
               cwd: directory,
               shell: true, // Required for Windows
             });
@@ -341,7 +338,7 @@ program
 
         try {
           await new Promise((res, rej) => {
-            const npmInstall = cp.spawn('npm', ['install'], {
+            const npmInstall = spawn('npm', ['install'], {
               cwd: directory,
               shell: true, // Required for Windows
             });
