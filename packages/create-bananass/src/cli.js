@@ -21,7 +21,7 @@ import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, error, success } from 'bananass-utils-console/theme';
 import { consola } from 'consola';
 
-import configs from './configs.js';
+import { directoryDefault, options, version, help } from './configs.js';
 
 // --------------------------------------------------------------------------------
 // Parse Arguments
@@ -29,14 +29,14 @@ import configs from './configs.js';
 
 const { values, positionals } = parseArgs({
   args: process.argv.slice(2),
-  options: configs.options,
+  options,
   strict: true,
   allowPositionals: true,
   allowNegative: false,
   tokens: false,
 });
 
-const cliDirectory = positionals[0] ?? '.';
+const cliDirectory = positionals[0] ?? directoryDefault;
 const cliOptions = values;
 
 // --------------------------------------------------------------------------
@@ -44,10 +44,6 @@ const cliOptions = values;
 // --------------------------------------------------------------------------
 
 const {
-  version: cliVersion,
-  help: cliHelp,
-  debug: cliDebug,
-  quiet: cliQuiet,
   force: cliForce,
   yes: cliYes,
   cjs: cliCjs,
@@ -55,6 +51,10 @@ const {
   'skip-vsc': cliSkipVsc,
   'skip-git': cliSkipGit,
   'skip-install': cliSkipInstall,
+  debug: cliDebug,
+  quiet: cliQuiet,
+  version: cliVersion,
+  help: cliHelp,
 } = cliOptions;
 
 // --------------------------------------------------------------------------
@@ -62,12 +62,12 @@ const {
 // --------------------------------------------------------------------------
 
 if (cliVersion) {
-  console.log(configs.version); // eslint-disable-line no-console -- Version output
+  console.log(version); // eslint-disable-line no-console -- Version output
   process.exit(0);
 }
 
 if (cliHelp) {
-  console.log(configs.description); // eslint-disable-line no-console -- Help message
+  console.log(help); // eslint-disable-line no-console -- Help message
   process.exit(0);
 }
 
@@ -136,8 +136,6 @@ if (isInteractive() && !cliYes) {
 // --------------------------------------------------------------------------
 
 const directory = promptDirectory ?? cliDirectory;
-const debug = cliDebug;
-const quiet = cliQuiet;
 const force = cliForce;
 const yes = cliYes;
 const cjs = promptCjs ?? cliCjs;
@@ -145,6 +143,8 @@ const typescript = promptTypescript ?? cliTypescript;
 const skipVsc = promptSkipVsc ?? cliSkipVsc;
 const skipGit = promptSkipGit ?? cliSkipGit;
 const skipInstall = promptSkipInstall ?? cliSkipInstall;
+const debug = cliDebug;
+const quiet = cliQuiet;
 
 // --------------------------------------------------------------------------
 // Declarations
@@ -169,8 +169,6 @@ logger
   .debug('prompt skip install:', promptSkipInstall)
   .eol()
   .debug('merged directory:', directory)
-  .debug('merged debug:', debug)
-  .debug('merged quiet:', quiet)
   .debug('merged force:', force)
   .debug('merged yes:', yes)
   .debug('merged cjs:', cjs)
@@ -178,6 +176,8 @@ logger
   .debug('merged skip vsc:', skipVsc)
   .debug('merged skip git:', skipGit)
   .debug('merged skip install:', skipInstall)
+  .debug('merged debug:', debug)
+  .debug('merged quiet:', quiet)
   .eol();
 
 // --------------------------------------------------------------------------
