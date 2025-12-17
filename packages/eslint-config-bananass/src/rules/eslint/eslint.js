@@ -386,7 +386,6 @@ export default /** @satisfies {Partial<ESLintRules>} */ ({
 
   /**
    * Disallow unused private class members.
-   * @description See `todo` comments in airbnb-base. original: `'off'`.
    * @see https://eslint.org/docs/latest/rules/no-unused-private-class-members (eslint)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/errors.js#L153 (airbnb-base)
    */
@@ -725,7 +724,7 @@ export default /** @satisfies {Partial<ESLintRules>} */ ({
    * @see https://eslint.org/docs/latest/rules/no-alert (eslint)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L70 (airbnb-base)
    */
-  'no-alert': 'warn',
+  'no-alert': 'error',
 
   /**
    * Disallow `Array` constructors.
@@ -758,11 +757,10 @@ export default /** @satisfies {Partial<ESLintRules>} */ ({
 
   /**
    * Disallow the use of `console`.
-   * @description I've changed the rule to `'warn'` from `'error'`.
    * @see https://eslint.org/docs/latest/rules/no-console (eslint)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/errors.js#L27 (airbnb-base)
    */
-  'no-console': 'warn',
+  'no-console': 'error',
 
   /**
    * Disallow `continue` statements.

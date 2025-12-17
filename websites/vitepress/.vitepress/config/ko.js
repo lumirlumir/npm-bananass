@@ -158,10 +158,6 @@ export default defineConfig({
               text: 'eslint-config-bananass',
               link: '/eslint-config-bananass',
             },
-            {
-              text: 'prettier-config-bananass',
-              link: '/prettier-config-bananass',
-            },
           ],
         },
       ],

@@ -23,11 +23,10 @@
   },
   "devDependencies": {
     "bananass": "^0.5.2",
-    "eslint": "^9.39.1",
+    "eslint": "^9.39.2",
     "eslint-config-bananass": "^0.5.2",
     "jiti": "^2.6.1",
-    "prettier": "^3.7.3",
-    "prettier-config-bananass": "^0.5.2",
+    "prettier": "^3.7.4",
     "typescript": "^5.9.3"
   }
 }
