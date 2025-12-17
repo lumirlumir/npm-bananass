@@ -32,14 +32,18 @@ function exists(...paths) {
  * @param {string[]} [args] Command line arguments.
  */
 function runCreateBananass(...args) {
-  const { status, stderr } = spawnSync('npx', ['create-bananass', outDir, ...args], {
-    // If there is no interactive handling logic using `isInteractive()` in `cli.js`,
-    // `consola` will throw an error when `input` is passed to `spawnSync`.
-    // `spawnSync` assumes a non-interactive environment.
-    input: '',
-    encoding: 'utf-8',
-    shell: true,
-  });
+  const { status, stderr } = spawnSync(
+    'node',
+    [join(import.meta.dirname, 'cli.js'), outDir, ...args],
+    {
+      // If there is no interactive handling logic using `isInteractive()` in `cli.js`,
+      // `consola` will throw an error when `input` is passed to `spawnSync`.
+      // `spawnSync` assumes a non-interactive environment.
+      input: '',
+      encoding: 'utf-8',
+      shell: true,
+    },
+  );
 
   return { status, stderr: stripVTControlCharacters(stderr).trim() };
 }
@@ -66,7 +70,7 @@ describe('cli', () => {
     });
 
     describe('should create a JavaScript ESM project', () => {
-      it('when `--skip-vsc`, `--skip-git`, `--skip-install` are used', () => {
+      it('when `--skip-vsc`, `--skip-git`, `--skip-install` flags are used', () => {
         const result = runCreateBananass('--skip-vsc', '--skip-git', '--skip-install');
         const packageJson = JSON.parse(
           readFileSync(join(outDir, 'package.json'), 'utf-8'),
@@ -98,7 +102,7 @@ describe('cli', () => {
     });
 
     describe('should create a JavaScript CJS project', () => {
-      it('when `--skip-vsc`, `--skip-git`, `--skip-install` are used', () => {
+      it('when `--skip-vsc`, `--skip-git`, `--skip-install` flags are used', () => {
         const result = runCreateBananass(
           '--skip-vsc',
           '--skip-git',
@@ -135,7 +139,7 @@ describe('cli', () => {
     });
 
     describe('should create a TypeScript ESM project', () => {
-      it('when `--skip-vsc`, `--skip-git`, `--skip-install` are used', () => {
+      it('when `--skip-vsc`, `--skip-git`, `--skip-install` flags are used', () => {
         const result = runCreateBananass(
           '--skip-vsc',
           '--skip-git',
@@ -172,7 +176,7 @@ describe('cli', () => {
     });
 
     describe('should create a TypeScript CJS project', () => {
-      it('when `--skip-vsc`, `--skip-git`, `--skip-install` are used', () => {
+      it('when `--skip-vsc`, `--skip-git`, `--skip-install` flags are used', () => {
         const result = runCreateBananass(
           '--skip-vsc',
           '--skip-git',
