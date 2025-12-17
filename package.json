@@ -26,6 +26,7 @@
     "test:ex:sb-mts": "npm run test -w examples/solutions-bananass-mts",
     "test:pkg:b": "npm run test -w packages/bananass",
     "test:pkg:buc": "npm run test -w packages/bananass-utils-console",
+    "test:pkg:cb": "npm run test -w packages/create-bananass",
     "test:pkg:ecb": "npm run test -w packages/eslint-config-bananass",
     "test:t:e2e": "npm run test -w tests/e2e",
     "test:t:i": "npm run test -w tests/integration",
