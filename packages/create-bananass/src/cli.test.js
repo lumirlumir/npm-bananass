@@ -25,7 +25,7 @@ const skipArgs = ['--skip-vsc', '--skip-git', '--skip-install'];
 /**
  * @param {string[]} [paths] Paths to check.
  */
-function isExists(...paths) {
+function exists(...paths) {
   return existsSync(join(outDir, ...paths));
 }
 
@@ -53,7 +53,7 @@ describe('cli', () => {
   describe('e2e', () => {
     afterEach(() => {
       // Clean up the output directory after each test.
-      if (isExists()) rmSync(outDir, { recursive: true, force: true });
+      if (exists()) rmSync(outDir, { recursive: true, force: true });
     });
 
     it('should create a JavaScript ESM project', () => {
@@ -67,14 +67,14 @@ describe('cli', () => {
       strictEqual(packageJson.name, 'create-bananass-javascript-esm');
       strictEqual(packageJson.type, 'module');
 
-      ok(isExists('bananass', '1000.mjs'));
-      ok(isExists('.gitignore'));
-      ok(isExists('README.md'));
-      ok(isExists('bananass.config.mjs'));
+      ok(exists('bananass', '1000.mjs'));
+      ok(exists('.gitignore'));
+      ok(exists('README.md'));
+      ok(exists('bananass.config.mjs'));
 
-      ok(!isExists('.vscode'));
-      ok(!isExists('.git'));
-      ok(!isExists('node_modules'));
+      ok(!exists('.vscode'));
+      ok(!exists('.git'));
+      ok(!exists('node_modules'));
     });
 
     it('should create a JavaScript CJS project', () => {
@@ -88,14 +88,14 @@ describe('cli', () => {
       strictEqual(packageJson.name, 'create-bananass-javascript-cjs');
       strictEqual(packageJson.type, 'commonjs');
 
-      ok(isExists('bananass', '1000.cjs'));
-      ok(isExists('.gitignore'));
-      ok(isExists('README.md'));
-      ok(isExists('bananass.config.cjs'));
+      ok(exists('bananass', '1000.cjs'));
+      ok(exists('.gitignore'));
+      ok(exists('README.md'));
+      ok(exists('bananass.config.cjs'));
 
-      ok(!isExists('.vscode'));
-      ok(!isExists('.git'));
-      ok(!isExists('node_modules'));
+      ok(!exists('.vscode'));
+      ok(!exists('.git'));
+      ok(!exists('node_modules'));
     });
 
     it('should create a TypeScript ESM project', () => {
@@ -109,14 +109,14 @@ describe('cli', () => {
       strictEqual(packageJson.name, 'create-bananass-typescript-esm');
       strictEqual(packageJson.type, 'module');
 
-      ok(isExists('bananass', '1000.mts'));
-      ok(isExists('.gitignore'));
-      ok(isExists('README.md'));
-      ok(isExists('bananass.config.mts'));
+      ok(exists('bananass', '1000.mts'));
+      ok(exists('.gitignore'));
+      ok(exists('README.md'));
+      ok(exists('bananass.config.mts'));
 
-      ok(!isExists('.vscode'));
-      ok(!isExists('.git'));
-      ok(!isExists('node_modules'));
+      ok(!exists('.vscode'));
+      ok(!exists('.git'));
+      ok(!exists('node_modules'));
     });
 
     it('should create a TypeScript CJS project', () => {
@@ -130,14 +130,14 @@ describe('cli', () => {
       strictEqual(packageJson.name, 'create-bananass-typescript-cjs');
       strictEqual(packageJson.type, 'commonjs');
 
-      ok(isExists('bananass', '1000.cts'));
-      ok(isExists('.gitignore'));
-      ok(isExists('README.md'));
-      ok(isExists('bananass.config.cts'));
+      ok(exists('bananass', '1000.cts'));
+      ok(exists('.gitignore'));
+      ok(exists('README.md'));
+      ok(exists('bananass.config.cts'));
 
-      ok(!isExists('.vscode'));
-      ok(!isExists('.git'));
-      ok(!isExists('node_modules'));
+      ok(!exists('.vscode'));
+      ok(!exists('.git'));
+      ok(!exists('node_modules'));
     });
   });
 });
