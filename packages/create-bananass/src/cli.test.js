@@ -60,18 +60,22 @@ describe('cli', () => {
       const result = runCreateBananass(...skipArgs);
       const packageJson = JSON.parse(readFileSync(join(outDir, 'package.json'), 'utf-8'));
 
+      // Result
       strictEqual(result.status, 0);
       match(result.stderr, successMessage);
 
+      // `package.json`
       strictEqual(packageJson.private, true);
       strictEqual(packageJson.name, 'create-bananass-javascript-esm');
       strictEqual(packageJson.type, 'module');
 
+      // Files created
       ok(exists('bananass', '1000.mjs'));
       ok(exists('.gitignore'));
       ok(exists('README.md'));
       ok(exists('bananass.config.mjs'));
 
+      // Files not created
       ok(!exists('.vscode'));
       ok(!exists('.git'));
       ok(!exists('node_modules'));
@@ -81,18 +85,22 @@ describe('cli', () => {
       const result = runCreateBananass(...skipArgs, '--cjs');
       const packageJson = JSON.parse(readFileSync(join(outDir, 'package.json'), 'utf-8'));
 
+      // Result
       strictEqual(result.status, 0);
       match(result.stderr, successMessage);
 
+      // `package.json`
       strictEqual(packageJson.private, true);
       strictEqual(packageJson.name, 'create-bananass-javascript-cjs');
       strictEqual(packageJson.type, 'commonjs');
 
+      // Files created
       ok(exists('bananass', '1000.cjs'));
       ok(exists('.gitignore'));
       ok(exists('README.md'));
       ok(exists('bananass.config.cjs'));
 
+      // Files not created
       ok(!exists('.vscode'));
       ok(!exists('.git'));
       ok(!exists('node_modules'));
@@ -102,18 +110,22 @@ describe('cli', () => {
       const result = runCreateBananass(...skipArgs, '--typescript');
       const packageJson = JSON.parse(readFileSync(join(outDir, 'package.json'), 'utf-8'));
 
+      // Result
       strictEqual(result.status, 0);
       match(result.stderr, successMessage);
 
+      // `package.json`
       strictEqual(packageJson.private, true);
       strictEqual(packageJson.name, 'create-bananass-typescript-esm');
       strictEqual(packageJson.type, 'module');
 
+      // Files created
       ok(exists('bananass', '1000.mts'));
       ok(exists('.gitignore'));
       ok(exists('README.md'));
       ok(exists('bananass.config.mts'));
 
+      // Files not created
       ok(!exists('.vscode'));
       ok(!exists('.git'));
       ok(!exists('node_modules'));
@@ -123,18 +135,22 @@ describe('cli', () => {
       const result = runCreateBananass(...skipArgs, '--typescript', '--cjs');
       const packageJson = JSON.parse(readFileSync(join(outDir, 'package.json'), 'utf-8'));
 
+      // Result
       strictEqual(result.status, 0);
       match(result.stderr, successMessage);
 
+      // `package.json`
       strictEqual(packageJson.private, true);
       strictEqual(packageJson.name, 'create-bananass-typescript-cjs');
       strictEqual(packageJson.type, 'commonjs');
 
+      // Files created
       ok(exists('bananass', '1000.cts'));
       ok(exists('.gitignore'));
       ok(exists('README.md'));
       ok(exists('bananass.config.cts'));
 
+      // Files not created
       ok(!exists('.vscode'));
       ok(!exists('.git'));
       ok(!exists('node_modules'));
