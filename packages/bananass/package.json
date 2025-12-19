@@ -99,7 +99,7 @@
     "envinfo": "^7.21.0",
     "jiti": "^2.6.1",
     "open": "^10.2.0",
-    "webpack": "^5.103.0",
+    "webpack": "^5.104.1",
     "zod": "^4.1.13"
   },
   "devDependencies": {
