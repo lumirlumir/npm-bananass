@@ -95,7 +95,7 @@
     "bananass-utils-console": "^0.5.2",
     "commander": "^14.0.2",
     "defu": "^6.1.4",
-    "enhanced-resolve": "^5.18.3",
+    "enhanced-resolve": "^5.18.4",
     "envinfo": "^7.21.0",
     "jiti": "^2.6.1",
     "open": "^10.2.0",
