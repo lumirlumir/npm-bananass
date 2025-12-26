@@ -3,7 +3,6 @@ export default {
   printWidth: 90,
   singleQuote: true,
   arrowParens: 'avoid',
-  proseWrap: 'never',
 
   // Add your custom Prettier configuration here.
   //
