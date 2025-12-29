@@ -130,6 +130,12 @@ export const configObjectBuild = z
     clean: z.boolean().optional(),
 
     /**
+     * Minimize the output file.
+     * @default true
+     */
+    minimize: z.boolean().optional(),
+
+    /**
      * Webpack entry file template type. Select from `'fs'` (File System) or `'rl'` (Read Line).
      * @default 'fs'
      */
