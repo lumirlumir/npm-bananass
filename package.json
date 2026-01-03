@@ -67,7 +67,7 @@
     "editorconfig-checker": "^6.1.1",
     "eslint": "^9.39.2",
     "eslint-config-bananass": "^0.5.2",
-    "eslint-plugin-mark": "^0.1.0-canary.11",
+    "eslint-markdown": "^0.1.0-canary.12",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "markdownlint-cli": "^0.47.0",
