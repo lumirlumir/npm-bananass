@@ -1,6 +1,6 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
 import bananass from 'eslint-config-bananass';
-import mark from 'eslint-plugin-mark';
+import md from 'eslint-markdown';
 
 /** @type {import("eslint").Linter.Config[]} */
 export default defineConfig([
@@ -14,14 +14,14 @@ export default defineConfig([
   bananass.configs.json,
   bananass.configs.jsonc,
   bananass.configs.json5,
-  mark.configs.recommended,
-  mark.configs.stylistic,
+  md.configs.recommended,
+  md.configs.stylistic,
 
   {
     name: 'md/global',
     files: ['**/*.md'],
     rules: {
-      'mark/allow-link-url': [
+      'md/allow-link-url': [
         'error',
         {
           disallowUrls: [/^\.\//],
@@ -33,15 +33,15 @@ export default defineConfig([
     name: 'md/websites-vitepress/global',
     files: ['websites/vitepress/**/*.md'],
     rules: {
-      'mark/heading-id': 'error',
-      'mark/no-emoji': 'error',
+      'md/heading-id': 'error',
+      'md/no-emoji': 'error',
     },
   },
   {
     name: 'md/websites-vitepress/solutions/ko',
     files: ['websites/vitepress/ko/solutions/**/*.md'],
     rules: {
-      'mark/allow-heading': [
+      'md/allow-heading': [
         'error',
         {
           h2: ['문제 풀이 {#solutions}', '해설 {#explanation}', '기여자 {#contributors}'],
@@ -53,7 +53,7 @@ export default defineConfig([
     name: 'md/websites-vitepress/solutions/en',
     files: ['websites/vitepress/en/solutions/**/*.md'],
     rules: {
-      'mark/allow-heading': [
+      'md/allow-heading': [
         'error',
         {
           h2: [
