@@ -88,7 +88,7 @@
     "eslint-plugin-n": "^17.23.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^6.0.0-rc.2",
-    "globals": "^16.5.0"
+    "globals": "^17.0.0"
   },
   "devDependencies": {
     "@types/eslint-plugin-jsx-a11y": "^6.10.1"
