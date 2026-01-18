@@ -338,6 +338,27 @@ describe('types', () => {
 
       strictEqual(configObjectBuild.safeParse(object).success, true);
     });
+    it('should return true for a valid `minimize` property (`true`)', () => {
+      const object = {
+        minimize: true,
+      };
+
+      strictEqual(configObjectBuild.safeParse(object).success, true);
+    });
+    it('should return true for a valid `minimize` property (`false`)', () => {
+      const object = {
+        minimize: false,
+      };
+
+      strictEqual(configObjectBuild.safeParse(object).success, true);
+    });
+    it('should return true for a valid `minimize` property (`undefined`)', () => {
+      const object = {
+        minimize: undefined,
+      };
+
+      strictEqual(configObjectBuild.safeParse(object).success, true);
+    });
     it('should return true for a valid `templateType` property (`fs`)', () => {
       const object = {
         templateType: 'fs',
