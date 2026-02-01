@@ -60,16 +60,17 @@ export default {
         'spec/**', // mocha, rspec-like pattern
         '**/__tests__/**', // jest pattern
         '**/__mocks__/**', // jest pattern
-        'test.{js,mjs,cjs,jsx}', // repos with a single test file
-        'test-*.{js,mjs,cjs,jsx}', // repos with multiple top-level test files
-        '**/*{.,_}{test,spec}.{js,mjs,cjs,jsx}', // tests where the extension or filename suffix denotes that it is a test
-        '**/jest.config.js', // jest config
+        'test.{js,mjs,cjs,jsx,ts,mts,cts,tsx}', // repos with a single test file
+        'test-*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}', // repos with multiple top-level test files
+        '**/*{.,_}{test,spec}.{js,mjs,cjs,jsx,ts,mts,cts,tsx}', // tests where the extension or filename suffix denotes that it is a test
+        '**/jest.config.{js,mjs,cjs,ts,mts,cts}', // jest config -- https://jestjs.io/docs/configuration
         '**/jest.setup.js', // jest setup
         '**/vue.config.js', // vue-cli config
-        '**/webpack.config.{js,mjs,cjs}', // webpack config
-        '**/webpack.config.*.{js,mjs,cjs}', // webpack config
-        '**/rollup.config.js', // rollup config
-        '**/rollup.config.*.js', // rollup config
+        '**/webpack.config.{js,mjs,cjs,ts,mts,cts}', // webpack config -- https://webpack.js.org/guides/typescript/#ways-to-use-typescript-in-webpackconfigts
+        '**/webpack.config.*.{js,mjs,cjs,ts,mts,cts}', // webpack config -- https://webpack.js.org/guides/typescript/#ways-to-use-typescript-in-webpackconfigts
+        '**/rollup.config.{js,mjs,cjs,ts,mts,cts}', // rollup config -- https://rollupjs.org/command-line-interface/#configplugin-plugin
+        '**/rollup.config.*.{js,mjs,cjs,ts,mts,cts}', // rollup config -- https://rollupjs.org/command-line-interface/#configplugin-plugin
+        '**/vite.config.{js,mjs,ts,mts}', // vite config -- Vite only supports ESM for config files
         '**/gulpfile.js', // gulp config
         '**/gulpfile.*.js', // gulp config
         '**/Gruntfile{,.js}', // grunt config
@@ -77,8 +78,8 @@ export default {
         '**/protractor.conf.*.js', // protractor config
         '**/karma.conf.js', // karma config
         '**/.eslintrc.js', // eslint config
-        '**/eslint.config.{js,mjs,cjs}', // eslint config
-        '**/.vitepress/**/*.{js,mjs,cjs}', // vitepress config
+        '**/eslint.config.{js,mjs,cjs,ts,mts,cts}', // eslint config -- https://eslint.org/docs/latest/use/configure/configuration-files#configuration-file
+        '**/.vitepress/**/*.{js,mjs,cjs,ts,mts,cts}', // vitepress config
       ],
       optionalDependencies: false,
     },
