@@ -8,13 +8,13 @@
 
 import importPluginModule from 'eslint-plugin-import';
 import nodePluginModule from 'eslint-plugin-n';
-import stylisticJsPluginModule from '@stylistic/eslint-plugin-js';
 import jsxA11yPluginModule from 'eslint-plugin-jsx-a11y';
 import reactPluginModule from 'eslint-plugin-react';
 import reactHooksPluginModule from 'eslint-plugin-react-hooks';
 import nextPluginModule from '@next/eslint-plugin-next';
 import typescriptPluginModule from '@typescript-eslint/eslint-plugin';
 import jsonPluginModule from '@eslint/json';
+import stylisticJsPluginModule from './plugins/index.js';
 
 // --------------------------------------------------------------------------------
 // Typedef
