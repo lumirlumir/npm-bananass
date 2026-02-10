@@ -1,5 +1,5 @@
 /**
- * @fileoverview Source code for spaced-comments rule.
+ * @fileoverview Source code for spaced-comment rule.
  * @license MIT Copied from `eslint` package.
  * @see https://github.com/eslint/eslint/blob/v10.0.0/lib/rules/spaced-comment.js
  */
