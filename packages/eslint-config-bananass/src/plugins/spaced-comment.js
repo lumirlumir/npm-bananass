@@ -4,7 +4,7 @@
  * @see https://github.com/eslint/eslint/blob/v10.0.0/lib/rules/spaced-comment.js
  */
 
-// @ts-nocheck -- TODO
+// @ts-nocheck -- TODO: Code was simply copied and pasted. Type annotations will be modified later.
 
 // --------------------------------------------------------------------------------
 // Typedef

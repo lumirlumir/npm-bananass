@@ -1,5 +1,5 @@
 /**
- * @fileoverview ESLint plugin configuration for custom rules.
+ * @fileoverview ESLint plugins for custom rules.
  */
 
 /* eslint-disable import/prefer-default-export -- Named export will be more in the future. */
