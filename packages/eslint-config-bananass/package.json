@@ -80,7 +80,6 @@
   "dependencies": {
     "@eslint/json": "^0.14.0",
     "@next/eslint-plugin-next": "^16.1.1",
-    "@stylistic/eslint-plugin-js": "^4.4.1",
     "@typescript-eslint/eslint-plugin": "^8.49.0",
     "@typescript-eslint/parser": "^8.49.0",
     "eslint-plugin-import": "^2.32.0",
