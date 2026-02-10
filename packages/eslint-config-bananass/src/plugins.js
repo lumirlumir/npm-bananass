@@ -14,7 +14,7 @@ import reactHooksPluginModule from 'eslint-plugin-react-hooks';
 import nextPluginModule from '@next/eslint-plugin-next';
 import typescriptPluginModule from '@typescript-eslint/eslint-plugin';
 import jsonPluginModule from '@eslint/json';
-import stylisticJsPluginModule from './plugins/index.js';
+import { stylisticJs as stylisticJsPluginModule } from './plugins/index.js';
 
 // --------------------------------------------------------------------------------
 // Typedef
