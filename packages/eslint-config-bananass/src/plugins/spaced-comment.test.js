@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for spaced-comments
+ * @fileoverview Test for spaced-comment
  * @license MIT Copied from `eslint` package.
  * @see https://github.com/eslint/eslint/blob/v10.0.0/tests/lib/rules/spaced-comment.js
  */
