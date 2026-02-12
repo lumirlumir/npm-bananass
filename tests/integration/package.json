@@ -8,6 +8,7 @@
   "devDependencies": {
     "bananass": "^0.5.2",
     "bananass-utils-console": "^0.5.2",
-    "create-bananass": "^0.5.2"
+    "create-bananass": "^0.5.2",
+    "eslint-config-bananass": "^0.5.2"
   }
 }
