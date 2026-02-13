@@ -14,7 +14,7 @@ import reactHooksPluginModule from 'eslint-plugin-react-hooks';
 import nextPluginModule from '@next/eslint-plugin-next';
 import typescriptPluginModule from '@typescript-eslint/eslint-plugin';
 import jsonPluginModule from '@eslint/json';
-import { stylisticJs as stylisticJsPluginModule } from './plugins/index.js';
+import { stylistic as stylisticPluginModule } from './plugins/index.js';
 
 // --------------------------------------------------------------------------------
 // Typedef
@@ -34,8 +34,8 @@ export const importPlugin = { import: importPluginModule };
 /** @type {{'n': ESLint.Plugin}} */
 export const nodePlugin = { n: nodePluginModule };
 
-/** @type {{'@stylistic/js': ESLint.Plugin}} */
-export const stylisticJsPlugin = { '@stylistic/js': stylisticJsPluginModule };
+/** @type {{'@stylistic': ESLint.Plugin}} */
+export const stylisticPlugin = { '@stylistic': stylisticPluginModule };
 
 /** @type {{'jsx-a11y': ESLint.Plugin}} */
 export const jsxA11yPlugin = { 'jsx-a11y': jsxA11yPluginModule };

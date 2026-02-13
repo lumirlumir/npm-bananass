@@ -1,7 +1,7 @@
 import eslintRules from './eslint.js';
 import importRules from './import.js';
 import nodeRules from './node.js';
-import stylisticJsRules from './stylistic-js.js';
+import stylisticRules from './stylistic.js';
 import jsxA11yRules from './jsx-a11y.js';
 import reactRules from './react.js';
 import reactHooksRules from './react-hooks.js';
@@ -13,7 +13,7 @@ export {
   eslintRules,
   importRules,
   nodeRules,
-  stylisticJsRules,
+  stylisticRules,
   jsxA11yRules,
   reactRules,
   reactHooksRules,
