@@ -14,7 +14,7 @@ import spacedComment from './spaced-comment.js';
 // Export
 // --------------------------------------------------------------------------------
 
-export const stylisticJs = /** @type {const} */ ({
+export const stylistic = /** @type {const} */ ({
   rules: {
     'spaced-comment': spacedComment,
   },
