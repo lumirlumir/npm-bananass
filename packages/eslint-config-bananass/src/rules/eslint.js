@@ -1522,6 +1522,7 @@ export default /** @satisfies {Partial<ESLintRules>} */ ({
 
   /**
    * Disallow losing originally caught error when re-throwing custom errors.
+   * @description This rule is not included in `airbnb-base`.
    * @see https://eslint.org/docs/latest/rules/preserve-caught-error (eslint)
    */
   'preserve-caught-error': 'error',
