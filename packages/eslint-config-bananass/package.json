@@ -73,7 +73,7 @@
     "test": "node --test"
   },
   "peerDependencies": {
-    "eslint": "^9.15.0"
+    "eslint": "^9.35.0"
   },
   "peerDependenciesMeta": {
     "eslint": {
