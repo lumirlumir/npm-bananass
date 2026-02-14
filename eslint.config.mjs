@@ -18,7 +18,7 @@ export default defineConfig([
   md.configs.stylistic,
 
   {
-    name: 'js/global',
+    name: 'js/temp',
     files: ['packages/bananass/src/**/*.js', 'packages/create-bananass/src/**/*.js'],
     rules: {
       'preserve-caught-error': 'off', // TODO: Enable after refactoring
