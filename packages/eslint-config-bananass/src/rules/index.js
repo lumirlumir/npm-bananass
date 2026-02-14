@@ -6,7 +6,7 @@ import jsxA11yRules from './jsx-a11y.js';
 import reactRules from './react.js';
 import reactHooksRules from './react-hooks.js';
 import nextRules from './next.js';
-import typescriptRules from './typescript/index.js';
+import typescriptRules from './typescript.js';
 import jsonRules from './json.js';
 
 export {
