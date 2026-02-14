@@ -44,7 +44,9 @@ export const jsxA11yPlugin = { 'jsx-a11y': jsxA11yPluginModule };
 export const reactPlugin = { react: reactPluginModule };
 
 /** @type {{'react-hooks': ESLint.Plugin}} */
-export const reactHooksPlugin = { 'react-hooks': reactHooksPluginModule };
+export const reactHooksPlugin = {
+  'react-hooks': { rules: reactHooksPluginModule.rules },
+};
 
 /** @type {{'@next/next': ESLint.Plugin}} */
 export const nextPlugin = { '@next/next': { rules: nextPluginModule.rules } };
