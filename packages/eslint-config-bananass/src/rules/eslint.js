@@ -327,6 +327,7 @@ export default /** @satisfies {Partial<ESLintRules>} */ ({
 
   /**
    * Disallow `let` or `var` variables that are read but never assigned.
+   * @description This rule is not included in `airbnb-base`.
    * @see https://eslint.org/docs/latest/rules/no-unassigned-vars (eslint)
    */
   'no-unassigned-vars': 'error',
