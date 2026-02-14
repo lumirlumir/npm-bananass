@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-bananass",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "type": "module",
   "description": "ESLint Config for Bananass Framework.🍌",
   "exports": {

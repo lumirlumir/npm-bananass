@@ -22,9 +22,9 @@
     "tsc": "tsc"
   },
   "devDependencies": {
-    "bananass": "^0.5.2",
+    "bananass": "^0.6.0",
     "eslint": "^9.39.2",
-    "eslint-config-bananass": "^0.5.2",
+    "eslint-config-bananass": "^0.6.0",
     "jiti": "^2.6.1",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3"

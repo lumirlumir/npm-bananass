@@ -8,6 +8,6 @@
     "test": "bash ../../scripts/examples-solutions-bananass-test.sh"
   },
   "devDependencies": {
-    "bananass": "^0.5.2"
+    "bananass": "^0.6.0"
   }
 }
