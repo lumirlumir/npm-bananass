@@ -1,6 +1,6 @@
 {
   "name": "bananass",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "type": "module",
   "description": "Baekjoon Framework for JavaScript.🍌",
   "exports": {
@@ -87,20 +87,20 @@
     "dev": "node src/cli.js"
   },
   "dependencies": {
-    "@babel/core": "^7.28.5",
-    "@babel/plugin-transform-modules-commonjs": "^7.27.1",
-    "@babel/plugin-transform-typescript": "^7.28.5",
-    "@babel/preset-env": "^7.28.5",
+    "@babel/core": "^7.29.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.28.6",
+    "@babel/plugin-transform-typescript": "^7.28.6",
+    "@babel/preset-env": "^7.29.0",
     "babel-loader": "^10.0.0",
-    "bananass-utils-console": "^0.5.2",
-    "commander": "^14.0.2",
+    "bananass-utils-console": "^0.6.0",
+    "commander": "^14.0.3",
     "defu": "^6.1.4",
     "enhanced-resolve": "^5.18.3",
     "envinfo": "^7.21.0",
     "jiti": "^2.6.1",
     "open": "^10.2.0",
-    "webpack": "^5.103.0",
-    "zod": "^4.1.13"
+    "webpack": "^5.105.2",
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@types/babel__core": "^7.20.5",

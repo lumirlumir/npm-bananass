@@ -1,6 +1,6 @@
 {
   "name": "create-bananass",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "type": "module",
   "description": "Create a Bananass framework project for solving Baekjoon problems with JavaScript/TypeScript.🍌",
   "exports": {

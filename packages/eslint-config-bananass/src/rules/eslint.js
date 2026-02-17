@@ -326,6 +326,13 @@ export default /** @satisfies {Partial<ESLintRules>} */ ({
   'no-this-before-super': 'error',
 
   /**
+   * Disallow `let` or `var` variables that are read but never assigned.
+   * @description This rule is not included in `airbnb-base`.
+   * @see https://eslint.org/docs/latest/rules/no-unassigned-vars (eslint)
+   */
+  'no-unassigned-vars': 'error',
+
+  /**
    * Disallow the use of undeclared variables unless mentioned in global comments.
    * @see https://eslint.org/docs/latest/rules/no-undef (eslint)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/variables.js#L40 (airbnb-base)
@@ -1446,10 +1453,11 @@ export default /** @satisfies {Partial<ESLintRules>} */ ({
 
   /**
    * Enforce using named capture group in regular expression.
+   * @description I've turned this rule `'error'` from `'off'`.
    * @see https://eslint.org/docs/latest/rules/prefer-named-capture-group (eslint)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L377 (airbnb-base)
    */
-  'prefer-named-capture-group': 'off',
+  'prefer-named-capture-group': 'error',
 
   /**
    * Disallow `parseInt()` and `Number.parseInt()` in favor of binary, octal, and hexadecimal literals.
@@ -1511,6 +1519,13 @@ export default /** @satisfies {Partial<ESLintRules>} */ ({
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/es6.js#L154 (airbnb-base)
    */
   'prefer-template': 'error',
+
+  /**
+   * Disallow losing originally caught error when re-throwing custom errors.
+   * @description This rule is not included in `airbnb-base`.
+   * @see https://eslint.org/docs/latest/rules/preserve-caught-error (eslint)
+   */
+  'preserve-caught-error': 'error',
 
   /**
    * Enforce the consistent use of the radix argument when using `parseInt()`.
