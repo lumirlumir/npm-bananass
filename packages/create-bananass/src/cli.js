@@ -61,6 +61,11 @@ const {
 // Version and Help
 // --------------------------------------------------------------------------
 
+/*
+ * `--version` (`-v`) takes precedence over `--help` (`-h`).
+ * If both flags are present, only the version is output.
+ * This follows the convention used by the `commander` library.
+ */
 if (cliVersion) {
   console.log(version); // eslint-disable-line no-console -- Version output
   process.exit(0);
