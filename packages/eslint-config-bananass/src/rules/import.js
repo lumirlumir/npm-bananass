@@ -70,8 +70,8 @@ export default {
         '**/webpack.config.*.{js,mjs,cjs,ts,mts,cts}', // webpack config -- https://webpack.js.org/guides/typescript/#ways-to-use-typescript-in-webpackconfigts
         '**/rollup.config.{js,mjs,cjs,ts,mts,cts}', // rollup config -- https://rollupjs.org/command-line-interface/#configplugin-plugin
         '**/rollup.config.*.{js,mjs,cjs,ts,mts,cts}', // rollup config -- https://rollupjs.org/command-line-interface/#configplugin-plugin
-        '**/vite.config.{js,mjs,ts,mts}', // vite config -- Vite only supports ESM for config files // TODO
-        // TODO: vitest
+        '**/vite.config.{js,mjs,cjs,ts,mts,cts}', // vite config -- https://vitest.dev/guide/#configuring-vitest
+        '**/vitest.config.{js,mjs,cjs,ts,mts,cts}', // vitest config -- https://vitest.dev/guide/#configuring-vitest
         '**/gulpfile.js', // gulp config
         '**/gulpfile.*.js', // gulp config
         '**/Gruntfile{,.js}', // grunt config
