@@ -49,6 +49,35 @@ function runOutFile(outFile, input) {
 
 describe('build', () => {
   describe('shared', () => {
+    describe('should throw an error when invalid first argument is provided', () => {
+      it('when first argument is missing', async () => {
+        await rejects(() => build());
+      });
+
+      it('when first argument is not an array', async () => {
+        await rejects(() => build(1000));
+        await rejects(() => build(true));
+        await rejects(() => build(undefined));
+        await rejects(() => build(null));
+        await rejects(() => build(Symbol('test')));
+        await rejects(() => build({}));
+      });
+
+      it('when first argument is an empty array', async () => {
+        await rejects(() => build([]));
+      });
+
+      it('when first argument is an array but contains invalid values', async () => {
+        await rejects(() => build([1000]));
+        await rejects(() => build(['1000', 1001]));
+        await rejects(() => build([true]));
+        await rejects(() => build([undefined]));
+        await rejects(() => build([null]));
+        await rejects(() => build([Symbol('test')]));
+        await rejects(() => build([{}]));
+      });
+    });
+
     const cwd = resolve(import.meta.dirname, 'fixtures', 'shared');
     const outDir = resolve(cwd, '.bananass');
     const configObject = { cwd, console: { quiet: true } };
@@ -75,7 +104,6 @@ describe('build', () => {
     describe('should work as expected', () => {
       it('should reject when invalid values are provided', async () => {
         await rejects(() => build(['999']));
-        await rejects(() => build(['1000', 1001]));
         await rejects(() => build(['1000'], { invalid: 'invalid' }));
         await rejects(() => build(['1000'], { build: { clean: 'true' } }));
       });
