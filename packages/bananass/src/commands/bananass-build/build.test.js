@@ -1,8 +1,8 @@
 /**
  * @fileoverview Test for `build.js`.
  *
- * NOTE: None of the files in the `fixtures` directory are based on actual Baekjoon problems.
- * They are simply a dummy file or A + B examples used for testing purposes.
+ * NOTE: None of the files in the `fixtures` directory are based on actual problem on any platform.
+ * They are simply dummy files or A + B examples used for testing purposes.
  */
 
 // --------------------------------------------------------------------------------
@@ -11,7 +11,7 @@
 
 import { match, ok, rejects, strictEqual } from 'node:assert';
 import { describe, it, afterEach, mock } from 'node:test';
-import { stripVTControlCharacters as stripAnsi } from 'node:util';
+import { stripVTControlCharacters } from 'node:util';
 import { spawnSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { existsSync, rmSync, readFileSync } from 'node:fs';
@@ -23,14 +23,22 @@ import build from './build.js';
 // Helper
 // --------------------------------------------------------------------------------
 
-/** @param {string} outFile @param {string} input */
+/**
+ * Runs the output file with the given input and returns the status, stdout, and stderr.
+ * @param {string} outFile The path to the output file to run.
+ * @param {string} input The input to pass to the output file.
+ */
 function runOutFile(outFile, input) {
-  const { status, stdout } = spawnSync(process.execPath, [outFile], {
+  const { status, stdout, stderr } = spawnSync('node', [outFile], {
     input,
     encoding: 'utf-8',
   });
 
-  return { status, stdout: stripAnsi(stdout).trim() };
+  return {
+    status,
+    stdout: stripVTControlCharacters(stdout).trim(),
+    stderr: stripVTControlCharacters(stderr).trim(),
+  };
 }
 
 // --------------------------------------------------------------------------------
@@ -38,8 +46,8 @@ function runOutFile(outFile, input) {
 // --------------------------------------------------------------------------------
 
 describe('build', () => {
-  describe('default', () => {
-    const cwd = resolve(import.meta.dirname, './fixtures/default');
+  describe('shared', () => {
+    const cwd = resolve(import.meta.dirname, 'fixtures', 'shared');
     const outDir = resolve(cwd, '.bananass');
     const configObject = { cwd, console: { quiet: true } };
 
@@ -170,7 +178,7 @@ describe('build', () => {
     // TODO: Add tests for: External libraries: npm
 
     describe('cjs', () => {
-      const cwd = resolve(import.meta.dirname, './fixtures/cjs');
+      const cwd = resolve(import.meta.dirname, 'fixtures', 'cjs');
       const outDir = resolve(cwd, '.bananass');
       const configObjectFS = {
         cwd,
@@ -721,7 +729,7 @@ describe('build', () => {
     });
 
     describe('cts', () => {
-      const cwd = resolve(import.meta.dirname, './fixtures/cts');
+      const cwd = resolve(import.meta.dirname, 'fixtures', 'cts');
       const outDir = resolve(cwd, '.bananass');
       const configObjectFS = {
         cwd,
@@ -1294,7 +1302,7 @@ describe('build', () => {
     });
 
     describe('mjs', () => {
-      const cwd = resolve(import.meta.dirname, './fixtures/mjs');
+      const cwd = resolve(import.meta.dirname, 'fixtures', 'mjs');
       const outDir = resolve(cwd, '.bananass');
       const configObjectFS = {
         cwd,
@@ -1845,7 +1853,7 @@ describe('build', () => {
     });
 
     describe('mts', () => {
-      const cwd = resolve(import.meta.dirname, './fixtures/mts');
+      const cwd = resolve(import.meta.dirname, 'fixtures', 'mts');
       const outDir = resolve(cwd, '.bananass');
       const configObjectFS = {
         cwd,
