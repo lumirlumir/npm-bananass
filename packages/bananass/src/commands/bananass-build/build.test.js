@@ -1,13 +1,18 @@
 /**
  * @fileoverview Test for `build.js`.
+ *
+ * NOTE: None of the files in the `fixtures` directory are based on actual Baekjoon problems.
+ * They are simply a dummy file or A + B examples used for testing purposes.
  */
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-import { match, ok, rejects } from 'node:assert';
+import { match, ok, rejects, strictEqual } from 'node:assert';
 import { describe, it, afterEach, mock } from 'node:test';
+import { stripVTControlCharacters as stripAnsi } from 'node:util';
+import { spawnSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { existsSync, rmSync, readFileSync } from 'node:fs';
 import fsPromises from 'node:fs/promises';
@@ -15,137 +20,2379 @@ import fsPromises from 'node:fs/promises';
 import build from './build.js';
 
 // --------------------------------------------------------------------------------
-// Helpers
+// Helper
 // --------------------------------------------------------------------------------
 
-const cwd = resolve(import.meta.dirname, './fixtures');
-const outDir = resolve(cwd, '.bananass');
-const configObject = { cwd, console: { quiet: true } };
+/** @param {string} outFile @param {string} input */
+function runOutFile(outFile, input) {
+  const { status, stdout } = spawnSync(process.execPath, [outFile], {
+    input,
+    encoding: 'utf-8',
+  });
+
+  return { status, stdout: stripAnsi(stdout).trim() };
+}
 
 // --------------------------------------------------------------------------------
 // Test
 // --------------------------------------------------------------------------------
 
-afterEach(() => {
-  // Clean up the output directory after each test
-  if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
-});
-
 describe('build', () => {
-  describe('should use default parameters correctly', () => {
-    it('should use default parameters when only `cwd` is provided', async () => {
-      await build(['1000'], { cwd });
+  describe('default', () => {
+    const cwd = resolve(import.meta.dirname, './fixtures/default');
+    const outDir = resolve(cwd, '.bananass');
+    const configObject = { cwd, console: { quiet: true } };
+
+    afterEach(() => {
+      // Clean up the output directory after each test
+      if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
     });
 
-    it('should use default parameters when empty console object is provided', async () => {
-      await build(['1000'], { cwd, console: {} });
+    describe('should use default parameters correctly', () => {
+      it('should use default parameters when only `cwd` is provided', async () => {
+        await build(['1000'], { cwd });
+      });
+
+      it('should use default parameters when empty console object is provided', async () => {
+        await build(['1000'], { cwd, console: {} });
+      });
+
+      it('should use default parameters when empty build object is provided', async () => {
+        await build(['1000'], { cwd, build: {} });
+      });
     });
 
-    it('should use default parameters when empty build object is provided', async () => {
-      await build(['1000'], { cwd, build: {} });
+    describe('should work as expected', () => {
+      it('should reject when invalid values are provided', async () => {
+        await rejects(() => build(['999']));
+        await rejects(() => build(['1000', 1001]));
+        await rejects(() => build(['1000'], { invalid: 'invalid' }));
+        await rejects(() => build(['1000'], { build: { clean: 'true' } }));
+      });
+
+      it('should create output directory and file', async () => {
+        await build(['1000'], configObject);
+
+        ok(existsSync(outDir));
+        ok(existsSync(resolve(outDir, '1000.cjs')));
+      });
+
+      it('should throw an error when solution file does not exist', async () => {
+        await rejects(() => build(['9999'], configObject), /doesn't exist/);
+      });
+
+      it('`webpack.BannerPlugin` should work as expected', async () => {
+        await build(['1000'], configObject);
+
+        const outFile = resolve(outDir, '1000.cjs');
+        ok(existsSync(outFile));
+
+        const fileContent = readFileSync(outFile, 'utf-8');
+        match(fileContent, /DO NOT DELETE THIS COMMENT/u);
+      });
+    });
+
+    describe('options should work as expected', () => {
+      it('`entryDir` and `outDir` should work as expected', async () => {
+        const customEntryDir = resolve(cwd, 'src');
+        const customOutDir = resolve(cwd, 'build');
+
+        await build(['2000'], {
+          ...configObject,
+          entryDir: customEntryDir,
+          outDir: customOutDir,
+        });
+
+        ok(existsSync(customOutDir));
+        ok(existsSync(resolve(customOutDir, '2000.cjs')));
+
+        if (existsSync(customOutDir))
+          rmSync(customOutDir, { recursive: true, force: true });
+      });
+
+      it('`clean` should work as expected', async () => {
+        await build(['1000'], configObject);
+        ok(existsSync(resolve(outDir, '1000.cjs')));
+
+        await build(['1001'], configObject);
+        ok(existsSync(resolve(outDir, '1001.cjs')));
+
+        await build(['1002'], { ...configObject, build: { clean: true } });
+        ok(!existsSync(resolve(outDir, '1000.cjs')));
+        ok(!existsSync(resolve(outDir, '1001.cjs')));
+        ok(existsSync(resolve(outDir, '1002.cjs')));
+      });
+
+      it('`clean` should throw an error for some reason', async () => {
+        mock.method(fsPromises, 'rm', () => {
+          throw new Error('Dummy error message');
+        });
+
+        await rejects(
+          () => build(['1000'], { ...configObject, build: { clean: true } }),
+          /Dummy error message/,
+        );
+      });
+
+      it("`templateType: 'fs'` should work as expected", async () => {
+        await build(['1000'], {
+          ...configObject,
+          build: {
+            templateType: 'fs',
+          },
+        });
+
+        const outFile = resolve(outDir, '1000.cjs');
+        ok(existsSync(outFile));
+
+        const fileContent = readFileSync(outFile, 'utf-8');
+        match(fileContent, /require\("node:fs"\)/u);
+      });
+
+      it("`templateType: 'rl'` should work as expected", async () => {
+        await build(['1000'], {
+          ...configObject,
+          build: {
+            templateType: 'rl',
+          },
+        });
+
+        const outFile = resolve(outDir, '1000.cjs');
+        ok(existsSync(outFile));
+
+        const fileContent = readFileSync(outFile, 'utf-8');
+        match(fileContent, /require\("node:readline"\)/u);
+      });
     });
   });
 
-  describe('should work as expected', () => {
-    it('should reject when invalid values are provided', async () => {
-      await rejects(() => build(['999']));
-      await rejects(() => build(['1000', 1001]));
-      await rejects(() => build(['1000'], { invalid: 'invalid' }));
-      await rejects(() => build(['1000'], { build: { clean: 'true' } }));
-    });
+  describe('e2e', () => {
+    // TODO: Add tests for: External libraries: npm
 
-    it('should create output directory and file', async () => {
-      await build(['1000'], configObject);
+    describe('cjs', () => {
+      const cwd = resolve(import.meta.dirname, './fixtures/cjs');
+      const outDir = resolve(cwd, '.bananass');
+      const configObjectFS = {
+        cwd,
+        console: { quiet: true },
+        build: { templateType: 'fs' },
+      };
+      const configObjectRL = {
+        cwd,
+        console: { quiet: true },
+        build: { templateType: 'rl' },
+      };
 
-      ok(existsSync(outDir));
-      ok(existsSync(resolve(outDir, '1000.cjs')));
-    });
-
-    it('should throw an error when solution file does not exist', async () => {
-      await rejects(() => build(['9999'], configObject), /doesn't exist/);
-    });
-
-    it('`webpack.BannerPlugin` should work as expected', async () => {
-      await build(['1000'], configObject);
-
-      const outFile = resolve(outDir, '1000.cjs');
-      ok(existsSync(outFile));
-
-      const fileContent = readFileSync(outFile, 'utf-8');
-      match(fileContent, /DO NOT DELETE THIS COMMENT/u);
-    });
-  });
-
-  describe('options should work as expected', () => {
-    it('`entryDir` and `outDir` should work as expected', async () => {
-      const customEntryDir = resolve(cwd, 'src');
-      const customOutDir = resolve(cwd, 'build');
-
-      await build(['2000'], {
-        ...configObject,
-        entryDir: customEntryDir,
-        outDir: customOutDir,
+      afterEach(() => {
+        // Clean up the output directory after each test
+        if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
       });
 
-      ok(existsSync(customOutDir));
-      ok(existsSync(resolve(customOutDir, '2000.cjs')));
+      describe('When the entire solution is in a single file', () => {
+        describe('`fs`(file system) template', () => {
+          it('A single file with `solution` and `testcases` should build correctly', async () => {
+            await build(['1000'], configObjectFS);
 
-      if (existsSync(customOutDir))
-        rmSync(customOutDir, { recursive: true, force: true });
-    });
+            const outFile = resolve(outDir, '1000.cjs');
+            const result = runOutFile(outFile, '1 2');
 
-    it('`clean` should work as expected', async () => {
-      await build(['1000'], configObject);
-      ok(existsSync(resolve(outDir, '1000.cjs')));
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
 
-      await build(['1001'], configObject);
-      ok(existsSync(resolve(outDir, '1001.cjs')));
+          it('A single file with only `solution` should build correctly', async () => {
+            await build(['1001'], configObjectFS);
 
-      await build(['1002'], { ...configObject, build: { clean: true } });
-      ok(!existsSync(resolve(outDir, '1000.cjs')));
-      ok(!existsSync(resolve(outDir, '1001.cjs')));
-      ok(existsSync(resolve(outDir, '1002.cjs')));
-    });
+            const outFile = resolve(outDir, '1001.cjs');
+            const result = runOutFile(outFile, '1 2');
 
-    it('`clean` should throw an error for some reason', async () => {
-      mock.method(fsPromises, 'rm', () => {
-        throw new Error('Dummy error message');
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.cjs` should build correctly', async () => {
+            await build(['1002'], configObjectFS);
+
+            const outFile = resolve(outDir, '1002.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.mjs` with `export default` should build correctly', async () => {
+            await build(['1003'], configObjectFS);
+
+            const outFile = resolve(outDir, '1003.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.mjs` with `export` should build correctly', async () => {
+            await build(['1004'], configObjectFS);
+
+            const outFile = resolve(outDir, '1004.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('User-created external modules using the `cjs` format should build correctly', async () => {
+            await build(['1005'], configObjectFS);
+
+            const outFile = resolve(outDir, '1005.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Function expression `solution` should build correctly', async () => {
+            await build(['1006'], configObjectFS);
+
+            const outFile = resolve(outDir, '1006.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Arrow function `solution` should build correctly', async () => {
+            await build(['1007'], configObjectFS);
+
+            const outFile = resolve(outDir, '1007.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+
+        describe('`rl`(readline) template', () => {
+          it('A single file with `solution` and `testcases` should build correctly', async () => {
+            await build(['1000'], configObjectRL);
+
+            const outFile = resolve(outDir, '1000.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('A single file with only `solution` should build correctly', async () => {
+            await build(['1001'], configObjectRL);
+
+            const outFile = resolve(outDir, '1001.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.cjs` should build correctly', async () => {
+            await build(['1002'], configObjectRL);
+
+            const outFile = resolve(outDir, '1002.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.mjs` with `export default` should build correctly', async () => {
+            await build(['1003'], configObjectRL);
+
+            const outFile = resolve(outDir, '1003.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.mjs` with `export` should build correctly', async () => {
+            await build(['1004'], configObjectRL);
+
+            const outFile = resolve(outDir, '1004.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('User-created external modules using the `cjs` format should build correctly', async () => {
+            await build(['1005'], configObjectRL);
+
+            const outFile = resolve(outDir, '1005.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Function expression `solution` should build correctly', async () => {
+            await build(['1006'], configObjectRL);
+
+            const outFile = resolve(outDir, '1006.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Arrow function `solution` should build correctly', async () => {
+            await build(['1007'], configObjectRL);
+
+            const outFile = resolve(outDir, '1007.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
       });
 
-      await rejects(
-        () => build(['1000'], { ...configObject, build: { clean: true } }),
-        /Dummy error message/,
-      );
-    });
+      describe('When the solution is in a single directory with multiple files', () => {
+        describe('`fs`(file system) template', () => {
+          it('A solution directory with `solution` and `testcases` should build correctly', async () => {
+            await build(['2000'], configObjectFS);
 
-    it("`templateType: 'fs'` should work as expected", async () => {
-      await build(['1000'], {
-        ...configObject,
-        build: {
-          templateType: 'fs',
-        },
+            const outFile = resolve(outDir, '2000.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('A solution directory with only `solution` should build correctly', async () => {
+            await build(['2001'], configObjectFS);
+
+            const outFile = resolve(outDir, '2001.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.cjs` should build correctly', async () => {
+            await build(['2002'], configObjectFS);
+
+            const outFile = resolve(outDir, '2002.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.mjs` with `export default` should build correctly', async () => {
+            await build(['2003'], configObjectFS);
+
+            const outFile = resolve(outDir, '2003.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.mjs` with `export` should build correctly', async () => {
+            await build(['2004'], configObjectFS);
+
+            const outFile = resolve(outDir, '2004.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('User-created external modules using the `cjs` format should build correctly', async () => {
+            await build(['2005'], configObjectFS);
+
+            const outFile = resolve(outDir, '2005.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+
+        describe('`rl`(readline) template', () => {
+          it('A solution directory with `solution` and `testcases` should build correctly', async () => {
+            await build(['2000'], configObjectRL);
+
+            const outFile = resolve(outDir, '2000.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('A solution directory with only `solution` should build correctly', async () => {
+            await build(['2001'], configObjectRL);
+
+            const outFile = resolve(outDir, '2001.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.cjs` should build correctly', async () => {
+            await build(['2002'], configObjectRL);
+
+            const outFile = resolve(outDir, '2002.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.mjs` with `export default` should build correctly', async () => {
+            await build(['2003'], configObjectRL);
+
+            const outFile = resolve(outDir, '2003.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.mjs` with `export` should build correctly', async () => {
+            await build(['2004'], configObjectRL);
+
+            const outFile = resolve(outDir, '2004.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('User-created external modules using the `cjs` format should build correctly', async () => {
+            await build(['2005'], configObjectRL);
+
+            const outFile = resolve(outDir, '2005.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
       });
 
-      const outFile = resolve(outDir, '1000.cjs');
-      ok(existsSync(outFile));
+      describe('Latest ECMAScript features with `@babel/preset-env` and custom plugins should be transpiled correctly', () => {
+        describe('`fs`(file system) template', () => {
+          it('ES2025 `regexp-modifiers` should be transpiled correctly', async () => {
+            // https://babeljs.io/docs/babel-plugin-transform-regexp-modifiers
 
-      const fileContent = readFileSync(outFile, 'utf-8');
-      match(fileContent, /require\("node:fs"\)/u);
-    });
+            await build(['3000'], configObjectFS);
 
-    it("`templateType: 'rl'` should work as expected", async () => {
-      await build(['1000'], {
-        ...configObject,
-        build: {
-          templateType: 'rl',
-        },
+            const outFile = resolve(outDir, '3000.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('/(?:[Aa])a/'), true);
+            strictEqual(fileContent.includes('/(?i:a)a/'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-array-prototype-to-sorted` plugin should be applied correctly', async () => {
+            await build(['3001'], configObjectFS);
+
+            const outFile = resolve(outDir, '3001.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('toSorted()'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-array-prototype-to-reversed` plugin should be applied correctly', async () => {
+            await build(['3002'], configObjectFS);
+
+            const outFile = resolve(outDir, '3002.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('toReversed()'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-object-has-own` plugin should be applied correctly', async () => {
+            await build(['3003'], configObjectFS);
+
+            const outFile = resolve(outDir, '3003.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('Object.hasOwn'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+
+        describe('`rl`(readline) template', () => {
+          it('ES2025 `regexp-modifiers` should be transpiled correctly', async () => {
+            // https://babeljs.io/docs/babel-plugin-transform-regexp-modifiers
+
+            await build(['3000'], configObjectRL);
+
+            const outFile = resolve(outDir, '3000.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('/(?:[Aa])a/'), true);
+            strictEqual(fileContent.includes('/(?i:a)a/'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-array-prototype-to-sorted` plugin should be applied correctly', async () => {
+            await build(['3001'], configObjectRL);
+
+            const outFile = resolve(outDir, '3001.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('toSorted()'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-array-prototype-to-reversed` plugin should be applied correctly', async () => {
+            await build(['3002'], configObjectRL);
+
+            const outFile = resolve(outDir, '3002.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('toReversed()'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-object-has-own` plugin should be applied correctly', async () => {
+            await build(['3003'], configObjectRL);
+
+            const outFile = resolve(outDir, '3003.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('Object.hasOwn'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
       });
 
-      const outFile = resolve(outDir, '1000.cjs');
-      ok(existsSync(outFile));
+      describe('Webpack `definePlugin` should be applied correctly', () => {
+        it('`globalThis.IS_PROD` should work correctly', async () => {
+          await build(['4000'], configObjectFS);
 
-      const fileContent = readFileSync(outFile, 'utf-8');
-      match(fileContent, /require\("node:readline"\)/u);
+          const outFile = resolve(outDir, '4000.cjs');
+          ok(existsSync(outFile));
+
+          const fileContent = readFileSync(outFile, 'utf-8');
+          strictEqual(
+            fileContent.includes(
+              'This line should not be included in the production build',
+            ),
+            false,
+          );
+          strictEqual(fileContent.includes('testcases'), false);
+
+          const result = runOutFile(outFile, '1 2');
+          strictEqual(result.status, 0);
+          strictEqual(result.stdout, '3');
+        });
+
+        it("`process.env.NODE_ENV === 'production'` should work correctly", async () => {
+          await build(['4001'], configObjectFS);
+
+          const outFile = resolve(outDir, '4001.cjs');
+          ok(existsSync(outFile));
+
+          const fileContent = readFileSync(outFile, 'utf-8');
+          strictEqual(
+            fileContent.includes(
+              'This line should not be included in the production build',
+            ),
+            false,
+          );
+          strictEqual(fileContent.includes('testcases'), false);
+
+          const result = runOutFile(outFile, '1 2');
+          strictEqual(result.status, 0);
+          strictEqual(result.stdout, '3');
+        });
+      });
+
+      describe('Multiple files', () => {
+        it('Multiple files with `fs` template should build correctly', async () => {
+          await build(['1000', '1001', '2000'], configObjectFS);
+
+          const outFile1000 = resolve(outDir, '1000.cjs');
+          const result1000 = runOutFile(outFile1000, '1 2');
+
+          const outFile1001 = resolve(outDir, '1001.cjs');
+          const result1001 = runOutFile(outFile1001, '1 2');
+
+          const outFile2000 = resolve(outDir, '2000.cjs');
+          const result2000 = runOutFile(outFile2000, '1 2');
+
+          ok(existsSync(outFile1000));
+          strictEqual(result1000.status, 0);
+          strictEqual(result1000.stdout, '3');
+
+          ok(existsSync(outFile1001));
+          strictEqual(result1001.status, 0);
+          strictEqual(result1001.stdout, '3');
+
+          ok(existsSync(outFile2000));
+          strictEqual(result2000.status, 0);
+          strictEqual(result2000.stdout, '3');
+        });
+
+        it('Multiple files with `rl` template should build correctly', async () => {
+          await build(['1000', '2000'], configObjectRL);
+
+          const outFile1000 = resolve(outDir, '1000.cjs');
+          const result1000 = runOutFile(outFile1000, '1 2');
+
+          const outFile2000 = resolve(outDir, '2000.cjs');
+          const result2000 = runOutFile(outFile2000, '1 2');
+
+          ok(existsSync(outFile1000));
+          strictEqual(result1000.status, 0);
+          strictEqual(result1000.stdout, '3');
+
+          ok(existsSync(outFile2000));
+          strictEqual(result2000.status, 0);
+          strictEqual(result2000.stdout, '3');
+        });
+      });
+    });
+
+    describe('cts', () => {
+      const cwd = resolve(import.meta.dirname, './fixtures/cts');
+      const outDir = resolve(cwd, '.bananass');
+      const configObjectFS = {
+        cwd,
+        console: { quiet: true },
+        build: { templateType: 'fs' },
+      };
+      const configObjectRL = {
+        cwd,
+        console: { quiet: true },
+        build: { templateType: 'rl' },
+      };
+
+      afterEach(() => {
+        // Clean up the output directory after each test
+        if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
+      });
+
+      describe('When the entire solution is in a single file', () => {
+        describe('`fs`(file system) template', () => {
+          it('A single file with `solution` and `testcases` should build correctly', async () => {
+            await build(['1000'], configObjectFS);
+
+            const outFile = resolve(outDir, '1000.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('A single file with only `solution` should build correctly', async () => {
+            await build(['1001'], configObjectFS);
+
+            const outFile = resolve(outDir, '1001.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.cts` should build correctly', async () => {
+            await build(['1002'], configObjectFS);
+
+            const outFile = resolve(outDir, '1002.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.mts` with `export default` should build correctly', async () => {
+            await build(['1003'], configObjectFS);
+
+            const outFile = resolve(outDir, '1003.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.mts` with `export` should build correctly', async () => {
+            await build(['1004'], configObjectFS);
+
+            const outFile = resolve(outDir, '1004.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('User-created external modules using the `cts` format should build correctly', async () => {
+            await build(['1005'], configObjectFS);
+
+            const outFile = resolve(outDir, '1005.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Function expression `solution` should build correctly', async () => {
+            await build(['1006'], configObjectFS);
+
+            const outFile = resolve(outDir, '1006.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Arrow function `solution` should build correctly', async () => {
+            await build(['1007'], configObjectFS);
+
+            const outFile = resolve(outDir, '1007.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Type importing `with { resolution-mode: require }` should build correctly', async () => {
+            await build(['1999'], configObjectFS);
+
+            const outFile = resolve(outDir, '1999.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+
+        describe('`rl`(readline) template', () => {
+          it('A single file with `solution` and `testcases` should build correctly', async () => {
+            await build(['1000'], configObjectRL);
+
+            const outFile = resolve(outDir, '1000.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('A single file with only `solution` should build correctly', async () => {
+            await build(['1001'], configObjectRL);
+
+            const outFile = resolve(outDir, '1001.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.cts` should build correctly', async () => {
+            await build(['1002'], configObjectRL);
+
+            const outFile = resolve(outDir, '1002.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.mts` with `export default` should build correctly', async () => {
+            await build(['1003'], configObjectRL);
+
+            const outFile = resolve(outDir, '1003.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.mts` with `export` should build correctly', async () => {
+            await build(['1004'], configObjectRL);
+
+            const outFile = resolve(outDir, '1004.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('User-created external modules using the `cts` format should build correctly', async () => {
+            await build(['1005'], configObjectRL);
+
+            const outFile = resolve(outDir, '1005.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Function expression `solution` should build correctly', async () => {
+            await build(['1006'], configObjectRL);
+
+            const outFile = resolve(outDir, '1006.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Arrow function `solution` should build correctly', async () => {
+            await build(['1007'], configObjectRL);
+
+            const outFile = resolve(outDir, '1007.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Type importing `with { resolution-mode: require }` should build correctly', async () => {
+            await build(['1999'], configObjectRL);
+
+            const outFile = resolve(outDir, '1999.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+      });
+
+      describe('When the solution is in a single directory with multiple files', () => {
+        describe('`fs`(file system) template', () => {
+          it('A solution directory with `solution` and `testcases` should build correctly', async () => {
+            await build(['2000'], configObjectFS);
+
+            const outFile = resolve(outDir, '2000.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('A solution directory with only `solution` should build correctly', async () => {
+            await build(['2001'], configObjectFS);
+
+            const outFile = resolve(outDir, '2001.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.cts` should build correctly', async () => {
+            await build(['2002'], configObjectFS);
+
+            const outFile = resolve(outDir, '2002.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.mts` with `export default` should build correctly', async () => {
+            await build(['2003'], configObjectFS);
+
+            const outFile = resolve(outDir, '2003.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.mts` with `export` should build correctly', async () => {
+            await build(['2004'], configObjectFS);
+
+            const outFile = resolve(outDir, '2004.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('User-created external modules using the `cts` format should build correctly', async () => {
+            await build(['2005'], configObjectFS);
+
+            const outFile = resolve(outDir, '2005.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+
+        describe('`rl`(readline) template', () => {
+          it('A solution directory with `solution` and `testcases` should build correctly', async () => {
+            await build(['2000'], configObjectRL);
+
+            const outFile = resolve(outDir, '2000.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('A solution directory with only `solution` should build correctly', async () => {
+            await build(['2001'], configObjectRL);
+
+            const outFile = resolve(outDir, '2001.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.cts` should build correctly', async () => {
+            await build(['2002'], configObjectRL);
+
+            const outFile = resolve(outDir, '2002.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.mts` with `export default` should build correctly', async () => {
+            await build(['2003'], configObjectRL);
+
+            const outFile = resolve(outDir, '2003.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.mts` with `export` should build correctly', async () => {
+            await build(['2004'], configObjectRL);
+
+            const outFile = resolve(outDir, '2004.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('User-created external modules using the `cts` format should build correctly', async () => {
+            await build(['2005'], configObjectRL);
+
+            const outFile = resolve(outDir, '2005.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+      });
+
+      describe('Latest ECMAScript features with `@babel/preset-env` and custom plugins should be transpiled correctly', () => {
+        describe('`fs`(file system) template', () => {
+          it('ES2025 `regexp-modifiers` should be transpiled correctly', async () => {
+            // https://babeljs.io/docs/babel-plugin-transform-regexp-modifiers
+
+            await build(['3000'], configObjectFS);
+
+            const outFile = resolve(outDir, '3000.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('/(?:[Aa])a/'), true);
+            strictEqual(fileContent.includes('/(?i:a)a/'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-array-prototype-to-sorted` plugin should be applied correctly', async () => {
+            await build(['3001'], configObjectFS);
+
+            const outFile = resolve(outDir, '3001.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('toSorted()'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-array-prototype-to-reversed` plugin should be applied correctly', async () => {
+            await build(['3002'], configObjectFS);
+
+            const outFile = resolve(outDir, '3002.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('toReversed()'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-object-has-own` plugin should be applied correctly', async () => {
+            await build(['3003'], configObjectFS);
+
+            const outFile = resolve(outDir, '3003.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('Object.hasOwn'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+
+        describe('`rl`(readline) template', () => {
+          it('ES2025 `regexp-modifiers` should be transpiled correctly', async () => {
+            // https://babeljs.io/docs/babel-plugin-transform-regexp-modifiers
+
+            await build(['3000'], configObjectRL);
+
+            const outFile = resolve(outDir, '3000.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('/(?:[Aa])a/'), true);
+            strictEqual(fileContent.includes('/(?i:a)a/'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-array-prototype-to-sorted` plugin should be applied correctly', async () => {
+            await build(['3001'], configObjectRL);
+
+            const outFile = resolve(outDir, '3001.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('toSorted()'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-array-prototype-to-reversed` plugin should be applied correctly', async () => {
+            await build(['3002'], configObjectRL);
+
+            const outFile = resolve(outDir, '3002.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('toReversed()'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-object-has-own` plugin should be applied correctly', async () => {
+            await build(['3003'], configObjectRL);
+
+            const outFile = resolve(outDir, '3003.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('Object.hasOwn'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+      });
+
+      describe('Webpack `definePlugin` should be applied correctly', () => {
+        it('`globalThis.IS_PROD` should work correctly', async () => {
+          await build(['4000'], configObjectFS);
+
+          const outFile = resolve(outDir, '4000.cjs');
+          ok(existsSync(outFile));
+
+          const fileContent = readFileSync(outFile, 'utf-8');
+          strictEqual(
+            fileContent.includes(
+              'This line should not be included in the production build',
+            ),
+            false,
+          );
+          strictEqual(fileContent.includes('testcases'), false);
+
+          const result = runOutFile(outFile, '1 2');
+          strictEqual(result.status, 0);
+          strictEqual(result.stdout, '3');
+        });
+
+        it("`process.env.NODE_ENV === 'production'` should work correctly", async () => {
+          await build(['4001'], configObjectFS);
+
+          const outFile = resolve(outDir, '4001.cjs');
+          ok(existsSync(outFile));
+
+          const fileContent = readFileSync(outFile, 'utf-8');
+          strictEqual(
+            fileContent.includes(
+              'This line should not be included in the production build',
+            ),
+            false,
+          );
+          strictEqual(fileContent.includes('testcases'), false);
+
+          const result = runOutFile(outFile, '1 2');
+          strictEqual(result.status, 0);
+          strictEqual(result.stdout, '3');
+        });
+      });
+
+      describe('Multiple files', () => {
+        it('Multiple files with `fs` template should build correctly', async () => {
+          await build(['1000', '1001', '2000'], configObjectFS);
+
+          const outFile1000 = resolve(outDir, '1000.cjs');
+          const result1000 = runOutFile(outFile1000, '1 2');
+
+          const outFile1001 = resolve(outDir, '1001.cjs');
+          const result1001 = runOutFile(outFile1001, '1 2');
+
+          const outFile2000 = resolve(outDir, '2000.cjs');
+          const result2000 = runOutFile(outFile2000, '1 2');
+
+          ok(existsSync(outFile1000));
+          strictEqual(result1000.status, 0);
+          strictEqual(result1000.stdout, '3');
+
+          ok(existsSync(outFile1001));
+          strictEqual(result1001.status, 0);
+          strictEqual(result1001.stdout, '3');
+
+          ok(existsSync(outFile2000));
+          strictEqual(result2000.status, 0);
+          strictEqual(result2000.stdout, '3');
+        });
+
+        it('Multiple files with `rl` template should build correctly', async () => {
+          await build(['1000', '2000'], configObjectRL);
+
+          const outFile1000 = resolve(outDir, '1000.cjs');
+          const result1000 = runOutFile(outFile1000, '1 2');
+
+          const outFile2000 = resolve(outDir, '2000.cjs');
+          const result2000 = runOutFile(outFile2000, '1 2');
+
+          ok(existsSync(outFile1000));
+          strictEqual(result1000.status, 0);
+          strictEqual(result1000.stdout, '3');
+
+          ok(existsSync(outFile2000));
+          strictEqual(result2000.status, 0);
+          strictEqual(result2000.stdout, '3');
+        });
+      });
+    });
+
+    describe('mjs', () => {
+      const cwd = resolve(import.meta.dirname, './fixtures/mjs');
+      const outDir = resolve(cwd, '.bananass');
+      const configObjectFS = {
+        cwd,
+        console: { quiet: true },
+        build: { templateType: 'fs' },
+      };
+      const configObjectRL = {
+        cwd,
+        console: { quiet: true },
+        build: { templateType: 'rl' },
+      };
+
+      afterEach(() => {
+        // Clean up the output directory after each test
+        if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
+      });
+
+      describe('When the entire solution is in a single file', () => {
+        describe('`fs`(file system) template', () => {
+          it('A single file with `solution` and `testcases` should build correctly', async () => {
+            await build(['1000'], configObjectFS);
+
+            const outFile = resolve(outDir, '1000.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('A single file with only `solution` should build correctly', async () => {
+            await build(['1001'], configObjectFS);
+
+            const outFile = resolve(outDir, '1001.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.cjs` should build correctly', async () => {
+            await build(['1002'], configObjectFS);
+
+            const outFile = resolve(outDir, '1002.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.mjs` with `export default` should build correctly', async () => {
+            await build(['1003'], configObjectFS);
+
+            const outFile = resolve(outDir, '1003.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.mjs` with `export` should build correctly', async () => {
+            await build(['1004'], configObjectFS);
+
+            const outFile = resolve(outDir, '1004.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('User-created external modules using the `mjs` format should build correctly', async () => {
+            await build(['1005'], configObjectFS);
+
+            const outFile = resolve(outDir, '1005.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Function expression `solution` should build correctly', async () => {
+            await build(['1006'], configObjectFS);
+
+            const outFile = resolve(outDir, '1006.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Arrow function `solution` should build correctly', async () => {
+            await build(['1007'], configObjectFS);
+
+            const outFile = resolve(outDir, '1007.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+
+        describe('`rl`(readline) template', () => {
+          it('A single file with `solution` and `testcases` should build correctly', async () => {
+            await build(['1000'], configObjectRL);
+
+            const outFile = resolve(outDir, '1000.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('A single file with only `solution` should build correctly', async () => {
+            await build(['1001'], configObjectRL);
+
+            const outFile = resolve(outDir, '1001.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.cjs` should build correctly', async () => {
+            await build(['1002'], configObjectRL);
+
+            const outFile = resolve(outDir, '1002.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.mjs` with `export default` should build correctly', async () => {
+            await build(['1003'], configObjectRL);
+
+            const outFile = resolve(outDir, '1003.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.mjs` with `export` should build correctly', async () => {
+            await build(['1004'], configObjectRL);
+
+            const outFile = resolve(outDir, '1004.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('User-created external modules using the `mjs` format should build correctly', async () => {
+            await build(['1005'], configObjectRL);
+
+            const outFile = resolve(outDir, '1005.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Function expression `solution` should build correctly', async () => {
+            await build(['1006'], configObjectRL);
+
+            const outFile = resolve(outDir, '1006.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Arrow function `solution` should build correctly', async () => {
+            await build(['1007'], configObjectRL);
+
+            const outFile = resolve(outDir, '1007.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+      });
+
+      describe('When the solution is in a single directory with multiple files', () => {
+        describe('`fs`(file system) template', () => {
+          it('A solution directory with `solution` and `testcases` should build correctly', async () => {
+            await build(['2000'], configObjectFS);
+
+            const outFile = resolve(outDir, '2000.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('A solution directory with only `solution` should build correctly', async () => {
+            await build(['2001'], configObjectFS);
+
+            const outFile = resolve(outDir, '2001.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.cjs` should build correctly', async () => {
+            await build(['2002'], configObjectFS);
+
+            const outFile = resolve(outDir, '2002.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.mjs` with `export default` should build correctly', async () => {
+            await build(['2003'], configObjectFS);
+
+            const outFile = resolve(outDir, '2003.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.mjs` with `export` should build correctly', async () => {
+            await build(['2004'], configObjectFS);
+
+            const outFile = resolve(outDir, '2004.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('User-created external modules using the `mjs` format should build correctly', async () => {
+            await build(['2005'], configObjectFS);
+
+            const outFile = resolve(outDir, '2005.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+
+        describe('`rl`(readline) template', () => {
+          it('A solution directory with `solution` and `testcases` should build correctly', async () => {
+            await build(['2000'], configObjectRL);
+
+            const outFile = resolve(outDir, '2000.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('A solution directory with only `solution` should build correctly', async () => {
+            await build(['2001'], configObjectRL);
+
+            const outFile = resolve(outDir, '2001.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.cjs` should build correctly', async () => {
+            await build(['2002'], configObjectRL);
+
+            const outFile = resolve(outDir, '2002.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.mjs` with `export default` should build correctly', async () => {
+            await build(['2003'], configObjectRL);
+
+            const outFile = resolve(outDir, '2003.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.mjs` with `export` should build correctly', async () => {
+            await build(['2004'], configObjectRL);
+
+            const outFile = resolve(outDir, '2004.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('User-created external modules using the `mjs` format should build correctly', async () => {
+            await build(['2005'], configObjectRL);
+
+            const outFile = resolve(outDir, '2005.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+      });
+
+      describe('Latest ECMAScript features with `@babel/preset-env` and custom plugins should be transpiled correctly', () => {
+        describe('`fs`(file system) template', () => {
+          it('ES2025 `regexp-modifiers` should be transpiled correctly', async () => {
+            // https://babeljs.io/docs/babel-plugin-transform-regexp-modifiers
+
+            await build(['3000'], configObjectFS);
+
+            const outFile = resolve(outDir, '3000.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('/(?:[Aa])a/'), true);
+            strictEqual(fileContent.includes('/(?i:a)a/'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-array-prototype-to-sorted` plugin should be applied correctly', async () => {
+            await build(['3001'], configObjectFS);
+
+            const outFile = resolve(outDir, '3001.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('toSorted()'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-array-prototype-to-reversed` plugin should be applied correctly', async () => {
+            await build(['3002'], configObjectFS);
+
+            const outFile = resolve(outDir, '3002.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('toReversed()'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-object-has-own` plugin should be applied correctly', async () => {
+            await build(['3003'], configObjectFS);
+
+            const outFile = resolve(outDir, '3003.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('Object.hasOwn'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+
+        describe('`rl`(readline) template', () => {
+          it('ES2025 `regexp-modifiers` should be transpiled correctly', async () => {
+            // https://babeljs.io/docs/babel-plugin-transform-regexp-modifiers
+
+            await build(['3000'], configObjectRL);
+
+            const outFile = resolve(outDir, '3000.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('/(?:[Aa])a/'), true);
+            strictEqual(fileContent.includes('/(?i:a)a/'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-array-prototype-to-sorted` plugin should be applied correctly', async () => {
+            await build(['3001'], configObjectRL);
+
+            const outFile = resolve(outDir, '3001.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('toSorted()'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-array-prototype-to-reversed` plugin should be applied correctly', async () => {
+            await build(['3002'], configObjectRL);
+
+            const outFile = resolve(outDir, '3002.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('toReversed()'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-object-has-own` plugin should be applied correctly', async () => {
+            await build(['3003'], configObjectRL);
+
+            const outFile = resolve(outDir, '3003.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('Object.hasOwn'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+      });
+
+      describe('Webpack `definePlugin` should be applied correctly', () => {
+        it('`globalThis.IS_PROD` should work correctly', async () => {
+          await build(['4000'], configObjectFS);
+
+          const outFile = resolve(outDir, '4000.cjs');
+          ok(existsSync(outFile));
+
+          const fileContent = readFileSync(outFile, 'utf-8');
+          strictEqual(
+            fileContent.includes(
+              'This line should not be included in the production build',
+            ),
+            false,
+          );
+          strictEqual(fileContent.includes('testcases'), false);
+
+          const result = runOutFile(outFile, '1 2');
+          strictEqual(result.status, 0);
+          strictEqual(result.stdout, '3');
+        });
+
+        it("`process.env.NODE_ENV === 'production'` should work correctly", async () => {
+          await build(['4001'], configObjectFS);
+
+          const outFile = resolve(outDir, '4001.cjs');
+          ok(existsSync(outFile));
+
+          const fileContent = readFileSync(outFile, 'utf-8');
+          strictEqual(
+            fileContent.includes(
+              'This line should not be included in the production build',
+            ),
+            false,
+          );
+          strictEqual(fileContent.includes('testcases'), false);
+
+          const result = runOutFile(outFile, '1 2');
+          strictEqual(result.status, 0);
+          strictEqual(result.stdout, '3');
+        });
+      });
+
+      describe('Multiple files', () => {
+        it('Multiple files with `fs` template should build correctly', async () => {
+          await build(['1000', '1001', '2000'], configObjectFS);
+
+          const outFile1000 = resolve(outDir, '1000.cjs');
+          const result1000 = runOutFile(outFile1000, '1 2');
+
+          const outFile1001 = resolve(outDir, '1001.cjs');
+          const result1001 = runOutFile(outFile1001, '1 2');
+
+          const outFile2000 = resolve(outDir, '2000.cjs');
+          const result2000 = runOutFile(outFile2000, '1 2');
+
+          ok(existsSync(outFile1000));
+          strictEqual(result1000.status, 0);
+          strictEqual(result1000.stdout, '3');
+
+          ok(existsSync(outFile1001));
+          strictEqual(result1001.status, 0);
+          strictEqual(result1001.stdout, '3');
+
+          ok(existsSync(outFile2000));
+          strictEqual(result2000.status, 0);
+          strictEqual(result2000.stdout, '3');
+        });
+
+        it('Multiple files with `rl` template should build correctly', async () => {
+          await build(['1000', '2000'], configObjectRL);
+
+          const outFile1000 = resolve(outDir, '1000.cjs');
+          const result1000 = runOutFile(outFile1000, '1 2');
+
+          const outFile2000 = resolve(outDir, '2000.cjs');
+          const result2000 = runOutFile(outFile2000, '1 2');
+
+          ok(existsSync(outFile1000));
+          strictEqual(result1000.status, 0);
+          strictEqual(result1000.stdout, '3');
+
+          ok(existsSync(outFile2000));
+          strictEqual(result2000.status, 0);
+          strictEqual(result2000.stdout, '3');
+        });
+      });
+    });
+
+    describe('mts', () => {
+      const cwd = resolve(import.meta.dirname, './fixtures/mts');
+      const outDir = resolve(cwd, '.bananass');
+      const configObjectFS = {
+        cwd,
+        console: { quiet: true },
+        build: { templateType: 'fs' },
+      };
+      const configObjectRL = {
+        cwd,
+        console: { quiet: true },
+        build: { templateType: 'rl' },
+      };
+
+      afterEach(() => {
+        // Clean up the output directory after each test
+        if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
+      });
+
+      describe('When the entire solution is in a single file', () => {
+        describe('`fs`(file system) template', () => {
+          it('A single file with `solution` and `testcases` should build correctly', async () => {
+            await build(['1000'], configObjectFS);
+
+            const outFile = resolve(outDir, '1000.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('A single file with only `solution` should build correctly', async () => {
+            await build(['1001'], configObjectFS);
+
+            const outFile = resolve(outDir, '1001.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.cts` should build correctly', async () => {
+            await build(['1002'], configObjectFS);
+
+            const outFile = resolve(outDir, '1002.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.mts` with `export default` should build correctly', async () => {
+            await build(['1003'], configObjectFS);
+
+            const outFile = resolve(outDir, '1003.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.mts` with `export` should build correctly', async () => {
+            await build(['1004'], configObjectFS);
+
+            const outFile = resolve(outDir, '1004.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('User-created external modules using the `mts` format should build correctly', async () => {
+            await build(['1005'], configObjectFS);
+
+            const outFile = resolve(outDir, '1005.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Function expression `solution` should build correctly', async () => {
+            await build(['1006'], configObjectFS);
+
+            const outFile = resolve(outDir, '1006.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Arrow function `solution` should build correctly', async () => {
+            await build(['1007'], configObjectFS);
+
+            const outFile = resolve(outDir, '1007.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+
+        describe('`rl`(readline) template', () => {
+          it('A single file with `solution` and `testcases` should build correctly', async () => {
+            await build(['1000'], configObjectRL);
+
+            const outFile = resolve(outDir, '1000.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('A single file with only `solution` should build correctly', async () => {
+            await build(['1001'], configObjectRL);
+
+            const outFile = resolve(outDir, '1001.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.cts` should build correctly', async () => {
+            await build(['1002'], configObjectRL);
+
+            const outFile = resolve(outDir, '1002.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.mts` with `export default` should build correctly', async () => {
+            await build(['1003'], configObjectRL);
+
+            const outFile = resolve(outDir, '1003.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`file.mts` with `export` should build correctly', async () => {
+            await build(['1004'], configObjectRL);
+
+            const outFile = resolve(outDir, '1004.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('User-created external modules using the `mts` format should build correctly', async () => {
+            await build(['1005'], configObjectRL);
+
+            const outFile = resolve(outDir, '1005.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Function expression `solution` should build correctly', async () => {
+            await build(['1006'], configObjectRL);
+
+            const outFile = resolve(outDir, '1006.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Arrow function `solution` should build correctly', async () => {
+            await build(['1007'], configObjectRL);
+
+            const outFile = resolve(outDir, '1007.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+      });
+
+      describe('When the solution is in a single directory with multiple files', () => {
+        describe('`fs`(file system) template', () => {
+          it('A solution directory with `solution` and `testcases` should build correctly', async () => {
+            await build(['2000'], configObjectFS);
+
+            const outFile = resolve(outDir, '2000.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('A solution directory with only `solution` should build correctly', async () => {
+            await build(['2001'], configObjectFS);
+
+            const outFile = resolve(outDir, '2001.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.cts` should build correctly', async () => {
+            await build(['2002'], configObjectFS);
+
+            const outFile = resolve(outDir, '2002.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.mts` with `export default` should build correctly', async () => {
+            await build(['2003'], configObjectFS);
+
+            const outFile = resolve(outDir, '2003.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.mts` with `export` should build correctly', async () => {
+            await build(['2004'], configObjectFS);
+
+            const outFile = resolve(outDir, '2004.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('User-created external modules using the `mts` format should build correctly', async () => {
+            await build(['2005'], configObjectFS);
+
+            const outFile = resolve(outDir, '2005.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+
+        describe('`rl`(readline) template', () => {
+          it('A solution directory with `solution` and `testcases` should build correctly', async () => {
+            await build(['2000'], configObjectRL);
+
+            const outFile = resolve(outDir, '2000.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('A solution directory with only `solution` should build correctly', async () => {
+            await build(['2001'], configObjectRL);
+
+            const outFile = resolve(outDir, '2001.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.cts` should build correctly', async () => {
+            await build(['2002'], configObjectRL);
+
+            const outFile = resolve(outDir, '2002.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.mts` with `export default` should build correctly', async () => {
+            await build(['2003'], configObjectRL);
+
+            const outFile = resolve(outDir, '2003.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('`directory/index.mts` with `export` should build correctly', async () => {
+            await build(['2004'], configObjectRL);
+
+            const outFile = resolve(outDir, '2004.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('User-created external modules using the `mts` format should build correctly', async () => {
+            await build(['2005'], configObjectRL);
+
+            const outFile = resolve(outDir, '2005.cjs');
+            const result = runOutFile(outFile, '1 2');
+
+            ok(existsSync(outFile));
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+      });
+
+      describe('Latest ECMAScript features with `@babel/preset-env` and custom plugins should be transpiled correctly', () => {
+        describe('`fs`(file system) template', () => {
+          it('ES2025 `regexp-modifiers` should be transpiled correctly', async () => {
+            // https://babeljs.io/docs/babel-plugin-transform-regexp-modifiers
+
+            await build(['3000'], configObjectFS);
+
+            const outFile = resolve(outDir, '3000.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('/(?:[Aa])a/'), true);
+            strictEqual(fileContent.includes('/(?i:a)a/'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-array-prototype-to-sorted` plugin should be applied correctly', async () => {
+            await build(['3001'], configObjectFS);
+
+            const outFile = resolve(outDir, '3001.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('toSorted()'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-array-prototype-to-reversed` plugin should be applied correctly', async () => {
+            await build(['3002'], configObjectFS);
+
+            const outFile = resolve(outDir, '3002.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('toReversed()'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-object-has-own` plugin should be applied correctly', async () => {
+            await build(['3003'], configObjectFS);
+
+            const outFile = resolve(outDir, '3003.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('Object.hasOwn'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+
+        describe('`rl`(readline) template', () => {
+          it('ES2025 `regexp-modifiers` should be transpiled correctly', async () => {
+            // https://babeljs.io/docs/babel-plugin-transform-regexp-modifiers
+
+            await build(['3000'], configObjectRL);
+
+            const outFile = resolve(outDir, '3000.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('/(?:[Aa])a/'), true);
+            strictEqual(fileContent.includes('/(?i:a)a/'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-array-prototype-to-sorted` plugin should be applied correctly', async () => {
+            await build(['3001'], configObjectRL);
+
+            const outFile = resolve(outDir, '3001.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('toSorted()'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-array-prototype-to-reversed` plugin should be applied correctly', async () => {
+            await build(['3002'], configObjectRL);
+
+            const outFile = resolve(outDir, '3002.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('toReversed()'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+
+          it('Custom `transform-object-has-own` plugin should be applied correctly', async () => {
+            await build(['3003'], configObjectRL);
+
+            const outFile = resolve(outDir, '3003.cjs');
+            ok(existsSync(outFile));
+
+            const fileContent = readFileSync(outFile, 'utf-8');
+            strictEqual(fileContent.includes('Object.hasOwn'), false);
+
+            const result = runOutFile(outFile, '1 2');
+            strictEqual(result.status, 0);
+            strictEqual(result.stdout, '3');
+          });
+        });
+      });
+
+      describe('Webpack `definePlugin` should be applied correctly', () => {
+        it('`globalThis.IS_PROD` should work correctly', async () => {
+          await build(['4000'], configObjectFS);
+
+          const outFile = resolve(outDir, '4000.cjs');
+          ok(existsSync(outFile));
+
+          const fileContent = readFileSync(outFile, 'utf-8');
+          strictEqual(
+            fileContent.includes(
+              'This line should not be included in the production build',
+            ),
+            false,
+          );
+          strictEqual(fileContent.includes('testcases'), false);
+
+          const result = runOutFile(outFile, '1 2');
+          strictEqual(result.status, 0);
+          strictEqual(result.stdout, '3');
+        });
+
+        it("`process.env.NODE_ENV === 'production'` should work correctly", async () => {
+          await build(['4001'], configObjectFS);
+
+          const outFile = resolve(outDir, '4001.cjs');
+          ok(existsSync(outFile));
+
+          const fileContent = readFileSync(outFile, 'utf-8');
+          strictEqual(
+            fileContent.includes(
+              'This line should not be included in the production build',
+            ),
+            false,
+          );
+          strictEqual(fileContent.includes('testcases'), false);
+
+          const result = runOutFile(outFile, '1 2');
+          strictEqual(result.status, 0);
+          strictEqual(result.stdout, '3');
+        });
+      });
+
+      describe('Multiple files', () => {
+        it('Multiple files with `fs` template should build correctly', async () => {
+          await build(['1000', '1001', '2000'], configObjectFS);
+
+          const outFile1000 = resolve(outDir, '1000.cjs');
+          const result1000 = runOutFile(outFile1000, '1 2');
+
+          const outFile1001 = resolve(outDir, '1001.cjs');
+          const result1001 = runOutFile(outFile1001, '1 2');
+
+          const outFile2000 = resolve(outDir, '2000.cjs');
+          const result2000 = runOutFile(outFile2000, '1 2');
+
+          ok(existsSync(outFile1000));
+          strictEqual(result1000.status, 0);
+          strictEqual(result1000.stdout, '3');
+
+          ok(existsSync(outFile1001));
+          strictEqual(result1001.status, 0);
+          strictEqual(result1001.stdout, '3');
+
+          ok(existsSync(outFile2000));
+          strictEqual(result2000.status, 0);
+          strictEqual(result2000.stdout, '3');
+        });
+
+        it('Multiple files with `rl` template should build correctly', async () => {
+          await build(['1000', '2000'], configObjectRL);
+
+          const outFile1000 = resolve(outDir, '1000.cjs');
+          const result1000 = runOutFile(outFile1000, '1 2');
+
+          const outFile2000 = resolve(outDir, '2000.cjs');
+          const result2000 = runOutFile(outFile2000, '1 2');
+
+          ok(existsSync(outFile1000));
+          strictEqual(result1000.status, 0);
+          strictEqual(result1000.stdout, '3');
+
+          ok(existsSync(outFile2000));
+          strictEqual(result2000.status, 0);
+          strictEqual(result2000.stdout, '3');
+        });
+      });
     });
   });
 });
