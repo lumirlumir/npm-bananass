@@ -15,7 +15,7 @@ import { match, ok, rejects, strictEqual } from 'node:assert';
 import { describe, it, afterEach, mock } from 'node:test';
 import { stripVTControlCharacters } from 'node:util';
 import { spawnSync } from 'node:child_process';
-import { resolve } from 'node:path';
+import { join, resolve } from 'node:path';
 import { existsSync, rmSync, readFileSync } from 'node:fs';
 import fsPromises from 'node:fs/promises';
 
@@ -48,7 +48,20 @@ function runOutFile(outFile, input) {
 // --------------------------------------------------------------------------------
 
 describe('build', () => {
+  let cwd;
+  let outDir;
+
+  afterEach(() => {
+    // Clean up the output directory after each test
+    if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
+  });
+
   describe('shared', () => {
+    cwd = resolve(import.meta.dirname, 'fixtures', 'shared');
+    outDir = resolve(cwd, '.bananass');
+
+    const configObject = { cwd, console: { quiet: true } };
+
     describe('should throw an error when invalid first argument is provided', () => {
       it('when first argument is missing', async () => {
         await rejects(() => build());
@@ -78,14 +91,71 @@ describe('build', () => {
       });
     });
 
-    const cwd = resolve(import.meta.dirname, 'fixtures', 'shared');
-    const outDir = resolve(cwd, '.bananass');
-    const configObject = { cwd, console: { quiet: true } };
+    describe('should throw an error when invalid second argument is provided', () => {
+      it('when second argument is not an object', async () => {
+        await rejects(() => build(['1000'], 1000));
+        await rejects(() => build(['1000'], 'invalid'));
+        await rejects(() => build(['1000'], true));
+        await rejects(() => build(['1000'], null));
+        await rejects(() => build(['1000'], Symbol('test')));
+        await rejects(() => build(['1000'], []));
+      });
 
-    afterEach(() => {
-      // Clean up the output directory after each test
-      if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
+      it('when second argument is an object but contains invalid properties', async () => {
+        await rejects(() => build(['1000'], { invalid: 'invalid' }));
+        await rejects(() => build(['1000'], { build: { clean: 'true' } }));
+      });
     });
+
+    describe('should throw an error when solution file from first argument does not exist', () => {
+      it('when a single solution file does not exist', async () => {
+        await rejects(() => build(['99999'], configObject), /doesn't exist/);
+      });
+
+      it('when two solution files do not exist', async () => {
+        await rejects(() => build(['99998', '99999'], configObject), /doesn't exist/);
+      });
+    });
+
+    describe('should work as expected when valid first argument is provided', () => {
+      it('should create output directory and file correctly when a single entry is provided', async () => {
+        await build(['1000'], configObject);
+
+        ok(existsSync(outDir)); // Output directory should be created.
+        ok(existsSync(join(outDir, '1000.cjs'))); // Output file `1000.cjs` should be created.
+      });
+
+      it('should create output directory and files correctly when two entries are provided', async () => {
+        await build(['1000', '1001'], configObject);
+
+        ok(existsSync(outDir)); // Output directory should be created.
+        ok(existsSync(join(outDir, '1000.cjs'))); // Output file `1000.cjs` should be created.
+        ok(existsSync(join(outDir, '1001.cjs'))); // Output file `1001.cjs` should be created.
+      });
+
+      it('should create output directory and files correctly when three entries are provided', async () => {
+        await build(['1000', '1001', '1002'], configObject);
+
+        ok(existsSync(outDir)); // Output directory should be created.
+        ok(existsSync(join(outDir, '1000.cjs'))); // Output file `1000.cjs` should be created.
+        ok(existsSync(join(outDir, '1001.cjs'))); // Output file `1001.cjs` should be created.
+        ok(existsSync(join(outDir, '1002.cjs'))); // Output file `1002.cjs` should be created.
+      });
+
+      it('banner should be added to the output file', async () => {
+        await build(['1000'], configObject);
+
+        ok(existsSync(outDir)); // Output directory should be created.
+
+        const outFile = join(outDir, '1000.cjs');
+        ok(existsSync(outFile)); // Output file `1000.cjs` should be created.
+
+        const fileContent = readFileSync(outFile, 'utf-8');
+        match(fileContent, /DO NOT DELETE THIS COMMENT/u); // Banner should be added to the output file.
+      });
+    });
+
+    // TODO: ---------------------------------------------------------------------------------------
 
     describe('should use default parameters correctly', () => {
       it('should use default parameters when only `cwd` is provided', async () => {
@@ -98,35 +168,6 @@ describe('build', () => {
 
       it('should use default parameters when empty build object is provided', async () => {
         await build(['1000'], { cwd, build: {} });
-      });
-    });
-
-    describe('should work as expected', () => {
-      it('should reject when invalid values are provided', async () => {
-        await rejects(() => build(['999']));
-        await rejects(() => build(['1000'], { invalid: 'invalid' }));
-        await rejects(() => build(['1000'], { build: { clean: 'true' } }));
-      });
-
-      it('should create output directory and file', async () => {
-        await build(['1000'], configObject);
-
-        ok(existsSync(outDir));
-        ok(existsSync(resolve(outDir, '1000.cjs')));
-      });
-
-      it('should throw an error when solution file does not exist', async () => {
-        await rejects(() => build(['9999'], configObject), /doesn't exist/);
-      });
-
-      it('`webpack.BannerPlugin` should work as expected', async () => {
-        await build(['1000'], configObject);
-
-        const outFile = resolve(outDir, '1000.cjs');
-        ok(existsSync(outFile));
-
-        const fileContent = readFileSync(outFile, 'utf-8');
-        match(fileContent, /DO NOT DELETE THIS COMMENT/u);
       });
     });
 
