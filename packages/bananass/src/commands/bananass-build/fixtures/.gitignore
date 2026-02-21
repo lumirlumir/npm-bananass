@@ -1,0 +1,2 @@
+# Ignore the `.bananass` directory in fixtures, which contains build artifacts and other generated files.
+.bananass
