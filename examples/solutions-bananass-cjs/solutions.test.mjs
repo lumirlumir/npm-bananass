@@ -8,8 +8,8 @@ import { resolve } from 'node:path';
 import { build, run } from 'bananass/commands';
 
 const cwd = import.meta.dirname;
-const outDir = resolve(cwd, 'bananass');
-const solutions = readdirSync(outDir).map(file => file.replace('.js', ''));
+const entryDir = resolve(cwd, 'bananass');
+const solutions = readdirSync(entryDir).map(file => file.replace(/\.js$/, ''));
 
 // Check that the solutions can be built with both template types.
 await build(solutions, { cwd, build: { templateType: 'fs' } });
