@@ -11,7 +11,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { match, ok, rejects, strictEqual } from 'node:assert';
+import { doesNotMatch, match, ok, rejects, strictEqual } from 'node:assert';
 import { describe, it, afterEach, mock } from 'node:test';
 import { stripVTControlCharacters } from 'node:util';
 import { spawnSync } from 'node:child_process';
@@ -24,6 +24,14 @@ import build from './build.js';
 // --------------------------------------------------------------------------------
 // Helper
 // --------------------------------------------------------------------------------
+
+/**
+ * Removes the specified output directory if it exists.
+ * @param {string} outDir The path to the output directory to remove.
+ */
+function removeOutDir(outDir) {
+  if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
+}
 
 /**
  * Runs the output file with the given input and returns the status, stdout, and stderr.
@@ -48,19 +56,15 @@ function runOutFile(outFile, input) {
 // --------------------------------------------------------------------------------
 
 describe('build', () => {
-  let cwd;
-  let outDir;
-
-  afterEach(() => {
-    // Clean up the output directory after each test
-    if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
-  });
-
   describe('shared', () => {
-    cwd = resolve(import.meta.dirname, 'fixtures', 'shared');
-    outDir = resolve(cwd, '.bananass');
-
+    const cwd = resolve(import.meta.dirname, 'fixtures', 'shared');
+    const outDir = resolve(cwd, '.bananass');
     const configObject = { cwd, console: { quiet: true } };
+
+    afterEach(() => {
+      // Clean up the output directory after each test
+      removeOutDir(outDir);
+    });
 
     describe('should throw an error when invalid first argument is provided', () => {
       it('when first argument is missing', async () => {
@@ -155,26 +159,31 @@ describe('build', () => {
       });
     });
 
-    // TODO: ---------------------------------------------------------------------------------------
-
-    describe('should use default parameters correctly', () => {
+    describe('should work as expected when valid second argument is provided', () => {
       it('should use default parameters when only `cwd` is provided', async () => {
         await build(['1000'], { cwd });
+
+        ok(existsSync(outDir)); // Output directory should be created.
+        ok(existsSync(join(outDir, '1000.cjs'))); // Output file `1000.cjs` should be created.
       });
 
-      it('should use default parameters when empty console object is provided', async () => {
+      it('should use default parameters when empty `console` object is provided', async () => {
         await build(['1000'], { cwd, console: {} });
+
+        ok(existsSync(outDir)); // Output directory should be created.
+        ok(existsSync(join(outDir, '1000.cjs'))); // Output file `1000.cjs` should be created.
       });
 
-      it('should use default parameters when empty build object is provided', async () => {
+      it('should use default parameters when empty `build` object is provided', async () => {
         await build(['1000'], { cwd, build: {} });
-      });
-    });
 
-    describe('options should work as expected', () => {
-      it('`entryDir` and `outDir` should work as expected', async () => {
-        const customEntryDir = resolve(cwd, 'src');
-        const customOutDir = resolve(cwd, 'build');
+        ok(existsSync(outDir)); // Output directory should be created.
+        ok(existsSync(join(outDir, '1000.cjs'))); // Output file `1000.cjs` should be created.
+      });
+
+      it('option: `entryDir` and `outDir` should work as expected', async () => {
+        const customEntryDir = join(cwd, 'src');
+        const customOutDir = join(cwd, 'build');
 
         await build(['2000'], {
           ...configObject,
@@ -182,27 +191,33 @@ describe('build', () => {
           outDir: customOutDir,
         });
 
-        ok(existsSync(customOutDir));
-        ok(existsSync(resolve(customOutDir, '2000.cjs')));
+        ok(existsSync(customOutDir)); // Custom output directory should be created.
+        ok(existsSync(join(customOutDir, '2000.cjs'))); // Output file `2000.cjs` should be created in the custom output directory.
 
-        if (existsSync(customOutDir))
-          rmSync(customOutDir, { recursive: true, force: true });
+        removeOutDir(customOutDir);
       });
 
-      it('`clean` should work as expected', async () => {
+      it('option: `clean` should work as expected', async () => {
         await build(['1000'], configObject);
-        ok(existsSync(resolve(outDir, '1000.cjs')));
+
+        ok(existsSync(outDir)); // Output directory should be created.
+        ok(existsSync(join(outDir, '1000.cjs'))); // Output file `1000.cjs` should be created.
 
         await build(['1001'], configObject);
-        ok(existsSync(resolve(outDir, '1001.cjs')));
+
+        ok(existsSync(outDir)); // Output directory should still exist.
+        ok(existsSync(join(outDir, '1000.cjs'))); // Output file `1000.cjs` should still exist.
+        ok(existsSync(join(outDir, '1001.cjs'))); // Output file `1001.cjs` should be created.
 
         await build(['1002'], { ...configObject, build: { clean: true } });
-        ok(!existsSync(resolve(outDir, '1000.cjs')));
-        ok(!existsSync(resolve(outDir, '1001.cjs')));
-        ok(existsSync(resolve(outDir, '1002.cjs')));
+
+        ok(existsSync(outDir)); // Output directory should still exist.
+        ok(!existsSync(join(outDir, '1000.cjs'))); // Output file `1000.cjs` should be removed.
+        ok(!existsSync(join(outDir, '1001.cjs'))); // Output file `1001.cjs` should be removed.
+        ok(existsSync(join(outDir, '1002.cjs'))); // Output file `1002.cjs` should be created.
       });
 
-      it('`clean` should throw an error for some reason', async () => {
+      it('option: `clean` should throw an error for some reason', async () => {
         mock.method(fsPromises, 'rm', () => {
           throw new Error('Dummy error message');
         });
@@ -213,7 +228,7 @@ describe('build', () => {
         );
       });
 
-      it("`templateType: 'fs'` should work as expected", async () => {
+      it("option: `templateType: 'fs'` should work as expected", async () => {
         await build(['1000'], {
           ...configObject,
           build: {
@@ -221,14 +236,18 @@ describe('build', () => {
           },
         });
 
-        const outFile = resolve(outDir, '1000.cjs');
-        ok(existsSync(outFile));
+        ok(existsSync(outDir)); // Output directory should be created.
+
+        const outFile = join(outDir, '1000.cjs');
+        ok(existsSync(outFile)); // Output file `1000.cjs` should be created.
 
         const fileContent = readFileSync(outFile, 'utf-8');
-        match(fileContent, /require\("node:fs"\)/u);
+        match(fileContent, /require\("node:fs"\)/u); // Output file should contain `require("node:fs")`.
+        doesNotMatch(fileContent, /require\("node:readline"\)/u); // Output file should not contain `require("node:readline")`.
+        doesNotMatch(fileContent, /require\("readline"\)/u); // Output file should not contain `require("readline")`.
       });
 
-      it("`templateType: 'rl'` should work as expected", async () => {
+      it("option: `templateType: 'rl'` should work as expected", async () => {
         await build(['1000'], {
           ...configObject,
           build: {
@@ -236,11 +255,15 @@ describe('build', () => {
           },
         });
 
-        const outFile = resolve(outDir, '1000.cjs');
-        ok(existsSync(outFile));
+        ok(existsSync(outDir)); // Output directory should be created.
+
+        const outFile = join(outDir, '1000.cjs');
+        ok(existsSync(outFile)); // Output file `1000.cjs` should be created.
 
         const fileContent = readFileSync(outFile, 'utf-8');
-        match(fileContent, /require\("node:readline"\)/u);
+        match(fileContent, /require\("node:readline"\)/u); // Output file should contain `require("node:readline")`.
+        doesNotMatch(fileContent, /require\("node:fs"\)/u); // Output file should not contain `require("node:fs")`.
+        doesNotMatch(fileContent, /require\("fs"\)/u); // Output file should not contain `require("fs")`.
       });
     });
   });
@@ -261,7 +284,7 @@ describe('build', () => {
 
     afterEach(() => {
       // Clean up the output directory after each test
-      if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
+      removeOutDir(outDir);
     });
 
     describe('When the entire solution is in a single file', () => {
@@ -812,7 +835,7 @@ describe('build', () => {
 
     afterEach(() => {
       // Clean up the output directory after each test
-      if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
+      removeOutDir(outDir);
     });
 
     describe('When the entire solution is in a single file', () => {
@@ -1385,7 +1408,7 @@ describe('build', () => {
 
     afterEach(() => {
       // Clean up the output directory after each test
-      if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
+      removeOutDir(outDir);
     });
 
     describe('When the entire solution is in a single file', () => {
@@ -1936,7 +1959,7 @@ describe('build', () => {
 
     afterEach(() => {
       // Clean up the output directory after each test
-      if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
+      removeOutDir(outDir);
     });
 
     describe('When the entire solution is in a single file', () => {
