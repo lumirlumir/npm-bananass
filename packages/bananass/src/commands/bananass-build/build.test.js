@@ -298,6 +298,7 @@ describe('build', () => {
           ok(existsSync(outFile));
           strictEqual(result.status, 0);
           strictEqual(result.stdout, '3');
+          strictEqual(result.stderr, ''); // No error output should be present.
         });
 
         it('A single file with only `solution` should build correctly', async () => {
@@ -388,6 +389,7 @@ describe('build', () => {
           ok(existsSync(outFile));
           strictEqual(result.status, 0);
           strictEqual(result.stdout, '3');
+          strictEqual(result.stderr, ''); // No error output should be present.
         });
 
         it('A single file with only `solution` should build correctly', async () => {
@@ -849,6 +851,7 @@ describe('build', () => {
           ok(existsSync(outFile));
           strictEqual(result.status, 0);
           strictEqual(result.stdout, '3');
+          strictEqual(result.stderr, ''); // No error output should be present.
         });
 
         it('A single file with only `solution` should build correctly', async () => {
@@ -950,6 +953,7 @@ describe('build', () => {
           ok(existsSync(outFile));
           strictEqual(result.status, 0);
           strictEqual(result.stdout, '3');
+          strictEqual(result.stderr, ''); // No error output should be present.
         });
 
         it('A single file with only `solution` should build correctly', async () => {
@@ -1422,6 +1426,7 @@ describe('build', () => {
           ok(existsSync(outFile));
           strictEqual(result.status, 0);
           strictEqual(result.stdout, '3');
+          strictEqual(result.stderr, ''); // No error output should be present.
         });
 
         it('A single file with only `solution` should build correctly', async () => {
@@ -1512,6 +1517,7 @@ describe('build', () => {
           ok(existsSync(outFile));
           strictEqual(result.status, 0);
           strictEqual(result.stdout, '3');
+          strictEqual(result.stderr, ''); // No error output should be present.
         });
 
         it('A single file with only `solution` should build correctly', async () => {
@@ -1973,6 +1979,7 @@ describe('build', () => {
           ok(existsSync(outFile));
           strictEqual(result.status, 0);
           strictEqual(result.stdout, '3');
+          strictEqual(result.stderr, ''); // No error output should be present.
         });
 
         it('A single file with only `solution` should build correctly', async () => {
@@ -2063,6 +2070,7 @@ describe('build', () => {
           ok(existsSync(outFile));
           strictEqual(result.status, 0);
           strictEqual(result.stdout, '3');
+          strictEqual(result.stderr, ''); // No error output should be present.
         });
 
         it('A single file with only `solution` should build correctly', async () => {
