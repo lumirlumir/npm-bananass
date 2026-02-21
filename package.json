@@ -11,7 +11,7 @@
     "examples/*",
     "packages/*",
     "packages/create-bananass/templates/*",
-    "tests/*",
+    "tests",
     "websites/*"
   ],
   "scripts": {
@@ -28,7 +28,7 @@
     "test:pkg:buc": "npm run test -w packages/bananass-utils-console",
     "test:pkg:cb": "npm run test -w packages/create-bananass",
     "test:pkg:ecb": "npm run test -w packages/eslint-config-bananass",
-    "test:t:i": "npm run test -w tests/integration",
+    "test:t": "npm run test -w tests",
     "build": "npm-run-all -c -l -p --aggregate-output build:pkg:* build:ws:*",
     "build:ex:sb-cjs": "npm run build -w examples/solutions-bananass-cjs",
     "build:ex:sb-cts": "npm run build -w examples/solutions-bananass-cts",

@@ -17,7 +17,7 @@ import createBananassJsEsm from 'create-bananass/templates/javascript-esm/packag
 import createBananassTsCjs from 'create-bananass/templates/typescript-cjs/package.json' with { type: 'json' };
 import createBananassTsEsm from 'create-bananass/templates/typescript-esm/package.json' with { type: 'json' };
 import eslintConfigBananass from 'eslint-config-bananass/package.json' with { type: 'json' };
-import npmBananass from '../../package.json' with { type: 'json' }; // eslint-disable-line import/no-relative-packages
+import npmBananass from '../package.json' with { type: 'json' }; // eslint-disable-line import/no-relative-packages
 
 // --------------------------------------------------------------------------------
 // Test
