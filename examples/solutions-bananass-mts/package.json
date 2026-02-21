@@ -5,7 +5,7 @@
   "scripts": {
     "build": "bananass build",
     "run": "bananass run",
-    "test": "npx tsc --noEmit && bash ../../scripts/examples-solutions-bananass-test.sh"
+    "test": "tsc --noEmit && node solutions.test.mjs"
   },
   "devDependencies": {
     "bananass": "^0.6.0"

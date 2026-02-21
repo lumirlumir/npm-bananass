@@ -5,7 +5,7 @@
   "scripts": {
     "build": "bananass build",
     "run": "bananass run",
-    "test": "bash ../../scripts/examples-solutions-bananass-test.sh"
+    "test": "node solutions.test.mjs"
   },
   "devDependencies": {
     "bananass": "^0.6.0"
