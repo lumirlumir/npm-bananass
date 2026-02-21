@@ -28,7 +28,6 @@
     "test:pkg:buc": "npm run test -w packages/bananass-utils-console",
     "test:pkg:cb": "npm run test -w packages/create-bananass",
     "test:pkg:ecb": "npm run test -w packages/eslint-config-bananass",
-    "test:t:e2e": "npm run test -w tests/e2e",
     "test:t:i": "npm run test -w tests/integration",
     "build": "npm-run-all -c -l -p --aggregate-output build:pkg:* build:ws:*",
     "build:ex:sb-cjs": "npm run build -w examples/solutions-bananass-cjs",
