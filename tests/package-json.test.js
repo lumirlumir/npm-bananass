@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { strictEqual } from 'node:assert';
+import { deepStrictEqual, strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
 import bananass from 'bananass/package.json' with { type: 'json' };
@@ -39,5 +39,46 @@ describe('package-json', () => {
       ]).size,
       1,
     );
+  });
+
+  it('should have correct `exports` field order: `types` before `default`', () => {
+    const expectedExportsKeys = ['types', 'default'];
+
+    // `bananass`
+    deepStrictEqual(Object.keys(bananass.exports['./commands']), expectedExportsKeys);
+    deepStrictEqual(
+      Object.keys(bananass.exports['./core/constants']),
+      expectedExportsKeys,
+    );
+    deepStrictEqual(Object.keys(bananass.exports['./core/types']), expectedExportsKeys);
+
+    // `bananass-utils-console`
+    deepStrictEqual(
+      Object.keys(bananassUtilsConsole.exports['./icons']),
+      expectedExportsKeys,
+    );
+    deepStrictEqual(
+      Object.keys(bananassUtilsConsole.exports['./is-interactive']),
+      expectedExportsKeys,
+    );
+    deepStrictEqual(
+      Object.keys(bananassUtilsConsole.exports['./is-unicode-supported']),
+      expectedExportsKeys,
+    );
+    deepStrictEqual(
+      Object.keys(bananassUtilsConsole.exports['./logger']),
+      expectedExportsKeys,
+    );
+    deepStrictEqual(
+      Object.keys(bananassUtilsConsole.exports['./spinner']),
+      expectedExportsKeys,
+    );
+    deepStrictEqual(
+      Object.keys(bananassUtilsConsole.exports['./theme']),
+      expectedExportsKeys,
+    );
+
+    // `eslint-config-bananass`
+    deepStrictEqual(Object.keys(eslintConfigBananass.exports['.']), expectedExportsKeys);
   });
 });
