@@ -5,8 +5,8 @@
   "description": "ESLint Config for Bananass Framework.🍌",
   "exports": {
     ".": {
-      "default": "./src/index.js",
-      "types": "./build/index.d.ts"
+      "types": "./build/index.d.ts",
+      "default": "./src/index.js"
     },
     "./package.json": "./package.json"
   },
