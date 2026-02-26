@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { createRequire } from 'node:module';
+import pkg from '../../package.json' with { type: 'json' };
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -15,15 +15,6 @@ import { createRequire } from 'node:module';
 /**
  * @import { Problem } from "./types/index.js"
  */
-
-// --------------------------------------------------------------------------------
-// Declaration
-// --------------------------------------------------------------------------------
-
-/** @type {{ description: string, homepage: string, name: 'bananass', version: string }} */
-const { description, homepage, name, version } = createRequire(import.meta.url)(
-  '../../package.json',
-);
 
 // --------------------------------------------------------------------------------
 // Export
@@ -42,16 +33,16 @@ export const BAEKJOON_PROBLEM_NUMBER_MIN = 1_000;
 // #region String
 
 /** @satisfies {string} */
-export const PKG_DESCRIPTION = description;
+export const PKG_DESCRIPTION = pkg.description;
+/** @type {'bananass'} */
+export const PKG_NAME = /** @type {'bananass'} */ (pkg.name);
 /** @satisfies {string} */
-export const PKG_NAME = name;
-/** @satisfies {string} */
-export const PKG_VERSION = version;
+export const PKG_VERSION = pkg.version;
 /** @satisfies {string} */
 export const PKG_AUTHOR = '루밀LuMir';
 
 /** @satisfies {string} */
-export const URL_HOMEPAGE = homepage;
+export const URL_HOMEPAGE = pkg.homepage;
 /** @satisfies {string} */
 export const URL_NPM = 'https://www.npmjs.com';
 /** @satisfies {string} */
@@ -66,9 +57,9 @@ export const URL_BOJ_MAIN = 'https://www.acmicpc.net';
 export const URL_BOJ_PROBLEM = problem => `${URL_BOJ_MAIN}/problem/${problem}`;
 
 /** @satisfies {string} */
-export const DEFAULT_ENTRY_DIR_NAME = name;
-/** @satisfies {`.${name}`} */
-export const DEFAULT_OUT_DIR_NAME = `.${name}`;
+export const DEFAULT_ENTRY_DIR_NAME = PKG_NAME;
+/** @satisfies {'.bananass'} */
+export const DEFAULT_OUT_DIR_NAME = `.${PKG_NAME}`;
 /** @satisfies {string} */
 export const DEFAULT_OUT_FILE_EXTENSION = '.cjs';
 

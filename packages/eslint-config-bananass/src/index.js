@@ -6,8 +6,6 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { createRequire } from 'node:module';
-
 import js from './configs/js.js';
 import jsxReact from './configs/jsx-react.js';
 import jsxNext from './configs/jsx-next.js';
@@ -17,6 +15,7 @@ import tsxNext from './configs/tsx-next.js';
 import json from './configs/json.js';
 import jsonc from './configs/jsonc.js';
 import json5 from './configs/json5.js';
+import pkg from '../package.json' with { type: 'json' };
 
 // --------------------------------------------------------------------------------
 // Typedef
@@ -27,21 +26,14 @@ import json5 from './configs/json5.js';
  */
 
 // --------------------------------------------------------------------------------
-// Helper
-// --------------------------------------------------------------------------------
-
-/** @type {{ name: string, version: string }} */
-const { name, version } = createRequire(import.meta.url)('../package.json');
-
-// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
 /** @type {ESLint.Plugin} */
 export default {
   meta: {
-    name,
-    version,
+    name: /** @type {'eslint-config-bananass'} */ (pkg.name),
+    version: pkg.version,
   },
 
   configs: {
