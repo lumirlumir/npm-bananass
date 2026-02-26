@@ -32,7 +32,7 @@ import pkg from '../package.json' with { type: 'json' };
 /** @type {ESLint.Plugin} */
 export default {
   meta: {
-    name: /** @type {'eslint-config-bananass'} */ (pkg.name),
+    name: pkg.name,
     version: pkg.version,
   },
 

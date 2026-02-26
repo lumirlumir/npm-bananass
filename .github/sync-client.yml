@@ -73,4 +73,3 @@ lumirlumir/lumirlumir-configs:
   # tsconfig.test.json
   - source: ./packages/bananass/tsconfig.test.json
     dest: ./configs/tsconfig.test.json
-  # TODO
