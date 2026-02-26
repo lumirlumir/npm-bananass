@@ -13,6 +13,7 @@ import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import pkg from '../package.json' with { type: 'json' };
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -32,7 +33,7 @@ function exists(...paths) {
  * @param {string[]} [args] Command line arguments.
  */
 function runCreateBananass(...args) {
-  const { status, stderr } = spawnSync(
+  const { status, stdout, stderr } = spawnSync(
     'node',
     [join(import.meta.dirname, 'cli.js'), outDir, ...args],
     {
@@ -44,7 +45,11 @@ function runCreateBananass(...args) {
     },
   );
 
-  return { status, stderr: stripVTControlCharacters(stderr).trim() };
+  return {
+    status,
+    stdout: stripVTControlCharacters(stdout).trim(),
+    stderr: stripVTControlCharacters(stderr).trim(),
+  };
 }
 
 // --------------------------------------------------------------------------------
@@ -52,12 +57,67 @@ function runCreateBananass(...args) {
 // --------------------------------------------------------------------------------
 
 describe('cli', () => {
-  describe('e2e', () => {
-    afterEach(() => {
-      // Clean up the output directory after each test.
-      if (exists()) rmSync(outDir, { recursive: true, force: true });
+  afterEach(() => {
+    // Clean up the output directory after each test.
+    if (exists()) rmSync(outDir, { recursive: true, force: true });
+  });
+
+  describe('flags', () => {
+    describe('--unknown', () => {
+      it('`--unknown` flag should display an error message for unknown flags', () => {
+        const result = runCreateBananass('--unknown');
+
+        strictEqual(result.status, 1); // Non-zero status indicates an error.
+        strictEqual(result.stdout, ''); // No standard output should be present.
+      });
     });
 
+    describe('--version / -v', () => {
+      it('`--version` flag should display version information', () => {
+        const result = runCreateBananass('--version');
+
+        strictEqual(result.status, 0); // `0` indicates successful execution.
+        strictEqual(result.stdout, pkg.version); // Version output should be present.
+        strictEqual(result.stderr, ''); // No error output should be present.
+      });
+
+      it('`-v` flag should display version information', () => {
+        const result = runCreateBananass('-v');
+
+        strictEqual(result.status, 0); // `0` indicates successful execution.
+        strictEqual(result.stdout, pkg.version); // Version output should be present.
+        strictEqual(result.stderr, ''); // No error output should be present.
+      });
+
+      it('`--version` flag should have higher precedence than `--help` flag', () => {
+        const result = runCreateBananass('--version', '--help');
+
+        strictEqual(result.status, 0); // `0` indicates successful execution.
+        strictEqual(result.stdout, pkg.version); // Version output should be present.
+        strictEqual(result.stderr, ''); // No error output should be present.
+      });
+    });
+
+    describe('--help / -h', () => {
+      it('`--help` flag should display help information', () => {
+        const result = runCreateBananass('--help');
+
+        strictEqual(result.status, 0); // `0` indicates successful execution.
+        match(result.stdout, /Usage:/); // Help output should be present.
+        strictEqual(result.stderr, ''); // No error output should be present.
+      });
+
+      it('`-h` flag should display help information', () => {
+        const result = runCreateBananass('-h');
+
+        strictEqual(result.status, 0); // `0` indicates successful execution.
+        match(result.stdout, /Usage:/); // Help output should be present.
+        strictEqual(result.stderr, ''); // No error output should be present.
+      });
+    });
+  });
+
+  describe('e2e', () => {
     describe('should create a JavaScript ESM project', () => {
       it('when `--skip-vsc`, `--skip-install` flags are used', () => {
         const result = runCreateBananass('--skip-vsc', '--skip-install');
