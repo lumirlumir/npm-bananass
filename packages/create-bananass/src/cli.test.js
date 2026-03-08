@@ -533,8 +533,8 @@ describe('cli', () => {
           importCliWithMocks({
             args: [outDir, '--yes', '--skip-vsc', '--skip-git', '--skip-install'],
             cpImplementation: () => ({
-              then(_resolve, reject) {
-                reject('copy failed');
+              then(...handlers) {
+                handlers[1]('copy failed');
               },
             }),
           }),
