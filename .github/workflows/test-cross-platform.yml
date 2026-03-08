@@ -24,7 +24,7 @@ jobs:
           - ubuntu-latest
           - windows-latest
         node-version:
-          - 24.x
+          - 24.13.0 # TODO: Work around a bug in Node 24.13.1, the latest version as of February 20, 2026.
           - 22.x
           - 22.13.0
           - 20.x

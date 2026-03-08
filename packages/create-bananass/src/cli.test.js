@@ -42,7 +42,6 @@ function runCreateBananass(...args) {
       // `spawnSync` assumes a non-interactive environment.
       input: '',
       encoding: 'utf-8',
-      shell: true,
     },
   );
 

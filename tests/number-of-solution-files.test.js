@@ -17,32 +17,32 @@ import { parse } from 'node:path';
 // --------------------------------------------------------------------------------
 
 const examplesSolutionsBananassCjs = readdirSync(
-  new URL('../../examples/solutions-bananass-cjs/bananass', import.meta.url),
+  new URL('../examples/solutions-bananass-cjs/bananass', import.meta.url),
 )
   .map(file => parse(file).name)
   .sort();
 const examplesSolutionsBananassCts = readdirSync(
-  new URL('../../examples/solutions-bananass-cts/bananass', import.meta.url),
+  new URL('../examples/solutions-bananass-cts/bananass', import.meta.url),
 )
   .map(file => parse(file).name)
   .sort();
 const examplesSolutionsBananassMjs = readdirSync(
-  new URL('../../examples/solutions-bananass-mjs/bananass', import.meta.url),
+  new URL('../examples/solutions-bananass-mjs/bananass', import.meta.url),
 )
   .map(file => parse(file).name)
   .sort();
 const examplesSolutionsBananassMts = readdirSync(
-  new URL('../../examples/solutions-bananass-mts/bananass', import.meta.url),
+  new URL('../examples/solutions-bananass-mts/bananass', import.meta.url),
 )
   .map(file => parse(file).name)
   .sort();
 const websitesVitepressKo = readdirSync(
-  new URL('../../websites/vitepress/ko/solutions/baekjoon', import.meta.url),
+  new URL('../websites/vitepress/ko/solutions/baekjoon', import.meta.url),
 )
   .map(file => parse(file).name)
   .sort();
 const websitesVitepressEn = readdirSync(
-  new URL('../../websites/vitepress/en/solutions/baekjoon', import.meta.url),
+  new URL('../websites/vitepress/en/solutions/baekjoon', import.meta.url),
 )
   .map(file => parse(file).name)
   .sort();
