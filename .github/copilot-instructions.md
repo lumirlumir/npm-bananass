@@ -4,7 +4,7 @@
 
 - This repository is a **monorepo managed with npm workspaces**.
 - Main code lives in `packages/`. Examples live in `examples/`. Tests live in `tests/`. Documentation and site content live in `websites/`.
-- Follow repository standards from `CONTRIBUTING.md` and `CONTRIBUTING.en.md` when making changes.
+- Follow repository standards from `CONTRIBUTING.md` when making changes.
 
 ## Monorepo Conventions
 
@@ -69,7 +69,7 @@ Use this guide when preparing any PR in this repository.
 #### Title examples
 
 - feat(bananass): add `run` subcommand behavior
-- fix(websites-vitepress): handle broken docs link
+- fix(create-bananass): handle missing `--name` argument
 - docs(*): update `CONTRIBUTING.md`
 
 ### 2. PR Description (required)
@@ -100,4 +100,4 @@ Include:
 - Include only discoverable, codebase-backed changes.
 - Avoid speculative refactors and broad formatting churn.
 - Call out any assumptions when code context is incomplete.
-- Prefer explicit file references in explanations (for example: `packages/...`, `websites/...`, `CONTRIBUTING.en.md`).
+- Prefer explicit file references in explanations (for example: `packages/...`, `websites/...`, `CONTRIBUTING.md`).
