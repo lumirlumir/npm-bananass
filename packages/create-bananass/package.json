@@ -53,7 +53,7 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "npx tsc --noEmit && node ../../scripts/cp.mjs ../../LICENSE.md LICENSE.md ../../README.md README.md",
-    "test": "node --test",
+    "test": "node --experimental-test-module-mocks --test",
     "dev": "node src/cli.js"
   },
   "dependencies": {

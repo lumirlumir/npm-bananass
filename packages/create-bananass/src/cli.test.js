@@ -6,8 +6,8 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { ok, strictEqual, match } from 'node:assert';
-import { describe, it, afterEach } from 'node:test';
+import { ok, strictEqual, match, rejects } from 'node:assert';
+import { describe, it, afterEach, mock } from 'node:test';
 import { stripVTControlCharacters } from 'node:util';
 import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
@@ -21,6 +21,7 @@ import pkg from '../package.json' with { type: 'json' };
 
 const outDir = mkdtempSync(join(tmpdir(), 'create-bananass-'));
 const successMessage = /Successfully created a new Bananass framework project!/;
+let cliImportCount = 0;
 
 /**
  * @param {string[]} [paths] Paths to check.
@@ -52,6 +53,128 @@ function runCreateBananass(...args) {
   };
 }
 
+/**
+ * @param {{ code?: number, error?: unknown }} [options] Mock process options.
+ */
+function createSpawnResult(options = {}) {
+  return {
+    on(event, handler) {
+      if (event === 'close' && options.code !== undefined) {
+        queueMicrotask(() => handler(options.code));
+      }
+
+      if (event === 'error' && options.error) {
+        queueMicrotask(() => handler(options.error));
+      }
+
+      return this;
+    },
+  };
+}
+
+function createLoggerMock() {
+  const logger = {
+    debug: mock.fn(() => logger),
+    eol: mock.fn(() => logger),
+    log: mock.fn(callback => {
+      if (typeof callback === 'function') callback();
+
+      return logger;
+    }),
+  };
+
+  return logger;
+}
+
+function createSpinnerMock() {
+  return {
+    start: mock.fn(text => text),
+    error: mock.fn(text => text),
+    success: mock.fn(text => text),
+  };
+}
+
+/**
+ * @param {object} [options] Test options.
+ * @param {string[]} [options.args] Command line arguments.
+ * @param {boolean} [options.interactive] Whether prompt mode should be enabled.
+ * @param {Array<string | boolean>} [options.promptAnswers] Prompt answers.
+ * @param {(src: URL, dest: string, options: object) => Promise<void>} [options.cpImplementation] Mock `cp` implementation.
+ * @param {(oldPath: string, newPath: string) => Promise<void>} [options.renameImplementation] Mock `rename` implementation.
+ * @param {(command: string, args: string[], options: object) => { on: (event: string, handler: Function) => object }} [options.spawnImplementation] Mock `spawn` implementation.
+ */
+async function importCliWithMocks({
+  args = [],
+  interactive = false,
+  promptAnswers = [],
+  cpImplementation = async () => {},
+  renameImplementation = async () => {},
+  spawnImplementation = () => createSpawnResult({ code: 0 }),
+} = {}) {
+  const promptMock = mock.fn(async () => promptAnswers.shift());
+  const cpMock = mock.fn(cpImplementation);
+  const renameMock = mock.fn(renameImplementation);
+  const spawnMock = mock.fn(spawnImplementation);
+  const loggerMock = createLoggerMock();
+  const spinnerMock = createSpinnerMock();
+  const consoleLogMock = mock.fn(() => {});
+
+  mock.module('node:fs/promises', {
+    namedExports: {
+      cp: cpMock,
+      rename: renameMock,
+    },
+  });
+  mock.module('node:child_process', {
+    namedExports: {
+      spawn: spawnMock,
+    },
+  });
+  mock.module('bananass-utils-console/is-interactive', {
+    defaultExport: mock.fn(() => interactive),
+  });
+  mock.module('bananass-utils-console/logger', {
+    defaultExport: mock.fn(() => loggerMock),
+  });
+  mock.module('bananass-utils-console/spinner', {
+    defaultExport: mock.fn(() => spinnerMock),
+  });
+  mock.module('bananass-utils-console/theme', {
+    namedExports: {
+      bananass: mock.fn(text => text),
+      error: mock.fn(text => text),
+      success: mock.fn(text => text),
+    },
+  });
+  mock.module('consola', {
+    namedExports: {
+      consola: {
+        prompt: promptMock,
+      },
+    },
+  });
+  mock.method(console, 'log', consoleLogMock);
+
+  const argvBeforeImport = process.argv;
+  process.argv = ['node', join(import.meta.dirname, 'cli.js'), ...args];
+
+  try {
+    await import(`./cli.js?test=${cliImportCount++}`);
+  } finally {
+    process.argv = argvBeforeImport;
+  }
+
+  return {
+    consoleLogMock,
+    cpMock,
+    loggerMock,
+    promptMock,
+    renameMock,
+    spawnMock,
+    spinnerMock,
+  };
+}
+
 // --------------------------------------------------------------------------------
 // Test
 // --------------------------------------------------------------------------------
@@ -60,6 +183,7 @@ describe('cli', () => {
   afterEach(() => {
     // Clean up the output directory after each test.
     if (exists()) rmSync(outDir, { recursive: true, force: true });
+    mock.reset();
   });
 
   describe('flags', () => {
@@ -361,6 +485,165 @@ describe('cli', () => {
         ok(!exists('.git'));
         ok(!exists('node_modules'));
       });
+    });
+  });
+
+  describe('unit', () => {
+    it('should use the default directory when no positional directory is provided', async () => {
+      const result = await importCliWithMocks({
+        args: ['--yes', '--skip-vsc', '--skip-git', '--skip-install'],
+      });
+
+      strictEqual(result.cpMock.mock.calls[0].arguments[1], '.');
+    });
+
+    it('should use prompted values when prompts are available', async () => {
+      const promptedDirectory = join(outDir, 'prompted-project');
+      const result = await importCliWithMocks({
+        args: [outDir],
+        interactive: true,
+        promptAnswers: [promptedDirectory, true, true, true, true, true],
+      });
+
+      strictEqual(result.promptMock.mock.callCount(), 6);
+      strictEqual(result.promptMock.mock.calls[0].arguments[1].placeholder, outDir);
+      match(String(result.cpMock.mock.calls[0].arguments[0]), /typescript-cjs/);
+      strictEqual(result.cpMock.mock.calls[0].arguments[1], promptedDirectory);
+      strictEqual(
+        result.cpMock.mock.calls[0].arguments[2].filter(
+          join(promptedDirectory, '.vscode', 'settings.json'),
+        ),
+        false,
+      );
+      strictEqual(
+        result.renameMock.mock.calls[0].arguments[0],
+        join(promptedDirectory, 'gitignore'),
+      );
+      strictEqual(
+        result.renameMock.mock.calls[0].arguments[1],
+        join(promptedDirectory, '.gitignore'),
+      );
+      strictEqual(result.consoleLogMock.mock.callCount(), 1);
+      strictEqual(result.spawnMock.mock.callCount(), 0);
+    });
+
+    it('should throw when copying template files fails', async () => {
+      await rejects(
+        () =>
+          importCliWithMocks({
+            args: [outDir, '--yes', '--skip-vsc', '--skip-git', '--skip-install'],
+            cpImplementation: () => ({
+              then(_resolve, reject) {
+                reject('copy failed');
+              },
+            }),
+          }),
+        /copy failed/,
+      );
+    });
+
+    it('should throw when copying template files fails with an Error instance', async () => {
+      await rejects(
+        () =>
+          importCliWithMocks({
+            args: [outDir, '--yes', '--skip-vsc', '--skip-git', '--skip-install'],
+            cpImplementation: async () => {
+              throw new Error('copy failed with error');
+            },
+          }),
+        /copy failed with error/,
+      );
+    });
+
+    it('should install Visual Studio Code extensions when initialization is enabled', async () => {
+      const result = await importCliWithMocks({
+        args: [outDir, '--yes', '--skip-git', '--skip-install'],
+      });
+
+      strictEqual(result.spawnMock.mock.callCount(), 2);
+      strictEqual(result.spawnMock.mock.calls[0].arguments[0], 'code');
+      strictEqual(result.spawnMock.mock.calls[0].arguments[1][0], '--install-extension');
+      strictEqual(
+        result.spawnMock.mock.calls[1].arguments[1][1],
+        'esbenp.prettier-vscode',
+      );
+    });
+
+    it('should throw when installing Visual Studio Code extensions exits with a failure code', async () => {
+      await rejects(
+        () =>
+          importCliWithMocks({
+            args: [outDir, '--yes', '--skip-git', '--skip-install'],
+            spawnImplementation: () => createSpawnResult({ code: 1 }),
+          }),
+        /code --install-extension dbaeumer\.vscode-eslint failed with exit code 1/,
+      );
+    });
+
+    it('should throw when installing Visual Studio Code extensions emits an error event', async () => {
+      await rejects(
+        () =>
+          importCliWithMocks({
+            args: [outDir, '--yes', '--skip-git', '--skip-install'],
+            spawnImplementation: () =>
+              createSpawnResult({ error: 'vscode install failed' }),
+          }),
+        /vscode install failed/,
+      );
+    });
+
+    it('should throw when git initialization exits with a failure code', async () => {
+      await rejects(
+        () =>
+          importCliWithMocks({
+            args: [outDir, '--yes', '--skip-vsc', '--skip-install'],
+            spawnImplementation: () => createSpawnResult({ code: 1 }),
+          }),
+        /git init failed with exit code 1/,
+      );
+    });
+
+    it('should throw when git initialization emits an error event', async () => {
+      await rejects(
+        () =>
+          importCliWithMocks({
+            args: [outDir, '--yes', '--skip-vsc', '--skip-install'],
+            spawnImplementation: () => createSpawnResult({ error: 'git init failed' }),
+          }),
+        /git init failed/,
+      );
+    });
+
+    it('should install packages when installation is enabled', async () => {
+      const result = await importCliWithMocks({
+        args: [outDir, '--yes', '--skip-vsc', '--skip-git'],
+      });
+
+      strictEqual(result.spawnMock.mock.callCount(), 1);
+      strictEqual(result.spawnMock.mock.calls[0].arguments[0], 'npm');
+      strictEqual(result.spawnMock.mock.calls[0].arguments[1][0], 'install');
+    });
+
+    it('should throw when package installation exits with a failure code', async () => {
+      await rejects(
+        () =>
+          importCliWithMocks({
+            args: [outDir, '--yes', '--skip-vsc', '--skip-git'],
+            spawnImplementation: () => createSpawnResult({ code: 1 }),
+          }),
+        /npm install failed with exit code 1/,
+      );
+    });
+
+    it('should throw when package installation emits an error event', async () => {
+      await rejects(
+        () =>
+          importCliWithMocks({
+            args: [outDir, '--yes', '--skip-vsc', '--skip-git'],
+            spawnImplementation: () => createSpawnResult({ error: 'npm install failed' }),
+          }),
+        /npm install failed/,
+      );
     });
   });
 });
