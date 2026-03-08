@@ -3,14 +3,14 @@
 ## Repository Context
 
 - This repository is a **monorepo managed with npm workspaces**.
-- Main code lives in `packages/`. Documentation and site content live in `website/`.
-- Follow repository standards from `CONTRIBUTING.md` when making changes.
+- Main code lives in `packages/`. Examples live in `examples/`. Tests live in `tests/`. Documentation and site content live in `websites/`.
+- Follow repository standards from `CONTRIBUTING.md` and `CONTRIBUTING.en.md` when making changes.
 
 ## Monorepo Conventions
 
 - Treat each directory under `packages/` as an independently testable/buildable unit within the workspace graph.
 - Keep package-level changes aligned with root tooling and scripts (do not bypass root conventions).
-- If a change affects behavior documented on the site, update relevant docs in `website/` in the same PR.
+- If a change affects behavior documented on the site, update relevant docs in `websites/` in the same PR.
 
 ## High-Value Working Rules for AI Agents
 
@@ -56,8 +56,8 @@ Use this guide when preparing any PR in this repository.
 
 #### `scope` rules
 
-- For AI-generated changes, use:
-  - `eslint-markdown` for package-specific changes, or
+- Use a real repository scope when possible:
+  - a workspace/package name such as `bananass`, `create-bananass`, `tests`, or `websites-vitepress` for area-specific changes, or
   - `*` for repo-wide/docs/tooling changes.
 
 #### `description` rules
@@ -68,8 +68,8 @@ Use this guide when preparing any PR in this repository.
 
 #### Title examples
 
-- feat(eslint-markdown): add `no-foo` rule
-- fix(eslint-markdown): handle empty code blocks
+- feat(bananass): add `run` subcommand behavior
+- fix(websites-vitepress): handle broken docs link
 - docs(*): update `CONTRIBUTING.md`
 
 ### 2. PR Description (required)
@@ -79,7 +79,7 @@ Follow the repository PR template exactly and keep content concise.
 Include:
 
 - **summary**: what changed and why
-- **scope**: affected packages/directories (e.g., `packages/...`, `website/...`)
+- **scope**: affected packages/directories (e.g., `packages/...`, `examples/...`, `tests/...`, `websites/...`)
 - **validation**: commands run and results (e.g., `npm run test`, `npm run build`, `npm run lint`)
 - **notes**: any limitations or follow-up items
 
@@ -100,4 +100,4 @@ Include:
 - Include only discoverable, codebase-backed changes.
 - Avoid speculative refactors and broad formatting churn.
 - Call out any assumptions when code context is incomplete.
-- Prefer explicit file references in explanations (for example: `packages/...`, `website/...`, `CONTRIBUTING.md`).
+- Prefer explicit file references in explanations (for example: `packages/...`, `websites/...`, `CONTRIBUTING.en.md`).
