@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD060 -->
+
 # 이외의 유용한 CLI 명령어들 {#other-useful-cli-commands}
 
 이번 챕터에서는 바나나 프레임워크에서 제공하는 모든 CLI 명령어들을 소개합니다!

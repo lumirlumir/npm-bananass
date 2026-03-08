@@ -16,7 +16,7 @@ import { node, react } from '../settings.js';
 import {
   importPlugin,
   nodePlugin,
-  stylisticJsPlugin,
+  stylisticPlugin,
   jsxA11yPlugin,
   reactPlugin,
   reactHooksPlugin,
@@ -28,7 +28,7 @@ import {
   eslintRules,
   importRules,
   nodeRules,
-  stylisticJsRules,
+  stylisticRules,
   jsxA11yRules,
   reactRules,
   reactHooksRules,
@@ -52,7 +52,7 @@ export default {
   plugins: {
     ...importPlugin,
     ...nodePlugin,
-    ...stylisticJsPlugin,
+    ...stylisticPlugin,
     ...jsxA11yPlugin,
     ...reactPlugin,
     ...reactHooksPlugin,
@@ -63,14 +63,12 @@ export default {
     ...eslintRules,
     ...importRules,
     ...nodeRules,
-    ...stylisticJsRules,
+    ...stylisticRules,
     ...jsxA11yRules,
     ...reactRules,
     ...reactHooksRules,
     ...nextRules,
     ...typescriptRules,
-
-    'react/react-in-jsx-scope': 'off',
   },
   settings: {
     node,

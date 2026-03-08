@@ -19,7 +19,3 @@
 ## [`eslint-config-bananass`](eslint-config-bananass.md) {#eslint-config-bananass}
 
 <!-- @include: @/shared/wip.ko.md -->
-
-## [`prettier-config-bananass`](prettier-config-bananass.md) {#prettier-config-bananass}
-
-<!-- @include: @/shared/wip.ko.md -->

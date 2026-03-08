@@ -1,0 +1,21 @@
+/**
+ * @fileoverview ESLint plugins for custom rules.
+ */
+
+/* eslint-disable import/prefer-default-export -- Named export will be more in the future. */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
+import spacedComment from './spaced-comment.js';
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+export const stylistic = /** @type {const} */ ({
+  rules: {
+    'spaced-comment': spacedComment,
+  },
+});

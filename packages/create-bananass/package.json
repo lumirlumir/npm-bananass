@@ -1,6 +1,6 @@
 {
   "name": "create-bananass",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "type": "module",
   "description": "Create a Bananass framework project for solving Baekjoon problems with JavaScript/TypeScript.🍌",
   "exports": {
@@ -18,7 +18,7 @@
     "templates",
     "LICENSE.md",
     "README.md",
-    "!src/**/*.test.js",
+    "!src/**/*.test.{js,ts}",
     "!**/fixtures/**"
   ],
   "keywords": [
@@ -33,6 +33,7 @@
     "create-bananass"
   ],
   "author": "루밀LuMir <rpfos@naver.com> (https://github.com/lumirlumir)",
+  "funding": "https://github.com/sponsors/lumirlumir",
   "license": "MIT",
   "homepage": "https://bananass.lumir.page",
   "repository": {
@@ -56,8 +57,8 @@
     "dev": "node src/cli.js"
   },
   "dependencies": {
-    "bananass-utils-console": "^0.5.1",
-    "commander": "^14.0.1",
+    "bananass-utils-console": "^0.6.0",
+    "commander": "^14.0.3",
     "consola": "^3.4.2"
   }
 }

@@ -18,19 +18,19 @@
 ::: code-group
 
 ```sh [npm]
-npm install -D bananass-utils-console
+npm install -D bananass-utils-console@latest
 ```
 
 ```sh [pnpm]
-pnpm add -D bananass-utils-console
+pnpm add -D bananass-utils-console@latest
 ```
 
 ```sh [yarn]
-yarn add --dev bananass-utils-console
+yarn add --dev bananass-utils-console@latest
 ```
 
 ```sh [bun]
-bun add -d bananass-utils-console
+bun add -d bananass-utils-console@latest
 ```
 
 :::

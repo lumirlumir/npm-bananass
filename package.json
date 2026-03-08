@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "npm-bananass",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "packageManager": "npm@10.9.2",
   "engines": {
     "node": "^20.19.0 || ^22.13.0 || >=24.0.0"
@@ -11,7 +11,7 @@
     "examples/*",
     "packages/*",
     "packages/create-bananass/templates/*",
-    "tests/*",
+    "tests",
     "websites/*"
   ],
   "scripts": {
@@ -26,10 +26,9 @@
     "test:ex:sb-mts": "npm run test -w examples/solutions-bananass-mts",
     "test:pkg:b": "npm run test -w packages/bananass",
     "test:pkg:buc": "npm run test -w packages/bananass-utils-console",
+    "test:pkg:cb": "npm run test -w packages/create-bananass",
     "test:pkg:ecb": "npm run test -w packages/eslint-config-bananass",
-    "test:pkg:pcb": "npm run test -w packages/prettier-config-bananass",
-    "test:t:e2e": "npm run test -w tests/e2e",
-    "test:t:i": "npm run test -w tests/integration",
+    "test:t": "npm run test -w tests",
     "build": "npm-run-all -c -l -p --aggregate-output build:pkg:* build:ws:*",
     "build:ex:sb-cjs": "npm run build -w examples/solutions-bananass-cjs",
     "build:ex:sb-cts": "npm run build -w examples/solutions-bananass-cts",
@@ -39,7 +38,6 @@
     "build:pkg:buc": "npm run build -w packages/bananass-utils-console",
     "build:pkg:cb": "npm run build -w packages/create-bananass",
     "build:pkg:ecb": "npm run build -w packages/eslint-config-bananass",
-    "build:pkg:pcb": "npm run build -w packages/prettier-config-bananass",
     "build:ws:ecb": "npm run build -w websites/eslint-config-bananass",
     "build:ws:vp": "npm run build -w websites/vitepress",
     "dev": "npm run dev:ws:vp",
@@ -60,24 +58,20 @@
     "lint:eslint": "npx eslint",
     "lint:prettier": "npx prettier . --check --ignore-unknown",
     "lint:editorconfig": "npx editorconfig-checker -config .editorconfig-checker.json",
-    "lint:markdownlint": "npx markdownlint **/*.md",
-    "lint:textlint": "npx textlint -f pretty-error **/*.md"
+    "lint:markdownlint": "npx markdownlint **/*.md"
   },
   "devDependencies": {
-    "@types/node": "^24.7.2",
-    "c8": "^10.1.3",
-    "editorconfig-checker": "^6.1.0",
-    "eslint": "^9.37.0",
-    "eslint-config-bananass": "^0.5.1",
-    "eslint-plugin-mark": "^0.1.0-canary.8",
+    "@types/node": "^24.12.0",
+    "c8": "^11.0.0",
+    "editorconfig-checker": "^6.1.1",
+    "eslint": "^9.39.3",
+    "eslint-config-bananass": "^0.6.0",
+    "eslint-markdown": "^0.1.0-canary.12",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.3",
-    "markdownlint-cli": "^0.45.0",
+    "lint-staged": "^16.3.1",
+    "markdownlint-cli": "^0.48.0",
     "npm-run-all2": "^8.0.4",
-    "prettier": "^3.6.2",
-    "prettier-config-bananass": "^0.5.1",
-    "textlint": "14.7.2",
-    "textlint-rule-allowed-uris": "^2.0.1",
+    "prettier": "^3.8.1",
     "typescript": "^5.9.3"
   }
 }

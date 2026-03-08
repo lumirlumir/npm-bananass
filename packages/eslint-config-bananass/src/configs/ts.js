@@ -19,7 +19,7 @@ import { node } from '../settings.js';
 import {
   importPlugin,
   nodePlugin,
-  stylisticJsPlugin,
+  stylisticPlugin,
   typescriptPlugin,
 } from '../plugins.js';
 
@@ -27,7 +27,7 @@ import {
   eslintRules,
   importRules,
   nodeRules,
-  stylisticJsRules,
+  stylisticRules,
   typescriptRules,
 } from '../rules/index.js';
 
@@ -46,14 +46,14 @@ export default {
   plugins: {
     ...importPlugin,
     ...nodePlugin,
-    ...stylisticJsPlugin,
+    ...stylisticPlugin,
     ...typescriptPlugin,
   },
   rules: {
     ...eslintRules,
     ...importRules,
     ...nodeRules,
-    ...stylisticJsRules,
+    ...stylisticRules,
     ...typescriptRules,
   },
   settings: {

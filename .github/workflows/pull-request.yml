@@ -13,11 +13,11 @@ concurrency:
 
 jobs:
   lint-pull-request-title:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
 
     steps:
       - name: Set up checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # This step extracts the correct package names because it runs right after the checkout.
       - name: Extract package names from the monorepo structure for use as scopes.
@@ -147,7 +147,7 @@ jobs:
   labeler:
     if: github.event.action == 'opened' || github.event.changes.title || github.event.action == 'synchronize'
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
 
     needs:
       - lint-pull-request-title

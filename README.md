@@ -109,7 +109,7 @@
 - `fs` 모듈을 사용한 더욱 빠른 입출력 지원.
 - 편의를 위한 다양한 CLI 명령어 지원.
 - 풍부하고 상세한 문서 지원.
-- ESLint 및 Prettier 자체 지원.
+- ESLint 및 Prettier 설정 지원.
 
 어떤가요? 바나나 프레임워크를 통해 더욱 편리한 문제 풀이를 경험해보고 싶지 않으신가요?
 
@@ -154,7 +154,7 @@ npm create bananass@latest
 
 ## 보안<sup>Security</sup>
 
-보안 문제를 발견하셨나요? [보안](SECURITY.md) 문서를 참고해주세요.
+보안 문제를 발견하셨나요? [보안](https://github.com/lumirlumir/.github/blob/main/SECURITY_KO.md#%EB%B3%B4%EC%95%88) 문서를 참고해주세요.
 
 ## 라이선스<sup>License</sup>
 

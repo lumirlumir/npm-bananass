@@ -18,9 +18,6 @@ export const globals = {
   ...globalsModule.builtin,
   ...globalsModule.es2026,
   ...globalsModule.node,
-  ...globalsModule.jest,
-  ...globalsModule.vitest,
-  ...globalsModule.mocha,
   // Browser Web Speech APIs which are not yet supported by `globals`: https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API
   webkitSpeechRecognition: false,
   SpeechRecognitionAlternative: false,

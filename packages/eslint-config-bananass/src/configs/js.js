@@ -11,8 +11,8 @@
 
 import { js } from '../files.js';
 import { globals } from '../language-options.js';
-import { importPlugin, nodePlugin, stylisticJsPlugin } from '../plugins.js';
-import { eslintRules, importRules, nodeRules, stylisticJsRules } from '../rules/index.js';
+import { importPlugin, nodePlugin, stylisticPlugin } from '../plugins.js';
+import { eslintRules, importRules, nodeRules, stylisticRules } from '../rules/index.js';
 import { node } from '../settings.js';
 
 // --------------------------------------------------------------------------------
@@ -29,13 +29,13 @@ export default {
   plugins: {
     ...importPlugin,
     ...nodePlugin,
-    ...stylisticJsPlugin,
+    ...stylisticPlugin,
   },
   rules: {
     ...eslintRules,
     ...importRules,
     ...nodeRules,
-    ...stylisticJsRules,
+    ...stylisticRules,
   },
   settings: {
     node,

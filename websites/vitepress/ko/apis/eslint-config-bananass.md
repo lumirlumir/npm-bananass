@@ -27,19 +27,19 @@
 ::: code-group
 
 ```sh [npm]
-npm install -D eslint eslint-config-bananass
+npm install -D eslint@latest eslint-config-bananass@latest
 ```
 
 ```sh [pnpm]
-pnpm add -D eslint eslint-config-bananass
+pnpm add -D eslint@latest eslint-config-bananass@latest
 ```
 
 ```sh [yarn]
-yarn add --dev eslint eslint-config-bananass
+yarn add --dev eslint@latest eslint-config-bananass@latest
 ```
 
 ```sh [bun]
-bun add -d eslint eslint-config-bananass
+bun add -d eslint@latest eslint-config-bananass@latest
 ```
 
 :::
