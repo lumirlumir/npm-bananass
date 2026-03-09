@@ -11,36 +11,60 @@ import { describe, it, afterEach, mock } from 'node:test';
 import { stripVTControlCharacters } from 'node:util';
 import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
-import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { delimiter, join } from 'node:path';
+import {
+  chmodSync,
+  existsSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs';
 import pkg from '../package.json' with { type: 'json' };
 
 // --------------------------------------------------------------------------------
 // Helper
 // --------------------------------------------------------------------------------
 
-const outDir = mkdtempSync(join(tmpdir(), 'create-bananass-'));
 const successMessage = /Successfully created a new Bananass framework project!/;
+const temporaryPaths = [];
 let cliImportCount = 0;
 
 /**
- * @param {string[]} [paths] Paths to check.
+ * @param {{
+ *   args?: string[],
+ *   cwd?: string,
+ *   directory?: string | undefined,
+ *   env?: NodeJS.ProcessEnv,
+ * }} [options]
  */
-function exists(...paths) {
-  return existsSync(join(outDir, ...paths));
-}
+function runCreateBananass(options = {}) {
+  const {
+    args = [],
+    cwd = mkdtempSync(join(tmpdir(), 'create-bananass-cwd-')),
+    env,
+  } = options;
+  const hasDirectory = Object.hasOwn(options, 'directory');
+  const directory = hasDirectory
+    ? options.directory
+    : join(mkdtempSync(join(tmpdir(), 'create-bananass-project-')), 'project');
+  const cliArgs = directory ? [directory, ...args] : args;
+  const mergedEnv = { ...process.env, ...env };
 
-/**
- * @param {string[]} [args] Command line arguments.
- */
-function runCreateBananass(...args) {
+  temporaryPaths.push(cwd);
+
+  if (directory) {
+    temporaryPaths.push(directory);
+  }
+
   const { status, stdout, stderr } = spawnSync(
     'node',
-    [join(import.meta.dirname, 'cli.js'), outDir, ...args],
+    [join(import.meta.dirname, 'cli.js'), ...cliArgs],
     {
-      // If there is no interactive handling logic using `isInteractive()` in `cli.js`,
-      // `consola` will throw an error when `input` is passed to `spawnSync`.
-      // `spawnSync` assumes a non-interactive environment.
+      cwd,
+      env: Object.fromEntries(
+        Object.entries(mergedEnv).filter(([, value]) => value !== undefined),
+      ),
       input: '',
       encoding: 'utf-8',
     },
@@ -50,29 +74,36 @@ function runCreateBananass(...args) {
     status,
     stdout: stripVTControlCharacters(stdout).trim(),
     stderr: stripVTControlCharacters(stderr).trim(),
+    cwd,
+    directory: directory ?? cwd,
   };
 }
 
 /**
- * @param {{ code?: number, error?: unknown }} [options] Mock process options.
+ * @param {object} [options] Test options.
+ * @param {string[]} [options.args] Command line arguments.
+ * @param {(src: URL, dest: string, options: object) => Promise<void>} [options.cpImplementation] Mock `cp` implementation.
+ * @param {(command: string, args: string[], options: object) => { on: (event: string, handler: Function) => object }} [options.spawnImplementation] Mock `spawn` implementation.
  */
-function createSpawnResult(options = {}) {
-  return {
+async function importCliWithMocks({
+  args = [],
+  interactive = false,
+  promptAnswers = [],
+  cpImplementation = async () => {},
+  spawnImplementation = () => ({
     on(event, handler) {
-      if (event === 'close' && options.code !== undefined) {
-        queueMicrotask(() => handler(options.code));
-      }
-
-      if (event === 'error' && options.error) {
-        queueMicrotask(() => handler(options.error));
+      if (event === 'close') {
+        queueMicrotask(() => handler(0));
       }
 
       return this;
     },
-  };
-}
-
-function createLoggerMock() {
+  }),
+} = {}) {
+  const cpMock = mock.fn(cpImplementation);
+  const renameMock = mock.fn(async () => {});
+  const spawnMock = mock.fn(spawnImplementation);
+  const promptMock = mock.fn(async () => promptAnswers.shift());
   const logger = {
     debug: mock.fn(() => logger),
     eol: mock.fn(() => logger),
@@ -82,42 +113,6 @@ function createLoggerMock() {
       return logger;
     }),
   };
-
-  return logger;
-}
-
-function createSpinnerMock() {
-  return {
-    start: mock.fn(text => text),
-    error: mock.fn(text => text),
-    success: mock.fn(text => text),
-  };
-}
-
-/**
- * @param {object} [options] Test options.
- * @param {string[]} [options.args] Command line arguments.
- * @param {boolean} [options.interactive] Whether prompt mode should be enabled.
- * @param {Array<string | boolean>} [options.promptAnswers] Prompt answers.
- * @param {(src: URL, dest: string, options: object) => Promise<void>} [options.cpImplementation] Mock `cp` implementation.
- * @param {(oldPath: string, newPath: string) => Promise<void>} [options.renameImplementation] Mock `rename` implementation.
- * @param {(command: string, args: string[], options: object) => { on: (event: string, handler: Function) => object }} [options.spawnImplementation] Mock `spawn` implementation.
- */
-async function importCliWithMocks({
-  args = [],
-  interactive = false,
-  promptAnswers = [],
-  cpImplementation = async () => {},
-  renameImplementation = async () => {},
-  spawnImplementation = () => createSpawnResult({ code: 0 }),
-} = {}) {
-  const promptMock = mock.fn(async () => promptAnswers.shift());
-  const cpMock = mock.fn(cpImplementation);
-  const renameMock = mock.fn(renameImplementation);
-  const spawnMock = mock.fn(spawnImplementation);
-  const loggerMock = createLoggerMock();
-  const spinnerMock = createSpinnerMock();
-  const consoleLogMock = mock.fn(() => {});
 
   mock.module('node:fs/promises', {
     namedExports: {
@@ -134,10 +129,14 @@ async function importCliWithMocks({
     defaultExport: mock.fn(() => interactive),
   });
   mock.module('bananass-utils-console/logger', {
-    defaultExport: mock.fn(() => loggerMock),
+    defaultExport: mock.fn(() => logger),
   });
   mock.module('bananass-utils-console/spinner', {
-    defaultExport: mock.fn(() => spinnerMock),
+    defaultExport: mock.fn(() => ({
+      start: mock.fn(text => text),
+      error: mock.fn(text => text),
+      success: mock.fn(text => text),
+    })),
   });
   mock.module('bananass-utils-console/theme', {
     namedExports: {
@@ -153,7 +152,6 @@ async function importCliWithMocks({
       },
     },
   });
-  mock.method(console, 'log', consoleLogMock);
 
   const argvBeforeImport = process.argv;
   process.argv = ['node', join(import.meta.dirname, 'cli.js'), ...args];
@@ -165,13 +163,10 @@ async function importCliWithMocks({
   }
 
   return {
-    consoleLogMock,
     cpMock,
-    loggerMock,
     promptMock,
     renameMock,
     spawnMock,
-    spinnerMock,
   };
 }
 
@@ -181,15 +176,17 @@ async function importCliWithMocks({
 
 describe('cli', () => {
   afterEach(() => {
-    // Clean up the output directory after each test.
-    if (exists()) rmSync(outDir, { recursive: true, force: true });
+    for (const path of temporaryPaths.splice(0).reverse()) {
+      rmSync(path, { recursive: true, force: true });
+    }
+
     mock.reset();
   });
 
   describe('flags', () => {
     describe('--unknown', () => {
       it('`--unknown` flag should display an error message for unknown flags', () => {
-        const result = runCreateBananass('--unknown');
+        const result = runCreateBananass({ args: ['--unknown'] });
 
         strictEqual(result.status, 1); // Non-zero status indicates an error.
         strictEqual(result.stdout, ''); // No standard output should be present.
@@ -198,7 +195,7 @@ describe('cli', () => {
 
     describe('--version / -v', () => {
       it('`--version` flag should display version information', () => {
-        const result = runCreateBananass('--version');
+        const result = runCreateBananass({ args: ['--version'] });
 
         strictEqual(result.status, 0); // `0` indicates successful execution.
         strictEqual(result.stdout, pkg.version); // Version output should be present.
@@ -206,7 +203,7 @@ describe('cli', () => {
       });
 
       it('`-v` flag should display version information', () => {
-        const result = runCreateBananass('-v');
+        const result = runCreateBananass({ args: ['-v'] });
 
         strictEqual(result.status, 0); // `0` indicates successful execution.
         strictEqual(result.stdout, pkg.version); // Version output should be present.
@@ -214,7 +211,7 @@ describe('cli', () => {
       });
 
       it('`--version` flag should have higher precedence than `--help` flag', () => {
-        const result = runCreateBananass('--version', '--help');
+        const result = runCreateBananass({ args: ['--version', '--help'] });
 
         strictEqual(result.status, 0); // `0` indicates successful execution.
         strictEqual(result.stdout, pkg.version); // Version output should be present.
@@ -224,7 +221,7 @@ describe('cli', () => {
 
     describe('--help / -h', () => {
       it('`--help` flag should display help information', () => {
-        const result = runCreateBananass('--help');
+        const result = runCreateBananass({ args: ['--help'] });
 
         strictEqual(result.status, 0); // `0` indicates successful execution.
         match(result.stdout, /Usage:/); // Help output should be present.
@@ -232,7 +229,7 @@ describe('cli', () => {
       });
 
       it('`-h` flag should display help information', () => {
-        const result = runCreateBananass('-h');
+        const result = runCreateBananass({ args: ['-h'] });
 
         strictEqual(result.status, 0); // `0` indicates successful execution.
         match(result.stdout, /Usage:/); // Help output should be present.
@@ -244,9 +241,9 @@ describe('cli', () => {
   describe('e2e', () => {
     describe('should create a JavaScript ESM project', () => {
       it('when `--skip-vsc`, `--skip-install` flags are used', () => {
-        const result = runCreateBananass('--skip-vsc', '--skip-install');
+        const result = runCreateBananass({ args: ['--skip-vsc', '--skip-install'] });
         const packageJson = JSON.parse(
-          readFileSync(join(outDir, 'package.json'), 'utf-8'),
+          readFileSync(join(result.directory, 'package.json'), 'utf-8'),
         );
 
         // Result
@@ -259,21 +256,23 @@ describe('cli', () => {
         strictEqual(packageJson.type, 'module');
 
         // Files created
-        ok(exists('.git'));
-        ok(exists('bananass', '1000.mjs'));
-        ok(exists('.gitignore'));
-        ok(exists('README.md'));
-        ok(exists('bananass.config.mjs'));
+        ok(existsSync(join(result.directory, '.git')));
+        ok(existsSync(join(result.directory, 'bananass', '1000.mjs')));
+        ok(existsSync(join(result.directory, '.gitignore')));
+        ok(existsSync(join(result.directory, 'README.md')));
+        ok(existsSync(join(result.directory, 'bananass.config.mjs')));
 
         // Files not created
-        ok(!exists('.vscode'));
-        ok(!exists('node_modules'));
+        ok(!existsSync(join(result.directory, '.vscode')));
+        ok(!existsSync(join(result.directory, 'node_modules')));
       });
 
       it('when `--skip-vsc`, `--skip-git`, `--skip-install` flags are used', () => {
-        const result = runCreateBananass('--skip-vsc', '--skip-git', '--skip-install');
+        const result = runCreateBananass({
+          args: ['--skip-vsc', '--skip-git', '--skip-install'],
+        });
         const packageJson = JSON.parse(
-          readFileSync(join(outDir, 'package.json'), 'utf-8'),
+          readFileSync(join(result.directory, 'package.json'), 'utf-8'),
         );
 
         // Result
@@ -286,23 +285,25 @@ describe('cli', () => {
         strictEqual(packageJson.type, 'module');
 
         // Files created
-        ok(exists('bananass', '1000.mjs'));
-        ok(exists('.gitignore'));
-        ok(exists('README.md'));
-        ok(exists('bananass.config.mjs'));
+        ok(existsSync(join(result.directory, 'bananass', '1000.mjs')));
+        ok(existsSync(join(result.directory, '.gitignore')));
+        ok(existsSync(join(result.directory, 'README.md')));
+        ok(existsSync(join(result.directory, 'bananass.config.mjs')));
 
         // Files not created
-        ok(!exists('.vscode'));
-        ok(!exists('.git'));
-        ok(!exists('node_modules'));
+        ok(!existsSync(join(result.directory, '.vscode')));
+        ok(!existsSync(join(result.directory, '.git')));
+        ok(!existsSync(join(result.directory, 'node_modules')));
       });
     });
 
     describe('should create a JavaScript CJS project', () => {
       it('when `--skip-vsc`, `--skip-install` flags are used', () => {
-        const result = runCreateBananass('--skip-vsc', '--skip-install', '--cjs');
+        const result = runCreateBananass({
+          args: ['--skip-vsc', '--skip-install', '--cjs'],
+        });
         const packageJson = JSON.parse(
-          readFileSync(join(outDir, 'package.json'), 'utf-8'),
+          readFileSync(join(result.directory, 'package.json'), 'utf-8'),
         );
 
         // Result
@@ -315,26 +316,23 @@ describe('cli', () => {
         strictEqual(packageJson.type, 'commonjs');
 
         // Files created
-        ok(exists('.git'));
-        ok(exists('bananass', '1000.cjs'));
-        ok(exists('.gitignore'));
-        ok(exists('README.md'));
-        ok(exists('bananass.config.cjs'));
+        ok(existsSync(join(result.directory, '.git')));
+        ok(existsSync(join(result.directory, 'bananass', '1000.cjs')));
+        ok(existsSync(join(result.directory, '.gitignore')));
+        ok(existsSync(join(result.directory, 'README.md')));
+        ok(existsSync(join(result.directory, 'bananass.config.cjs')));
 
         // Files not created
-        ok(!exists('.vscode'));
-        ok(!exists('node_modules'));
+        ok(!existsSync(join(result.directory, '.vscode')));
+        ok(!existsSync(join(result.directory, 'node_modules')));
       });
 
       it('when `--skip-vsc`, `--skip-git`, `--skip-install` flags are used', () => {
-        const result = runCreateBananass(
-          '--skip-vsc',
-          '--skip-git',
-          '--skip-install',
-          '--cjs',
-        );
+        const result = runCreateBananass({
+          args: ['--skip-vsc', '--skip-git', '--skip-install', '--cjs'],
+        });
         const packageJson = JSON.parse(
-          readFileSync(join(outDir, 'package.json'), 'utf-8'),
+          readFileSync(join(result.directory, 'package.json'), 'utf-8'),
         );
 
         // Result
@@ -347,23 +345,25 @@ describe('cli', () => {
         strictEqual(packageJson.type, 'commonjs');
 
         // Files created
-        ok(exists('bananass', '1000.cjs'));
-        ok(exists('.gitignore'));
-        ok(exists('README.md'));
-        ok(exists('bananass.config.cjs'));
+        ok(existsSync(join(result.directory, 'bananass', '1000.cjs')));
+        ok(existsSync(join(result.directory, '.gitignore')));
+        ok(existsSync(join(result.directory, 'README.md')));
+        ok(existsSync(join(result.directory, 'bananass.config.cjs')));
 
         // Files not created
-        ok(!exists('.vscode'));
-        ok(!exists('.git'));
-        ok(!exists('node_modules'));
+        ok(!existsSync(join(result.directory, '.vscode')));
+        ok(!existsSync(join(result.directory, '.git')));
+        ok(!existsSync(join(result.directory, 'node_modules')));
       });
     });
 
     describe('should create a TypeScript ESM project', () => {
       it('when `--skip-vsc`, `--skip-install` flags are used', () => {
-        const result = runCreateBananass('--skip-vsc', '--skip-install', '--typescript');
+        const result = runCreateBananass({
+          args: ['--skip-vsc', '--skip-install', '--typescript'],
+        });
         const packageJson = JSON.parse(
-          readFileSync(join(outDir, 'package.json'), 'utf-8'),
+          readFileSync(join(result.directory, 'package.json'), 'utf-8'),
         );
 
         // Result
@@ -376,26 +376,23 @@ describe('cli', () => {
         strictEqual(packageJson.type, 'module');
 
         // Files created
-        ok(exists('.git'));
-        ok(exists('bananass', '1000.mts'));
-        ok(exists('.gitignore'));
-        ok(exists('README.md'));
-        ok(exists('bananass.config.mts'));
+        ok(existsSync(join(result.directory, '.git')));
+        ok(existsSync(join(result.directory, 'bananass', '1000.mts')));
+        ok(existsSync(join(result.directory, '.gitignore')));
+        ok(existsSync(join(result.directory, 'README.md')));
+        ok(existsSync(join(result.directory, 'bananass.config.mts')));
 
         // Files not created
-        ok(!exists('.vscode'));
-        ok(!exists('node_modules'));
+        ok(!existsSync(join(result.directory, '.vscode')));
+        ok(!existsSync(join(result.directory, 'node_modules')));
       });
 
       it('when `--skip-vsc`, `--skip-git`, `--skip-install` flags are used', () => {
-        const result = runCreateBananass(
-          '--skip-vsc',
-          '--skip-git',
-          '--skip-install',
-          '--typescript',
-        );
+        const result = runCreateBananass({
+          args: ['--skip-vsc', '--skip-git', '--skip-install', '--typescript'],
+        });
         const packageJson = JSON.parse(
-          readFileSync(join(outDir, 'package.json'), 'utf-8'),
+          readFileSync(join(result.directory, 'package.json'), 'utf-8'),
         );
 
         // Result
@@ -408,28 +405,25 @@ describe('cli', () => {
         strictEqual(packageJson.type, 'module');
 
         // Files created
-        ok(exists('bananass', '1000.mts'));
-        ok(exists('.gitignore'));
-        ok(exists('README.md'));
-        ok(exists('bananass.config.mts'));
+        ok(existsSync(join(result.directory, 'bananass', '1000.mts')));
+        ok(existsSync(join(result.directory, '.gitignore')));
+        ok(existsSync(join(result.directory, 'README.md')));
+        ok(existsSync(join(result.directory, 'bananass.config.mts')));
 
         // Files not created
-        ok(!exists('.vscode'));
-        ok(!exists('.git'));
-        ok(!exists('node_modules'));
+        ok(!existsSync(join(result.directory, '.vscode')));
+        ok(!existsSync(join(result.directory, '.git')));
+        ok(!existsSync(join(result.directory, 'node_modules')));
       });
     });
 
     describe('should create a TypeScript CJS project', () => {
       it('when `--skip-vsc`, `--skip-install` flags are used', () => {
-        const result = runCreateBananass(
-          '--skip-vsc',
-          '--skip-install',
-          '--typescript',
-          '--cjs',
-        );
+        const result = runCreateBananass({
+          args: ['--skip-vsc', '--skip-install', '--typescript', '--cjs'],
+        });
         const packageJson = JSON.parse(
-          readFileSync(join(outDir, 'package.json'), 'utf-8'),
+          readFileSync(join(result.directory, 'package.json'), 'utf-8'),
         );
 
         // Result
@@ -442,27 +436,23 @@ describe('cli', () => {
         strictEqual(packageJson.type, 'commonjs');
 
         // Files created
-        ok(exists('.git'));
-        ok(exists('bananass', '1000.cts'));
-        ok(exists('.gitignore'));
-        ok(exists('README.md'));
-        ok(exists('bananass.config.cts'));
+        ok(existsSync(join(result.directory, '.git')));
+        ok(existsSync(join(result.directory, 'bananass', '1000.cts')));
+        ok(existsSync(join(result.directory, '.gitignore')));
+        ok(existsSync(join(result.directory, 'README.md')));
+        ok(existsSync(join(result.directory, 'bananass.config.cts')));
 
         // Files not created
-        ok(!exists('.vscode'));
-        ok(!exists('node_modules'));
+        ok(!existsSync(join(result.directory, '.vscode')));
+        ok(!existsSync(join(result.directory, 'node_modules')));
       });
 
       it('when `--skip-vsc`, `--skip-git`, `--skip-install` flags are used', () => {
-        const result = runCreateBananass(
-          '--skip-vsc',
-          '--skip-git',
-          '--skip-install',
-          '--typescript',
-          '--cjs',
-        );
+        const result = runCreateBananass({
+          args: ['--skip-vsc', '--skip-git', '--skip-install', '--typescript', '--cjs'],
+        });
         const packageJson = JSON.parse(
-          readFileSync(join(outDir, 'package.json'), 'utf-8'),
+          readFileSync(join(result.directory, 'package.json'), 'utf-8'),
         );
 
         // Result
@@ -475,63 +465,151 @@ describe('cli', () => {
         strictEqual(packageJson.type, 'commonjs');
 
         // Files created
-        ok(exists('bananass', '1000.cts'));
-        ok(exists('.gitignore'));
-        ok(exists('README.md'));
-        ok(exists('bananass.config.cts'));
+        ok(existsSync(join(result.directory, 'bananass', '1000.cts')));
+        ok(existsSync(join(result.directory, '.gitignore')));
+        ok(existsSync(join(result.directory, 'README.md')));
+        ok(existsSync(join(result.directory, 'bananass.config.cts')));
 
         // Files not created
-        ok(!exists('.vscode'));
-        ok(!exists('.git'));
-        ok(!exists('node_modules'));
+        ok(!existsSync(join(result.directory, '.vscode')));
+        ok(!existsSync(join(result.directory, '.git')));
+        ok(!existsSync(join(result.directory, 'node_modules')));
       });
     });
   });
 
-  describe('unit', () => {
-    it('should use the default directory when no positional directory is provided', async () => {
-      const result = await importCliWithMocks({
+  describe('integration', () => {
+    it('should use the default directory when no positional directory is provided', () => {
+      const cwd = mkdtempSync(join(tmpdir(), 'create-bananass-default-'));
+      temporaryPaths.push(cwd);
+
+      const result = runCreateBananass({
         args: ['--yes', '--skip-vsc', '--skip-git', '--skip-install'],
+        cwd,
+        directory: undefined,
       });
 
-      strictEqual(result.cpMock.mock.calls[0].arguments[1], '.');
+      strictEqual(result.directory, cwd);
+      strictEqual(result.status, 1);
+      match(result.stderr, /Failed to copy files/);
     });
 
-    it('should use prompted values when prompts are available', async () => {
-      const promptedDirectory = join(outDir, 'prompted-project');
+    it('should trigger prompts and apply interactive answers during interactive mode', async () => {
+      const placeholderDirectory = join(tmpdir(), 'create-bananass-placeholder-project');
       const result = await importCliWithMocks({
-        args: [outDir],
+        args: [placeholderDirectory, '--skip-vsc', '--skip-git', '--skip-install'],
         interactive: true,
-        promptAnswers: [promptedDirectory, true, true, true, true, true],
+        promptAnswers: [placeholderDirectory, true, true, false, false, false],
       });
 
       strictEqual(result.promptMock.mock.callCount(), 6);
-      strictEqual(result.promptMock.mock.calls[0].arguments[1].placeholder, outDir);
+      strictEqual(
+        result.promptMock.mock.calls[0].arguments[1].placeholder,
+        placeholderDirectory,
+      );
       match(String(result.cpMock.mock.calls[0].arguments[0]), /typescript-cjs/);
-      strictEqual(result.cpMock.mock.calls[0].arguments[1], promptedDirectory);
+      strictEqual(result.cpMock.mock.calls[0].arguments[1], placeholderDirectory);
       strictEqual(
         result.cpMock.mock.calls[0].arguments[2].filter(
-          join(promptedDirectory, '.vscode', 'settings.json'),
+          join(placeholderDirectory, '.vscode', 'settings.json'),
         ),
-        false,
+        true,
       );
       strictEqual(
         result.renameMock.mock.calls[0].arguments[0],
-        join(promptedDirectory, 'gitignore'),
+        join(placeholderDirectory, 'gitignore'),
       );
       strictEqual(
         result.renameMock.mock.calls[0].arguments[1],
-        join(promptedDirectory, '.gitignore'),
+        join(placeholderDirectory, '.gitignore'),
       );
-      strictEqual(result.consoleLogMock.mock.callCount(), 1);
-      strictEqual(result.spawnMock.mock.callCount(), 0);
+      strictEqual(result.spawnMock.mock.callCount(), 4);
     });
 
-    it('should throw when copying template files fails', async () => {
+    it('should execute Visual Studio Code extension installation, git init, and npm install with stub binaries', () => {
+      const directory = join(
+        mkdtempSync(join(tmpdir(), 'create-bananass-success-')),
+        'successful-project',
+      );
+      const binDirectory = mkdtempSync(join(tmpdir(), 'create-bananass-bin-'));
+      const commandLogPath = join(binDirectory, 'commands.log');
+
+      temporaryPaths.push(directory, binDirectory);
+
+      writeFileSync(
+        join(binDirectory, 'code'),
+        [
+          '#!/bin/sh',
+          'printf "code %s %s\\n" "$1" "$2" >> "$CREATE_BANANASS_TEST_COMMAND_LOG"',
+          'exit 0',
+          '',
+        ].join('\n'),
+      );
+      writeFileSync(
+        join(binDirectory, 'git'),
+        [
+          '#!/bin/sh',
+          'printf "git %s\\n" "$1" >> "$CREATE_BANANASS_TEST_COMMAND_LOG"',
+          'exit 0',
+          '',
+        ].join('\n'),
+      );
+      writeFileSync(
+        join(binDirectory, 'npm'),
+        [
+          '#!/bin/sh',
+          'printf "npm %s\\n" "$1" >> "$CREATE_BANANASS_TEST_COMMAND_LOG"',
+          'exit 0',
+          '',
+        ].join('\n'),
+      );
+
+      chmodSync(join(binDirectory, 'code'), 0o755);
+      chmodSync(join(binDirectory, 'git'), 0o755);
+      chmodSync(join(binDirectory, 'npm'), 0o755);
+
+      const result = runCreateBananass({
+        args: ['--yes', '--typescript', '--cjs'],
+        directory,
+        env: {
+          CREATE_BANANASS_TEST_COMMAND_LOG: commandLogPath,
+          PATH: `${binDirectory}${delimiter}${process.env.PATH ?? ''}`,
+        },
+      });
+      const packageJson = JSON.parse(
+        readFileSync(join(directory, 'package.json'), 'utf-8'),
+      );
+      const commandLog = readFileSync(commandLogPath, 'utf-8');
+
+      strictEqual(result.status, 0);
+      match(result.stderr, successMessage);
+      strictEqual(packageJson.name, 'create-bananass-typescript-cjs');
+      strictEqual(packageJson.type, 'commonjs');
+      match(commandLog, /code --install-extension dbaeumer\.vscode-eslint/);
+      match(commandLog, /code --install-extension esbenp\.prettier-vscode/);
+      match(commandLog, /git init/);
+      match(commandLog, /npm install/);
+    });
+
+    it('should throw when copying template files fails during actual execution', () => {
+      const directory = mkdtempSync(join(tmpdir(), 'create-bananass-copy-error-'));
+      temporaryPaths.push(directory);
+      writeFileSync(join(directory, 'existing.txt'), 'existing');
+
+      const result = runCreateBananass({
+        args: ['--yes', '--skip-vsc', '--skip-git', '--skip-install'],
+        directory,
+      });
+
+      strictEqual(result.status, 1);
+      match(result.stderr, /Failed to copy files/);
+    });
+
+    it('should throw when copying template files rejects with a non-error value', async () => {
       await rejects(
         () =>
           importCliWithMocks({
-            args: [outDir, '--yes', '--skip-vsc', '--skip-git', '--skip-install'],
+            args: ['.', '--yes', '--skip-vsc', '--skip-git', '--skip-install'],
             cpImplementation: () => ({
               then(...handlers) {
                 handlers[1]('copy failed');
@@ -542,105 +620,115 @@ describe('cli', () => {
       );
     });
 
-    it('should throw when copying template files fails with an Error instance', async () => {
-      await rejects(
-        () =>
-          importCliWithMocks({
-            args: [outDir, '--yes', '--skip-vsc', '--skip-git', '--skip-install'],
-            cpImplementation: async () => {
-              throw new Error('copy failed with error');
-            },
-          }),
-        /copy failed with error/,
-      );
-    });
+    it('should throw when installing Visual Studio Code extensions exits with a failure code', () => {
+      const binDirectory = mkdtempSync(join(tmpdir(), 'create-bananass-bin-'));
+      temporaryPaths.push(binDirectory);
 
-    it('should install Visual Studio Code extensions when initialization is enabled', async () => {
-      const result = await importCliWithMocks({
-        args: [outDir, '--yes', '--skip-git', '--skip-install'],
+      writeFileSync(join(binDirectory, 'code'), '#!/bin/sh\nexit 1\n');
+      chmodSync(join(binDirectory, 'code'), 0o755);
+
+      const result = runCreateBananass({
+        args: ['--yes', '--skip-git', '--skip-install'],
+        env: {
+          PATH: `${binDirectory}${delimiter}${process.env.PATH ?? ''}`,
+        },
       });
 
-      strictEqual(result.spawnMock.mock.callCount(), 2);
-      strictEqual(result.spawnMock.mock.calls[0].arguments[0], 'code');
-      strictEqual(result.spawnMock.mock.calls[0].arguments[1][0], '--install-extension');
-      strictEqual(
-        result.spawnMock.mock.calls[1].arguments[1][1],
-        'esbenp.prettier-vscode',
-      );
-    });
-
-    it('should throw when installing Visual Studio Code extensions exits with a failure code', async () => {
-      await rejects(
-        () =>
-          importCliWithMocks({
-            args: [outDir, '--yes', '--skip-git', '--skip-install'],
-            spawnImplementation: () => createSpawnResult({ code: 1 }),
-          }),
-        /code --install-extension dbaeumer\.vscode-eslint failed with exit code 1/,
-      );
+      strictEqual(result.status, 1);
+      match(result.stderr, /Failed to install Visual Studio Code extensions/);
+      match(result.stderr, /failed with exit code 1/);
     });
 
     it('should throw when installing Visual Studio Code extensions emits an error event', async () => {
       await rejects(
         () =>
           importCliWithMocks({
-            args: [outDir, '--yes', '--skip-git', '--skip-install'],
-            spawnImplementation: () =>
-              createSpawnResult({ error: 'vscode install failed' }),
+            args: ['.', '--yes', '--skip-git', '--skip-install'],
+            spawnImplementation: () => ({
+              on(event, handler) {
+                if (event === 'error') {
+                  queueMicrotask(() => handler('vscode install failed'));
+                }
+
+                return this;
+              },
+            }),
           }),
         /vscode install failed/,
       );
     });
 
-    it('should throw when git initialization exits with a failure code', async () => {
-      await rejects(
-        () =>
-          importCliWithMocks({
-            args: [outDir, '--yes', '--skip-vsc', '--skip-install'],
-            spawnImplementation: () => createSpawnResult({ code: 1 }),
-          }),
-        /git init failed with exit code 1/,
-      );
+    it('should throw when git initialization exits with a failure code', () => {
+      const binDirectory = mkdtempSync(join(tmpdir(), 'create-bananass-bin-'));
+      temporaryPaths.push(binDirectory);
+
+      writeFileSync(join(binDirectory, 'git'), '#!/bin/sh\nexit 1\n');
+      chmodSync(join(binDirectory, 'git'), 0o755);
+
+      const result = runCreateBananass({
+        args: ['--yes', '--skip-vsc', '--skip-install'],
+        env: {
+          PATH: `${binDirectory}${delimiter}${process.env.PATH ?? ''}`,
+        },
+      });
+
+      strictEqual(result.status, 1);
+      match(result.stderr, /Failed to initialize git/);
+      match(result.stderr, /git init failed with exit code 1/);
     });
 
     it('should throw when git initialization emits an error event', async () => {
       await rejects(
         () =>
           importCliWithMocks({
-            args: [outDir, '--yes', '--skip-vsc', '--skip-install'],
-            spawnImplementation: () => createSpawnResult({ error: 'git init failed' }),
+            args: ['.', '--yes', '--skip-vsc', '--skip-install'],
+            spawnImplementation: () => ({
+              on(event, handler) {
+                if (event === 'error') {
+                  queueMicrotask(() => handler('git init failed'));
+                }
+
+                return this;
+              },
+            }),
           }),
         /git init failed/,
       );
     });
 
-    it('should install packages when installation is enabled', async () => {
-      const result = await importCliWithMocks({
-        args: [outDir, '--yes', '--skip-vsc', '--skip-git'],
+    it('should throw when package installation exits with a failure code', () => {
+      const binDirectory = mkdtempSync(join(tmpdir(), 'create-bananass-bin-'));
+      temporaryPaths.push(binDirectory);
+
+      writeFileSync(join(binDirectory, 'npm'), '#!/bin/sh\nexit 1\n');
+      chmodSync(join(binDirectory, 'npm'), 0o755);
+
+      const result = runCreateBananass({
+        args: ['--yes', '--skip-vsc', '--skip-git'],
+        env: {
+          PATH: `${binDirectory}${delimiter}${process.env.PATH ?? ''}`,
+        },
       });
 
-      strictEqual(result.spawnMock.mock.callCount(), 1);
-      strictEqual(result.spawnMock.mock.calls[0].arguments[0], 'npm');
-      strictEqual(result.spawnMock.mock.calls[0].arguments[1][0], 'install');
-    });
-
-    it('should throw when package installation exits with a failure code', async () => {
-      await rejects(
-        () =>
-          importCliWithMocks({
-            args: [outDir, '--yes', '--skip-vsc', '--skip-git'],
-            spawnImplementation: () => createSpawnResult({ code: 1 }),
-          }),
-        /npm install failed with exit code 1/,
-      );
+      strictEqual(result.status, 1);
+      match(result.stderr, /Failed to install packages/);
+      match(result.stderr, /npm install failed with exit code 1/);
     });
 
     it('should throw when package installation emits an error event', async () => {
       await rejects(
         () =>
           importCliWithMocks({
-            args: [outDir, '--yes', '--skip-vsc', '--skip-git'],
-            spawnImplementation: () => createSpawnResult({ error: 'npm install failed' }),
+            args: ['.', '--yes', '--skip-vsc', '--skip-git'],
+            spawnImplementation: () => ({
+              on(event, handler) {
+                if (event === 'error') {
+                  queueMicrotask(() => handler('npm install failed'));
+                }
+
+                return this;
+              },
+            }),
           }),
         /npm install failed/,
       );
