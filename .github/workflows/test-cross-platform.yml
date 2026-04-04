@@ -25,7 +25,7 @@ jobs:
           - windows-latest
         node-version:
           - 24.13.0 # TODO: Work around a bug in Node 24.13.1, the latest version as of February 20, 2026.
-          - 22.x
+          - 22.22.0 # TODO: Work around a bug in Node 22.22.1, the latest version as of March 05, 2026.
           - 22.13.0
           - 20.x
           - 20.19.0
