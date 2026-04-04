@@ -61,13 +61,15 @@ describe('cli', () => {
     describe('should create a JavaScript ESM project', () => {
       it('when `--skip-vsc`, `--skip-install` flags are used', () => {
         const result = runCreateBananass('--skip-vsc', '--skip-install');
-        const packageJson = JSON.parse(
-          readFileSync(join(outDir, 'package.json'), 'utf-8'),
-        );
 
         // Result
         strictEqual(result.status, 0);
         match(result.stderr, successMessage);
+
+        // Read `package.json`
+        const packageJson = JSON.parse(
+          readFileSync(join(outDir, 'package.json'), 'utf-8'),
+        );
 
         // `package.json`
         strictEqual(packageJson.private, true);
@@ -88,13 +90,15 @@ describe('cli', () => {
 
       it('when `--skip-vsc`, `--skip-git`, `--skip-install` flags are used', () => {
         const result = runCreateBananass('--skip-vsc', '--skip-git', '--skip-install');
-        const packageJson = JSON.parse(
-          readFileSync(join(outDir, 'package.json'), 'utf-8'),
-        );
 
         // Result
         strictEqual(result.status, 0);
         match(result.stderr, successMessage);
+
+        // Read `package.json`
+        const packageJson = JSON.parse(
+          readFileSync(join(outDir, 'package.json'), 'utf-8'),
+        );
 
         // `package.json`
         strictEqual(packageJson.private, true);
@@ -117,13 +121,15 @@ describe('cli', () => {
     describe('should create a JavaScript CJS project', () => {
       it('when `--skip-vsc`, `--skip-install` flags are used', () => {
         const result = runCreateBananass('--skip-vsc', '--skip-install', '--cjs');
-        const packageJson = JSON.parse(
-          readFileSync(join(outDir, 'package.json'), 'utf-8'),
-        );
 
         // Result
         strictEqual(result.status, 0);
         match(result.stderr, successMessage);
+
+        // Read `package.json`
+        const packageJson = JSON.parse(
+          readFileSync(join(outDir, 'package.json'), 'utf-8'),
+        );
 
         // `package.json`
         strictEqual(packageJson.private, true);
@@ -149,13 +155,15 @@ describe('cli', () => {
           '--skip-install',
           '--cjs',
         );
-        const packageJson = JSON.parse(
-          readFileSync(join(outDir, 'package.json'), 'utf-8'),
-        );
 
         // Result
         strictEqual(result.status, 0);
         match(result.stderr, successMessage);
+
+        // Read `package.json`
+        const packageJson = JSON.parse(
+          readFileSync(join(outDir, 'package.json'), 'utf-8'),
+        );
 
         // `package.json`
         strictEqual(packageJson.private, true);
@@ -178,13 +186,15 @@ describe('cli', () => {
     describe('should create a TypeScript ESM project', () => {
       it('when `--skip-vsc`, `--skip-install` flags are used', () => {
         const result = runCreateBananass('--skip-vsc', '--skip-install', '--typescript');
-        const packageJson = JSON.parse(
-          readFileSync(join(outDir, 'package.json'), 'utf-8'),
-        );
 
         // Result
         strictEqual(result.status, 0);
         match(result.stderr, successMessage);
+
+        // Read `package.json`
+        const packageJson = JSON.parse(
+          readFileSync(join(outDir, 'package.json'), 'utf-8'),
+        );
 
         // `package.json`
         strictEqual(packageJson.private, true);
@@ -210,13 +220,15 @@ describe('cli', () => {
           '--skip-install',
           '--typescript',
         );
-        const packageJson = JSON.parse(
-          readFileSync(join(outDir, 'package.json'), 'utf-8'),
-        );
 
         // Result
         strictEqual(result.status, 0);
         match(result.stderr, successMessage);
+
+        // Read `package.json`
+        const packageJson = JSON.parse(
+          readFileSync(join(outDir, 'package.json'), 'utf-8'),
+        );
 
         // `package.json`
         strictEqual(packageJson.private, true);
@@ -244,13 +256,15 @@ describe('cli', () => {
           '--typescript',
           '--cjs',
         );
-        const packageJson = JSON.parse(
-          readFileSync(join(outDir, 'package.json'), 'utf-8'),
-        );
 
         // Result
         strictEqual(result.status, 0);
         match(result.stderr, successMessage);
+
+        // Read `package.json`
+        const packageJson = JSON.parse(
+          readFileSync(join(outDir, 'package.json'), 'utf-8'),
+        );
 
         // `package.json`
         strictEqual(packageJson.private, true);
@@ -277,13 +291,15 @@ describe('cli', () => {
           '--typescript',
           '--cjs',
         );
-        const packageJson = JSON.parse(
-          readFileSync(join(outDir, 'package.json'), 'utf-8'),
-        );
 
         // Result
         strictEqual(result.status, 0);
         match(result.stderr, successMessage);
+
+        // Read `package.json`
+        const packageJson = JSON.parse(
+          readFileSync(join(outDir, 'package.json'), 'utf-8'),
+        );
 
         // `package.json`
         strictEqual(packageJson.private, true);
