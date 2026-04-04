@@ -7,7 +7,7 @@
 // --------------------------------------------------------------------------------
 
 import { ok, strictEqual, match } from 'node:assert';
-import { describe, it, afterEach } from 'node:test';
+import { describe, it } from 'node:test';
 import { stripVTControlCharacters } from 'node:util';
 import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
@@ -18,20 +18,28 @@ import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
 // Helper
 // --------------------------------------------------------------------------------
 
-const outDir = mkdtempSync(join(tmpdir(), 'create-bananass-'));
 const successMessage = /Successfully created a new Bananass framework project!/;
+
+function createOutDir() {
+  return mkdtempSync(join(tmpdir(), 'create-bananass-'));
+}
+
+function removeOutDir(outDir) {
+  rmSync(outDir, { recursive: true, force: true });
+}
 
 /**
  * @param {string[]} [paths] Paths to check.
  */
-function exists(...paths) {
+function exists(outDir, ...paths) {
   return existsSync(join(outDir, ...paths));
 }
 
 /**
+ * @param {string} outDir Output directory.
  * @param {string[]} [args] Command line arguments.
  */
-function runCreateBananass(...args) {
+function runCreateBananass(outDir, ...args) {
   const { status, stderr } = spawnSync(
     'node',
     [join(import.meta.dirname, 'cli.js'), outDir, ...args],
@@ -53,14 +61,10 @@ function runCreateBananass(...args) {
 
 describe('cli', () => {
   describe('e2e', () => {
-    afterEach(() => {
-      // Clean up the output directory after each test.
-      if (exists()) rmSync(outDir, { recursive: true, force: true });
-    });
-
     describe('should create a JavaScript ESM project', () => {
       it('when `--skip-vsc`, `--skip-install` flags are used', () => {
-        const result = runCreateBananass('--skip-vsc', '--skip-install');
+        const outDir = createOutDir();
+        const result = runCreateBananass(outDir, '--skip-vsc', '--skip-install');
 
         // Result
         strictEqual(result.status, 0);
@@ -77,19 +81,28 @@ describe('cli', () => {
         strictEqual(packageJson.type, 'module');
 
         // Files created
-        ok(exists('.git'));
-        ok(exists('bananass', '1000.mjs'));
-        ok(exists('.gitignore'));
-        ok(exists('README.md'));
-        ok(exists('bananass.config.mjs'));
+        ok(exists(outDir, '.git'));
+        ok(exists(outDir, 'bananass', '1000.mjs'));
+        ok(exists(outDir, '.gitignore'));
+        ok(exists(outDir, 'README.md'));
+        ok(exists(outDir, 'bananass.config.mjs'));
 
         // Files not created
-        ok(!exists('.vscode'));
-        ok(!exists('node_modules'));
+        ok(!exists(outDir, '.vscode'));
+        ok(!exists(outDir, 'node_modules'));
+
+        // Clean up
+        removeOutDir(outDir);
       });
 
       it('when `--skip-vsc`, `--skip-git`, `--skip-install` flags are used', () => {
-        const result = runCreateBananass('--skip-vsc', '--skip-git', '--skip-install');
+        const outDir = createOutDir();
+        const result = runCreateBananass(
+          outDir,
+          '--skip-vsc',
+          '--skip-git',
+          '--skip-install',
+        );
 
         // Result
         strictEqual(result.status, 0);
@@ -106,21 +119,25 @@ describe('cli', () => {
         strictEqual(packageJson.type, 'module');
 
         // Files created
-        ok(exists('bananass', '1000.mjs'));
-        ok(exists('.gitignore'));
-        ok(exists('README.md'));
-        ok(exists('bananass.config.mjs'));
+        ok(exists(outDir, 'bananass', '1000.mjs'));
+        ok(exists(outDir, '.gitignore'));
+        ok(exists(outDir, 'README.md'));
+        ok(exists(outDir, 'bananass.config.mjs'));
 
         // Files not created
-        ok(!exists('.vscode'));
-        ok(!exists('.git'));
-        ok(!exists('node_modules'));
+        ok(!exists(outDir, '.vscode'));
+        ok(!exists(outDir, '.git'));
+        ok(!exists(outDir, 'node_modules'));
+
+        // Clean up
+        removeOutDir(outDir);
       });
     });
 
     describe('should create a JavaScript CJS project', () => {
       it('when `--skip-vsc`, `--skip-install` flags are used', () => {
-        const result = runCreateBananass('--skip-vsc', '--skip-install', '--cjs');
+        const outDir = createOutDir();
+        const result = runCreateBananass(outDir, '--skip-vsc', '--skip-install', '--cjs');
 
         // Result
         strictEqual(result.status, 0);
@@ -137,19 +154,24 @@ describe('cli', () => {
         strictEqual(packageJson.type, 'commonjs');
 
         // Files created
-        ok(exists('.git'));
-        ok(exists('bananass', '1000.cjs'));
-        ok(exists('.gitignore'));
-        ok(exists('README.md'));
-        ok(exists('bananass.config.cjs'));
+        ok(exists(outDir, '.git'));
+        ok(exists(outDir, 'bananass', '1000.cjs'));
+        ok(exists(outDir, '.gitignore'));
+        ok(exists(outDir, 'README.md'));
+        ok(exists(outDir, 'bananass.config.cjs'));
 
         // Files not created
-        ok(!exists('.vscode'));
-        ok(!exists('node_modules'));
+        ok(!exists(outDir, '.vscode'));
+        ok(!exists(outDir, 'node_modules'));
+
+        // Clean up
+        removeOutDir(outDir);
       });
 
       it('when `--skip-vsc`, `--skip-git`, `--skip-install` flags are used', () => {
+        const outDir = createOutDir();
         const result = runCreateBananass(
+          outDir,
           '--skip-vsc',
           '--skip-git',
           '--skip-install',
@@ -171,21 +193,30 @@ describe('cli', () => {
         strictEqual(packageJson.type, 'commonjs');
 
         // Files created
-        ok(exists('bananass', '1000.cjs'));
-        ok(exists('.gitignore'));
-        ok(exists('README.md'));
-        ok(exists('bananass.config.cjs'));
+        ok(exists(outDir, 'bananass', '1000.cjs'));
+        ok(exists(outDir, '.gitignore'));
+        ok(exists(outDir, 'README.md'));
+        ok(exists(outDir, 'bananass.config.cjs'));
 
         // Files not created
-        ok(!exists('.vscode'));
-        ok(!exists('.git'));
-        ok(!exists('node_modules'));
+        ok(!exists(outDir, '.vscode'));
+        ok(!exists(outDir, '.git'));
+        ok(!exists(outDir, 'node_modules'));
+
+        // Clean up
+        removeOutDir(outDir);
       });
     });
 
     describe('should create a TypeScript ESM project', () => {
       it('when `--skip-vsc`, `--skip-install` flags are used', () => {
-        const result = runCreateBananass('--skip-vsc', '--skip-install', '--typescript');
+        const outDir = createOutDir();
+        const result = runCreateBananass(
+          outDir,
+          '--skip-vsc',
+          '--skip-install',
+          '--typescript',
+        );
 
         // Result
         strictEqual(result.status, 0);
@@ -202,19 +233,24 @@ describe('cli', () => {
         strictEqual(packageJson.type, 'module');
 
         // Files created
-        ok(exists('.git'));
-        ok(exists('bananass', '1000.mts'));
-        ok(exists('.gitignore'));
-        ok(exists('README.md'));
-        ok(exists('bananass.config.mts'));
+        ok(exists(outDir, '.git'));
+        ok(exists(outDir, 'bananass', '1000.mts'));
+        ok(exists(outDir, '.gitignore'));
+        ok(exists(outDir, 'README.md'));
+        ok(exists(outDir, 'bananass.config.mts'));
 
         // Files not created
-        ok(!exists('.vscode'));
-        ok(!exists('node_modules'));
+        ok(!exists(outDir, '.vscode'));
+        ok(!exists(outDir, 'node_modules'));
+
+        // Clean up
+        removeOutDir(outDir);
       });
 
       it('when `--skip-vsc`, `--skip-git`, `--skip-install` flags are used', () => {
+        const outDir = createOutDir();
         const result = runCreateBananass(
+          outDir,
           '--skip-vsc',
           '--skip-git',
           '--skip-install',
@@ -236,21 +272,26 @@ describe('cli', () => {
         strictEqual(packageJson.type, 'module');
 
         // Files created
-        ok(exists('bananass', '1000.mts'));
-        ok(exists('.gitignore'));
-        ok(exists('README.md'));
-        ok(exists('bananass.config.mts'));
+        ok(exists(outDir, 'bananass', '1000.mts'));
+        ok(exists(outDir, '.gitignore'));
+        ok(exists(outDir, 'README.md'));
+        ok(exists(outDir, 'bananass.config.mts'));
 
         // Files not created
-        ok(!exists('.vscode'));
-        ok(!exists('.git'));
-        ok(!exists('node_modules'));
+        ok(!exists(outDir, '.vscode'));
+        ok(!exists(outDir, '.git'));
+        ok(!exists(outDir, 'node_modules'));
+
+        // Clean up
+        removeOutDir(outDir);
       });
     });
 
     describe('should create a TypeScript CJS project', () => {
       it('when `--skip-vsc`, `--skip-install` flags are used', () => {
+        const outDir = createOutDir();
         const result = runCreateBananass(
+          outDir,
           '--skip-vsc',
           '--skip-install',
           '--typescript',
@@ -272,19 +313,24 @@ describe('cli', () => {
         strictEqual(packageJson.type, 'commonjs');
 
         // Files created
-        ok(exists('.git'));
-        ok(exists('bananass', '1000.cts'));
-        ok(exists('.gitignore'));
-        ok(exists('README.md'));
-        ok(exists('bananass.config.cts'));
+        ok(exists(outDir, '.git'));
+        ok(exists(outDir, 'bananass', '1000.cts'));
+        ok(exists(outDir, '.gitignore'));
+        ok(exists(outDir, 'README.md'));
+        ok(exists(outDir, 'bananass.config.cts'));
 
         // Files not created
-        ok(!exists('.vscode'));
-        ok(!exists('node_modules'));
+        ok(!exists(outDir, '.vscode'));
+        ok(!exists(outDir, 'node_modules'));
+
+        // Clean up
+        removeOutDir(outDir);
       });
 
       it('when `--skip-vsc`, `--skip-git`, `--skip-install` flags are used', () => {
+        const outDir = createOutDir();
         const result = runCreateBananass(
+          outDir,
           '--skip-vsc',
           '--skip-git',
           '--skip-install',
@@ -307,15 +353,18 @@ describe('cli', () => {
         strictEqual(packageJson.type, 'commonjs');
 
         // Files created
-        ok(exists('bananass', '1000.cts'));
-        ok(exists('.gitignore'));
-        ok(exists('README.md'));
-        ok(exists('bananass.config.cts'));
+        ok(exists(outDir, 'bananass', '1000.cts'));
+        ok(exists(outDir, '.gitignore'));
+        ok(exists(outDir, 'README.md'));
+        ok(exists(outDir, 'bananass.config.cts'));
 
         // Files not created
-        ok(!exists('.vscode'));
-        ok(!exists('.git'));
-        ok(!exists('node_modules'));
+        ok(!exists(outDir, '.vscode'));
+        ok(!exists(outDir, '.git'));
+        ok(!exists(outDir, 'node_modules'));
+
+        // Clean up
+        removeOutDir(outDir);
       });
     });
   });
