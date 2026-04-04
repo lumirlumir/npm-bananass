@@ -7,6 +7,6 @@
     "test": "node solutions.test.mjs"
   },
   "devDependencies": {
-    "bananass": "^0.6.0"
+    "bananass": "^0.6.1"
   }
 }
