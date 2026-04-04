@@ -18,8 +18,7 @@ import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
 // Helper
 // --------------------------------------------------------------------------------
 
-let outDir;
-
+const outDir = mkdtempSync(join(tmpdir(), 'create-bananass-'));
 const successMessage = /Successfully created a new Bananass framework project!/;
 
 /**
@@ -33,8 +32,6 @@ function exists(...paths) {
  * @param {string[]} [args] Command line arguments.
  */
 function runCreateBananass(...args) {
-  outDir = mkdtempSync(join(tmpdir(), 'create-bananass-'));
-
   const { status, stderr } = spawnSync(
     'node',
     [join(import.meta.dirname, 'cli.js'), outDir, ...args],
