@@ -4,7 +4,6 @@
   "exclude": [],
   "compilerOptions": {
     /* Type Checking */
-    "noUnusedLocals": false, // Turning it off since it's a test.
     "noUnusedParameters": false, // Turning it off since it's a test.
 
     /* Emit */

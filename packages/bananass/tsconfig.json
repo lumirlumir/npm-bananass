@@ -12,6 +12,9 @@
   ],
   "exclude": ["src/**/*.test.js", "src/**/*.test.ts", "**/fixtures/**"],
   "compilerOptions": {
+    /* Type Checking */
+    "noUnusedLocals": false, // Off: Does not recognize JSDoc `@import` statements
+
     /* Modules */
     "rootDir": "./src",
 
