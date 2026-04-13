@@ -16,9 +16,6 @@
     "rootDir": "./src",
 
     /* Emit */
-    "outDir": "build",
-
-    /* Completeness */
-    "skipLibCheck": true
+    "outDir": "build"
   }
 }
