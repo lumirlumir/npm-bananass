@@ -3,7 +3,9 @@
     "allowImportingTsExtensions": true,
     "noEmit": true,
     "module": "NodeNext",
-    "moduleResolution": "nodenext"
+    "moduleResolution": "nodenext",
+    "strictNullChecks": false,
+    "types": ["node"]
   },
   "include": ["bananass/**/*.ts", "bananass/**/*.mts", "bananass/**/*.cts"]
 }

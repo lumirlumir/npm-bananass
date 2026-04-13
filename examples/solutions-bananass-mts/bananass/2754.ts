@@ -11,7 +11,7 @@ const testcases = [
   },
 ] satisfies Testcases;
 
-const grade = {
+const grade: Record<string, string> = {
   'A+': '4.3',
   A0: '4.0',
   'A-': '3.7',
