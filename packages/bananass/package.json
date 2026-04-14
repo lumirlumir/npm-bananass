@@ -95,7 +95,7 @@
     "babel-loader": "^10.1.1",
     "bananass-utils-console": "^0.6.1",
     "commander": "^14.0.3",
-    "defu": "^6.1.6",
+    "defu": "^6.1.7",
     "enhanced-resolve": "^5.20.1",
     "envinfo": "^7.21.0",
     "jiti": "^2.6.1",
