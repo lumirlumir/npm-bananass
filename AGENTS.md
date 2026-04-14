@@ -1,4 +1,4 @@
-# Copilot Instructions
+# Agent Instructions
 
 ## Repository Context
 
@@ -18,6 +18,11 @@
 - Refer to at least three similar existing code examples and patterns in the repository for guidance.
 - Prefer editing existing files/patterns instead of introducing new abstractions.
 - When touching package code, check for related workspace dependencies in sibling packages under `packages/`.
+
+## Bootstrapping
+
+- In a fresh clone, run `npm install` from the repo root before attempting tests, builds, lint, or package changes.
+- Do not start validation or implementation work until the install has completed successfully, because the workspace dependencies are required across the monorepo.
 
 ## Test/Build/Lint Workflow (required before finalizing)
 
@@ -48,7 +53,7 @@ Use this guide when preparing any PR in this repository.
 ### 1. PR Title (required)
 
 - Title format is validated by `.github/workflows/pull-request.yml`.
-- Use Conventional Commits: `<type>[scope]: <description>`
+- Use Conventional Commits: `<type>(<scope>): <description>` (optionally `<type>(<scope>)!: <description>` for breaking changes)
 
 #### `type` rules
 
@@ -56,9 +61,11 @@ Use this guide when preparing any PR in this repository.
 
 #### `scope` rules
 
-- Use a real repository scope when possible:
-  - a workspace/package name such as `bananass`, `create-bananass`, `tests`, or `websites-vitepress` for area-specific changes, or
-  - `*` for repo-wide/docs/tooling changes.
+- The workflow extracts allowed scopes from every `package.json` `name` field in the repo.
+- Use an existing workspace name such as `bananass`, `create-bananass`, `tests`, or `vitepress` when a single workspace scope fits.
+- Use `*` for repo-wide/docs/tooling changes when a single workspace scope is not appropriate.
+- Additional allowed scopes are `deps`, `deps-dev`, `release`, `sync-server`, and `sync-client`.
+- `deps` and `deps-dev` are intended for `chore` changes that update dependencies.
 
 #### `description` rules
 
@@ -70,7 +77,7 @@ Use this guide when preparing any PR in this repository.
 
 - feat(bananass): add `run` subcommand behavior
 - fix(create-bananass): handle missing `--name` argument
-- docs(*): update `CONTRIBUTING.md`
+- docs(*): update `AGENTS.md`
 
 ### 2. PR Description (required)
 
@@ -100,4 +107,4 @@ Include:
 - Include only discoverable, codebase-backed changes.
 - Avoid speculative refactors and broad formatting churn.
 - Call out any assumptions when code context is incomplete.
-- Prefer explicit file references in explanations (for example: `packages/...`, `websites/...`, `CONTRIBUTING.md`).
+- Prefer explicit file references in explanations (for example: `packages/...`, `websites/...`, `.github/workflows/pull-request.yml`).
