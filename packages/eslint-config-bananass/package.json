@@ -83,7 +83,7 @@
   },
   "dependencies": {
     "@eslint/json": "^0.14.0",
-    "@next/eslint-plugin-next": "^16.2.3",
+    "@next/eslint-plugin-next": "^16.2.4",
     "@typescript-eslint/eslint-plugin": "^8.58.0",
     "@typescript-eslint/parser": "^8.58.0",
     "eslint-plugin-import": "^2.32.0",
