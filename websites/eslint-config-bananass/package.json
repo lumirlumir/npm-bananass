@@ -3,8 +3,8 @@
   "name": "websites-eslint-config-bananass",
   "type": "module",
   "scripts": {
-    "build": "npx @eslint/config-inspector build --config ./config.js --outDir ./build",
-    "dev": "npx @eslint/config-inspector --config ./config.js"
+    "build": "eslint-config-inspector build --config ./config.js --outDir ./build",
+    "dev": "eslint-config-inspector --config ./config.js"
   },
   "devDependencies": {
     "@eslint/config-inspector": "^2.0.0",
