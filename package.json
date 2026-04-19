@@ -2,6 +2,7 @@
   "private": true,
   "name": "npm-bananass",
   "version": "0.6.1",
+  "type": "module",
   "packageManager": "npm@11.11.0",
   "engines": {
     "node": "^20.19.0 || ^22.13.0 || >=24.0.0"
@@ -17,7 +18,7 @@
   "scripts": {
     "prepare": "husky",
     "release:publish": "node -e \"require('child_process').execSync('npm publish -w packages ' + (require('./package.json').version.includes('-') ? '--tag next' : ''), { stdio: 'inherit' })\"",
-    "release:version": "node ./scripts/version.mjs",
+    "release:version": "node ./scripts/version.js",
     "coverage": "c8 --reporter=lcov npm run test",
     "test": "npm-run-all -c -l -p --aggregate-output test:**",
     "test:ex:sb-cjs": "npm run test -w examples/solutions-bananass-cjs",

@@ -52,7 +52,7 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "tsc --noEmit && node ../../scripts/cp.mjs ../../LICENSE.md LICENSE.md ../../README.md README.md",
+    "build": "tsc --noEmit && node ../../scripts/cp.js ../../LICENSE.md LICENSE.md ../../README.md README.md",
     "test": "node --test",
     "dev": "node src/cli.js"
   },
