@@ -3,16 +3,16 @@
   "name": "websites-vitepress",
   "type": "module",
   "scripts": {
-    "dev": "npx vitepress --open --host",
-    "build": "npx vitepress build --outDir build",
-    "start": "npx vitepress preview"
+    "dev": "vitepress --open --host",
+    "build": "vitepress build --outDir build",
+    "start": "vitepress preview"
   },
   "devDependencies": {
-    "@codecov/vite-plugin": "^1.9.1",
+    "@codecov/vite-plugin": "^2.0.1",
     "bananass": "^0.6.1",
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-mathjax3": "^4.3.2",
     "vitepress": "^2.0.0-alpha.15",
-    "vitepress-plugin-group-icons": "^1.7.3"
+    "vitepress-plugin-group-icons": "^1.7.5"
   }
 }

@@ -81,7 +81,7 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "npx tsc && node ../../scripts/cp.mjs ../../LICENSE.md LICENSE.md ../../README.md README.md",
+    "build": "tsc && node ../../scripts/cp.js ../../LICENSE.md LICENSE.md ../../README.md README.md",
     "test": "npm run test:types && npm run test:unit",
     "test:types": "tsc -p ./tsconfig.test.json",
     "test:unit": "node --experimental-test-module-mocks --test",
@@ -100,7 +100,7 @@
     "envinfo": "^7.21.0",
     "jiti": "^2.6.1",
     "open": "^10.2.0",
-    "webpack": "^5.106.1",
+    "webpack": "^5.106.2",
     "zod": "^4.3.6"
   },
   "devDependencies": {

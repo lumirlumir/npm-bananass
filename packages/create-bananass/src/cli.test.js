@@ -12,13 +12,13 @@ import { stripVTControlCharacters } from 'node:util';
 import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { existsSync, readFileSync, rmSync } from 'node:fs';
 
 // --------------------------------------------------------------------------------
 // Helper
 // --------------------------------------------------------------------------------
 
-const outDir = mkdtempSync(join(tmpdir(), 'create-bananass-'));
+const outDir = join(tmpdir(), 'create-bananass');
 const successMessage = /Successfully created a new Bananass framework project!/;
 
 /**

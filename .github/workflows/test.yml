@@ -15,11 +15,22 @@ concurrency:
   cancel-in-progress: ${{ !contains(github.ref, 'main') }}
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  cross-platform:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner-image:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+        node-version:
+          - 24.x
+          - 22.x
+          - 22.13.0
+          - 20.x
+          - 20.19.0
 
-    env:
-      CODECOV: true
+    runs-on: ${{ matrix.runner-image }}
 
     steps:
       - name: Set up checkout
@@ -28,7 +39,7 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@v6
         with:
-          node-version-file: .nvmrc
+          node-version: ${{ matrix.node-version }}
           cache: npm # https://github.com/actions/setup-node#caching-global-packages-data
 
       - name: Install dependencies
@@ -37,8 +48,5 @@ jobs:
       - name: Build
         run: npm run build --if-present
 
-      - name: Test and test coverage
-        run: npm run coverage
-
-      - name: Upload results to codecov
-        uses: codecov/codecov-action@v6
+      - name: Test
+        run: npm run test
