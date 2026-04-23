@@ -25,6 +25,7 @@ import {
   debug as debugOpt,
   quiet as quietOpt,
   clean as cleanOpt,
+  minimize as minimizeOpt,
   templateType as templateTypeOpt,
 } from '../core/cli/options.js';
 
@@ -58,9 +59,11 @@ export default function build(program) {
     .option(...quietOpt)
     .optionsGroup(buildGroup)
     .option(...cleanOpt)
+    .option(...minimizeOpt)
     .option(...templateTypeOpt)
     .action(async (problems, options, command) => {
-      const { cwd, entryDir, outDir, debug, quiet, clean, templateType } = options;
+      const { cwd, entryDir, outDir, debug, quiet, clean, minimize, templateType } =
+        options;
 
       const configObject = await configLoader({
         cliConfigObject: {
@@ -73,6 +76,7 @@ export default function build(program) {
           },
           build: {
             clean,
+            minimize,
             templateType,
           },
         },
