@@ -62,7 +62,7 @@ Use this guide when preparing any PR in this repository.
 #### `scope` rules
 
 - The workflow extracts allowed scopes from every `package.json` `name` field in the repo.
-- Use an existing workspace name such as `bananass`, `create-bananass`, `tests`, or `vitepress` when a single workspace scope fits.
+- Use an existing workspace name such as `bananass`, `create-bananass`, `tests`, or `websites-vitepress` when a single workspace scope fits.
 - Use `*` for repo-wide/docs/tooling changes when a single workspace scope is not appropriate.
 - Additional allowed scopes are `deps`, `deps-dev`, `release`, `sync-server`, and `sync-client`.
 - `deps` and `deps-dev` are intended for `chore` changes that update dependencies.
