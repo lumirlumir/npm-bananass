@@ -6,14 +6,14 @@ Hello! Thank you for your interest in contributing.
 
 The Bananass Framework welcomes community contributions in various areas, including documentation, website development, code improvements, and solving or explaining Codeforces or Baekjoon problems using the framework. You can contribute to the [Bananass Framework repository](https://github.com/lumirlumir/npm-bananass) in the following ways:
 
-1. Documentation Contributions: Solving and explaining Codeforces or Baekjoon problems with the Bananass Framework, Bananass Framework website docs, `README.md`, `AGENTS.md`, etc.
+1. Documentation Contributions: Solving and explaining Codeforces or Baekjoon problems with the Bananass Framework, Bananass Framework website docs, `README.md`, etc.
 1. Website Contributions: Website design, bug fixes, feature suggestions, etc.  
 1. Code Contributions: Adding tests for untested parts of the codebase, bug fixes, feature suggestions, etc.
 
 The basic rules that apply across the entire project are as follows.
 
 - All code and inline comments, except for markdown documents (`**/*.md`), must be written in English.  
-- All markdown documents, except for `LICENSE.md`, `CHANGELOG.md`, and the AI-agent-specific `AGENTS.md`, must exist in two versions: Korean (`.md`) and English (`.en.md`).
+- All markdown documents, except for `LICENSE.md` and `CHANGELOG.md`, must exist in two versions: Korean (`.md`) and English (`.en.md`).
 
 ## Documentation Contributions
 
@@ -29,7 +29,7 @@ The Bananass Framework uses a **monorepo** structure with [`npm workspaces`](htt
 
 - Core package `bananass` is in `packages/bananass`.  
 - Other packages are under `packages`.  
-- Community docs like `README.md`, `CONTRIBUTING.md`, and `AGENTS.md` are at the project root.  
+- Community docs like `README.md` and `CONTRIBUTING.md` are at the project root.  
 - Website content lives in `websites/vitepress/ko` and `websites/vitepress/en`.
 
 ## Commit Messages
