@@ -247,10 +247,10 @@ $ npx b build 1000
  * This file was generated using the Baekjoon Framework for JavaScript 'Bananass🍌'
  *
  * Bananass Homepage: https://bananass.lumir.page
- * Bananass GitHub Repository: https://github.com/lumirlumir/npm-bananass
+ * Bananass GitHub Repository: https://github.com/lumir/npm-bananass
  *
  * Released under the MIT License
- * Copyright © 2024-2025 루밀LuMir(lumirlumir)
+ * Copyright © 2024-2025 lumir
  *
  * DO NOT DELETE THIS COMMENT
  */

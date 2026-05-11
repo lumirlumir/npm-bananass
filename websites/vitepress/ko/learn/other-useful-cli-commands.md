@@ -59,7 +59,7 @@ CLI 명령어를 입력할 때마다 자주 사용하는 옵션을 매번 입력
 
 > 별칭: `bugs`, `issue`, `issues`
 
-브라우저에서 [깃허브 이슈<sup>GitHub Issues</sup>](https://github.com/lumirlumir/npm-bananass/issues) 웹 페이지를 열어줍니다.
+브라우저에서 [깃허브 이슈<sup>GitHub Issues</sup>](https://github.com/lumir/npm-bananass/issues) 웹 페이지를 열어줍니다.
 
 바나나 프레임워크와 관련된 버그를 제보하거나, 기능 개선 요청 등의 피드백을 남기고 싶을 때 유용하게 사용할 수 있습니다!
 
@@ -120,7 +120,7 @@ npx bananass build [options] <problems...>
 
 > 별칭: `discussions`, `discuss`, `disc`, `question`, `questions`
 
-브라우저에서 [깃허브 디스커션<sup>GitHub Discussions</sup>](https://github.com/lumirlumir/npm-bananass/discussions) 웹 페이지를 열어줍니다.
+브라우저에서 [깃허브 디스커션<sup>GitHub Discussions</sup>](https://github.com/lumir/npm-bananass/discussions) 웹 페이지를 열어줍니다.
 
 바나나 프레임워크와 관련된 질문, 답변, 토론 등을 남기고 싶을 때 유용하게 사용할 수 있습니다!
 
@@ -213,7 +213,7 @@ npx bananass open [options] <problems...>
 
 > 별칭: 없음
 
-브라우저에서 [바나나 프레임워크 깃허브 리포지토리](https://github.com/lumirlumir/npm-bananass) 웹 페이지를 열어줍니다.
+브라우저에서 [바나나 프레임워크 깃허브 리포지토리](https://github.com/lumir/npm-bananass) 웹 페이지를 열어줍니다.
 
 ### 사용 예시 {#repo-example}
 

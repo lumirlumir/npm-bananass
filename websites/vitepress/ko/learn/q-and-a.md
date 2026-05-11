@@ -12,7 +12,7 @@
 
 ## Q. `Error: spawn xdg-mime ENOENT` 혹은 `Error: spawn xdg-open ENOENT` 오류가 발생하는 경우에는 어떻게 해야하나요? {#error-spawn-xdg-mime-or-xdg-open-enoent}
 
-> 관련 이슈: [#378](https://github.com/lumirlumir/npm-bananass/discussions/378)
+> 관련 이슈: [#378](https://github.com/lumir/npm-bananass/discussions/378)
 
 이는 웹 브라우저를 실행하는 과정 중 리눅스 (또는 WSL) 환경에서 `xdg-mime`과 `xdg-open` 명령어가 존재하지 않아 발생하는 오류입니다.
 
@@ -20,7 +20,7 @@
 
 ## Q. WSL 환경에서 파이어폭스 등 설치되어 있지 않은 브라우저로 시도하거나, `Error: Wslview is not supported as a default browser` 같은 오류가 발생할 경우에는 어떻게 해야하나요? {#error-wslview-is-not-supported-as-a-default-browser}
 
-> 관련 이슈: [#378](https://github.com/lumirlumir/npm-bananass/discussions/378), [sindresorhus/open#357](https://github.com/sindresorhus/open/issues/357)
+> 관련 이슈: [#378](https://github.com/lumir/npm-bananass/discussions/378), [sindresorhus/open#357](https://github.com/sindresorhus/open/issues/357)
 
 이는 바나나 프레임워크 내부에서 사용하는 [`open`](https://github.com/sindresorhus/open) 패키지가 웹 브라우저를 실행하는 과정 중, WSL 환경에서 정확한 브라우저를 찾지 못해서 발생하는 오류입니다! 사용하시는 브라우저를 아래와 같이 명령어에 정확하게 입력해주세요. (이는, [`bug`](other-useful-cli-commands.md#bug), [`discussion`](other-useful-cli-commands.md#discussion), [`home`](other-useful-cli-commands.md#home), [`open`](other-useful-cli-commands.md#open) 등 브라우저를 여는 모든 CLI 명령어에 적용됩니다!)
 

@@ -1,8 +1,8 @@
 # Bananass
 
-[![ci](https://img.shields.io/github/actions/workflow/status/lumirlumir/npm-bananass/ci.yml?label=ci&color=fff478&labelColor=333333&logo=github)](https://github.com/lumirlumir/npm-bananass/actions/workflows/ci.yml)
-[![test](https://img.shields.io/github/actions/workflow/status/lumirlumir/npm-bananass/test.yml?label=test&color=fff478&labelColor=333333&logo=github)](https://github.com/lumirlumir/npm-bananass/actions/workflows/test.yml)
-[![Codecov](https://img.shields.io/codecov/c/gh/lumirlumir/npm-bananass?token=2zUCHlMFT3&label=Codecov&color=fff478&labelColor=333333&logo=codecov)](https://codecov.io/gh/lumirlumir/npm-bananass)
+[![ci](https://img.shields.io/github/actions/workflow/status/lumir/npm-bananass/ci.yml?label=ci&color=fff478&labelColor=333333&logo=github)](https://github.com/lumir/npm-bananass/actions/workflows/ci.yml)
+[![test](https://img.shields.io/github/actions/workflow/status/lumir/npm-bananass/test.yml?label=test&color=fff478&labelColor=333333&logo=github)](https://github.com/lumir/npm-bananass/actions/workflows/test.yml)
+[![Codecov](https://img.shields.io/codecov/c/gh/lumir/npm-bananass?token=2zUCHlMFT3&label=Codecov&color=fff478&labelColor=333333&logo=codecov)](https://codecov.io/gh/lumir/npm-bananass)
 ![Node Current](https://img.shields.io/node/v/bananass?label=Node&color=fff478&labelColor=333333&logo=node.js)
 
 [![npm package bananass latest version](https://img.shields.io/npm/v/bananass?label=bananass@latest&color=fff478&labelColor=333333&logo=npm)](https://www.npmjs.com/package/bananass)
@@ -136,7 +136,7 @@ We welcome issues, pull requests, and discussions on various topics, including b
 
 However, to maintain a proper community environment and create better open-source software, please make sure to review the following before contributing to the Bananass Framework:
 
-- [Code of Conduct](https://github.com/lumirlumir/.github/blob/main/CODE_OF_CONDUCT.md#contributor-covenant-code-of-conduct)
+- [Code of Conduct](https://github.com/lumir/.github/blob/main/CODE_OF_CONDUCT.md#contributor-covenant-code-of-conduct)
 - [Contributing](CONTRIBUTING.en.md)
 
 ## Versioning
@@ -145,7 +145,7 @@ The Bananass Framework follows [Semantic Versioning](https://semver.org/). All r
 
 ## Code of Conduct
 
-Before contributing to the community, please refer to the [Code of Conduct](https://github.com/lumirlumir/.github/blob/main/CODE_OF_CONDUCT.md#contributor-covenant-code-of-conduct).
+Before contributing to the community, please refer to the [Code of Conduct](https://github.com/lumir/.github/blob/main/CODE_OF_CONDUCT.md#contributor-covenant-code-of-conduct).
 
 ## Change Log
 
@@ -153,7 +153,7 @@ For detailed information on changes, please refer to the [Change Log](CHANGELOG.
 
 ## Security
 
-Have you discovered a security issue? Please refer to the [Security](https://github.com/lumirlumir/.github/blob/main/SECURITY.md#security).
+Have you discovered a security issue? Please refer to the [Security](https://github.com/lumir/.github/blob/main/SECURITY.md#security).
 
 ## License
 

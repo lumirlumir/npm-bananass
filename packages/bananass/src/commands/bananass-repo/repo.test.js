@@ -79,7 +79,7 @@ describe('repo', () => {
       await repo();
 
       strictEqual(openDefaultExportMock.mock.callCount(), 1); // Should open the browser.
-      match(openDefaultExportMock.mock.calls[0].arguments[0], /lumirlumir\/npm-bananass/); // Should open the github repository.
+      match(openDefaultExportMock.mock.calls[0].arguments[0], /lumir\/npm-bananass/); // Should open the github repository.
     });
 
     it('should throw an error when browser opening fails for some reason', async () => {

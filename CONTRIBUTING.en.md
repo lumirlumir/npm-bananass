@@ -1,10 +1,10 @@
 # Contributing
 
-<kbd>[한국어](https://github.com/lumirlumir/npm-bananass/blob/main/CONTRIBUTING.md)</kbd> | <kbd>English</kbd>
+<kbd>[한국어](https://github.com/lumir/npm-bananass/blob/main/CONTRIBUTING.md)</kbd> | <kbd>English</kbd>
 
 Hello! Thank you for your interest in contributing.
 
-The Bananass Framework welcomes community contributions in various areas, including documentation, website development, code improvements, and solving or explaining Codeforces or Baekjoon problems using the framework. You can contribute to the [Bananass Framework repository](https://github.com/lumirlumir/npm-bananass) in the following ways:
+The Bananass Framework welcomes community contributions in various areas, including documentation, website development, code improvements, and solving or explaining Codeforces or Baekjoon problems using the framework. You can contribute to the [Bananass Framework repository](https://github.com/lumir/npm-bananass) in the following ways:
 
 1. Documentation Contributions: Solving and explaining Codeforces or Baekjoon problems with the Bananass Framework, Bananass Framework website docs, `README.md`, etc.
 1. Website Contributions: Website design, bug fixes, feature suggestions, etc.  
@@ -17,7 +17,7 @@ The basic rules that apply across the entire project are as follows.
 
 ## Documentation Contributions
 
-If you find a typo in the Bananass Framework documentation, please submit a [Pull Request](https://github.com/lumirlumir/npm-bananass/pulls) with your corrections. If you're unable to make the fix yourself, opening an [Issue](https://github.com/lumirlumir/npm-bananass/issues) to report the typo is also very helpful.
+If you find a typo in the Bananass Framework documentation, please submit a [Pull Request](https://github.com/lumir/npm-bananass/pulls) with your corrections. If you're unable to make the fix yourself, opening an [Issue](https://github.com/lumir/npm-bananass/issues) to report the typo is also very helpful.
 
 If you feel the documentation is hard to understand, clarify or improve it. your edits can help many users who share the same difficulties.
 
@@ -43,7 +43,7 @@ All pull request titles follow the [Conventional Commits](https://www.convention
 1. Clone it locally (requires [Git](https://git-scm.com/downloads)):
 
     ```sh
-    git clone https://github.com/lumirlumir/npm-bananass.git
+    git clone https://github.com/lumir/npm-bananass.git
     ```
 
 1. Change into the `npm-bananass` directory:

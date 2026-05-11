@@ -47,7 +47,7 @@
  * //
  * //     footer: {
  * //       message: 'MIT 라이선스에 따라 배포합니다.',
- * //       copyright: `저작권 © 2024-${new Date().getFullYear()} <a href="https://github.com/lumirlumir">루밀LuMir(lumirlumir)</a>`,
+ * //       copyright: `저작권 © 2024-${new Date().getFullYear()} <a href="https://github.com/lumir">lumir</a>`,
  * //     },
  * //
  * //     lastUpdated: {
@@ -120,7 +120,7 @@ export default function ko({
 
       footer: {
         message: 'MIT 라이선스에 따라 배포합니다.',
-        copyright: `저작권 © 2024-${new Date().getFullYear()} <a href="https://github.com/lumirlumir">루밀LuMir(lumirlumir)</a>`,
+        copyright: `저작권 © 2024-${new Date().getFullYear()} <a href="https://github.com/lumir">lumir</a>`,
       },
 
       lastUpdated: {

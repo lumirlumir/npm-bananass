@@ -1,3 +1,3 @@
 # Change Log
 
-See [Releases🎉](https://github.com/lumirlumir/npm-bananass/releases) and [Tags🏷️](https://github.com/lumirlumir/npm-bananass/tags) in GitHub.
+See [Releases🎉](https://github.com/lumir/npm-bananass/releases) and [Tags🏷️](https://github.com/lumir/npm-bananass/tags) in GitHub.

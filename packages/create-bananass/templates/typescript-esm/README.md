@@ -2,7 +2,7 @@
 
 Welcome to the Bananass Framework!
 
-This project was bootstrapped using [`create-bananass`](https://www.github.com/lumirlumir/npm-bananass).
+This project was bootstrapped using [`create-bananass`](https://www.github.com/lumir/npm-bananass).
 
 ## Get Started
 

@@ -317,7 +317,7 @@ export default defineConfig({
       {
         icon: 'npm',
         link: `${URL_NPM}/~lumir`,
-        ariaLabel: '루밀LuMir의 npm 프로필 링크',
+        ariaLabel: 'lumir의 npm 프로필 링크',
       },
       {
         icon: 'github',
