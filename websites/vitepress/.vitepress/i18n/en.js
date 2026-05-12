@@ -31,7 +31,7 @@
  * //
  * //     footer: {
  * //       message: 'Released under the MIT License.',
- * //       copyright: `Copyright © 2024-${new Date().getFullYear()} <a href="https://github.com/lumirlumir">루밀LuMir(lumirlumir)</a>`,
+ * //       copyright: `Copyright © 2024-${new Date().getFullYear()} <a href="https://github.com/lumirlumir">lumir(lumirlumir)</a>`,
  * //     },
  * //
  * //     outline: {
@@ -53,7 +53,7 @@ export default function en({ themeConfigEditLinkPattern = '' } = {}) {
 
       footer: {
         message: 'Released under the MIT License.',
-        copyright: `Copyright © 2024-${new Date().getFullYear()} <a href="https://github.com/lumirlumir">루밀LuMir(lumirlumir)</a>`,
+        copyright: `Copyright © 2024-${new Date().getFullYear()} <a href="https://github.com/lumirlumir">lumir(lumirlumir)</a>`,
       },
 
       outline: {

@@ -39,7 +39,7 @@ export const PKG_NAME = /** @type {'bananass'} */ (pkg.name);
 /** @satisfies {string} */
 export const PKG_VERSION = pkg.version;
 /** @satisfies {string} */
-export const PKG_AUTHOR = '루밀LuMir';
+export const PKG_AUTHOR = 'lumir';
 
 /** @satisfies {string} */
 export const URL_HOMEPAGE = pkg.homepage;
