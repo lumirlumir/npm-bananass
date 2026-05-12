@@ -91,7 +91,7 @@
     "@babel/core": "^7.29.0",
     "@babel/plugin-transform-modules-commonjs": "^7.28.6",
     "@babel/plugin-transform-typescript": "^7.28.6",
-    "@babel/preset-env": "^7.29.3",
+    "@babel/preset-env": "^7.29.5",
     "babel-loader": "^10.1.1",
     "bananass-utils-console": "^0.6.1",
     "commander": "^14.0.3",
