@@ -250,7 +250,7 @@ $ npx b build 1000
  * Bananass GitHub Repository: https://github.com/lumirlumir/npm-bananass
  *
  * Released under the MIT License
- * Copyright © 2024-2025 lumir(lumirlumir)
+ * Copyright © 2024-2026 lumir(lumirlumir)
  *
  * DO NOT DELETE THIS COMMENT
  */
