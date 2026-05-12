@@ -1,8 +1,8 @@
 # 바나나<sup>Bananass</sup>
 
-[![ci](https://img.shields.io/github/actions/workflow/status/lumir/npm-bananass/ci.yml?label=ci&color=fff478&labelColor=333333&logo=github)](https://github.com/lumir/npm-bananass/actions/workflows/ci.yml)
-[![test](https://img.shields.io/github/actions/workflow/status/lumir/npm-bananass/test.yml?label=test&color=fff478&labelColor=333333&logo=github)](https://github.com/lumir/npm-bananass/actions/workflows/test.yml)
-[![Codecov](https://img.shields.io/codecov/c/gh/lumir/npm-bananass?token=2zUCHlMFT3&label=Codecov&color=fff478&labelColor=333333&logo=codecov)](https://codecov.io/gh/lumir/npm-bananass)
+[![ci](https://img.shields.io/github/actions/workflow/status/lumirlumir/npm-bananass/ci.yml?label=ci&color=fff478&labelColor=333333&logo=github)](https://github.com/lumirlumir/npm-bananass/actions/workflows/ci.yml)
+[![test](https://img.shields.io/github/actions/workflow/status/lumirlumir/npm-bananass/test.yml?label=test&color=fff478&labelColor=333333&logo=github)](https://github.com/lumirlumir/npm-bananass/actions/workflows/test.yml)
+[![Codecov](https://img.shields.io/codecov/c/gh/lumirlumir/npm-bananass?token=2zUCHlMFT3&label=Codecov&color=fff478&labelColor=333333&logo=codecov)](https://codecov.io/gh/lumirlumir/npm-bananass)
 ![Node Current](https://img.shields.io/node/v/bananass?label=Node&color=fff478&labelColor=333333&logo=node.js)
 
 [![npm package bananass latest version](https://img.shields.io/npm/v/bananass?label=bananass@latest&color=fff478&labelColor=333333&logo=npm)](https://www.npmjs.com/package/bananass)
@@ -136,7 +136,7 @@ npm create bananass@latest
 
 다만, 올바른 커뮤니티 환경을 준수하고 더 나은 오픈 소스를 만들기 위해, 바나나 프레임워크에 기여하기 전 반드시 아래 내용들을 확인해주세요.
 
-- [기여자 행동 강령 규약](https://github.com/lumir/.github/blob/main/CODE_OF_CONDUCT_KO.md#%EA%B8%B0%EC%97%AC%EC%9E%90-%ED%96%89%EB%8F%99-%EA%B0%95%EB%A0%B9-%EA%B7%9C%EC%95%BD)
+- [기여자 행동 강령 규약](https://github.com/lumirlumir/.github/blob/main/CODE_OF_CONDUCT_KO.md#%EA%B8%B0%EC%97%AC%EC%9E%90-%ED%96%89%EB%8F%99-%EA%B0%95%EB%A0%B9-%EA%B7%9C%EC%95%BD)
 - [기여하기](CONTRIBUTING.md)
 
 ## 버전 정책<sup>Versioning</sup>
@@ -145,7 +145,7 @@ npm create bananass@latest
 
 ## 기여자 행동 강령 규약<sup>Code of Conduct</sup>
 
-커뮤니티에 기여하기 전, [기여자 행동 강령 규약](https://github.com/lumir/.github/blob/main/CODE_OF_CONDUCT_KO.md#%EA%B8%B0%EC%97%AC%EC%9E%90-%ED%96%89%EB%8F%99-%EA%B0%95%EB%A0%B9-%EA%B7%9C%EC%95%BD)을 참고해주세요.
+커뮤니티에 기여하기 전, [기여자 행동 강령 규약](https://github.com/lumirlumir/.github/blob/main/CODE_OF_CONDUCT_KO.md#%EA%B8%B0%EC%97%AC%EC%9E%90-%ED%96%89%EB%8F%99-%EA%B0%95%EB%A0%B9-%EA%B7%9C%EC%95%BD)을 참고해주세요.
 
 ## 변경 사항<sup>Change Log</sup>
 
@@ -153,7 +153,7 @@ npm create bananass@latest
 
 ## 보안<sup>Security</sup>
 
-보안 문제를 발견하셨나요? [보안](https://github.com/lumir/.github/blob/main/SECURITY_KO.md#%EB%B3%B4%EC%95%88) 문서를 참고해주세요.
+보안 문제를 발견하셨나요? [보안](https://github.com/lumirlumir/.github/blob/main/SECURITY_KO.md#%EB%B3%B4%EC%95%88) 문서를 참고해주세요.
 
 ## 라이선스<sup>License</sup>
 

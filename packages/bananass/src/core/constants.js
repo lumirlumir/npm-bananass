@@ -46,7 +46,7 @@ export const URL_HOMEPAGE = pkg.homepage;
 /** @satisfies {string} */
 export const URL_NPM = 'https://www.npmjs.com';
 /** @satisfies {string} */
-export const URL_GITHUB_REPO = 'https://github.com/lumir/npm-bananass';
+export const URL_GITHUB_REPO = 'https://github.com/lumirlumir/npm-bananass';
 /** @satisfies {string} */
 export const URL_GITHUB_ISSUES = `${URL_GITHUB_REPO}/issues`;
 /** @satisfies {string} */
@@ -77,7 +77,7 @@ export const WEBPACK_BANNER = `
  * Bananass GitHub Repository: ${URL_GITHUB_REPO}
  *
  * Released under the MIT License
- * Copyright © 2024-${new Date().getFullYear()} ${PKG_AUTHOR}
+ * Copyright © 2024-${new Date().getFullYear()} ${PKG_AUTHOR}(lumirlumir)
  *
  * DO NOT DELETE THIS COMMENT
  */

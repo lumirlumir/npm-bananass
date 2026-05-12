@@ -1,10 +1,10 @@
 # 기여하기
 
-<kbd>한국어</kbd> | <kbd>[English](https://github.com/lumir/npm-bananass/blob/main/CONTRIBUTING.en.md)</kbd>
+<kbd>한국어</kbd> | <kbd>[English](https://github.com/lumirlumir/npm-bananass/blob/main/CONTRIBUTING.en.md)</kbd>
 
 안녕하세요! 기여에 관심을 가져주셔서 감사합니다.
 
-바나나 프레임워크는 문서, 웹사이트, 코드 개발 뿐만 아니라, 바나나 프레임워크를 통한 백준, 코드포스 문제 풀이 및 해설 등 다양한 방면에서 커뮤니티의 기여를 받고 있습니다. [바나나 프레임워크 리포지토리](https://github.com/lumir/npm-bananass)에 다음과 같은 형태로 기여하실 수 있습니다.
+바나나 프레임워크는 문서, 웹사이트, 코드 개발 뿐만 아니라, 바나나 프레임워크를 통한 백준, 코드포스 문제 풀이 및 해설 등 다양한 방면에서 커뮤니티의 기여를 받고 있습니다. [바나나 프레임워크 리포지토리](https://github.com/lumirlumir/npm-bananass)에 다음과 같은 형태로 기여하실 수 있습니다.
 
 1. 문서 기여: '바나나 프레임워크를 이용한 백준, 코드포스 문제 풀이 및 해설', '바나나 프레임워크 웹사이트 문서', '`README.md`' 등.
 1. 웹사이트 기여: '웹사이트 디자인', '버그 수정', '기능 제안' 등.
@@ -17,7 +17,7 @@
 
 ## 문서 기여
 
-바나나 프레임워크의 문서를 읽다 오탈자를 발견하셨다면, 수정 후 [끌어오기 요청<sup>Pull Request</sup>](https://github.com/lumir/npm-bananass/pulls)을 보내주세요. 직접 수정이 어려우시다면, [이슈<sup>Issue</sup>](https://github.com/lumir/npm-bananass/issues)를 작성하여 오탈자를 알려주시는 것만으로도 큰 도움이 됩니다.
+바나나 프레임워크의 문서를 읽다 오탈자를 발견하셨다면, 수정 후 [끌어오기 요청<sup>Pull Request</sup>](https://github.com/lumirlumir/npm-bananass/pulls)을 보내주세요. 직접 수정이 어려우시다면, [이슈<sup>Issue</sup>](https://github.com/lumirlumir/npm-bananass/issues)를 작성하여 오탈자를 알려주시는 것만으로도 큰 도움이 됩니다.
 
 바나나 프레임워크의 문서가 이해하기 어렵다고 느껴지신다면, 내용을 보다 명확하게 수정하거나 보완해주세요. 이는 많은 사용자들이 공통으로 겪는 불편함일 수 있습니다.
 
@@ -43,7 +43,7 @@
 1. 로컬 디렉터리로 클론<sup>Clone</sup>합니다. ([Git](https://git-scm.com/downloads)이 필요합니다.)
 
     ```sh
-    git clone https://github.com/lumir/npm-bananass.git
+    git clone https://github.com/lumirlumir/npm-bananass.git
     ```
 
 1. `npm-bananass` 디렉터리로 이동합니다.

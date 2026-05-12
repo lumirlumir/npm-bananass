@@ -1,6 +1,6 @@
 # `eslint-config-bananass` {#eslint-config-bananass}
 
-[![GitHub Repository](https://img.shields.io/badge/Repository-fff478?label=GitHub&color=fff478&labelColor=333333&logo=github)](https://github.com/lumir/npm-bananass/tree/main/packages/eslint-config-bananass)&nbsp;
+[![GitHub Repository](https://img.shields.io/badge/Repository-fff478?label=GitHub&color=fff478&labelColor=333333&logo=github)](https://github.com/lumirlumir/npm-bananass/tree/main/packages/eslint-config-bananass)&nbsp;
 ![Node Current](https://img.shields.io/node/v/eslint-config-bananass?label=Node&color=fff478&labelColor=333333&logo=node.js)  
 [![npm package eslint-config-bananass latest version](https://img.shields.io/npm/v/eslint-config-bananass?label=eslint-config-bananass@latest&color=fff478&labelColor=333333&logo=npm)](https://www.npmjs.com/package/eslint-config-bananass)&nbsp;
 [![npm package eslint-config-bananass next version](https://img.shields.io/npm/v/eslint-config-bananass/next?label=eslint-config-bananass@next&color=fff478&labelColor=333333&logo=npm)](https://www.npmjs.com/package/eslint-config-bananass)
@@ -61,13 +61,13 @@ import pkg from 'eslint-config-bananass/package.json' with { type: 'json' };
 
 > 타입: `object`
 
-정확한 구성은 [깃허브 리포지토리](https://github.com/lumir/npm-bananass/blob/main/packages/eslint-config-bananass/src/index.js)를 참고해주세요.
+정확한 구성은 [깃허브 리포지토리](https://github.com/lumirlumir/npm-bananass/blob/main/packages/eslint-config-bananass/src/index.js)를 참고해주세요.
 
 ### `pkg` {#pkg}
 
 > 타입: `object`
 
-정확한 구성은 [깃허브 리포지토리](https://github.com/lumir/npm-bananass/blob/main/packages/eslint-config-bananass/package.json)를 참고해주세요.
+정확한 구성은 [깃허브 리포지토리](https://github.com/lumirlumir/npm-bananass/blob/main/packages/eslint-config-bananass/package.json)를 참고해주세요.
 
 ## ESLint Config 설정 방법 {#eslint-config-setting}
 

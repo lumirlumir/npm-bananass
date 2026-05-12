@@ -33,7 +33,7 @@
 
 새로운 표준으로 도입된 기능들은 사용자에게 더 나은 개발 경험<sup>DX</sup>과 편리함을 제공합니다. 그렇다면, 문제 풀이 플랫폼들의 Node.js 버전 제약으로 인해 최신 표준을 사용하지 못한 채, 옛 표준에만 얽매여 문제를 풀어야 할까요?
 
-바나나 프레임워크는 이 문제에 대한 해결책을 제시합니다! 바나나 프레임워크는 내부적으로 [바벨<sup>Babel</sup>](https://babeljs.io/)의 [`@babel/preset-env`](https://babeljs.io/docs/babel-preset-env) 및 직접 정의한 [Custom Babel Plugin](https://github.com/lumir/npm-bananass/tree/main/packages/bananass/src/babel-plugins)들을 통한 트랜스파일링<sup>Transpiling</sup>을 통해, 새롭게 표준으로 추가된 최신 사양의 문법들을 사용할 수 있게 해줍니다.
+바나나 프레임워크는 이 문제에 대한 해결책을 제시합니다! 바나나 프레임워크는 내부적으로 [바벨<sup>Babel</sup>](https://babeljs.io/)의 [`@babel/preset-env`](https://babeljs.io/docs/babel-preset-env) 및 직접 정의한 [Custom Babel Plugin](https://github.com/lumirlumir/npm-bananass/tree/main/packages/bananass/src/babel-plugins)들을 통한 트랜스파일링<sup>Transpiling</sup>을 통해, 새롭게 표준으로 추가된 최신 사양의 문법들을 사용할 수 있게 해줍니다.
 
 ::: warning 주의하세요!
 
@@ -85,9 +85,9 @@
 
 바나나 프레임워크를 이용한 문제 풀이를 확인하고 싶으신가요? [문제 풀이 해답](../solutions/index.md)을 통해 다른 사용자들이 어떻게 문제 풀이를 진행했나 확인해보세요.
 
-바나나 프레임워크를 사용하면서 질문이 있으신가요? [토론<sup>Discussion</sup>](https://github.com/lumir/npm-bananass/discussions)을 통해 다른 사용자들과 소통하고, 문제를 해결해보세요.
+바나나 프레임워크를 사용하면서 질문이 있으신가요? [토론<sup>Discussion</sup>](https://github.com/lumirlumir/npm-bananass/discussions)을 통해 다른 사용자들과 소통하고, 문제를 해결해보세요.
 
-버그 수정 혹은 기능 제안을 하고 싶으신가요? [이슈<sup>Issue</sup>](https://github.com/lumir/npm-bananass/issues) 및 [끌어오기 요청<sup>Pull Request</sup>](https://github.com/lumir/npm-bananass/pulls)을 통해 더 멋진 바나나 프레임워크를 만들어주세요.
+버그 수정 혹은 기능 제안을 하고 싶으신가요? [이슈<sup>Issue</sup>](https://github.com/lumirlumir/npm-bananass/issues) 및 [끌어오기 요청<sup>Pull Request</sup>](https://github.com/lumirlumir/npm-bananass/pulls)을 통해 더 멋진 바나나 프레임워크를 만들어주세요.
 
 ## ESLint 및 Prettier 자체 지원 {#native-support-for-eslint-and-prettier}
 
