@@ -22,11 +22,11 @@
     "tsc": "tsc"
   },
   "devDependencies": {
-    "@types/node": "^20.19.39",
+    "@types/node": "^20.19.41",
     "bananass": "^0.6.1",
     "eslint": "^9.39.4",
     "eslint-config-bananass": "^0.6.1",
-    "jiti": "^2.6.1",
+    "jiti": "^2.7.0",
     "prettier": "^3.8.3",
     "typescript": "^6.0.3"
   }
