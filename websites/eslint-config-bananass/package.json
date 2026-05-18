@@ -7,7 +7,7 @@
     "dev": "eslint-config-inspector --config ./config.js"
   },
   "devDependencies": {
-    "@eslint/config-inspector": "^2.0.0",
+    "@eslint/config-inspector": "^3.0.2",
     "eslint-config-bananass": "^0.6.1"
   }
 }
