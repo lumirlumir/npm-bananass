@@ -28,6 +28,7 @@ describe('package-json', () => {
     strictEqual(
       new Set([
         npmBananass.engines.node,
+        npmBananass.devEngines.runtime.version,
         bananass.engines.node,
         bananassUtilsConsole.engines.node,
         createBananass.engines.node,
