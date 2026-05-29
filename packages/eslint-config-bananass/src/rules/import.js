@@ -12,7 +12,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { importPluginModule } from '../plugins/index.js';
+import importPluginModule from 'eslint-plugin-import-x';
 
 // --------------------------------------------------------------------------------
 // Typedef
