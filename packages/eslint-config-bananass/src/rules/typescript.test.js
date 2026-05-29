@@ -8,7 +8,7 @@
 
 import { ok, strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
-import { typescriptRules } from './typescript.js';
+import { typescriptPlugin, typescriptRules } from './typescript.js';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -23,6 +23,13 @@ const typescriptKeys = Object.keys(typescriptRules).filter(key => key.includes('
 // --------------------------------------------------------------------------------
 
 describe('typescript', () => {
+  describe('Exports', () => {
+    it('`typescriptPlugin` should be defined', () => {
+      ok(typescriptPlugin);
+      strictEqual(typeof typescriptPlugin, 'object');
+    });
+  });
+
   it('The rules of ESLint and TypeScript must correspond one-to-one in the extension rules', () => {
     for (const eslintKey of eslintKeys) {
       ok(Object.hasOwn(typescriptRules, `${prefix}${eslintKey}`));

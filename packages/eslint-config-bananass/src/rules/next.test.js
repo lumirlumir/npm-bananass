@@ -6,10 +6,10 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { strictEqual } from 'node:assert';
+import { ok, strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
-import { nextRules } from './next.js';
+import { nextPlugin, nextRules } from './next.js';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -22,6 +22,13 @@ const prefix = '@next/next/';
 // --------------------------------------------------------------------------------
 
 describe('next', () => {
+  describe('Exports', () => {
+    it('`nextPlugin` should be defined', () => {
+      ok(nextPlugin);
+      strictEqual(typeof nextPlugin, 'object');
+    });
+  });
+
   describe(`All key values must start with \`${prefix}\`.`, () => {
     it('next.js', () => {
       Object.keys(nextRules).forEach(key => {

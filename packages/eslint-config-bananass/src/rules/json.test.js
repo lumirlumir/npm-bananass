@@ -6,10 +6,10 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { strictEqual } from 'node:assert';
+import { ok, strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
-import { jsonRules } from './json.js';
+import { jsonPlugin, jsonRules } from './json.js';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -22,6 +22,13 @@ const prefix = 'json/';
 // --------------------------------------------------------------------------------
 
 describe('json', () => {
+  describe('Exports', () => {
+    it('`jsonPlugin` should be defined', () => {
+      ok(jsonPlugin);
+      strictEqual(typeof jsonPlugin, 'object');
+    });
+  });
+
   describe(`All key values must start with \`${prefix}\`.`, () => {
     it('json.js', () => {
       Object.keys(jsonRules).forEach(key => {
