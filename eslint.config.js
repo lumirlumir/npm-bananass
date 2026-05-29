@@ -1,8 +1,11 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
-import bananass from 'eslint-config-bananass';
+import js from 'eslint-config-bananass/js';
+import ts from 'eslint-config-bananass/ts';
+import json from 'eslint-config-bananass/json';
+import jsonc from 'eslint-config-bananass/jsonc';
+import json5 from 'eslint-config-bananass/json5';
 import md from 'eslint-markdown';
 
-/** @type {import("eslint").Linter.Config[]} */
 export default defineConfig([
   globalIgnores(
     [
@@ -15,11 +18,11 @@ export default defineConfig([
     'global/ignores',
   ),
 
-  bananass.configs.js,
-  bananass.configs.ts,
-  bananass.configs.json,
-  bananass.configs.jsonc,
-  bananass.configs.json5,
+  js,
+  ts,
+  json,
+  jsonc,
+  json5,
   md.configs.recommended,
   md.configs.stylistic,
 

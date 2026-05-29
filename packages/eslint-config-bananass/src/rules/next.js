@@ -8,11 +8,28 @@
  */
 
 // --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
+import nextPluginModule from '@next/eslint-plugin-next';
+
+// --------------------------------------------------------------------------------
+// Typedef
+// --------------------------------------------------------------------------------
+
+/**
+ * @import { ESLint, Linter } from "eslint";
+ */
+
+// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {import("eslint").Linter.RulesRecord} */
-export default {
+/** @type {{'@next/next': ESLint.Plugin}} */
+export const nextPlugin = { '@next/next': { rules: nextPluginModule.rules } };
+
+/** @type {Linter.RulesRecord} */
+export const nextRules = {
   // warnings
   '@next/next/google-font-display': 'warn',
   '@next/next/google-font-preconnect': 'warn',

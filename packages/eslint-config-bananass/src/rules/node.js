@@ -9,11 +9,28 @@
  */
 
 // --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
+import nodePluginModule from 'eslint-plugin-n';
+
+// --------------------------------------------------------------------------------
+// Typedef
+// --------------------------------------------------------------------------------
+
+/**
+ * @import { ESLint, Linter } from "eslint";
+ */
+
+// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {import("eslint").Linter.RulesRecord} */
-export default {
+/** @type {{'n': ESLint.Plugin}} */
+export const nodePlugin = { n: nodePluginModule };
+
+/** @type {Linter.RulesRecord} */
+export const nodeRules = {
   /**
    * Require `return` statements after callbacks.
    * @see https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/callback-return.md (n)

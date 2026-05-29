@@ -12,24 +12,16 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import parser from '@typescript-eslint/parser';
+
 import { ts } from '../files.js';
-import { globals, parser } from '../language-options.js';
+import { globals } from '../language-options.js';
 import { node } from '../settings.js';
-
-import {
-  importPlugin,
-  nodePlugin,
-  stylisticPlugin,
-  typescriptPlugin,
-} from '../plugins.js';
-
-import {
-  eslintRules,
-  importRules,
-  nodeRules,
-  stylisticRules,
-  typescriptRules,
-} from '../rules/index.js';
+import { eslintRules } from '../rules/eslint.js';
+import { importPlugin, importRules } from '../rules/import.js';
+import { nodePlugin, nodeRules } from '../rules/node.js';
+import { stylisticPlugin, stylisticRules } from '../rules/stylistic.js';
+import { typescriptPlugin, typescriptRules } from '../rules/typescript.js';
 
 // --------------------------------------------------------------------------------
 // Export

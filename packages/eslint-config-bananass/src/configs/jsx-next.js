@@ -12,27 +12,14 @@
 import { js, jsx } from '../files.js';
 import { globals, parserOptions } from '../language-options.js';
 import { node, react } from '../settings.js';
-
-import {
-  importPlugin,
-  nodePlugin,
-  stylisticPlugin,
-  jsxA11yPlugin,
-  reactPlugin,
-  reactHooksPlugin,
-  nextPlugin,
-} from '../plugins.js';
-
-import {
-  eslintRules,
-  importRules,
-  nodeRules,
-  stylisticRules,
-  jsxA11yRules,
-  reactRules,
-  reactHooksRules,
-  nextRules,
-} from '../rules/index.js';
+import { eslintRules } from '../rules/eslint.js';
+import { importPlugin, importRules } from '../rules/import.js';
+import { nodePlugin, nodeRules } from '../rules/node.js';
+import { stylisticPlugin, stylisticRules } from '../rules/stylistic.js';
+import { jsxA11yPlugin, jsxA11yRules } from '../rules/jsx-a11y.js';
+import { reactPlugin, reactRules } from '../rules/react.js';
+import { reactHooksPlugin, reactHooksRules } from '../rules/react-hooks.js';
+import { nextPlugin, nextRules } from '../rules/next.js';
 
 // --------------------------------------------------------------------------------
 // Export

@@ -9,7 +9,7 @@
 import { strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
-import eslint from './eslint.js';
+import { eslintRules } from './eslint.js';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -24,7 +24,7 @@ const prefix = '/';
 describe('eslint', () => {
   describe(`All key values must not include \`${prefix}\`.`, () => {
     it('eslint.js', () => {
-      Object.keys(eslint).forEach(key => {
+      Object.keys(eslintRules).forEach(key => {
         strictEqual(key.includes(prefix), false);
       });
     });
