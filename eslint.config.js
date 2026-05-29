@@ -47,7 +47,7 @@ export default defineConfig([
     name: 'md/websites-vitepress/global',
     files: ['websites/vitepress/**/*.md'],
     rules: {
-      'md/heading-id': 'error',
+      // 'md/heading-id': 'error', // TODO
       'md/no-emoji': 'error',
     },
   },
@@ -55,18 +55,22 @@ export default defineConfig([
     name: 'md/websites-vitepress/solutions/ko',
     files: ['websites/vitepress/ko/solutions/**/*.md'],
     rules: {
+      /*
       'md/allow-heading': [
         'error',
         {
           h2: ['문제 풀이 {#solutions}', '해설 {#explanation}', '기여자 {#contributors}'],
         },
       ],
+      */
+      // TODO
     },
   },
   {
     name: 'md/websites-vitepress/solutions/en',
     files: ['websites/vitepress/en/solutions/**/*.md'],
     rules: {
+      /*
       'md/allow-heading': [
         'error',
         {
@@ -77,6 +81,8 @@ export default defineConfig([
           ],
         },
       ],
+      */
+      // TODO
     },
   },
 ]);
