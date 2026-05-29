@@ -9,7 +9,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { stylistic as stylisticPluginModule } from '../plugins/index.js';
+import { stylisticPluginModule } from '../plugins/index.js';
 
 // --------------------------------------------------------------------------------
 // Typedef
