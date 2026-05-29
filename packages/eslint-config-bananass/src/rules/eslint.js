@@ -108,10 +108,11 @@ export default /** @satisfies {Partial<ESLintRules>} */ ({
 
   /**
    * Disallow constant expressions in conditions.
+   * @description This rule is `'error'` because it is recommended by ESLint.
    * @see https://eslint.org/docs/latest/rules/no-constant-condition (eslint)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/errors.js#L30 (airbnb-base)
    */
-  'no-constant-condition': 'warn',
+  'no-constant-condition': 'error',
 
   /**
    * Disallow returning value from constructor.
@@ -340,11 +341,12 @@ export default /** @satisfies {Partial<ESLintRules>} */ ({
 
   /**
    * Disallow confusing multiline expressions.
+   * @description This rule is enabled because it is recommended by ESLint.
    * @see https://eslint.org/docs/latest/rules/no-unexpected-multiline (eslint)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/errors.js#L127 (airbnb-base)
    * @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js#L14 (prettier)
    */
-  'no-unexpected-multiline': 'off',
+  'no-unexpected-multiline': 'error',
 
   /**
    * Disallow unmodified loop conditions.
@@ -1028,11 +1030,10 @@ export default /** @satisfies {Partial<ESLintRules>} */ ({
 
   /**
    * Disallow octal literals.
-   * @description I've changed the rule to `'warn'` from `'error'`.
    * @see https://eslint.org/docs/latest/rules/no-octal (eslint)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/best-practices.js#L216 (airbnb-base)
    */
-  'no-octal': 'warn',
+  'no-octal': 'error',
 
   /**
    * Disallow octal escape sequences in string literals.
