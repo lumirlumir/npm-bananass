@@ -1,7 +1,12 @@
-// @ts-nocheck -- TODO: Code was simply copied and pasted. Type annotations will be modified later.
-/* eslint-disable -- TODO: Code was simply copied and pasted. Type annotations will be modified later. */
+/**
+ * @fileoverview TODO
+ */
 
-import { getSourceCode } from 'eslint-module-utils/contextCompat';
+// @ts-nocheck -- TODO: Code was simply copied and pasted. Type annotations will be modified later.
+
+// --------------------------------------------------------------------------------
+// Helper
+// --------------------------------------------------------------------------------
 
 function getDeclaredVariables(context, node) {
   const { sourceCode } = context;
@@ -16,6 +21,10 @@ function getImportValue(node) {
     ? node.source.value
     : node.moduleReference.expression.value;
 }
+
+// --------------------------------------------------------------------------------
+// Rule Definition
+// --------------------------------------------------------------------------------
 
 export default {
   meta: {
@@ -45,13 +54,13 @@ export default {
 
     return {
       Program(n) {
-        const body = n.body;
+        const { body } = n;
         if (!body) {
           return;
         }
         const absoluteFirst = context.options[0] === 'absolute-first';
         const message = 'Import in body of module; reorder to top.';
-        const sourceCode = getSourceCode(context);
+        const { sourceCode } = context;
         const originSourceCode = sourceCode.getText();
         let nonImportCount = 0;
         let anyExpressions = false;
@@ -60,7 +69,7 @@ export default {
         const errorInfos = [];
         let shouldSort = true;
         let lastSortNodesIndex = 0;
-        body.forEach(function (node, index) {
+        body.forEach((node, index) => {
           if (!anyExpressions && isPossibleDirective(node)) {
             return;
           }
@@ -89,7 +98,7 @@ export default {
                 if (!shouldSort) {
                   break;
                 }
-                const references = variable.references;
+                const { references = [] } = variable;
                 if (references.length) {
                   for (const reference of references) {
                     if (reference.identifier.range[0] < node.range[1]) {
@@ -99,6 +108,7 @@ export default {
                   }
                 }
               }
+              // eslint-disable-next-line -- TODO
               shouldSort && (lastSortNodesIndex = errorInfos.length);
               errorInfos.push({
                 node,
@@ -114,25 +124,23 @@ export default {
         if (!errorInfos.length) {
           return;
         }
-        errorInfos.forEach(function (errorInfo, index) {
-          const node = errorInfo.node;
+        errorInfos.forEach((errorInfo, index) => {
+          const { node } = errorInfo;
           const infos = {
             node,
             message,
           };
           if (index < lastSortNodesIndex) {
-            infos.fix = function (fixer) {
-              return fixer.insertTextAfter(node, '');
-            };
+            infos.fix = fixer => fixer.insertTextAfter(node, '');
           } else if (index === lastSortNodesIndex) {
             const sortNodes = errorInfos.slice(0, lastSortNodesIndex + 1);
-            infos.fix = function (fixer) {
-              const removeFixers = sortNodes.map(function (_errorInfo) {
-                return fixer.removeRange(_errorInfo.range);
-              });
+            infos.fix = fixer => {
+              const removeFixers = sortNodes.map(_errorInfo =>
+                fixer.removeRange(_errorInfo.range),
+              );
               const range = [0, removeFixers[removeFixers.length - 1].range[1]];
               let insertSourceCode = sortNodes
-                .map(function (_errorInfo) {
+                .map(_errorInfo => {
                   const nodeSourceCode = String.prototype.slice.apply(
                     originSourceCode,
                     _errorInfo.range,
@@ -143,11 +151,12 @@ export default {
                   return nodeSourceCode;
                 })
                 .join('');
+              // eslint-disable-next-line -- TODO
               let insertFixer = null;
               let replaceSourceCode = '';
               if (!lastLegalImp) {
                 insertSourceCode =
-                  insertSourceCode.trim() + insertSourceCode.match(/^(\s+)/)[0];
+                  insertSourceCode.trim() + insertSourceCode.match(/^(?:\s+)/)[0];
               }
               insertFixer = lastLegalImp
                 ? fixer.insertTextAfter(lastLegalImp, insertSourceCode)
