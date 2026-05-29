@@ -1,6 +1,6 @@
 // @ts-nocheck -- TODO: Code was simply copied and pasted. Type annotations will be modified later.
 
-module.exports = {
+export default {
   meta: {
     type: 'suggestion',
     docs: {
