@@ -171,11 +171,10 @@ export default /** @satisfies {Partial<ESLintRules>} */ ({
 
   /**
    * Disallow duplicate module imports.
-   * @description Replaced by [import/no-duplicates](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-duplicates.md). Note that it's `'off'`.
    * @see https://eslint.org/docs/latest/rules/no-duplicate-imports (eslint)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/es6.js#L57 (airbnb-base)
    */
-  'no-duplicate-imports': 'off',
+  'no-duplicate-imports': 'error',
 
   /**
    * Disallow empty character classes in regular expressions.

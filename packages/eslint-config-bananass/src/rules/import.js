@@ -53,7 +53,7 @@ export default {
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L71-L97 (airbnb-base)
    */
   'import/no-extraneous-dependencies': [
-    'error',
+    'off',
     {
       devDependencies: [
         'test/**', // tape, common npm pattern
@@ -99,14 +99,14 @@ export default {
    * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-named-as-default.md (import)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L58 (airbnb-base)
    */
-  'import/no-named-as-default': 'error',
+  'import/no-named-as-default': 'off',
 
   /**
    * Forbid use of exported name as property of default export.
    * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-named-as-default-member.md (import)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L62 (airbnb-base)
    */
-  'import/no-named-as-default-member': 'error',
+  'import/no-named-as-default-member': 'off',
 
   /**
    * Forbid modules without exports, or exports without matching import in another module.
@@ -126,7 +126,7 @@ export default {
    * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-amd.md (import)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L111 (airbnb-base)
    */
-  'import/no-amd': 'error',
+  'import/no-amd': 'off',
 
   /**
    * Forbid CommonJS `require` calls and `module.exports` or `exports.*`.
@@ -277,7 +277,7 @@ export default {
    * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-webpack-loader-syntax.md (import)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L190 (airbnb-base)
    */
-  'import/no-webpack-loader-syntax': 'error',
+  'import/no-webpack-loader-syntax': 'off',
 
   // #endregion Static Analysis
   // ------------------------------------------------------------------------------
@@ -358,10 +358,11 @@ export default {
 
   /**
    * Forbid repeated import of the same module in multiple places.
+   * @description Replaced by [`no-duplicate-imports`](https://eslint.org/docs/latest/rules/no-duplicate-imports). Note that it's `'off'`.
    * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md (import)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L131 (airbnb-base)
    */
-  'import/no-duplicates': 'error',
+  'import/no-duplicates': 'off',
 
   /**
    * Forbid named default exports.
