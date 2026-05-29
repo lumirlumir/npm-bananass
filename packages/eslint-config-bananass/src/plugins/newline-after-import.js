@@ -76,7 +76,7 @@ function isExportNameClass(node) {
   );
 }
 
-module.exports = {
+export default {
   meta: {
     type: 'layout',
     docs: {

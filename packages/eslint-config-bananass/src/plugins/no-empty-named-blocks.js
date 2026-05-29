@@ -19,7 +19,7 @@ function getEmptyBlockRange(tokens, index) {
   return [start, end];
 }
 
-module.exports = {
+export default {
   meta: {
     type: 'suggestion',
     docs: {
