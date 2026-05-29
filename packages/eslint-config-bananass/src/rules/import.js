@@ -48,7 +48,7 @@ export const importRules = {
    * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-deprecated.md (import)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L66 (airbnb-base)
    */
-  'import/no-deprecated': 'off',
+  'import/no-deprecated': 'error',
 
   /**
    * Forbid empty named import blocks.
@@ -59,6 +59,7 @@ export const importRules = {
 
   /**
    * Forbid the use of extraneous packages.
+   * @description Too computationally expensive for large codebases. I've disabled it. Note that this check is already handled by `n/no-extraneous-import` and `n/no-extraneous-require`.
    * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-extraneous-dependencies.md (import)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L71-L97 (airbnb-base)
    */
@@ -109,14 +110,14 @@ export const importRules = {
    * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-named-as-default.md (import)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L58 (airbnb-base)
    */
-  'import/no-named-as-default': 'off',
+  'import/no-named-as-default': 'error',
 
   /**
    * Forbid use of exported name as property of default export.
    * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-named-as-default-member.md (import)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L62 (airbnb-base)
    */
-  'import/no-named-as-default-member': 'off',
+  'import/no-named-as-default-member': 'error',
 
   /**
    * Forbid modules without exports, or exports without matching import in another module.
