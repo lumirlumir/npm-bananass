@@ -8,30 +8,37 @@
 
 import { ok, strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
-import typescript from './typescript.js';
+import { typescriptPlugin, typescriptRules } from './typescript.js';
 
 // --------------------------------------------------------------------------------
 // Helper
 // --------------------------------------------------------------------------------
 
 const prefix = '@typescript-eslint/';
-const eslintKeys = Object.keys(typescript).filter(key => !key.includes('/'));
-const typescriptKeys = Object.keys(typescript).filter(key => key.includes('/'));
+const eslintKeys = Object.keys(typescriptRules).filter(key => !key.includes('/'));
+const typescriptKeys = Object.keys(typescriptRules).filter(key => key.includes('/'));
 
 // --------------------------------------------------------------------------------
 // Test
 // --------------------------------------------------------------------------------
 
 describe('typescript', () => {
+  describe('Exports', () => {
+    it('`typescriptPlugin` should be defined', () => {
+      ok(typescriptPlugin);
+      strictEqual(typeof typescriptPlugin, 'object');
+    });
+  });
+
   it('The rules of ESLint and TypeScript must correspond one-to-one in the extension rules', () => {
     for (const eslintKey of eslintKeys) {
-      ok(Object.hasOwn(typescript, `${prefix}${eslintKey}`));
+      ok(Object.hasOwn(typescriptRules, `${prefix}${eslintKey}`));
     }
   });
 
   it('The rules of ESLint should be set to "off" in the extension rules', () => {
     for (const eslintKey of eslintKeys) {
-      strictEqual(typescript[eslintKey], 'off');
+      strictEqual(typescriptRules[eslintKey], 'off');
     }
   });
 

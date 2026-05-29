@@ -47,11 +47,20 @@ bun add -d eslint@latest eslint-config-bananass@latest
 ## API 참고서 {#apis}
 
 ```ts
-// Only supports default export
 import bananass from 'eslint-config-bananass';
-import type bananass from 'eslint-config-bananass';
 
-// JSON import only supports default export
+// 초기 로딩 속도 최적화를 위해, 설정별 Subpath Import도 지원합니다.
+import js from 'eslint-config-bananass/js';
+import ts from 'eslint-config-bananass/ts';
+import jsxReact from 'eslint-config-bananass/jsx-react';
+import jsxNext from 'eslint-config-bananass/jsx-next';
+import tsxReact from 'eslint-config-bananass/tsx-react';
+import tsxNext from 'eslint-config-bananass/tsx-next';
+import json from 'eslint-config-bananass/json';
+import jsonc from 'eslint-config-bananass/jsonc';
+import json5 from 'eslint-config-bananass/json5';
+
+// `eslint-config-bananass` 패키지의 `package.json` 파일도 불러올 수 있습니다.
 import pkg from 'eslint-config-bananass/package.json' with { type: 'json' };
 ```
 
@@ -59,13 +68,19 @@ import pkg from 'eslint-config-bananass/package.json' with { type: 'json' };
 
 ### `bananass` {#bananass}
 
-> 타입: `object`
+> 타입: `ESLint.Plugin`
 
 정확한 구성은 [깃허브 리포지토리](https://github.com/lumirlumir/npm-bananass/blob/main/packages/eslint-config-bananass/src/index.js)를 참고해주세요.
 
+### `js`, `ts`, `jsxReact`, `jsxNext`, `tsxReact`, `tsxNext`, `json`, `jsonc`, `json5` {#subpath-imports}
+
+> 타입: `Linter.Config`
+
+정확한 구성은 [깃허브 리포지토리](https://github.com/lumirlumir/npm-bananass/tree/main/packages/eslint-config-bananass/src/configs)를 참고해주세요.
+
 ### `pkg` {#pkg}
 
-> 타입: `object`
+> 타입: `Record<string, any>`
 
 정확한 구성은 [깃허브 리포지토리](https://github.com/lumirlumir/npm-bananass/blob/main/packages/eslint-config-bananass/package.json)를 참고해주세요.
 
@@ -84,6 +99,37 @@ import pkg from 'eslint-config-bananass/package.json' with { type: 'json' };
 - `json`: JSON
 - `jsonc`: JSONC
 - `json5`: JSON5
+
+### Subpath Import 방식 {#subpath-import}
+
+Subpath Import 방식을 이용하여, 필요한 설정만 선택적으로 불러와 사용할 수 있습니다. 해당 방식은 초기 로딩 속도 최적화에 도움이 됩니다.
+
+```js [eslint.config.mjs]
+import { defineConfig } from 'eslint/config';
+import js from 'eslint-config-bananass/js';
+import jsxReact from 'eslint-config-bananass/jsx-react';
+import jsxNext from 'eslint-config-bananass/jsx-next';
+import ts from 'eslint-config-bananass/ts';
+import tsxReact from 'eslint-config-bananass/tsx-react';
+import tsxNext from 'eslint-config-bananass/tsx-next';
+import json from 'eslint-config-bananass/json';
+import jsonc from 'eslint-config-bananass/jsonc';
+import json5 from 'eslint-config-bananass/json5';
+
+export default defineConfig([
+  js, // JavaScript
+  jsxReact, // JavaScript + React
+  jsxNext, // JavaScript + React + Next.js
+  ts, // TypeScript
+  tsxReact, // TypeScript + React
+  tsxNext, // TypeScript + React + Next.js
+  json, // JSON
+  jsonc, // JSONC
+  json5, // JSON5
+]);
+```
+
+### Package Entrypoint 방식 {#package-entrypoint}
 
 ```js [eslint.config.mjs]
 import { defineConfig } from 'eslint/config';

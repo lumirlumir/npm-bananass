@@ -6,10 +6,10 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { strictEqual } from 'node:assert';
+import { ok, strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
-import react from './react.js';
+import { reactPlugin, reactRules } from './react.js';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -22,9 +22,16 @@ const prefix = 'react/';
 // --------------------------------------------------------------------------------
 
 describe('react', () => {
+  describe('Exports', () => {
+    it('`reactPlugin` should be defined', () => {
+      ok(reactPlugin);
+      strictEqual(typeof reactPlugin, 'object');
+    });
+  });
+
   describe(`All key values must start with \`${prefix}\`.`, () => {
     it('react.js', () => {
-      Object.keys(react).forEach(key => {
+      Object.keys(reactRules).forEach(key => {
         strictEqual(key.startsWith(prefix), true);
       });
     });

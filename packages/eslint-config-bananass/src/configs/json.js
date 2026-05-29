@@ -11,8 +11,7 @@
 
 import { json } from '../files.js';
 import { json as jsonIgnores } from '../ignores.js';
-import { jsonPlugin } from '../plugins.js';
-import { jsonRules } from '../rules/index.js';
+import { jsonPlugin, jsonRules } from '../rules/json.js';
 
 // --------------------------------------------------------------------------------
 // Export
