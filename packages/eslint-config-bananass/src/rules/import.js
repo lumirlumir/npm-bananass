@@ -27,10 +27,11 @@ export default {
 
   /**
    * Forbid any invalid exports, i.e. re-export of the same name.
+   * @description TypeScript already checks this, so the rule is disabled to avoid duplicate checks.
    * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/export.md (import)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L54 (airbnb-base)
    */
-  'import/export': 'error',
+  'import/export': 'off',
 
   /**
    * Forbid imported names marked with `@deprecated` documentation tag.
@@ -183,10 +184,11 @@ export default {
 
   /**
    * Ensure named imports correspond to a named export in the remote file.
+   * @description TypeScript already checks this, so the rule is disabled to avoid duplicate checks.
    * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/named.md (import)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L41 (airbnb-base)
    */
-  'import/named': 'error',
+  'import/named': 'off',
 
   /**
    * Ensure imported namespaces contain dereferenced properties as they are dereferenced.
@@ -204,10 +206,11 @@ export default {
 
   /**
    * Forbid a module from importing a module with a dependency path back to itself.
+   * @description Too computationally expensive for large codebases. I've disabled it.
    * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md (import)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L237 (airbnb-base)
    */
-  'import/no-cycle': ['error', { maxDepth: Infinity }],
+  'import/no-cycle': 'off',
 
   /**
    * Forbid `require()` calls with expressions.
@@ -397,11 +400,11 @@ export default {
 
   /**
    * Prefer a default export if module exports a single name or multiple names.
-   * @description I've set this rule to `'warn'` because I don't want to enforce default exports.
+   * @description I've set this rule to `'off'` because I don't want to enforce default exports.
    * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/prefer-default-export.md (import)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L157 (airbnb-base)
    */
-  'import/prefer-default-export': 'warn',
+  'import/prefer-default-export': 'off',
 
   // #endregion Style Guide
   // ------------------------------------------------------------------------------
