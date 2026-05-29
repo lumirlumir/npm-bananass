@@ -1184,7 +1184,7 @@ export default /** @satisfies {Partial<ESLintRules>} */ ({
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/style.js#L333-L351 (airbnb-base)
    */
   'no-restricted-syntax': [
-    'warn',
+    'error',
     {
       selector: 'ForInStatement',
       message:
