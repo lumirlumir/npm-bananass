@@ -9,8 +9,10 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import parser from '@typescript-eslint/parser';
+
 import { ts, tsx } from '../files.js';
-import { globals, parser, parserOptions } from '../language-options.js';
+import { globals, parserOptions } from '../language-options.js';
 import { node, react } from '../settings.js';
 
 import {

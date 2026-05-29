@@ -7,7 +7,6 @@
 // --------------------------------------------------------------------------------
 
 import globalsModule from 'globals';
-import typescriptParser from '@typescript-eslint/parser';
 
 // --------------------------------------------------------------------------------
 // Export
@@ -24,8 +23,6 @@ export const globals = {
   SpeechRecognitionResult: false,
   SpeechRecognitionResultList: false,
 };
-
-export const parser = typescriptParser;
 
 export const parserOptions = {
   ecmaFeatures: {
