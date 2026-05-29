@@ -1,14 +1,14 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
-import bananass from 'eslint-config-bananass';
-import type { Linter } from 'eslint';
+import js from 'eslint-config-bananass/js';
+import ts from 'eslint-config-bananass/ts';
 
 export default defineConfig([
   // Bananass build directory.
   // Rename it if you change the `outDir` field in `bananass.config.mts`.
   globalIgnores(['**/.bananass/']),
 
-  bananass.configs.js,
-  bananass.configs.ts,
+  js,
+  ts,
 
   // Add your custom ESLint configuration here.
   //
@@ -20,7 +20,7 @@ export default defineConfig([
   //   },
   // }
   // ...
-] satisfies Linter.Config[]);
+]);
 
 // Please take a look at https://eslint-config-bananass.lumir.page
 // which contains all the available configurations.
