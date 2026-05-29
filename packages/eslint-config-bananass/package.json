@@ -51,35 +51,35 @@
       "*": [
         "./build/*"
       ],
-      "./js": [
-        "./build/configs/js.d.ts"
-      ],
-      "./ts": [
-        "./build/configs/ts.d.ts"
-      ],
-      "./jsx-react": [
-        "./build/configs/jsx-react.d.ts"
-      ],
-      "./jsx-next": [
-        "./build/configs/jsx-next.d.ts"
-      ],
-      "./tsx-react": [
-        "./build/configs/tsx-react.d.ts"
-      ],
-      "./tsx-next": [
-        "./build/configs/tsx-next.d.ts"
-      ],
-      "./json": [
-        "./build/configs/json.d.ts"
-      ],
-      "./jsonc": [
-        "./build/configs/jsonc.d.ts"
-      ],
-      "./json5": [
-        "./build/configs/json5.d.ts"
-      ],
       ".": [
         "./build/index.d.ts"
+      ],
+      "js": [
+        "./build/configs/js.d.ts"
+      ],
+      "ts": [
+        "./build/configs/ts.d.ts"
+      ],
+      "jsx-react": [
+        "./build/configs/jsx-react.d.ts"
+      ],
+      "jsx-next": [
+        "./build/configs/jsx-next.d.ts"
+      ],
+      "tsx-react": [
+        "./build/configs/tsx-react.d.ts"
+      ],
+      "tsx-next": [
+        "./build/configs/tsx-next.d.ts"
+      ],
+      "json": [
+        "./build/configs/json.d.ts"
+      ],
+      "jsonc": [
+        "./build/configs/jsonc.d.ts"
+      ],
+      "json5": [
+        "./build/configs/json5.d.ts"
       ]
     }
   },
