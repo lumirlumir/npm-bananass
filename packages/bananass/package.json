@@ -29,13 +29,13 @@
       ".": [
         "./build/core/types/index.d.ts"
       ],
-      "./commands": [
+      "commands": [
         "./build/commands/index.d.ts"
       ],
-      "./core/constants": [
+      "core/constants": [
         "./build/core/constants.d.ts"
       ],
-      "./core/types": [
+      "core/types": [
         "./build/core/types/index.d.ts"
       ]
     }
