@@ -44,6 +44,7 @@ export const importRules = {
 
   /**
    * Forbid imported names marked with `@deprecated` documentation tag.
+   * @description I've set this rule to `'error'` because it's helpful to avoid using deprecated APIs.
    * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-deprecated.md (import)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L66 (airbnb-base)
    */
@@ -135,7 +136,7 @@ export const importRules = {
    * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-amd.md (import)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L111 (airbnb-base)
    */
-  'import/no-amd': 'off',
+  'import/no-amd': 'error',
 
   /**
    * Forbid CommonJS `require` calls and `module.exports` or `exports.*`.
@@ -286,7 +287,7 @@ export const importRules = {
    * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-webpack-loader-syntax.md (import)
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb-base/rules/imports.js#L190 (airbnb-base)
    */
-  'import/no-webpack-loader-syntax': 'off',
+  'import/no-webpack-loader-syntax': 'error',
 
   // #endregion Static Analysis
   // ------------------------------------------------------------------------------
