@@ -11,7 +11,7 @@
  *   - @see https://github.com/prettier/eslint-config-prettier/blob/v9.1.0/index.js
  */
 
-/* eslint-disable import/prefer-default-export -- Named export will be more in the future. */
+/* eslint-disable import/prefer-default-export -- Intentionally using named exports */
 
 // --------------------------------------------------------------------------------
 // Typedef
