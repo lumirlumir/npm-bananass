@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 import type { Testcase } from '../../types';
 
 export const testcases = [

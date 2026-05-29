@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 import { Input, Output } from '../../types';
 
 export function solution(input: Input): Output {
