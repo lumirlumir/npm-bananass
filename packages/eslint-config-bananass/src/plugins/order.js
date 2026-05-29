@@ -1,11 +1,14 @@
 // @ts-nocheck -- TODO: Code was simply copied and pasted. Type annotations will be modified later.
 /* eslint-disable -- TODO: Code was simply copied and pasted. Type annotations will be modified later. */
 
-import minimatch from 'minimatch';
-import groupBy from 'object.groupby';
+import minimatchModule from 'minimatch';
+import groupByModule from 'object.groupby';
 import { getScope, getSourceCode } from 'eslint-module-utils/contextCompat';
 
 import importType from './_import-type.js';
+
+const minimatch = minimatchModule.default ?? minimatchModule;
+const groupBy = groupByModule.default ?? groupByModule;
 
 function isStaticRequire(node) {
   return (

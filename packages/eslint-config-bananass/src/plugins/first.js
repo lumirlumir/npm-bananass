@@ -1,6 +1,8 @@
 // @ts-nocheck -- TODO: Code was simply copied and pasted. Type annotations will be modified later.
 /* eslint-disable -- TODO: Code was simply copied and pasted. Type annotations will be modified later. */
 
+import { getSourceCode } from 'eslint-module-utils/contextCompat';
+
 function getDeclaredVariables(context, node) {
   const { sourceCode } = context;
   if (sourceCode && sourceCode.getDeclaredVariables) {
@@ -21,7 +23,7 @@ export default {
     docs: {
       category: 'Style guide',
       description: 'Ensure all imports appear before other statements.',
-      url: docsUrl('first'),
+      url: 'https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/first.md',
     },
     fixable: 'code',
     schema: [

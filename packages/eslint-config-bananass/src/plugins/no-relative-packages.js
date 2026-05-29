@@ -2,12 +2,18 @@
 
 import path from 'node:path';
 
-import readPkgUp from 'eslint-module-utils/readPkgUp';
+import readPkgUpModule from 'eslint-module-utils/readPkgUp';
 import { getPhysicalFilename } from 'eslint-module-utils/contextCompat';
-import resolve from 'eslint-module-utils/resolve';
-import moduleVisitor, { makeOptionsSchema } from 'eslint-module-utils/moduleVisitor';
+import resolveModule from 'eslint-module-utils/resolve';
+import moduleVisitorModule, {
+  makeOptionsSchema,
+} from 'eslint-module-utils/moduleVisitor';
 
 import importType from './_import-type.js';
+
+const readPkgUp = readPkgUpModule.default ?? readPkgUpModule;
+const resolve = resolveModule.default ?? resolveModule;
+const moduleVisitor = moduleVisitorModule.default ?? moduleVisitorModule;
 
 /** @param {string} filePath */
 function toPosixPath(filePath) {

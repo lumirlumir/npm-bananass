@@ -8,8 +8,10 @@ import {
 import { statSync } from 'node:fs';
 import { isBuiltin as isCoreModule } from 'node:module';
 
-import resolve from 'eslint-module-utils/resolve';
+import resolveModule from 'eslint-module-utils/resolve';
 import { getContextPackagePath } from './_package-path.js';
+
+const resolve = resolveModule.default ?? resolveModule;
 
 const scopedRegExp = /^@[^/]+\/?[^/]+/;
 export function isScoped(name) {

@@ -1,7 +1,10 @@
 // @ts-nocheck -- TODO: Code was simply copied and pasted. Type annotations will be modified later.
 
-import resolve from 'eslint-module-utils/resolve';
-import moduleVisitor from 'eslint-module-utils/moduleVisitor';
+import resolveModule from 'eslint-module-utils/resolve';
+import moduleVisitorModule from 'eslint-module-utils/moduleVisitor';
+
+const resolve = resolveModule.default ?? resolveModule;
+const moduleVisitor = moduleVisitorModule.default ?? moduleVisitorModule;
 
 function isImportingSelf(context, node, requireName, moduleSystem) {
   const filePath = context.physicalFilename;

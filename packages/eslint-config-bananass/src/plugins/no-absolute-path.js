@@ -1,7 +1,9 @@
 // @ts-nocheck -- TODO: Code was simply copied and pasted. Type annotations will be modified later.
 
 import path, { isAbsolute as nodeIsAbsolute } from 'node:path';
-import moduleVisitor from 'eslint-module-utils/moduleVisitor';
+import moduleVisitorModule from 'eslint-module-utils/moduleVisitor';
+
+const moduleVisitor = moduleVisitorModule.default ?? moduleVisitorModule;
 
 function getPhysicalFilename(context) {
   return context.physicalFilename;

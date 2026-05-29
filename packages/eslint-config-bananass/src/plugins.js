@@ -6,7 +6,6 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import importPluginModule from 'eslint-plugin-import';
 import nodePluginModule from 'eslint-plugin-n';
 import jsxA11yPluginModule from 'eslint-plugin-jsx-a11y';
 import reactPluginModule from 'eslint-plugin-react';
@@ -14,7 +13,7 @@ import reactHooksPluginModule from 'eslint-plugin-react-hooks';
 import nextPluginModule from '@next/eslint-plugin-next';
 import typescriptPluginModule from '@typescript-eslint/eslint-plugin';
 import jsonPluginModule from '@eslint/json';
-import { stylistic as stylisticPluginModule } from './plugins/index.js';
+import { importPluginModule, stylisticPluginModule } from './plugins/index.js';
 
 // --------------------------------------------------------------------------------
 // Typedef
@@ -28,7 +27,7 @@ import { stylistic as stylisticPluginModule } from './plugins/index.js';
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {{'import': ESLint.Plugin}} */
+/** @type {{'import': ESLint.Plugin}} */ // @ts-expect-error -- TODO: `importPlugin` makes an error here, but it is a valid config.
 export const importPlugin = { import: importPluginModule };
 
 /** @type {{'n': ESLint.Plugin}} */

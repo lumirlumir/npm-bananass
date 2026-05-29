@@ -1,7 +1,9 @@
 // @ts-nocheck -- TODO: Code was simply copied and pasted. Type annotations will be modified later.
 
 import path from 'node:path';
-import pkgUp from 'eslint-module-utils/pkgUp';
+import pkgUpModule from 'eslint-module-utils/pkgUp';
+
+const pkgUp = pkgUpModule.default ?? pkgUpModule;
 
 function getEntryPoint(context) {
   const pkgPath = pkgUp({ cwd: context.physicalFilename });

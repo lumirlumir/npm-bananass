@@ -2,8 +2,11 @@
 
 import { dirname } from 'node:path';
 import { getPhysicalFilename } from 'eslint-module-utils/contextCompat';
-import pkgUp from 'eslint-module-utils/pkgUp';
-import readPkgUp from 'eslint-module-utils/readPkgUp';
+import pkgUpModule from 'eslint-module-utils/pkgUp';
+import readPkgUpModule from 'eslint-module-utils/readPkgUp';
+
+const pkgUp = pkgUpModule.default ?? pkgUpModule;
+const readPkgUp = readPkgUpModule.default ?? readPkgUpModule;
 
 export function getFilePackagePath(filePath) {
   const fp = pkgUp({ cwd: filePath });

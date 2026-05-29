@@ -2,9 +2,12 @@
 
 import { getPhysicalFilename } from 'eslint-module-utils/contextCompat';
 import { getFileExtensions } from 'eslint-module-utils/ignore';
-import moduleVisitor from 'eslint-module-utils/moduleVisitor';
-import resolve from 'eslint-module-utils/resolve';
+import moduleVisitorModule from 'eslint-module-utils/moduleVisitor';
+import resolveModule from 'eslint-module-utils/resolve';
 import path from 'node:path';
+
+const moduleVisitor = moduleVisitorModule.default ?? moduleVisitorModule;
+const resolve = resolveModule.default ?? resolveModule;
 
 /**
  * convert a potentially relative path from node utils into a true
