@@ -11,9 +11,11 @@
 
 import { js } from '../files.js';
 import { globals } from '../language-options.js';
-import { importPlugin, nodePlugin, stylisticPlugin } from '../plugins.js';
-import { eslintRules, importRules, nodeRules, stylisticRules } from '../rules/index.js';
 import { node } from '../settings.js';
+import { eslintRules } from '../rules/eslint.js';
+import { importPlugin, importRules } from '../rules/import.js';
+import { nodePlugin, nodeRules } from '../rules/node.js';
+import { stylisticPlugin, stylisticRules } from '../rules/stylistic.js';
 
 // --------------------------------------------------------------------------------
 // Export

@@ -70,12 +70,12 @@
   --vp-home-hero-image-filter: blur(44px);
 }
 
-.DocSearch-Button {
+.VPNavBarSearchButton {
   border: 1px solid transparent;
   transition: border-color 0.2s ease-in-out;
 }
 
-.DocSearch-Button:hover {
+.VPNavBarSearchButton:hover {
   border-color: var(--vp-c-brand-1);
 }
 
@@ -128,4 +128,5 @@
 
 .vp-doc p img {
   display: inline;
+  margin: 0;
 }

@@ -6,11 +6,28 @@
  */
 
 // --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
+import jsonPluginModule from '@eslint/json';
+
+// --------------------------------------------------------------------------------
+// Typedef
+// --------------------------------------------------------------------------------
+
+/**
+ * @import { ESLint, Linter } from "eslint";
+ */
+
+// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {import("eslint").Linter.RulesRecord} */
-export default {
+/** @type {{'json': ESLint.Plugin}} */
+export const jsonPlugin = { json: jsonPluginModule };
+
+/** @type {Linter.RulesRecord} */
+export const jsonRules = {
   'json/no-duplicate-keys': 'error',
 
   'json/no-empty-keys': 'error',
