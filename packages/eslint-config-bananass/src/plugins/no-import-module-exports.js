@@ -1,0 +1,132 @@
+// @ts-nocheck -- TODO: Code was simply copied and pasted. Type annotations will be modified later.
+
+import fs from 'node:fs';
+import path from 'node:path';
+
+/** @type {(filename: string | string[], cwd?: string) => string | null} */
+function findUp(filename, cwd) {
+  let dir = path.resolve(cwd || '');
+  const { root } = path.parse(dir);
+  /** @type {string[]} */ // @ts-expect-error TS sucks with concat
+  const filenames = [].concat(filename);
+
+  while (true) {
+    // eslint-disable-next-line -- TODO
+    const file = filenames.find(el => fs.existsSync(path.resolve(dir, el)));
+    if (file) {
+      return path.join(dir, file);
+    }
+    if (dir === root) {
+      return null;
+    }
+    dir = path.dirname(dir);
+  }
+}
+/** @type {import('./pkgUp').default} */
+function pkgUp(opts) {
+  return findUp('package.json', opts && opts.cwd);
+}
+
+function getEntryPoint(context) {
+  const pkgPath = pkgUp({ cwd: context.physicalFilename });
+  try {
+    return require.resolve(path.dirname(pkgPath));
+  } catch {
+    // Assume the package has no entrypoint (e.g. CLI packages)
+    // in which case require.resolve would throw.
+    return null;
+  }
+}
+
+function findScope(context, identifier) {
+  const { scopeManager } = context.sourceCode;
+
+  return (
+    scopeManager &&
+    scopeManager.scopes
+      .slice()
+      .reverse()
+      .find(scope =>
+        scope.variables.some(variable =>
+          variable.identifiers.some(node => node.name === identifier),
+        ),
+      )
+  );
+}
+
+function findDefinition(objectScope, identifier) {
+  const variable = objectScope.variables.find(variable => variable.name === identifier);
+  return variable.defs.find(def => def.name.name === identifier);
+}
+
+export default {
+  meta: {
+    type: 'problem',
+    docs: {
+      category: 'Module systems',
+      description: 'Forbid import statements with CommonJS module.exports.',
+      recommended: true,
+      url: 'https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-import-module-exports.md',
+    },
+    fixable: 'code',
+    schema: [
+      {
+        type: 'object',
+        properties: {
+          exceptions: { type: 'array' },
+        },
+        additionalProperties: false,
+      },
+    ],
+  },
+  create(context) {
+    const importDeclarations = [];
+    const entryPoint = getEntryPoint(context);
+    const options = context.options[0] || {};
+    let alreadyReported = false;
+
+    function report(node) {
+      const fileName = context.physicalFilename;
+      const isEntryPoint = entryPoint === fileName;
+      const isIdentifier = node.object.type === 'Identifier';
+      const hasKeywords = /^(?:module|exports)$/.test(node.object.name);
+      const objectScope = hasKeywords && findScope(context, node.object.name);
+      const variableDefinition =
+        objectScope && findDefinition(objectScope, node.object.name);
+      const isImportBinding =
+        variableDefinition && variableDefinition.type === 'ImportBinding';
+      const hasCJSExportReference =
+        hasKeywords && (!objectScope || objectScope.type === 'module');
+      const isException =
+        !!options.exceptions &&
+        options.exceptions.some(glob => path.matchesGlob(fileName, glob));
+
+      if (
+        isIdentifier &&
+        hasCJSExportReference &&
+        !isEntryPoint &&
+        !isException &&
+        !isImportBinding
+      ) {
+        importDeclarations.forEach(importDeclaration => {
+          context.report({
+            node: importDeclaration,
+            message: `Cannot use import declarations in modules that export using CommonJS (module.exports = 'foo' or exports.bar = 'hi')`,
+          });
+        });
+        alreadyReported = true;
+      }
+    }
+
+    return {
+      ImportDeclaration(node) {
+        importDeclarations.push(node);
+      },
+      MemberExpression(node) {
+        if (!alreadyReported) {
+          report(node);
+        }
+      },
+    };
+  },
+};
