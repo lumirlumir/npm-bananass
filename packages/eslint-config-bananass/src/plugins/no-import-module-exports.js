@@ -1,31 +1,7 @@
 // @ts-nocheck -- TODO: Code was simply copied and pasted. Type annotations will be modified later.
 
-import fs from 'node:fs';
 import path from 'node:path';
-
-/** @type {(filename: string | string[], cwd?: string) => string | null} */
-function findUp(filename, cwd) {
-  let dir = path.resolve(cwd || '');
-  const { root } = path.parse(dir);
-  /** @type {string[]} */ // @ts-expect-error TS sucks with concat
-  const filenames = [].concat(filename);
-
-  while (true) {
-    // eslint-disable-next-line -- TODO
-    const file = filenames.find(el => fs.existsSync(path.resolve(dir, el)));
-    if (file) {
-      return path.join(dir, file);
-    }
-    if (dir === root) {
-      return null;
-    }
-    dir = path.dirname(dir);
-  }
-}
-/** @type {import('./pkgUp').default} */
-function pkgUp(opts) {
-  return findUp('package.json', opts && opts.cwd);
-}
+import pkgUp from 'eslint-module-utils/pkgUp';
 
 function getEntryPoint(context) {
   const pkgPath = pkgUp({ cwd: context.physicalFilename });
