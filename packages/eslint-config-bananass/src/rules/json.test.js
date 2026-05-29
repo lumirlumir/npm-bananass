@@ -9,7 +9,7 @@
 import { strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
-import json from './json.js';
+import { jsonRules } from './json.js';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -24,7 +24,7 @@ const prefix = 'json/';
 describe('json', () => {
   describe(`All key values must start with \`${prefix}\`.`, () => {
     it('json.js', () => {
-      Object.keys(json).forEach(key => {
+      Object.keys(jsonRules).forEach(key => {
         strictEqual(key.startsWith(prefix), true);
       });
     });

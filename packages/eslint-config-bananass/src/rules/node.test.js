@@ -9,7 +9,7 @@
 import { strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
-import node from './node.js';
+import { nodeRules } from './node.js';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -24,7 +24,7 @@ const prefix = 'n/';
 describe('node', () => {
   describe(`All key values must start with \`${prefix}\`.`, () => {
     it('node.js', () => {
-      Object.keys(node).forEach(key => {
+      Object.keys(nodeRules).forEach(key => {
         strictEqual(key.startsWith(prefix), true);
       });
     });

@@ -11,11 +11,28 @@
  */
 
 // --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
+import jsxA11yPluginModule from 'eslint-plugin-jsx-a11y';
+
+// --------------------------------------------------------------------------------
+// Typedef
+// --------------------------------------------------------------------------------
+
+/**
+ * @import { ESLint, Linter } from "eslint";
+ */
+
+// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {import("eslint").Linter.RulesRecord} */
-export default {
+/** @type {{'jsx-a11y': ESLint.Plugin}} */
+export const jsxA11yPlugin = { 'jsx-a11y': jsxA11yPluginModule };
+
+/** @type {Linter.RulesRecord} */
+export const jsxA11yRules = {
   /**
    * Enforce all elements that require alternative text have meaningful information to relay back to end user.
    * @see https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/alt-text.md

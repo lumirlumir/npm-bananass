@@ -15,11 +15,28 @@
  */
 
 // --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
+import reactPluginModule from 'eslint-plugin-react';
+
+// --------------------------------------------------------------------------------
+// Typedef
+// --------------------------------------------------------------------------------
+
+/**
+ * @import { ESLint, Linter } from "eslint";
+ */
+
+// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {import("eslint").Linter.RulesRecord} */
-export default {
+/** @type {{'react': ESLint.Plugin}} */
+export const reactPlugin = { react: reactPluginModule };
+
+/** @type {Linter.RulesRecord} */
+export const reactRules = {
   /**
    * Enforces consistent naming for boolean props.
    * @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/boolean-prop-naming.md

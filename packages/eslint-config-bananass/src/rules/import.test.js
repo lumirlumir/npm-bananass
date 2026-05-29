@@ -9,7 +9,7 @@
 import { strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
-import importRules from './import.js';
+import { importRules } from './import.js';
 
 // --------------------------------------------------------------------------------
 // Helper

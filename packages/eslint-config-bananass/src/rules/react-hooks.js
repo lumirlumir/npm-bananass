@@ -6,11 +6,30 @@
  */
 
 // --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
+import reactHooksPluginModule from 'eslint-plugin-react-hooks';
+
+// --------------------------------------------------------------------------------
+// Typedef
+// --------------------------------------------------------------------------------
+
+/**
+ * @import { ESLint, Linter } from "eslint";
+ */
+
+// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {import("eslint").Linter.RulesRecord} */
-export default {
+/** @type {{'react-hooks': ESLint.Plugin}} */
+export const reactHooksPlugin = {
+  'react-hooks': { rules: reactHooksPluginModule.rules },
+};
+
+/** @type {Linter.RulesRecord} */
+export const reactHooksRules = {
   /**
    * Validates that dependency arrays for React hooks contain all necessary dependencies.
    * @description This rule uses 'error' instead of 'warn'.

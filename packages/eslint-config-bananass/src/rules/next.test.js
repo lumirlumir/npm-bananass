@@ -9,7 +9,7 @@
 import { strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
-import next from './next.js';
+import { nextRules } from './next.js';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -24,7 +24,7 @@ const prefix = '@next/next/';
 describe('next', () => {
   describe(`All key values must start with \`${prefix}\`.`, () => {
     it('next.js', () => {
-      Object.keys(next).forEach(key => {
+      Object.keys(nextRules).forEach(key => {
         strictEqual(key.startsWith(prefix), true);
       });
     });

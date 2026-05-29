@@ -9,7 +9,7 @@
 import { strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
-import stylistic from './stylistic.js';
+import { stylisticRules } from './stylistic.js';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -24,7 +24,7 @@ const prefix = '@stylistic/';
 describe('stylistic', () => {
   describe(`All key values must start with \`${prefix}\`.`, () => {
     it('stylistic.js', () => {
-      Object.keys(stylistic).forEach(key => {
+      Object.keys(stylisticRules).forEach(key => {
         strictEqual(key.startsWith(prefix), true);
       });
     });

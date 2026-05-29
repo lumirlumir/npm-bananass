@@ -15,19 +15,28 @@
  */
 
 // --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
+import typescriptPluginModule from '@typescript-eslint/eslint-plugin';
+
+// --------------------------------------------------------------------------------
 // Typedef
 // --------------------------------------------------------------------------------
 
 /**
- * @import { Linter } from "eslint";
+ * @import { ESLint, Linter } from "eslint";
  */
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
+/** @type {{'@typescript-eslint': ESLint.Plugin}} */ // @ts-expect-error -- TODO: `typescriptPlugin` makes an error here, but it is a valid config.
+export const typescriptPlugin = { '@typescript-eslint': typescriptPluginModule };
+
 /** @type {Linter.RulesRecord} */
-export default {
+export const typescriptRules = {
   // ------------------------------------------------------------------------------
   // #region Extension
 

@@ -10,8 +10,7 @@
 // --------------------------------------------------------------------------------
 
 import { json5 } from '../files.js';
-import { jsonPlugin } from '../plugins.js';
-import { jsonRules } from '../rules/index.js';
+import { jsonPlugin, jsonRules } from '../rules/json.js';
 
 // --------------------------------------------------------------------------------
 // Export
