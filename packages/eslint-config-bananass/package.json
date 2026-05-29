@@ -8,12 +8,75 @@
       "types": "./build/index.d.ts",
       "default": "./src/index.js"
     },
+    "./js": {
+      "types": "./build/configs/js.d.ts",
+      "default": "./src/configs/js.js"
+    },
+    "./ts": {
+      "types": "./build/configs/ts.d.ts",
+      "default": "./src/configs/ts.js"
+    },
+    "./jsx-react": {
+      "types": "./build/configs/jsx-react.d.ts",
+      "default": "./src/configs/jsx-react.js"
+    },
+    "./jsx-next": {
+      "types": "./build/configs/jsx-next.d.ts",
+      "default": "./src/configs/jsx-next.js"
+    },
+    "./tsx-react": {
+      "types": "./build/configs/tsx-react.d.ts",
+      "default": "./src/configs/tsx-react.js"
+    },
+    "./tsx-next": {
+      "types": "./build/configs/tsx-next.d.ts",
+      "default": "./src/configs/tsx-next.js"
+    },
+    "./json": {
+      "types": "./build/configs/json.d.ts",
+      "default": "./src/configs/json.js"
+    },
+    "./jsonc": {
+      "types": "./build/configs/jsonc.d.ts",
+      "default": "./src/configs/jsonc.js"
+    },
+    "./json5": {
+      "types": "./build/configs/json5.d.ts",
+      "default": "./src/configs/json5.js"
+    },
     "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {
       "*": [
         "./build/*"
+      ],
+      "./js": [
+        "./build/configs/js.d.ts"
+      ],
+      "./ts": [
+        "./build/configs/ts.d.ts"
+      ],
+      "./jsx-react": [
+        "./build/configs/jsx-react.d.ts"
+      ],
+      "./jsx-next": [
+        "./build/configs/jsx-next.d.ts"
+      ],
+      "./tsx-react": [
+        "./build/configs/tsx-react.d.ts"
+      ],
+      "./tsx-next": [
+        "./build/configs/tsx-next.d.ts"
+      ],
+      "./json": [
+        "./build/configs/json.d.ts"
+      ],
+      "./jsonc": [
+        "./build/configs/jsonc.d.ts"
+      ],
+      "./json5": [
+        "./build/configs/json5.d.ts"
       ],
       ".": [
         "./build/index.d.ts"
