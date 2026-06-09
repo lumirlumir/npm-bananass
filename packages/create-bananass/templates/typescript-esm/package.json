@@ -22,7 +22,7 @@
     "tsc": "tsc"
   },
   "devDependencies": {
-    "@types/node": "^20.19.41",
+    "@types/node": "^20.19.42",
     "bananass": "^0.7.0",
     "eslint": "^9.39.4",
     "eslint-config-bananass": "^0.7.0",
