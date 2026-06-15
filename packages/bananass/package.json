@@ -100,7 +100,7 @@
     "envinfo": "^7.21.0",
     "jiti": "^2.7.0",
     "open": "^10.2.0",
-    "webpack": "^5.107.1",
+    "webpack": "^5.107.2",
     "zod": "^4.4.2"
   },
   "devDependencies": {
