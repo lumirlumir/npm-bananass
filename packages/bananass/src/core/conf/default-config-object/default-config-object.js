@@ -64,6 +64,7 @@ const bug = /** @type {const} */ ({});
 /** @satisfies {ConfigObjectBuild} */
 const build = /** @type {const} */ ({
   clean: false,
+  minimize: true,
   templateType: 'fs',
 });
 
