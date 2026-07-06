@@ -3,7 +3,7 @@
   "name": "create-bananass-javascript-esm",
   "type": "module",
   "engines": {
-    "node": "^20.19.0 || ^22.13.0 || >=24.0.0"
+    "node": "^22.23.0 || ^24.15.0 || >=26.0.0"
   },
   "scripts": {
     "add": "echo `add` command is still working in progress!",
