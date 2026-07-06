@@ -24,6 +24,6 @@
     "bananass": "^0.7.0",
     "eslint": "^9.39.4",
     "eslint-config-bananass": "^0.7.0",
-    "prettier": "^3.8.4"
+    "prettier": "^3.9.4"
   }
 }
