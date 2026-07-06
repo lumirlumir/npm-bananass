@@ -36,7 +36,7 @@ describe('package-json', () => {
         createBananassJsEsm.engines.node,
         createBananassTsCjs.engines.node,
         createBananassTsEsm.engines.node,
-        eslintConfigBananass.engines.node,
+        // eslintConfigBananass.engines.node, // TODO: Currently, `eslint-config-bananass` should support `"^20.19.0 || ^22.13.0 || >=24.0.0"`
       ]).size,
       1,
     );
