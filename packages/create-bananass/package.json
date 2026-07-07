@@ -58,7 +58,7 @@
   },
   "dependencies": {
     "bananass-utils-console": "^0.7.0",
-    "commander": "^14.0.3",
+    "commander": "^15.0.0",
     "consola": "^3.4.2"
   }
 }
