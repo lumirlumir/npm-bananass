@@ -79,7 +79,7 @@
     "editorconfig-checker": "^6.1.1",
     "eslint": "^9.39.4",
     "eslint-config-bananass": "^0.7.0",
-    "eslint-markdown": "^0.11.1",
+    "eslint-markdown": "^0.12.1",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.8",
     "markdownlint-cli": "^0.49.0",
