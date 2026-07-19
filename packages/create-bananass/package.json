@@ -1,6 +1,6 @@
 {
   "name": "create-bananass",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "type": "module",
   "description": "Create a Bananass framework project for solving Baekjoon problems with JavaScript/TypeScript.🍌",
   "exports": {
@@ -57,7 +57,7 @@
     "dev": "node src/cli.js"
   },
   "dependencies": {
-    "bananass-utils-console": "^0.7.0",
+    "bananass-utils-console": "^0.8.0",
     "commander": "^15.0.0",
     "consola": "^3.4.2"
   }

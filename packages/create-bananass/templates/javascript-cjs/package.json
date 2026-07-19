@@ -21,9 +21,9 @@
     "prettier:fix": "prettier . --write --ignore-unknown"
   },
   "devDependencies": {
-    "bananass": "^0.7.0",
+    "bananass": "^0.8.0",
     "eslint": "^9.39.4",
-    "eslint-config-bananass": "^0.7.0",
+    "eslint-config-bananass": "^0.8.0",
     "prettier": "^3.9.4"
   }
 }

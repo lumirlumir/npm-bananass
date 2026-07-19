@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "npm-bananass",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "type": "module",
   "packageManager": "npm@10.9.8",
   "engines": {
@@ -78,7 +78,7 @@
     "c8": "^11.0.0",
     "editorconfig-checker": "^6.1.1",
     "eslint": "^9.39.4",
-    "eslint-config-bananass": "^0.7.0",
+    "eslint-config-bananass": "^0.8.0",
     "eslint-markdown": "^0.12.1",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.8",
