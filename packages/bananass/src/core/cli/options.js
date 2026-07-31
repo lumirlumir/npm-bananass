@@ -74,6 +74,11 @@ export const clean = /** @type {const} */ ([
   `clean the output directory before emit ${formatDefaultValue(dco.build.clean)}`,
 ]);
 /** @satisfies {[string, string]} */
+export const minimize = /** @type {const} */ ([
+  '-m, --minimize',
+  `minimize the output file ${formatDefaultValue(dco.build.minimize)}`,
+]);
+/** @satisfies {[string, string]} */
 export const templateType = /** @type {const} */ ([
   '-t, --template-type <type>',
   `webpack entry file template type. select from \`fs\` (file system) or \`rl\` (read line) ${formatDefaultValue(dco.build.templateType)}`,
