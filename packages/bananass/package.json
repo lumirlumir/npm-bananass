@@ -88,10 +88,10 @@
     "dev": "node src/cli.js"
   },
   "dependencies": {
-    "@babel/core": "^7.29.7",
-    "@babel/plugin-transform-modules-commonjs": "^7.29.7",
-    "@babel/plugin-transform-typescript": "^7.29.7",
-    "@babel/preset-env": "^7.29.7",
+    "@babel/core": "^8.0.1",
+    "@babel/plugin-transform-modules-commonjs": "^8.0.1",
+    "@babel/plugin-transform-typescript": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
     "babel-loader": "^10.1.1",
     "bananass-utils-console": "^0.8.0",
     "commander": "^15.0.0",
