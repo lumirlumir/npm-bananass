@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `is-interactive.js`.
+ * @fileoverview Test for `is-interactive.ts`.
  */
 
 // --------------------------------------------------------------------------------
@@ -10,7 +10,7 @@ import { ok } from 'node:assert';
 import { describe, it } from 'node:test';
 import { PassThrough } from 'node:stream';
 
-import isInteractive from './is-interactive.js';
+import isInteractive from './is-interactive.ts';
 
 // --------------------------------------------------------------------------------
 // Test
