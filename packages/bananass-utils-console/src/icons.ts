@@ -78,5 +78,5 @@ export const defaultSpinner = {
     ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'],
     ['-', '\\', '|', '/'],
   ),
-  interval: 80,
-} as const satisfies SpinnerStyle;
+  interval: 80 as const,
+} satisfies SpinnerStyle;
