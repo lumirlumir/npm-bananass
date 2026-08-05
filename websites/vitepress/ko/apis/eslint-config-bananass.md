@@ -70,7 +70,7 @@ import pkg from 'eslint-config-bananass/package.json' with { type: 'json' };
 
 > 타입: `ESLint.Plugin`
 
-정확한 구성은 [깃허브 리포지토리](https://github.com/lumirlumir/npm-bananass/blob/main/packages/eslint-config-bananass/src/index.js)를 참고해주세요.
+정확한 구성은 [깃허브 리포지토리](https://github.com/lumirlumir/npm-bananass/blob/main/packages/eslint-config-bananass/src/index.ts)를 참고해주세요.
 
 ### `js`, `ts`, `jsxReact`, `jsxNext`, `tsxReact`, `tsxNext`, `json`, `jsonc`, `json5` {#subpath-imports}
 

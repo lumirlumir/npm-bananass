@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "npm run build --prefix ../..",
   "framework": null,
   "ignoreCommand": "node ../../scripts/vercel-ignore-command.js",
   "installCommand": "npm install --prefix ../..",
