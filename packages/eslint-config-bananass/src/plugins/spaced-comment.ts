@@ -4,6 +4,7 @@
  * @see https://github.com/eslint/eslint/blob/v10.0.0/lib/rules/spaced-comment.js
  */
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck -- TODO: Code was simply copied and pasted. Type annotations will be modified later.
 
 // --------------------------------------------------------------------------------

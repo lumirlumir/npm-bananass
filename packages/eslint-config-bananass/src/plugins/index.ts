@@ -8,14 +8,14 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import spacedComment from './spaced-comment.js';
+import spacedComment from './spaced-comment.ts';
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-export const stylistic = /** @type {const} */ ({
+export const stylistic = {
   rules: {
     'spaced-comment': spacedComment,
   },
-});
+} as const;

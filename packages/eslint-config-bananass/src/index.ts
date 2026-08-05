@@ -6,30 +6,22 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import js from './configs/js.js';
-import jsxReact from './configs/jsx-react.js';
-import jsxNext from './configs/jsx-next.js';
-import ts from './configs/ts.js';
-import tsxReact from './configs/tsx-react.js';
-import tsxNext from './configs/tsx-next.js';
-import json from './configs/json.js';
-import jsonc from './configs/jsonc.js';
-import json5 from './configs/json5.js';
+import type { ESLint } from 'eslint';
+import js from './configs/js.ts';
+import jsxReact from './configs/jsx-react.ts';
+import jsxNext from './configs/jsx-next.ts';
+import ts from './configs/ts.ts';
+import tsxReact from './configs/tsx-react.ts';
+import tsxNext from './configs/tsx-next.ts';
+import json from './configs/json.ts';
+import jsonc from './configs/jsonc.ts';
+import json5 from './configs/json5.ts';
 import pkg from '../package.json' with { type: 'json' };
-
-// --------------------------------------------------------------------------------
-// Typedef
-// --------------------------------------------------------------------------------
-
-/**
- * @import { ESLint } from 'eslint'
- */
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {ESLint.Plugin} */
 export default {
   meta: {
     name: pkg.name,
@@ -47,4 +39,4 @@ export default {
     jsonc,
     json5,
   },
-};
+} as const satisfies ESLint.Plugin;

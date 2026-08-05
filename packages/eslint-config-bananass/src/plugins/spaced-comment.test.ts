@@ -10,7 +10,7 @@
 
 import { test } from 'node:test';
 import { RuleTester } from 'eslint';
-import rule from './spaced-comment.js';
+import rule from './spaced-comment.ts';
 
 // --------------------------------------------------------------------------------
 // Helper
