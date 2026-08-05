@@ -5,28 +5,28 @@
   "description": "Console Utilities for Bananass Framework.🍌",
   "exports": {
     "./icons": {
-      "types": "./build/icons/index.d.ts",
-      "default": "./src/icons/index.js"
+      "types": "./build/icons.d.ts",
+      "default": "./build/icons.js"
     },
     "./is-interactive": {
-      "types": "./build/is-interactive/index.d.ts",
-      "default": "./src/is-interactive/index.js"
+      "types": "./build/is-interactive.d.ts",
+      "default": "./build/is-interactive.js"
     },
     "./is-unicode-supported": {
-      "types": "./build/is-unicode-supported/index.d.ts",
-      "default": "./src/is-unicode-supported/index.js"
+      "types": "./build/is-unicode-supported.d.ts",
+      "default": "./build/is-unicode-supported.js"
     },
     "./logger": {
-      "types": "./build/logger/index.d.ts",
-      "default": "./src/logger/index.js"
+      "types": "./build/logger.d.ts",
+      "default": "./build/logger.js"
     },
     "./spinner": {
-      "types": "./build/spinner/index.d.ts",
-      "default": "./src/spinner/index.js"
+      "types": "./build/spinner.d.ts",
+      "default": "./build/spinner.js"
     },
     "./theme": {
-      "types": "./build/theme/index.d.ts",
-      "default": "./src/theme/index.js"
+      "types": "./build/theme.d.ts",
+      "default": "./build/theme.js"
     },
     "./package.json": "./package.json"
   },
@@ -36,22 +36,22 @@
         "./build/*"
       ],
       "icons": [
-        "./build/icons/index.d.ts"
+        "./build/icons.d.ts"
       ],
       "is-interactive": [
-        "./build/is-interactive/index.d.ts"
+        "./build/is-interactive.d.ts"
       ],
       "is-unicode-supported": [
-        "./build/is-unicode-supported/index.d.ts"
+        "./build/is-unicode-supported.d.ts"
       ],
       "logger": [
-        "./build/logger/index.d.ts"
+        "./build/logger.d.ts"
       ],
       "spinner": [
-        "./build/spinner/index.d.ts"
+        "./build/spinner.d.ts"
       ],
       "theme": [
-        "./build/theme/index.d.ts"
+        "./build/theme.d.ts"
       ]
     }
   },
@@ -61,6 +61,7 @@
     "LICENSE.md",
     "README.md",
     "!src/**/*.test.{js,ts}",
+    "!src/**/*.test-d.ts",
     "!**/fixtures/**"
   ],
   "keywords": [
@@ -97,6 +98,8 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "tsc && node ../../scripts/cp.js ../../LICENSE.md LICENSE.md ../../README.md README.md",
-    "test": "node --test"
+    "test": "npm run test:types && npm run test:unit",
+    "test:types": "tsc -p ./tsconfig.test-d.json",
+    "test:unit": "node --test"
   }
 }

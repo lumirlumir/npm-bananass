@@ -42,7 +42,7 @@
     "test:pkg:cb": "npm run test -w packages/create-bananass",
     "test:pkg:ecb": "npm run test -w packages/eslint-config-bananass",
     "test:t": "npm run test -w tests",
-    "build": "npm-run-all -c -l --aggregate-output -p build:pkg:* -p build:ws:*",
+    "build": "npm-run-all -c -l --aggregate-output build:pkg:buc -p build:pkg:b build:pkg:cb build:pkg:ecb -p build:ws:*",
     "build:ex:sb-cjs": "npm run build -w examples/solutions-bananass-cjs",
     "build:ex:sb-cts": "npm run build -w examples/solutions-bananass-cts",
     "build:ex:sb-mjs": "npm run build -w examples/solutions-bananass-mjs",
