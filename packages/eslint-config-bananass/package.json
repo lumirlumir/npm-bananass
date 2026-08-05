@@ -89,6 +89,7 @@
     "LICENSE.md",
     "README.md",
     "!src/**/*.test.{js,ts}",
+    "!src/**/*.test-d.ts",
     "!**/fixtures/**"
   ],
   "keywords": [
@@ -134,7 +135,9 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "tsc && node ../../scripts/cp.js ../../LICENSE.md LICENSE.md ../../README.md README.md",
-    "test": "node --test"
+    "test": "npm run test:types && npm run test:unit",
+    "test:types": "tsc -p ./tsconfig.test-d.json",
+    "test:unit": "node --test"
   },
   "peerDependencies": {
     "eslint": "^9.35.0"
