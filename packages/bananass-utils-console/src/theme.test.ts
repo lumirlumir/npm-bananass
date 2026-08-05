@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `theme.js`.
+ * @fileoverview Test for `theme.ts`.
  */
 
 // --------------------------------------------------------------------------------
@@ -10,14 +10,8 @@ import { strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 import { stripVTControlCharacters as stripAnsi } from 'node:util';
 
-import {
-  successText,
-  errorText,
-  warningText,
-  infoText,
-  bananassIcon,
-} from '../icons/index.js';
-import { success, error, warning, info, bananass } from './theme.js';
+import { successText, errorText, warningText, infoText, bananassIcon } from './icons.ts';
+import { success, error, warning, info, bananass } from './theme.ts';
 
 // --------------------------------------------------------------------------------
 // Test
