@@ -14,20 +14,17 @@
 /* eslint-disable import/prefer-default-export -- Intentionally using named exports */
 
 // --------------------------------------------------------------------------------
-// Typedef
+// Import
 // --------------------------------------------------------------------------------
 
-/**
- * @import { Linter } from "eslint";
- * @import { ESLintRules } from "eslint/rules";
- */
+import type { Linter } from 'eslint';
+import type { ESLintRules } from 'eslint/rules';
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {Linter.RulesRecord} */
-export const eslintRules = /** @satisfies {Partial<ESLintRules>} */ ({
+export const eslintRules = {
   // ------------------------------------------------------------------------------
   // #region Possible Problems
 
@@ -1624,4 +1621,4 @@ export const eslintRules = /** @satisfies {Partial<ESLintRules>} */ ({
 
   // #endregion Layout & Formatting
   // ------------------------------------------------------------------------------
-});
+} as const satisfies Partial<ESLintRules> satisfies Linter.RulesRecord;

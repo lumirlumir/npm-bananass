@@ -9,19 +9,19 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { js } from '../files.js';
-import { globals } from '../language-options.js';
-import { node } from '../settings.js';
-import { eslintRules } from '../rules/eslint.js';
-import { importPlugin, importRules } from '../rules/import.js';
-import { nodePlugin, nodeRules } from '../rules/node.js';
-import { stylisticPlugin, stylisticRules } from '../rules/stylistic.js';
+import type { Linter } from 'eslint';
+import { js } from '../files.ts';
+import { globals } from '../language-options.ts';
+import { node } from '../settings.ts';
+import { eslintRules } from '../rules/eslint.ts';
+import { importPlugin, importRules } from '../rules/import.ts';
+import { nodePlugin, nodeRules } from '../rules/node.ts';
+import { stylisticPlugin, stylisticRules } from '../rules/stylistic.ts';
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {import("eslint").Linter.Config} */
 export default {
   name: 'bananass/js',
   files: [...js],
@@ -42,4 +42,4 @@ export default {
   settings: {
     node,
   },
-};
+} as const satisfies Linter.Config;

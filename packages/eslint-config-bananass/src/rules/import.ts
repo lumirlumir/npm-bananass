@@ -12,24 +12,15 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import type { ESLint, Linter } from 'eslint';
 import importPluginModule from 'eslint-plugin-import';
-
-// --------------------------------------------------------------------------------
-// Typedef
-// --------------------------------------------------------------------------------
-
-/**
- * @import { ESLint, Linter } from "eslint";
- */
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {{'import': ESLint.Plugin}} */
-export const importPlugin = { import: importPluginModule };
+export const importPlugin: { import: ESLint.Plugin } = { import: importPluginModule };
 
-/** @type {Linter.RulesRecord} */
 export const importRules = {
   // ------------------------------------------------------------------------------
   // #region Helpful Warnings
@@ -414,4 +405,4 @@ export const importRules = {
 
   // #endregion Style Guide
   // ------------------------------------------------------------------------------
-};
+} as const satisfies Linter.RulesRecord;

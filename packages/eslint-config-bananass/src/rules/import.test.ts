@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `import.js`.
+ * @fileoverview Test for `import.ts`.
  */
 
 // --------------------------------------------------------------------------------
@@ -8,8 +8,7 @@
 
 import { ok, strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
-
-import { importPlugin, importRules } from './import.js';
+import { importPlugin, importRules } from './import.ts';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -30,7 +29,7 @@ describe('import', () => {
   });
 
   describe(`All key values must start with \`${prefix}\`.`, () => {
-    it('import.js', () => {
+    it('import.ts', () => {
       Object.keys(importRules).forEach(key => {
         strictEqual(key.startsWith(prefix), true);
       });

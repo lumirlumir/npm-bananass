@@ -9,15 +9,15 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { json } from '../files.js';
-import { json as jsonIgnores } from '../ignores.js';
-import { jsonPlugin, jsonRules } from '../rules/json.js';
+import type { Linter } from 'eslint';
+import { json } from '../files.ts';
+import { json as jsonIgnores } from '../ignores.ts';
+import { jsonPlugin, jsonRules } from '../rules/json.ts';
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {import("eslint").Linter.Config} */
 export default {
   name: 'bananass/json',
   files: [...json],
@@ -29,4 +29,4 @@ export default {
   rules: {
     ...jsonRules,
   },
-};
+} as const satisfies Linter.Config;

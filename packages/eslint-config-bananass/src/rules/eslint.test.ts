@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `eslint.js`.
+ * @fileoverview Test for `eslint.ts`.
  */
 
 // --------------------------------------------------------------------------------
@@ -8,8 +8,7 @@
 
 import { strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
-
-import { eslintRules } from './eslint.js';
+import { eslintRules } from './eslint.ts';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -23,7 +22,7 @@ const prefix = '/';
 
 describe('eslint', () => {
   describe(`All key values must not include \`${prefix}\`.`, () => {
-    it('eslint.js', () => {
+    it('eslint.ts', () => {
       Object.keys(eslintRules).forEach(key => {
         strictEqual(key.includes(prefix), false);
       });
