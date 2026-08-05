@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `is-unicode-supported.js`.
+ * @fileoverview Test for `is-unicode-supported.ts`.
  */
 
 // --------------------------------------------------------------------------------
@@ -10,7 +10,7 @@ import process from 'node:process';
 import { describe, it } from 'node:test';
 import { ok } from 'node:assert';
 
-import isUnicodeSupported from './is-unicode-supported.js';
+import isUnicodeSupported from './is-unicode-supported.ts';
 
 // --------------------------------------------------------------------------------
 // Test
