@@ -8,6 +8,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import type { Rule } from 'eslint';
 import spacedComment from './spaced-comment.ts';
 
 // --------------------------------------------------------------------------------
@@ -16,6 +17,6 @@ import spacedComment from './spaced-comment.ts';
 
 export const stylistic = {
   rules: {
-    'spaced-comment': spacedComment,
+    'spaced-comment': spacedComment as Rule.RuleModule,
   },
 } as const;
