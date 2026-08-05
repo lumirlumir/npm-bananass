@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `spinner.js`.
+ * @fileoverview Test for `spinner.ts`.
  */
 
 // --------------------------------------------------------------------------------
@@ -11,7 +11,7 @@ import { describe, it, mock } from 'node:test';
 import { stripVTControlCharacters as stripAnsi } from 'node:util';
 import { PassThrough } from 'node:stream';
 
-import createSpinner from './spinner.js';
+import createSpinner from './spinner.ts';
 
 // --------------------------------------------------------------------------------
 // Mock
