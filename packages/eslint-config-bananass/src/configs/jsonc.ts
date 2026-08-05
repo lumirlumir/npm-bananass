@@ -1,5 +1,5 @@
 /**
- * @fileoverview Configuration applied when a user configuration extends from `json5`.
+ * @fileoverview Configuration applied when a user configuration extends from `jsonc`.
  *
  * - Values not explicitly defined on the object will use their default values.
  * - Use the config inspector (`--inspect-config` in the CLI) to test which config objects apply to a specific file.
@@ -9,22 +9,25 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { json5 } from '../files.js';
-import { jsonPlugin, jsonRules } from '../rules/json.js';
+import type { Linter } from 'eslint';
+import { jsonc } from '../files.ts';
+import { jsonPlugin, jsonRules } from '../rules/json.ts';
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {import("eslint").Linter.Config} */
 export default {
-  name: 'bananass/json5',
-  files: [...json5],
-  language: 'json/json5',
+  name: 'bananass/jsonc',
+  files: [...jsonc],
+  language: 'json/jsonc',
+  languageOptions: {
+    allowTrailingCommas: true,
+  },
   plugins: {
     ...jsonPlugin,
   },
   rules: {
     ...jsonRules,
   },
-};
+} as const satisfies Linter.Config;

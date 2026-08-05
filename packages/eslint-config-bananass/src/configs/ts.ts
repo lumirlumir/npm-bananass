@@ -12,22 +12,21 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import type { Linter } from 'eslint';
 import parser from '@typescript-eslint/parser';
-
-import { ts } from '../files.js';
-import { globals } from '../language-options.js';
-import { node } from '../settings.js';
-import { eslintRules } from '../rules/eslint.js';
-import { importPlugin, importRules } from '../rules/import.js';
-import { nodePlugin, nodeRules } from '../rules/node.js';
-import { stylisticPlugin, stylisticRules } from '../rules/stylistic.js';
-import { typescriptPlugin, typescriptRules } from '../rules/typescript.js';
+import { ts } from '../files.ts';
+import { globals } from '../language-options.ts';
+import { node } from '../settings.ts';
+import { eslintRules } from '../rules/eslint.ts';
+import { importPlugin, importRules } from '../rules/import.ts';
+import { nodePlugin, nodeRules } from '../rules/node.ts';
+import { stylisticPlugin, stylisticRules } from '../rules/stylistic.ts';
+import { typescriptPlugin, typescriptRules } from '../rules/typescript.ts';
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {import("eslint").Linter.Config} */
 export default {
   name: 'bananass/ts',
   files: [...ts],
@@ -51,4 +50,4 @@ export default {
   settings: {
     node,
   },
-};
+} as const satisfies Linter.Config;
