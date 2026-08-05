@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `jsx-a11y.js`.
+ * @fileoverview Test for `jsx-a11y.ts`.
  */
 
 // --------------------------------------------------------------------------------
@@ -8,8 +8,7 @@
 
 import { ok, strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
-
-import { jsxA11yPlugin, jsxA11yRules } from './jsx-a11y.js';
+import { jsxA11yPlugin, jsxA11yRules } from './jsx-a11y.ts';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -30,7 +29,7 @@ describe('jsx-a11y', () => {
   });
 
   describe(`All key values must start with \`${prefix}\`.`, () => {
-    it('jsx-a11y.js', () => {
+    it('jsx-a11y.ts', () => {
       Object.keys(jsxA11yRules).forEach(key => {
         strictEqual(key.startsWith(prefix), true);
       });

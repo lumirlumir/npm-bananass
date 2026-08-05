@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `json.js`.
+ * @fileoverview Test for `json.ts`.
  */
 
 // --------------------------------------------------------------------------------
@@ -8,8 +8,7 @@
 
 import { ok, strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
-
-import { jsonPlugin, jsonRules } from './json.js';
+import { jsonPlugin, jsonRules } from './json.ts';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -30,7 +29,7 @@ describe('json', () => {
   });
 
   describe(`All key values must start with \`${prefix}\`.`, () => {
-    it('json.js', () => {
+    it('json.ts', () => {
       Object.keys(jsonRules).forEach(key => {
         strictEqual(key.startsWith(prefix), true);
       });

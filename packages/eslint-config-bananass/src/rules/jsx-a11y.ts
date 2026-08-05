@@ -14,24 +14,17 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import type { ESLint, Linter } from 'eslint';
 import jsxA11yPluginModule from 'eslint-plugin-jsx-a11y';
-
-// --------------------------------------------------------------------------------
-// Typedef
-// --------------------------------------------------------------------------------
-
-/**
- * @import { ESLint, Linter } from "eslint";
- */
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {{'jsx-a11y': ESLint.Plugin}} */
-export const jsxA11yPlugin = { 'jsx-a11y': jsxA11yPluginModule };
+export const jsxA11yPlugin: { 'jsx-a11y': ESLint.Plugin } = {
+  'jsx-a11y': jsxA11yPluginModule,
+};
 
-/** @type {Linter.RulesRecord} */
 export const jsxA11yRules = {
   /**
    * Enforce all elements that require alternative text have meaningful information to relay back to end user.
@@ -294,4 +287,4 @@ export const jsxA11yRules = {
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-a11y.js#L234
    */
   'jsx-a11y/tabindex-no-positive': 'warn',
-};
+} as const satisfies Linter.RulesRecord;
