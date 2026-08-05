@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `next.js`.
+ * @fileoverview Test for `next.ts`.
  */
 
 // --------------------------------------------------------------------------------
@@ -8,8 +8,7 @@
 
 import { ok, strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
-
-import { nextPlugin, nextRules } from './next.js';
+import { nextPlugin, nextRules } from './next.ts';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -30,7 +29,7 @@ describe('next', () => {
   });
 
   describe(`All key values must start with \`${prefix}\`.`, () => {
-    it('next.js', () => {
+    it('next.ts', () => {
       Object.keys(nextRules).forEach(key => {
         strictEqual(key.startsWith(prefix), true);
       });

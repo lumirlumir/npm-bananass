@@ -11,24 +11,17 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import type { ESLint, Linter } from 'eslint';
 import nextPluginModule from '@next/eslint-plugin-next';
-
-// --------------------------------------------------------------------------------
-// Typedef
-// --------------------------------------------------------------------------------
-
-/**
- * @import { ESLint, Linter } from "eslint";
- */
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {{'@next/next': ESLint.Plugin}} */
-export const nextPlugin = { '@next/next': { rules: nextPluginModule.rules } };
+export const nextPlugin: { '@next/next': ESLint.Plugin } = {
+  '@next/next': { rules: nextPluginModule.rules },
+};
 
-/** @type {Linter.RulesRecord} */
 export const nextRules = {
   // warnings
   '@next/next/google-font-display': 'warn',
@@ -53,4 +46,4 @@ export const nextRules = {
   '@next/next/no-duplicate-head': 'error',
   '@next/next/no-head-import-in-document': 'error',
   '@next/next/no-script-component-in-head': 'error',
-};
+} as const satisfies Linter.RulesRecord;
