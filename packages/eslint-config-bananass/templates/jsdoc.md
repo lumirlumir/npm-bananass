@@ -2,7 +2,7 @@
 
 Every file under `eslint-config-bananass/src/rules` directory should follow the format below.
 
-```js
+```ts
 /**
  * @fileoverview This file follows:
  *
@@ -14,19 +14,16 @@ Every file under `eslint-config-bananass/src/rules` directory should follow the 
  */
 
 // --------------------------------------------------------------------------------
-// Typedef
+// Import
 // --------------------------------------------------------------------------------
 
-/**
- * @import { Linter } from "eslint";
- */
+import type { Linter } from 'eslint';
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {Linter.RulesRecord} */
-export default {
+export const rules = {
   /**
    * Descriptions from the official documentation.
    * @description Additional descriptions provided by the maintainers if needed.
@@ -34,5 +31,5 @@ export default {
    * @see link-to-the-website (other references, e.g., airbnb, prettier, etc.)
    */
   'rule-name': 'value',
-};
+} as const satisfies Linter.RulesRecord;
 ```

@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `node.js`.
+ * @fileoverview Test for `node.ts`.
  */
 
 // --------------------------------------------------------------------------------
@@ -8,8 +8,7 @@
 
 import { ok, strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
-
-import { nodePlugin, nodeRules } from './node.js';
+import { nodePlugin, nodeRules } from './node.ts';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -30,7 +29,7 @@ describe('node', () => {
   });
 
   describe(`All key values must start with \`${prefix}\`.`, () => {
-    it('node.js', () => {
+    it('node.ts', () => {
       Object.keys(nodeRules).forEach(key => {
         strictEqual(key.startsWith(prefix), true);
       });

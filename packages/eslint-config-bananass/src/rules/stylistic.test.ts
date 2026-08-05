@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `stylistic.js`.
+ * @fileoverview Test for `stylistic.ts`.
  */
 
 // --------------------------------------------------------------------------------
@@ -8,8 +8,7 @@
 
 import { ok, strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
-
-import { stylisticPlugin, stylisticRules } from './stylistic.js';
+import { stylisticPlugin, stylisticRules } from './stylistic.ts';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -30,7 +29,7 @@ describe('stylistic', () => {
   });
 
   describe(`All key values must start with \`${prefix}\`.`, () => {
-    it('stylistic.js', () => {
+    it('stylistic.ts', () => {
       Object.keys(stylisticRules).forEach(key => {
         strictEqual(key.startsWith(prefix), true);
       });

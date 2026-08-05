@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `typescript.js`.
+ * @fileoverview Test for `typescript.ts`.
  */
 
 // --------------------------------------------------------------------------------
@@ -8,7 +8,7 @@
 
 import { ok, strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
-import { typescriptPlugin, typescriptRules } from './typescript.js';
+import { typescriptPlugin, typescriptRules } from './typescript.ts';
 
 // --------------------------------------------------------------------------------
 // Helper

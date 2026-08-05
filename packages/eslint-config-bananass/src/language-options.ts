@@ -22,10 +22,10 @@ export const globals = {
   SpeechRecognitionAlternative: false,
   SpeechRecognitionResult: false,
   SpeechRecognitionResultList: false,
-};
+} as const;
 
 export const parserOptions = {
   ecmaFeatures: {
     jsx: true,
   },
-};
+} as const;

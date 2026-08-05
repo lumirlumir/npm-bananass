@@ -18,24 +18,18 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import type { ESLint, Linter } from 'eslint';
 import typescriptPluginModule from '@typescript-eslint/eslint-plugin';
-
-// --------------------------------------------------------------------------------
-// Typedef
-// --------------------------------------------------------------------------------
-
-/**
- * @import { ESLint, Linter } from "eslint";
- */
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {{'@typescript-eslint': ESLint.Plugin}} */ // @ts-expect-error -- TODO: `typescriptPlugin` makes an error here, but it is a valid config.
-export const typescriptPlugin = { '@typescript-eslint': typescriptPluginModule };
+export const typescriptPlugin: { '@typescript-eslint': ESLint.Plugin } = {
+  // @ts-expect-error -- The plugin is a valid ESLint configuration despite the dependency type mismatch.
+  '@typescript-eslint': typescriptPluginModule,
+};
 
-/** @type {Linter.RulesRecord} */
 export const typescriptRules = {
   // ------------------------------------------------------------------------------
   // #region Extension
@@ -312,4 +306,4 @@ export const typescriptRules = {
 
   // #endregion Stylistic
   // ------------------------------------------------------------------------------
-};
+} as const satisfies Linter.RulesRecord;

@@ -25,8 +25,8 @@ export const node = {
     ],
     mainFiles: ['index'],
   },
-};
+} as const;
 
 export const react = {
   version: 'detect',
-};
+} as const;

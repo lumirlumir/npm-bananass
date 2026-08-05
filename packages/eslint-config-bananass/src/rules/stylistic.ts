@@ -9,24 +9,17 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { stylistic as stylisticPluginModule } from '../plugins/index.js';
-
-// --------------------------------------------------------------------------------
-// Typedef
-// --------------------------------------------------------------------------------
-
-/**
- * @import { ESLint, Linter } from "eslint";
- */
+import type { ESLint, Linter } from 'eslint';
+import { stylistic as stylisticPluginModule } from '../plugins/index.ts';
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {{'@stylistic': ESLint.Plugin}} */
-export const stylisticPlugin = { '@stylistic': stylisticPluginModule };
+export const stylisticPlugin: { '@stylistic': ESLint.Plugin } = {
+  '@stylistic': stylisticPluginModule,
+};
 
-/** @type {Linter.RulesRecord} */
 export const stylisticRules = {
   /**
    * Enforce consistency of spacing after the start of a comment `//` or `/*`.
@@ -41,4 +34,4 @@ export const stylisticRules = {
       block: { exceptions: ['-', '+'], markers: ['=', '!', ':', '::'], balanced: true },
     },
   ],
-};
+} as const satisfies Linter.RulesRecord;

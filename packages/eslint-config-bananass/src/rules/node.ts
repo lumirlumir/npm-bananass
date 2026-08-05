@@ -12,24 +12,15 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import type { ESLint, Linter } from 'eslint';
 import nodePluginModule from 'eslint-plugin-n';
-
-// --------------------------------------------------------------------------------
-// Typedef
-// --------------------------------------------------------------------------------
-
-/**
- * @import { ESLint, Linter } from "eslint";
- */
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {{'n': ESLint.Plugin}} */
-export const nodePlugin = { n: nodePluginModule };
+export const nodePlugin: { n: ESLint.Plugin } = { n: nodePluginModule };
 
-/** @type {Linter.RulesRecord} */
 export const nodeRules = {
   /**
    * Require `return` statements after callbacks.
@@ -301,4 +292,4 @@ export const nodeRules = {
    * @see https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/process-exit-as-throw.md (n)
    */
   'n/process-exit-as-throw': 'error',
-};
+} as const satisfies Linter.RulesRecord;

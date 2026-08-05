@@ -9,26 +9,17 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import type { ESLint, Linter } from 'eslint';
 import reactHooksPluginModule from 'eslint-plugin-react-hooks';
-
-// --------------------------------------------------------------------------------
-// Typedef
-// --------------------------------------------------------------------------------
-
-/**
- * @import { ESLint, Linter } from "eslint";
- */
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {{'react-hooks': ESLint.Plugin}} */
-export const reactHooksPlugin = {
+export const reactHooksPlugin: { 'react-hooks': ESLint.Plugin } = {
   'react-hooks': { rules: reactHooksPluginModule.rules },
 };
 
-/** @type {Linter.RulesRecord} */
 export const reactHooksRules = {
   /**
    * Validates that dependency arrays for React hooks contain all necessary dependencies.
@@ -135,4 +126,4 @@ export const reactHooksRules = {
    * @see https://react.dev/reference/eslint-plugin-react-hooks/lints/use-memo
    */
   'react-hooks/use-memo': 'error',
-};
+} as const satisfies Linter.RulesRecord;

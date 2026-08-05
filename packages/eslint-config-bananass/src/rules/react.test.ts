@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `react.js`.
+ * @fileoverview Test for `react.ts`.
  */
 
 // --------------------------------------------------------------------------------
@@ -8,8 +8,7 @@
 
 import { ok, strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
-
-import { reactPlugin, reactRules } from './react.js';
+import { reactPlugin, reactRules } from './react.ts';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -30,7 +29,7 @@ describe('react', () => {
   });
 
   describe(`All key values must start with \`${prefix}\`.`, () => {
-    it('react.js', () => {
+    it('react.ts', () => {
       Object.keys(reactRules).forEach(key => {
         strictEqual(key.startsWith(prefix), true);
       });

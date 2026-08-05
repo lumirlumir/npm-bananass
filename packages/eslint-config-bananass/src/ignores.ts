@@ -8,11 +8,11 @@
 // Export
 // --------------------------------------------------------------------------------
 
-export const json = /** @type {const} */ ([
+export const json = [
   'package-lock.json',
   '**/.vscode/*.json',
   '**/jsconfig.json',
   '**/jsconfig.*.json',
   '**/tsconfig.json',
   '**/tsconfig.*.json',
-]);
+] as const;

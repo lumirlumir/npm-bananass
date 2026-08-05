@@ -18,24 +18,15 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import type { ESLint, Linter } from 'eslint';
 import reactPluginModule from 'eslint-plugin-react';
-
-// --------------------------------------------------------------------------------
-// Typedef
-// --------------------------------------------------------------------------------
-
-/**
- * @import { ESLint, Linter } from "eslint";
- */
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {{'react': ESLint.Plugin}} */
-export const reactPlugin = { react: reactPluginModule };
+export const reactPlugin: { react: ESLint.Plugin } = { react: reactPluginModule };
 
-/** @type {Linter.RulesRecord} */
 export const reactRules = {
   /**
    * Enforces consistent naming for boolean props.
@@ -831,4 +822,4 @@ export const reactRules = {
    * @see https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react.js#L404
    */
   'react/void-dom-elements-no-children': 'error',
-};
+} as const satisfies Linter.RulesRecord;
