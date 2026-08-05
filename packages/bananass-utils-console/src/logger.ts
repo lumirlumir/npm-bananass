@@ -10,15 +10,28 @@
 import { styleText } from 'node:util';
 
 // --------------------------------------------------------------------------------
-// Typedefs
+// Typedef
 // --------------------------------------------------------------------------------
 
 /**
- * @typedef {object} Options Logger options.
- * @property {boolean | undefined} [debug] Enable debug mode.
- * @property {boolean | undefined} [quiet] Enable quiet mode.
- * @property {string | boolean | undefined} [textPrefix] Text prefix.
+ * Logger options.
  */
+interface Options {
+  /**
+   * Enable debug mode.
+   */
+  debug?: boolean | undefined;
+
+  /**
+   * Enable quiet mode.
+   */
+  quiet?: boolean | undefined;
+
+  /**
+   * Text prefix.
+   */
+  textPrefix?: string | boolean | undefined;
+}
 
 // --------------------------------------------------------------------------------
 // Class
@@ -29,21 +42,14 @@ class Logger {
   // Private Properties
   // ------------------------------------------------------------------------------
 
-  /** @type {boolean} */
-  #debug;
-  /** @type {boolean} */
-  #quiet;
-  /** @type {string | symbol} */
-  #textPrefix;
-  /** @type {string} */
+  #debug: boolean;
+  #quiet: boolean;
+  #textPrefix: string | symbol;
   #textPrefixDefault = '>';
-  /** @type {'log' | 'debug'} */
-  #lastMethodCalled = 'log';
-  /** @type {symbol} */
+  #lastMethodCalled: 'log' | 'debug' = 'log';
   #undeclaredValue = Symbol('undeclared-value');
 
-  /** @param {Options} options */
-  constructor(options = {}) {
+  constructor(options: Options = {}) {
     this.#debug = options.debug ?? false;
     this.#quiet = options.quiet ?? false;
     this.#textPrefix =
@@ -69,10 +75,10 @@ class Logger {
    * - `quiet === true`: output X
    * - `quiet === false`: output O
    *
-   * @param {...unknown} params
-   * @returns {Logger}
+   * @param params The message or callback function, followed by any additional arguments.
+   * @returns The current `Logger` instance for chaining.
    */
-  log(...params) {
+  log(...params: unknown[]): Logger {
     const textOrCallback =
       typeof params[0] !== 'undefined' // Same with default parameter implemetation using `arguments`
         ? params[0]
@@ -111,10 +117,10 @@ class Logger {
    * - `quiet === false && debug === true`: output O
    * - `quiet === false && debug === false`: output X
    *
-   * @param {...unknown} params
-   * @returns {Logger}
+   * @param params The message or callback function, followed by any additional arguments.
+   * @returns The current `Logger` instance for chaining.
    */
-  debug(...params) {
+  debug(...params: unknown[]): Logger {
     const textOrCallback =
       typeof params[0] !== 'undefined'
         ? params[0]
@@ -149,9 +155,9 @@ class Logger {
    * then invokes either `log()` or `debug()` depending on the previously method called.
    * After logging, it restores the original text prefix.
    *
-   * @returns {Logger}
+   * @returns The current `Logger` instance for chaining.
    */
-  eol() {
+  eol(): Logger {
     const prevTextPrefix = this.#textPrefix;
     this.#textPrefix = this.#undeclaredValue;
 
@@ -174,7 +180,7 @@ class Logger {
    * Get the last method called.
    * @returns {'log' | 'debug'}
    */
-  get lastMethodCalled() {
+  get lastMethodCalled(): 'log' | 'debug' {
     return this.#lastMethodCalled;
   }
 }
@@ -186,8 +192,8 @@ class Logger {
 /**
  * Create a new `Logger` instance.
  *
- * @param {Options} [options]
- * @returns {Logger} A new `Logger` instance.
+ * @param options The logger options.
+ * @returns A new `Logger` instance.
  *
  * @example
  * import createLogger from 'bananass-utils-console/logger';
@@ -203,6 +209,6 @@ class Logger {
  *   .debug('Hello, debug!');
  *   .eol();
  */
-export default function createLogger(options) {
+export default function createLogger(options?: Options): Logger {
   return new Logger(options);
 }

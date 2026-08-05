@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `logger.js`.
+ * @fileoverview Test for `logger.ts`.
  */
 
 /* eslint-disable no-console -- Needed for testing */
@@ -12,7 +12,7 @@ import { strictEqual } from 'node:assert';
 import { describe, it, mock, afterEach } from 'node:test';
 import { stripVTControlCharacters as stripAnsi } from 'node:util';
 
-import createLogger from './logger.js';
+import createLogger from './logger.ts';
 
 // --------------------------------------------------------------------------------
 // Mock
@@ -22,7 +22,7 @@ class ConsoleLogMock {
   #output = '';
 
   constructor() {
-    mock.method(console, 'log', (...args) => {
+    mock.method(console, 'log', (...args: unknown[]) => {
       this.#output += `${args.map(arg => String(arg)).join(' ')}\n`;
     }); // Mock `console.log` method.
   }

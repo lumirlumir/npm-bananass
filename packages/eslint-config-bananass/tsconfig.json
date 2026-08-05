@@ -10,7 +10,15 @@
     "src/**/*.cts",
     "src/**/*.tsx"
   ],
-  "exclude": ["src/**/*.test.js", "src/**/*.test.ts", "**/fixtures/**"],
+  "exclude": [
+    "src/**/*.test.js",
+    "src/**/*.test.ts",
+    "src/**/*.test-d.ts",
+    "src/**/*.test-d.mts",
+    "src/**/*.test-d.cts",
+    "src/**/*.test-d.tsx",
+    "**/fixtures/**"
+  ],
   "compilerOptions": {
     /* Modules */
     "rewriteRelativeImportExtensions": true,

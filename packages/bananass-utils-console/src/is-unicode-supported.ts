@@ -25,7 +25,7 @@ import process from 'node:process';
  * which Windows terminals that do support Unicode.
  * However, I have been using this logic in some popular packages for years without problems.
  *
- * @returns {boolean} Returns a `boolean` for whether the terminal supports Unicode.
+ * @returns Returns a `boolean` for whether the terminal supports Unicode.
  * @example
  * ```
  * import isUnicodeSupported from 'bananass-utils-console/is-unicode-supported';
@@ -33,7 +33,7 @@ import process from 'node:process';
  * isUnicodeSupported(); // true
  * ```
  */
-export default function isUnicodeSupported() {
+export default function isUnicodeSupported(): boolean {
   const { env } = process;
   const { TERM, TERM_PROGRAM } = env;
 
