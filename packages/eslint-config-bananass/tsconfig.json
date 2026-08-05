@@ -13,9 +13,11 @@
   "exclude": ["src/**/*.test.js", "src/**/*.test.ts", "**/fixtures/**"],
   "compilerOptions": {
     /* Modules */
+    "rewriteRelativeImportExtensions": true,
     "rootDir": "./src",
 
     /* Emit */
+    "emitDeclarationOnly": false,
     "outDir": "build"
   }
 }

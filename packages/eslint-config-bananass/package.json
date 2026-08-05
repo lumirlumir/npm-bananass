@@ -6,43 +6,43 @@
   "exports": {
     ".": {
       "types": "./build/index.d.ts",
-      "default": "./src/index.js"
+      "default": "./build/index.js"
     },
     "./js": {
       "types": "./build/configs/js.d.ts",
-      "default": "./src/configs/js.js"
+      "default": "./build/configs/js.js"
     },
     "./ts": {
       "types": "./build/configs/ts.d.ts",
-      "default": "./src/configs/ts.js"
+      "default": "./build/configs/ts.js"
     },
     "./jsx-react": {
       "types": "./build/configs/jsx-react.d.ts",
-      "default": "./src/configs/jsx-react.js"
+      "default": "./build/configs/jsx-react.js"
     },
     "./jsx-next": {
       "types": "./build/configs/jsx-next.d.ts",
-      "default": "./src/configs/jsx-next.js"
+      "default": "./build/configs/jsx-next.js"
     },
     "./tsx-react": {
       "types": "./build/configs/tsx-react.d.ts",
-      "default": "./src/configs/tsx-react.js"
+      "default": "./build/configs/tsx-react.js"
     },
     "./tsx-next": {
       "types": "./build/configs/tsx-next.d.ts",
-      "default": "./src/configs/tsx-next.js"
+      "default": "./build/configs/tsx-next.js"
     },
     "./json": {
       "types": "./build/configs/json.d.ts",
-      "default": "./src/configs/json.js"
+      "default": "./build/configs/json.js"
     },
     "./jsonc": {
       "types": "./build/configs/jsonc.d.ts",
-      "default": "./src/configs/jsonc.js"
+      "default": "./build/configs/jsonc.js"
     },
     "./json5": {
       "types": "./build/configs/json5.d.ts",
-      "default": "./src/configs/json5.js"
+      "default": "./build/configs/json5.js"
     },
     "./package.json": "./package.json"
   },
