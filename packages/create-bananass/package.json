@@ -11,15 +11,13 @@
     "./templates/typescript-esm/package.json": "./templates/typescript-esm/package.json"
   },
   "bin": {
-    "create-bananass": "src/cli.js"
+    "create-bananass": "build/cli.js"
   },
   "files": [
-    "src",
+    "build",
     "templates",
     "LICENSE.md",
-    "README.md",
-    "!src/**/*.test.{js,ts}",
-    "!**/fixtures/**"
+    "README.md"
   ],
   "keywords": [
     "bananass",
@@ -52,9 +50,9 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "tsc --noEmit && node ../../scripts/cp.js ../../LICENSE.md LICENSE.md ../../README.md README.md",
+    "build": "tsc && node ../../scripts/cp.js ../../LICENSE.md LICENSE.md ../../README.md README.md",
     "test": "node --test",
-    "dev": "node src/cli.js"
+    "dev": "node src/cli.ts"
   },
   "dependencies": {
     "bananass-utils-console": "^0.8.0",

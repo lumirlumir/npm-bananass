@@ -1,5 +1,5 @@
 /**
- * @fileoverview Test for `cli.js`.
+ * @fileoverview Test for `cli.ts`.
  */
 
 // --------------------------------------------------------------------------------
@@ -21,22 +21,16 @@ import { existsSync, readFileSync, rmSync } from 'node:fs';
 const outDir = join(tmpdir(), 'create-bananass');
 const successMessage = /Successfully created a new Bananass framework project!/;
 
-/**
- * @param {string[]} [paths] Paths to check.
- */
-function exists(...paths) {
+function exists(...paths: string[]) {
   return existsSync(join(outDir, ...paths));
 }
 
-/**
- * @param {string[]} [args] Command line arguments.
- */
-function runCreateBananass(...args) {
+function runCreateBananass(...args: string[]) {
   const { status, stderr } = spawnSync(
     'node',
-    [join(import.meta.dirname, 'cli.js'), outDir, ...args],
+    [join(import.meta.dirname, 'cli.ts'), outDir, ...args],
     {
-      // If there is no interactive handling logic using `isInteractive()` in `cli.js`,
+      // If there is no interactive handling logic using `isInteractive()` in `cli.ts`,
       // `consola` will throw an error when `input` is passed to `spawnSync`.
       // `spawnSync` assumes a non-interactive environment.
       input: '',
