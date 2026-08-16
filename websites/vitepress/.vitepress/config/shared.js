@@ -1,6 +1,5 @@
 /**
  * @fileoverview Shared configuration for VitePress.
- *
  * @see https://vitepress.dev/reference/site-config#site-config
  */
 
@@ -12,10 +11,10 @@ import { PKG_AUTHOR, URL_HOMEPAGE } from 'bananass/core/constants';
 import footnote from 'markdown-it-footnote';
 import { defineConfig } from 'vitepress';
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
-import { codecovVitePlugin } from '@codecov/vite-plugin';
+import codecovVitePlugin from './plugin.js';
 
 // --------------------------------------------------------------------------------
-// Constants
+// Constant
 // --------------------------------------------------------------------------------
 
 const GOOGLE_GA_ID = 'G-1Q3XQ6JTF9';
