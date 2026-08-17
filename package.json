@@ -20,7 +20,6 @@
     }
   },
   "workspaces": [
-    ".",
     "examples/*",
     "packages/*",
     "packages/create-bananass/templates/*",
@@ -81,7 +80,7 @@
     "c8": "^12.0.0",
     "editorconfig-checker": "^6.1.1",
     "eslint": "^9.39.5",
-    "eslint-config-bananass": "^0.8.0",
+    "eslint-config-bananass": "file:packages/eslint-config-bananass",
     "eslint-markdown": "^0.12.1",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.8",
