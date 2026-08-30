@@ -106,6 +106,7 @@ export default async function build(problems, configObject = dco) {
     } = dco.console,
     build: {
       clean = dco.build.clean, // (This comment was used for code formatting.)
+      minimize = dco.build.minimize,
       templateType = dco.build.templateType,
     } = dco.build,
   } = sanitizedConfigObject;
@@ -144,6 +145,11 @@ export default async function build(problems, configObject = dco) {
         /** @see https://webpack.js.org/configuration/resolve/#resolveextensions */
         resolve: {
           extensions: [...SUPPORTED_SOLUTION_FILE_EXTENSIONS],
+        },
+
+        optimization: {
+          /** @see https://webpack.js.org/configuration/optimization/#optimizationminimize */
+          minimize,
         },
 
         /** @see https://webpack.js.org/concepts/#entry */

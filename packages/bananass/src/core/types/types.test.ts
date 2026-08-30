@@ -322,6 +322,7 @@ configObjectBug = true;
 
 ({}) as ConfigObjectBuild satisfies object;
 ({}) as ConfigObjectBuild['clean'] satisfies boolean | undefined;
+({}) as ConfigObjectBuild['minimize'] satisfies boolean | undefined;
 ({}) as ConfigObjectBuild['templateType'] satisfies string | undefined;
 
 // @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectBuild`.
@@ -346,10 +347,12 @@ let configObjectBuild: ConfigObjectBuild;
 configObjectBuild = {};
 configObjectBuild = {
   clean: true,
+  minimize: false,
   templateType: 'fs',
 };
 configObjectBuild = {
   clean: undefined,
+  minimize: undefined,
   templateType: undefined,
 };
 
@@ -363,6 +366,8 @@ configObjectBuild = {
 };
 // @ts-expect-error -- Cannot assign to 'clean' because it is a read-only property.
 configObjectBuild.clean = true;
+// @ts-expect-error -- Cannot assign to 'minimize' because it is a read-only property.
+configObjectBuild.minimize = false;
 // @ts-expect-error -- Cannot assign to 'templateType' because it is a read-only property.
 configObjectBuild.templateType = 'fs';
 // @ts-expect-error -- Type `number` is not assignable to type `ConfigObjectBuild`.
