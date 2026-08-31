@@ -1,0 +1,17 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./packages/bananass/tsconfig.build.json"
+    },
+    {
+      "path": "./packages/bananass-utils-console/tsconfig.build.json"
+    },
+    {
+      "path": "./packages/create-bananass/tsconfig.build.json"
+    },
+    {
+      "path": "./packages/eslint-config-bananass/tsconfig.build.json"
+    }
+  ]
+}
