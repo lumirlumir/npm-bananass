@@ -50,6 +50,7 @@
     "LICENSE.md",
     "README.md",
     "!src/**/*.test.{js,ts}",
+    "!src/**/*.test-d.{ts,mts,cts,tsx}",
     "!**/fixtures/**"
   ],
   "keywords": [
@@ -81,9 +82,9 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "tsc && node ../../scripts/cp.js ../../LICENSE.md LICENSE.md ../../README.md README.md",
+    "build": "tsc -b tsconfig.build.json && node ../../scripts/cp.js ../../LICENSE.md LICENSE.md ../../README.md README.md",
     "test": "npm run test:types && npm run test:unit",
-    "test:types": "tsc -p ./tsconfig.test.json",
+    "test:types": "tsc -b tsconfig.json",
     "test:unit": "node --experimental-test-module-mocks --test",
     "dev": "node src/cli.js"
   },

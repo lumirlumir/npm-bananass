@@ -1,11 +1,8 @@
 {
-  "files": [],
+  "extends": "../../tsconfig.base.test-d.json",
   "references": [
     {
       "path": "./tsconfig.build.json"
-    },
-    {
-      "path": "./tsconfig.test-d.json"
     }
   ]
 }
