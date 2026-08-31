@@ -43,7 +43,7 @@
     "test:pkg:ecb": "npm run test -w packages/eslint-config-bananass",
     "test:t": "npm run test -w tests",
     "build": "npm-run-all -c -l --aggregate-output build:pkg -p build:ws:*",
-    "build:pkg": "tsc -b tsconfig.build.json && node ./scripts/cp.js ./LICENSE.md ./packages/bananass/LICENSE.md ./README.md ./packages/bananass/README.md ./LICENSE.md ./packages/bananass-utils-console/LICENSE.md ./README.md ./packages/bananass-utils-console/README.md ./LICENSE.md ./packages/create-bananass/LICENSE.md ./README.md ./packages/create-bananass/README.md ./LICENSE.md ./packages/eslint-config-bananass/LICENSE.md ./README.md ./packages/eslint-config-bananass/README.md",
+    "build:pkg": "tsc -b tsconfig.build.json",
     "build:ex:sb-cjs": "npm run build -w examples/solutions-bananass-cjs",
     "build:ex:sb-cts": "npm run build -w examples/solutions-bananass-cts",
     "build:ex:sb-mjs": "npm run build -w examples/solutions-bananass-mjs",
