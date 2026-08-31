@@ -92,7 +92,6 @@
     "@babel/plugin-transform-modules-commonjs": "^7.29.7",
     "@babel/plugin-transform-typescript": "^7.29.7",
     "@babel/preset-env": "^7.29.7",
-    "babel-loader": "^10.1.1",
     "bananass-utils-console": "^0.8.0",
     "commander": "^15.0.0",
     "defu": "^6.1.7",
@@ -100,7 +99,7 @@
     "envinfo": "^7.21.0",
     "jiti": "^2.7.0",
     "open": "^10.2.0",
-    "webpack": "^5.109.2",
+    "rolldown": "^1.2.6",
     "zod": "^4.4.2"
   },
   "devDependencies": {

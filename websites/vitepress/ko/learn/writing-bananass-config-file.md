@@ -135,7 +135,7 @@ export default {
   bug: {},
   build: {
     clean: false, // 빌드 전에 기존 출력 디렉토리를 삭제하여 정리합니다.
-    templateType: 'fs', // 웹팩(Webpack)의 엔트리 파일로 사용할 템플릿 타입을 설정합니다. `'fs'`(File System) 혹은 `'rl'`(Read Line) 중 하나를 선택할 수 있습니다.
+    templateType: 'fs', // 롤다운(Rolldown)의 엔트리 파일로 사용할 템플릿 타입을 설정합니다. `'fs'`(File System) 혹은 `'rl'`(Read Line) 중 하나를 선택할 수 있습니다.
   },
   discussion: {},
   home: {},
@@ -168,7 +168,7 @@ module.exports = {
   bug: {},
   build: {
     clean: false, // 빌드 전에 기존 출력 디렉토리를 삭제하여 정리합니다.
-    templateType: 'fs', // 웹팩(Webpack)의 엔트리 파일로 사용할 템플릿 타입을 설정합니다. `'fs'`(File System) 혹은 `'rl'`(Read Line) 중 하나를 선택할 수 있습니다.
+    templateType: 'fs', // 롤다운(Rolldown)의 엔트리 파일로 사용할 템플릿 타입을 설정합니다. `'fs'`(File System) 혹은 `'rl'`(Read Line) 중 하나를 선택할 수 있습니다.
   },
   discussion: {},
   home: {},
@@ -202,7 +202,7 @@ export default {
   bug: {},
   build: {
     clean: false, // 빌드 전에 기존 출력 디렉토리를 삭제하여 정리합니다.
-    templateType: 'fs', // 웹팩(Webpack)의 엔트리 파일로 사용할 템플릿 타입을 설정합니다. `'fs'`(File System) 혹은 `'rl'`(Read Line) 중 하나를 선택할 수 있습니다.
+    templateType: 'fs', // 롤다운(Rolldown)의 엔트리 파일로 사용할 템플릿 타입을 설정합니다. `'fs'`(File System) 혹은 `'rl'`(Read Line) 중 하나를 선택할 수 있습니다.
   },
   discussion: {},
   home: {},
@@ -236,7 +236,7 @@ module.exports = {
   bug: {},
   build: {
     clean: false, // 빌드 전에 기존 출력 디렉토리를 삭제하여 정리합니다.
-    templateType: 'fs', // 웹팩(Webpack)의 엔트리 파일로 사용할 템플릿 타입을 설정합니다. `'fs'`(File System) 혹은 `'rl'`(Read Line) 중 하나를 선택할 수 있습니다.
+    templateType: 'fs', // 롤다운(Rolldown)의 엔트리 파일로 사용할 템플릿 타입을 설정합니다. `'fs'`(File System) 혹은 `'rl'`(Read Line) 중 하나를 선택할 수 있습니다.
   },
   discussion: {},
   home: {},
