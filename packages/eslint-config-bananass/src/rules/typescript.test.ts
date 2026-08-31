@@ -15,7 +15,9 @@ import { typescriptPlugin, typescriptRules } from './typescript.ts';
 // --------------------------------------------------------------------------------
 
 const prefix = '@typescript-eslint/';
-const eslintKeys = Object.keys(typescriptRules).filter(key => !key.includes('/'));
+const eslintKeys = Object.keys(typescriptRules).filter(
+  (key): key is keyof typeof typescriptRules => !key.includes('/'),
+);
 const typescriptKeys = Object.keys(typescriptRules).filter(key => key.includes('/'));
 
 // --------------------------------------------------------------------------------

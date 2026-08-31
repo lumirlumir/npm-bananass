@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.build.json",
+  "references": [
+    {
+      "path": "../bananass-utils-console/tsconfig.build.json"
+    }
+  ],
+  "compilerOptions": {
+    /* Type Checking */
+    "noUnusedLocals": false, // Off: Does not recognize JSDoc `@import` statements
+
+    /* Emit */
+    "emitDeclarationOnly": true
+  }
+}

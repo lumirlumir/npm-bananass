@@ -50,8 +50,10 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "tsc && node ../../scripts/cp.js ../../LICENSE.md LICENSE.md ../../README.md README.md",
-    "test": "node --test",
+    "build": "tsc -b tsconfig.build.json && node ../../scripts/cp.js ../../LICENSE.md LICENSE.md ../../README.md README.md",
+    "test": "npm run test:types && npm run test:unit",
+    "test:types": "tsc -b tsconfig.json",
+    "test:unit": "node --test",
     "dev": "node src/cli.ts"
   },
   "dependencies": {

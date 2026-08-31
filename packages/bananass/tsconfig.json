@@ -1,24 +1,11 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "include": [
-    "src/**/*.js",
-    "src/**/*.mjs",
-    "src/**/*.cjs",
-    "src/**/*.jsx",
-    "src/**/*.ts",
-    "src/**/*.mts",
-    "src/**/*.cts",
-    "src/**/*.tsx"
-  ],
-  "exclude": ["src/**/*.test.js", "src/**/*.test.ts", "**/fixtures/**"],
-  "compilerOptions": {
-    /* Type Checking */
-    "noUnusedLocals": false, // Off: Does not recognize JSDoc `@import` statements
-
-    /* Modules */
-    "rootDir": "./src",
-
-    /* Emit */
-    "outDir": "build"
-  }
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.build.json"
+    },
+    {
+      "path": "./tsconfig.test-d.json"
+    }
+  ]
 }
