@@ -27,6 +27,7 @@
   ],
   "compilerOptions": {
     /* Modules */
+    "rewriteRelativeImportExtensions": true,
     "types": ["node"],
 
     /* Emit */

@@ -9,7 +9,7 @@
 // --------------------------------------------------------------------------------
 
 import { test } from 'node:test';
-import { RuleTester } from 'eslint';
+import { RuleTester, type Rule } from 'eslint';
 import rule from './spaced-comment.ts';
 
 // --------------------------------------------------------------------------------
@@ -24,7 +24,7 @@ const validShebangProgram = '#!/path/to/node\nvar a = 3;';
 //------------------------------------------------------------------------------
 
 test('spaced-comment', () => {
-  ruleTester.run('spaced-comment', rule, {
+  ruleTester.run('spaced-comment', rule as Rule.RuleModule, {
     valid: [
       {
         code: '// A valid comment starting with space\nvar a = 1;',
