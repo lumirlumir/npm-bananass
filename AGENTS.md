@@ -101,6 +101,7 @@ Include:
 
 - Public-facing GitHub content (PRs, issues, review comments, commit titles/descriptions) must be **English**.
 - Local/offline communication language is flexible.
+- All `LICENSE.md` files and package-level `packages/*/README.md` files are exempt from bilingual Markdown requirements. Do not require paired `.en.md` versions or flag their absence in reviews.
 
 ## Change Quality Bar
 
