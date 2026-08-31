@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.base.build.json",
+  "references": [
+    {
+      "path": "../bananass-utils-console/tsconfig.build.json"
+    }
+  ]
+}
