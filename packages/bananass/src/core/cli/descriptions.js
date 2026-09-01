@@ -15,7 +15,7 @@ import { defaultConfigObject as dco } from '../conf/index.js';
 /** @satisfies {string} */
 export const bug = 'open the github issues in a browser';
 /** @satisfies {string} */
-export const build = `build and create bundled files using webpack and babel from the \`${dco.entryDir}\` directory and outputs them to the \`${dco.outDir}\` directory`;
+export const build = `build and create bundled files using Rolldown and Babel from the \`${dco.entryDir}\` directory and outputs them to the \`${dco.outDir}\` directory`;
 /** @satisfies {string} */
 export const discussion = 'open the github discussions in a browser';
 /** @satisfies {string} */

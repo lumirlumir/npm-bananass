@@ -53,7 +53,7 @@
 
 ::: info 주목해주세요!
 
-바나나 프레임워크는 내부적으로 [웹팩<sup>Webpack</sup>](https://webpack.js.org/)을 통한 모듈 번들링<sup>Module Bundling</sup>을 통해 사용자 정의 모듈 및 외부 라이브러리들을 자유롭게 사용할 수 있게 해줍니다.
+바나나 프레임워크는 내부적으로 [롤다운<sup>Rolldown</sup>](https://rolldown.rs/)을 통한 모듈 번들링<sup>Module Bundling</sup>을 통해 사용자 정의 모듈 및 외부 라이브러리들을 자유롭게 사용할 수 있게 해줍니다.
 
 :::
 
@@ -106,7 +106,7 @@
 
 바나나<sup>Bananass</sup> 프레임워크는 MIT 라이센스를 따르는 완전한 오픈소스입니다!
 
-수많은 오픈소스 기여를 통해 배운 모든 내용들을 바나나 프레임워크에 녹여냈습니다. 바나나 프레임워크에서 사용하는 [Babel](https://babeljs.io/), [Webpack](https://webpack.js.org/), [ESLint](https://eslint.org/) 등의 기술들은 현대 자바스크립트 개발의 핵심을 품고 있습니다.
+수많은 오픈소스 기여를 통해 배운 모든 내용들을 바나나 프레임워크에 녹여냈습니다. 바나나 프레임워크에서 사용하는 [Babel](https://babeljs.io/), [Rolldown](https://rolldown.rs/), [ESLint](https://eslint.org/) 등의 기술들은 현대 자바스크립트 개발의 핵심을 품고 있습니다.
 
 바나나 프레임워크는 여러분 모두의 관심을 통해 점점 완벽해지고 성장할 수 있습니다. 기여를 통해 바나나 프레임워크를 함께 성장시키고 오픈소스, 그리고 기여자 목록<sup>Contributor List</sup>에 여러분의 발자취를 남겨주세요.
 
