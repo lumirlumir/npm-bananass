@@ -28,7 +28,7 @@ A new paradigm for solving algorithm problems in JavaScript.
 > console.log(('b' + 'a' + +'a' + 'a').toLowerCase() + (!(1/0) + [])[3].repeat(2));
 > ```
 
-<!-- markdownlint-disable-next-line md026 -->
+<!-- eslint-disable-next-line md/no-trailing-heading-punctuation -->
 ## Hello, Bananass!
 
 Welcome to the Bananass framework!

@@ -1,4 +1,4 @@
-::: danger 반드시 읽어주세요! <!-- markdownlint-disable-line -->
+::: danger 반드시 읽어주세요!
 
 이 패키지는 바나나 프레임워크 내부에서 사용하는 유틸리티 패키지로, 외부 공개 API에서 [유의적 버전](https://semver.org/lang/ko/)<sup>SemVer, Semantic Versioning</sup>을 따르지 않습니다.  
 
