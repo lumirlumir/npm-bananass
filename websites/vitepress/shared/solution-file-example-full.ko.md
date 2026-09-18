@@ -1,4 +1,4 @@
-::: code-group <!-- markdownlint-disable-line -->
+::: code-group
 
 ```js:line-numbers [1000.mjs]
 // 백준 1000번 문제.

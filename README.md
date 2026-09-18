@@ -28,7 +28,7 @@
 > console.log(('b' + 'a' + +'a' + 'a').toLowerCase() + (!(1/0) + [])[3].repeat(2));
 > ```
 
-<!-- markdownlint-disable-next-line md026 -->
+<!-- eslint-disable-next-line md/no-trailing-heading-punctuation -->
 ## 안녕, 바나나!
 
 바나나<sup>Bananass</sup> 프레임워크에 오신 것을 환영합니다!
