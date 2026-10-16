@@ -9,9 +9,6 @@
     },
     {
       "path": "./packages/create-bananass/tsconfig.build.json"
-    },
-    {
-      "path": "./packages/eslint-config-bananass/tsconfig.build.json"
     }
   ]
 }

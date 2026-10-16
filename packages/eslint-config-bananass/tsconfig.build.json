@@ -1,4 +1,0 @@
-{
-  "extends": "../../tsconfig.base.build.json",
-  "references": []
-}

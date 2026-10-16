@@ -11,9 +11,6 @@
       "path": "./packages/create-bananass/tsconfig.json"
     },
     {
-      "path": "./packages/eslint-config-bananass/tsconfig.json"
-    },
-    {
       "path": "./tsconfig.node.json"
     }
   ]

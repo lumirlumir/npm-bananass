@@ -62,5 +62,3 @@ lumirlumir/lumirlumir:
     dest: ./configs/LICENSE.md
   - source: ./packages/create-bananass/LICENSE.md
     dest: ./configs/LICENSE.md
-  - source: ./packages/eslint-config-bananass/LICENSE.md
-    dest: ./configs/LICENSE.md

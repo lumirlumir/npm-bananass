@@ -15,7 +15,3 @@
 ## [`create-bananass`](create-bananass.md) {#create-bananass}
 
 <!-- @include: @/shared/wip.ko.md -->
-
-## [`eslint-config-bananass`](eslint-config-bananass.md) {#eslint-config-bananass}
-
-<!-- @include: @/shared/wip.ko.md -->

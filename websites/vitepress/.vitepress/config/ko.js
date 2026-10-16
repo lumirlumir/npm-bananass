@@ -89,10 +89,6 @@ export default defineConfig({
         activeMatch: '/solutions/',
       },
       {
-        text: 'ESLint',
-        link: 'https://eslint-config-bananass.lumir.page',
-      },
-      {
         text: '패키지',
         items: BANANASS_PKG_NAMES.map(pkgName => ({
           text: pkgName,
@@ -153,10 +149,6 @@ export default defineConfig({
             {
               text: 'create-bananass',
               link: '/create-bananass',
-            },
-            {
-              text: 'eslint-config-bananass',
-              link: '/eslint-config-bananass',
             },
           ],
         },
