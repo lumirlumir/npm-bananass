@@ -8,7 +8,7 @@
 
 import process from 'node:process';
 import { describe, it } from 'node:test';
-import { ok } from 'node:assert';
+import { ok } from 'node:assert/strict';
 
 import isUnicodeSupported from './is-unicode-supported.ts';
 

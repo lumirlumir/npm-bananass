@@ -2,14 +2,14 @@
  * @fileoverview Test for `spinner.ts`.
  */
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// eslint-disable-next-line typescript/ban-ts-comment
 // @ts-nocheck
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-import { strictEqual, match, ok } from 'node:assert';
+import { strictEqual, match, ok } from 'node:assert/strict';
 import { describe, it, mock } from 'node:test';
 import { stripVTControlCharacters as stripAnsi } from 'node:util';
 import { PassThrough } from 'node:stream';

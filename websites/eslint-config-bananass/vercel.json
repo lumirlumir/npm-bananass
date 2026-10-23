@@ -1,8 +1,0 @@
-{
-  "buildCommand": "npm run build --prefix ../..",
-  "framework": null,
-  "ignoreCommand": "node ../../scripts/vercel-ignore-command.js",
-  "installCommand": "npm install --prefix ../..",
-  "outputDirectory": "build",
-  "regions": ["icn1"]
-}

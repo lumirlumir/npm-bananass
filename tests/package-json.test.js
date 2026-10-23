@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { deepStrictEqual, strictEqual } from 'node:assert';
+import { deepStrictEqual, strictEqual } from 'node:assert/strict';
 import { describe, it } from 'node:test';
 
 import bananass from 'bananass/package.json' with { type: 'json' };
@@ -16,8 +16,7 @@ import createBananassJsCjs from 'create-bananass/templates/javascript-cjs/packag
 import createBananassJsEsm from 'create-bananass/templates/javascript-esm/package.json' with { type: 'json' };
 import createBananassTsCjs from 'create-bananass/templates/typescript-cjs/package.json' with { type: 'json' };
 import createBananassTsEsm from 'create-bananass/templates/typescript-esm/package.json' with { type: 'json' };
-import eslintConfigBananass from 'eslint-config-bananass/package.json' with { type: 'json' };
-import npmBananass from '../package.json' with { type: 'json' }; // eslint-disable-line import/no-relative-packages
+import npmBananass from '../package.json' with { type: 'json' };
 
 // --------------------------------------------------------------------------------
 // Test
@@ -36,7 +35,6 @@ describe('package-json', () => {
         createBananassJsEsm.engines.node,
         createBananassTsCjs.engines.node,
         createBananassTsEsm.engines.node,
-        // eslintConfigBananass.engines.node, // TODO: Currently, `eslint-config-bananass` should support `"^20.19.0 || ^22.13.0 || >=24.0.0"`
       ]).size,
       1,
     );
@@ -78,8 +76,5 @@ describe('package-json', () => {
       Object.keys(bananassUtilsConsole.exports['./theme']),
       expectedExportsKeys,
     );
-
-    // `eslint-config-bananass`
-    deepStrictEqual(Object.keys(eslintConfigBananass.exports['.']), expectedExportsKeys);
   });
 });

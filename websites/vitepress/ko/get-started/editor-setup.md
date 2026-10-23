@@ -35,9 +35,9 @@ VS Code 환경에서 [`create-bananass`](installation.md#getting-started-with-cr
 
 ::: warning 바나나 프레임워크에서 권장하는 ESLint 설정
 
-바나나 프레임워크는 [`eslint-config-bananass`](../apis/eslint-config-bananass.md)라는 ESLint 설정 파일 패키지를 제공하고 있습니다!
+`create-bananass`로 생성한 프로젝트는 ESLint 10과 [`@eslint/js`](https://www.npmjs.com/package/@eslint/js)의 권장 설정으로 자바스크립트와 타입스크립트 파일을 검사합니다.
 
-이 패키지는 바나나 프레임워크에서 권장하는 규칙들을 포함하고 있으며, [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript?tab=readme-ov-file#airbnb-javascript-style-guide-)를 기반으로 하여, 실제 개발 환경에서도 사용할 수 있는 설정 파일입니다.
+프로젝트의 `eslint.config.mjs` 또는 `eslint.config.mts`에서 규칙을 직접 수정할 수 있습니다.
 
 :::
 
