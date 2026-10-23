@@ -10,15 +10,15 @@
 
 import { styleText } from 'node:util';
 import type { WriteStream } from 'node:tty';
-import type { SpinnerStyle } from './icons.ts';
-import isInteractive from './is-interactive.ts';
 import {
   successIcon,
   errorIcon,
   warningIcon,
   infoIcon,
   defaultSpinner,
+  type SpinnerStyle,
 } from './icons.ts';
+import isInteractive from './is-interactive.ts';
 
 // --------------------------------------------------------------------------------
 // Typedef

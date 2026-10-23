@@ -2,14 +2,14 @@
  * @fileoverview Test for `is-interactive.ts`.
  */
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// eslint-disable-next-line typescript/ban-ts-comment
 // @ts-nocheck
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-import { ok } from 'node:assert';
+import { ok } from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import { PassThrough } from 'node:stream';
 

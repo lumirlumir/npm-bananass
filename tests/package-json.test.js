@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { deepStrictEqual, strictEqual } from 'node:assert';
+import { deepStrictEqual, strictEqual } from 'node:assert/strict';
 import { describe, it } from 'node:test';
 
 import bananass from 'bananass/package.json' with { type: 'json' };
@@ -16,7 +16,7 @@ import createBananassJsCjs from 'create-bananass/templates/javascript-cjs/packag
 import createBananassJsEsm from 'create-bananass/templates/javascript-esm/package.json' with { type: 'json' };
 import createBananassTsCjs from 'create-bananass/templates/typescript-cjs/package.json' with { type: 'json' };
 import createBananassTsEsm from 'create-bananass/templates/typescript-esm/package.json' with { type: 'json' };
-import npmBananass from '../package.json' with { type: 'json' }; // eslint-disable-line import/no-relative-packages
+import npmBananass from '../package.json' with { type: 'json' };
 
 // --------------------------------------------------------------------------------
 // Test

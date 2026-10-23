@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 export function solution(input) {
   const [a, b] = input
     .trim()

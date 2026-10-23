@@ -1064,15 +1064,15 @@ describe('types', () => {
 
     it('function with 0 parameter (function declaration)', () => {
       /* eslint-disable-next-line prefer-arrow-callback -- Test */
-      const stringFunc = solution.implement(function stringFunc() {
+      const stringFunc = solution.implement(function stringFunction() {
         return 'string';
       });
       /* eslint-disable-next-line prefer-arrow-callback -- Test */
-      const numberFunc = solution.implement(function numberFunc() {
+      const numberFunc = solution.implement(function numberFunction() {
         return 1;
       });
       /* eslint-disable-next-line prefer-arrow-callback -- Test */
-      const booleanFunc = solution.implement(function booleanFunc() {
+      const booleanFunc = solution.implement(function booleanFunction() {
         return true;
       });
 

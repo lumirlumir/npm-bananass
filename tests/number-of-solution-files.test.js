@@ -7,7 +7,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { deepStrictEqual } from 'node:assert';
+import { deepStrictEqual } from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import { readdirSync } from 'node:fs';
 import { parse } from 'node:path';

@@ -11,7 +11,7 @@
 import theme from 'vitepress/theme';
 
 import './style.css';
-import 'virtual:group-icons.css'; // eslint-disable-line n/no-missing-import
+import 'virtual:group-icons.css'; // eslint-disable-line node/no-missing-import
 
 // --------------------------------------------------------------------------------
 // Export

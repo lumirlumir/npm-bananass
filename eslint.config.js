@@ -27,10 +27,24 @@ export default defineConfig([
 
   // js
   {
-    name: 'js/temp',
+    name: 'js/temp/global',
+    files: ['**/*.test.js'],
+    rules: {
+      'node/prefer-import/assert-strict': 'off', // TODO: Enable after refactoring
+    },
+  },
+  {
+    name: 'js/temp/preserve-caught-error',
     files: ['packages/bananass/src/**/*.js', 'packages/create-bananass/src/**/*.js'],
     rules: {
       'preserve-caught-error': 'off', // TODO: Enable after refactoring
+    },
+  },
+  {
+    name: 'js/examples',
+    files: ['examples/**/*.{js,mjs,cjs}'],
+    rules: {
+      'node/prefer-global/console': 'off', // TODO: Enable after refactoring
     },
   },
 
@@ -48,6 +62,7 @@ export default defineConfig([
     files: ['websites/vitepress/*/solutions/**/*.md'],
     rules: {
       'markdown/no-missing-label-refs': 'off',
+      'md/no-double-punctuation': 'off',
     },
   },
   {

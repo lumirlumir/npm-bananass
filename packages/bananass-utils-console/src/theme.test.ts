@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { strictEqual } from 'node:assert';
+import { strictEqual } from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import { stripVTControlCharacters as stripAnsi } from 'node:util';
 
