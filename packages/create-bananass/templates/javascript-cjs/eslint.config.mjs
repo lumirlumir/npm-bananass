@@ -18,11 +18,9 @@ export default defineConfig(
     //
     // For example:
     //
-    // {
-    //   rules: {
-    //     'no-console': 'off',
-    //   },
-    // }
+    // rules: {
+    //   'no-console': 'off',
+    // },
     // ...
   },
 );
