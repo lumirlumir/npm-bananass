@@ -91,13 +91,13 @@
 
 ## ESLint 및 Prettier 자체 지원 {#native-support-for-eslint-and-prettier}
 
-백준 문제를 풀며, 자바스크립트 생태계에서 가장 유명한 에어비앤비<sup>Airbnb</sup> 코드 컨벤션을 따르는 ESLint 및 Prettier의 규칙을 따라가 보세요!
+백준 문제를 풀며, ESLint의 권장 규칙으로 코드의 문제를 찾고 Prettier로 코드 형식을 정리해 보세요!
 
 ::: warning 주의하세요!
 
 바나나 프레임워크에서 지원하는 ESLint 및 Prettier 설정 파일들은 아래와 같은 제약이 존재합니다!
 
-- [ESLint](https://eslint.org/): 최신 사양의 ESLint v9 Flat Config만을 지원하며, ESM 모듈 시스템만<sup>ESM Only</sup> 지원합니다.
+- [ESLint](https://eslint.org/): ESLint v10 Flat Config를 사용하며, 설정 파일은 ESM 모듈 시스템만<sup>ESM Only</sup> 지원합니다.
 - [Prettier](https://prettier.io/): ESM 모듈 시스템만<sup>ESM Only</sup> 지원합니다.
 
 :::
