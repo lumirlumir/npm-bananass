@@ -50,24 +50,24 @@ export default defineConfig([
 
   // md
   {
-    name: 'md/websites-vitepress/global',
-    files: ['websites/vitepress/**/*.md'],
+    name: 'md/website/global',
+    files: ['website/**/*.md'],
     rules: {
       'md/require-heading-id': 'error',
       'md/no-emoji': 'error',
     },
   },
   {
-    name: 'md/websites-vitepress/solutions',
-    files: ['websites/vitepress/*/solutions/**/*.md'],
+    name: 'md/website/solutions',
+    files: ['website/*/solutions/**/*.md'],
     rules: {
       'markdown/no-missing-label-refs': 'off',
       'md/no-double-punctuation': 'off',
     },
   },
   {
-    name: 'md/websites-vitepress/solutions/ko',
-    files: ['websites/vitepress/ko/solutions/**/*.md'],
+    name: 'md/website/solutions/ko',
+    files: ['website/ko/solutions/**/*.md'],
     rules: {
       'md/allow-heading': [
         'error',
@@ -84,8 +84,8 @@ export default defineConfig([
     },
   },
   {
-    name: 'md/websites-vitepress/solutions/en',
-    files: ['websites/vitepress/en/solutions/**/*.md'],
+    name: 'md/website/solutions/en',
+    files: ['website/en/solutions/**/*.md'],
     rules: {
       'md/allow-heading': [
         'error',

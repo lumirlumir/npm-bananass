@@ -3,14 +3,14 @@
 ## Repository Context
 
 - This repository is a **monorepo managed with npm workspaces**.
-- Main code lives in `packages/`. Examples live in `examples/`. Tests live in `tests/`. Documentation and site content live in `websites/`.
+- Main code lives in `packages/`. Examples live in `examples/`. Tests live in `tests/`. Documentation and site content live in `website/`.
 - Follow repository standards from `CONTRIBUTING.md` when making changes.
 
 ## Monorepo Conventions
 
 - Treat each directory under `packages/` as an independently testable/buildable unit within the workspace graph.
 - Keep package-level changes aligned with root tooling and scripts (do not bypass root conventions).
-- If a change affects behavior documented on the site, update relevant docs in `websites/` in the same PR.
+- If a change affects behavior documented on the site, update relevant docs in `website/` in the same PR.
 
 ## High-Value Working Rules for AI Agents
 
@@ -62,7 +62,7 @@ Use this guide when preparing any PR in this repository.
 #### `scope` rules
 
 - The workflow extracts allowed scopes from every `package.json` `name` field in the repo.
-- Use an existing workspace name such as `bananass`, `create-bananass`, `tests`, or `websites-vitepress` when a single workspace scope fits.
+- Use an existing workspace name such as `bananass`, `create-bananass`, `tests`, or `website` when a single workspace scope fits.
 - Use `*` for repo-wide/docs/tooling changes when a single workspace scope is not appropriate.
 - Additional allowed scopes are `deps`, `deps-dev`, `release`, `sync-server`, and `sync-client`.
 - `deps` and `deps-dev` are intended for `chore` changes that update dependencies.
@@ -86,7 +86,7 @@ Follow the repository PR template exactly and keep content concise.
 Include:
 
 - **summary**: what changed and why
-- **scope**: affected packages/directories (e.g., `packages/...`, `examples/...`, `tests/...`, `websites/...`)
+- **scope**: affected packages/directories (e.g., `packages/...`, `examples/...`, `tests/...`, `website/...`)
 - **validation**: commands run and results (e.g., `npm run test`, `npm run build`, `npm run lint`)
 - **notes**: any limitations or follow-up items
 
@@ -108,7 +108,7 @@ Include:
 - Include only discoverable, codebase-backed changes.
 - Avoid speculative refactors and broad formatting churn.
 - Call out any assumptions when code context is incomplete.
-- Prefer explicit file references in explanations (for example: `packages/...`, `websites/...`, `.github/workflows/pull-request.yml`).
+- Prefer explicit file references in explanations (for example: `packages/...`, `website/...`, `.github/workflows/pull-request.yml`).
 
 ### Codex-only Review Priority Guide
 
