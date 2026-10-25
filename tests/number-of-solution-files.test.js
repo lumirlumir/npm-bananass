@@ -1,6 +1,6 @@
 /**
  * @fileoverview Test to verify that the number of solution files in the `examples/solutions-bananass-*` folders
- * matches the number of corresponding explanation files for those solutions in the `websites/vitepress` folder.
+ * matches the number of corresponding explanation files for those solutions in the `website` folder.
  */
 
 // --------------------------------------------------------------------------------
@@ -36,13 +36,13 @@ const examplesSolutionsBananassMts = readdirSync(
 )
   .map(file => parse(file).name)
   .sort();
-const websitesVitepressKo = readdirSync(
-  new URL('../websites/vitepress/ko/solutions/baekjoon', import.meta.url),
+const websiteKo = readdirSync(
+  new URL('../website/ko/solutions/baekjoon', import.meta.url),
 )
   .map(file => parse(file).name)
   .sort();
-const websitesVitepressEn = readdirSync(
-  new URL('../websites/vitepress/en/solutions/baekjoon', import.meta.url),
+const websiteEn = readdirSync(
+  new URL('../website/en/solutions/baekjoon', import.meta.url),
 )
   .map(file => parse(file).name)
   .sort();
@@ -56,7 +56,7 @@ describe('number-of-solution-files', () => {
     deepStrictEqual(examplesSolutionsBananassCjs, examplesSolutionsBananassCts);
     deepStrictEqual(examplesSolutionsBananassCjs, examplesSolutionsBananassMjs);
     deepStrictEqual(examplesSolutionsBananassCjs, examplesSolutionsBananassMts);
-    deepStrictEqual(examplesSolutionsBananassCjs, websitesVitepressKo);
-    deepStrictEqual(examplesSolutionsBananassCjs, websitesVitepressEn);
+    deepStrictEqual(examplesSolutionsBananassCjs, websiteKo);
+    deepStrictEqual(examplesSolutionsBananassCjs, websiteEn);
   });
 });

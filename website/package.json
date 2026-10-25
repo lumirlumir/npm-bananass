@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "website",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress --open --host",
+    "build": "vitepress build --outDir build",
+    "start": "vitepress preview"
+  },
+  "devDependencies": {
+    "@codecov/bundler-plugin-core": "^2.0.1",
+    "bananass": "^0.8.0",
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-mathjax3": "^4.3.2",
+    "vitepress": "2.0.0-alpha.17",
+    "vitepress-plugin-group-icons": "^1.7.6"
+  }
+}

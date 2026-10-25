@@ -30,7 +30,7 @@ The Bananass Framework uses a **monorepo** structure with [`npm workspaces`](htt
 - Core package `bananass` is in `packages/bananass`.  
 - Other packages are under `packages`.  
 - Community docs like `README.md` and `CONTRIBUTING.md` are at the project root.  
-- Website content lives in `websites/vitepress/ko` and `websites/vitepress/en`.
+- Website content lives in `website/ko` and `website/en`.
 
 ## Commit Messages
 
