@@ -1,24 +1,28 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
-import js from 'eslint-config-bananass/js';
+import js from '@eslint/js';
+import globals from 'globals';
 
-export default defineConfig([
+export default defineConfig(
   // Bananass build directory.
   // Rename it if you change the `outDir` field in `bananass.config.mjs`.
   globalIgnores(['**/.bananass/']),
 
-  js,
+  {
+    files: ['**/*.{js,mjs,cjs}'],
+    extends: [js.configs.recommended],
+    languageOptions: {
+      globals: globals.node,
+    },
 
-  // Add your custom ESLint configuration here.
-  //
-  // For example:
-  //
-  // {
-  //   rules: {
-  //     'no-console': 'off',
-  //   },
-  // }
-  // ...
-]);
+    // Add your custom ESLint configuration here.
+    //
+    // For example:
+    //
+    // rules: {
+    //   'no-console': 'off',
+    // },
+    // ...
+  },
+);
 
-// Please take a look at https://eslint-config-bananass.lumir.page
-// which contains all the available configurations.
+// See https://eslint.org/docs/latest/use/configure/ for more configuration options.

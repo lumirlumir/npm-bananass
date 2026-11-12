@@ -1,0 +1,17 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./packages/bananass/tsconfig.json"
+    },
+    {
+      "path": "./packages/bananass-utils-console/tsconfig.json"
+    },
+    {
+      "path": "./packages/create-bananass/tsconfig.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}

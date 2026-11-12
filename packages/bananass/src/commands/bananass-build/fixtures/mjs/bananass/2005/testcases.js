@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 export const testcases = [
   {
     input: '1 2',

@@ -1,0 +1,24 @@
+{
+  "extends": "./tsconfig.base.json",
+  "include": [
+    "${configDir}/src/**/*.test-d.ts",
+    "${configDir}/src/**/*.test-d.mts",
+    "${configDir}/src/**/*.test-d.cts",
+    "${configDir}/src/**/*.test-d.tsx"
+  ],
+  "compilerOptions": {
+    /* Type Checking */
+    "noUnusedLocals": false,
+    "noUnusedParameters": false, // Turning it off since it's a test.
+
+    /* Modules */
+    "allowImportingTsExtensions": true,
+    "types": ["node"],
+
+    /* Emit */
+    "noEmit": true,
+
+    /* Projects */
+    "tsBuildInfoFile": "${configDir}/.tsbuildinfo/tsconfig.test-d.tsbuildinfo"
+  }
+}

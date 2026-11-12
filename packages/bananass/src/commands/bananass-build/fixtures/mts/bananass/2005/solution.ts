@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 import add from '../../utils/add';
 import type { Input, Output } from '../../types';
 

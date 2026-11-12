@@ -6,13 +6,14 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { ok, strictEqual, match } from 'node:assert';
+import { ok, strictEqual, deepStrictEqual, match } from 'node:assert/strict';
 import { describe, it, afterEach } from 'node:test';
 import { stripVTControlCharacters } from 'node:util';
 import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { existsSync, readFileSync, rmSync } from 'node:fs';
+import { ESLint } from 'eslint';
 
 // --------------------------------------------------------------------------------
 // Helper
@@ -46,6 +47,115 @@ function runCreateBananass(...args: string[]) {
 // --------------------------------------------------------------------------------
 
 describe('cli', () => {
+  describe('templates', () => {
+    describe('JavaScript ESM template', () => {
+      it('should lint the JavaScript ESM template without errors or warnings', async () => {
+        const eslint = new ESLint({
+          cwd: join(import.meta.dirname, '../templates/javascript-esm'),
+        });
+        const results = await eslint.lintFiles(['.']);
+
+        ok(results.length > 0);
+        deepStrictEqual(
+          results.flatMap(result => result.messages),
+          [],
+        );
+      });
+
+      it('should accept Node.js globals without errors or warnings', async () => {
+        const eslint = new ESLint({
+          cwd: join(import.meta.dirname, '../templates/javascript-esm'),
+        });
+        const results = await eslint.lintText(
+          'export const value = process.argv.length;',
+          { filePath: 'bananass/globals.mjs' },
+        );
+
+        deepStrictEqual(results[0].messages, []);
+      });
+    });
+
+    describe('JavaScript CJS template', () => {
+      it('should lint the JavaScript CJS template without errors or warnings', async () => {
+        const eslint = new ESLint({
+          cwd: join(import.meta.dirname, '../templates/javascript-cjs'),
+        });
+        const results = await eslint.lintFiles(['.']);
+
+        ok(results.length > 0);
+        deepStrictEqual(
+          results.flatMap(result => result.messages),
+          [],
+        );
+      });
+
+      it('should accept Node.js globals without errors or warnings', async () => {
+        const eslint = new ESLint({
+          cwd: join(import.meta.dirname, '../templates/javascript-cjs'),
+        });
+        const results = await eslint.lintText('module.exports = process.argv.length;', {
+          filePath: 'bananass/globals.cjs',
+        });
+
+        deepStrictEqual(results[0].messages, []);
+      });
+    });
+
+    describe('TypeScript ESM template', () => {
+      it('should lint the TypeScript ESM template without errors or warnings', async () => {
+        const eslint = new ESLint({
+          cwd: join(import.meta.dirname, '../templates/typescript-esm'),
+        });
+        const results = await eslint.lintFiles(['.']);
+
+        ok(results.length > 0);
+        deepStrictEqual(
+          results.flatMap(result => result.messages),
+          [],
+        );
+      });
+
+      it('should accept Node.js globals without errors or warnings', async () => {
+        const eslint = new ESLint({
+          cwd: join(import.meta.dirname, '../templates/typescript-esm'),
+        });
+        const results = await eslint.lintText(
+          'export const value: number = process.argv.length;',
+          { filePath: 'bananass/globals.mts' },
+        );
+
+        deepStrictEqual(results[0].messages, []);
+      });
+    });
+
+    describe('TypeScript CJS template', () => {
+      it('should lint the TypeScript CJS template without errors or warnings', async () => {
+        const eslint = new ESLint({
+          cwd: join(import.meta.dirname, '../templates/typescript-cjs'),
+        });
+        const results = await eslint.lintFiles(['.']);
+
+        ok(results.length > 0);
+        deepStrictEqual(
+          results.flatMap(result => result.messages),
+          [],
+        );
+      });
+
+      it('should accept Node.js globals without errors or warnings', async () => {
+        const eslint = new ESLint({
+          cwd: join(import.meta.dirname, '../templates/typescript-cjs'),
+        });
+        const results = await eslint.lintText(
+          'const value: number = process.argv.length; module.exports = value;',
+          { filePath: 'bananass/globals.cts' },
+        );
+
+        deepStrictEqual(results[0].messages, []);
+      });
+    });
+  });
+
   describe('e2e', () => {
     afterEach(() => {
       // Clean up the output directory after each test.

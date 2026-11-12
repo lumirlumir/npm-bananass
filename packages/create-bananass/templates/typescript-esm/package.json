@@ -22,10 +22,12 @@
     "tsc": "tsc"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/node": "^22.20.0",
+    "@typescript-eslint/parser": "^8.72.0",
     "bananass": "^0.8.0",
-    "eslint": "^9.39.5",
-    "eslint-config-bananass": "^0.8.0",
+    "eslint": "^10.13.0",
+    "globals": "^17.13.0",
     "jiti": "^2.7.0",
     "prettier": "^3.9.6",
     "typescript": "^6.0.3"

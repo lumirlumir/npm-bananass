@@ -30,7 +30,7 @@
 - 핵심 패키지인 `bananass` 패키지는 `packages/bananass` 폴더에 위치합니다.
 - 그 외 패키지들도 `packages` 폴더 하위에 위치하고 있습니다.
 - `README.md`, `CONTRIBUTING.md` 등의 커뮤니티 문서들은 프로젝트의 최상단에 위치합니다.
-- 바나나 프레임워크 웹사이트 상의 문서들은 `websites/vitepress/ko` 및 `websites/vitepress/en` 폴더에 각각 위치하고 있습니다.
+- 바나나 프레임워크 웹사이트 상의 문서들은 `website/ko` 및 `website/en` 폴더에 각각 위치하고 있습니다.
 
 ## 커밋 메시지
 

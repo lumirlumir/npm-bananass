@@ -1,0 +1,33 @@
+{
+  "extends": "./tsconfig.base.json",
+  "include": [
+    "${configDir}/src/**/*.test.js",
+    "${configDir}/src/**/*.test.mjs",
+    "${configDir}/src/**/*.test.cjs",
+    "${configDir}/src/**/*.test.jsx",
+    "${configDir}/src/**/*.test.ts",
+    "${configDir}/src/**/*.test.mts",
+    "${configDir}/src/**/*.test.cts",
+    "${configDir}/src/**/*.test.tsx",
+    "${configDir}/tests/**/*.test.js",
+    "${configDir}/tests/**/*.test.mjs",
+    "${configDir}/tests/**/*.test.cjs",
+    "${configDir}/tests/**/*.test.jsx",
+    "${configDir}/tests/**/*.test.ts",
+    "${configDir}/tests/**/*.test.mts",
+    "${configDir}/tests/**/*.test.cts",
+    "${configDir}/tests/**/*.test.tsx"
+  ],
+  "exclude": ["${configDir}/**/fixtures/**"],
+  "compilerOptions": {
+    /* Modules */
+    "allowImportingTsExtensions": true,
+    "types": ["node"],
+
+    /* Emit */
+    "noEmit": true,
+
+    /* Projects */
+    "tsBuildInfoFile": "${configDir}/.tsbuildinfo/tsconfig.test.tsbuildinfo"
+  }
+}
