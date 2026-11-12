@@ -180,7 +180,7 @@ export default async function build(problems, configObject = dco) {
             'globalThis.BAEKJOON_PROBLEM_NUMBER_WITH_PATH': JSON.stringify(
               resolve(resolvedEntryDir, problem),
             ),
-            'globalThis.IS_PROD': JSON.stringify(true),
+            'globalThis.IS_PROD': JSON.stringify(true), // Same with `process.env.NODE_ENV === 'production'`.
             'process.env.NODE_ENV': JSON.stringify('production'),
           },
         },
