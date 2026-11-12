@@ -19,9 +19,9 @@ import createLogger from 'bananass-utils-console/logger';
 import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, error, success } from 'bananass-utils-console/theme';
 import { program } from 'commander';
-import { consola } from 'consola';
 
 import pkg from '../package.json' with { type: 'json' };
+import prompt from './prompt.ts';
 
 // --------------------------------------------------------------------------------
 // Types
@@ -133,49 +133,38 @@ program
     let promptSkipGit;
     let promptSkipInstall;
 
-    if (isInteractive() && !cliYes) {
-      promptDirectory = await consola.prompt(
+    if (process.stdin.isTTY && isInteractive() && !cliYes) {
+      promptDirectory = await prompt(
         'Which directory should this project be located in?',
         {
           placeholder: cliDirectory,
           type: 'text',
-          cancel: 'reject',
         },
       );
 
-      promptCjs = await consola.prompt('Would you like to use CommonJS module system?', {
-        initial: false,
+      promptCjs = await prompt('Would you like to use CommonJS module system?', {
         type: 'confirm',
-        cancel: 'reject',
       });
 
-      promptTypescript = await consola.prompt('Would you like to use TypeScript?', {
-        initial: false,
+      promptTypescript = await prompt('Would you like to use TypeScript?', {
         type: 'confirm',
-        cancel: 'reject',
       });
 
-      promptSkipVsc = await consola.prompt(
+      promptSkipVsc = await prompt(
         'Would you like to skip initializing Visual Studio Code configurations?',
         {
-          initial: false,
           type: 'confirm',
-          cancel: 'reject',
         },
       );
 
-      promptSkipGit = await consola.prompt('Would you like to skip initializing Git?', {
-        initial: false,
+      promptSkipGit = await prompt('Would you like to skip initializing Git?', {
         type: 'confirm',
-        cancel: 'reject',
       });
 
-      promptSkipInstall = await consola.prompt(
+      promptSkipInstall = await prompt(
         'Would you like to skip installing packages with npm?',
         {
-          initial: false,
           type: 'confirm',
-          cancel: 'reject',
         },
       );
 

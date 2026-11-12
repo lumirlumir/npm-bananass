@@ -31,9 +31,7 @@ function runCreateBananass(...args: string[]) {
     'node',
     [join(import.meta.dirname, 'cli.ts'), outDir, ...args],
     {
-      // If there is no interactive handling logic using `isInteractive()` in `cli.ts`,
-      // `consola` will throw an error when `input` is passed to `spawnSync`.
-      // `spawnSync` assumes a non-interactive environment.
+      // Piped input must skip prompts, even when the parent terminal is interactive.
       input: '',
       encoding: 'utf-8',
     },
