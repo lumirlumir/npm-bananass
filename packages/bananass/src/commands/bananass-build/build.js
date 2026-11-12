@@ -47,16 +47,19 @@ import {
 // Helpers
 // --------------------------------------------------------------------------------
 
-/** @returns {RolldownPlugin} */
+/** @returns {RolldownPlugin<never>} */
 function babelPlugin() {
   return {
     name: 'bananass-babel',
 
     async transform(code, id) {
-      if (!/\.(?:[cm]?[jt]s)(?:$|\?)/iu.test(id)) return null;
+      // Transform JavaScript and TypeScript files only.
+      if (!/\.(?:js|mjs|cjs|ts|mts|cts)$/iu.test(id)) return null;
 
       /** @type {BabelPluginItem[]} */
       const babelPlugins = [];
+      /** @type {'module' | 'unambiguous'} */
+      let sourceType = 'module';
 
       if (/\.mts$/iu.test(id)) {
         babelPlugins.push([
@@ -68,6 +71,7 @@ function babelPlugin() {
           ['@babel/plugin-transform-modules-commonjs', { allowTopLevelThis: true }],
           ['@babel/plugin-transform-typescript', { allowDeclareFields: true }],
         );
+        sourceType = 'unambiguous';
       }
 
       const result = await transformAsync(code, {
@@ -92,8 +96,9 @@ function babelPlugin() {
           transformObjectHasOwn,
         ],
         sourceMaps: false,
-        sourceType: /\.(?:ts|cts)$/iu.test(id) ? 'unambiguous' : 'module',
+        sourceType,
       });
+
       return result?.code ?? null;
     },
   };
