@@ -29,7 +29,7 @@ import {
 import {
   DEFAULT_OUT_FILE_EXTENSION,
   NODE_VERSION_BAEKJOON,
-  ROLLDOWN_BANNER,
+  BANNER,
   SUPPORTED_SOLUTION_FILE_EXTENSIONS,
 } from '../../core/constants.js';
 
@@ -167,7 +167,7 @@ export default async function build(problems, configObject = dco) {
           file: resolve(resolvedOutDir, `${problem}${DEFAULT_OUT_FILE_EXTENSION}`),
           format: 'cjs',
           minify: true,
-          postBanner: ROLLDOWN_BANNER,
+          postBanner: BANNER,
         },
 
         plugins: [babelPlugin()],

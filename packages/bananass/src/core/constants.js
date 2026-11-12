@@ -69,7 +69,7 @@ export const NODE_VERSION_BAEKJOON = '16.13.1';
 export const NODE_VERSION_CODEFORCES = '15.8.0';
 
 /** @satisfies {string} */
-export const ROLLDOWN_BANNER = `
+export const BANNER = `
 /**
  * This file was generated using the Baekjoon Framework for JavaScript 'Bananass🍌'
  *
@@ -82,9 +82,6 @@ export const ROLLDOWN_BANNER = `
  * DO NOT DELETE THIS COMMENT
  */
 `.trim();
-
-/** @deprecated Use `ROLLDOWN_BANNER` instead. */
-export const WEBPACK_BANNER = ROLLDOWN_BANNER;
 
 // #endregion String
 // --------------------------------------------------------------------------------
