@@ -10,6 +10,9 @@ import { resolve } from 'node:path';
 import fsp from 'node:fs/promises'; // DO NOT USE DESTRUCTURING syntax due to `mock` usage in test.
 
 import { transformAsync } from '@babel/core';
+import transformModulesCommonjs from '@babel/plugin-transform-modules-commonjs';
+import transformTypescript from '@babel/plugin-transform-typescript';
+import presetEnv from '@babel/preset-env';
 import createLogger from 'bananass-utils-console/logger';
 import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, success, error } from 'bananass-utils-console/theme';
@@ -62,14 +65,11 @@ function babelPlugin() {
       let sourceType = 'module';
 
       if (/\.mts$/iu.test(id)) {
-        babelPlugins.push([
-          '@babel/plugin-transform-typescript',
-          { allowDeclareFields: true },
-        ]);
+        babelPlugins.push([transformTypescript, { allowDeclareFields: true }]);
       } else if (/\.(?:ts|cts)$/iu.test(id)) {
         babelPlugins.push(
-          ['@babel/plugin-transform-modules-commonjs', { allowTopLevelThis: true }],
-          ['@babel/plugin-transform-typescript', { allowDeclareFields: true }],
+          [transformModulesCommonjs, { allowTopLevelThis: true }],
+          [transformTypescript, { allowDeclareFields: true }],
         );
         sourceType = 'unambiguous';
       }
@@ -81,9 +81,10 @@ function babelPlugin() {
           // Preset ordering is reversed (last to first).
           // https://babeljs.io/docs/presets#preset-ordering
           [
-            '@babel/preset-env',
+            presetEnv,
             {
               targets: { node: NODE_VERSION_BAEKJOON },
+              modules: 'commonjs',
             },
           ],
         ],

@@ -89,10 +89,10 @@
     "dev": "node src/cli.js"
   },
   "dependencies": {
-    "@babel/core": "^7.29.7",
-    "@babel/plugin-transform-modules-commonjs": "^7.29.7",
-    "@babel/plugin-transform-typescript": "^7.29.7",
-    "@babel/preset-env": "^7.29.7",
+    "@babel/core": "^8.1.2",
+    "@babel/plugin-transform-modules-commonjs": "^8.1.2",
+    "@babel/plugin-transform-typescript": "^8.0.6",
+    "@babel/preset-env": "^8.0.7",
     "bananass-utils-console": "^0.9.0",
     "commander": "^15.0.0",
     "defu": "^6.1.7",
@@ -104,7 +104,7 @@
     "zod": "^4.4.2"
   },
   "devDependencies": {
-    "@types/babel__core": "^7.20.5",
+    "@types/convert-source-map": "^2.0.3",
     "@types/envinfo": "^7.8.4"
   }
 }
