@@ -14,6 +14,7 @@ import createLogger from 'bananass-utils-console/logger';
 import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, success, error } from 'bananass-utils-console/theme';
 import { build as rolldownBuild } from 'rolldown';
+import { transformSync } from 'rolldown/utils';
 
 import {
   transformArrayPrototypeToReversed,
@@ -56,25 +57,29 @@ function babelPlugin() {
       // Transform JavaScript and TypeScript files only.
       if (!/\.(?:js|mjs|cjs|ts|mts|cts)$/iu.test(id)) return null;
 
+      let sourceCode = code;
+      if (/\.(?:ts|mts|cts)$/iu.test(id)) {
+        // Strip types before Babel's module and syntax transforms run.
+        // Rolldown's automatic TypeScript transform runs after plugin hooks.
+        const transformed = transformSync(id, code, { tsconfig: false });
+        if (transformed.errors.length > 0) this.error(transformed.errors[0]);
+        sourceCode = transformed.code;
+      }
+
       /** @type {BabelPluginItem[]} */
       const babelPlugins = [];
       /** @type {'module' | 'unambiguous'} */
       let sourceType = 'module';
 
-      if (/\.mts$/iu.test(id)) {
+      if (/\.(?:ts|cts)$/iu.test(id)) {
         babelPlugins.push([
-          '@babel/plugin-transform-typescript',
-          { allowDeclareFields: true },
+          '@babel/plugin-transform-modules-commonjs',
+          { allowTopLevelThis: true },
         ]);
-      } else if (/\.(?:ts|cts)$/iu.test(id)) {
-        babelPlugins.push(
-          ['@babel/plugin-transform-modules-commonjs', { allowTopLevelThis: true }],
-          ['@babel/plugin-transform-typescript', { allowDeclareFields: true }],
-        );
         sourceType = 'unambiguous';
       }
 
-      const result = await transformAsync(code, {
+      const result = await transformAsync(sourceCode, {
         filename: id,
         targets: { node: NODE_VERSION_BAEKJOON },
         presets: [

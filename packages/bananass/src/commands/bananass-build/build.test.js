@@ -127,6 +127,30 @@ describe('build', () => {
       });
     });
 
+    it('should reject invalid TypeScript syntax before emitting a bundle', async () => {
+      const invalidCwd = await fsPromises.mkdtemp(resolve(cwd, 'invalid-typescript-'));
+
+      try {
+        await fsPromises.writeFile(
+          resolve(invalidCwd, '5000.ts'),
+          'const answer: number = ;',
+        );
+
+        await rejects(
+          () =>
+            build(['5000'], {
+              cwd: invalidCwd,
+              entryDir: '.',
+              console: { quiet: true },
+            }),
+          /Unexpected token/u,
+        );
+        ok(!existsSync(resolve(invalidCwd, '.bananass', '5000.cjs')));
+      } finally {
+        await fsPromises.rm(invalidCwd, { recursive: true, force: true });
+      }
+    });
+
     describe('should work as expected when valid first argument is provided', () => {
       it('should create output directory and file correctly when a single entry is provided', async () => {
         await build(['1000'], configObject);
@@ -844,6 +868,26 @@ describe('build', () => {
     afterEach(() => {
       // Clean up the output directory after each test
       removeOutDir(outDir);
+    });
+
+    it('should remove TypeScript imports and type exports before converting modules', async () => {
+      await build(['5000'], configObjectFS);
+
+      const result = runOutFile(resolve(outDir, '5000.cjs'), '3');
+
+      strictEqual(result.status, 0);
+      strictEqual(result.stdout, '3');
+      strictEqual(result.stderr, '');
+    });
+
+    it('should transform CommonJS TypeScript assignments, namespaces, and enums', async () => {
+      await build(['5001'], configObjectRL);
+
+      const result = runOutFile(resolve(outDir, '5001.cjs'), 'answer/result');
+
+      strictEqual(result.status, 0);
+      strictEqual(result.stdout, 'result/3');
+      strictEqual(result.stderr, '');
     });
 
     describe('When the entire solution is in a single file', () => {
@@ -1972,6 +2016,18 @@ describe('build', () => {
     afterEach(() => {
       // Clean up the output directory after each test
       removeOutDir(outDir);
+    });
+
+    it('should preserve TypeScript class field semantics and custom Babel transforms', async () => {
+      await build(['5000'], configObjectFS);
+
+      const outFile = resolve(outDir, '5000.cjs');
+      const result = runOutFile(outFile, '3');
+
+      strictEqual(result.status, 0);
+      strictEqual(result.stdout, '3,2,1:false:true');
+      strictEqual(result.stderr, '');
+      doesNotMatch(readFileSync(outFile, 'utf-8'), /\.toSorted|\.toReversed|\.hasOwn\(/u);
     });
 
     describe('When the entire solution is in a single file', () => {
