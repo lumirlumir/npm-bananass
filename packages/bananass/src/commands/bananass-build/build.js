@@ -206,10 +206,7 @@ export default async function build(problems, configObject = dco) {
     logger.log(() => spinner.error(error('Failed to run Rolldown')));
 
     const message = err instanceof Error ? err.message : String(err);
-    const normalizedMessage = message.includes('[UNRESOLVED_IMPORT]')
-      ? `The requested module doesn't exist.\n${message}`
-      : message;
-    throw new Error(error(normalizedMessage, true));
+    throw new Error(error(message, true));
   }
 
   // ------------------------------------------------------------------------------
