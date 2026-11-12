@@ -60,6 +60,7 @@ function babelPlugin() {
       if (!/\.(?:js|mjs|cjs|ts|mts|cts)$/iu.test(id)) return null;
 
       let sourceCode = code;
+
       if (/\.(?:ts|mts|cts)$/iu.test(id)) {
         // Strip types before Babel's module and syntax transforms run.
         // Rolldown's automatic TypeScript transform runs after plugin hooks.
