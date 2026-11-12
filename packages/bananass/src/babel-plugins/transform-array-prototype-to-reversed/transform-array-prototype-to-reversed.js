@@ -14,7 +14,7 @@ import { types as t } from '@babel/core';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { PluginObj } from '@babel/core';
+ * @import { PluginObject } from '@babel/core';
  */
 
 // --------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ import { types as t } from '@babel/core';
  * - `slice()`: ES3
  * - `reverse()`: ES1
  *
- * @return {PluginObj}
+ * @return {PluginObject}
  */
 export default function transformArrayPrototypeToReversed() {
   return {

@@ -14,7 +14,7 @@ import { types as t } from '@babel/core';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { PluginObj } from '@babel/core';
+ * @import { PluginObject } from '@babel/core';
  */
 
 // --------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ import { types as t } from '@babel/core';
  *
  * Compatibility: ES1
  *
- * @return {PluginObj}
+ * @return {PluginObject}
  */
 export default function transformObjectHasOwn() {
   return {
