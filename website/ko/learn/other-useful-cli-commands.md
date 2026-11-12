@@ -111,7 +111,7 @@ npx bananass build [options] <problems...>
 | `-d`, `--debug`         | X        | `false`         | 디버그 모드를 활성화하여 추가 정보를 출력합니다.                                                                                                          |
 | `-q`, `--quiet`         | X        | `false`         | 출력 로그를 최소화하는 조용한 모드를 실행합니다.                                                                                                          |
 | `-C`, `--clean`         | X        | `false`         | 빌드 전에 기존 출력 디렉토리를 삭제하여 정리합니다.                                                                                                       |
-| `-t`, `--template-type` | `<type>` | `fs`            | 롤다운<sup>Rolldown</sup>의 엔트리 파일로 사용할 템플릿 타입을 설정합니다. `fs`<sup>File System</sup> 혹은 `rl`<sup>Read Line</sup> 중 하나를 선택할 수 있습니다. |
+| `-t`, `--template-type` | `<type>` | `fs`            | 엔트리 파일로 사용할 템플릿 타입을 설정합니다. `fs`<sup>File System</sup> 혹은 `rl`<sup>Read Line</sup> 중 하나를 선택할 수 있습니다. |
 | `-h`, `--help`          | X        |                 | 사용 가능한 옵션과 도움말 정보를 표시합니다.                                                                                                             |
 
 ## `discussion` {#discussion}
