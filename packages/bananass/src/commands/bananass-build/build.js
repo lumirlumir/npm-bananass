@@ -1,5 +1,5 @@
 /**
- * @fileoverview Asynchronously build and create bundled files using Rolldown and Babel.
+ * @fileoverview Asynchronously build and create bundled files.
  */
 
 // --------------------------------------------------------------------------------
@@ -7,7 +7,7 @@
 // --------------------------------------------------------------------------------
 
 import { resolve } from 'node:path';
-import fsPromises from 'node:fs/promises'; // DO NOT USE DESTRUCTURING syntax due to `mock` usage in test.
+import fsp from 'node:fs/promises'; // DO NOT USE DESTRUCTURING syntax due to `mock` usage in test.
 
 import { transformAsync } from '@babel/core';
 import createLogger from 'bananass-utils-console/logger';
@@ -51,6 +51,7 @@ import {
 function babelPlugin() {
   return {
     name: 'bananass-babel',
+
     async transform(code, id) {
       if (!/\.(?:[cm]?[jt]s)(?:$|\?)/iu.test(id)) return null;
 
@@ -103,7 +104,7 @@ function babelPlugin() {
 // --------------------------------------------------------------------------------
 
 /**
- * Asynchronously build and create bundled files using Rolldown and Babel.
+ * Asynchronously build and create bundled files.
  * @param {Problems} problems
  * @param {ConfigObject} [configObject = dco]
  * @async
@@ -132,10 +133,7 @@ export default async function build(problems, configObject = dco) {
 
   const resolvedEntryDir = resolve(cwd, entryDir);
   const resolvedOutDir = resolve(cwd, outDir);
-  const resolvedRolldownEntryFile = resolve(
-    import.meta.dirname,
-    `template-${templateType}.cjs`,
-  );
+  const resolvedEntryFile = resolve(import.meta.dirname, `template-${templateType}.cjs`);
 
   const logger = createLogger({ debug, quiet });
   const spinner = createSpinner();
@@ -148,7 +146,7 @@ export default async function build(problems, configObject = dco) {
   logger.log(() => spinner.start(bananass('Bananass build is running...', true)));
 
   // ------------------------------------------------------------------------------
-  // Rolldown Configs
+  // Bundler Configs
   // ------------------------------------------------------------------------------
 
   /** @type {RolldownConfig[]} */
@@ -161,7 +159,7 @@ export default async function build(problems, configObject = dco) {
           extensions: [...SUPPORTED_SOLUTION_FILE_EXTENSIONS],
         },
 
-        input: resolvedRolldownEntryFile,
+        input: resolvedEntryFile,
 
         output: {
           file: resolve(resolvedOutDir, `${problem}${DEFAULT_OUT_FILE_EXTENSION}`),
@@ -190,7 +188,7 @@ export default async function build(problems, configObject = dco) {
 
   try {
     // Clean the output directory before emitting files.
-    if (clean) await fsPromises.rm(resolvedOutDir, { recursive: true, force: true });
+    if (clean) await fsp.rm(resolvedOutDir, { recursive: true, force: true });
   } catch (err) {
     logger.log(() => spinner.error(error('Failed to clean output directory')));
 
@@ -199,7 +197,7 @@ export default async function build(problems, configObject = dco) {
   }
 
   // ------------------------------------------------------------------------------
-  // Run Rolldown
+  // Run Bundler
   // ------------------------------------------------------------------------------
 
   try {
