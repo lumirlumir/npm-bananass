@@ -11,7 +11,6 @@ import { PKG_AUTHOR, URL_HOMEPAGE } from 'bananass/core/constants';
 import footnote from 'markdown-it-footnote';
 import { defineConfig } from 'vitepress';
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
-import codecovVitePlugin from './plugin.js';
 
 // --------------------------------------------------------------------------------
 // Constant
@@ -111,14 +110,6 @@ export default defineConfig({
   },
 
   vite: {
-    plugins: [
-      groupIconVitePlugin(),
-      codecovVitePlugin({
-        // Put the Codecov vite plugin after all other plugins
-        enableBundleAnalysis: process.env.CODECOV !== undefined, // Enable bundle analysis when CODECOV environment variable is defined
-        bundleName: 'website',
-        gitService: 'github',
-      }),
-    ],
+    plugins: [groupIconVitePlugin()],
   },
 });
