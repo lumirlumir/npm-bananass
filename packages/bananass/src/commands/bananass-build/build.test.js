@@ -113,11 +113,17 @@ describe('build', () => {
 
     describe('should throw an error when solution file from first argument does not exist', () => {
       it('when a single solution file does not exist', async () => {
-        await rejects(() => build(['99999'], configObject), /doesn't exist/);
+        await rejects(
+          () => build(['99999'], configObject),
+          /\[UNRESOLVED_IMPORT\].*[/\\]bananass[/\\]99999\b/u,
+        );
       });
 
       it('when two solution files do not exist', async () => {
-        await rejects(() => build(['99998', '99999'], configObject), /doesn't exist/);
+        await rejects(
+          () => build(['99998', '99999'], configObject),
+          /\[UNRESOLVED_IMPORT\].*[/\\]bananass[/\\](?:99998|99999)\b/u,
+        );
       });
     });
 

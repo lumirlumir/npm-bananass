@@ -1,5 +1,5 @@
 /**
- * @fileoverview Asynchronously build and create bundled files using webpack and babel.
+ * @fileoverview Asynchronously build and create bundled files.
  */
 
 // --------------------------------------------------------------------------------
@@ -7,12 +7,13 @@
 // --------------------------------------------------------------------------------
 
 import { resolve } from 'node:path';
-import fsPromises from 'node:fs/promises'; // DO NOT USE DESTRUCTURING syntax due to `mock` usage in test.
+import fsp from 'node:fs/promises'; // DO NOT USE DESTRUCTURING syntax due to `mock` usage in test.
 
+import { transformAsync } from '@babel/core';
 import createLogger from 'bananass-utils-console/logger';
 import createSpinner from 'bananass-utils-console/spinner';
 import { bananass, success, error } from 'bananass-utils-console/theme';
-import webpack from 'webpack';
+import { build as rolldownBuild } from 'rolldown';
 
 import {
   transformArrayPrototypeToReversed,
@@ -28,17 +29,17 @@ import {
 import {
   DEFAULT_OUT_FILE_EXTENSION,
   NODE_VERSION_BAEKJOON,
-  WEBPACK_BANNER,
+  BANNER,
   SUPPORTED_SOLUTION_FILE_EXTENSIONS,
 } from '../../core/constants.js';
 
 // --------------------------------------------------------------------------------
-// Typedefs
+// Typedef
 // --------------------------------------------------------------------------------
 
 /**
- * @import { Configuration as WebpackConfig } from 'webpack';
  * @import { PluginItem as BabelPluginItem } from '@babel/core';
+ * @import { BuildOptions as RolldownConfig, Plugin as RolldownPlugin } from 'rolldown';
  * @import { Problems, ConfigObject } from '../../core/types/index.js';
  */
 
@@ -46,34 +47,59 @@ import {
 // Helpers
 // --------------------------------------------------------------------------------
 
-/**
- * @param {BabelPluginItem[]} [babelPlugins]
- * @param {'module' | 'unambiguous'} [sourceType]
- */
-function babelLoaderConfig(babelPlugins = [], sourceType = 'module') {
+/** @returns {RolldownPlugin<never>} */
+function babelPlugin() {
   return {
-    loader: 'babel-loader',
-    options: {
-      targets: { node: NODE_VERSION_BAEKJOON },
-      presets: [
-        // Preset ordering is reversed (last to first).
-        // https://babeljs.io/docs/presets#preset-ordering
-        [
-          '@babel/preset-env',
-          {
-            targets: { node: NODE_VERSION_BAEKJOON },
-          },
+    name: 'bananass-babel',
+
+    async transform(code, id) {
+      // Transform JavaScript and TypeScript files only.
+      if (!/\.(?:js|mjs|cjs|ts|mts|cts)$/iu.test(id)) return null;
+
+      /** @type {BabelPluginItem[]} */
+      const babelPlugins = [];
+      /** @type {'module' | 'unambiguous'} */
+      let sourceType = 'module';
+
+      if (/\.mts$/iu.test(id)) {
+        babelPlugins.push([
+          '@babel/plugin-transform-typescript',
+          { allowDeclareFields: true },
+        ]);
+      } else if (/\.(?:ts|cts)$/iu.test(id)) {
+        babelPlugins.push(
+          ['@babel/plugin-transform-modules-commonjs', { allowTopLevelThis: true }],
+          ['@babel/plugin-transform-typescript', { allowDeclareFields: true }],
+        );
+        sourceType = 'unambiguous';
+      }
+
+      const result = await transformAsync(code, {
+        filename: id,
+        targets: { node: NODE_VERSION_BAEKJOON },
+        presets: [
+          // Preset ordering is reversed (last to first).
+          // https://babeljs.io/docs/presets#preset-ordering
+          [
+            '@babel/preset-env',
+            {
+              targets: { node: NODE_VERSION_BAEKJOON },
+            },
+          ],
         ],
-      ],
-      plugins: [
-        // Plugin ordering is first to last.
-        // https://babeljs.io/docs/plugins#plugin-ordering
-        ...babelPlugins,
-        transformArrayPrototypeToReversed,
-        transformArrayPrototypeToSorted,
-        transformObjectHasOwn,
-      ],
-      sourceType,
+        plugins: [
+          // Plugin ordering is first to last.
+          // https://babeljs.io/docs/plugins#plugin-ordering
+          ...babelPlugins,
+          transformArrayPrototypeToReversed,
+          transformArrayPrototypeToSorted,
+          transformObjectHasOwn,
+        ],
+        sourceMaps: false,
+        sourceType,
+      });
+
+      return result?.code ?? null;
     },
   };
 }
@@ -83,7 +109,7 @@ function babelLoaderConfig(babelPlugins = [], sourceType = 'module') {
 // --------------------------------------------------------------------------------
 
 /**
- * Asynchronously build and create bundled files using webpack and babel.
+ * Asynchronously build and create bundled files.
  * @param {Problems} problems
  * @param {ConfigObject} [configObject = dco]
  * @async
@@ -112,10 +138,7 @@ export default async function build(problems, configObject = dco) {
 
   const resolvedEntryDir = resolve(cwd, entryDir);
   const resolvedOutDir = resolve(cwd, outDir);
-  const resolvedWebpackEntryFile = resolve(
-    import.meta.dirname,
-    `template-${templateType}.cjs`,
-  );
+  const resolvedEntryFile = resolve(import.meta.dirname, `template-${templateType}.cjs`);
 
   const logger = createLogger({ debug, quiet });
   const spinner = createSpinner();
@@ -128,103 +151,38 @@ export default async function build(problems, configObject = dco) {
   logger.log(() => spinner.start(bananass('Bananass build is running...', true)));
 
   // ------------------------------------------------------------------------------
-  // Webpack Configs
+  // Bundler Configs
   // ------------------------------------------------------------------------------
 
-  /** @type {WebpackConfig[]} */
-  const webpackConfigs = sanitizedProblems.map(
+  /** @type {RolldownConfig[]} */
+  const rolldownConfigs = sanitizedProblems.map(
     problem =>
-      /** @type {WebpackConfig} */ ({
-        /** @see https://webpack.js.org/configuration/target/ */
-        target: 'node',
+      /** @type {RolldownConfig} */ ({
+        platform: 'node',
 
-        /** @see https://webpack.js.org/configuration/mode/ */
-        mode: 'production',
-
-        /** @see https://webpack.js.org/configuration/resolve/#resolveextensions */
         resolve: {
           extensions: [...SUPPORTED_SOLUTION_FILE_EXTENSIONS],
         },
 
-        /** @see https://webpack.js.org/concepts/#entry */
-        entry: resolvedWebpackEntryFile,
+        input: resolvedEntryFile,
 
-        /** @see https://webpack.js.org/concepts/#output */
         output: {
-          path: resolvedOutDir,
-          filename: `${problem}${DEFAULT_OUT_FILE_EXTENSION}`,
-          // clean: options.clean, // DO NOT USE THIS OPTION.
+          file: resolve(resolvedOutDir, `${problem}${DEFAULT_OUT_FILE_EXTENSION}`),
+          format: 'cjs',
+          minify: true,
+          postBanner: BANNER,
         },
 
-        /** @see https://webpack.js.org/concepts/#plugins */
-        plugins: [
-          new webpack.BannerPlugin({
-            banner: WEBPACK_BANNER,
-            raw: true,
-            stage: webpack.Compilation.PROCESS_ASSETS_STAGE_REPORT,
-          }),
-          new webpack.DefinePlugin({
+        plugins: [babelPlugin()],
+
+        transform: {
+          define: {
             'globalThis.BAEKJOON_PROBLEM_NUMBER_WITH_PATH': JSON.stringify(
               resolve(resolvedEntryDir, problem),
             ),
             'globalThis.IS_PROD': JSON.stringify(true), // Same with `process.env.NODE_ENV === 'production'`.
-          }),
-        ],
-
-        module: {
-          rules: [
-            {
-              test: /\.(?:js|mjs|cjs)$/i, // JavaScript: `js`, `mjs`, `cjs`
-              use: [babelLoaderConfig()],
-            },
-            /*
-             * You can find the motivation for these TypeScript setups here:
-             * https://github.com/babel/babel/blob/v7.28.2/packages/babel-preset-typescript/src/index.ts#L44-L102
-             */
-            {
-              test: /\.mts$/i, // TypeScript: `mts`
-              use: [
-                babelLoaderConfig([
-                  [
-                    '@babel/plugin-transform-typescript',
-                    {
-                      allowDeclareFields: true,
-                    },
-                  ],
-                ]),
-              ],
-            },
-            /*
-             * `.ts` files can include both ESM and CommonJS modules,
-             * so we need to convert them to CommonJS first when dealing with CommonJS modules.
-             *
-             * NOTE: `@babel/preset-typescript` treats `.ts` files as ESM by default,
-             * and this behavior is not configurable.
-             * This can cause issues when using CommonJS modules with `.ts` files.
-             * To avoid this, we use `@babel/plugin-transform-modules-commonjs` and `@babel/plugin-transform-typescript`
-             * directly to transpile `.ts` files to CommonJS format.
-             */
-            {
-              test: /\.(?:ts|cts)$/i, // TypeScript: `ts`, `cts`
-              use: [
-                babelLoaderConfig(
-                  [
-                    [
-                      '@babel/plugin-transform-modules-commonjs',
-                      { allowTopLevelThis: true },
-                    ],
-                    [
-                      '@babel/plugin-transform-typescript',
-                      {
-                        allowDeclareFields: true,
-                      },
-                    ],
-                  ],
-                  'unambiguous',
-                ),
-              ],
-            },
-          ],
+            'process.env.NODE_ENV': JSON.stringify('production'),
+          },
         },
       }),
   );
@@ -235,12 +193,7 @@ export default async function build(problems, configObject = dco) {
 
   try {
     // Clean the output directory before emitting files.
-    // Note that we must not use the `webpackConfigs.output.clean` option.
-    // Firstly, using the `webpackConfigs.output.clean` option would clean the output directory before each emit,
-    // resulting in only one file in the output directory.
-    // Secondly, even if we use `webpackConfigs.output.clean` only once with the `map()` method's `index` parameter,
-    // it cannot guarantee the build order and may lead to race conditions where files get deleted unpredictably.
-    if (clean) await fsPromises.rm(resolvedOutDir, { recursive: true, force: true });
+    if (clean) await fsp.rm(resolvedOutDir, { recursive: true, force: true });
   } catch (err) {
     logger.log(() => spinner.error(error('Failed to clean output directory')));
 
@@ -249,21 +202,13 @@ export default async function build(problems, configObject = dco) {
   }
 
   // ------------------------------------------------------------------------------
-  // Run Webpack
+  // Run Bundler
   // ------------------------------------------------------------------------------
 
   try {
-    await new Promise((res, rej) => {
-      webpack(webpackConfigs, (err, stats) => {
-        if (err || stats?.hasErrors()) {
-          rej(err || new Error(stats?.toString()));
-        } else {
-          res(stats);
-        }
-      });
-    });
+    await rolldownBuild(rolldownConfigs);
   } catch (err) {
-    logger.log(() => spinner.error(error('Failed to run webpack')));
+    logger.log(() => spinner.error(error('Failed to run Rolldown')));
 
     const message = err instanceof Error ? err.message : String(err);
     throw new Error(error(message, true));

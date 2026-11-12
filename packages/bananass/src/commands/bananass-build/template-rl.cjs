@@ -1,8 +1,8 @@
 /**
- * @fileoverview Entry file for the `webpack.js` file.
+ * @fileoverview Entry file for Rolldown.
  *
- * The `build` function's `webpackConfigs.entry` property references this file.
- * The global variable `globalThis.BAEKJOON_PROBLEM_NUMBER_WITH_PATH` is defined via the `build` function's `webpackConfigs.plugin`'s `new webpack.DefinePlugin`.
+ * The `build` function's Rolldown config references this file as its input.
+ * Rolldown replaces `globalThis.BAEKJOON_PROBLEM_NUMBER_WITH_PATH` with the solution path.
  */
 
 // --------------------------------------------------------------------------------
@@ -13,7 +13,7 @@ const { createInterface } = require('node:readline');
 const { stdin: input, stdout: output } = require('node:process');
 const { EOL } = require('node:os');
 
-// @ts-expect-error -- Webpack will replace this with the actual path.
+// @ts-expect-error -- Rolldown will replace this with the actual path.
 const solutionModule = require(globalThis.BAEKJOON_PROBLEM_NUMBER_WITH_PATH); // dynamic require
 
 // --------------------------------------------------------------------------------
