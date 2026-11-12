@@ -870,26 +870,6 @@ describe('build', () => {
       removeOutDir(outDir);
     });
 
-    it('should remove TypeScript imports and type exports before converting modules', async () => {
-      await build(['5000'], configObjectFS);
-
-      const result = runOutFile(resolve(outDir, '5000.cjs'), '3');
-
-      strictEqual(result.status, 0);
-      strictEqual(result.stdout, '3');
-      strictEqual(result.stderr, '');
-    });
-
-    it('should transform CommonJS TypeScript assignments, namespaces, and enums', async () => {
-      await build(['5001'], configObjectRL);
-
-      const result = runOutFile(resolve(outDir, '5001.cjs'), 'answer/result');
-
-      strictEqual(result.status, 0);
-      strictEqual(result.stdout, 'result/3');
-      strictEqual(result.stderr, '');
-    });
-
     describe('When the entire solution is in a single file', () => {
       describe('`fs`(file system) template', () => {
         it('A single file with `solution` and `testcases` should build correctly', async () => {
@@ -1397,6 +1377,60 @@ describe('build', () => {
         const result = runOutFile(outFile, '1 2');
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
+      });
+    });
+
+    describe('TypeScript features should be transpiled correctly', () => {
+      describe('`fs`(file system) template', () => {
+        it('TypeScript imports and type exports should be removed before converting modules', async () => {
+          await build(['5000'], configObjectFS);
+
+          const outFile = resolve(outDir, '5000.cjs');
+          const result = runOutFile(outFile, '1 2');
+
+          ok(existsSync(outFile));
+          strictEqual(result.status, 0);
+          strictEqual(result.stdout, '3');
+          strictEqual(result.stderr, '');
+        });
+
+        it('CommonJS TypeScript assignments, namespaces, and enums should be transformed correctly', async () => {
+          await build(['5001'], configObjectFS);
+
+          const outFile = resolve(outDir, '5001.cjs');
+          const result = runOutFile(outFile, '1 2');
+
+          ok(existsSync(outFile));
+          strictEqual(result.status, 0);
+          strictEqual(result.stdout, '3');
+          strictEqual(result.stderr, '');
+        });
+      });
+
+      describe('`rl`(readline) template', () => {
+        it('TypeScript imports and type exports should be removed before converting modules', async () => {
+          await build(['5000'], configObjectRL);
+
+          const outFile = resolve(outDir, '5000.cjs');
+          const result = runOutFile(outFile, '1 2');
+
+          ok(existsSync(outFile));
+          strictEqual(result.status, 0);
+          strictEqual(result.stdout, '3');
+          strictEqual(result.stderr, '');
+        });
+
+        it('CommonJS TypeScript assignments, namespaces, and enums should be transformed correctly', async () => {
+          await build(['5001'], configObjectRL);
+
+          const outFile = resolve(outDir, '5001.cjs');
+          const result = runOutFile(outFile, '1 2');
+
+          ok(existsSync(outFile));
+          strictEqual(result.status, 0);
+          strictEqual(result.stdout, '3');
+          strictEqual(result.stderr, '');
+        });
       });
     });
 
@@ -2018,18 +2052,6 @@ describe('build', () => {
       removeOutDir(outDir);
     });
 
-    it('should preserve TypeScript class field semantics and custom Babel transforms', async () => {
-      await build(['5000'], configObjectFS);
-
-      const outFile = resolve(outDir, '5000.cjs');
-      const result = runOutFile(outFile, '3');
-
-      strictEqual(result.status, 0);
-      strictEqual(result.stdout, '3,2,1:false:true');
-      strictEqual(result.stderr, '');
-      doesNotMatch(readFileSync(outFile, 'utf-8'), /\.toSorted|\.toReversed|\.hasOwn\(/u);
-    });
-
     describe('When the entire solution is in a single file', () => {
       describe('`fs`(file system) template', () => {
         it('A single file with `solution` and `testcases` should build correctly', async () => {
@@ -2515,6 +2537,42 @@ describe('build', () => {
         const result = runOutFile(outFile, '1 2');
         strictEqual(result.status, 0);
         strictEqual(result.stdout, '3');
+      });
+    });
+
+    describe('TypeScript features should be transpiled correctly', () => {
+      describe('`fs`(file system) template', () => {
+        it('TypeScript class field semantics and custom Babel transforms should be preserved', async () => {
+          await build(['5002'], configObjectFS);
+
+          const outFile = resolve(outDir, '5002.cjs');
+          ok(existsSync(outFile));
+
+          const fileContent = readFileSync(outFile, 'utf-8');
+          doesNotMatch(fileContent, /\.toSorted|\.toReversed|\.hasOwn\(/u);
+
+          const result = runOutFile(outFile, '1 2');
+          strictEqual(result.status, 0);
+          strictEqual(result.stdout, '3');
+          strictEqual(result.stderr, '');
+        });
+      });
+
+      describe('`rl`(readline) template', () => {
+        it('TypeScript class field semantics and custom Babel transforms should be preserved', async () => {
+          await build(['5002'], configObjectRL);
+
+          const outFile = resolve(outDir, '5002.cjs');
+          ok(existsSync(outFile));
+
+          const fileContent = readFileSync(outFile, 'utf-8');
+          doesNotMatch(fileContent, /\.toSorted|\.toReversed|\.hasOwn\(/u);
+
+          const result = runOutFile(outFile, '1 2');
+          strictEqual(result.status, 0);
+          strictEqual(result.stdout, '3');
+          strictEqual(result.stderr, '');
+        });
       });
     });
 

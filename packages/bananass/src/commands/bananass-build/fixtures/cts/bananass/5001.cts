@@ -1,14 +1,23 @@
 import path = require('node:path');
 
+import type { Input, Output } from '../types';
+
 // eslint-disable-next-line typescript/no-namespace -- Test TypeScript namespace transformation.
-namespace Answer {
-  export enum Value {
-    Three = 3,
+namespace Operand {
+  export enum Index {
+    A = 0,
+    B = 1,
   }
 }
 
-function solution(input: string): string {
-  return `${path.basename(input.trim())}/${Answer.Value.Three}`;
+function solution(input: Input): Output {
+  const values = path
+    .basename(input)
+    .trim()
+    .split(' ')
+    .map(val => Number(val));
+
+  return values[Operand.Index.A] + values[Operand.Index.B];
 }
 
 export = { solution };

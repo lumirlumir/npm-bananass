@@ -7,6 +7,12 @@ interface Answer {
 export { Answer };
 
 export function solution(input: Input): Output {
-  const answer: Answer = { value: Number(input) };
+  const [a, b] = input
+    .trim()
+    .split(' ')
+    .map(val => Number(val));
+
+  const answer: Answer = { value: a + b };
+
   return answer.value;
 }
