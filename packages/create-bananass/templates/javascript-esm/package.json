@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "bananass": "^0.9.0",
+    "bananass": "^0.9.1",
     "eslint": "^10.13.0",
     "globals": "^17.13.0",
     "prettier": "^3.9.6"
