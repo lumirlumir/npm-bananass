@@ -6,8 +6,8 @@
     "test": "node --test"
   },
   "devDependencies": {
-    "bananass": "^0.9.0",
-    "bananass-utils-console": "^0.9.0",
-    "create-bananass": "^0.9.0"
+    "bananass": "^0.9.1",
+    "bananass-utils-console": "^0.9.1",
+    "create-bananass": "^0.9.1"
   }
 }

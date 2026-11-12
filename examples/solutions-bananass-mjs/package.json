@@ -8,6 +8,6 @@
     "test": "node solutions.test.mjs"
   },
   "devDependencies": {
-    "bananass": "^0.9.0"
+    "bananass": "^0.9.1"
   }
 }
