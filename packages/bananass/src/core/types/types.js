@@ -130,7 +130,7 @@ export const configObjectBuild = z
     clean: z.boolean().optional(),
 
     /**
-     * Rolldown entry file template type. Select from `'fs'` (File System) or `'rl'` (Read Line).
+     * Entry file template type. Select from `'fs'` (File System) or `'rl'` (Read Line).
      * @default 'fs'
      */
     templateType: z.enum(['fs', 'rl']).optional(),

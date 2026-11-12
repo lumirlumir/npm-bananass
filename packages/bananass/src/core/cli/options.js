@@ -76,7 +76,7 @@ export const clean = /** @type {const} */ ([
 /** @satisfies {[string, string]} */
 export const templateType = /** @type {const} */ ([
   '-t, --template-type <type>',
-  `Rolldown entry file template type. select from \`fs\` (file system) or \`rl\` (read line) ${formatDefaultValue(dco.build.templateType)}`,
+  `Entry file template type. select from \`fs\` (file system) or \`rl\` (read line) ${formatDefaultValue(dco.build.templateType)}`,
 ]);
 
 // info
