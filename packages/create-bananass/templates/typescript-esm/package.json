@@ -24,7 +24,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^22.20.0",
-    "@typescript-eslint/parser": "^8.72.0",
+    "@typescript-eslint/parser": "^8.72.2",
     "bananass": "^0.9.1",
     "eslint": "^10.13.0",
     "globals": "^17.13.0",
