@@ -76,11 +76,11 @@
     "c8": "^12.0.0",
     "editorconfig-checker": "^6.2.0",
     "eslint": "^10.13.0",
-    "eslint-lumir": "^0.0.0-canary.3",
+    "eslint-lumir": "^0.0.0-canary.4",
     "husky": "^9.1.7",
     "lint-staged": "^17.5.1",
     "npm-run-all2": "^9.0.3",
-    "prettier": "^3.9.8",
+    "prettier": "^3.10.1",
     "typescript": "^6.0.3"
   }
 }
